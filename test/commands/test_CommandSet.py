@@ -9,9 +9,10 @@
 
 import pytest
 
-import pip_services_commons.run.Parameters
 from pip_services_commons.commands import Command
 from pip_services_commons.commands import CommandSet
+from pip_services_commons.run import Parameters
+
 
 class TestCommandSet:
 
@@ -26,13 +27,13 @@ class TestCommandSet:
         commands.add_command(self.make_echo_command("command1"))
         commands.add_command(self.make_echo_command("command2"))
         
-        result = commands.execute(None, "command1", pip_services_commons.run.Parameters.Parameters.from_tuples("value", 123))
+        result = commands.execute(None, "command1", Parameters.from_tuples("value", 123))
         assert 123 == result
         
-        result = commands.execute(None, "command1", pip_services_commons.run.Parameters.Parameters.from_tuples("value", "ABC"))
+        result = commands.execute(None, "command1", Parameters.from_tuples("value", "ABC"))
         assert "ABC" == result
         
-        result = commands.execute(None, "command2", pip_services_commons.run.Parameters.Parameters.from_tuples("value", 789))
+        result = commands.execute(None, "command2", Parameters.from_tuples("value", 789))
         assert 789 == result
 
     # def test_intercepters(self):

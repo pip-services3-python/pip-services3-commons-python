@@ -36,7 +36,10 @@ class IReferences:
         Returns: a removed reference
         """
         raise NotImplementedError('Method from interface definition')
-        
+
+    def get_all_locators(self):
+        raise NotImplementedError('Method from interface definition')
+
     def get_all(self):
         """
         Gets all stored component references
@@ -105,4 +108,7 @@ class IReferences:
         Returns: a found component reference
         Raises: ReferenceException when requested component wasn't found
         """
+        raise NotImplementedError('Method from interface definition')
+
+    def find(self, locator, required):
         raise NotImplementedError('Method from interface definition')

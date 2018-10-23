@@ -33,7 +33,8 @@ class AnyValueMap(dict):
         return names
 
     def get(self, key):
-        return self[key] if key in self else None
+        return super(AnyValueMap, self).get(key)
+        #return self[key] if key in self else None
 
     def put(self, key, value):
         self[key] = value
@@ -44,7 +45,9 @@ class AnyValueMap(dict):
     def append(self, map):
         if isinstance(map, dict):
             for (k, v) in map.items():
-                self.put(k, v)
+                key = StringConverter.to_string(k)
+                value = v
+                self.put(key, value)
 
     def get_as_object(self, key = None):
         if key == None:
@@ -52,22 +55,26 @@ class AnyValueMap(dict):
         else:
             return self.get(key)
 
-    def set_as_object(self, *args):
-        if len(args) == 1:
-            map = MapConverter.to_map(args[0])
-            self.set_as_map(map)
-        elif len(args) == 2:
-            self.put(args[0], args[1])
+    def set_as_object(self, value):
+        self.clear()
+        map = MapConverter.to_map(value)
+        self.append(map)
 
-    def get_as_map(self, key):
-        if key == None:
-            map = {}
-            for (k, v) in self.items():
-                map[k] = v
-            return map
-        else:
-            value = self.get(key)
-            return MapConverter.to_map(value)
+    def _set_as_object(self, key, value):
+        self.put(key, value)
+
+    # def get_as_map(self, key):
+    #     value = self.get_as_object(key)
+    #     return AnyValueMap.from_value(value)
+
+        # if key == None:
+        #     map = {}
+        #     for (k, v) in self.items():
+        #         map[k] = v
+        #     return map
+        # else:
+        #     value = self.get(key)
+        #     return MapConverter.to_map(value)
 
     def set_as_map(self, values):
         self.clear()
@@ -168,7 +175,7 @@ class AnyValueMap(dict):
 
     def get_as_map(self, key):
         value = self.get(key)
-        return AnyValueMap.from_value(value)
+        return self.from_value(value)
 
     def get_as_map_with_default(self, key, default_value):
         value = self.get_as_nullable_map(key)
@@ -197,9 +204,10 @@ class AnyValueMap(dict):
         return result
 
     @staticmethod
-    def from_value(value):
-        map = value if isinstance(value, dict) else RecursiveObjectReader.get_properties(value)
-        return AnyValueMap(map)
+    def from_value(self, value):
+        map = AnyValueMap()
+        map.set_as_object(value)
+        return map
 
     @staticmethod
     def from_tuples(*tuples):

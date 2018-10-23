@@ -81,6 +81,17 @@ class References(IReferences):
         
         return components
 
+    def get_all_locators(self):
+        locators = []
+
+        self._lock.acquire()
+        try:
+            for reference in self._references:
+                locators.append(reference.get_locator())
+        finally:
+            self._lock.release()
+
+        return locators
 
     def get_all(self):
         components = []

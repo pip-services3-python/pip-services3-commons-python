@@ -59,7 +59,7 @@ class DependencyResolver(IReconfigurable, IReferenceable):
         if self._references == None:
             raise Exception("References shall be set")
         
-        return self._dependencies.get(self, name)
+        return self._dependencies.get(name)
 
 
     def get_optional(self, name):
