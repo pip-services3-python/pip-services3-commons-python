@@ -5,7 +5,7 @@
     
     Interface for events.
     
-    :copyright: Conceptual Vision Consulting LLC 2015-2016, see AUTHORS for more details.
+    :copyright: Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.
     :license: MIT, see LICENSE for more details.
 """
 
@@ -13,20 +13,23 @@ from ..run.INotifiable import INotifiable
 
 class IEvent(INotifiable):
     """
-    Interface for command events.
+    An interface for Events, which are part of the Command design pattern.
+    Events allows to send asynchronious notifications to multiple subscribed listeners.
     """
 
     def get_name(self):
         """
         Gets the event name.
-        Returns: the event name
+
+        :return: the event name
         """
         raise NotImplementedError('Method from interface definition')
 
     def get_listeners(self):
         """
         Get listeners that receive notifications for that event
-        Returns: a list with listeners
+
+        :return: a list with listeners
         """
         raise NotImplementedError('Method from interface definition')
 
@@ -35,7 +38,7 @@ class IEvent(INotifiable):
         Adds listener to receive notifications
 
         Args:
-            listener: a listener reference to be added
+            :param listener: a listener reference to be added
         """
         raise NotImplementedError('Method from interface definition')
 
@@ -44,7 +47,7 @@ class IEvent(INotifiable):
         Removes listener for event notifications.
 
         Args:
-            listener: a listener reference to be removed
+            :param listener: a listener reference to be removed
         """
         raise NotImplementedError('Method from interface definition')
     

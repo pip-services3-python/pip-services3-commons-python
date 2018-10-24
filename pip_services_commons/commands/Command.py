@@ -14,8 +14,22 @@ from ..errors.InvocationException import InvocationException
 
 class Command(ICommand):
     """
-    Concrete implementation of [[ICommand ICommand]] interface.
+    Concrete implementation of ICommand interface.
     Command allows to call a method or function using Command pattern.
+
+    Example:
+        def handler(*args):
+            param1 = args.getAsFloat("param1")
+            param2 = args.getAsFloat("param2")
+            return param1 + param2
+
+        command = Command("add", None, handler)
+
+        result = command.execute("123",  Parameters.fromTuples("param1", 2, "param2", 2))
+
+        print result.__str__()
+
+    See ICommand, CommandSet
     """
 
     _name = None
@@ -24,13 +38,12 @@ class Command(ICommand):
 
     def __init__(self, name, schema, function):
         """
-        Creates a command instance
+        Creates a new command object and assigns it's parameters.
         
         Args:
-            component: a component this command belongs to
-            name: the name of the command
-            schema: a validation schema for command arguments
-            function: an execution function to be wrapped into this command.
+            :param name: the name of the command
+            :param schema: a validation schema for command arguments
+            :param function: an execution function to be wrapped into this command.
         """
         if name == None:
             raise TypeError("Command name is not set")
@@ -44,26 +57,29 @@ class Command(ICommand):
     def get_name(self):
         """
         Gets the command name.
-        Results: the command name
+
+        :return: the command name
         """
         return self._name
 
     def execute(self, correlation_id, args):
         """
-        Executes the command given specific arguments as an input.
+        Executes the command. Before execution is validates Parameters args using the
+        defined schema. The command execution intercepts ApplicationException raised
+        by the called function and throws them.
         
         Args:
-            correlation_id: a unique correlation/transaction id
-            args: command arguments
+            :param correlation_id: (optional) transaction id to trace execution through call chain.
+
+            :param args: the parameters (arguments) to pass to this command for execution.
         
-        Returns: an execution result.
+        :return: an execution result.
         
-        Raises:
-            ApplicationException: when execution fails for whatever reason.
+        :raises: ApplicationException: when execution fails for whatever reason.
         """
         # Validate arguments
         if self._schema != None:
-            self.validate_and_throw_exception(correlation_id, args)
+            self._schema.validate_and_throw_exception(correlation_id, args)
         
         # Call the function
         try:
@@ -82,9 +98,9 @@ class Command(ICommand):
         Performs validation of the command arguments.
         
         Args:
-            args: command arguments
+            :param args: the parameters (arguments) to validate using this command's schema.
         
-        Returns: list with validation results
+        :return: an array of ValidationResults or an empty array (if no schema is set).
         """
         # When schema is not defined, then skip validation
         if self._schema != None: 

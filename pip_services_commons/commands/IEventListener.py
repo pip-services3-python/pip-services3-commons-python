@@ -5,7 +5,7 @@
     
     Interface for event listeners.
     
-    :copyright: Conceptual Vision Consulting LLC 2015-2016, see AUTHORS for more details.
+    :copyright: Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.
     :license: MIT, see LICENSE for more details.
 """
 
@@ -13,16 +13,21 @@ from .IEvent import IEvent
 
 class IEventListener(object):
     """
-    Listener for command events
+    An interface for listener objects that receive notifications on fired events.
+
+    Example:
+        class MyListener(IEventListener):
+            def on_event(self, correlation_id, event, value):
+                print "Fired event " + event.get_name()
     """
 
     def on_event(self, correlation_id, event, value):
         """
-        Notifies that event occurred.
+        A method called when events this listener is subscrubed to are fired.
 
         Args:
-            correlation_id: a unique correlation/transaction id
-            event: event reference
-            value: event arguments
+            :param correlation_id: a unique correlation/transaction id
+            :param event: event reference
+            :param value: event arguments
         """
         raise NotImplementedError('Method from interface definition')

@@ -5,51 +5,62 @@
     
     Interface for command intercepters.
     
-    :copyright: Conceptual Vision Consulting LLC 2015-2016, see AUTHORS for more details.
+    :copyright: Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.
     :license: MIT, see LICENSE for more details.
 """
 
 class ICommandIntercepter(object):
     """
-    Interface for stackable command intercepters.
+    An interface for stackable command intercepters, which can extend
+    and modify the command call chain.
+
+    This mechanism can be used for authentication, logging, and other functions.
     """
 
     def get_name(self, command):
         """
-        Gets the command name. Intercepter can modify the name if needed
+        Gets the name of the wrapped command.
+
+        The interceptor can use this method to override the command name.
+        Otherwise it shall just delegate the call to the wrapped command.
 
         Args:
-            command: intercepted ICommand
+            :param command: the next command in the call chain.
 
-        Results: the command name
+        :return: the name of the wrapped command.
         """
         raise NotImplementedError('Method from interface definition')
 
     def execute(self, correlation_id, command, args):
         """
-        Executes the command given specific arguments as an input.
+        Executes the wrapped command with specified arguments.
+
+        The interceptor can use this method to intercept and alter the command execution.
+        Otherwise it shall just delete the call to the wrapped command.
         
         Args:
-            correlation_id: a unique correlation/transaction id
-            command: intercepted ICommand
-            args: command arguments
+            :param correlation_id: (optional) transaction id to trace execution through call chain.
+            :param command: the next command in the call chain that is to be executed.
+            :param args: the parameters (arguments) to pass to the command for execution.
         
-        Returns: an execution result.
+        :return: an execution result.
         
-        Raises:
-            ApplicationException when execution fails for whatever reason.
+        :raises: ApplicationException when execution fails for whatever reason.
         """
         raise NotImplementedError('Method from interface definition')
 
     def validate(command, args):
         """
-        Performs validation of the command arguments.
+        Validates arguments of the wrapped command before its execution.
+
+        The interceptor can use this method to intercept and alter validation of the command arguments.
+        Otherwise it shall just delegate the call to the wrapped command.
         
         Args:
-            command: intercepted ICommand
-            args: command arguments
+            :param command: intercepted ICommand
+            :param args: command arguments
         
-        Returns: a list of validation results.
+        :return: a list of validation results.
         """
         raise NotImplementedError('Method from interface definition')
     

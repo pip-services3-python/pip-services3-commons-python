@@ -5,7 +5,7 @@
     
     Event implementation
     
-    :copyright: Conceptual Vision Consulting LLC 2015-2016, see AUTHORS for more details.
+    :copyright: Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.
     :license: MIT, see LICENSE for more details.
 """
 
@@ -14,7 +14,17 @@ from ..errors.InvocationException import InvocationException
 
 class Event(IEvent):
     """
-    Events to receive notifications on command execution results and failures.
+    Concrete implementation of IEvent interface.
+    It allows to send asynchronous notifications to multiple subscribed listeners.
+
+    Example:
+        event = Event("my_event")
+
+        event.addListener(myListener)
+
+        event.notify("123", Parameters.fromTuples("param1", "ABC", "param2", 123)
+
+    See IEvent, IEventListener
     """
 
     _name = None
@@ -22,10 +32,12 @@ class Event(IEvent):
 
     def __init__(self, name):
         """
-        Creates and initializes instance of the event.
+        Creates a new event and assigns its name.
 
         Args:
-            name: name of the event
+            :param name: name of the event
+
+        :raises: Exception: when Event name is not set.
         """
         if name == None:
             raise Exception("Event name is not set")
@@ -36,42 +48,44 @@ class Event(IEvent):
     def get_name(self):
         """
         Gets the event name.
-        Returns: the event name
+
+        :return: the event name
         """
         return self._name
 
     def get_listeners(self):
         """
-        Get listeners that receive notifications for that event
-        Returns: a list with listeners
+        Gets all listeners registred in this event.
+
+        :return: a list with listeners
         """
         return list(self._listeners)
 
     def add_listener(self, listener):
         """
-        Adds listener to receive notifications
+        Adds a listener to receive notifications when this event is fired.
 
         Args:
-            listener: a listener reference to be added
+            :param listener: a listener reference to added
         """
         self._listeners.append(listener)
 
     def remove_listener(self, listener):
         """
-        Removes listener for event notifications.
+        Removes a listener, so that it no longer receives notifications for this event.
 
         Args:
-            listener: a listener reference to be removed
+            :param listener: a listener reference to removed
         """
         self._listeners.remove(listener)
     
     def notify(self, correlation_id, args):
         """
-        Notifies all listeners about the event.
+        Fires this event and notifies all registred listeners.
 
         Args:
-            correlation_id: a unique correlation/transaction id
-            args: an event parameters
+            :param correlation_id: (optional) transaction id to trace execution through call chain.
+            :param args: the parameters to raise this event with.
         """
         for listener in self._listeners:
             try:

@@ -5,7 +5,7 @@
     
     Command set implementation
     
-    :copyright: Conceptual Vision Consulting LLC 2015-2016, see AUTHORS for more details.
+    :copyright: Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.
     :license: MIT, see LICENSE for more details.
 """
 
@@ -18,8 +18,36 @@ from  .InterceptedCommand import InterceptedCommand
 
 class CommandSet(object):
     """
-    Handles command registration and execution.
-    Enables intercepters to control or modify command behavior 
+    Contains a set of commands and events supported by a ICommandable commandable object.
+    The CommandSet supports command interceptors to extend and the command call chain.
+
+    CommandSets can be used as alternative commandable interface to a business object.
+    It can be used to auto generate multiple external services for the business object
+    without writing much code.
+
+    Example:
+        class MyDataCommandSet(CommandSet):
+            _controller = None
+
+            def __init__(self, controller):
+                super(MyDataCommandSet, self).__init__()
+
+                self._controller = controller
+
+                self.add_command(self._make_get_my_data_command())
+
+            def _make_get_my_data_command(self):
+                def handler(correlation_id, args):
+                    param = args.get_as_string('param')
+                    return self._controller.get_my_data(correlation_id, param)
+
+                return Command(
+                    "get_mydata",
+                    None,
+                    handler
+                )
+
+    See Command, Event, ICommandable
     """
 
     _commands = None
@@ -29,6 +57,9 @@ class CommandSet(object):
     _intercepters = None
 
     def __init__(self):
+        """
+        Creates an empty CommandSet object.
+        """
         self._commands = []
         self._commands_by_name = {}
         self._events = []
@@ -37,26 +68,28 @@ class CommandSet(object):
 
     def get_commands(self):
         """
-        Get all supported commands
-        Returns: ICommand list with all commands supported by component. 
+        Gets all commands registered in this command set.
+
+        :return: ICommand list with all commands supported by component.
         """
         return self._commands
 
     def get_events(self):
         """
-        Get all supported events
-        Returns: ICommand list with all events supported by component. 
+        Gets all events registered in this command set.
+
+        :return: ICommand list with all events supported by component.
         """
         return self._events
 
     def find_command(self, command):
         """
-        Find a specific command by its name.
+        Searches for a command by its name.
         
         Args:
-            command: the command name.
+            :param command: the name of the command to search for.
 
-        Returns: found ICommand or None
+        :return: the command, whose name matches the provided name.
         """
         if command in self._commands_by_name:
             return self._commands_by_name[command]
@@ -65,12 +98,12 @@ class CommandSet(object):
 
     def find_event(self, event):
         """
-        Find a specific event by its name.
+        Searches for an event by its name in this command set.
         
         Args:
-            event: the event name.
+            :param event: the name of the event to search for.
 
-        Returns: found IEvent or None
+        :return: the event, whose name matches the provided name.
         """
         if event in self._events_by_name:
             return self._events_by_name[event]
@@ -82,7 +115,7 @@ class CommandSet(object):
         Builds execution chain including all intercepters and the specified command.
 
         Args:
-            command: the command to build a chain.
+            :param command: the command to build a chain.
 
         Returns: None
         """
@@ -107,60 +140,51 @@ class CommandSet(object):
 
     def add_command(self, command):
         """
-        Adds a command to the command set.
+        Adds a ICommand command to this command set.
         
         Args:
-            command: a command instance to be added
-
-        Returns: None
+            :param command: a command instance to be added
         """
         self._commands.append(command)
         self._build_command_chain(command)
 
     def add_commands(self, commands):
         """
-        Adds a list of commands to the command set
+        Adds multiple ICommand commands to this command set.
         
         Args:
-            commands: a list of commands to be added
-
-        Returns: None
+            :param commands: the array of commands to add.
         """
         for command in commands:
             self.add_command(command)
 
     def add_event(self, event):
         """
-        Adds an eventr to the command set.
+        Adds an IEvent event to this command set.
         
         Args:
-            event: an event instance to be added
-
-        Returns: None
+            :param event: an event instance to be added
         """
         self._events.append(event)
         self._events_by_name[event.get_name] = event
 
     def add_events(self, events):
         """
-        Adds a list of eventrs to the command set
+        Adds multiple [[IEvent events]] to this command set.
         
         Args:
-            events: a list of events to be added
-
-        Returns: None
+            :param events: the array of events to add.
         """
         for event in events:
             self.add_event(event)
 
     def add_command_set(self, command_set):
         """
-        Adds commands and events from another command set to this one
+        Adds all of the commands and events from specified CommandSet command set
+        into this one.
         
         Args:
-            command_set: a commands set to add commands from
-
-        Returns: None
+            :param command_set: a commands set to add commands from
         """
         for command in command_set.get_commands():
             self.add_command(command)
@@ -170,29 +194,26 @@ class CommandSet(object):
 
     def add_intercepter(self, intercepter):
         """
-        Adds intercepter to the command set.
+        Adds a ICommandInterceptor command interceptor to this command set.
         
         Args:
-            intercepter: an intercepter instance to be added.
-
-        Returns: None
+            :param intercepter: an intercepter instance to be added.
         """
         self._intercepters.append(intercepter)
         self._rebuild_all_command_chains()
 
     def execute(self, correlation_id, command, args):
         """
-        Execute command by its name with specified arguments.
+        Executes a ICommand command specificed by its name.
         
         Args:
-            correlation_id: a unique correlation/transaction id
-            command: the command name.
-            args: a list of command arguments.
+            :param correlation_id: (optional) transaction id to trace execution through call chain.
+            :param command: the name of that command that is to be executed.
+            :param args: the parameters (arguments) to pass to the command for execution.
         
-        Returns: the execution result.
+        :return: the execution result.
         
-        Raises:
-            MicroserviceError: when execution fails for any reason.
+        :raises: ValidationException: when execution fails for any reason.
         """
         # Get command and throw error if it doesn't exist
         cref = self.find_command(command)
@@ -217,13 +238,17 @@ class CommandSet(object):
 
     def validate(self, command, args):
         """
-        Validates command arguments.
+        Validates Parameters args for command specified by its name using defined schema.
+        If validation schema is not defined than the methods returns no errors.
+        It returns validation error if the command is not found.
         
         Args:
-            command: the command name.
-            args: a list of command arguments.
+            :param command: the name of the command for which the 'args' must be validated.
+            :param args: the parameters (arguments) to validate.
         
-        Returns: list with validation results
+        :return: an array of ValidationResults. If no command is found by the given
+                 name, then the returned array of ValidationResults will contain a
+                 single entry, whose type will be ValidationResultType.Error.
         """
         cref = self.find_command(command)
         if cref == None:
@@ -241,32 +266,33 @@ class CommandSet(object):
     
     def add_listener(self, listener):
         """
-        Adds listener to all events.
+        Adds a IEventListener listener to receive notifications on fired events.
 
         Args:
-            listener: a listener to be added
+            :param listener: a listener to be added
         """
         for event in self._events:
             event.add_listener(listener)
 
     def remove_listener(self, listener):
         """
-        Remove listener to all events.
+        Removes previosly added IEventListener listener.
 
         Args:
-            listener: a listener to be removed
+            :param listener: a listener to be removed
         """
         for event in self._events:
             event.remove_listener(listener)
 
     def notify(self, correlation_id, event, value):
         """
-        Notifies all listeners about the event.
+        Fires event specified by its name and notifies all registered
+        IEventListener listeners
 
         Args:
-            correlation_id: a unique correlation/transaction id
-            event: an event name
-            value: an event value
+            :param correlation_id: (optional) transaction id to trace execution through call chain.
+            :param event: the name of the event that is to be fired.
+            :param value: the event arguments (parameters).
         """
         e = self.find_event(event)
         if e != None:
