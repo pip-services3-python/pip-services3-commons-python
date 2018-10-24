@@ -5,7 +5,7 @@
     
     Command implementation
     
-    :copyright: Conceptual Vision Consulting LLC 2015-2016, see AUTHORS for more details.
+    :copyright: Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.
     :license: MIT, see LICENSE for more details.
 """
 
@@ -14,7 +14,8 @@ from ..errors.InvocationException import InvocationException
 
 class Command(ICommand):
     """
-    Represents a command that implements a command pattern
+    Concrete implementation of [[ICommand ICommand]] interface.
+    Command allows to call a method or function using Command pattern.
     """
 
     _name = None

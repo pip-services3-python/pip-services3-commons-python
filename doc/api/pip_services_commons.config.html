@@ -1,0 +1,253 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>pip_services_commons.config package &#8212; Pip.Services Commons for Python API</title>
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Pip.Services Commons for Python API</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="pip-services-commons-config-package">
+<h1>pip_services_commons.config package<a class="headerlink" href="#pip-services-commons-config-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="pip_services_commons.config.ConfigParams.html">pip_services_commons.config.ConfigParams module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pip_services_commons.config.ConfigParams.html#pip-services-commons-config-configparams">pip_services_commons.config.ConfigParams</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pip_services_commons.config.IConfigurable.html">pip_services_commons.config.IConfigurable module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pip_services_commons.config.IConfigurable.html#pip-services-commons-config-iconfigurable">pip_services_commons.config.IConfigurable</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pip_services_commons.config.IReconfigurable.html">pip_services_commons.config.IReconfigurable module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pip_services_commons.config.IReconfigurable.html#pip-services-commons-config-ireconfigurable">pip_services_commons.config.IReconfigurable</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pip_services_commons.config.NameResolver.html">pip_services_commons.config.NameResolver module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pip_services_commons.config.NameResolver.html#pip-services-commons-config-nameresolver">pip_services_commons.config.NameResolver</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pip_services_commons.config.OptionsResolver.html">pip_services_commons.config.OptionsResolver module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pip_services_commons.config.OptionsResolver.html#pip-services-commons-config-optionsresolver">pip_services_commons.config.OptionsResolver</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="module-pip_services_commons.config">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-pip_services_commons.config" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="pip-services-commons-config-init">
+<h3>pip_services_commons.config.__init__<a class="headerlink" href="#pip-services-commons-config-init" title="Permalink to this headline">¶</a></h3>
+<p>Config module initialization</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">copyright:</th><td class="field-body">Conceptual Vision Consulting LLC 2015-2016, see AUTHORS for more details.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">license:</th><td class="field-body">MIT, see LICENSE for more details.</td>
+</tr>
+</tbody>
+</table>
+<dl class="class">
+<dt id="pip_services_commons.config.IConfigurable">
+<em class="property">class </em><code class="descclassname">pip_services_commons.config.</code><code class="descname">IConfigurable</code><a class="headerlink" href="#pip_services_commons.config.IConfigurable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Interface for components that require configuration</p>
+<dl class="method">
+<dt id="pip_services_commons.config.IConfigurable.configure">
+<code class="descname">configure</code><span class="sig-paren">(</span><em>config</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.config.IConfigurable.configure" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets component configuration</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>config: configuration parameters</dd>
+</dl>
+<p>Raise: ConfigException when configuration is wrong</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pip_services_commons.config.IReconfigurable">
+<em class="property">class </em><code class="descclassname">pip_services_commons.config.</code><code class="descname">IReconfigurable</code><a class="headerlink" href="#pip_services_commons.config.IReconfigurable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="pip_services_commons.config.IConfigurable.html#pip_services_commons.config.IConfigurable.IConfigurable" title="pip_services_commons.config.IConfigurable.IConfigurable"><code class="xref py py-class docutils literal notranslate"><span class="pre">pip_services_commons.config.IConfigurable.IConfigurable</span></code></a></p>
+<p>Interface for components that can be reconfigured when configuration changes</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="pip_services_commons.config.ConfigParams">
+<em class="property">class </em><code class="descclassname">pip_services_commons.config.</code><code class="descname">ConfigParams</code><span class="sig-paren">(</span><em>values=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.config.ConfigParams" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="pip_services_commons.data.StringValueMap.html#pip_services_commons.data.StringValueMap.StringValueMap" title="pip_services_commons.data.StringValueMap.StringValueMap"><code class="xref py py-class docutils literal notranslate"><span class="pre">pip_services_commons.data.StringValueMap.StringValueMap</span></code></a></p>
+<p>Map with configuration parameters that use complex keys with dot notation and simple string values.</p>
+<p>Example of values, stored in the configuration parameters:
+- Section-1.Subsection-1-1.Key-1-1-1=123
+- Section-1.Subsection-1-2.Key-1-2-1=”ABC”
+- Section-2.Subsection-1.Key-2-1-1=”2016-09-16T00:00:00.00Z”</p>
+<p>Configuration parameters support getting and adding sections from the map.</p>
+<p>Also, configuration parameters may come in a form of parameterized string:
+Key1=123;Key2=ABC;Key3=2016-09-16T00:00:00.00Z</p>
+<p>All keys stored in the map are case-insensitive.</p>
+<dl class="method">
+<dt id="pip_services_commons.config.ConfigParams.add_section">
+<code class="descname">add_section</code><span class="sig-paren">(</span><em>section</em>, <em>section_params</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.config.ConfigParams.add_section" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="pip_services_commons.config.ConfigParams.from_string">
+<em class="property">static </em><code class="descname">from_string</code><span class="sig-paren">(</span><em>line</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.config.ConfigParams.from_string" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="pip_services_commons.config.ConfigParams.from_tuples">
+<em class="property">static </em><code class="descname">from_tuples</code><span class="sig-paren">(</span><em>*tuples</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.config.ConfigParams.from_tuples" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="pip_services_commons.config.ConfigParams.from_value">
+<em class="property">static </em><code class="descname">from_value</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.config.ConfigParams.from_value" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pip_services_commons.config.ConfigParams.get_section">
+<code class="descname">get_section</code><span class="sig-paren">(</span><em>section</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.config.ConfigParams.get_section" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pip_services_commons.config.ConfigParams.get_section_names">
+<code class="descname">get_section_names</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.config.ConfigParams.get_section_names" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="pip_services_commons.config.ConfigParams.merge_configs">
+<em class="property">static </em><code class="descname">merge_configs</code><span class="sig-paren">(</span><em>*configs</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.config.ConfigParams.merge_configs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pip_services_commons.config.ConfigParams.override">
+<code class="descname">override</code><span class="sig-paren">(</span><em>config_params</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.config.ConfigParams.override" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pip_services_commons.config.ConfigParams.set_defaults">
+<code class="descname">set_defaults</code><span class="sig-paren">(</span><em>default_config_params</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.config.ConfigParams.set_defaults" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pip_services_commons.config.NameResolver">
+<em class="property">class </em><code class="descclassname">pip_services_commons.config.</code><code class="descname">NameResolver</code><a class="headerlink" href="#pip_services_commons.config.NameResolver" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="staticmethod">
+<dt id="pip_services_commons.config.NameResolver.resolve">
+<em class="property">static </em><code class="descname">resolve</code><span class="sig-paren">(</span><em>config</em>, <em>default_name=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.config.NameResolver.resolve" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pip_services_commons.config.OptionsResolver">
+<em class="property">class </em><code class="descclassname">pip_services_commons.config.</code><code class="descname">OptionsResolver</code><a class="headerlink" href="#pip_services_commons.config.OptionsResolver" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="staticmethod">
+<dt id="pip_services_commons.config.OptionsResolver.resolve">
+<em class="property">static </em><code class="descname">resolve</code><span class="sig-paren">(</span><em>config</em>, <em>config_as_default=False</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.config.OptionsResolver.resolve" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">pip_services_commons.config package</a><ul>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-pip_services_commons.config">Module contents</a><ul>
+<li><a class="reference internal" href="#pip-services-commons-config-init">pip_services_commons.config.__init__</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/pip_services_commons.config.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Pip.Services Commons for Python API</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2018, Conceptual Vision Consulting LLC.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.1.
+    </div>
+  </body>
+</html>
