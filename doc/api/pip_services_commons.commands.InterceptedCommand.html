@@ -46,7 +46,7 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">copyright:</th><td class="field-body">Conceptual Vision Consulting LLC 2015-2016, see AUTHORS for more details.</td>
+<tr class="field-odd field"><th class="field-name">copyright:</th><td class="field-body">Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">license:</th><td class="field-body">MIT, see LICENSE for more details.</td>
 </tr>
@@ -56,39 +56,95 @@
 <dt id="pip_services_commons.commands.InterceptedCommand.InterceptedCommand">
 <em class="property">class </em><code class="descclassname">pip_services_commons.commands.InterceptedCommand.</code><code class="descname">InterceptedCommand</code><span class="sig-paren">(</span><em>intercepter</em>, <em>next</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.commands.InterceptedCommand.InterceptedCommand" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="pip_services_commons.commands.ICommand.html#pip_services_commons.commands.ICommand.ICommand" title="pip_services_commons.commands.ICommand.ICommand"><code class="xref py py-class docutils literal notranslate"><span class="pre">pip_services_commons.commands.ICommand.ICommand</span></code></a></p>
-<p>Interceptor wrapper to turn it into stackable command</p>
+<p>Implements a ICommand command wrapped by an interceptor.
+It allows to build command call chains. The interceptor can alter execution
+and delegate calls to a next command, which can be intercepted or concrete.</p>
+<dl class="docutils">
+<dt>Example:</dt>
+<dd><dl class="first last docutils">
+<dt>class CommandLogger(ICommandInterceptor):</dt>
+<dd><dl class="first last docutils">
+<dt>def get_name(self, command):</dt>
+<dd>return command.get_name()</dd>
+<dt>def execute():</dt>
+<dd>…</dd>
+<dt>def validate():</dt>
+<dd>…</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
 <dl class="method">
 <dt id="pip_services_commons.commands.InterceptedCommand.InterceptedCommand.execute">
 <code class="descname">execute</code><span class="sig-paren">(</span><em>correlation_id</em>, <em>args</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.commands.InterceptedCommand.InterceptedCommand.execute" title="Permalink to this definition">¶</a></dt>
-<dd><p>Executes the command given specific arguments as an input.</p>
+<dd><p>Executes the next command in the execution chain using the given Parameters parameters (arguments).</p>
 <dl class="docutils">
 <dt>Args:</dt>
-<dd>correlation_id: a unique correlation/transaction id
-args: command arguments</dd>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">param correlation_id:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">a unique correlation/transaction id</td>
+</tr>
+<tr class="field-even field"><th class="field-name">param args:</th><td class="field-body">command arguments</td>
+</tr>
+</tbody>
+</table>
+</dd>
 </dl>
-<p>Returns: an execution result.</p>
-<dl class="docutils">
-<dt>Raises:</dt>
-<dd>MicroserviceError: when execution fails for whatever reason.</dd>
-</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">an execution result.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body">ValidationError: when execution fails for whatever reason.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.commands.InterceptedCommand.InterceptedCommand.get_name">
 <code class="descname">get_name</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.commands.InterceptedCommand.InterceptedCommand.get_name" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gets the command name.
-Results: the command name</p>
+<dd><p>Gets the command name.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the command name</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.commands.InterceptedCommand.InterceptedCommand.validate">
 <code class="descname">validate</code><span class="sig-paren">(</span><em>args</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.commands.InterceptedCommand.InterceptedCommand.validate" title="Permalink to this definition">¶</a></dt>
-<dd><p>Performs validation of the command arguments.</p>
+<dd><p>Validates the Parameters parameters (arguments)
+that are to be passed to the command that is next in the execution chain.</p>
 <dl class="docutils">
 <dt>Args:</dt>
-<dd>args: command arguments</dd>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">param args:</th><td class="field-body">command arguments</td>
+</tr>
+</tbody>
+</table>
+</dd>
 </dl>
-<p>Returns: a list of validation results</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">a list of validation results</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </dd></dl>

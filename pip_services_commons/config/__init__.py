@@ -3,9 +3,12 @@
     pip_services_commons.config.__init__
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     
-    Config module initialization
+    Contains the implementation of the config design pattern. The [[IConfigurable configurable interface]]
+    contains just one method - "configure", which takes ConfigParams as a parameter (extends StringValueMap class).
+    If any object needs to be configurable, we implement this interface
+    and parse the ConfigParams that the method received.
     
-    :copyright: Conceptual Vision Consulting LLC 2015-2016, see AUTHORS for more details.
+    :copyright: Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.
     :license: MIT, see LICENSE for more details.
 """
 

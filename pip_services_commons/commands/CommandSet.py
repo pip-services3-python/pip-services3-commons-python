@@ -208,7 +208,9 @@ class CommandSet(object):
         
         Args:
             :param correlation_id: (optional) transaction id to trace execution through call chain.
+
             :param command: the name of that command that is to be executed.
+
             :param args: the parameters (arguments) to pass to the command for execution.
         
         :return: the execution result.
@@ -244,6 +246,7 @@ class CommandSet(object):
         
         Args:
             :param command: the name of the command for which the 'args' must be validated.
+
             :param args: the parameters (arguments) to validate.
         
         :return: an array of ValidationResults. If no command is found by the given
@@ -291,7 +294,9 @@ class CommandSet(object):
 
         Args:
             :param correlation_id: (optional) transaction id to trace execution through call chain.
+
             :param event: the name of the event that is to be fired.
+
             :param value: the event arguments (parameters).
         """
         e = self.find_event(event)

@@ -18,6 +18,7 @@ class Command(ICommand):
     Command allows to call a method or function using Command pattern.
 
     Example:
+        [code]
         def handler(*args):
             param1 = args.getAsFloat("param1")
             param2 = args.getAsFloat("param2")
@@ -28,7 +29,7 @@ class Command(ICommand):
         result = command.execute("123",  Parameters.fromTuples("param1", 2, "param2", 2))
 
         print result.__str__()
-
+        [/code]
     See ICommand, CommandSet
     """
 
@@ -42,7 +43,9 @@ class Command(ICommand):
         
         Args:
             :param name: the name of the command
+
             :param schema: a validation schema for command arguments
+
             :param function: an execution function to be wrapped into this command.
         """
         if name == None:
@@ -108,4 +111,3 @@ class Command(ICommand):
         
         # ToDo: Complete implementation
         return []
-    

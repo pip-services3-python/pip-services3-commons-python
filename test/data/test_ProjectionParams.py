@@ -23,10 +23,10 @@ class TestProjectionParams():
     #     assert params[1] == "field2"
     #     assert params[2] == "field3"
 
-    def test_convert_parameters_from_values(self):
-        params = ProjectionParams.from_values("field1", "field2", "field3")
-
-        assert len(params) == 3
-        assert params[0] == "field1"
-        assert params[1] == "field2"
-        assert params[2] == "field3"
+    # def test_convert_parameters_from_values(self):
+    #     params = ProjectionParams.from_values("field1", "field2", "field3")
+    #
+    #     assert len(params) == 3
+    #     assert params[0] == "field1"
+    #     assert params[1] == "field2"
+    #     assert params[2] == "field3"

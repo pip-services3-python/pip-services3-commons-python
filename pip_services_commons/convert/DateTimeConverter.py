@@ -5,7 +5,7 @@
     
     DateTime conversion utilities
     
-    :copyright: Conceptual Vision Consulting LLC 2015-2016, see AUTHORS for more details.
+    :copyright: Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.
     :license: MIT, see LICENSE for more details.
 """
 
@@ -14,9 +14,23 @@ import iso8601
 from .UTC import UTC
 
 class DateTimeConverter(object):
+    """
+    Converts arbitrary values into Date values using extended conversion rules:
+    - Strings: converted using ISO time format
+    - Numbers: converted using milliseconds since unix epoch
 
+    Example:
+        value1 = DateTimeConverter.to_nullable_datetime("ABC") // Result: None
+        value2 = DateTimeConverter.to_nullable_datetime("2018-01-01T11:30:00.0") // Result: Date(2018,0,1,11,30)
+        value3 = DateTimeConverter.to_nullable_datetime(123) // Result: Date(123)
+    """
     @staticmethod
     def to_nullable_datetime(value):
+        """
+        Converts value into Date or returns null when conversion is not possible.
+        :param value: the value to convert.
+        :return: Date value or null when conversion is not supported.
+        """
         # Shortcuts
         if value == None:
             return None
@@ -42,10 +56,21 @@ class DateTimeConverter(object):
 
     @staticmethod
     def to_datetime(value):
+        """
+        Converts value into Date or returns current date when conversion is not possible.
+        :param value: the value to convert.
+        :return: Date value or current date when conversion is not supported.
+        """
         return DateTimeConverter.to_datetime_with_default(value, None)
 
     @staticmethod
     def to_datetime_with_default(value, default_value):
+        """
+        Converts value into Date or returns default when conversion is not possible.
+        :param value: the value to convert.
+        :param default_value: the default value.
+        :return: Date value or default when conversion is not supported.
+        """
         result = DateTimeConverter.to_nullable_datetime(value)
         return result if result != None else DateTimeConverter.to_utc_datetime(default_value)
 

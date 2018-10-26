@@ -5,11 +5,14 @@
     
     Type code enumeration
     
-    :copyright: Conceptual Vision Consulting LLC 2015-2016, see AUTHORS for more details.
+    :copyright: Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.
     :license: MIT, see LICENSE for more details.
 """
 
-class TypeCode(object):
+class TypeCode():
+    """
+    Codes for the data types that can be converted using [[TypeConverter]].
+    """
     Unknown = 0
     String = 1
     Boolean = 2

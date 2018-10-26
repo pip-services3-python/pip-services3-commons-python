@@ -5,13 +5,13 @@
     
     Error categories enumeration
     
-    :copyright: Conceptual Vision Consulting LLC 2015-2016, see AUTHORS for more details.
+    :copyright: Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.
     :license: MIT, see LICENSE for more details.
 """
 
 class ErrorCategory(object):
     """
-    Defines broad categories of application errors.
+    Defines standard error categories to application exceptions supported by PipServices toolkit.
     """
 
     Unknown = 'Unknown'

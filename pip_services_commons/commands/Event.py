@@ -85,6 +85,7 @@ class Event(IEvent):
 
         Args:
             :param correlation_id: (optional) transaction id to trace execution through call chain.
+
             :param args: the parameters to raise this event with.
         """
         for listener in self._listeners:

@@ -40,7 +40,9 @@ class ICommandIntercepter(object):
         
         Args:
             :param correlation_id: (optional) transaction id to trace execution through call chain.
+
             :param command: the next command in the call chain that is to be executed.
+
             :param args: the parameters (arguments) to pass to the command for execution.
         
         :return: an execution result.
@@ -58,6 +60,7 @@ class ICommandIntercepter(object):
         
         Args:
             :param command: intercepted ICommand
+
             :param args: command arguments
         
         :return: a list of validation results.

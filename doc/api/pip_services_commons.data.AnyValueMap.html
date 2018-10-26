@@ -1,0 +1,439 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>pip_services_commons.data.AnyValueMap module &#8212; Pip.Services Commons for Python API</title>
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Pip.Services Commons for Python API</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-pip_services_commons.data.AnyValueMap">
+<span id="pip-services-commons-data-anyvaluemap-module"></span><h1>pip_services_commons.data.AnyValueMap module<a class="headerlink" href="#module-pip_services_commons.data.AnyValueMap" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="pip-services-commons-data-anyvaluemap">
+<h2>pip_services_commons.data.AnyValueMap<a class="headerlink" href="#pip-services-commons-data-anyvaluemap" title="Permalink to this headline">¶</a></h2>
+<p>AnyValueMap implementation</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">copyright:</th><td class="field-body">Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">license:</th><td class="field-body">MIT, see LICENSE for more details.</td>
+</tr>
+</tbody>
+</table>
+<dl class="class">
+<dt id="pip_services_commons.data.AnyValueMap.AnyValueMap">
+<em class="property">class </em><code class="descclassname">pip_services_commons.data.AnyValueMap.</code><code class="descname">AnyValueMap</code><span class="sig-paren">(</span><em>map=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.data.AnyValueMap.AnyValueMap" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></p>
+<p>Cross-language implementation of dynamic object map (dictionary) what can hold values of any type.
+The stored values can be converted to different types using variety of accessor methods.</p>
+<dl class="docutils">
+<dt>Example:</dt>
+<dd><p class="first">value1 = new AnyValueMap({ key1: 1, key2: “123.456”, key3: “2018-01-01” })</p>
+<p class="last">value1.get_as_boolean(“key1”)   // Result: true
+value1.get_as_integer(“key2”)   // Result: 123
+value1.get_as_float(“key2”)     // Result: 123.456
+value1.get_as_datetime(“key3”)  // Result: new Date(2018,0,1)</p>
+</dd>
+</dl>
+<dl class="method">
+<dt id="pip_services_commons.data.AnyValueMap.AnyValueMap.append">
+<code class="descname">append</code><span class="sig-paren">(</span><em>map</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.data.AnyValueMap.AnyValueMap.append" title="Permalink to this definition">¶</a></dt>
+<dd><p>Appends new elements to this map.
+:param map:a map with elements to be added.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pip_services_commons.data.AnyValueMap.AnyValueMap.clone">
+<code class="descname">clone</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.data.AnyValueMap.AnyValueMap.clone" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a binary clone of this object.
+:return:a clone of this object.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pip_services_commons.data.AnyValueMap.AnyValueMap.contains_key">
+<code class="descname">contains_key</code><span class="sig-paren">(</span><em>key</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.data.AnyValueMap.AnyValueMap.contains_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="pip_services_commons.data.AnyValueMap.AnyValueMap.from_maps">
+<em class="property">static </em><code class="descname">from_maps</code><span class="sig-paren">(</span><em>*maps</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.data.AnyValueMap.AnyValueMap.from_maps" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a new AnyValueMap by merging two or more maps.
+Maps defined later in the list override values from previously defined maps.
+:param maps:an array of maps to be merged
+:return:a newly created AnyValueMap.</p>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="pip_services_commons.data.AnyValueMap.AnyValueMap.from_tuples">
+<em class="property">static </em><code class="descname">from_tuples</code><span class="sig-paren">(</span><em>*tuples</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.data.AnyValueMap.AnyValueMap.from_tuples" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a new AnyValueMap from a list of key-value pairs called tuples.
+:param tuples: a list of values where odd elements are keys and the following even elements are values
+:return:a newly created AnyValueMap.</p>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="pip_services_commons.data.AnyValueMap.AnyValueMap.from_tuples_array">
+<em class="property">static </em><code class="descname">from_tuples_array</code><span class="sig-paren">(</span><em>tuples</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.data.AnyValueMap.AnyValueMap.from_tuples_array" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a new AnyValueMap from a list of key-value pairs called tuples.
+The method is similar to [[fromTuples]] but tuples are passed as array instead of parameters.
+:param tuples:a list of values where odd elements are keys and the following even elements are values
+:return:a newly created AnyValueArray.</p>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="pip_services_commons.data.AnyValueMap.AnyValueMap.from_value">
+<em class="property">static </em><code class="descname">from_value</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.data.AnyValueMap.AnyValueMap.from_value" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts specified value into AnyValueMap.
+:param value:value to be converted
+:return:a newly created AnyValueMap.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pip_services_commons.data.AnyValueMap.AnyValueMap.get">
+<code class="descname">get</code><span class="sig-paren">(</span><em>key</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.data.AnyValueMap.AnyValueMap.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a map element specified by its key.
+:param key: a key of the element to get.
+:return:the value of the map element.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pip_services_commons.data.AnyValueMap.AnyValueMap.get_as_array">
+<code class="descname">get_as_array</code><span class="sig-paren">(</span><em>key</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.data.AnyValueMap.AnyValueMap.get_as_array" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts map element into an AnyValueMap or returns empty AnyValueMap if conversion is not possible.
+:param key: an index of element to get.
+:return:AnyValueMap value of the element or empty AnyValueMap if conversion is not supported.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pip_services_commons.data.AnyValueMap.AnyValueMap.get_as_boolean">
+<code class="descname">get_as_boolean</code><span class="sig-paren">(</span><em>key</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.data.AnyValueMap.AnyValueMap.get_as_boolean" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts map element into a boolean or returns false if conversion is not possible.
+:param key:an index of element to get.
+:return:boolean value ot the element or false if conversion is not supported.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pip_services_commons.data.AnyValueMap.AnyValueMap.get_as_boolean_with_default">
+<code class="descname">get_as_boolean_with_default</code><span class="sig-paren">(</span><em>key</em>, <em>default_value</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.data.AnyValueMap.AnyValueMap.get_as_boolean_with_default" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts map element into a boolean or returns default value if conversion is not possible.
+:param key:an index of element to get.
+:param default_value:the default value
+:return:boolean value ot the element or default value if conversion is not supported.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pip_services_commons.data.AnyValueMap.AnyValueMap.get_as_datetime">
+<code class="descname">get_as_datetime</code><span class="sig-paren">(</span><em>key</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.data.AnyValueMap.AnyValueMap.get_as_datetime" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts map element into a Date or returns the current date if conversion is not possible.
+:param key:an index of element to get.
+:return:Date value ot the element or the current date if conversion is not supported.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pip_services_commons.data.AnyValueMap.AnyValueMap.get_as_datetime_with_default">
+<code class="descname">get_as_datetime_with_default</code><span class="sig-paren">(</span><em>key</em>, <em>default_value</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.data.AnyValueMap.AnyValueMap.get_as_datetime_with_default" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts map element into a Date or returns default value if conversion is not possible.
+:param key:an index of element to get.
+:param default_value:the default value
+:return:Date value ot the element or default value if conversion is not supported.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pip_services_commons.data.AnyValueMap.AnyValueMap.get_as_float">
+<code class="descname">get_as_float</code><span class="sig-paren">(</span><em>key</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.data.AnyValueMap.AnyValueMap.get_as_float" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts map element into a float or returns 0 if conversion is not possible.
+:param key:an index of element to get.
+:return:float value ot the element or 0 if conversion is not supported.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pip_services_commons.data.AnyValueMap.AnyValueMap.get_as_float_with_default">
+<code class="descname">get_as_float_with_default</code><span class="sig-paren">(</span><em>key</em>, <em>default_value</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.data.AnyValueMap.AnyValueMap.get_as_float_with_default" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts map element into a float or returns default value if conversion is not possible.
+:param key:an index of element to get.
+:param default_value:the default value
+:return:float value ot the element or default value if conversion is not supported.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pip_services_commons.data.AnyValueMap.AnyValueMap.get_as_integer">
+<code class="descname">get_as_integer</code><span class="sig-paren">(</span><em>key</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.data.AnyValueMap.AnyValueMap.get_as_integer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts map element into an integer or returns 0 if conversion is not possible.
+:param key:an index of element to get.
+:return:integer value ot the element or 0 if conversion is not supported.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pip_services_commons.data.AnyValueMap.AnyValueMap.get_as_integer_with_default">
+<code class="descname">get_as_integer_with_default</code><span class="sig-paren">(</span><em>key</em>, <em>default_value</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.data.AnyValueMap.AnyValueMap.get_as_integer_with_default" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts map element into an integer or returns default value if conversion is not possible.
+:param key:an index of element to get.
+:param default_value:the default value
+:return:integer value ot the element or default value if conversion is not supported.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pip_services_commons.data.AnyValueMap.AnyValueMap.get_as_long">
+<code class="descname">get_as_long</code><span class="sig-paren">(</span><em>key</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.data.AnyValueMap.AnyValueMap.get_as_long" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pip_services_commons.data.AnyValueMap.AnyValueMap.get_as_long_with_default">
+<code class="descname">get_as_long_with_default</code><span class="sig-paren">(</span><em>key</em>, <em>default_value</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.data.AnyValueMap.AnyValueMap.get_as_long_with_default" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pip_services_commons.data.AnyValueMap.AnyValueMap.get_as_map">
+<code class="descname">get_as_map</code><span class="sig-paren">(</span><em>key</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.data.AnyValueMap.AnyValueMap.get_as_map" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts map element into an AnyValueMap or returns empty AnyValueMap if conversion is not possible.
+:param key: a key of element to get.
+:return:AnyValueMap value of the element or empty AnyValueMap if conversion is not supported.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pip_services_commons.data.AnyValueMap.AnyValueMap.get_as_map_with_default">
+<code class="descname">get_as_map_with_default</code><span class="sig-paren">(</span><em>key</em>, <em>default_value</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.data.AnyValueMap.AnyValueMap.get_as_map_with_default" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts map element into an AnyValueMap or returns default value if conversion is not possible.
+:param key:a key of element to get.
+:param default_value:the default value
+:return:AnyValueMap value of the element or default value if conversion is not supported.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pip_services_commons.data.AnyValueMap.AnyValueMap.get_as_nullable_boolean">
+<code class="descname">get_as_nullable_boolean</code><span class="sig-paren">(</span><em>key</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.data.AnyValueMap.AnyValueMap.get_as_nullable_boolean" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts map element into a boolean or returns None if conversion is not possible
+:param key:an index of element to get.
+:return:boolean value of the element or None if conversion is not supported.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pip_services_commons.data.AnyValueMap.AnyValueMap.get_as_nullable_datetime">
+<code class="descname">get_as_nullable_datetime</code><span class="sig-paren">(</span><em>key</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.data.AnyValueMap.AnyValueMap.get_as_nullable_datetime" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts map element into a Date or returns None if conversion is not possible.
+:param key:an index of element to get.
+:return:Date value of the element or None if conversion is not supported.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pip_services_commons.data.AnyValueMap.AnyValueMap.get_as_nullable_float">
+<code class="descname">get_as_nullable_float</code><span class="sig-paren">(</span><em>key</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.data.AnyValueMap.AnyValueMap.get_as_nullable_float" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts map element into a float or returns None if conversion is not possible.
+:param key:an index of element to get.
+:return:float value of the element or None if conversion is not supported.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pip_services_commons.data.AnyValueMap.AnyValueMap.get_as_nullable_integer">
+<code class="descname">get_as_nullable_integer</code><span class="sig-paren">(</span><em>key</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.data.AnyValueMap.AnyValueMap.get_as_nullable_integer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts map element into an integer or returns None if conversion is not possible.
+:param key:an index of element to get.
+:return:integer value of the element or None if conversion is not supported.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pip_services_commons.data.AnyValueMap.AnyValueMap.get_as_nullable_long">
+<code class="descname">get_as_nullable_long</code><span class="sig-paren">(</span><em>key</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.data.AnyValueMap.AnyValueMap.get_as_nullable_long" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pip_services_commons.data.AnyValueMap.AnyValueMap.get_as_nullable_map">
+<code class="descname">get_as_nullable_map</code><span class="sig-paren">(</span><em>key</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.data.AnyValueMap.AnyValueMap.get_as_nullable_map" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts map element into an AnyValueMap or returns None if conversion is not possible.
+:param key:a key of element to get.
+:return:AnyValueMap value of the element or None if conversion is not supported.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pip_services_commons.data.AnyValueMap.AnyValueMap.get_as_nullable_string">
+<code class="descname">get_as_nullable_string</code><span class="sig-paren">(</span><em>key</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.data.AnyValueMap.AnyValueMap.get_as_nullable_string" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts map element into a string or returns None if conversion is not possible.
+:param key:an index of element to get.
+:return:string value of the element or None if conversion is not supported.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pip_services_commons.data.AnyValueMap.AnyValueMap.get_as_nullable_type">
+<code class="descname">get_as_nullable_type</code><span class="sig-paren">(</span><em>key</em>, <em>value_type</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.data.AnyValueMap.AnyValueMap.get_as_nullable_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts map element into a value defined by specied typecode.
+If conversion is not possible it returns None.
+:param key:an index of element to get.
+:param value_type:the TypeCode that defined the type of the result
+:return:element value defined by the typecode or None if conversion is not supported.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pip_services_commons.data.AnyValueMap.AnyValueMap.get_as_object">
+<code class="descname">get_as_object</code><span class="sig-paren">(</span><em>key=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.data.AnyValueMap.AnyValueMap.get_as_object" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the value stored in map element without any conversions.
+When element key is not defined it returns the entire map value.
+:param key:(optional) a key of the element to get
+:return:the element value or value of the map when index is not defined.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pip_services_commons.data.AnyValueMap.AnyValueMap.get_as_string">
+<code class="descname">get_as_string</code><span class="sig-paren">(</span><em>key</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.data.AnyValueMap.AnyValueMap.get_as_string" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts map element into a string or returns “” if conversion is not possible.
+:param key:an index of element to get.
+:return:string value ot the element or “” if conversion is not supported.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pip_services_commons.data.AnyValueMap.AnyValueMap.get_as_string_with_default">
+<code class="descname">get_as_string_with_default</code><span class="sig-paren">(</span><em>key</em>, <em>default_value</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.data.AnyValueMap.AnyValueMap.get_as_string_with_default" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts map element into a string or returns default value if conversion is not possible.
+:param key:an index of element to get.
+:param default_value:the default value
+:return:string value ot the element or default value if conversion is not supported.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pip_services_commons.data.AnyValueMap.AnyValueMap.get_as_type">
+<code class="descname">get_as_type</code><span class="sig-paren">(</span><em>key</em>, <em>value_type</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.data.AnyValueMap.AnyValueMap.get_as_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts map element into a value defined by specied typecode.
+If conversion is not possible it returns default value for the specified type.
+:param key:an index of element to get.
+:param value_type:the TypeCode that defined the type of the result
+:return:element value defined by the typecode or default if conversion is not supported.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pip_services_commons.data.AnyValueMap.AnyValueMap.get_as_type_with_default">
+<code class="descname">get_as_type_with_default</code><span class="sig-paren">(</span><em>key</em>, <em>value_type</em>, <em>default_value</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.data.AnyValueMap.AnyValueMap.get_as_type_with_default" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts map element into a value defined by specied typecode.
+If conversion is not possible it returns default value.
+:param key:an index of element to get.
+:param value_type:the TypeCode that defined the type of the result
+:param default_value:the default value
+:return:element value defined by the typecode or default value if conversion is not supported.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pip_services_commons.data.AnyValueMap.AnyValueMap.get_key_names">
+<code class="descname">get_key_names</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.data.AnyValueMap.AnyValueMap.get_key_names" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets keys of all elements stored in this map.
+:return:a list with all map keys.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pip_services_commons.data.AnyValueMap.AnyValueMap.put">
+<code class="descname">put</code><span class="sig-paren">(</span><em>key</em>, <em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.data.AnyValueMap.AnyValueMap.put" title="Permalink to this definition">¶</a></dt>
+<dd><p>Puts a new value into map element specified by its key.
+:param key:a key of the element to put.
+:param value:a new value for map element.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pip_services_commons.data.AnyValueMap.AnyValueMap.remove">
+<code class="descname">remove</code><span class="sig-paren">(</span><em>key</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.data.AnyValueMap.AnyValueMap.remove" title="Permalink to this definition">¶</a></dt>
+<dd><p>Removes a map element specified by its key
+:param key:a key of the element to remove.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pip_services_commons.data.AnyValueMap.AnyValueMap.set_as_map">
+<code class="descname">set_as_map</code><span class="sig-paren">(</span><em>values</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.data.AnyValueMap.AnyValueMap.set_as_map" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets values to map
+:param values: values to set</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pip_services_commons.data.AnyValueMap.AnyValueMap.set_as_object">
+<code class="descname">set_as_object</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.data.AnyValueMap.AnyValueMap.set_as_object" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets a new value to map element
+:param value:a new element or map value.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">pip_services_commons.data.AnyValueMap module</a><ul>
+<li><a class="reference internal" href="#pip-services-commons-data-anyvaluemap">pip_services_commons.data.AnyValueMap</a></li>
+</ul>
+</li>
+</ul>
+
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/pip_services_commons.data.AnyValueMap.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Pip.Services Commons for Python API</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2018, Conceptual Vision Consulting LLC.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.1.
+    </div>
+  </body>
+</html>

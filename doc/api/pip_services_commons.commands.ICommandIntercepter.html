@@ -46,7 +46,7 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">copyright:</th><td class="field-body">Conceptual Vision Consulting LLC 2015-2016, see AUTHORS for more details.</td>
+<tr class="field-odd field"><th class="field-name">copyright:</th><td class="field-body">Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">license:</th><td class="field-body">MIT, see LICENSE for more details.</td>
 </tr>
@@ -56,45 +56,100 @@
 <dt id="pip_services_commons.commands.ICommandIntercepter.ICommandIntercepter">
 <em class="property">class </em><code class="descclassname">pip_services_commons.commands.ICommandIntercepter.</code><code class="descname">ICommandIntercepter</code><a class="headerlink" href="#pip_services_commons.commands.ICommandIntercepter.ICommandIntercepter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>Interface for stackable command intercepters.</p>
+<p>An interface for stackable command intercepters, which can extend
+and modify the command call chain.</p>
+<p>This mechanism can be used for authentication, logging, and other functions.</p>
 <dl class="method">
 <dt id="pip_services_commons.commands.ICommandIntercepter.ICommandIntercepter.execute">
 <code class="descname">execute</code><span class="sig-paren">(</span><em>correlation_id</em>, <em>command</em>, <em>args</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.commands.ICommandIntercepter.ICommandIntercepter.execute" title="Permalink to this definition">¶</a></dt>
-<dd><p>Executes the command given specific arguments as an input.</p>
+<dd><p>Executes the wrapped command with specified arguments.</p>
+<p>The interceptor can use this method to intercept and alter the command execution.
+Otherwise it shall just delete the call to the wrapped command.</p>
 <dl class="docutils">
 <dt>Args:</dt>
-<dd>correlation_id: a unique correlation/transaction id
-command: intercepted ICommand
-args: command arguments</dd>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">param correlation_id:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">(optional) transaction id to trace execution through call chain.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">param command:</th><td class="field-body">the next command in the call chain that is to be executed.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">param args:</th><td class="field-body">the parameters (arguments) to pass to the command for execution.</td>
+</tr>
+</tbody>
+</table>
+</dd>
 </dl>
-<p>Returns: an execution result.</p>
-<dl class="docutils">
-<dt>Raises:</dt>
-<dd>ApplicationException when execution fails for whatever reason.</dd>
-</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">an execution result.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body">ApplicationException when execution fails for whatever reason.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.commands.ICommandIntercepter.ICommandIntercepter.get_name">
 <code class="descname">get_name</code><span class="sig-paren">(</span><em>command</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.commands.ICommandIntercepter.ICommandIntercepter.get_name" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gets the command name. Intercepter can modify the name if needed</p>
+<dd><p>Gets the name of the wrapped command.</p>
+<p>The interceptor can use this method to override the command name.
+Otherwise it shall just delegate the call to the wrapped command.</p>
 <dl class="docutils">
 <dt>Args:</dt>
-<dd>command: intercepted ICommand</dd>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">param command:</th><td class="field-body">the next command in the call chain.</td>
+</tr>
+</tbody>
+</table>
+</dd>
 </dl>
-<p>Results: the command name</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the name of the wrapped command.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.commands.ICommandIntercepter.ICommandIntercepter.validate">
 <code class="descname">validate</code><span class="sig-paren">(</span><em>args</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.commands.ICommandIntercepter.ICommandIntercepter.validate" title="Permalink to this definition">¶</a></dt>
-<dd><p>Performs validation of the command arguments.</p>
+<dd><p>Validates arguments of the wrapped command before its execution.</p>
+<p>The interceptor can use this method to intercept and alter validation of the command arguments.
+Otherwise it shall just delegate the call to the wrapped command.</p>
 <dl class="docutils">
 <dt>Args:</dt>
-<dd>command: intercepted ICommand
-args: command arguments</dd>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">param command:</th><td class="field-body">intercepted ICommand</td>
+</tr>
+<tr class="field-even field"><th class="field-name">param args:</th><td class="field-body">command arguments</td>
+</tr>
+</tbody>
+</table>
+</dd>
 </dl>
-<p>Returns: a list of validation results.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">a list of validation results.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </dd></dl>

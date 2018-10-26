@@ -5,7 +5,7 @@
 
     Data projection parameters implementation
 
-    :copyright: Conceptual Vision Consulting LLC 2015-2016, see AUTHORS for more details.
+    :copyright: Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.
     :license: MIT, see LICENSE for more details.
 """
 
@@ -14,9 +14,31 @@ from pip_services_commons.data import AnyValueArray
 
 
 class ProjectionParams(list):
+    """
+    Defines projection parameters with list if fields to include into query results.
+
+    The parameters support two formats: dot format and nested format.
+
+    The dot format is the standard way to define included fields and subfields using
+    dot object notation: <code>"field1,field2.field21,field2.field22.field221"</code>.
+
+    As alternative the nested format offers a more compact representation:
+    <code>"field1,field2(field21,field22(field221))"</code>.
+
+    Example:
+         filter = FilterParams.fromTuples("type", "Type1")
+         paging = PagingParams(0, 100)
+         projection = ProjectionParams.from_value("field1,field2(field21,field22)")
+
+         myDataClient.get_data_by_filter(filter, paging, projection)
+    """
     default_delimiter = ','
 
     def __init__(self, values):
+        """
+        Creates a new instance of the projection parameters and assigns its value.
+        :param values:(optional) values to initialize this object.
+        """
         super(ProjectionParams, self).__init__()
 
         if values != None:
@@ -24,7 +46,12 @@ class ProjectionParams(list):
                 self.append("" + value)
 
     @staticmethod
-    def from_value(self, value = None):
+    def from_value(value = None):
+        """
+        Converts specified value into ProjectionParams.
+        :param value: value to be converted
+        :return:a newly created ProjectionParams.
+        """
         if isinstance(value, ProjectionParams):
             return value
         array = AnyValueArray.from_value(value) if value != None else AnyValueArray()
@@ -32,13 +59,25 @@ class ProjectionParams(list):
 
     @staticmethod
     def from_values(*values):
-        return ProjectionParams._from_values(',', values)
+        """
+         Parses comma-separated list of projection fields.
+        :param values: one or more comma-separated lists of projection fields
+        :return:a newly created ProjectionParams.
+        """
+        result = ProjectionParams()
+        result._from_values(',', values)
+        return result
 
-    @staticmethod
     def _from_values(self, delimiter, *values):
         return ProjectionParams(self.parse(delimiter, values))
 
     def to_string(self):
+        """
+        Gets a string representation of the object.
+        The result is a comma-separated list of projection fields
+        "field1,field2.field21,field2.field22.field221"
+        :return:a string representation of the object.
+        """
         builder = ""
 
         index = 0

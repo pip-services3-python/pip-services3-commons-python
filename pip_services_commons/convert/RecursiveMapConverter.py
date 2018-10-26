@@ -5,12 +5,20 @@
     
     Recursive map conversion utilities
     
-    :copyright: Conceptual Vision Consulting LLC 2015-2016, see AUTHORS for more details.
+    :copyright: Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.
     :license: MIT, see LICENSE for more details.
 """
 
-class RecursiveMapConverter(object):
+class RecursiveMapConverter():
+    """
+    Converts arbitrary values into map objects using extended conversion rules.
+    This class is similar to [[MapConverter]], but is recursively converts all values stored in objects and arrays.
 
+    Example:
+        value1 = RecursiveMapConverted.to_nullable_map("ABC") // Result: None
+        value2 = RecursiveMapConverted.to_nullable_map({ key: 123 }) // Result: { key: 123 }
+        value3 = RecursiveMapConverted.to_nullable_map([1,[2,3]) // Result: { "0": 1, { "0": 2, "1": 3 } }
+    """
     @staticmethod
     def _value_to_map(value, classkey = None):
         if isinstance(value, dict):
@@ -36,6 +44,11 @@ class RecursiveMapConverter(object):
 
     @staticmethod
     def to_nullable_map(value):
+        """
+        Converts value into map object or returns null when conversion is not possible.
+        :param value: the value to convert.
+        :return: map object or null when conversion is not supported.
+        """
         if value == None:
             return None
 
@@ -43,10 +56,21 @@ class RecursiveMapConverter(object):
 
     @staticmethod
     def to_map(value):
+        """
+        Converts value into map object or returns empty map when conversion is not possible
+        :param value: the value to convert.
+        :return: map object or empty map when conversion is not supported.
+        """
         result = RecursiveMapConverter.to_nullable_map(value)
         return result if result != None else {}
 
     @staticmethod
     def to_map_with_default(value, default_value):
+        """
+        Converts value into map object or returns default when conversion is not possible
+        :param value: the value to convert.
+        :param default_value: the default value.
+        :return: map object or emptu map when conversion is not supported.
+        """
         result = RecursiveMapConverter.to_nullable_map(value)
         return result if result != None else default_value

@@ -5,7 +5,7 @@
     
     Application exception factory implementation
     
-    :copyright: Conceptual Vision Consulting LLC 2015-2016, see AUTHORS for more details.
+    :copyright: Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.
     :license: MIT, see LICENSE for more details.
 """
 
@@ -25,9 +25,18 @@ from .ConflictException import ConflictException
 from .UnsupportedException import UnsupportedException
 
 class ApplicationExceptionFactory(object):
-
+    """
+    Factory to recreate exceptions from [[ErrorDescription]] values passed through the wire.
+    """
     @staticmethod
     def create(description):
+        """
+        Recreates ApplicationException object from serialized ErrorDescription.
+
+        It tries to restore original exception type using type or error category fields.
+        :param description: a serialized error description received as a result of remote call
+        :return:new ApplicationException object from serialized ErrorDescription.
+        """
         error = None
         
         # Create well-known exception type based on error category

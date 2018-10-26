@@ -5,11 +5,11 @@
     
     Long conversion utilities
     
-    :copyright: Conceptual Vision Consulting LLC 2015-2016, see AUTHORS for more details.
+    :copyright: Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.
     :license: MIT, see LICENSE for more details.
 """
 
-class LongConverter(object):
+class LongConverter():
 
     @staticmethod
     def to_nullable_long(value):

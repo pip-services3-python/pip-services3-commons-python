@@ -5,7 +5,7 @@
     
     Error description factory implementation
     
-    :copyright: Conceptual Vision Consulting LLC 2015-2016, see AUTHORS for more details.
+    :copyright: Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.
     :license: MIT, see LICENSE for more details.
 """
 
@@ -16,9 +16,21 @@ from .ErrorCategory import ErrorCategory
 from .ApplicationException import ApplicationException
 
 class ErrorDescriptionFactory(object):
+    """
+    Factory to create serializeable [[ErrorDescription]] from [[ApplicationException]]
+    or from arbitrary errors.
 
+    The ErrorDescriptions are used to pass errors through the wire between microservices
+    implemented in different languages. They allow to restore exceptions on the receiving side
+    close to the original type and preserve additional information.
+    """
     @staticmethod
     def create(ex):
+        """
+        Creates a serializable ErrorDescription from error object.
+        :param ex:an error object
+        :return:a serializeable ErrorDescription object that describes the error.
+        """
         description = ErrorDescription()
 
         if isinstance(ex, ApplicationException):

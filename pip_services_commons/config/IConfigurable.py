@@ -5,22 +5,32 @@
     
     Interface for components that require configuration
     
-    :copyright: Conceptual Vision Consulting LLC 2015-2016, see AUTHORS for more details.
+    :copyright: Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.
     :license: MIT, see LICENSE for more details.
 """
 
 class IConfigurable:
     """
-     Interface for components that require configuration
+     An interface to set configuration parameters to an object.
+
+     It can be added to any existing class by implementing a single <code>configure()</code> method.
+
+     If you need to emphasis the fact that <code>configure()</code> method can be called multiple times
+     to change object configuration in runtime, use [[IReconfigurable]] interface instead.
+
+     Example:
+         [code]
+         class MyClass(IConfigurable):
+            _myParam = "default value"
+
+         def configure(self, config):
+            self._myParam = config.get_as_string_with_default("options.param", myParam)
+         [/code]
     """
 
     def configure(self, config):
         """
-        Sets component configuration
-
-        Args:
-            config: configuration parameters
-
-        Raise: ConfigException when configuration is wrong
+        Configures object by passing configuration parameters.
+        :param config: configuration parameters to be set.
         """
         raise NotImplementedError('Method from interface definition')

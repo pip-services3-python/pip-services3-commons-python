@@ -46,7 +46,7 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">copyright:</th><td class="field-body">Conceptual Vision Consulting LLC 2015-2016, see AUTHORS for more details.</td>
+<tr class="field-odd field"><th class="field-name">copyright:</th><td class="field-body">Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">license:</th><td class="field-body">MIT, see LICENSE for more details.</td>
 </tr>
@@ -56,16 +56,39 @@
 <dt id="pip_services_commons.commands.IEventListener.IEventListener">
 <em class="property">class </em><code class="descclassname">pip_services_commons.commands.IEventListener.</code><code class="descname">IEventListener</code><a class="headerlink" href="#pip_services_commons.commands.IEventListener.IEventListener" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>Listener for command events</p>
+<p>An interface for listener objects that receive notifications on fired events.</p>
+<dl class="docutils">
+<dt>Example:</dt>
+<dd><dl class="first last docutils">
+<dt>class MyListener(IEventListener):</dt>
+<dd><dl class="first last docutils">
+<dt>def on_event(self, correlation_id, event, value):</dt>
+<dd>print “Fired event ” + event.get_name()</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
 <dl class="method">
 <dt id="pip_services_commons.commands.IEventListener.IEventListener.on_event">
 <code class="descname">on_event</code><span class="sig-paren">(</span><em>correlation_id</em>, <em>event</em>, <em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.commands.IEventListener.IEventListener.on_event" title="Permalink to this definition">¶</a></dt>
-<dd><p>Notifies that event occurred.</p>
+<dd><p>A method called when events this listener is subscrubed to are fired.</p>
 <dl class="docutils">
 <dt>Args:</dt>
-<dd>correlation_id: a unique correlation/transaction id
-event: event reference
-value: event arguments</dd>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">param correlation_id:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">(optional) transaction id to trace execution through call chain.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">param event:</th><td class="field-body">event reference</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">param value:</th><td class="field-body">event arguments</td>
+</tr>
+</tbody>
+</table>
+</dd>
 </dl>
 </dd></dl>
 

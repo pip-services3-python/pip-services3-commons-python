@@ -39,6 +39,7 @@ class InterceptedCommand(ICommand):
         
         Args:
             :param intercepter: the intercepter reference.
+
             :param next: the next intercepter or command in the chain.
         """
         self._intercepter = intercepter
@@ -58,6 +59,7 @@ class InterceptedCommand(ICommand):
         
         Args:
             :param correlation_id: a unique correlation/transaction id
+
             :param args: command arguments
         
         :return: an execution result.

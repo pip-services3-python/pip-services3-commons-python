@@ -46,7 +46,7 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">copyright:</th><td class="field-body">Conceptual Vision Consulting LLC 2015-2016, see AUTHORS for more details.</td>
+<tr class="field-odd field"><th class="field-name">copyright:</th><td class="field-body">Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">license:</th><td class="field-body">MIT, see LICENSE for more details.</td>
 </tr>
@@ -56,169 +56,354 @@
 <dt id="pip_services_commons.commands.CommandSet.CommandSet">
 <em class="property">class </em><code class="descclassname">pip_services_commons.commands.CommandSet.</code><code class="descname">CommandSet</code><a class="headerlink" href="#pip_services_commons.commands.CommandSet.CommandSet" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>Handles command registration and execution.
-Enables intercepters to control or modify command behavior</p>
+<p>Contains a set of commands and events supported by a ICommandable commandable object.
+The CommandSet supports command interceptors to extend and the command call chain.</p>
+<p>CommandSets can be used as alternative commandable interface to a business object.
+It can be used to auto generate multiple external services for the business object
+without writing much code.</p>
+<dl class="docutils">
+<dt>Example:</dt>
+<dd><dl class="first last docutils">
+<dt>class MyDataCommandSet(CommandSet):</dt>
+<dd><p class="first">_controller = None</p>
+<dl class="last docutils">
+<dt>def __init__(self, controller):</dt>
+<dd><p class="first">super(MyDataCommandSet, self).__init__()</p>
+<p>self._controller = controller</p>
+<p class="last">self.add_command(self._make_get_my_data_command())</p>
+</dd>
+<dt>def _make_get_my_data_command(self):</dt>
+<dd><dl class="first docutils">
+<dt>def handler(correlation_id, args):</dt>
+<dd>param = args.get_as_string(‘param’)
+return self._controller.get_my_data(correlation_id, param)</dd>
+<dt>return Command(</dt>
+<dd>“get_mydata”,
+None,
+handler</dd>
+</dl>
+<p class="last">)</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<p>See Command, Event, ICommandable</p>
 <dl class="method">
 <dt id="pip_services_commons.commands.CommandSet.CommandSet.add_command">
 <code class="descname">add_command</code><span class="sig-paren">(</span><em>command</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.commands.CommandSet.CommandSet.add_command" title="Permalink to this definition">¶</a></dt>
-<dd><p>Adds a command to the command set.</p>
+<dd><p>Adds a ICommand command to this command set.</p>
 <dl class="docutils">
 <dt>Args:</dt>
-<dd>command: a command instance to be added</dd>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">param command:</th><td class="field-body">a command instance to be added</td>
+</tr>
+</tbody>
+</table>
+</dd>
 </dl>
-<p>Returns: None</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.commands.CommandSet.CommandSet.add_command_set">
 <code class="descname">add_command_set</code><span class="sig-paren">(</span><em>command_set</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.commands.CommandSet.CommandSet.add_command_set" title="Permalink to this definition">¶</a></dt>
-<dd><p>Adds commands and events from another command set to this one</p>
+<dd><p>Adds all of the commands and events from specified CommandSet command set
+into this one.</p>
 <dl class="docutils">
 <dt>Args:</dt>
-<dd>command_set: a commands set to add commands from</dd>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">param command_set:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">a commands set to add commands from</td>
+</tr>
+</tbody>
+</table>
+</dd>
 </dl>
-<p>Returns: None</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.commands.CommandSet.CommandSet.add_commands">
 <code class="descname">add_commands</code><span class="sig-paren">(</span><em>commands</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.commands.CommandSet.CommandSet.add_commands" title="Permalink to this definition">¶</a></dt>
-<dd><p>Adds a list of commands to the command set</p>
+<dd><p>Adds multiple ICommand commands to this command set.</p>
 <dl class="docutils">
 <dt>Args:</dt>
-<dd>commands: a list of commands to be added</dd>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">param commands:</th><td class="field-body">the array of commands to add.</td>
+</tr>
+</tbody>
+</table>
+</dd>
 </dl>
-<p>Returns: None</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.commands.CommandSet.CommandSet.add_event">
 <code class="descname">add_event</code><span class="sig-paren">(</span><em>event</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.commands.CommandSet.CommandSet.add_event" title="Permalink to this definition">¶</a></dt>
-<dd><p>Adds an eventr to the command set.</p>
+<dd><p>Adds an IEvent event to this command set.</p>
 <dl class="docutils">
 <dt>Args:</dt>
-<dd>event: an event instance to be added</dd>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">param event:</th><td class="field-body">an event instance to be added</td>
+</tr>
+</tbody>
+</table>
+</dd>
 </dl>
-<p>Returns: None</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.commands.CommandSet.CommandSet.add_events">
 <code class="descname">add_events</code><span class="sig-paren">(</span><em>events</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.commands.CommandSet.CommandSet.add_events" title="Permalink to this definition">¶</a></dt>
-<dd><p>Adds a list of eventrs to the command set</p>
+<dd><p>Adds multiple [[IEvent events]] to this command set.</p>
 <dl class="docutils">
 <dt>Args:</dt>
-<dd>events: a list of events to be added</dd>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">param events:</th><td class="field-body">the array of events to add.</td>
+</tr>
+</tbody>
+</table>
+</dd>
 </dl>
-<p>Returns: None</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.commands.CommandSet.CommandSet.add_intercepter">
 <code class="descname">add_intercepter</code><span class="sig-paren">(</span><em>intercepter</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.commands.CommandSet.CommandSet.add_intercepter" title="Permalink to this definition">¶</a></dt>
-<dd><p>Adds intercepter to the command set.</p>
+<dd><p>Adds a ICommandInterceptor command interceptor to this command set.</p>
 <dl class="docutils">
 <dt>Args:</dt>
-<dd>intercepter: an intercepter instance to be added.</dd>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">param intercepter:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">an intercepter instance to be added.</td>
+</tr>
+</tbody>
+</table>
+</dd>
 </dl>
-<p>Returns: None</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.commands.CommandSet.CommandSet.add_listener">
 <code class="descname">add_listener</code><span class="sig-paren">(</span><em>listener</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.commands.CommandSet.CommandSet.add_listener" title="Permalink to this definition">¶</a></dt>
-<dd><p>Adds listener to all events.</p>
+<dd><p>Adds a IEventListener listener to receive notifications on fired events.</p>
 <dl class="docutils">
 <dt>Args:</dt>
-<dd>listener: a listener to be added</dd>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">param listener:</th><td class="field-body">a listener to be added</td>
+</tr>
+</tbody>
+</table>
+</dd>
 </dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.commands.CommandSet.CommandSet.execute">
 <code class="descname">execute</code><span class="sig-paren">(</span><em>correlation_id</em>, <em>command</em>, <em>args</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.commands.CommandSet.CommandSet.execute" title="Permalink to this definition">¶</a></dt>
-<dd><p>Execute command by its name with specified arguments.</p>
+<dd><p>Executes a ICommand command specificed by its name.</p>
 <dl class="docutils">
 <dt>Args:</dt>
-<dd>correlation_id: a unique correlation/transaction id
-command: the command name.
-args: a list of command arguments.</dd>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">param correlation_id:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">(optional) transaction id to trace execution through call chain.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">param command:</th><td class="field-body">the name of that command that is to be executed.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">param args:</th><td class="field-body">the parameters (arguments) to pass to the command for execution.</td>
+</tr>
+</tbody>
+</table>
+</dd>
 </dl>
-<p>Returns: the execution result.</p>
-<dl class="docutils">
-<dt>Raises:</dt>
-<dd>MicroserviceError: when execution fails for any reason.</dd>
-</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the execution result.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body">ValidationException: when execution fails for any reason.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.commands.CommandSet.CommandSet.find_command">
 <code class="descname">find_command</code><span class="sig-paren">(</span><em>command</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.commands.CommandSet.CommandSet.find_command" title="Permalink to this definition">¶</a></dt>
-<dd><p>Find a specific command by its name.</p>
+<dd><p>Searches for a command by its name.</p>
 <dl class="docutils">
 <dt>Args:</dt>
-<dd>command: the command name.</dd>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">param command:</th><td class="field-body">the name of the command to search for.</td>
+</tr>
+</tbody>
+</table>
+</dd>
 </dl>
-<p>Returns: found ICommand or None</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the command, whose name matches the provided name.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.commands.CommandSet.CommandSet.find_event">
 <code class="descname">find_event</code><span class="sig-paren">(</span><em>event</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.commands.CommandSet.CommandSet.find_event" title="Permalink to this definition">¶</a></dt>
-<dd><p>Find a specific event by its name.</p>
+<dd><p>Searches for an event by its name in this command set.</p>
 <dl class="docutils">
 <dt>Args:</dt>
-<dd>event: the event name.</dd>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">param event:</th><td class="field-body">the name of the event to search for.</td>
+</tr>
+</tbody>
+</table>
+</dd>
 </dl>
-<p>Returns: found IEvent or None</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the event, whose name matches the provided name.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.commands.CommandSet.CommandSet.get_commands">
 <code class="descname">get_commands</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.commands.CommandSet.CommandSet.get_commands" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get all supported commands
-Returns: ICommand list with all commands supported by component.</p>
+<dd><p>Gets all commands registered in this command set.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">ICommand list with all commands supported by component.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.commands.CommandSet.CommandSet.get_events">
 <code class="descname">get_events</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.commands.CommandSet.CommandSet.get_events" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get all supported events
-Returns: ICommand list with all events supported by component.</p>
+<dd><p>Gets all events registered in this command set.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">ICommand list with all events supported by component.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.commands.CommandSet.CommandSet.notify">
 <code class="descname">notify</code><span class="sig-paren">(</span><em>correlation_id</em>, <em>event</em>, <em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.commands.CommandSet.CommandSet.notify" title="Permalink to this definition">¶</a></dt>
-<dd><p>Notifies all listeners about the event.</p>
+<dd><p>Fires event specified by its name and notifies all registered
+IEventListener listeners</p>
 <dl class="docutils">
 <dt>Args:</dt>
-<dd>correlation_id: a unique correlation/transaction id
-event: an event name
-value: an event value</dd>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">param correlation_id:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">(optional) transaction id to trace execution through call chain.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">param event:</th><td class="field-body">the name of the event that is to be fired.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">param value:</th><td class="field-body">the event arguments (parameters).</td>
+</tr>
+</tbody>
+</table>
+</dd>
 </dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.commands.CommandSet.CommandSet.remove_listener">
 <code class="descname">remove_listener</code><span class="sig-paren">(</span><em>listener</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.commands.CommandSet.CommandSet.remove_listener" title="Permalink to this definition">¶</a></dt>
-<dd><p>Remove listener to all events.</p>
+<dd><p>Removes previosly added IEventListener listener.</p>
 <dl class="docutils">
 <dt>Args:</dt>
-<dd>listener: a listener to be removed</dd>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">param listener:</th><td class="field-body">a listener to be removed</td>
+</tr>
+</tbody>
+</table>
+</dd>
 </dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.commands.CommandSet.CommandSet.validate">
 <code class="descname">validate</code><span class="sig-paren">(</span><em>command</em>, <em>args</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.commands.CommandSet.CommandSet.validate" title="Permalink to this definition">¶</a></dt>
-<dd><p>Validates command arguments.</p>
+<dd><p>Validates Parameters args for command specified by its name using defined schema.
+If validation schema is not defined than the methods returns no errors.
+It returns validation error if the command is not found.</p>
 <dl class="docutils">
 <dt>Args:</dt>
-<dd>command: the command name.
-args: a list of command arguments.</dd>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">param command:</th><td class="field-body">the name of the command for which the ‘args’ must be validated.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">param args:</th><td class="field-body">the parameters (arguments) to validate.</td>
+</tr>
+</tbody>
+</table>
+</dd>
 </dl>
-<p>Returns: list with validation results</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">an array of ValidationResults. If no command is found by the given
+name, then the returned array of ValidationResults will contain a
+single entry, whose type will be ValidationResultType.Error.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </dd></dl>

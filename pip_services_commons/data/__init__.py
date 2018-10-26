@@ -3,9 +3,11 @@
     pip_services_commons.data.__init__
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     
-    Data module initialization
+    Abstract, portable data types. For example – anytype, anyvalues, anyarrays, anymaps, stringmaps
+    (on which many serializable objects are based on – configmap, filtermaps, connectionparams – all
+    extend stringvaluemap). Includes standard design patterns for working with data (data paging, filtering, GUIDs).
     
-    :copyright: Conceptual Vision Consulting LLC 2015-2016, see AUTHORS for more details.
+    :copyright: Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.
     :license: MIT, see LICENSE for more details.
 """
 
@@ -14,7 +16,7 @@ __all__ = [
     'INamed', 'ITrackable', 'IVersioned', 'MultiString',
     'DataPage', 'FilterParams', 'SortField', 'SortParams',
     'PagingParams', 'IdGenerator', 'AnyValue',
-    'AnyValueArray', 'AnyValueMap', 'StringValueMap'
+    'AnyValueArray', 'AnyValueMap', 'StringValueMap', 'ProjectionParams'
 ]
 
 from .IIdentifiable import IIdentifiable
@@ -34,3 +36,4 @@ from .AnyValue import AnyValue
 from .AnyValueArray import AnyValueArray
 from .AnyValueMap import AnyValueMap
 from .StringValueMap import StringValueMap
+from .ProjectionParams import ProjectionParams

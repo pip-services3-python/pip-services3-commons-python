@@ -5,14 +5,28 @@
     
     Map conversion utilities
     
-    :copyright: Conceptual Vision Consulting LLC 2015-2016, see AUTHORS for more details.
+    :copyright: Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.
     :license: MIT, see LICENSE for more details.
 """
 
-class MapConverter(object):
+class MapConverter():
+    """
+    Converts arbitrary values into map objects using extended conversion rules:
+    - Objects: property names as keys, property values as values
+    - Arrays: element indexes as keys, elements as values
 
+    Example:
+        value1 = MapConverter.to_nullable_map("ABC") // Result: None
+        value2 = MapConverter.to_nullable_map({ key: 123 }) // Result: { key: 123 }
+        value3 = MapConverter.to_nullable_map([1,2,3]) // Result: { "0": 1, "1": 2, "2": 3 }
+    """
     @staticmethod
     def to_nullable_map(value):
+        """
+        Converts value into map object or returns null when conversion is not possible.
+        :param value: the value to convert.
+        :return: map object or null when conversion is not supported.
+        """
         if isinstance(value, dict):
             return value
         elif hasattr(value, "_ast"):
@@ -34,14 +48,25 @@ class MapConverter(object):
         else:
             return None
 
-        return MapConverter._value_to_map(value)
+        #return MapConverter.to_map(value)
 
     @staticmethod
     def to_map(value):
+        """
+        Converts value into map object or returns empty map when conversion is not possible
+        :param value: the value to convert.
+        :return: map object or empty map when conversion is not supported.
+        """
         result = MapConverter.to_nullable_map(value)
         return result if result != None else {}
 
     @staticmethod
     def to_map_with_default(value, default_value):
+        """
+        Converts value into map object or returns default when conversion is not possible
+        :param value: the value to convert.
+        :param default_value: the default value.
+        :return: map object or emptu map when conversion is not supported.
+        """
         result = MapConverter.to_nullable_map(value)
         return result if result != None else default_value

@@ -1,0 +1,550 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>pip_services_commons.validate package &#8212; Pip.Services Commons for Python API</title>
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Pip.Services Commons for Python API</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="pip-services-commons-validate-package">
+<h1>pip_services_commons.validate package<a class="headerlink" href="#pip-services-commons-validate-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="pip_services_commons.validate.AndRule.html">pip_services_commons.validate.AndRule module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pip_services_commons.validate.AndRule.html#pip-services-commons-validate-andrule">pip_services_commons.validate.AndRule</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pip_services_commons.validate.ArraySchema.html">pip_services_commons.validate.ArraySchema module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pip_services_commons.validate.ArraySchema.html#pip-services-commons-validate-arrayschema">pip_services_commons.validate.ArraySchema</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pip_services_commons.validate.AtLeastOneExistRule.html">pip_services_commons.validate.AtLeastOneExistRule module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pip_services_commons.validate.AtLeastOneExistRule.html#pip-services-commons-validate-atleastoneexistrule">pip_services_commons.validate.AtLeastOneExistRule</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pip_services_commons.validate.ExcludedRule.html">pip_services_commons.validate.ExcludedRule module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pip_services_commons.validate.ExcludedRule.html#pip-services-commons-validate-excludedrule">pip_services_commons.validate.ExcludedRule</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pip_services_commons.validate.FilterParamsSchema.html">pip_services_commons.validate.FilterParamsSchema module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pip_services_commons.validate.FilterParamsSchema.html#pip-services-commons-validate-filterparamsschema">pip_services_commons.validate.FilterParamsSchema</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pip_services_commons.validate.IValidationRule.html">pip_services_commons.validate.IValidationRule module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pip_services_commons.validate.IValidationRule.html#pip-services-commons-validate-ivalidationrule">pip_services_commons.validate.IValidationRule</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pip_services_commons.validate.IncludedRule.html">pip_services_commons.validate.IncludedRule module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pip_services_commons.validate.IncludedRule.html#pip-services-commons-validate-includedrule">pip_services_commons.validate.IncludedRule</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pip_services_commons.validate.MapSchema.html">pip_services_commons.validate.MapSchema module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pip_services_commons.validate.MapSchema.html#pip-services-commons-validate-mapschema">pip_services_commons.validate.MapSchema</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pip_services_commons.validate.NotRule.html">pip_services_commons.validate.NotRule module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pip_services_commons.validate.NotRule.html#pip-services-commons-validate-notrule">pip_services_commons.validate.NotRule</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pip_services_commons.validate.ObjectComparator.html">pip_services_commons.validate.ObjectComparator module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pip_services_commons.validate.ObjectComparator.html#pip-services-commons-validate-objectcomparator">pip_services_commons.validate.ObjectComparator</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pip_services_commons.validate.ObjectSchema.html">pip_services_commons.validate.ObjectSchema module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pip_services_commons.validate.ObjectSchema.html#pip-services-commons-validate-objectschema">pip_services_commons.validate.ObjectSchema</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pip_services_commons.validate.OnlyOneExistRule.html">pip_services_commons.validate.OnlyOneExistRule module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pip_services_commons.validate.OnlyOneExistRule.html#pip-services-commons-validate-onlyoneexistrule">pip_services_commons.validate.OnlyOneExistRule</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pip_services_commons.validate.OrRule.html">pip_services_commons.validate.OrRule module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pip_services_commons.validate.OrRule.html#pip-services-commons-validate-orrule">pip_services_commons.validate.OrRule</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pip_services_commons.validate.PagingParamsSchema.html">pip_services_commons.validate.PagingParamsSchema module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pip_services_commons.validate.PagingParamsSchema.html#pip-services-commons-validate-pagingparamsschema">pip_services_commons.validate.PagingParamsSchema</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pip_services_commons.validate.PropertiesComparisonRule.html">pip_services_commons.validate.PropertiesComparisonRule module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pip_services_commons.validate.PropertiesComparisonRule.html#pip-services-commons-validate-propertiescomparisonrule">pip_services_commons.validate.PropertiesComparisonRule</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pip_services_commons.validate.PropertySchema.html">pip_services_commons.validate.PropertySchema module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pip_services_commons.validate.PropertySchema.html#pip-services-commons-validate-propertyschema">pip_services_commons.validate.PropertySchema</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pip_services_commons.validate.Schema.html">pip_services_commons.validate.Schema module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pip_services_commons.validate.Schema.html#pip-services-commons-validate-schema">pip_services_commons.validate.Schema</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pip_services_commons.validate.ValidationException.html">pip_services_commons.validate.ValidationException module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pip_services_commons.validate.ValidationException.html#pip-services-common-validate-validationexception">pip_services_common.validate.ValidationException</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pip_services_commons.validate.ValidationResult.html">pip_services_commons.validate.ValidationResult module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pip_services_commons.validate.ValidationResult.html#pip-services-commons-validate-validationresult">pip_services_commons.validate.ValidationResult</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pip_services_commons.validate.ValidationResultType.html">pip_services_commons.validate.ValidationResultType module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pip_services_commons.validate.ValidationResultType.html#pip-services-commons-validate-validationresulttype">pip_services_commons.validate.ValidationResultType</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pip_services_commons.validate.ValueComparisonRule.html">pip_services_commons.validate.ValueComparisonRule module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pip_services_commons.validate.ValueComparisonRule.html#pip-services-commons-validate-valuecomparisonrule">pip_services_commons.validate.ValueComparisonRule</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="module-pip_services_commons.validate">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-pip_services_commons.validate" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="pip-services-commons-validate-init">
+<h3>pip_services_commons.validate.__init__<a class="headerlink" href="#pip-services-commons-validate-init" title="Permalink to this headline">¶</a></h3>
+<p>Data validation module initialization</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">copyright:</th><td class="field-body">Conceptual Vision Consulting LLC 2015-2016, see AUTHORS for more details.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">license:</th><td class="field-body">MIT, see LICENSE for more details.</td>
+</tr>
+</tbody>
+</table>
+<dl class="class">
+<dt id="pip_services_commons.validate.ValidationResultType">
+<em class="property">class </em><code class="descclassname">pip_services_commons.validate.</code><code class="descname">ValidationResultType</code><a class="headerlink" href="#pip_services_commons.validate.ValidationResultType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="pip_services_commons.validate.ValidationResultType.Error">
+<code class="descname">Error</code><em class="property"> = 2</em><a class="headerlink" href="#pip_services_commons.validate.ValidationResultType.Error" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pip_services_commons.validate.ValidationResultType.Information">
+<code class="descname">Information</code><em class="property"> = 0</em><a class="headerlink" href="#pip_services_commons.validate.ValidationResultType.Information" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pip_services_commons.validate.ValidationResultType.Warning">
+<code class="descname">Warning</code><em class="property"> = 1</em><a class="headerlink" href="#pip_services_commons.validate.ValidationResultType.Warning" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pip_services_commons.validate.ValidationResult">
+<em class="property">class </em><code class="descclassname">pip_services_commons.validate.</code><code class="descname">ValidationResult</code><span class="sig-paren">(</span><em>path=None</em>, <em>type=None</em>, <em>code=None</em>, <em>message=None</em>, <em>expected=None</em>, <em>actual=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.validate.ValidationResult" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="pip_services_commons.validate.ValidationResult.actual">
+<code class="descname">actual</code><em class="property"> = None</em><a class="headerlink" href="#pip_services_commons.validate.ValidationResult.actual" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pip_services_commons.validate.ValidationResult.code">
+<code class="descname">code</code><em class="property"> = None</em><a class="headerlink" href="#pip_services_commons.validate.ValidationResult.code" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pip_services_commons.validate.ValidationResult.expected">
+<code class="descname">expected</code><em class="property"> = None</em><a class="headerlink" href="#pip_services_commons.validate.ValidationResult.expected" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pip_services_commons.validate.ValidationResult.message">
+<code class="descname">message</code><em class="property"> = None</em><a class="headerlink" href="#pip_services_commons.validate.ValidationResult.message" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pip_services_commons.validate.ValidationResult.path">
+<code class="descname">path</code><em class="property"> = None</em><a class="headerlink" href="#pip_services_commons.validate.ValidationResult.path" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pip_services_commons.validate.ValidationResult.type">
+<code class="descname">type</code><em class="property"> = None</em><a class="headerlink" href="#pip_services_commons.validate.ValidationResult.type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="exception">
+<dt id="pip_services_commons.validate.ValidationException">
+<em class="property">exception </em><code class="descclassname">pip_services_commons.validate.</code><code class="descname">ValidationException</code><span class="sig-paren">(</span><em>correlation_id</em>, <em>results</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.validate.ValidationException" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="pip_services_commons.errors.BadRequestException.html#pip_services_commons.errors.BadRequestException.BadRequestException" title="pip_services_commons.errors.BadRequestException.BadRequestException"><code class="xref py py-class docutils literal notranslate"><span class="pre">pip_services_commons.errors.BadRequestException.BadRequestException</span></code></a></p>
+<dl class="staticmethod">
+<dt id="pip_services_commons.validate.ValidationException.compose_message">
+<em class="property">static </em><code class="descname">compose_message</code><span class="sig-paren">(</span><em>results</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.validate.ValidationException.compose_message" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="pip_services_commons.validate.ValidationException.throw_exception_if_needed">
+<em class="property">static </em><code class="descname">throw_exception_if_needed</code><span class="sig-paren">(</span><em>correlation_id</em>, <em>results</em>, <em>strict</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.validate.ValidationException.throw_exception_if_needed" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pip_services_commons.validate.IValidationRule">
+<em class="property">class </em><code class="descclassname">pip_services_commons.validate.</code><code class="descname">IValidationRule</code><a class="headerlink" href="#pip_services_commons.validate.IValidationRule" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="method">
+<dt id="pip_services_commons.validate.IValidationRule.validate">
+<code class="descname">validate</code><span class="sig-paren">(</span><em>path</em>, <em>schema</em>, <em>value</em>, <em>results</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.validate.IValidationRule.validate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pip_services_commons.validate.AndRule">
+<em class="property">class </em><code class="descclassname">pip_services_commons.validate.</code><code class="descname">AndRule</code><span class="sig-paren">(</span><em>*rules</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.validate.AndRule" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="pip_services_commons.validate.IValidationRule.html#pip_services_commons.validate.IValidationRule.IValidationRule" title="pip_services_commons.validate.IValidationRule.IValidationRule"><code class="xref py py-class docutils literal notranslate"><span class="pre">pip_services_commons.validate.IValidationRule.IValidationRule</span></code></a></p>
+<dl class="method">
+<dt id="pip_services_commons.validate.AndRule.validate">
+<code class="descname">validate</code><span class="sig-paren">(</span><em>path</em>, <em>schema</em>, <em>value</em>, <em>results</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.validate.AndRule.validate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pip_services_commons.validate.OrRule">
+<em class="property">class </em><code class="descclassname">pip_services_commons.validate.</code><code class="descname">OrRule</code><span class="sig-paren">(</span><em>*rules</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.validate.OrRule" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="pip_services_commons.validate.IValidationRule.html#pip_services_commons.validate.IValidationRule.IValidationRule" title="pip_services_commons.validate.IValidationRule.IValidationRule"><code class="xref py py-class docutils literal notranslate"><span class="pre">pip_services_commons.validate.IValidationRule.IValidationRule</span></code></a></p>
+<dl class="method">
+<dt id="pip_services_commons.validate.OrRule.validate">
+<code class="descname">validate</code><span class="sig-paren">(</span><em>path</em>, <em>schema</em>, <em>value</em>, <em>results</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.validate.OrRule.validate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pip_services_commons.validate.NotRule">
+<em class="property">class </em><code class="descclassname">pip_services_commons.validate.</code><code class="descname">NotRule</code><span class="sig-paren">(</span><em>rule</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.validate.NotRule" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="pip_services_commons.validate.IValidationRule.html#pip_services_commons.validate.IValidationRule.IValidationRule" title="pip_services_commons.validate.IValidationRule.IValidationRule"><code class="xref py py-class docutils literal notranslate"><span class="pre">pip_services_commons.validate.IValidationRule.IValidationRule</span></code></a></p>
+<dl class="method">
+<dt id="pip_services_commons.validate.NotRule.validate">
+<code class="descname">validate</code><span class="sig-paren">(</span><em>path</em>, <em>schema</em>, <em>value</em>, <em>results</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.validate.NotRule.validate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pip_services_commons.validate.ObjectComparator">
+<em class="property">class </em><code class="descclassname">pip_services_commons.validate.</code><code class="descname">ObjectComparator</code><a class="headerlink" href="#pip_services_commons.validate.ObjectComparator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="staticmethod">
+<dt id="pip_services_commons.validate.ObjectComparator.are_equal">
+<em class="property">static </em><code class="descname">are_equal</code><span class="sig-paren">(</span><em>value1</em>, <em>value2</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.validate.ObjectComparator.are_equal" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="pip_services_commons.validate.ObjectComparator.are_not_equal">
+<em class="property">static </em><code class="descname">are_not_equal</code><span class="sig-paren">(</span><em>value1</em>, <em>value2</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.validate.ObjectComparator.are_not_equal" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="pip_services_commons.validate.ObjectComparator.compare">
+<em class="property">static </em><code class="descname">compare</code><span class="sig-paren">(</span><em>value1</em>, <em>operation</em>, <em>value2</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.validate.ObjectComparator.compare" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="pip_services_commons.validate.ObjectComparator.less">
+<em class="property">static </em><code class="descname">less</code><span class="sig-paren">(</span><em>value1</em>, <em>value2</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.validate.ObjectComparator.less" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="pip_services_commons.validate.ObjectComparator.match">
+<em class="property">static </em><code class="descname">match</code><span class="sig-paren">(</span><em>value1</em>, <em>value2</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.validate.ObjectComparator.match" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="pip_services_commons.validate.ObjectComparator.more">
+<em class="property">static </em><code class="descname">more</code><span class="sig-paren">(</span><em>value1</em>, <em>value2</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.validate.ObjectComparator.more" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pip_services_commons.validate.ValueComparisonRule">
+<em class="property">class </em><code class="descclassname">pip_services_commons.validate.</code><code class="descname">ValueComparisonRule</code><span class="sig-paren">(</span><em>operation</em>, <em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.validate.ValueComparisonRule" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="pip_services_commons.validate.IValidationRule.html#pip_services_commons.validate.IValidationRule.IValidationRule" title="pip_services_commons.validate.IValidationRule.IValidationRule"><code class="xref py py-class docutils literal notranslate"><span class="pre">pip_services_commons.validate.IValidationRule.IValidationRule</span></code></a></p>
+<dl class="method">
+<dt id="pip_services_commons.validate.ValueComparisonRule.validate">
+<code class="descname">validate</code><span class="sig-paren">(</span><em>path</em>, <em>schema</em>, <em>value</em>, <em>results</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.validate.ValueComparisonRule.validate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pip_services_commons.validate.PropertiesComparisonRule">
+<em class="property">class </em><code class="descclassname">pip_services_commons.validate.</code><code class="descname">PropertiesComparisonRule</code><span class="sig-paren">(</span><em>property1</em>, <em>operation</em>, <em>property2</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.validate.PropertiesComparisonRule" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="pip_services_commons.validate.IValidationRule.html#pip_services_commons.validate.IValidationRule.IValidationRule" title="pip_services_commons.validate.IValidationRule.IValidationRule"><code class="xref py py-class docutils literal notranslate"><span class="pre">pip_services_commons.validate.IValidationRule.IValidationRule</span></code></a></p>
+<dl class="method">
+<dt id="pip_services_commons.validate.PropertiesComparisonRule.validate">
+<code class="descname">validate</code><span class="sig-paren">(</span><em>path</em>, <em>schema</em>, <em>value</em>, <em>results</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.validate.PropertiesComparisonRule.validate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pip_services_commons.validate.OnlyOneExistRule">
+<em class="property">class </em><code class="descclassname">pip_services_commons.validate.</code><code class="descname">OnlyOneExistRule</code><span class="sig-paren">(</span><em>*properties</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.validate.OnlyOneExistRule" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="pip_services_commons.validate.IValidationRule.html#pip_services_commons.validate.IValidationRule.IValidationRule" title="pip_services_commons.validate.IValidationRule.IValidationRule"><code class="xref py py-class docutils literal notranslate"><span class="pre">pip_services_commons.validate.IValidationRule.IValidationRule</span></code></a></p>
+<dl class="method">
+<dt id="pip_services_commons.validate.OnlyOneExistRule.validate">
+<code class="descname">validate</code><span class="sig-paren">(</span><em>path</em>, <em>schema</em>, <em>value</em>, <em>results</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.validate.OnlyOneExistRule.validate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pip_services_commons.validate.ExcludedRule">
+<em class="property">class </em><code class="descclassname">pip_services_commons.validate.</code><code class="descname">ExcludedRule</code><span class="sig-paren">(</span><em>*values</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.validate.ExcludedRule" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="pip_services_commons.validate.IValidationRule.html#pip_services_commons.validate.IValidationRule.IValidationRule" title="pip_services_commons.validate.IValidationRule.IValidationRule"><code class="xref py py-class docutils literal notranslate"><span class="pre">pip_services_commons.validate.IValidationRule.IValidationRule</span></code></a></p>
+<dl class="method">
+<dt id="pip_services_commons.validate.ExcludedRule.validate">
+<code class="descname">validate</code><span class="sig-paren">(</span><em>path</em>, <em>schema</em>, <em>value</em>, <em>results</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.validate.ExcludedRule.validate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pip_services_commons.validate.IncludedRule">
+<em class="property">class </em><code class="descclassname">pip_services_commons.validate.</code><code class="descname">IncludedRule</code><span class="sig-paren">(</span><em>*values</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.validate.IncludedRule" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="pip_services_commons.validate.IValidationRule.html#pip_services_commons.validate.IValidationRule.IValidationRule" title="pip_services_commons.validate.IValidationRule.IValidationRule"><code class="xref py py-class docutils literal notranslate"><span class="pre">pip_services_commons.validate.IValidationRule.IValidationRule</span></code></a></p>
+<dl class="method">
+<dt id="pip_services_commons.validate.IncludedRule.validate">
+<code class="descname">validate</code><span class="sig-paren">(</span><em>path</em>, <em>schema</em>, <em>value</em>, <em>results</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.validate.IncludedRule.validate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pip_services_commons.validate.Schema">
+<em class="property">class </em><code class="descclassname">pip_services_commons.validate.</code><code class="descname">Schema</code><span class="sig-paren">(</span><em>required=False</em>, <em>rules=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.validate.Schema" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="method">
+<dt id="pip_services_commons.validate.Schema.make_optional">
+<code class="descname">make_optional</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.validate.Schema.make_optional" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pip_services_commons.validate.Schema.make_required">
+<code class="descname">make_required</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.validate.Schema.make_required" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pip_services_commons.validate.Schema.required">
+<code class="descname">required</code><em class="property"> = None</em><a class="headerlink" href="#pip_services_commons.validate.Schema.required" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pip_services_commons.validate.Schema.rules">
+<code class="descname">rules</code><em class="property"> = None</em><a class="headerlink" href="#pip_services_commons.validate.Schema.rules" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pip_services_commons.validate.Schema.validate">
+<code class="descname">validate</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.validate.Schema.validate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pip_services_commons.validate.Schema.validate_and_throw_exception">
+<code class="descname">validate_and_throw_exception</code><span class="sig-paren">(</span><em>correlation_id</em>, <em>value</em>, <em>strict=False</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.validate.Schema.validate_and_throw_exception" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pip_services_commons.validate.Schema.with_rule">
+<code class="descname">with_rule</code><span class="sig-paren">(</span><em>rule</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.validate.Schema.with_rule" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pip_services_commons.validate.PropertySchema">
+<em class="property">class </em><code class="descclassname">pip_services_commons.validate.</code><code class="descname">PropertySchema</code><span class="sig-paren">(</span><em>name=None</em>, <em>value_type=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.validate.PropertySchema" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="pip_services_commons.validate.Schema.html#pip_services_commons.validate.Schema.Schema" title="pip_services_commons.validate.Schema.Schema"><code class="xref py py-class docutils literal notranslate"><span class="pre">pip_services_commons.validate.Schema.Schema</span></code></a></p>
+<dl class="attribute">
+<dt id="pip_services_commons.validate.PropertySchema.name">
+<code class="descname">name</code><em class="property"> = None</em><a class="headerlink" href="#pip_services_commons.validate.PropertySchema.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pip_services_commons.validate.PropertySchema.value_type">
+<code class="descname">value_type</code><em class="property"> = None</em><a class="headerlink" href="#pip_services_commons.validate.PropertySchema.value_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pip_services_commons.validate.ObjectSchema">
+<em class="property">class </em><code class="descclassname">pip_services_commons.validate.</code><code class="descname">ObjectSchema</code><a class="headerlink" href="#pip_services_commons.validate.ObjectSchema" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="pip_services_commons.validate.Schema.html#pip_services_commons.validate.Schema.Schema" title="pip_services_commons.validate.Schema.Schema"><code class="xref py py-class docutils literal notranslate"><span class="pre">pip_services_commons.validate.Schema.Schema</span></code></a></p>
+<dl class="method">
+<dt id="pip_services_commons.validate.ObjectSchema.allow_undefined">
+<code class="descname">allow_undefined</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.validate.ObjectSchema.allow_undefined" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pip_services_commons.validate.ObjectSchema.is_allow_undefined">
+<code class="descname">is_allow_undefined</code><em class="property"> = None</em><a class="headerlink" href="#pip_services_commons.validate.ObjectSchema.is_allow_undefined" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pip_services_commons.validate.ObjectSchema.properties">
+<code class="descname">properties</code><em class="property"> = None</em><a class="headerlink" href="#pip_services_commons.validate.ObjectSchema.properties" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pip_services_commons.validate.ObjectSchema.with_optional_property">
+<code class="descname">with_optional_property</code><span class="sig-paren">(</span><em>name</em>, <em>typ</em>, <em>*rules</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.validate.ObjectSchema.with_optional_property" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pip_services_commons.validate.ObjectSchema.with_property">
+<code class="descname">with_property</code><span class="sig-paren">(</span><em>schema</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.validate.ObjectSchema.with_property" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pip_services_commons.validate.ObjectSchema.with_required_property">
+<code class="descname">with_required_property</code><span class="sig-paren">(</span><em>name</em>, <em>typ</em>, <em>*rules</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.validate.ObjectSchema.with_required_property" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pip_services_commons.validate.ArraySchema">
+<em class="property">class </em><code class="descclassname">pip_services_commons.validate.</code><code class="descname">ArraySchema</code><span class="sig-paren">(</span><em>value_type</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.validate.ArraySchema" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="pip_services_commons.validate.Schema.html#pip_services_commons.validate.Schema.Schema" title="pip_services_commons.validate.Schema.Schema"><code class="xref py py-class docutils literal notranslate"><span class="pre">pip_services_commons.validate.Schema.Schema</span></code></a></p>
+<dl class="attribute">
+<dt id="pip_services_commons.validate.ArraySchema.value_type">
+<code class="descname">value_type</code><em class="property"> = None</em><a class="headerlink" href="#pip_services_commons.validate.ArraySchema.value_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pip_services_commons.validate.MapSchema">
+<em class="property">class </em><code class="descclassname">pip_services_commons.validate.</code><code class="descname">MapSchema</code><span class="sig-paren">(</span><em>key_type=None</em>, <em>value_type=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.validate.MapSchema" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="pip_services_commons.validate.Schema.html#pip_services_commons.validate.Schema.Schema" title="pip_services_commons.validate.Schema.Schema"><code class="xref py py-class docutils literal notranslate"><span class="pre">pip_services_commons.validate.Schema.Schema</span></code></a></p>
+<dl class="attribute">
+<dt id="pip_services_commons.validate.MapSchema.key_type">
+<code class="descname">key_type</code><em class="property"> = None</em><a class="headerlink" href="#pip_services_commons.validate.MapSchema.key_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pip_services_commons.validate.MapSchema.value_type">
+<code class="descname">value_type</code><em class="property"> = None</em><a class="headerlink" href="#pip_services_commons.validate.MapSchema.value_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pip_services_commons.validate.FilterParamsSchema">
+<em class="property">class </em><code class="descclassname">pip_services_commons.validate.</code><code class="descname">FilterParamsSchema</code><a class="headerlink" href="#pip_services_commons.validate.FilterParamsSchema" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="pip_services_commons.validate.MapSchema.html#pip_services_commons.validate.MapSchema.MapSchema" title="pip_services_commons.validate.MapSchema.MapSchema"><code class="xref py py-class docutils literal notranslate"><span class="pre">pip_services_commons.validate.MapSchema.MapSchema</span></code></a></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="pip_services_commons.validate.PagingParamsSchema">
+<em class="property">class </em><code class="descclassname">pip_services_commons.validate.</code><code class="descname">PagingParamsSchema</code><a class="headerlink" href="#pip_services_commons.validate.PagingParamsSchema" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="pip_services_commons.validate.ObjectSchema.html#pip_services_commons.validate.ObjectSchema.ObjectSchema" title="pip_services_commons.validate.ObjectSchema.ObjectSchema"><code class="xref py py-class docutils literal notranslate"><span class="pre">pip_services_commons.validate.ObjectSchema.ObjectSchema</span></code></a></p>
+</dd></dl>
+
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">pip_services_commons.validate package</a><ul>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-pip_services_commons.validate">Module contents</a><ul>
+<li><a class="reference internal" href="#pip-services-commons-validate-init">pip_services_commons.validate.__init__</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/pip_services_commons.validate.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Pip.Services Commons for Python API</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2018, Conceptual Vision Consulting LLC.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.1.
+    </div>
+  </body>
+</html>
