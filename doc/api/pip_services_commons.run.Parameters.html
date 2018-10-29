@@ -46,7 +46,7 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">copyright:</th><td class="field-body">Conceptual Vision Consulting LLC 2015-2016, see AUTHORS for more details.</td>
+<tr class="field-odd field"><th class="field-name">copyright:</th><td class="field-body">Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">license:</th><td class="field-body">MIT, see LICENSE for more details.</td>
 </tr>
@@ -56,102 +56,155 @@
 <dt id="pip_services_commons.run.Parameters.Parameters">
 <em class="property">class </em><code class="descclassname">pip_services_commons.run.Parameters.</code><code class="descname">Parameters</code><span class="sig-paren">(</span><em>map=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.run.Parameters.Parameters" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="pip_services_commons.data.AnyValueMap.html#pip_services_commons.data.AnyValueMap.AnyValueMap" title="pip_services_commons.data.AnyValueMap.AnyValueMap"><code class="xref py py-class docutils literal notranslate"><span class="pre">pip_services_commons.data.AnyValueMap.AnyValueMap</span></code></a></p>
+<p>Contains map with execution parameters.</p>
+<p>In general, this map may contain non-serializable values.
+And in contrast with other maps, its getters and setters
+support dot notation and able to access properties in the entire object graph.</p>
+<p>This class is often use to pass execution and notification
+arguments, and parameterize classes before execution.</p>
 <dl class="method">
 <dt id="pip_services_commons.run.Parameters.Parameters.assign_to">
 <code class="descname">assign_to</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.run.Parameters.Parameters.assign_to" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Assigns (copies over) properties from the specified value to this map.</p>
+<p>:param value:value whose properties shall be copied over.</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.run.Parameters.Parameters.contains_key">
 <code class="descname">contains_key</code><span class="sig-paren">(</span><em>key</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.run.Parameters.Parameters.contains_key" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Checks if this map contains an element with specified key.</p>
+<p>The key can be defined using dot notation
+and allows to recursively access elements of elements.</p>
+<p>:param key:a key to be checked</p>
+<p>:return:true if this map contains the key or false otherwise.</p>
+</dd></dl>
 
 <dl class="staticmethod">
 <dt id="pip_services_commons.run.Parameters.Parameters.from_config">
 <em class="property">static </em><code class="descname">from_config</code><span class="sig-paren">(</span><em>config</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.run.Parameters.Parameters.from_config" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Creates new Parameters from ConfigMap object.</p>
+<p>:param config:a ConfigParams that contain parameters.</p>
+<p>:return:a new Parameters object.</p>
+</dd></dl>
 
 <dl class="staticmethod">
 <dt id="pip_services_commons.run.Parameters.Parameters.from_json">
 <em class="property">static </em><code class="descname">from_json</code><span class="sig-paren">(</span><em>json</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.run.Parameters.Parameters.from_json" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Creates new Parameters from JSON object.</p>
+<p>:param json:a JSON string containing parameters.</p>
+<p>:return:a new Parameters object.</p>
+</dd></dl>
 
 <dl class="staticmethod">
 <dt id="pip_services_commons.run.Parameters.Parameters.from_tuples">
 <em class="property">static </em><code class="descname">from_tuples</code><span class="sig-paren">(</span><em>*tuples</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.run.Parameters.Parameters.from_tuples" title="Permalink to this definition">¶</a></dt>
-<dd><p>Creates a new AnyValueMap from a list of key-value pairs called tuples.
-:param tuples: a list of values where odd elements are keys and the following even elements are values
-:return:a newly created AnyValueMap.</p>
+<dd><p>Creates a new Parameters object filled with provided key-value pairs called tuples.
+Tuples parameters contain a sequence of key1, value1, key2, value2, … pairs.</p>
+<p>:param tuples:the tuples to fill a new Parameters object.</p>
+<p>:return:a new Parameters object.</p>
 </dd></dl>
 
 <dl class="staticmethod">
 <dt id="pip_services_commons.run.Parameters.Parameters.from_value">
 <em class="property">static </em><code class="descname">from_value</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.run.Parameters.Parameters.from_value" title="Permalink to this definition">¶</a></dt>
-<dd><p>Converts specified value into AnyValueMap.
-:param value:value to be converted
-:return:a newly created AnyValueMap.</p>
+<dd><p>Creates a new Parameters object filled with key-value pairs from specified object.</p>
+<p>:param value:an object with key-value pairs used to initialize a new Parameters.</p>
+<p>:return:a new Parameters object.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.run.Parameters.Parameters.get">
 <code class="descname">get</code><span class="sig-paren">(</span><em>key</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.run.Parameters.Parameters.get" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gets a map element specified by its key.
-:param key: a key of the element to get.
-:return:the value of the map element.</p>
+<dd><p>Gets a map element specified by its key.</p>
+<p>The key can be defined using dot notation
+and allows to recursively access elements of elements.</p>
+<p>:param key:a key of the element to get.</p>
+<p>:return:the value of the map element.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.run.Parameters.Parameters.get_as_nullable_parameters">
 <code class="descname">get_as_nullable_parameters</code><span class="sig-paren">(</span><em>key</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.run.Parameters.Parameters.get_as_nullable_parameters" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Converts map element into an Parameters or returns null if conversion is not possible.</p>
+<p>:param key:a key of element to get.</p>
+<p>:return:Parameters value of the element or null if conversion is not supported.</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.run.Parameters.Parameters.get_as_parameters">
 <code class="descname">get_as_parameters</code><span class="sig-paren">(</span><em>key</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.run.Parameters.Parameters.get_as_parameters" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Converts map element into an Parameters or returns empty Parameters if conversion is not possible.</p>
+<p>:param key:a key of element to get.</p>
+<p>:return:Parameters value of the element or empty Parameters if conversion is not supported.</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.run.Parameters.Parameters.get_as_parameters_with_default">
 <code class="descname">get_as_parameters_with_default</code><span class="sig-paren">(</span><em>key</em>, <em>default_value</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.run.Parameters.Parameters.get_as_parameters_with_default" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Converts map element into an Parameters or returns default value if conversion is not possible.</p>
+<p>:param key:a key of element to get.</p>
+<p>:param default_value:the default value</p>
+<p>:return:Parameters value of the element or default value if conversion is not supported.</p>
+</dd></dl>
 
 <dl class="staticmethod">
 <dt id="pip_services_commons.run.Parameters.Parameters.merge_params">
 <em class="property">static </em><code class="descname">merge_params</code><span class="sig-paren">(</span><em>*parameters</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.run.Parameters.Parameters.merge_params" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Merges two or more Parameters into one. The following Parameters override previously defined parameters.</p>
+<p>:param parameters:a list of Parameters objects to be merged.</p>
+<p>:return:a new Parameters object.</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.run.Parameters.Parameters.omit">
 <code class="descname">omit</code><span class="sig-paren">(</span><em>*props</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.run.Parameters.Parameters.omit" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Omits selected parameters from this Parameters and returns the rest as a new Parameters object.</p>
+<p>:param props:keys to be omitted from copying over to new Parameters.</p>
+<p>:return:a new Parameters object.</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.run.Parameters.Parameters.override">
 <code class="descname">override</code><span class="sig-paren">(</span><em>parameters</em>, <em>recursive=False</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.run.Parameters.Parameters.override" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Overrides parameters with new values from specified Parameters and returns a new Parameters object.</p>
+<p>:param parameters:Parameters with parameters to override the current values.</p>
+<p>:param recursive:(optional) true to perform deep copy, and false for shallow copy. Default: false</p>
+<p>:return:a new Parameters object.</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.run.Parameters.Parameters.pick">
 <code class="descname">pick</code><span class="sig-paren">(</span><em>*props</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.run.Parameters.Parameters.pick" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Picks select parameters from this Parameters and returns them as a new Parameters object.</p>
+<p>:param props:keys to be picked and copied over to new Parameters.</p>
+<p>:return:a new Parameters object.</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.run.Parameters.Parameters.put">
 <code class="descname">put</code><span class="sig-paren">(</span><em>key</em>, <em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.run.Parameters.Parameters.put" title="Permalink to this definition">¶</a></dt>
-<dd><p>Puts a new value into map element specified by its key.
-:param key:a key of the element to put.
-:param value:a new value for map element.</p>
+<dd><p>Puts a new value into map element specified by its key.</p>
+<p>The key can be defined using dot notation
+and allows to recursively access elements of elements.</p>
+<p>:param key:a key of the element to put.</p>
+<p>:param value:a new value for map element.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.run.Parameters.Parameters.set_defaults">
 <code class="descname">set_defaults</code><span class="sig-paren">(</span><em>default_values</em>, <em>recursive=False</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.run.Parameters.Parameters.set_defaults" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Set default values from specified Parameters and returns a new Parameters object.</p>
+<p>:param default_values:Parameters with default parameter values.</p>
+<p>:param recursive:(optional) true to perform deep copy, and false for shallow copy. Default: false</p>
+<p>:return:a new Parameters object.</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.run.Parameters.Parameters.to_json">
 <code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.run.Parameters.Parameters.to_json" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Converts this map to JSON object.</p>
+<p>:return:a JSON representation of this map.</p>
+</dd></dl>
 
 </dd></dl>
 

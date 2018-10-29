@@ -28,8 +28,10 @@ class ErrorDescriptionFactory(object):
     def create(ex):
         """
         Creates a serializable ErrorDescription from error object.
-        :param ex:an error object
-        :return:a serializeable ErrorDescription object that describes the error.
+
+        :param ex: an error object
+
+        :return: a serializeable ErrorDescription object that describes the error.
         """
         description = ErrorDescription()
 

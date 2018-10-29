@@ -46,7 +46,7 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">copyright:</th><td class="field-body">Conceptual Vision Consulting LLC 2015-2016, see AUTHORS for more details.</td>
+<tr class="field-odd field"><th class="field-name">copyright:</th><td class="field-body">Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">license:</th><td class="field-body">MIT, see LICENSE for more details.</td>
 </tr>
@@ -56,11 +56,27 @@
 <dt id="pip_services_commons.refer.IUnreferenceable.IUnreferenceable">
 <em class="property">class </em><code class="descclassname">pip_services_commons.refer.IUnreferenceable.</code><code class="descname">IUnreferenceable</code><a class="headerlink" href="#pip_services_commons.refer.IUnreferenceable.IUnreferenceable" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>Interface for components that require clear of references to other components</p>
+<p>Interface for components that require explicit clearing of references to dependent components.</p>
+<dl class="docutils">
+<dt>Example:</dt>
+<dd><dl class="first last docutils">
+<dt>class MyController(IReferenceable):</dt>
+<dd><p class="first">_persistence = None</p>
+<dl class="docutils">
+<dt>def set_references(self, references):</dt>
+<dd>self._persistence = references.getOneRequired(Descriptor(“mygroup”, “persistence”, “*”, “*”, “1.0”))</dd>
+<dt>def unset_references(self):</dt>
+<dd>self._persistence = None</dd>
+</dl>
+<p class="last">…</p>
+</dd>
+</dl>
+</dd>
+</dl>
 <dl class="method">
 <dt id="pip_services_commons.refer.IUnreferenceable.IUnreferenceable.unset_references">
 <code class="descname">unset_references</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.refer.IUnreferenceable.IUnreferenceable.unset_references" title="Permalink to this definition">¶</a></dt>
-<dd><p>Unsets previously set references to other components.</p>
+<dd><p>Unsets (clears) previously set references to dependent components.</p>
 </dd></dl>
 
 </dd></dl>

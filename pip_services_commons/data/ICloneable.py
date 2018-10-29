@@ -28,6 +28,7 @@ class ICloneable():
     def clone(self):
         """
         Creates a binary clone of this object.
+
         :return: a clone of this object.
         """
         pass

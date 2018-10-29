@@ -3,9 +3,11 @@
     pip_services_commons.validate.__init__
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     
-    Data validation module initialization
+    Validation frameworks exist in various languages, but since this is one of the underlying
+    functions that is incorporated into (various) other packages, we decided to implement it
+    in a portable format, for identical implementation across languages.
     
-    :copyright: Conceptual Vision Consulting LLC 2015-2016, see AUTHORS for more details.
+    :copyright: Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.
     :license: MIT, see LICENSE for more details.
 """
 

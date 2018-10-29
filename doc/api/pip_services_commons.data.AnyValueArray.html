@@ -75,130 +75,151 @@ value1.get_as_datetime(2)  // Result: datetime.datetime(2018,0,1)</dd>
 <dl class="method">
 <dt id="pip_services_commons.data.AnyValueArray.AnyValueArray.clone">
 <code class="descname">clone</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.data.AnyValueArray.AnyValueArray.clone" title="Permalink to this definition">¶</a></dt>
-<dd><p>Creates a binary clone of this object.
-:return: a clone of this object.</p>
+<dd><p>Creates a binary clone of this object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">a clone of this object.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.data.AnyValueArray.AnyValueArray.contains">
 <code class="descname">contains</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.data.AnyValueArray.AnyValueArray.contains" title="Permalink to this definition">¶</a></dt>
 <dd><p>Checks if this array contains a value.
-The check uses direct comparison between elements and the specified value.
-:param value:a value to be checked
-:return:true if this array contains the value or false otherwise.</p>
+The check uses direct comparison between elements and the specified value.</p>
+<p>:param value:a value to be checked</p>
+<p>:return:true if this array contains the value or false otherwise.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.data.AnyValueArray.AnyValueArray.contains_as_type">
 <code class="descname">contains_as_type</code><span class="sig-paren">(</span><em>value_type</em>, <em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.data.AnyValueArray.AnyValueArray.contains_as_type" title="Permalink to this definition">¶</a></dt>
 <dd><p>Checks if this array contains a value.
-The check before comparison converts elements and the value to type specified by type code.
-:param value_type:a type code that defines a type to convert values before comparison
-:param value:a value to be checked
-:return:true if this array contains the value or false otherwise.</p>
+The check before comparison converts elements and the value to type specified by type code.</p>
+<p>:param value_type:a type code that defines a type to convert values before comparison</p>
+<p>:param value:a value to be checked</p>
+<p>:return:true if this array contains the value or false otherwise.</p>
 </dd></dl>
 
 <dl class="staticmethod">
 <dt id="pip_services_commons.data.AnyValueArray.AnyValueArray.from_string">
 <em class="property">static </em><code class="descname">from_string</code><span class="sig-paren">(</span><em>values</em>, <em>separator</em>, <em>remove_duplicates=False</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.data.AnyValueArray.AnyValueArray.from_string" title="Permalink to this definition">¶</a></dt>
 <dd><p>Splits specified string into elements using a separator and assigns
-the elements to a newly created AnyValueArray.
-:param values:a string value to be split and assigned to AnyValueArray
-:param separator: a separator to split the string
-:param remove_duplicates:(optional) true to remove duplicated elements
-:return:a newly created AnyValueArray.</p>
+the elements to a newly created AnyValueArray.</p>
+<p>:param values:a string value to be split and assigned to AnyValueArray</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>separator</strong> – a separator to split the string</td>
+</tr>
+</tbody>
+</table>
+<p>:param remove_duplicates:(optional) true to remove duplicated elements</p>
+<p>:return:a newly created AnyValueArray.</p>
 </dd></dl>
 
 <dl class="staticmethod">
 <dt id="pip_services_commons.data.AnyValueArray.AnyValueArray.from_value">
 <em class="property">static </em><code class="descname">from_value</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.data.AnyValueArray.AnyValueArray.from_value" title="Permalink to this definition">¶</a></dt>
-<dd><p>Converts specified value into AnyValueArray.
-:param value:value to be converted
-:return:a newly created AnyValueArray.</p>
+<dd><p>Converts specified value into AnyValueArray.</p>
+<p>:param value:value to be converted</p>
+<p>:return:a newly created AnyValueArray.</p>
 </dd></dl>
 
 <dl class="staticmethod">
 <dt id="pip_services_commons.data.AnyValueArray.AnyValueArray.from_values">
 <em class="property">static </em><code class="descname">from_values</code><span class="sig-paren">(</span><em>*values</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.data.AnyValueArray.AnyValueArray.from_values" title="Permalink to this definition">¶</a></dt>
-<dd><p>Creates a new AnyValueArray from a list of values
-:param values:a list of values to initialize the created AnyValueArray
-:return:a newly created AnyValueArray.</p>
+<dd><p>Creates a new AnyValueArray from a list of values</p>
+<p>:param values:a list of values to initialize the created AnyValueArray</p>
+<p>:return:a newly created AnyValueArray.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.data.AnyValueArray.AnyValueArray.get_as_array">
 <code class="descname">get_as_array</code><span class="sig-paren">(</span><em>index</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.data.AnyValueArray.AnyValueArray.get_as_array" title="Permalink to this definition">¶</a></dt>
-<dd><p>Converts array element into an AnyValueArray or returns empty AnyValueArray if conversion is not possible.
-:param index: an index of element to get.
-:return:AnyValueArray value of the element or empty AnyValueArray if conversion is not supported.</p>
+<dd><p>Converts array element into an AnyValueArray or returns empty AnyValueArray if conversion is not possible.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>index</strong> – an index of element to get.</td>
+</tr>
+</tbody>
+</table>
+<p>:return:AnyValueArray value of the element or empty AnyValueArray if conversion is not supported.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.data.AnyValueArray.AnyValueArray.get_as_boolean">
 <code class="descname">get_as_boolean</code><span class="sig-paren">(</span><em>index</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.data.AnyValueArray.AnyValueArray.get_as_boolean" title="Permalink to this definition">¶</a></dt>
-<dd><p>Converts array element into a boolean or returns false if conversion is not possible.
-:param index:an index of element to get.
-:return:boolean value ot the element or false if conversion is not supported.</p>
+<dd><p>Converts array element into a boolean or returns false if conversion is not possible.</p>
+<p>:param index:an index of element to get.</p>
+<p>:return:boolean value ot the element or false if conversion is not supported.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.data.AnyValueArray.AnyValueArray.get_as_boolean_with_default">
 <code class="descname">get_as_boolean_with_default</code><span class="sig-paren">(</span><em>index</em>, <em>default_value</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.data.AnyValueArray.AnyValueArray.get_as_boolean_with_default" title="Permalink to this definition">¶</a></dt>
-<dd><p>Converts array element into a boolean or returns default value if conversion is not possible.
-:param index:an index of element to get.
-:param default_value:the default value
-:return:boolean value ot the element or default value if conversion is not supported.</p>
+<dd><p>Converts array element into a boolean or returns default value if conversion is not possible.</p>
+<p>:param index:an index of element to get.</p>
+<p>:param default_value:the default value</p>
+<p>:return:boolean value ot the element or default value if conversion is not supported.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.data.AnyValueArray.AnyValueArray.get_as_datetime">
 <code class="descname">get_as_datetime</code><span class="sig-paren">(</span><em>index</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.data.AnyValueArray.AnyValueArray.get_as_datetime" title="Permalink to this definition">¶</a></dt>
-<dd><p>Converts array element into a Date or returns the current date if conversion is not possible.
-:param index:an index of element to get.
-:return:Date value ot the element or the current date if conversion is not supported.</p>
+<dd><p>Converts array element into a Date or returns the current date if conversion is not possible.</p>
+<p>:param index:an index of element to get.</p>
+<p>:return:Date value ot the element or the current date if conversion is not supported.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.data.AnyValueArray.AnyValueArray.get_as_datetime_with_default">
 <code class="descname">get_as_datetime_with_default</code><span class="sig-paren">(</span><em>index</em>, <em>default_value</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.data.AnyValueArray.AnyValueArray.get_as_datetime_with_default" title="Permalink to this definition">¶</a></dt>
-<dd><p>Converts array element into a Date or returns default value if conversion is not possible.
-:param index:an index of element to get.
-:param default_value:the default value
-:return:Date value ot the element or default value if conversion is not supported.</p>
+<dd><p>Converts array element into a Date or returns default value if conversion is not possible.</p>
+<p>:param index:an index of element to get.</p>
+<p>:param default_value:the default value</p>
+<p>:return:Date value ot the element or default value if conversion is not supported.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.data.AnyValueArray.AnyValueArray.get_as_float">
 <code class="descname">get_as_float</code><span class="sig-paren">(</span><em>index</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.data.AnyValueArray.AnyValueArray.get_as_float" title="Permalink to this definition">¶</a></dt>
-<dd><p>Converts array element into a float or returns 0 if conversion is not possible.
-:param index:an index of element to get.
-:return:float value ot the element or 0 if conversion is not supported.</p>
+<dd><p>Converts array element into a float or returns 0 if conversion is not possible.</p>
+<p>:param index:an index of element to get.</p>
+<p>:return:float value ot the element or 0 if conversion is not supported.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.data.AnyValueArray.AnyValueArray.get_as_float_with_default">
 <code class="descname">get_as_float_with_default</code><span class="sig-paren">(</span><em>index</em>, <em>default_value</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.data.AnyValueArray.AnyValueArray.get_as_float_with_default" title="Permalink to this definition">¶</a></dt>
-<dd><p>Converts array element into a float or returns default value if conversion is not possible.
-:param index:an index of element to get.
-:param default_value:the default value
-:return:float value ot the element or default value if conversion is not supported.</p>
+<dd><p>Converts array element into a float or returns default value if conversion is not possible.</p>
+<p>:param index:an index of element to get.</p>
+<p>:param default_value:the default value</p>
+<p>:return:float value ot the element or default value if conversion is not supported.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.data.AnyValueArray.AnyValueArray.get_as_integer">
 <code class="descname">get_as_integer</code><span class="sig-paren">(</span><em>index</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.data.AnyValueArray.AnyValueArray.get_as_integer" title="Permalink to this definition">¶</a></dt>
-<dd><p>Converts array element into an integer or returns 0 if conversion is not possible.
-:param index:an index of element to get.
-:return:integer value ot the element or 0 if conversion is not supported.</p>
+<dd><p>Converts array element into an integer or returns 0 if conversion is not possible.</p>
+<p>:param index:an index of element to get.</p>
+<p>:return:integer value ot the element or 0 if conversion is not supported.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.data.AnyValueArray.AnyValueArray.get_as_integer_with_default">
 <code class="descname">get_as_integer_with_default</code><span class="sig-paren">(</span><em>index</em>, <em>default_value</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.data.AnyValueArray.AnyValueArray.get_as_integer_with_default" title="Permalink to this definition">¶</a></dt>
-<dd><p>Converts array element into an integer or returns default value if conversion is not possible.
-:param index:an index of element to get.
-:param default_value:the default value
-:return:integer value ot the element or default value if conversion is not supported.</p>
+<dd><p>Converts array element into an integer or returns default value if conversion is not possible.</p>
+<p>:param index:an index of element to get.</p>
+<p>:param default_value:the default value</p>
+<p>:return:integer value ot the element or default value if conversion is not supported.</p>
 </dd></dl>
 
 <dl class="method">
@@ -214,41 +235,41 @@ the elements to a newly created AnyValueArray.
 <dl class="method">
 <dt id="pip_services_commons.data.AnyValueArray.AnyValueArray.get_as_map">
 <code class="descname">get_as_map</code><span class="sig-paren">(</span><em>index</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.data.AnyValueArray.AnyValueArray.get_as_map" title="Permalink to this definition">¶</a></dt>
-<dd><p>Converts array element into an AnyValueMap or returns empty AnyValueMap if conversion is not possible.
-:param index:an index of element to get.
-:return:AnyValueMap value of the element or empty AnyValueMap if conversion is not supported.</p>
+<dd><p>Converts array element into an AnyValueMap or returns empty AnyValueMap if conversion is not possible.</p>
+<p>:param index:an index of element to get.</p>
+<p>:return:AnyValueMap value of the element or empty AnyValueMap if conversion is not supported.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.data.AnyValueArray.AnyValueArray.get_as_nullable_boolean">
 <code class="descname">get_as_nullable_boolean</code><span class="sig-paren">(</span><em>index</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.data.AnyValueArray.AnyValueArray.get_as_nullable_boolean" title="Permalink to this definition">¶</a></dt>
-<dd><p>Converts array element into a boolean or returns None if conversion is not possible
-:param index:an index of element to get.
-:return:boolean value of the element or None if conversion is not supported.</p>
+<dd><p>Converts array element into a boolean or returns None if conversion is not possible</p>
+<p>:param index:an index of element to get.</p>
+<p>:return:boolean value of the element or None if conversion is not supported.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.data.AnyValueArray.AnyValueArray.get_as_nullable_datetime">
 <code class="descname">get_as_nullable_datetime</code><span class="sig-paren">(</span><em>index</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.data.AnyValueArray.AnyValueArray.get_as_nullable_datetime" title="Permalink to this definition">¶</a></dt>
-<dd><p>Converts array element into a Date or returns None if conversion is not possible.
-:param index:an index of element to get.
-:return:Date value of the element or None if conversion is not supported.</p>
+<dd><p>Converts array element into a Date or returns None if conversion is not possible.</p>
+<p>:param index:an index of element to get.</p>
+<p>:return:Date value of the element or None if conversion is not supported.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.data.AnyValueArray.AnyValueArray.get_as_nullable_float">
 <code class="descname">get_as_nullable_float</code><span class="sig-paren">(</span><em>index</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.data.AnyValueArray.AnyValueArray.get_as_nullable_float" title="Permalink to this definition">¶</a></dt>
-<dd><p>Converts array element into a float or returns None if conversion is not possible.
-:param index:an index of element to get.
-:return:float value of the element or None if conversion is not supported.</p>
+<dd><p>Converts array element into a float or returns None if conversion is not possible.</p>
+<p>:param index:an index of element to get.</p>
+<p>:return:float value of the element or None if conversion is not supported.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.data.AnyValueArray.AnyValueArray.get_as_nullable_integer">
 <code class="descname">get_as_nullable_integer</code><span class="sig-paren">(</span><em>index</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.data.AnyValueArray.AnyValueArray.get_as_nullable_integer" title="Permalink to this definition">¶</a></dt>
-<dd><p>Converts array element into an integer or returns None if conversion is not possible.
-:param index:an index of element to get.
-:return:integer value of the element or None if conversion is not supported.</p>
+<dd><p>Converts array element into an integer or returns None if conversion is not possible.</p>
+<p>:param index:an index of element to get.</p>
+<p>:return:integer value of the element or None if conversion is not supported.</p>
 </dd></dl>
 
 <dl class="method">
@@ -259,81 +280,81 @@ the elements to a newly created AnyValueArray.
 <dl class="method">
 <dt id="pip_services_commons.data.AnyValueArray.AnyValueArray.get_as_nullable_string">
 <code class="descname">get_as_nullable_string</code><span class="sig-paren">(</span><em>index</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.data.AnyValueArray.AnyValueArray.get_as_nullable_string" title="Permalink to this definition">¶</a></dt>
-<dd><p>Converts array element into a string or returns None if conversion is not possible.
-:param index:an index of element to get.
-:return:string value of the element or None if conversion is not supported.</p>
+<dd><p>Converts array element into a string or returns None if conversion is not possible.</p>
+<p>:param index:an index of element to get.</p>
+<p>:return:string value of the element or None if conversion is not supported.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.data.AnyValueArray.AnyValueArray.get_as_nullable_type">
 <code class="descname">get_as_nullable_type</code><span class="sig-paren">(</span><em>index</em>, <em>value_type</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.data.AnyValueArray.AnyValueArray.get_as_nullable_type" title="Permalink to this definition">¶</a></dt>
 <dd><p>Converts array element into a value defined by specied typecode.
-If conversion is not possible it returns None.
-:param index:an index of element to get.
-:param value_type:the TypeCode that defined the type of the result
-:return:element value defined by the typecode or None if conversion is not supported.</p>
+If conversion is not possible it returns None.</p>
+<p>:param index:an index of element to get.</p>
+<p>:param value_type:the TypeCode that defined the type of the result</p>
+<p>:return:element value defined by the typecode or None if conversion is not supported.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.data.AnyValueArray.AnyValueArray.get_as_object">
 <code class="descname">get_as_object</code><span class="sig-paren">(</span><em>index=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.data.AnyValueArray.AnyValueArray.get_as_object" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets the value stored in array element without any conversions.
-When element index is not defined it returns the entire array value.
-:param index:(optional) an index of the element to get
-:return:the element value or value of the array when index is not defined.</p>
+When element index is not defined it returns the entire array value.</p>
+<p>:param index:(optional) an index of the element to get</p>
+<p>:return:the element value or value of the array when index is not defined.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.data.AnyValueArray.AnyValueArray.get_as_string">
 <code class="descname">get_as_string</code><span class="sig-paren">(</span><em>index</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.data.AnyValueArray.AnyValueArray.get_as_string" title="Permalink to this definition">¶</a></dt>
-<dd><p>Converts array element into a string or returns “” if conversion is not possible.
-:param index:an index of element to get.
-:return:string value ot the element or “” if conversion is not supported.</p>
+<dd><p>Converts array element into a string or returns “” if conversion is not possible.</p>
+<p>:param index:an index of element to get.</p>
+<p>:return:string value ot the element or “” if conversion is not supported.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.data.AnyValueArray.AnyValueArray.get_as_string_with_default">
 <code class="descname">get_as_string_with_default</code><span class="sig-paren">(</span><em>index</em>, <em>default_value</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.data.AnyValueArray.AnyValueArray.get_as_string_with_default" title="Permalink to this definition">¶</a></dt>
-<dd><p>Converts array element into a string or returns default value if conversion is not possible.
-:param index:an index of element to get.
-:param default_value:the default value
-:return:string value ot the element or default value if conversion is not supported.</p>
+<dd><p>Converts array element into a string or returns default value if conversion is not possible.</p>
+<p>:param index:an index of element to get.</p>
+<p>:param default_value:the default value</p>
+<p>:return:string value ot the element or default value if conversion is not supported.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.data.AnyValueArray.AnyValueArray.get_as_type">
 <code class="descname">get_as_type</code><span class="sig-paren">(</span><em>index</em>, <em>value_type</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.data.AnyValueArray.AnyValueArray.get_as_type" title="Permalink to this definition">¶</a></dt>
 <dd><p>Converts array element into a value defined by specied typecode.
-If conversion is not possible it returns default value for the specified type.
-:param index:an index of element to get.
-:param value_type:the TypeCode that defined the type of the result
-:return:element value defined by the typecode or default if conversion is not supported.</p>
+If conversion is not possible it returns default value for the specified type.</p>
+<p>:param index:an index of element to get.</p>
+<p>:param value_type:the TypeCode that defined the type of the result</p>
+<p>:return:element value defined by the typecode or default if conversion is not supported.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.data.AnyValueArray.AnyValueArray.get_as_type_with_default">
 <code class="descname">get_as_type_with_default</code><span class="sig-paren">(</span><em>index</em>, <em>value_type</em>, <em>default_value</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.data.AnyValueArray.AnyValueArray.get_as_type_with_default" title="Permalink to this definition">¶</a></dt>
 <dd><p>Converts array element into a value defined by specied typecode.
-If conversion is not possible it returns default value.
-:param index:an index of element to get.
-:param value_type:the TypeCode that defined the type of the result
-:param default_value:the default value
-:return:element value defined by the typecode or default value if conversion is not supported.</p>
+If conversion is not possible it returns default value.</p>
+<p>:param index:an index of element to get.</p>
+<p>:param value_type:the TypeCode that defined the type of the result</p>
+<p>:param default_value:the default value</p>
+<p>:return:element value defined by the typecode or default value if conversion is not supported.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.data.AnyValueArray.AnyValueArray.get_as_value">
 <code class="descname">get_as_value</code><span class="sig-paren">(</span><em>index</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.data.AnyValueArray.AnyValueArray.get_as_value" title="Permalink to this definition">¶</a></dt>
-<dd><p>Converts array element into an AnyValue or returns an empty AnyValue if conversion is not possible.
-:param index:an index of element to get.
-:return:AnyValue value of the element or empty AnyValue if conversion is not supported.</p>
+<dd><p>Converts array element into an AnyValue or returns an empty AnyValue if conversion is not possible.</p>
+<p>:param index:an index of element to get.</p>
+<p>:return:AnyValue value of the element or empty AnyValue if conversion is not supported.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.data.AnyValueArray.AnyValueArray.set_as_array">
 <code class="descname">set_as_array</code><span class="sig-paren">(</span><em>values</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.data.AnyValueArray.AnyValueArray.set_as_array" title="Permalink to this definition">¶</a></dt>
-<dd><p>Sets a new values to array element
-:param values:values to set</p>
+<dd><p>Sets a new values to array element</p>
+<p>:param values:values to set</p>
 </dd></dl>
 
 <dl class="method">
@@ -341,9 +362,9 @@ If conversion is not possible it returns default value.
 <code class="descname">set_as_object</code><span class="sig-paren">(</span><em>index=None</em>, <em>value=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.data.AnyValueArray.AnyValueArray.set_as_object" title="Permalink to this definition">¶</a></dt>
 <dd><p>Sets a new value to array element specified by its index.
 When the index is not defined, it resets the entire array value.
-This method has double purpose because method overrides are not supported in JavaScript.
-:param index:(optional) an index of the element to set
-:param value:a new element or array value.</p>
+This method has double purpose because method overrides are not supported in JavaScript.</p>
+<p>:param index:(optional) an index of the element to set</p>
+<p>:param value:a new element or array value.</p>
 </dd></dl>
 
 </dd></dl>

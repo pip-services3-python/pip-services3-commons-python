@@ -25,7 +25,9 @@ class JsonConverter():
     def from_json(value):
         """
         Converts JSON string into a value.
+
         :param value: the JSON string to convert.
+
         :return: converted object value or null when value is None.
         """
         if value == None:
@@ -37,7 +39,9 @@ class JsonConverter():
     def to_json(value):
         """
         Converts value into JSON string.
+
         :param value: the value to convert.
+
         :return: JSON string or null when value is None.
         """
         if value == None:
@@ -49,7 +53,9 @@ class JsonConverter():
     def to_nullable_map(value):
         """
         Converts JSON string into map object or returns null when conversion is not possible.
+
         :param value: the JSON string to convert.
+
         :return: Map object value or null when conversion is not supported.
         """
         if value == None:
@@ -66,7 +72,9 @@ class JsonConverter():
     def to_map(value):
         """
         Converts JSON string into map object or returns empty map when conversion is not possible.
+
         :param value: the JSON string to convert.
+
         :return: Map object value or empty object when conversion is not supported.
         """
         result = JsonConverter.to_nullable_map(value)
@@ -76,8 +84,11 @@ class JsonConverter():
     def to_map_with_default(value, default_value):
         """
         Converts JSON string into map object or returns default value when conversion is not possible.
+
         :param value: the JSON string to convert.
+
         :param default_value: the default value.
+
         :return: Map object value or default when conversion is not supported.
         """
         result = JsonConverter.to_nullable_map(value)

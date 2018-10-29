@@ -72,16 +72,20 @@ config = ConfigParams.fromTuples(</p>
 <dl class="staticmethod">
 <dt id="pip_services_commons.config.OptionsResolver.OptionsResolver.resolve">
 <em class="property">static </em><code class="descname">resolve</code><span class="sig-paren">(</span><em>config</em>, <em>config_as_default=False</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.config.OptionsResolver.OptionsResolver.resolve" title="Permalink to this definition">¶</a></dt>
-<dd><p>Resolves an “options” configuration section from component configuration parameters.
-:param config: configuration parameters
-:param config_as_default: (optional) When set true the method returns the entire parameter</p>
-<blockquote>
-<div>set when “options” section is not found. Default: false</div></blockquote>
+<dd><p>Resolves an “options” configuration section from component configuration parameters.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">configuration parameters from “options” section</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>config</strong> – configuration parameters</li>
+<li><strong>config_as_default</strong> – (optional) When set true the method returns the entire parameter
+set when “options” section is not found. Default: false</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">configuration parameters from “options” section</p>
+</td>
 </tr>
 </tbody>
 </table>

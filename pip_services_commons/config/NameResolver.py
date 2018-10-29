@@ -32,8 +32,11 @@ class NameResolver(object):
         Resolves a component name from configuration parameters.
         The name can be stored in "id", "name" fields or inside a component descriptor.
         If name cannot be determined it returns a defaultName.
+
         :param config: configuration parameters that may contain a component name.
+
         :param default_name: (optional) a default component name.
+
         :return: resolved name or default name if the name cannot be determined.
         """
         name = config.get_as_nullable_string("name")

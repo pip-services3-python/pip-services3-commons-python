@@ -5,25 +5,23 @@
     
     Interface for executable components with parameters
     
-    :copyright: Conceptual Vision Consulting LLC 2015-2016, see AUTHORS for more details.
+    :copyright: Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.
     :license: MIT, see LICENSE for more details.
 """
 
 class IExecutable:
     """
-    Interface for components that support parameterized one-way notification 
+    Interface for components that can be called to execute work.
     """
 
     def execute(self, correlation_id, args):
         """
-        Executes a unit of work with given parameters
+        Executes component with arguments and receives execution result.
 
-        Args:
-            correlation_id: a unique transaction id to trace calls across components
-            args: a set of parameters for execution
-        
-        Returns: execution result
+        :param correlation_id:(optional) transaction id to trace execution through call chain.
 
-        Raises: ApplicationException on any error
+        :param args:execution arguments.
+
+        :return:execution result
         """
         raise NotImplementedError('Method from interface definition')

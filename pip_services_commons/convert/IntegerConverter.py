@@ -26,7 +26,9 @@ class IntegerConverter():
     def to_nullable_integer(value):
         """
         Converts value into integer or returns null when conversion is not possible.
+
         :param value: the value to convert.
+
         :return: integer value or null when conversion is not supported.
         """
         # Shortcuts
@@ -43,7 +45,9 @@ class IntegerConverter():
     def to_integer(value):
         """
         Converts value into integer or returns 0 when conversion is not possible.
+
         :param value: the value to convert.
+
         :return: integer value or 0 when conversion is not supported.
         """
         return IntegerConverter.to_integer_with_default(value, 0)
@@ -52,8 +56,11 @@ class IntegerConverter():
     def to_integer_with_default(value, default_value):
         """
         Converts value into integer or returns default value when conversion is not possible.
+
         :param value: the value to convert.
+
         :param default_value: the default value.
+
         :return: integer value or default when conversion is not supported.
         """
         result = IntegerConverter.to_nullable_integer(value)

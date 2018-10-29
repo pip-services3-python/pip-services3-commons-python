@@ -30,7 +30,9 @@ class StringConverter():
     def to_nullable_string(value):
         """
         Converts value into string or returns None when value is None.
+
         :param value: the value to convert.
+
         :return: string value or None when value is None.
         """
         if value == None:
@@ -48,7 +50,9 @@ class StringConverter():
     def to_string(value):
         """
         Converts value into string or returns "" when value is None.
+
         :param value: the value to convert.
+
         :return: string value or "" when value is None.
         """
         return StringConverter.to_string_with_default(value, None)
@@ -57,8 +61,11 @@ class StringConverter():
     def to_string_with_default(value, default_value):
         """
         Converts value into string or returns default when value is None.
+
         :param value: the value to convert.
+
         :param default_value: the default value.
+
         :return: string value or default when value is null.
         """
         result = StringConverter.to_nullable_string(value)

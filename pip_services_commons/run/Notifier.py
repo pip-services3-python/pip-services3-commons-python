@@ -5,7 +5,7 @@
     
     Notifier component implementation
     
-    :copyright: Conceptual Vision Consulting LLC 2015-2016, see AUTHORS for more details.
+    :copyright: Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.
     :license: MIT, see LICENSE for more details.
 """
 
@@ -13,16 +13,21 @@ from .INotifiable import INotifiable
 from .Parameters import Parameters
 
 class Notifier:
-
+    """
+    Helper class that notifies components.
+    """
     @staticmethod
     def notify_one(correlation_id, component, args):
         """
-        Triggers notification for components that implement INotifiable interface.
+        Notifies specific component.
+        To be notiied components must implement [[INotifiable]] interface.
+        If they don't the call to this method has no effect.
 
-        Args:
-            correlation_id: a unique transaction id to trace calls across components
-            components:  components a list of components to be notified
-            args: a set of parameters to pass to notified components
+        :param correlation_id:(optional) transaction id to trace execution through call chain.
+
+        :param component:the component that is to be notified.
+
+        :param args:notifiation arguments.
         """
         if component == None:
             return
@@ -33,12 +38,16 @@ class Notifier:
     @staticmethod
     def notify(correlation_id, components, args = None):
         """
-        Triggers notification for components that implement INotifiable interface.
+        Notifies multiple components.
 
-        Args:
-            correlation_id: a unique transaction id to trace calls across components
-            components:  components a list of components to be notified
-            args: a set of parameters to pass to notified components
+        To be notified components must implement [[INotifiable]] interface.
+        If they don't the call to this method has no effect.
+
+        :param correlation_id:(optional) transaction id to trace execution through call chain.
+
+        :param components:a list of components that are to be notified.
+
+        :param args:notification arguments.
         """
         if components == None:
             return

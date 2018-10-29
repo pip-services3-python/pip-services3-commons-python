@@ -5,22 +5,21 @@
     
     Interface for closable components
     
-    :copyright: Conceptual Vision Consulting LLC 2015-2016, see AUTHORS for more details.
+    :copyright: Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.
     :license: MIT, see LICENSE for more details.
 """
 
 class IClosable:
     """
-    Interface for components that require explicit closure 
+    Interface for components that require explicit closure.
+
+    For components that require opening as well as closing use [[IOpenable]] interface instead.
     """
 
     def close(self, correlation_id):
         """
-        Closes component, disconnects it from services, disposes resources
+        Closes component and frees used resources.
 
-        Args:
-            correlation_id: a unique transaction id to trace calls across components
-
-        Raises: ApplicationException on any error
+        :param correlation_id:(optional) transaction id to trace execution through call chain.
         """
         raise NotImplementedError('Method from interface definition')

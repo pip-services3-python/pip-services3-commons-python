@@ -5,7 +5,7 @@
     
     Reference exception type
     
-    :copyright: Conceptual Vision Consulting LLC 2015-2016, see AUTHORS for more details.
+    :copyright: Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.
     :license: MIT, see LICENSE for more details.
 """
 
@@ -13,10 +13,17 @@ from ..errors.InternalException import InternalException
 
 class ReferenceException(InternalException):
     """
-    Exception thrown when required component is not found in references
+    Error when required component dependency cannot be found.
     """
 
     def __init__(self, correlation_id = None, locator = None):
+        """
+        Creates an error instance and assigns its values.
+
+        :param correlation_id:(optional) a unique transaction id to trace execution through call chain.
+
+        :param locator:the locator to find reference to dependent component.
+        """
         message = 'Cannot locate reference: ' + (str(locator) if locator != None else '<None>')
         super(ReferenceException, self).__init__(correlation_id, "REF_ERROR", message)
         self.with_details('locator', locator)

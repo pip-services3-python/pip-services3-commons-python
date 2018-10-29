@@ -46,7 +46,7 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">copyright:</th><td class="field-body">Conceptual Vision Consulting LLC 2015-2016, see AUTHORS for more details.</td>
+<tr class="field-odd field"><th class="field-name">copyright:</th><td class="field-body">Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">license:</th><td class="field-body">MIT, see LICENSE for more details.</td>
 </tr>
@@ -56,47 +56,50 @@
 <dt id="pip_services_commons.refer.Referencer.Referencer">
 <em class="property">class </em><code class="descclassname">pip_services_commons.refer.Referencer.</code><code class="descname">Referencer</code><a class="headerlink" href="#pip_services_commons.refer.Referencer.Referencer" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>Helper class that assigns references to components</p>
+<p>Helper class that sets and unsets references to components.</p>
 <dl class="staticmethod">
 <dt id="pip_services_commons.refer.Referencer.Referencer.set_references">
 <em class="property">static </em><code class="descname">set_references</code><span class="sig-paren">(</span><em>references</em>, <em>components</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.refer.Referencer.Referencer.set_references" title="Permalink to this definition">¶</a></dt>
-<dd><p>Assigns references to components that implement IReferenceable interface</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd>references: references to be assigned
-components: a list of components to assign references</dd>
-</dl>
+<dd><p>Sets references to multiple components.</p>
+<p>To set references components must implement [[IReferenceable]] interface.
+If they don’t the call to this method has no effect.</p>
+<p>:param references:the references to be set.</p>
+<p>:param components:a list of components to set the references to.</p>
 </dd></dl>
 
 <dl class="staticmethod">
 <dt id="pip_services_commons.refer.Referencer.Referencer.set_references_for_one">
 <em class="property">static </em><code class="descname">set_references_for_one</code><span class="sig-paren">(</span><em>references</em>, <em>component</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.refer.Referencer.Referencer.set_references_for_one" title="Permalink to this definition">¶</a></dt>
-<dd><p>Assigns references to components that implement IReferenceable interface</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd>references: references to be assigned
-component: a component to assign references</dd>
-</dl>
+<dd><p>Sets references to specific component.</p>
+<p>To set references components must implement [[IReferenceable]] interface.
+If they don’t the call to this method has no effect.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>references</strong> – the references to be set.</td>
+</tr>
+</tbody>
+</table>
+<p>:param component:the component to set references to.</p>
 </dd></dl>
 
 <dl class="staticmethod">
 <dt id="pip_services_commons.refer.Referencer.Referencer.unset_references">
 <em class="property">static </em><code class="descname">unset_references</code><span class="sig-paren">(</span><em>components</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.refer.Referencer.Referencer.unset_references" title="Permalink to this definition">¶</a></dt>
-<dd><p>Clears references for components that implement IUnreferenceable interface</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd>components: a list of components to clear references</dd>
-</dl>
+<dd><p>Unsets references in multiple components.</p>
+<p>To unset references components must implement [[IUnreferenceable]] interface.
+If they don’t the call to this method has no effect.</p>
+<p>:param components:the list of components, whose references must be cleared.</p>
 </dd></dl>
 
 <dl class="staticmethod">
 <dt id="pip_services_commons.refer.Referencer.Referencer.unset_references_for_one">
 <em class="property">static </em><code class="descname">unset_references_for_one</code><span class="sig-paren">(</span><em>component</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.refer.Referencer.Referencer.unset_references_for_one" title="Permalink to this definition">¶</a></dt>
-<dd><p>Clears references for components that implement IUnreferenceable interface</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd>component: a component to clear references</dd>
-</dl>
+<dd><p>Unsets references in specific component.</p>
+<p>To unset references components must implement [[IUnreferenceable]] interface.
+If they don’t the call to this method has no effect.</p>
+<p>:param component:the component to unset references.</p>
 </dd></dl>
 
 </dd></dl>

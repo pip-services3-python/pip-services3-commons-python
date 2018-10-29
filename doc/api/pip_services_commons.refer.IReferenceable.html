@@ -46,7 +46,7 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">copyright:</th><td class="field-body">Conceptual Vision Consulting LLC 2015-2016, see AUTHORS for more details.</td>
+<tr class="field-odd field"><th class="field-name">copyright:</th><td class="field-body">Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">license:</th><td class="field-body">MIT, see LICENSE for more details.</td>
 </tr>
@@ -56,16 +56,27 @@
 <dt id="pip_services_commons.refer.IReferenceable.IReferenceable">
 <em class="property">class </em><code class="descclassname">pip_services_commons.refer.IReferenceable.</code><code class="descname">IReferenceable</code><a class="headerlink" href="#pip_services_commons.refer.IReferenceable.IReferenceable" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>Interface for components that requires references to other components</p>
+<p>Interface for components that depends on other components.
+If component requires explicit notification to unset references
+it shall additionally implement [[IUnreferenceable]] interface.</p>
+<dl class="docutils">
+<dt>Example:</dt>
+<dd><dl class="first last docutils">
+<dt>class MyController(IReferenceable):</dt>
+<dd><p class="first">_persistence = None</p>
+<dl class="last docutils">
+<dt>def set_references(self, references):</dt>
+<dd>self._persistence = references.getOneRequired(Descriptor(“mygroup”, “persistence”, “*”, “*”, “1.0”))</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
 <dl class="method">
 <dt id="pip_services_commons.refer.IReferenceable.IReferenceable.set_references">
 <code class="descname">set_references</code><span class="sig-paren">(</span><em>references</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.refer.IReferenceable.IReferenceable.set_references" title="Permalink to this definition">¶</a></dt>
-<dd><p>Sets references to other components.
-Using locators the component can find required dependencies</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd>references: component references</dd>
-</dl>
+<dd><p>Sets references to dependent components.</p>
+<p>:param references:references to locate the component dependencies.</p>
 </dd></dl>
 
 </dd></dl>

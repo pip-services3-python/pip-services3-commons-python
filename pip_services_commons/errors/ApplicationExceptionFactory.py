@@ -34,8 +34,10 @@ class ApplicationExceptionFactory(object):
         Recreates ApplicationException object from serialized ErrorDescription.
 
         It tries to restore original exception type using type or error category fields.
+
         :param description: a serialized error description received as a result of remote call
-        :return:new ApplicationException object from serialized ErrorDescription.
+
+        :return: ApplicationException object from serialized ErrorDescription.
         """
         error = None
         

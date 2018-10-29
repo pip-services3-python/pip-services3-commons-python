@@ -24,7 +24,9 @@ class ArrayConverter():
         """
         Converts value into array object.
         Single values are converted into arrays with a single element.
+
         :param value: the value to convert.
+
         :return: array object or None when value is None.
         """
         # Shortcuts
@@ -43,7 +45,9 @@ class ArrayConverter():
         """
         Converts value into array object with empty array as default.
         Single values are converted into arrays with single element.
+
         :param value: the value to convert.
+
         :return: array object or empty array when value is None.
         """
         return ArrayConverter.to_array_with_default(value, [])
@@ -53,8 +57,11 @@ class ArrayConverter():
         """
         Converts value into array object with specified default.
         Single values are converted into arrays with single element.
+
         :param value: the value to convert.
+
         :param default_value: default array object.
+
         :return: array object or default array when value is None.
         """
         result = ArrayConverter.to_nullable_array(value)
@@ -65,7 +72,9 @@ class ArrayConverter():
         """
         Converts value into array object with empty array as default.
         Strings with comma-delimited values are split into array of strings.
+
         :param value: the list to convert.
+
         :return: array object or empty array when value is None
         """
         if value == None:

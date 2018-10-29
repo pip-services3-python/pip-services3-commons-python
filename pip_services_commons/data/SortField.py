@@ -26,8 +26,10 @@ class SortField:
     def __init__(self, name, ascending = True):
         """
         Creates a new instance and assigns its values.
-        :param name:the name of the field to sort by.
-        :param ascending:true to sort in ascending order, and false to sort in descending order.
+
+        :param name: the name of the field to sort by.
+
+        :param ascending: true to sort in ascending order, and false to sort in descending order.
         """
         self.name = name
         self.ascending = ascending

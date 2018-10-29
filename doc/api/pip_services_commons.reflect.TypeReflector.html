@@ -46,7 +46,7 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">copyright:</th><td class="field-body">Conceptual Vision Consulting LLC 2015-2016, see AUTHORS for more details.</td>
+<tr class="field-odd field"><th class="field-name">copyright:</th><td class="field-body">Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">license:</th><td class="field-body">MIT, see LICENSE for more details.</td>
 </tr>
@@ -56,30 +56,73 @@
 <dt id="pip_services_commons.reflect.TypeReflector.TypeReflector">
 <em class="property">class </em><code class="descclassname">pip_services_commons.reflect.TypeReflector.</code><code class="descname">TypeReflector</code><a class="headerlink" href="#pip_services_commons.reflect.TypeReflector.TypeReflector" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Helper class to perform object type introspection and object instantiation.</p>
+<p>This class has symmetric implementation across all languages supported
+by Pip.Services toolkit and used to support dynamic data processing.</p>
+<p>Because all languages have different casing and case sensitivity rules,
+this TypeReflector treats all type names as case insensitive.</p>
+<dl class="docutils">
+<dt>Example:</dt>
+<dd>descriptor = TypeDescriptor(“MyObject”, “mylibrary”)
+Typeeflector.get_type_by_descriptor(descriptor)
+myObj = TypeReflector.create_instance_by_descriptor(descriptor)
+TypeDescriptor.is_primitive(myObject)           // Result: false
+TypeDescriptor.is_primitive(123)                                // Result: true</dd>
+</dl>
 <dl class="staticmethod">
 <dt id="pip_services_commons.reflect.TypeReflector.TypeReflector.create_instance">
 <em class="property">static </em><code class="descname">create_instance</code><span class="sig-paren">(</span><em>name</em>, <em>library</em>, <em>*args</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.reflect.TypeReflector.TypeReflector.create_instance" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Creates an instance of an object type specified by its name and library where it is defined.</p>
+<p>:param name:an object type (factory function) to create.</p>
+<p>:param library:a library (module) where object type is defined.</p>
+<p>:param args:arguments for the object constructor.</p>
+<p>:return:the created object instance.</p>
+</dd></dl>
 
 <dl class="staticmethod">
 <dt id="pip_services_commons.reflect.TypeReflector.TypeReflector.create_instance_by_descriptor">
 <em class="property">static </em><code class="descname">create_instance_by_descriptor</code><span class="sig-paren">(</span><em>descriptor</em>, <em>*args</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.reflect.TypeReflector.TypeReflector.create_instance_by_descriptor" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Creates an instance of an object type specified by type descriptor.</p>
+<p>:param descriptor:a type descriptor that points to an object type</p>
+<p>:param args:arguments for the object constructor.</p>
+<p>:return:the created object instance.</p>
+</dd></dl>
 
 <dl class="staticmethod">
 <dt id="pip_services_commons.reflect.TypeReflector.TypeReflector.create_instance_by_type">
 <em class="property">static </em><code class="descname">create_instance_by_type</code><span class="sig-paren">(</span><em>obj_type</em>, <em>*args</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.reflect.TypeReflector.TypeReflector.create_instance_by_type" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Creates an instance of an object type.</p>
+<p>:param obj_type:an object type (factory function) to create.</p>
+<p>:param args:arguments for the object constructor.</p>
+<p>:return:the created object instance.</p>
+</dd></dl>
 
 <dl class="staticmethod">
 <dt id="pip_services_commons.reflect.TypeReflector.TypeReflector.get_type">
 <em class="property">static </em><code class="descname">get_type</code><span class="sig-paren">(</span><em>name</em>, <em>library</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.reflect.TypeReflector.TypeReflector.get_type" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Gets object type by its name and library where it is defined.</p>
+<p>:param name:an object type name.</p>
+<p>:param library:a library where the type is defined</p>
+<p>:return:the object type or null is the type wasn’t found.</p>
+</dd></dl>
 
 <dl class="staticmethod">
 <dt id="pip_services_commons.reflect.TypeReflector.TypeReflector.get_type_by_descriptor">
 <em class="property">static </em><code class="descname">get_type_by_descriptor</code><span class="sig-paren">(</span><em>descriptor</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.reflect.TypeReflector.TypeReflector.get_type_by_descriptor" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Gets object type by type descriptor.</p>
+<p>:param descriptor:a type descriptor that points to an object type</p>
+<p>:return:the object type or null is the type wasn’t found.</p>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="pip_services_commons.reflect.TypeReflector.TypeReflector.is_primitive">
+<em class="property">static </em><code class="descname">is_primitive</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.reflect.TypeReflector.TypeReflector.is_primitive" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks if value has primitive type.</p>
+<p>Primitive types are: numbers, strings, booleans, date and time.
+Complex (non-primitive types are): objects, maps and arrays</p>
+<p>:param value:a value to check</p>
+<p>:return:true if the value has primitive type and false if value type is complex.</p>
+</dd></dl>
 
 </dd></dl>
 

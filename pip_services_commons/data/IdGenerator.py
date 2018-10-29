@@ -30,7 +30,8 @@ class IdGenerator(object):
         """
         Generates a random 9-digit random ID (code).
         Remember: The returned value is not guaranteed to be unique.
-        :return:a generated random 9-digit code
+
+        :return: a generated random 9-digit code
         """
         return str(random.randint(100000000, 999999999))
 
@@ -39,6 +40,7 @@ class IdGenerator(object):
         """
         Generates a globally unique 32-digit object ID.
         The value is a string representation of a GUID value.
-        :return:a generated 32-digit object ID
+
+        :return: a generated 32-digit object ID
         """
         return str(uuid.uuid4()).replace("-", "")

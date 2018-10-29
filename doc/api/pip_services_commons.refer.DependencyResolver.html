@@ -46,7 +46,7 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">copyright:</th><td class="field-body">Conceptual Vision Consulting LLC 2015-2016, see AUTHORS for more details.</td>
+<tr class="field-odd field"><th class="field-name">copyright:</th><td class="field-body">Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">license:</th><td class="field-body">MIT, see LICENSE for more details.</td>
 </tr>
@@ -56,57 +56,120 @@
 <dt id="pip_services_commons.refer.DependencyResolver.DependencyResolver">
 <em class="property">class </em><code class="descclassname">pip_services_commons.refer.DependencyResolver.</code><code class="descname">DependencyResolver</code><span class="sig-paren">(</span><em>config=None</em>, <em>references=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.refer.DependencyResolver.DependencyResolver" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="pip_services_commons.config.IReconfigurable.html#pip_services_commons.config.IReconfigurable.IReconfigurable" title="pip_services_commons.config.IReconfigurable.IReconfigurable"><code class="xref py py-class docutils literal notranslate"><span class="pre">pip_services_commons.config.IReconfigurable.IReconfigurable</span></code></a>, <a class="reference internal" href="pip_services_commons.refer.IReferenceable.html#pip_services_commons.refer.IReferenceable.IReferenceable" title="pip_services_commons.refer.IReferenceable.IReferenceable"><code class="xref py py-class docutils literal notranslate"><span class="pre">pip_services_commons.refer.IReferenceable.IReferenceable</span></code></a></p>
+<p>Helper class for resolving component dependencies.
+The resolver is configured to resolve named dependencies by specific locator.
+During deployment the dependency locator can be changed.</p>
+<p>This mechanism can be used to clarify specific dependency among several alternatives.
+Typically components are configured to retrieve the first dependency that matches
+logical group, type and version. But if container contains more than one instance
+and resolution has to be specific about those instances, they can be given a unique
+name and dependency resolvers can be reconfigured to retrieve dependencies by their name.</p>
+<p>Configuration parameters</p>
+<p>dependencies:
+- [dependency name 1]: Dependency 1 locator (descriptor)
+- …
+- [dependency name N]: Dependency N locator (descriptor)</p>
+<p>References
+- References must match configured dependencies.</p>
+<dl class="docutils">
+<dt>Example:</dt>
+<dd><dl class="first last docutils">
+<dt>class MyComponent(IConfigurable, IReferenceable):</dt>
+<dd><p class="first">_dependencyResolver = None
+_persistence = None</p>
+<dl class="docutils">
+<dt>def __init__(self):</dt>
+<dd>self._dependencyResolver.put(“persistence”, new Descriptor(“mygroup”, “persistence”, “*”, “*”, “1.0”))</dd>
+<dt>def configure(self, config):</dt>
+<dd>self._dependencyResolver.configure(config)</dd>
+<dt>def set_references(self, references):</dt>
+<dd>self._dependencyResolver.setReferences(references)
+self._persistence = self._dependencyResolver.get_one_required(“persistence”)</dd>
+</dl>
+<p>component = MyComponent()
+component.configure(ConfigParams.from_tuples(
+“dependencies.persistence”, “mygroup:persistence:<a href="#id1"><span class="problematic" id="id2">*</span></a>:persistence2:1.0”))</p>
+<p class="last">component.setReferences(References.from_tuples(Descriptor(“mygroup”,”persistence”,”*”,”persistence1”,”1.0”),
+MyPersistence(),
+Descriptor(“mygroup”,”persistence”,”*”,”persistence2”,”1.0”), MyPersistence()
+// This dependency shall be set))</p>
+</dd>
+</dl>
+</dd>
+</dl>
 <dl class="method">
 <dt id="pip_services_commons.refer.DependencyResolver.DependencyResolver.configure">
 <code class="descname">configure</code><span class="sig-paren">(</span><em>config</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.refer.DependencyResolver.DependencyResolver.configure" title="Permalink to this definition">¶</a></dt>
-<dd><p>Configures object by passing configuration parameters.
-:param config: configuration parameters to be set.</p>
+<dd><p>Configures the component with specified parameters.</p>
+<p>:param config:configuration parameters to set.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.refer.DependencyResolver.DependencyResolver.find">
 <code class="descname">find</code><span class="sig-paren">(</span><em>name</em>, <em>required</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.refer.DependencyResolver.DependencyResolver.find" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Finds all matching dependencies by their name.</p>
+<p>:param name:the dependency name to locate.</p>
+<p>:param required:true to raise an exception when no dependencies are found.</p>
+<p>:return:a list of found dependencies</p>
+</dd></dl>
 
 <dl class="staticmethod">
 <dt id="pip_services_commons.refer.DependencyResolver.DependencyResolver.from_tuples">
 <em class="property">static </em><code class="descname">from_tuples</code><span class="sig-paren">(</span><em>*tuples</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.refer.DependencyResolver.DependencyResolver.from_tuples" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Creates a new DependencyResolver from a list of key-value pairs called tuples
+where key is dependency name and value the depedency locator (descriptor).</p>
+<p>:param tuples:a list of values where odd elements are dependency name
+and the following even elements are dependency locator (descriptor)</p>
+<p>:return:a newly created DependencyResolver.</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.refer.DependencyResolver.DependencyResolver.get_one_optional">
 <code class="descname">get_one_optional</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.refer.DependencyResolver.DependencyResolver.get_one_optional" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Gets one optional dependency by its name.</p>
+<p>:param name:the dependency name to locate.</p>
+<p>:return:a dependency reference or null of the dependency was not found</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.refer.DependencyResolver.DependencyResolver.get_one_required">
 <code class="descname">get_one_required</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.refer.DependencyResolver.DependencyResolver.get_one_required" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Gets one required dependency by its name.
+At least one dependency must present. If the dependency was found it throws a [[ReferenceException]]</p>
+<p>:param name:the dependency name to locate.</p>
+<p>:return:a dependency reference</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.refer.DependencyResolver.DependencyResolver.get_optional">
 <code class="descname">get_optional</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.refer.DependencyResolver.DependencyResolver.get_optional" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Gets all optional dependencies by their name.</p>
+<p>:param name:the dependency name to locate.</p>
+<p>:return:a list with found dependencies or empty list of no dependencies was found.</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.refer.DependencyResolver.DependencyResolver.get_required">
 <code class="descname">get_required</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.refer.DependencyResolver.DependencyResolver.get_required" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Gets all required dependencies by their name.
+At least one dependency must be present. If no dependencies was found it throws a [[ReferenceException]]</p>
+<p>:param name:the dependency name to locate.</p>
+<p>:return:a list with found dependencies.</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.refer.DependencyResolver.DependencyResolver.put">
 <code class="descname">put</code><span class="sig-paren">(</span><em>name</em>, <em>locator</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.refer.DependencyResolver.DependencyResolver.put" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Adds a new dependency into this resolver.</p>
+<p>:param name:the dependency’s name.</p>
+<p>:param locator:the locator to find the dependency by.</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.refer.DependencyResolver.DependencyResolver.set_references">
 <code class="descname">set_references</code><span class="sig-paren">(</span><em>references</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.refer.DependencyResolver.DependencyResolver.set_references" title="Permalink to this definition">¶</a></dt>
-<dd><p>Sets references to other components.
-Using locators the component can find required dependencies</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd>references: component references</dd>
-</dl>
+<dd><p>Sets the component references. References must match configured dependencies.</p>
+<p>:param references:references to set.</p>
 </dd></dl>
 
 </dd></dl>

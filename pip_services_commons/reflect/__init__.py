@@ -3,9 +3,14 @@
     pip_services_commons.reflect.__init__
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     
-    Reflect module initialization
-    
-    :copyright: Conceptual Vision Consulting LLC 2015-2016, see AUTHORS for more details.
+    Contains classes for data reflection. Reflects objects into parameters, methods.
+    Most programming languages contain reflections, but they are all implemented
+    differently. In the PipService framework, dynamic data types are often used. So as
+    to not rewrite these dynamic data types differently for each language,
+    this cross-language reflection package was written. All dynamic data types that are
+    built on top of this package are portable from one language to another.
+
+    :copyright: Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.
     :license: MIT, see LICENSE for more details.
 """
 

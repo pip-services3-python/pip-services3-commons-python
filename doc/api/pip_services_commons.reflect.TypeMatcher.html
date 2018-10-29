@@ -46,7 +46,7 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">copyright:</th><td class="field-body">Conceptual Vision Consulting LLC 2015-2016, see AUTHORS for more details.</td>
+<tr class="field-odd field"><th class="field-name">copyright:</th><td class="field-body">Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">license:</th><td class="field-body">MIT, see LICENSE for more details.</td>
 </tr>
@@ -56,25 +56,46 @@
 <dt id="pip_services_commons.reflect.TypeMatcher.TypeMatcher">
 <em class="property">class </em><code class="descclassname">pip_services_commons.reflect.TypeMatcher.</code><code class="descname">TypeMatcher</code><a class="headerlink" href="#pip_services_commons.reflect.TypeMatcher.TypeMatcher" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Helper class matches value types for equality.</p>
+<p>This class has symmetric implementation across all languages supported
+by Pip.Services toolkit and used to support dynamic data processing.</p>
 <dl class="staticmethod">
 <dt id="pip_services_commons.reflect.TypeMatcher.TypeMatcher.match_type">
 <em class="property">static </em><code class="descname">match_type</code><span class="sig-paren">(</span><em>expected_type</em>, <em>actual_type</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.reflect.TypeMatcher.TypeMatcher.match_type" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Matches expected type to an actual type.
+The types can be specified as types, type names or [[TypeCode]].</p>
+<p>:param expected_type:an expected type to match.</p>
+<p>:param actual_type:an actual type to match.</p>
+<p>:return:true if types are matching and false if they don’t.</p>
+</dd></dl>
 
 <dl class="staticmethod">
 <dt id="pip_services_commons.reflect.TypeMatcher.TypeMatcher.match_type_by_name">
 <em class="property">static </em><code class="descname">match_type_by_name</code><span class="sig-paren">(</span><em>expected_type</em>, <em>actual_type</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.reflect.TypeMatcher.TypeMatcher.match_type_by_name" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Matches expected type to an actual type.</p>
+<p>:param expected_type:an expected type name to match.</p>
+<p>:param actual_type:an actual type to match defined by type code.</p>
+<p>:return:true if types are matching and false if they don’t.</p>
+</dd></dl>
 
 <dl class="staticmethod">
 <dt id="pip_services_commons.reflect.TypeMatcher.TypeMatcher.match_value">
 <em class="property">static </em><code class="descname">match_value</code><span class="sig-paren">(</span><em>expected_type</em>, <em>actual_value</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.reflect.TypeMatcher.TypeMatcher.match_value" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Matches expected type to a type of a value.
+The expected type can be specified by a type, type name or [[TypeCode]].</p>
+<p>:param expected_type:an expected type to match.</p>
+<p>:param actual_value:a value to match its type to the expected one.</p>
+<p>:return:true if types are matching and false if they don’t.</p>
+</dd></dl>
 
 <dl class="staticmethod">
 <dt id="pip_services_commons.reflect.TypeMatcher.TypeMatcher.match_value_by_name">
 <em class="property">static </em><code class="descname">match_value_by_name</code><span class="sig-paren">(</span><em>expected_type</em>, <em>actual_value</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.reflect.TypeMatcher.TypeMatcher.match_value_by_name" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Matches expected type to a type of a value.</p>
+<p>:param expected_type:an expected type name to match.</p>
+<p>:param actual_value:a value to match its type to the expected one.</p>
+<p>:return:true if types are matching and false if they don’t.</p>
+</dd></dl>
 
 </dd></dl>
 

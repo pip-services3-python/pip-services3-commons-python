@@ -68,37 +68,73 @@ value2 = ArrayConverter.list_to_array(“1,2,3”)  // Result: [“1”, “2”
 <dt id="pip_services_commons.convert.ArrayConverter.ArrayConverter.list_to_array">
 <em class="property">static </em><code class="descname">list_to_array</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.convert.ArrayConverter.ArrayConverter.list_to_array" title="Permalink to this definition">¶</a></dt>
 <dd><p>Converts value into array object with empty array as default.
-Strings with comma-delimited values are split into array of strings.
-:param value: the list to convert.
-:return: array object or empty array when value is None</p>
+Strings with comma-delimited values are split into array of strings.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>value</strong> – the list to convert.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">array object or empty array when value is None</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="staticmethod">
 <dt id="pip_services_commons.convert.ArrayConverter.ArrayConverter.to_array">
 <em class="property">static </em><code class="descname">to_array</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.convert.ArrayConverter.ArrayConverter.to_array" title="Permalink to this definition">¶</a></dt>
 <dd><p>Converts value into array object with empty array as default.
-Single values are converted into arrays with single element.
-:param value: the value to convert.
-:return: array object or empty array when value is None.</p>
+Single values are converted into arrays with single element.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>value</strong> – the value to convert.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">array object or empty array when value is None.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="staticmethod">
 <dt id="pip_services_commons.convert.ArrayConverter.ArrayConverter.to_array_with_default">
 <em class="property">static </em><code class="descname">to_array_with_default</code><span class="sig-paren">(</span><em>value</em>, <em>default_value</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.convert.ArrayConverter.ArrayConverter.to_array_with_default" title="Permalink to this definition">¶</a></dt>
 <dd><p>Converts value into array object with specified default.
-Single values are converted into arrays with single element.
-:param value: the value to convert.
-:param default_value: default array object.
-:return: array object or default array when value is None.</p>
+Single values are converted into arrays with single element.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>value</strong> – the value to convert.</li>
+<li><strong>default_value</strong> – default array object.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">array object or default array when value is None.</p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="staticmethod">
 <dt id="pip_services_commons.convert.ArrayConverter.ArrayConverter.to_nullable_array">
 <em class="property">static </em><code class="descname">to_nullable_array</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.convert.ArrayConverter.ArrayConverter.to_nullable_array" title="Permalink to this definition">¶</a></dt>
 <dd><p>Converts value into array object.
-Single values are converted into arrays with a single element.
-:param value: the value to convert.
-:return: array object or None when value is None.</p>
+Single values are converted into arrays with a single element.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>value</strong> – the value to convert.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">array object or None when value is None.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </dd></dl>

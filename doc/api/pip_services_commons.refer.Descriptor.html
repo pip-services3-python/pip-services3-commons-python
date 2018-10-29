@@ -46,7 +46,7 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">copyright:</th><td class="field-body">Conceptual Vision Consulting LLC 2015-2016, see AUTHORS for more details.</td>
+<tr class="field-odd field"><th class="field-name">copyright:</th><td class="field-body">Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">license:</th><td class="field-body">MIT, see LICENSE for more details.</td>
 </tr>
@@ -56,79 +56,116 @@
 <dt id="pip_services_commons.refer.Descriptor.Descriptor">
 <em class="property">class </em><code class="descclassname">pip_services_commons.refer.Descriptor.</code><code class="descname">Descriptor</code><span class="sig-paren">(</span><em>group</em>, <em>type</em>, <em>kind</em>, <em>name</em>, <em>version</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.refer.Descriptor.Descriptor" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>Component descriptor used to find a component by its descriptive elements:
-- logical group: package or other logical group of components like ‘pip-services-storage-blocks’
-- component type: identifies component interface like ‘controller’, ‘services’ or ‘cache’
-- component kind: identifies component implementation like ‘memory’, ‘file’ or ‘mongodb’, …
-- component name: identifies component internal content, …
-- implementation version: ‘1.0’, ‘1.5’ or ‘10.4’</p>
+<p>Locator type that most often used in PipServices toolkit.
+It locates components using several fields:
+- Group: a package or just named group of components like “pip-services”
+- Type: logical component type that defines it’s contract like “persistence”
+- Kind: physical implementation type like “mongodb”
+- Name: unique component name like “default”
+- Version: version of the component contract like “1.0”</p>
+<p>The locator matching can be done by all or only few selected fields.
+The fields that shall be excluded from the matching must be set to &lt;code&gt;”*”&lt;/code&gt; or &lt;code&gt;null&lt;/code&gt;.
+That approach allows to implement many interesting scenarios. For instance:
+- Locate all loggers (match by type and version)
+- Locate persistence components for a microservice (match by group and type)
+- Locate specific component by its name (match by name)</p>
+<dl class="docutils">
+<dt>Example:</dt>
+<dd><p class="first">locator1 = Descriptor(“mygroup”, “connector”, “aws”, “default”, “1.0”)
+locator2 = Descriptor.from_string(“mygroup:connector:<em>:</em>:1.0”)</p>
+<p class="last">locator1.match(locator2);               // Result: true
+locator1.eq(locator2);          // Result: true
+locator1.exact_match(locator2); // Result: false</p>
+</dd>
+</dl>
 <dl class="method">
 <dt id="pip_services_commons.refer.Descriptor.Descriptor.exact_match">
 <code class="descname">exact_match</code><span class="sig-paren">(</span><em>descriptor</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.refer.Descriptor.Descriptor.exact_match" title="Permalink to this definition">¶</a></dt>
-<dd><p>Matches this descriptor to another descriptor exactly.</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd>descriptor: another descriptor to match this one.</dd>
-</dl>
-<p>Returns: True if descriptors match or False otherwise.</p>
+<dd><p>Matches this descriptor to another descriptor by all fields. No exceptions are made.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>descriptor</strong> – the descriptor to match this one against.</td>
+</tr>
+</tbody>
+</table>
+<p>:return:true if descriptors match and false otherwise.</p>
 </dd></dl>
 
 <dl class="staticmethod">
 <dt id="pip_services_commons.refer.Descriptor.Descriptor.from_string">
 <em class="property">static </em><code class="descname">from_string</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.refer.Descriptor.Descriptor.from_string" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Parses colon-separated list of descriptor fields and returns them as a Descriptor.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>value</strong> – colon-separated descriptor fields to initialize Descriptor.</td>
+</tr>
+</tbody>
+</table>
+<p>:return:a newly created Descriptor.</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.refer.Descriptor.Descriptor.get_group">
 <code class="descname">get_group</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.refer.Descriptor.Descriptor.get_group" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gets the component group
-Returns: the component group</p>
+<dd><blockquote>
+<div>Gets the component’s logical group.</div></blockquote>
+<p>:return:the component’s logical group</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.refer.Descriptor.Descriptor.get_kind">
 <code class="descname">get_kind</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.refer.Descriptor.Descriptor.get_kind" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gets the component kind
-Returns: the component kind</p>
+<dd><p>Gets the component’s implementation type.</p>
+<p>:return:the component’s implementation type.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.refer.Descriptor.Descriptor.get_name">
 <code class="descname">get_name</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.refer.Descriptor.Descriptor.get_name" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gets the component name
-Returns: the component name</p>
+<dd><p>Gets the unique component’s name.</p>
+<p>:return:the unique component’s name.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.refer.Descriptor.Descriptor.get_type">
 <code class="descname">get_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.refer.Descriptor.Descriptor.get_type" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gets the component type
-Returns: the component type</p>
+<dd><p>Gets the component’s logical type.</p>
+<p>:return:the component’s logical type.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.refer.Descriptor.Descriptor.get_version">
 <code class="descname">get_version</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.refer.Descriptor.Descriptor.get_version" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gets the implementation version
-Returns: the implementation version</p>
+<dd><p>Gets the component’s implementation version.</p>
+<p>:return:the component’s implementation version.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.refer.Descriptor.Descriptor.is_complete">
 <code class="descname">is_complete</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.refer.Descriptor.Descriptor.is_complete" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Checks whether all descriptor fields are set.
+If descriptor has at least one “*” or null field it is considered “incomplete”</p>
+<p>:return:true if all descriptor fields are defined and false otherwise.</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.refer.Descriptor.Descriptor.match">
 <code class="descname">match</code><span class="sig-paren">(</span><em>descriptor</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.refer.Descriptor.Descriptor.match" title="Permalink to this definition">¶</a></dt>
-<dd><p>Matches this descriptor to another descriptor.
-All ‘*’ or null descriptor elements match to any other value.
-Specific values must match exactly.</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd>descriptor: another descriptor to match this one.</dd>
-</dl>
-<p>Returns: True if descriptors match or False otherwise.</p>
+<dd><p>Partially matches this descriptor to another descriptor.
+Fields that contain “*” or null are excluded from the match.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>descriptor</strong> – the descriptor to match this one against.</td>
+</tr>
+</tbody>
+</table>
+<p>:return:true if descriptors match and false otherwise</p>
 </dd></dl>
 
 </dd></dl>

@@ -46,7 +46,7 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">copyright:</th><td class="field-body">Conceptual Vision Consulting LLC 2015-2016, see AUTHORS for more details.</td>
+<tr class="field-odd field"><th class="field-name">copyright:</th><td class="field-body">Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">license:</th><td class="field-body">MIT, see LICENSE for more details.</td>
 </tr>
@@ -56,20 +56,32 @@
 <dt id="pip_services_commons.reflect.TypeDescriptor.TypeDescriptor">
 <em class="property">class </em><code class="descclassname">pip_services_commons.reflect.TypeDescriptor.</code><code class="descname">TypeDescriptor</code><span class="sig-paren">(</span><em>name</em>, <em>library</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.reflect.TypeDescriptor.TypeDescriptor" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Descriptor that points to specific object type by it’s name
+and optional library (or module) where this type is defined.</p>
+<p>This class has symmetric implementation across all languages supported
+by Pip.Services toolkit and used to support dynamic data processing.</p>
 <dl class="staticmethod">
 <dt id="pip_services_commons.reflect.TypeDescriptor.TypeDescriptor.from_string">
 <em class="property">static </em><code class="descname">from_string</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.reflect.TypeDescriptor.TypeDescriptor.from_string" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Parses a string to get descriptor fields and returns them as a Descriptor.
+The string must have format name[,library]</p>
+<p>:param value:a string to parse.</p>
+<p>:return:a newly created Descriptor.</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.reflect.TypeDescriptor.TypeDescriptor.get_library">
 <code class="descname">get_library</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.reflect.TypeDescriptor.TypeDescriptor.get_library" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Gets the name of the library or module where the object type is defined.</p>
+<p>:return:the name of the library or module.</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.reflect.TypeDescriptor.TypeDescriptor.get_name">
 <code class="descname">get_name</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.reflect.TypeDescriptor.TypeDescriptor.get_name" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Get the name of the object type.</p>
+<p>:return:the name of the object type.</p>
+</dd></dl>
 
 </dd></dl>
 

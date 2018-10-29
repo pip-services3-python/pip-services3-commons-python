@@ -35,8 +35,10 @@ class FilterParams(StringValueMap):
     def from_value(value):
         """
         Converts specified value into FilterParams.
-        :param value:value to be converted
-        :return:a newly created FilterParams.
+
+        :param value: value to be converted
+
+        :return: a newly created FilterParams.
         """
         return FilterParams(value)
 
@@ -44,8 +46,10 @@ class FilterParams(StringValueMap):
     def from_tuples(*tuples):
         """
         Creates a new FilterParams from a list of key-value pairs called tuples.
-        :param tuples:a list of values where odd elements are keys and the following even elements are values
-        :return:a newly created FilterParams.
+
+        :param tuples: a list of values where odd elements are keys and the following even elements are values
+
+        :return: a newly created FilterParams.
         """
         map = StringValueMap.from_tuples_array(tuples)
         return FilterParams(map)
@@ -54,8 +58,10 @@ class FilterParams(StringValueMap):
     def from_string(line):
         """
         Parses semicolon-separated key-value pairs and returns them as a FilterParams.
-        :param line:semicolon-separated key-value list to initialize FilterParams.
-        :return:a newly created FilterParams.
+
+        :param line: semicolon-separated key-value list to initialize FilterParams.
+
+        :return: a newly created FilterParams.
         """
         map = StringValueMap.from_string(line)
         return FilterParams(map)

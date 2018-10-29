@@ -68,45 +68,77 @@ value3 = TypeConverter.to_type(TypeCode.Boolean, “F”) // Result: false</dd>
 <dl class="staticmethod">
 <dt id="pip_services_commons.convert.TypeConverter.TypeConverter.to_nullable_type">
 <em class="property">static </em><code class="descname">to_nullable_type</code><span class="sig-paren">(</span><em>value_type</em>, <em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.convert.TypeConverter.TypeConverter.to_nullable_type" title="Permalink to this definition">¶</a></dt>
-<dd><p>Converts value into an object type specified by Type Code or returns null when conversion is not possible.
-:param value_type: the TypeCode for the data type into which ‘value’ is to be converted.
-:param value: the value to convert.
-:return: object value of type corresponding to TypeCode, or null when conversion is not supported.</p>
+<dd><p>Converts value into an object type specified by Type Code or returns null when conversion is not possible.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>value_type</strong> – the TypeCode for the data type into which ‘value’ is to be converted.</li>
+<li><strong>value</strong> – the value to convert.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">object value of type corresponding to TypeCode, or null when conversion is not supported.</p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="staticmethod">
 <dt id="pip_services_commons.convert.TypeConverter.TypeConverter.to_string">
 <em class="property">static </em><code class="descname">to_string</code><span class="sig-paren">(</span><em>type</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.convert.TypeConverter.TypeConverter.to_string" title="Permalink to this definition">¶</a></dt>
-<dd><p>Converts a TypeCode into its string name.
-:param type:the TypeCode to convert into a string.
-:return:the name of the TypeCode passed as a string value.</p>
+<dd><p>Converts a TypeCode into its string name.</p>
+<p>:param type:the TypeCode to convert into a string.</p>
+<p>:return:the name of the TypeCode passed as a string value.</p>
 </dd></dl>
 
 <dl class="staticmethod">
 <dt id="pip_services_commons.convert.TypeConverter.TypeConverter.to_type">
 <em class="property">static </em><code class="descname">to_type</code><span class="sig-paren">(</span><em>value_type</em>, <em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.convert.TypeConverter.TypeConverter.to_type" title="Permalink to this definition">¶</a></dt>
-<dd><p>Converts value into an object type specified by Type Code or returns type default when conversion is not possible.
-:param value_type: the TypeCode for the data type into which ‘value’ is to be converted.
-:param value: the value to convert.
-:return: object value of type corresponding to TypeCode, or type default when conversion is not supported.</p>
+<dd><p>Converts value into an object type specified by Type Code or returns type default when conversion is not possible.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>value_type</strong> – the TypeCode for the data type into which ‘value’ is to be converted.</li>
+<li><strong>value</strong> – the value to convert.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">object value of type corresponding to TypeCode, or type default when conversion is not supported.</p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="staticmethod">
 <dt id="pip_services_commons.convert.TypeConverter.TypeConverter.to_type_code">
 <em class="property">static </em><code class="descname">to_type_code</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.convert.TypeConverter.TypeConverter.to_type_code" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gets TypeCode for specific value.
-:param value: value whose TypeCode is to be resolved.
-:return: the TypeCode that corresponds to the passed object’s type.</p>
+<dd><p>Gets TypeCode for specific value.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>value</strong> – value whose TypeCode is to be resolved.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">the TypeCode that corresponds to the passed object’s type.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="staticmethod">
 <dt id="pip_services_commons.convert.TypeConverter.TypeConverter.to_type_with_default">
 <em class="property">static </em><code class="descname">to_type_with_default</code><span class="sig-paren">(</span><em>value_type</em>, <em>value</em>, <em>default_value</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.convert.TypeConverter.TypeConverter.to_type_with_default" title="Permalink to this definition">¶</a></dt>
-<dd><p>Converts value into an object type specified by Type Code or returns default value when conversion is not possible.
-:param value_type:the TypeCode for the data type into which ‘value’ is to be converted.
-:param value:the value to convert.
-:param default_value:the default value to return if conversion is not possible (returns None).
-:return:object value of type corresponding to TypeCode, or default value when conversion is not supported.</p>
+<dd><p>Converts value into an object type specified by Type Code or returns default value when conversion is not possible.</p>
+<p>:param value_type:the TypeCode for the data type into which ‘value’ is to be converted.</p>
+<p>:param value:the value to convert.</p>
+<p>:param default_value:the default value to return if conversion is not possible (returns None).</p>
+<p>:return:object value of type corresponding to TypeCode, or default value when conversion is not supported.</p>
 </dd></dl>
 
 </dd></dl>

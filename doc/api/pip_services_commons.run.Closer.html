@@ -46,7 +46,7 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">copyright:</th><td class="field-body">Conceptual Vision Consulting LLC 2015-2016, see AUTHORS for more details.</td>
+<tr class="field-odd field"><th class="field-name">copyright:</th><td class="field-body">Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">license:</th><td class="field-body">MIT, see LICENSE for more details.</td>
 </tr>
@@ -56,27 +56,25 @@
 <dt id="pip_services_commons.run.Closer.Closer">
 <em class="property">class </em><code class="descclassname">pip_services_commons.run.Closer.</code><code class="descname">Closer</code><a class="headerlink" href="#pip_services_commons.run.Closer.Closer" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>Helper class that closes components</p>
+<p>Helper class that closes previously opened components.</p>
 <dl class="staticmethod">
 <dt id="pip_services_commons.run.Closer.Closer.close">
 <em class="property">static </em><code class="descname">close</code><span class="sig-paren">(</span><em>correlation_id</em>, <em>components</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.run.Closer.Closer.close" title="Permalink to this definition">¶</a></dt>
-<dd><p>Closes components that implement ICloseable interface</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd>correlation_id: a unique transaction id to trace calls across components
-components: a list of components to be closed</dd>
-</dl>
+<dd><p>Closes multiple components.</p>
+<p>To be closed components must implement [[ICloseable]] interface.
+If they don’t the call to this method has no effect.</p>
+<p>:param correlation_id:(optional) transaction id to trace execution through call chain.</p>
+<p>:param components:the list of components that are to be closed.</p>
 </dd></dl>
 
 <dl class="staticmethod">
 <dt id="pip_services_commons.run.Closer.Closer.close_one">
 <em class="property">static </em><code class="descname">close_one</code><span class="sig-paren">(</span><em>correlation_id</em>, <em>component</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.run.Closer.Closer.close_one" title="Permalink to this definition">¶</a></dt>
-<dd><p>Closes component that implement ICloseable interface</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd>correlation_id: a unique transaction id to trace calls across components
-component: a component to be closed</dd>
-</dl>
+<dd><p>Closes specific component.</p>
+<p>To be closed components must implement [[ICloseable]] interface.
+If they don’t the call to this method has no effect.</p>
+<p>:param correlation_id:(optional) transaction id to trace execution through call chain.</p>
+<p>:param component:the component that is to be closed.</p>
 </dd></dl>
 
 </dd></dl>

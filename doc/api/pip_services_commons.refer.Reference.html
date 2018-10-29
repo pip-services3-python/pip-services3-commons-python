@@ -46,7 +46,7 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">copyright:</th><td class="field-body">Conceptual Vision Consulting LLC 2015-2016, see AUTHORS for more details.</td>
+<tr class="field-odd field"><th class="field-name">copyright:</th><td class="field-body">Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">license:</th><td class="field-body">MIT, see LICENSE for more details.</td>
 </tr>
@@ -56,21 +56,30 @@
 <dt id="pip_services_commons.refer.Reference.Reference">
 <em class="property">class </em><code class="descclassname">pip_services_commons.refer.Reference.</code><code class="descname">Reference</code><span class="sig-paren">(</span><em>locator</em>, <em>component</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.refer.Reference.Reference" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>Placeholder to store component references.</p>
+<p>Contains a reference to a component and locator to find it.
+It is used by [[References]] to store registered component references.</p>
 <dl class="method">
 <dt id="pip_services_commons.refer.Reference.Reference.get_component">
 <code class="descname">get_component</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.refer.Reference.Reference.get_component" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Gets the stored component reference.</p>
+<p>:return:the component’s references.</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.refer.Reference.Reference.get_locator">
 <code class="descname">get_locator</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.refer.Reference.Reference.get_locator" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Gets the stored component locator.</p>
+<p>:return:the component’s locator.</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.refer.Reference.Reference.match">
 <code class="descname">match</code><span class="sig-paren">(</span><em>locator</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.refer.Reference.Reference.match" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Matches locator to this reference locator. Descriptors are matched using equal method.
+All other locator types are matched using direct comparison.</p>
+<p>:param locator:the locator to match.</p>
+<p>:return:true if locators are matching and false it they don’t.</p>
+</dd></dl>
 
 </dd></dl>
 

@@ -58,10 +58,14 @@ class ApplicationException(Exception):
     def __init__(self, category = ErrorCategory.Unknown, correlation_id = None, code = 'UNKNOWN', message = 'Unknown error'):
         """
         Creates a new instance of application exception and assigns its values.
-        :param category:(optional) a standard error category. Default: Unknown
-        :param correlation_id:(optional) a unique transaction id to trace execution through call chain.
-        :param code:(optional) a unique error code. Default: "UNKNOWN"
-        :param message:(optional) a human-readable description of the error.
+
+        :param category: (optional) a standard error category. Default: Unknown
+
+        :param correlation_id: (optional) a unique transaction id to trace execution through call chain.
+
+        :param code: (optional) a unique error code. Default: "UNKNOWN"
+
+        :param message: (optional) a human-readable description of the error.
         """
         super(ApplicationException, self).__init__(message)
         
@@ -90,13 +94,15 @@ class ApplicationException(Exception):
     def get_cause_string(self):
         """
         Gets original error wrapped by this exception as a string message.
-        :return:an original error message.
+
+        :return: an original error message.
         """
         return str(self.cause)
 
     def set_cause_string(self, value):
         """
         Sets original error wrapped by this exception as a string message.
+
         :param value: an original error message.
         """
         self.cause = value
@@ -104,6 +110,7 @@ class ApplicationException(Exception):
     def get_stack_trace_string(self):
         """
         Gets a stack trace where this exception occured.
+
         :return: a stack trace as a string.
         """
         if (self.stack_trace != None):
@@ -116,8 +123,8 @@ class ApplicationException(Exception):
     def set_stack_trace_string(self, value):
         """
         Sets a stack trace where this exception occured.
-        :param value:a stack trace as a string
-        :return:
+
+        :param value: a stack trace as a string
         """
         self.stack_trace = value
 
@@ -125,8 +132,10 @@ class ApplicationException(Exception):
         """
         Sets a unique error code.
         This method returns reference to this exception to implement Builder pattern to chain additional calls.
+
         :param code: a unique error code
-        :return:this exception object
+
+        :return: this exception object
         """
         self.code = code if code != None else 'UNKNOWN'
         self.name = code
@@ -136,8 +145,10 @@ class ApplicationException(Exception):
         """
         Sets a HTTP status code which shall be returned by REST calls.
         This method returns reference to this exception to implement Builder pattern to chain additional calls.
-        :param status:an HTTP error code.
-        :return:this exception object
+
+        :param status: an HTTP error code.
+
+        :return: this exception object
         """
         self.status = status if status != None else 500
         return self
@@ -148,9 +159,12 @@ class ApplicationException(Exception):
         This details can be used to restore error description in other languages.
 
         This method returns reference to this exception to implement Builder pattern to chain additional calls.
-        :param key:a details parameter name
-        :param value:a details parameter name
-        :return:this exception object
+
+        :param key: a details parameter name
+
+        :param value: a details parameter name
+
+        :return: this exception object
         """
         self.details = self.details if self.details != None else {}
         self.details[key] = value
@@ -161,8 +175,10 @@ class ApplicationException(Exception):
         Sets a original error wrapped by this exception
 
         This method returns reference to this exception to implement Builder pattern to chain additional calls.
-        :param cause:original error object
-        :return:this exception object
+
+        :param cause: original error object
+
+        :return: this exception object
         """
         self.cause = cause
         return self
@@ -172,8 +188,10 @@ class ApplicationException(Exception):
         Sets a correlation id which can be used to trace this error through a call chain.
 
         This method returns reference to this exception to implement Builder pattern to chain additional calls.
-        :param correlation_id:a unique transaction id to trace error through call chain
-        :return:this exception object
+
+        :param correlation_id: a unique transaction id to trace error through call chain
+
+        :return: this exception object
         """
         self.correlation_id = correlation_id
         return self
@@ -184,8 +202,10 @@ class ApplicationException(Exception):
 
         If original exception is of ApplicationException type it is returned without changes.
         Otherwise a new ApplicationException is created and original error is set as its cause.
-        :param cause:an original error object
-        :return:an original or newly created ApplicationException
+
+        :param cause: an original error object
+
+        :return: an original or newly created ApplicationException
         """
         if isinstance(cause, ApplicationException):
             return cause
@@ -200,9 +220,12 @@ class ApplicationException(Exception):
 
         If original exception is of ApplicationException type it is returned without changes.
         Otherwise the original error is set as a cause to specified ApplicationException object.
-        :param exception:an ApplicationException object to wrap the cause
-        :param cause:an original error object
-        :return:an original or newly created ApplicationException
+
+        :param exception: an ApplicationException object to wrap the cause
+
+        :param cause: an original error object
+
+        :return: an original or newly created ApplicationException
         """
         if isinstance(cause, ApplicationException):
             return cause

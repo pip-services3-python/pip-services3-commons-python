@@ -48,13 +48,15 @@ class ConfigParams(StringValueMap):
         """
         Creates a new ConfigParams and fills it with values.
 
-        :param values: (optional) an object to be converted into key-value pairs to initialize this config map.
+        Args:
+            :param values: (optional) an object to be converted into key-value pairs to initialize this config map.
         """
         super(ConfigParams, self).__init__(values)
 
     def get_section_names(self):
         """
         Gets a list with all 1st level section names.
+
         :return: a list of section names stored in this ConfigMap.
         """
         sections = []
@@ -81,7 +83,10 @@ class ConfigParams(StringValueMap):
         """
         Gets parameters from specific section stored in this ConfigMap.
         The section name is removed from parameter keys.
-        :param section: name of the section to retrieve configuration parameters from.
+
+        Args:
+            :param section: name of the section to retrieve configuration parameters from.
+
         :return: all configuration parameters that belong to the section named 'section'.
         """
         result = ConfigParams()
@@ -109,8 +114,11 @@ class ConfigParams(StringValueMap):
         """
         Adds parameters into this ConfigParams under specified section.
         Keys for the new parameters are appended with section dot prefix.
-        :param section: name of the section where add new parameters
-        :param section_params: new parameters to be added.
+
+        Args:
+            :param section: name of the section where add new parameters
+
+            :param section_params: new parameters to be added.
         """
         if section == None:
             raise Exception("Section name cannot be null")
@@ -134,7 +142,10 @@ class ConfigParams(StringValueMap):
     def override(self, config_params):
         """
         Overrides parameters with new values from specified ConfigParams and returns a new ConfigParams object.
-        :param config_params: ConfigMap with parameters to override the current values.
+
+        Args:
+            :param config_params: ConfigMap with parameters to override the current values.
+
         :return: a new ConfigParams object.
         """
         map = StringValueMap.from_maps(self, config_params)
@@ -144,7 +155,10 @@ class ConfigParams(StringValueMap):
     def set_defaults(self, default_config_params):
         """
         Set default values from specified ConfigParams and returns a new ConfigParams object.
-        :param default_config_params: ConfigMap with default parameter values.
+
+        Args:
+            :param default_config_params: ConfigMap with default parameter values.
+
         :return: a new ConfigParams object.
         """
         map = StringValueMap.from_maps(default_config_params, self)
@@ -155,7 +169,10 @@ class ConfigParams(StringValueMap):
     def from_value(value):
         """
         Creates a new ConfigParams object filled with key-value pairs from specified object.
-        :param value: an object with key-value pairs used to initialize a new ConfigParams.
+
+        Args:
+            :param value: an object with key-value pairs used to initialize a new ConfigParams.
+
         :return: a new ConfigParams object.
         """
         map = RecursiveObjectReader.get_properties(value)
@@ -167,7 +184,10 @@ class ConfigParams(StringValueMap):
         """
         Creates a new ConfigParams object filled with provided key-value pairs called tuples.
         Tuples parameters contain a sequence of key1, value1, key2, value2, ... pairs.
-        :param tuples: the tuples to fill a new ConfigParams object.
+
+        Args:
+            :param tuples: the tuples to fill a new ConfigParams object.
+
         :return: a new ConfigParams object.
         """
         map = StringValueMap.from_tuples_array(tuples)
@@ -178,7 +198,10 @@ class ConfigParams(StringValueMap):
     def from_string(line):
         """
         Creates a new ConfigParams object filled with key-value pairs serialized as a string.
-        :param line: a string with serialized key-value pairs as "key1=value1;key2=value2;..."
+
+        Args:
+            :param line: a string with serialized key-value pairs as "key1=value1;key2=value2;..."
+
         :return: a new ConfigParams object.
         """
         map = StringValueMap.from_string(line)
@@ -189,7 +212,10 @@ class ConfigParams(StringValueMap):
     def merge_configs(*configs):
         """
         Merges two or more ConfigParams into one. The following ConfigParams override previously defined parameters.
-        :param configs: a list of ConfigParams objects to be merged.
+
+        Args:
+            :param configs: a list of ConfigParams objects to be merged.
+
         :return: a new ConfigParams object.
         """
         map = StringValueMap.from_maps(*configs)

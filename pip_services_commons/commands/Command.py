@@ -18,7 +18,6 @@ class Command(ICommand):
     Command allows to call a method or function using Command pattern.
 
     Example:
-        [code]
         def handler(*args):
             param1 = args.getAsFloat("param1")
             param2 = args.getAsFloat("param2")
@@ -29,7 +28,7 @@ class Command(ICommand):
         result = command.execute("123",  Parameters.fromTuples("param1", 2, "param2", 2))
 
         print result.__str__()
-        [/code]
+
     See ICommand, CommandSet
     """
 

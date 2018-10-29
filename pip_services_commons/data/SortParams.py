@@ -23,7 +23,8 @@ class SortParams(list):
     def __init__(self, **fields):
         """
         Creates a new instance and initializes it with specified sort fields.
-        :param fields:a list of fields to sort by.
+
+        :param fields: a list of fields to sort by.
         """
         super(SortParams, self).__init__()
         for field in fields:

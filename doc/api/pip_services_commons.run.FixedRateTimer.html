@@ -46,7 +46,7 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">copyright:</th><td class="field-body">Conceptual Vision Consulting LLC 2015-2016, see AUTHORS for more details.</td>
+<tr class="field-odd field"><th class="field-name">copyright:</th><td class="field-body">Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">license:</th><td class="field-body">MIT, see LICENSE for more details.</td>
 </tr>
@@ -56,15 +56,16 @@
 <dt id="pip_services_commons.run.FixedRateTimer.FixedRateTimer">
 <em class="property">class </em><code class="descclassname">pip_services_commons.run.FixedRateTimer.</code><code class="descname">FixedRateTimer</code><span class="sig-paren">(</span><em>task=None</em>, <em>interval=None</em>, <em>delay=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.run.FixedRateTimer.FixedRateTimer" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="pip_services_commons.run.IClosable.html#pip_services_commons.run.IClosable.IClosable" title="pip_services_commons.run.IClosable.IClosable"><code class="xref py py-class docutils literal notranslate"><span class="pre">pip_services_commons.run.IClosable.IClosable</span></code></a></p>
+<p>Timer that is triggered in equal time intervals.</p>
+<p>It has summetric cross-language implementation
+and is often used by Pip.Services toolkit to perform periodic processing and cleanup in microservices.</p>
 <dl class="method">
 <dt id="pip_services_commons.run.FixedRateTimer.FixedRateTimer.close">
 <code class="descname">close</code><span class="sig-paren">(</span><em>correlation_id</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.run.FixedRateTimer.FixedRateTimer.close" title="Permalink to this definition">¶</a></dt>
-<dd><p>Closes component, disconnects it from services, disposes resources</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd>correlation_id: a unique transaction id to trace calls across components</dd>
-</dl>
-<p>Raises: ApplicationException on any error</p>
+<dd><p>Closes the timer.
+This is required by [[ICloseable]] interface,
+but besides that it is identical to stop().</p>
+<p>:param correlation_id:(optional) transaction id to trace execution through call chain.</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -80,7 +81,10 @@
 <dl class="method">
 <dt id="pip_services_commons.run.FixedRateTimer.FixedRateTimer.start">
 <code class="descname">start</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.run.FixedRateTimer.FixedRateTimer.start" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Starts the timer.
+Initially the timer is triggered after delay.
+After that it is triggered after interval until it is stopped.</p>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="pip_services_commons.run.FixedRateTimer.FixedRateTimer.started">
@@ -90,7 +94,8 @@
 <dl class="method">
 <dt id="pip_services_commons.run.FixedRateTimer.FixedRateTimer.stop">
 <code class="descname">stop</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.run.FixedRateTimer.FixedRateTimer.stop" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Stops the timer.</p>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="pip_services_commons.run.FixedRateTimer.FixedRateTimer.task">

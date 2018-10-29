@@ -74,10 +74,22 @@ config = ConfigParams.fromTuples(“descriptor”, “myservice:connector:aws:co
 <em class="property">static </em><code class="descname">resolve</code><span class="sig-paren">(</span><em>config</em>, <em>default_name=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.config.NameResolver.NameResolver.resolve" title="Permalink to this definition">¶</a></dt>
 <dd><p>Resolves a component name from configuration parameters.
 The name can be stored in “id”, “name” fields or inside a component descriptor.
-If name cannot be determined it returns a defaultName.
-:param config: configuration parameters that may contain a component name.
-:param default_name: (optional) a default component name.
-:return: resolved name or default name if the name cannot be determined.</p>
+If name cannot be determined it returns a defaultName.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>config</strong> – configuration parameters that may contain a component name.</li>
+<li><strong>default_name</strong> – (optional) a default component name.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">resolved name or default name if the name cannot be determined.</p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </dd></dl>

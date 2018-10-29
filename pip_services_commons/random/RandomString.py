@@ -5,7 +5,7 @@
     
     RandomString implementation
     
-    :copyright: Conceptual Vision Consulting LLC 2015-2016, see AUTHORS for more details.
+    :copyright: Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.
     :license: MIT, see LICENSE for more details.
 """
 
@@ -22,9 +22,22 @@ _alpha = _alpha_upper + _alpha_lower
 _chars = _alpha + _digits + _symbols
 
 class RandomString(object):
+    """
+    Random generator for string values.
 
+    Example:
+        value1 = RandomString.pickChar("ABC")     // Possible result: "C"
+        value2 = RandomString.pick(["A","B","C"]) // Possible result: "gBW"
+    """
     @staticmethod
     def pick(values):
+        """
+        Picks a random string from an array of string.
+
+        :param values: a string to pick from
+
+        :return: a randomly picked string.
+        """
         if values == None or len(values) == 0:
             return None
 
@@ -32,6 +45,13 @@ class RandomString(object):
 
     @staticmethod
     def distort(value):
+        """
+        Distorts a string by randomly replacing characters in it.
+
+        :param value: a string to distort.
+
+        :return: a distored string.
+        """
         value = value.lower()
 
         if (RandomBoolean.chance(1, 5)):
@@ -44,10 +64,24 @@ class RandomString(object):
 
     @staticmethod
     def next_alpha_char():
+        """
+        Generates random alpha characted [A-Za-z]
+        :return: a random characted.
+        """
         return random.choice(_alpha)
 
     @staticmethod
     def next_string(min_size, max_size):
+        """
+        Generates a random string, consisting of upper and lower case letters (of the English alphabet),
+        digits (0-9), and symbols ("_,.:-/.[].{},#-!,$=%.+^.&*-() ").
+
+        :param min_size: (optional) minimum string length.
+
+        :param max_size: maximum string length.
+
+        :return: a random string.
+        """
         result = ''
         
         max_size = max_size if max_size != None else min_size

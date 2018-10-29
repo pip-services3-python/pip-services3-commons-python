@@ -5,7 +5,7 @@
     
     Executor component implementation
     
-    :copyright: Conceptual Vision Consulting LLC 2015-2016, see AUTHORS for more details.
+    :copyright: Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.
     :license: MIT, see LICENSE for more details.
 """
 
@@ -14,20 +14,23 @@ from .Parameters import Parameters
 
 class Executor:
     """
-    Helper class that triggers execution for components
+    Helper class that executes components.
     """
 
     @staticmethod
     def execute_one(correlation_id, component, args):
         """
-        Triggers execution for components that implement IExecutable interfaces
+        Executes specific component.
+        To be executed components must implement [[IExecutable]] interface.
+        If they don't the call to this method has no effect.
 
-        Args:
-            correlation_id: a unique transaction id to trace calls across components
-            components:  components a list of components to be notified
-            args: a set of parameters to pass to executed components
+        :param correlation_id:(optional) transaction id to trace execution through call chain.
 
-        Returns: execution results
+        :param component:the component that is to be executed.
+
+        :param args:execution arguments.
+
+        :return: execution result
         """
         if isinstance(component, IExecutable):
             return component.execute(correlation_id, args)
@@ -37,14 +40,18 @@ class Executor:
     @staticmethod
     def execute(correlation_id, components, args = None):
         """
-        Triggers execution for components that implement IExecutable interface
+        Executes multiple components.
 
-        Args:
-            correlation_id: a unique transaction id to trace calls across components
-            components:  components a list of components to be notified
-            args: a set of parameters to pass to executed components
+        To be executed components must implement [[IExecutable]] interface.
+        If they don't the call to this method has no effect.
 
-        Returns: array of execution results
+        :param correlation_id:(optional) transaction id to trace execution through call chain.
+
+        :param components:a list of components that are to be executed.
+
+        :param args:execution arguments.
+
+        :return:execution result
         """
         results = []
 

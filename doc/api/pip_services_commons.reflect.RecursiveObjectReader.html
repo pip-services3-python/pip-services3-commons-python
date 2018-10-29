@@ -46,7 +46,7 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">copyright:</th><td class="field-body">Conceptual Vision Consulting LLC 2015-2016, see AUTHORS for more details.</td>
+<tr class="field-odd field"><th class="field-name">copyright:</th><td class="field-body">Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">license:</th><td class="field-body">MIT, see LICENSE for more details.</td>
 </tr>
@@ -56,25 +56,51 @@
 <dt id="pip_services_commons.reflect.RecursiveObjectReader.RecursiveObjectReader">
 <em class="property">class </em><code class="descclassname">pip_services_commons.reflect.RecursiveObjectReader.</code><code class="descname">RecursiveObjectReader</code><a class="headerlink" href="#pip_services_commons.reflect.RecursiveObjectReader.RecursiveObjectReader" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Helper class to perform property introspection and dynamic reading.</p>
+<p>It is similar to [[ObjectReader]] but reads properties recursively
+through the entire object graph. Nested property names are defined
+using dot notation as “object.subobject.property”</p>
 <dl class="staticmethod">
 <dt id="pip_services_commons.reflect.RecursiveObjectReader.RecursiveObjectReader.get_properties">
 <em class="property">static </em><code class="descname">get_properties</code><span class="sig-paren">(</span><em>obj</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.reflect.RecursiveObjectReader.RecursiveObjectReader.get_properties" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Get values of all properties in specified object and its subobjects and returns them as a map.</p>
+<p>The object can be a user defined object, map or array.
+Returned properties correspondently are object properties, map key-pairs or array elements with their indexes.</p>
+<p>:param obj:an object to get properties from.</p>
+<p>:return:a map, containing the names of the object’s properties and their values.</p>
+</dd></dl>
 
 <dl class="staticmethod">
 <dt id="pip_services_commons.reflect.RecursiveObjectReader.RecursiveObjectReader.get_property">
 <em class="property">static </em><code class="descname">get_property</code><span class="sig-paren">(</span><em>obj</em>, <em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.reflect.RecursiveObjectReader.RecursiveObjectReader.get_property" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Recursively gets value of object or its subobjects property specified by its name.</p>
+<p>The object can be a user defined object, map or array.
+The property name correspondently must be object property, map key or array index.</p>
+<p>:param obj:an object to read property from.</p>
+<p>:param name:a name of the property to get.</p>
+<p>:return:the property value or null if property doesn’t exist or introspection failed.</p>
+</dd></dl>
 
 <dl class="staticmethod">
 <dt id="pip_services_commons.reflect.RecursiveObjectReader.RecursiveObjectReader.get_property_names">
 <em class="property">static </em><code class="descname">get_property_names</code><span class="sig-paren">(</span><em>obj</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.reflect.RecursiveObjectReader.RecursiveObjectReader.get_property_names" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Recursively gets names of all properties implemented in specified object and its subobjects.</p>
+<p>The object can be a user defined object, map or array.
+Returned property name correspondently are object properties, map keys or array indexes.</p>
+<p>:param obj:an objec to introspect.</p>
+<p>:return:a list with property names.</p>
+</dd></dl>
 
 <dl class="staticmethod">
 <dt id="pip_services_commons.reflect.RecursiveObjectReader.RecursiveObjectReader.has_property">
 <em class="property">static </em><code class="descname">has_property</code><span class="sig-paren">(</span><em>obj</em>, <em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.reflect.RecursiveObjectReader.RecursiveObjectReader.has_property" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Checks recursively if object or its subobjects has a property with specified name.</p>
+<p>The object can be a user defined object, map or array.
+The property name correspondently must be object property, map key or array index.</p>
+<p>:param obj:an object to introspect.</p>
+<p>:param name:a name of the property to check.</p>
+<p>:return:true if the object has the property and false if it doesn’t.</p>
+</dd></dl>
 
 </dd></dl>
 

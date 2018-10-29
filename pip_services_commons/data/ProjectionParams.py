@@ -34,10 +34,11 @@ class ProjectionParams(list):
     """
     default_delimiter = ','
 
-    def __init__(self, values):
+    def __init__(self, values = None):
         """
         Creates a new instance of the projection parameters and assigns its value.
-        :param values:(optional) values to initialize this object.
+
+        :param values: (optional) values to initialize this object.
         """
         super(ProjectionParams, self).__init__()
 
@@ -49,8 +50,10 @@ class ProjectionParams(list):
     def from_value(value = None):
         """
         Converts specified value into ProjectionParams.
+
         :param value: value to be converted
-        :return:a newly created ProjectionParams.
+
+        :return: a newly created ProjectionParams.
         """
         if isinstance(value, ProjectionParams):
             return value
@@ -60,9 +63,11 @@ class ProjectionParams(list):
     @staticmethod
     def from_values(*values):
         """
-         Parses comma-separated list of projection fields.
+        Parses comma-separated list of projection fields.
+
         :param values: one or more comma-separated lists of projection fields
-        :return:a newly created ProjectionParams.
+
+        :return: a newly created ProjectionParams.
         """
         result = ProjectionParams()
         result._from_values(',', values)
@@ -76,7 +81,8 @@ class ProjectionParams(list):
         Gets a string representation of the object.
         The result is a comma-separated list of projection fields
         "field1,field2.field21,field2.field22.field221"
-        :return:a string representation of the object.
+
+        :return: a string representation of the object.
         """
         builder = ""
 

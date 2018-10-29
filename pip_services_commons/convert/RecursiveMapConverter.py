@@ -46,7 +46,9 @@ class RecursiveMapConverter():
     def to_nullable_map(value):
         """
         Converts value into map object or returns null when conversion is not possible.
+
         :param value: the value to convert.
+
         :return: map object or null when conversion is not supported.
         """
         if value == None:
@@ -58,7 +60,9 @@ class RecursiveMapConverter():
     def to_map(value):
         """
         Converts value into map object or returns empty map when conversion is not possible
+
         :param value: the value to convert.
+
         :return: map object or empty map when conversion is not supported.
         """
         result = RecursiveMapConverter.to_nullable_map(value)
@@ -68,8 +72,11 @@ class RecursiveMapConverter():
     def to_map_with_default(value, default_value):
         """
         Converts value into map object or returns default when conversion is not possible
+
         :param value: the value to convert.
+
         :param default_value: the default value.
+
         :return: map object or emptu map when conversion is not supported.
         """
         result = RecursiveMapConverter.to_nullable_map(value)

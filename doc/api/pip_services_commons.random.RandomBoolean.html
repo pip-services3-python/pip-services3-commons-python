@@ -46,7 +46,7 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">copyright:</th><td class="field-body">Conceptual Vision Consulting LLC 2015-2016, see AUTHORS for more details.</td>
+<tr class="field-odd field"><th class="field-name">copyright:</th><td class="field-body">Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">license:</th><td class="field-body">MIT, see LICENSE for more details.</td>
 </tr>
@@ -56,15 +56,28 @@
 <dt id="pip_services_commons.random.RandomBoolean.RandomBoolean">
 <em class="property">class </em><code class="descclassname">pip_services_commons.random.RandomBoolean.</code><code class="descname">RandomBoolean</code><a class="headerlink" href="#pip_services_commons.random.RandomBoolean.RandomBoolean" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Random generator for boolean values.</p>
+<dl class="docutils">
+<dt>Example:</dt>
+<dd>value1 = RandomBoolean.next_boolean()    // Possible result: true
+value2 = RandomBoolean.chance(1,3)      // Possible result: false</dd>
+</dl>
 <dl class="staticmethod">
 <dt id="pip_services_commons.random.RandomBoolean.RandomBoolean.chance">
 <em class="property">static </em><code class="descname">chance</code><span class="sig-paren">(</span><em>chances</em>, <em>max_chances</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.random.RandomBoolean.RandomBoolean.chance" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Calculates “chance” out of “max chances”.
+Example: 1 chance out of 3 chances (or 33.3%)</p>
+<p>:param chances:a chance proportional to maxChances.</p>
+<p>:param max_chances:a maximum number of chances</p>
+<p>:return:random boolean “chance”</p>
+</dd></dl>
 
 <dl class="staticmethod">
 <dt id="pip_services_commons.random.RandomBoolean.RandomBoolean.next_boolean">
 <em class="property">static </em><code class="descname">next_boolean</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.random.RandomBoolean.RandomBoolean.next_boolean" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Generates a random boolean value.</p>
+<p>:return:a random boolean.</p>
+</dd></dl>
 
 </dd></dl>
 

@@ -46,7 +46,7 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">copyright:</th><td class="field-body">Conceptual Vision Consulting LLC 2015-2016, see AUTHORS for more details.</td>
+<tr class="field-odd field"><th class="field-name">copyright:</th><td class="field-body">Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">license:</th><td class="field-body">MIT, see LICENSE for more details.</td>
 </tr>
@@ -56,10 +56,15 @@
 <dt id="pip_services_commons.run.ICleanable.ICleanable">
 <em class="property">class </em><code class="descclassname">pip_services_commons.run.ICleanable.</code><code class="descname">ICleanable</code><a class="headerlink" href="#pip_services_commons.run.ICleanable.ICleanable" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Interface for components that should clean their state.
+Cleaning state most often is used during testing.
+But there may be situations when it can be done in production.</p>
 <dl class="method">
 <dt id="pip_services_commons.run.ICleanable.ICleanable.clear">
 <code class="descname">clear</code><span class="sig-paren">(</span><em>correlation_id</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.run.ICleanable.ICleanable.clear" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Clears component state.</p>
+<p>:param correlation_id:(optional) transaction id to trace execution through call chain.</p>
+</dd></dl>
 
 </dd></dl>
 

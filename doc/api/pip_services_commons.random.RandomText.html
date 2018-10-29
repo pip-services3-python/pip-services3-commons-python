@@ -46,7 +46,7 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">copyright:</th><td class="field-body">Conceptual Vision Consulting LLC 2015-2016, see AUTHORS for more details.</td>
+<tr class="field-odd field"><th class="field-name">copyright:</th><td class="field-body">Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">license:</th><td class="field-body">MIT, see LICENSE for more details.</td>
 </tr>
@@ -56,60 +56,105 @@
 <dt id="pip_services_commons.random.RandomText.RandomText">
 <em class="property">class </em><code class="descclassname">pip_services_commons.random.RandomText.</code><code class="descname">RandomText</code><a class="headerlink" href="#pip_services_commons.random.RandomText.RandomText" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Random generator for various text values like names, addresses or phone numbers.</p>
+<dl class="docutils">
+<dt>Example:</dt>
+<dd>value1 = RandomText.name()     // Possible result: “Sergio”
+value2 = RandomText.verb()      // Possible result: “Run”
+value3 = RandomText.text(50)    // Possible result: “Run jorge. Red high scream?”</dd>
+</dl>
 <dl class="staticmethod">
 <dt id="pip_services_commons.random.RandomText.RandomText.adjective">
 <em class="property">static </em><code class="descname">adjective</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.random.RandomText.RandomText.adjective" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Generates a random adjective. The result value is capitalized.</p>
+<p>:return:a random adjective.</p>
+</dd></dl>
 
 <dl class="staticmethod">
 <dt id="pip_services_commons.random.RandomText.RandomText.color">
 <em class="property">static </em><code class="descname">color</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.random.RandomText.RandomText.color" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Generates a random color name. The result value is capitalized.</p>
+<p>:return:a random color name.</p>
+</dd></dl>
 
 <dl class="staticmethod">
 <dt id="pip_services_commons.random.RandomText.RandomText.email">
 <em class="property">static </em><code class="descname">email</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.random.RandomText.RandomText.email" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Generates a random email address.</p>
+<p>:return:a random email address.</p>
+</dd></dl>
 
 <dl class="staticmethod">
 <dt id="pip_services_commons.random.RandomText.RandomText.name">
 <em class="property">static </em><code class="descname">name</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.random.RandomText.RandomText.name" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Generates a random person’s name which has the following structure
+&lt;optional prefix&gt; &lt;first name&gt; &lt;second name&gt; &lt;optional suffix&gt;</p>
+<p>:return:a random name.</p>
+</dd></dl>
 
 <dl class="staticmethod">
 <dt id="pip_services_commons.random.RandomText.RandomText.phone">
 <em class="property">static </em><code class="descname">phone</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.random.RandomText.RandomText.phone" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Generates a random phone number. The phone number has the format: (XXX) XXX-YYYY</p>
+<p>:return:a random phone number.</p>
+</dd></dl>
 
 <dl class="staticmethod">
 <dt id="pip_services_commons.random.RandomText.RandomText.phrase">
 <em class="property">static </em><code class="descname">phrase</code><span class="sig-paren">(</span><em>min_size</em>, <em>max_size=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.random.RandomText.RandomText.phrase" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Generates a random phrase which consists of few words separated by spaces.
+The first word is capitalized, others are not.</p>
+<p>:param min_size:(optional) minimum string length.</p>
+<p>:param max_size:maximum string length.</p>
+<p>:return:a random phrase.</p>
+</dd></dl>
 
 <dl class="staticmethod">
 <dt id="pip_services_commons.random.RandomText.RandomText.stuff">
 <em class="property">static </em><code class="descname">stuff</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.random.RandomText.RandomText.stuff" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Generates a random noun. The result value is capitalized.</p>
+<p>:return:a random noun.</p>
+</dd></dl>
 
 <dl class="staticmethod">
 <dt id="pip_services_commons.random.RandomText.RandomText.text">
 <em class="property">static </em><code class="descname">text</code><span class="sig-paren">(</span><em>min_size</em>, <em>max_size</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.random.RandomText.RandomText.text" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Generates a random text, consisting of first names, last names, colors, stuffs, adjectives, verbs,
+and punctuation marks.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>min_size</strong> – minimum amount of words to generate. Text will contain ‘minSize’ words if ‘maxSize’ is omitted.</td>
+</tr>
+</tbody>
+</table>
+<p>:param max_size:(optional) maximum amount of words to generate.</p>
+<p>:return:a random text.</p>
+</dd></dl>
 
 <dl class="staticmethod">
 <dt id="pip_services_commons.random.RandomText.RandomText.verb">
 <em class="property">static </em><code class="descname">verb</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.random.RandomText.RandomText.verb" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Generates a random verb. The result value is capitalized.</p>
+<p>:return:a random verb.</p>
+</dd></dl>
 
 <dl class="staticmethod">
 <dt id="pip_services_commons.random.RandomText.RandomText.word">
 <em class="property">static </em><code class="descname">word</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.random.RandomText.RandomText.word" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Generates a random word from available first names, last names, colors, stuffs, adjectives, or verbs.</p>
+<p>:return:a random word.</p>
+</dd></dl>
 
 <dl class="staticmethod">
 <dt id="pip_services_commons.random.RandomText.RandomText.words">
 <em class="property">static </em><code class="descname">words</code><span class="sig-paren">(</span><em>min_size</em>, <em>max_size=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.random.RandomText.RandomText.words" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Generates a random text that consists of random number of random words separated by spaces.</p>
+<p>:param min_size:(optional) a minimum number of words.</p>
+<p>:param max_size:a maximum number of words.</p>
+<p>:return:a random text.</p>
+</dd></dl>
 
 </dd></dl>
 

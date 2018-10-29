@@ -5,7 +5,7 @@
     
     Opener component implementation
     
-    :copyright: Conceptual Vision Consulting LLC 2015-2016, see AUTHORS for more details.
+    :copyright: Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.
     :license: MIT, see LICENSE for more details.
 """
 
@@ -13,17 +13,19 @@ from .IOpenable import IOpenable
 
 class Opener:
     """
-    Helper class that opens a collection of components 
+    Helper class that opens components.
     """
-
-
     @staticmethod
     def is_opened_one(component):
         """
-        Checks if component that implements IOpenable interface is opened
+        Checks if specified component is opened.
 
-        Args:
-            component: a components to be checked
+        To be checked components must implement [[IOpenable]] interface.
+        If they don't the call to this method returns true.
+
+        :param component:the component that is to be checked.
+
+        :return:true if component is opened and false otherwise.
         """
         if isinstance(component, IOpenable):
             return component.is_opened()
@@ -33,10 +35,14 @@ class Opener:
     @staticmethod
     def is_opened(components):
         """
-        Checks if all components that implement IOpenable interface are opened
+        Checks if all components are opened.
 
-        Args:
-            components: a list of components to be checked
+        To be checked components must implement [[IOpenable]] interface.
+        If they don't the call to this method returns true.
+
+        :param components:a list of components that are to be checked.
+
+        :return:true if all components are opened and false if at least one component is closed.
         """
         if components == None:
             return True
@@ -50,11 +56,14 @@ class Opener:
     @staticmethod
     def open_one(correlation_id, component):
         """
-        Opens a component that implements IOpenable interface
+        Opens specific component.
 
-        Args:
-            correlation_id: a unique transaction id to trace calls across components
-            component: a components to be opened
+        To be opened components must implement [[IOpenable]] interface.
+        If they don't the call to this method has no effect.
+
+        :param correlation_id:(optional) transaction id to trace execution through call chain.
+
+        :param component:the component that is to be opened.
         """
         if isinstance(component, IOpenable):
             component.open(correlation_id)
@@ -62,11 +71,14 @@ class Opener:
     @staticmethod
     def open(correlation_id, components):
         """
-        Opens components that implement IOpenable interface
+        Opens multiple components.
 
-        Args:
-            correlation_id: a unique transaction id to trace calls across components
-            components: a list of components to be opened
+        To be opened components must implement [[IOpenable]] interface.
+        If they don't the call to this method has no effect.
+
+        :param correlation_id:(optional) transaction id to trace execution through call chain.
+
+        :param components:the list of components that are to be closed.
         """
         if components == None:
             return

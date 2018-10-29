@@ -46,7 +46,7 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">copyright:</th><td class="field-body">Conceptual Vision Consulting LLC 2015-2016, see AUTHORS for more details.</td>
+<tr class="field-odd field"><th class="field-name">copyright:</th><td class="field-body">Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">license:</th><td class="field-body">MIT, see LICENSE for more details.</td>
 </tr>
@@ -56,23 +56,20 @@
 <dt id="pip_services_commons.run.IOpenable.IOpenable">
 <em class="property">class </em><code class="descclassname">pip_services_commons.run.IOpenable.</code><code class="descname">IOpenable</code><a class="headerlink" href="#pip_services_commons.run.IOpenable.IOpenable" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="pip_services_commons.run.IClosable.html#pip_services_commons.run.IClosable.IClosable" title="pip_services_commons.run.IClosable.IClosable"><code class="xref py py-class docutils literal notranslate"><span class="pre">pip_services_commons.run.IClosable.IClosable</span></code></a></p>
-<p>Interface for components that require explicit opening</p>
+<p>Interface for components that require explicit opening and closing.
+For components that perform opening on demand consider using [[ICloseable]] interface instead.</p>
 <dl class="method">
 <dt id="pip_services_commons.run.IOpenable.IOpenable.is_opened">
 <code class="descname">is_opened</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.run.IOpenable.IOpenable.is_opened" title="Permalink to this definition">¶</a></dt>
-<dd><p>Checks if component is opened</p>
-<p>Returns: True is component is opened and False otherwise</p>
+<dd><p>Checks if the component is opened.</p>
+<p>:return:true if the component has been opened and false otherwise.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.run.IOpenable.IOpenable.open">
 <code class="descname">open</code><span class="sig-paren">(</span><em>correlation_id</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.run.IOpenable.IOpenable.open" title="Permalink to this definition">¶</a></dt>
-<dd><p>Opens component, establishes connections to services</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd>correlation_id: a unique transaction id to trace calls across components</dd>
-</dl>
-<p>Raises: ApplicationException on any error</p>
+<dd><p>Opens the component.</p>
+<p>:param correlation_id:(optional) transaction id to trace execution through call chain.</p>
 </dd></dl>
 
 </dd></dl>

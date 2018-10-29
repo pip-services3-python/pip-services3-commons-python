@@ -5,17 +5,29 @@
     
     Interface for unreferenceable components.
     
-    :copyright: Conceptual Vision Consulting LLC 2015-2016, see AUTHORS for more details.
+    :copyright: Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.
     :license: MIT, see LICENSE for more details.
 """
 
 class IUnreferenceable:
     """
-    Interface for components that require clear of references to other components
+    Interface for components that require explicit clearing of references to dependent components.
+
+    Example:
+        class MyController(IReferenceable):
+            _persistence = None
+
+            def set_references(self, references):
+                self._persistence = references.getOneRequired(Descriptor("mygroup", "persistence", "*", "*", "1.0"))
+
+            def unset_references(self):
+                self._persistence = None
+
+            ...
     """
 
     def unset_references(self):
         """
-        Unsets previously set references to other components. 
+        Unsets (clears) previously set references to dependent components.
         """
         raise NotImplementedError('Method from interface definition')

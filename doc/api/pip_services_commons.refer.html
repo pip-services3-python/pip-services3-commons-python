@@ -86,12 +86,17 @@
 <span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-pip_services_commons.refer" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="pip-services-commons-refer-init">
 <h3>pip_services_commons.refer.__init__<a class="headerlink" href="#pip-services-commons-refer-init" title="Permalink to this headline">¶</a></h3>
-<p>References module initialization</p>
+<p>Inversion of control design pattern. There exist various implementations,
+a popular one being “inversion of dependency”. Requires introspection and
+is implemented differently in different languages. In PipServices, the “location
+design pattern” is used, which is much simpler than dependency injection and is
+a simple implementation, that is portable between languages. Used for building
+various containers, as well as testing objects.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">copyright:</th><td class="field-body">Conceptual Vision Consulting LLC 2015-2016, see AUTHORS for more details.</td>
+<tr class="field-odd field"><th class="field-name">copyright:</th><td class="field-body">Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">license:</th><td class="field-body">MIT, see LICENSE for more details.</td>
 </tr>
@@ -101,79 +106,116 @@
 <dt id="pip_services_commons.refer.Descriptor">
 <em class="property">class </em><code class="descclassname">pip_services_commons.refer.</code><code class="descname">Descriptor</code><span class="sig-paren">(</span><em>group</em>, <em>type</em>, <em>kind</em>, <em>name</em>, <em>version</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.refer.Descriptor" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>Component descriptor used to find a component by its descriptive elements:
-- logical group: package or other logical group of components like ‘pip-services-storage-blocks’
-- component type: identifies component interface like ‘controller’, ‘services’ or ‘cache’
-- component kind: identifies component implementation like ‘memory’, ‘file’ or ‘mongodb’, …
-- component name: identifies component internal content, …
-- implementation version: ‘1.0’, ‘1.5’ or ‘10.4’</p>
+<p>Locator type that most often used in PipServices toolkit.
+It locates components using several fields:
+- Group: a package or just named group of components like “pip-services”
+- Type: logical component type that defines it’s contract like “persistence”
+- Kind: physical implementation type like “mongodb”
+- Name: unique component name like “default”
+- Version: version of the component contract like “1.0”</p>
+<p>The locator matching can be done by all or only few selected fields.
+The fields that shall be excluded from the matching must be set to &lt;code&gt;”*”&lt;/code&gt; or &lt;code&gt;null&lt;/code&gt;.
+That approach allows to implement many interesting scenarios. For instance:
+- Locate all loggers (match by type and version)
+- Locate persistence components for a microservice (match by group and type)
+- Locate specific component by its name (match by name)</p>
+<dl class="docutils">
+<dt>Example:</dt>
+<dd><p class="first">locator1 = Descriptor(“mygroup”, “connector”, “aws”, “default”, “1.0”)
+locator2 = Descriptor.from_string(“mygroup:connector:<em>:</em>:1.0”)</p>
+<p class="last">locator1.match(locator2);               // Result: true
+locator1.eq(locator2);          // Result: true
+locator1.exact_match(locator2); // Result: false</p>
+</dd>
+</dl>
 <dl class="method">
 <dt id="pip_services_commons.refer.Descriptor.exact_match">
 <code class="descname">exact_match</code><span class="sig-paren">(</span><em>descriptor</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.refer.Descriptor.exact_match" title="Permalink to this definition">¶</a></dt>
-<dd><p>Matches this descriptor to another descriptor exactly.</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd>descriptor: another descriptor to match this one.</dd>
-</dl>
-<p>Returns: True if descriptors match or False otherwise.</p>
+<dd><p>Matches this descriptor to another descriptor by all fields. No exceptions are made.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>descriptor</strong> – the descriptor to match this one against.</td>
+</tr>
+</tbody>
+</table>
+<p>:return:true if descriptors match and false otherwise.</p>
 </dd></dl>
 
 <dl class="staticmethod">
 <dt id="pip_services_commons.refer.Descriptor.from_string">
 <em class="property">static </em><code class="descname">from_string</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.refer.Descriptor.from_string" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Parses colon-separated list of descriptor fields and returns them as a Descriptor.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>value</strong> – colon-separated descriptor fields to initialize Descriptor.</td>
+</tr>
+</tbody>
+</table>
+<p>:return:a newly created Descriptor.</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.refer.Descriptor.get_group">
 <code class="descname">get_group</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.refer.Descriptor.get_group" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gets the component group
-Returns: the component group</p>
+<dd><blockquote>
+<div>Gets the component’s logical group.</div></blockquote>
+<p>:return:the component’s logical group</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.refer.Descriptor.get_kind">
 <code class="descname">get_kind</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.refer.Descriptor.get_kind" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gets the component kind
-Returns: the component kind</p>
+<dd><p>Gets the component’s implementation type.</p>
+<p>:return:the component’s implementation type.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.refer.Descriptor.get_name">
 <code class="descname">get_name</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.refer.Descriptor.get_name" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gets the component name
-Returns: the component name</p>
+<dd><p>Gets the unique component’s name.</p>
+<p>:return:the unique component’s name.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.refer.Descriptor.get_type">
 <code class="descname">get_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.refer.Descriptor.get_type" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gets the component type
-Returns: the component type</p>
+<dd><p>Gets the component’s logical type.</p>
+<p>:return:the component’s logical type.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.refer.Descriptor.get_version">
 <code class="descname">get_version</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.refer.Descriptor.get_version" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gets the implementation version
-Returns: the implementation version</p>
+<dd><p>Gets the component’s implementation version.</p>
+<p>:return:the component’s implementation version.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.refer.Descriptor.is_complete">
 <code class="descname">is_complete</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.refer.Descriptor.is_complete" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Checks whether all descriptor fields are set.
+If descriptor has at least one “*” or null field it is considered “incomplete”</p>
+<p>:return:true if all descriptor fields are defined and false otherwise.</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.refer.Descriptor.match">
 <code class="descname">match</code><span class="sig-paren">(</span><em>descriptor</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.refer.Descriptor.match" title="Permalink to this definition">¶</a></dt>
-<dd><p>Matches this descriptor to another descriptor.
-All ‘*’ or null descriptor elements match to any other value.
-Specific values must match exactly.</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd>descriptor: another descriptor to match this one.</dd>
-</dl>
-<p>Returns: True if descriptors match or False otherwise.</p>
+<dd><p>Partially matches this descriptor to another descriptor.
+Fields that contain “*” or null are excluded from the match.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>descriptor</strong> – the descriptor to match this one against.</td>
+</tr>
+</tbody>
+</table>
+<p>:return:true if descriptors match and false otherwise</p>
 </dd></dl>
 
 </dd></dl>
@@ -182,16 +224,27 @@ Specific values must match exactly.</p>
 <dt id="pip_services_commons.refer.IReferenceable">
 <em class="property">class </em><code class="descclassname">pip_services_commons.refer.</code><code class="descname">IReferenceable</code><a class="headerlink" href="#pip_services_commons.refer.IReferenceable" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>Interface for components that requires references to other components</p>
+<p>Interface for components that depends on other components.
+If component requires explicit notification to unset references
+it shall additionally implement [[IUnreferenceable]] interface.</p>
+<dl class="docutils">
+<dt>Example:</dt>
+<dd><dl class="first last docutils">
+<dt>class MyController(IReferenceable):</dt>
+<dd><p class="first">_persistence = None</p>
+<dl class="last docutils">
+<dt>def set_references(self, references):</dt>
+<dd>self._persistence = references.getOneRequired(Descriptor(“mygroup”, “persistence”, “*”, “*”, “1.0”))</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
 <dl class="method">
 <dt id="pip_services_commons.refer.IReferenceable.set_references">
 <code class="descname">set_references</code><span class="sig-paren">(</span><em>references</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.refer.IReferenceable.set_references" title="Permalink to this definition">¶</a></dt>
-<dd><p>Sets references to other components.
-Using locators the component can find required dependencies</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd>references: component references</dd>
-</dl>
+<dd><p>Sets references to dependent components.</p>
+<p>:param references:references to locate the component dependencies.</p>
 </dd></dl>
 
 </dd></dl>
@@ -200,11 +253,27 @@ Using locators the component can find required dependencies</p>
 <dt id="pip_services_commons.refer.IUnreferenceable">
 <em class="property">class </em><code class="descclassname">pip_services_commons.refer.</code><code class="descname">IUnreferenceable</code><a class="headerlink" href="#pip_services_commons.refer.IUnreferenceable" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>Interface for components that require clear of references to other components</p>
+<p>Interface for components that require explicit clearing of references to dependent components.</p>
+<dl class="docutils">
+<dt>Example:</dt>
+<dd><dl class="first last docutils">
+<dt>class MyController(IReferenceable):</dt>
+<dd><p class="first">_persistence = None</p>
+<dl class="docutils">
+<dt>def set_references(self, references):</dt>
+<dd>self._persistence = references.getOneRequired(Descriptor(“mygroup”, “persistence”, “*”, “*”, “1.0”))</dd>
+<dt>def unset_references(self):</dt>
+<dd>self._persistence = None</dd>
+</dl>
+<p class="last">…</p>
+</dd>
+</dl>
+</dd>
+</dl>
 <dl class="method">
 <dt id="pip_services_commons.refer.IUnreferenceable.unset_references">
 <code class="descname">unset_references</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.refer.IUnreferenceable.unset_references" title="Permalink to this definition">¶</a></dt>
-<dd><p>Unsets previously set references to other components.</p>
+<dd><p>Unsets (clears) previously set references to dependent components.</p>
 </dd></dl>
 
 </dd></dl>
@@ -213,108 +282,114 @@ Using locators the component can find required dependencies</p>
 <dt id="pip_services_commons.refer.IReferences">
 <em class="property">class </em><code class="descclassname">pip_services_commons.refer.</code><code class="descname">IReferences</code><a class="headerlink" href="#pip_services_commons.refer.IReferences" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>Set of component references with abilities to add new references, find reference using locators
-or remove reference from the set</p>
+<p>Interface for a map that holds component references and passes them to components
+to establish dependencies with each other.</p>
+<p>Together with [[IReferenceable]] and [[IUnreferenceable]] interfaces it implements
+a Locator pattern that is used by PipServices toolkit for Inversion of Control
+to assign external dependencies to components.</p>
+<p>The IReferences object is a simple map, where keys are locators
+and values are component references. It allows to add, remove and find components
+by their locators. Locators can be any values like integers, strings or component types.
+But most often PipServices toolkit uses [[Descriptor]] as locators that match
+by 5 fields: group, type, kind, name and version.</p>
+<dl class="docutils">
+<dt>Example:</dt>
+<dd><dl class="first docutils">
+<dt>class MyController(IReferences):</dt>
+<dd><p class="first">_persistence = None</p>
+<dl class="last docutils">
+<dt>def set_references(self, references):</dt>
+<dd>self._persistence = references.getOneRequired(Descriptor(“mygroup”, “persistence”, “*”, “*”, “1.0”))</dd>
+</dl>
+</dd>
+</dl>
+<p>persistence = MyMongoDbPersistence()</p>
+<p>references = References.from_tuples(
+Descriptor(“mygroup”, “persistence”, “mongodb”, “default”, “1.0”), persistence,
+Descriptor(“mygroup”, “controller”, “default”, “default”, “1.0”), controller)</p>
+<p class="last">controller.set_references(references)</p>
+</dd>
+</dl>
 <dl class="method">
 <dt id="pip_services_commons.refer.IReferences.find">
 <code class="descname">find</code><span class="sig-paren">(</span><em>locator</em>, <em>required</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.refer.IReferences.find" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Gets all component references that match specified locator.</p>
+<p>:param locator:the locator to find a reference by.</p>
+<p>:param required:forces to raise an exception if no reference is found.</p>
+<p>:return:a list with matching component references.</p>
+<p>:raises:a [[ReferenceException]] when required is set to true but no references found.</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.refer.IReferences.get_all">
 <code class="descname">get_all</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.refer.IReferences.get_all" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gets all stored component references</p>
-<p>Returns: a list with component references</p>
+<dd><p>Gets all component references registered in this reference map.</p>
+<p>:return:a list with component references.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.refer.IReferences.get_all_locators">
 <code class="descname">get_all_locators</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.refer.IReferences.get_all_locators" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Gets locators for all registered component references in this reference map.</p>
+<p>:return:a list with component locators.</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.refer.IReferences.get_one_before">
 <code class="descname">get_one_before</code><span class="sig-paren">(</span><em>reference</em>, <em>locator</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.refer.IReferences.get_one_before" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gets a component references that matches provided locator.</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd>reference: a component reference to start the search and continue form latest to oldest
-locator: a locator to find a reference</dd>
-</dl>
-<p>Returns: a found component reference
-Raises: ReferenceException when requested component wasn’t found</p>
-</dd></dl>
+<dd></dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.refer.IReferences.get_one_optional">
 <code class="descname">get_one_optional</code><span class="sig-paren">(</span><em>locator</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.refer.IReferences.get_one_optional" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gets a component references that matches provided locator.
-The search is performed from latest added references.</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd>locator: a locator to find a reference</dd>
-</dl>
-<p>Returns: a found component reference or None if nothing was found</p>
+<dd><p>Gets an optional component reference that matches specified locator.</p>
+<p>:param locator:the locator to find references by.</p>
+<p>:return:a matching component reference or null if nothing was found.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.refer.IReferences.get_one_required">
 <code class="descname">get_one_required</code><span class="sig-paren">(</span><em>locator</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.refer.IReferences.get_one_required" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gets a component references that matches provided locator.
-The search is performed from latest added references.</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd>locator: a locator to find a reference</dd>
-</dl>
-<p>Returns: a found component reference
-Raises: ReferenceException when requested component wasn’t found</p>
+<dd><p>Gets a required component reference that matches specified locator.</p>
+<p>:param locator:the locator to find a reference by.</p>
+<p>:return:a matching component reference.</p>
+<p>:raises:a [[ReferenceException]] when no references found.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.refer.IReferences.get_optional">
 <code class="descname">get_optional</code><span class="sig-paren">(</span><em>locator</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.refer.IReferences.get_optional" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gets a list of component references that match provided locator</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd>locator: a locator to find references</dd>
-</dl>
-<p>Returns: a list with found component references</p>
+<dd><p>Gets all component references that match specified locator.</p>
+<p>:param locator:the locator to find references by.</p>
+<p>:return:a list with matching component references or empty list if nothing was found.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.refer.IReferences.get_required">
 <code class="descname">get_required</code><span class="sig-paren">(</span><em>locator</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.refer.IReferences.get_required" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gets a list of component references that match provided locator.
-If no references found an exception is thrown</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd>locator: a locator to find references</dd>
-</dl>
-<p>Returns: a list with found component references
-Raises: ReferenceException when no single component reference is found</p>
+<dd><p>Gets all component references that match specified locator.
+At least one component reference must be present. If it doesn’t the method throws an error.</p>
+<p>:param locator:the locator to find references by.</p>
+<p>:return:a list with matching component references.</p>
+<p>:raises:a [[ReferenceException]] when no references found.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.refer.IReferences.put">
-<code class="descname">put</code><span class="sig-paren">(</span><em>reference</em>, <em>locator=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.refer.IReferences.put" title="Permalink to this definition">¶</a></dt>
-<dd><p>Puts a new component reference to the set with optional locator</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd>locator: a locator to find the reference
-reference: a component reference to be added</dd>
-</dl>
+<code class="descname">put</code><span class="sig-paren">(</span><em>locator=None</em>, <em>reference=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.refer.IReferences.put" title="Permalink to this definition">¶</a></dt>
+<dd><p>Puts a new reference into this reference map.</p>
+<p>:param locator:a component reference to be added.</p>
+<p>:param reference:a locator to find the reference by.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.refer.IReferences.remove">
 <code class="descname">remove</code><span class="sig-paren">(</span><em>locator</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.refer.IReferences.remove" title="Permalink to this definition">¶</a></dt>
-<dd><p>Removes component reference from the set.
-The method removes only the last reference.</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd>locator: a locator to find the reference to remove</dd>
-</dl>
-<p>Returns: a removed reference</p>
+<dd><p>Removes a previously added reference that matches specified locator.
+If many references match the locator, it removes only the first one.
+When all references shall be removed, use [[removeAll]] method instead.</p>
+<p>:param locator:a locator to remove reference</p>
+<p>:return:the removed component reference.</p>
 </dd></dl>
 
 </dd></dl>
@@ -323,54 +398,57 @@ The method removes only the last reference.</p>
 <dt id="pip_services_commons.refer.ReferenceException">
 <em class="property">exception </em><code class="descclassname">pip_services_commons.refer.</code><code class="descname">ReferenceException</code><span class="sig-paren">(</span><em>correlation_id=None</em>, <em>locator=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.refer.ReferenceException" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="pip_services_commons.errors.InternalException.html#pip_services_commons.errors.InternalException.InternalException" title="pip_services_commons.errors.InternalException.InternalException"><code class="xref py py-class docutils literal notranslate"><span class="pre">pip_services_commons.errors.InternalException.InternalException</span></code></a></p>
-<p>Exception thrown when required component is not found in references</p>
+<p>Error when required component dependency cannot be found.</p>
 </dd></dl>
 
 <dl class="class">
 <dt id="pip_services_commons.refer.Referencer">
 <em class="property">class </em><code class="descclassname">pip_services_commons.refer.</code><code class="descname">Referencer</code><a class="headerlink" href="#pip_services_commons.refer.Referencer" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>Helper class that assigns references to components</p>
+<p>Helper class that sets and unsets references to components.</p>
 <dl class="staticmethod">
 <dt id="pip_services_commons.refer.Referencer.set_references">
 <em class="property">static </em><code class="descname">set_references</code><span class="sig-paren">(</span><em>references</em>, <em>components</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.refer.Referencer.set_references" title="Permalink to this definition">¶</a></dt>
-<dd><p>Assigns references to components that implement IReferenceable interface</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd>references: references to be assigned
-components: a list of components to assign references</dd>
-</dl>
+<dd><p>Sets references to multiple components.</p>
+<p>To set references components must implement [[IReferenceable]] interface.
+If they don’t the call to this method has no effect.</p>
+<p>:param references:the references to be set.</p>
+<p>:param components:a list of components to set the references to.</p>
 </dd></dl>
 
 <dl class="staticmethod">
 <dt id="pip_services_commons.refer.Referencer.set_references_for_one">
 <em class="property">static </em><code class="descname">set_references_for_one</code><span class="sig-paren">(</span><em>references</em>, <em>component</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.refer.Referencer.set_references_for_one" title="Permalink to this definition">¶</a></dt>
-<dd><p>Assigns references to components that implement IReferenceable interface</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd>references: references to be assigned
-component: a component to assign references</dd>
-</dl>
+<dd><p>Sets references to specific component.</p>
+<p>To set references components must implement [[IReferenceable]] interface.
+If they don’t the call to this method has no effect.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>references</strong> – the references to be set.</td>
+</tr>
+</tbody>
+</table>
+<p>:param component:the component to set references to.</p>
 </dd></dl>
 
 <dl class="staticmethod">
 <dt id="pip_services_commons.refer.Referencer.unset_references">
 <em class="property">static </em><code class="descname">unset_references</code><span class="sig-paren">(</span><em>components</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.refer.Referencer.unset_references" title="Permalink to this definition">¶</a></dt>
-<dd><p>Clears references for components that implement IUnreferenceable interface</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd>components: a list of components to clear references</dd>
-</dl>
+<dd><p>Unsets references in multiple components.</p>
+<p>To unset references components must implement [[IUnreferenceable]] interface.
+If they don’t the call to this method has no effect.</p>
+<p>:param components:the list of components, whose references must be cleared.</p>
 </dd></dl>
 
 <dl class="staticmethod">
 <dt id="pip_services_commons.refer.Referencer.unset_references_for_one">
 <em class="property">static </em><code class="descname">unset_references_for_one</code><span class="sig-paren">(</span><em>component</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.refer.Referencer.unset_references_for_one" title="Permalink to this definition">¶</a></dt>
-<dd><p>Clears references for components that implement IUnreferenceable interface</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd>component: a component to clear references</dd>
-</dl>
+<dd><p>Unsets references in specific component.</p>
+<p>To unset references components must implement [[IUnreferenceable]] interface.
+If they don’t the call to this method has no effect.</p>
+<p>:param component:the component to unset references.</p>
 </dd></dl>
 
 </dd></dl>
@@ -379,21 +457,30 @@ component: a component to assign references</dd>
 <dt id="pip_services_commons.refer.Reference">
 <em class="property">class </em><code class="descclassname">pip_services_commons.refer.</code><code class="descname">Reference</code><span class="sig-paren">(</span><em>locator</em>, <em>component</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.refer.Reference" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>Placeholder to store component references.</p>
+<p>Contains a reference to a component and locator to find it.
+It is used by [[References]] to store registered component references.</p>
 <dl class="method">
 <dt id="pip_services_commons.refer.Reference.get_component">
 <code class="descname">get_component</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.refer.Reference.get_component" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Gets the stored component reference.</p>
+<p>:return:the component’s references.</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.refer.Reference.get_locator">
 <code class="descname">get_locator</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.refer.Reference.get_locator" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Gets the stored component locator.</p>
+<p>:return:the component’s locator.</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.refer.Reference.match">
 <code class="descname">match</code><span class="sig-paren">(</span><em>locator</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.refer.Reference.match" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Matches locator to this reference locator. Descriptors are matched using equal method.
+All other locator types are matched using direct comparison.</p>
+<p>:param locator:the locator to match.</p>
+<p>:return:true if locators are matching and false it they don’t.</p>
+</dd></dl>
 
 </dd></dl>
 
@@ -401,105 +488,122 @@ component: a component to assign references</dd>
 <dt id="pip_services_commons.refer.References">
 <em class="property">class </em><code class="descclassname">pip_services_commons.refer.</code><code class="descname">References</code><span class="sig-paren">(</span><em>tuples=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.refer.References" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="pip_services_commons.refer.IReferences.html#pip_services_commons.refer.IReferences.IReferences" title="pip_services_commons.refer.IReferences.IReferences"><code class="xref py py-class docutils literal notranslate"><span class="pre">pip_services_commons.refer.IReferences.IReferences</span></code></a></p>
-<p>Basic implementation of IReferences that stores component as a flat list</p>
+<p>The most basic implementation of [[IReferences]] to store and locate component references.</p>
+<dl class="docutils">
+<dt>Example:</dt>
+<dd><dl class="first docutils">
+<dt>class MyController(IReferenceable):</dt>
+<dd><p class="first">_persistence = None</p>
+<dl class="last docutils">
+<dt>def set_references(self, references):</dt>
+<dd>self._persistence = references.getOneRequired(Descriptor(“mygroup”, “persistence”, “*”, “*”, “1.0”))</dd>
+</dl>
+</dd>
+</dl>
+<p>persistence = MyMongoDbPersistence()</p>
+<p>references = References.from_tuples(
+Descriptor(“mygroup”, “persistence”, “mongodb”, “default”, “1.0”), persistence,
+Descriptor(“mygroup”, “controller”, “default”, “default”, “1.0”), controller)</p>
+<p>controller.set_references(references)</p>
+<blockquote class="last">
+<div>…</div></blockquote>
+</dd>
+</dl>
 <dl class="method">
 <dt id="pip_services_commons.refer.References.find">
 <code class="descname">find</code><span class="sig-paren">(</span><em>locator</em>, <em>required</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.refer.References.find" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Gets all component references that match specified locator.</p>
+<p>:param locator:the locator to find a reference by.</p>
+<p>:param required:forces to raise an exception if no reference is found.</p>
+<p>:return:a list with matching component references.</p>
+<p>:raises:a [[ReferenceException]] when required is set to true but no references found.</p>
+</dd></dl>
 
 <dl class="staticmethod">
 <dt id="pip_services_commons.refer.References.from_tuples">
 <em class="property">static </em><code class="descname">from_tuples</code><span class="sig-paren">(</span><em>*tuples</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.refer.References.from_tuples" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Creates a new References from a list of key-value pairs called tuples.</p>
+<dl class="docutils">
+<dt>:param tuples:a list of values where odd elements are locators</dt>
+<dd>and the following even elements are component references</dd>
+</dl>
+<p>:return:a newly created References.</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.refer.References.get_all">
 <code class="descname">get_all</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.refer.References.get_all" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gets all stored component references</p>
-<p>Returns: a list with component references</p>
+<dd><p>Gets all component references registered in this reference map.</p>
+<p>:return:a list with component references.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.refer.References.get_all_locators">
 <code class="descname">get_all_locators</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.refer.References.get_all_locators" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Gets locators for all registered component references in this reference map.</p>
+<p>:return:a list with component locators.</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.refer.References.get_one_optional">
 <code class="descname">get_one_optional</code><span class="sig-paren">(</span><em>locator</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.refer.References.get_one_optional" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gets a component references that matches provided locator.
-The search is performed from latest added references.</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd>locator: a locator to find a reference</dd>
-</dl>
-<p>Returns: a found component reference or None if nothing was found</p>
+<dd><p>Gets an optional component reference that matches specified locator.</p>
+<p>:param locator:the locator to find references by.</p>
+<p>:return:a matching component reference or null if nothing was found.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.refer.References.get_one_required">
 <code class="descname">get_one_required</code><span class="sig-paren">(</span><em>locator</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.refer.References.get_one_required" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gets a component references that matches provided locator.
-The search is performed from latest added references.</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd>locator: a locator to find a reference</dd>
-</dl>
-<p>Returns: a found component reference
-Raises: ReferenceException when requested component wasn’t found</p>
+<dd><p>Gets a required component reference that matches specified locator.</p>
+<p>:param locator:the locator to find a reference by.</p>
+<p>:return:a matching component reference.</p>
+<p>:raises:a [[ReferenceException]] when no references found.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.refer.References.get_optional">
 <code class="descname">get_optional</code><span class="sig-paren">(</span><em>locator</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.refer.References.get_optional" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gets a list of component references that match provided locator</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd>locator: a locator to find references</dd>
-</dl>
-<p>Returns: a list with found component references</p>
+<dd><p>Gets all component references that match specified locator.</p>
+<p>:param locator:the locator to find references by.</p>
+<p>:return:a list with matching component references or empty list if nothing was found.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.refer.References.get_required">
 <code class="descname">get_required</code><span class="sig-paren">(</span><em>locator</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.refer.References.get_required" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gets a list of component references that match provided locator.
-If no references found an exception is thrown</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd>locator: a locator to find references</dd>
-</dl>
-<p>Returns: a list with found component references
-Raises: ReferenceException when no single component reference is found</p>
+<dd><p>Gets all component references that match specified locator.
+At least one component reference must be present. If it doesn’t the method throws an error.</p>
+<p>:param locator:the locator to find references by.</p>
+<p>:return:a list with matching component references.</p>
+<p>:raises:a [[ReferenceException]] when no references found.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.refer.References.put">
-<code class="descname">put</code><span class="sig-paren">(</span><em>locator</em>, <em>component</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.refer.References.put" title="Permalink to this definition">¶</a></dt>
-<dd><p>Puts a new component reference to the set with optional locator</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd>locator: a locator to find the reference
-reference: a component reference to be added</dd>
-</dl>
+<code class="descname">put</code><span class="sig-paren">(</span><em>locator=None</em>, <em>component=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.refer.References.put" title="Permalink to this definition">¶</a></dt>
+<dd><p>Puts a new reference into this reference map.</p>
+<p>:param locator:a component reference to be added.</p>
+<p>:param component:a locator to find the reference by.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.refer.References.remove">
 <code class="descname">remove</code><span class="sig-paren">(</span><em>locator</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.refer.References.remove" title="Permalink to this definition">¶</a></dt>
-<dd><p>Removes component reference from the set.
-The method removes only the last reference.</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd>locator: a locator to find the reference to remove</dd>
-</dl>
-<p>Returns: a removed reference</p>
+<dd><p>Removes a previously added reference that matches specified locator.
+If many references match the locator, it removes only the first one.
+When all references shall be removed, use [[removeAll]] method instead.</p>
+<p>:param locator:a locator to remove reference</p>
+<p>:return:the removed component reference.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.refer.References.remove_all">
 <code class="descname">remove_all</code><span class="sig-paren">(</span><em>locator</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.refer.References.remove_all" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Removes all component references that match the specified locator.</p>
+<p>:param locator:a locator to remove reference by.</p>
+<p>:return:a list, containing all removed references.</p>
+</dd></dl>
 
 </dd></dl>
 
@@ -507,57 +611,120 @@ The method removes only the last reference.</p>
 <dt id="pip_services_commons.refer.DependencyResolver">
 <em class="property">class </em><code class="descclassname">pip_services_commons.refer.</code><code class="descname">DependencyResolver</code><span class="sig-paren">(</span><em>config=None</em>, <em>references=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.refer.DependencyResolver" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="pip_services_commons.config.IReconfigurable.html#pip_services_commons.config.IReconfigurable.IReconfigurable" title="pip_services_commons.config.IReconfigurable.IReconfigurable"><code class="xref py py-class docutils literal notranslate"><span class="pre">pip_services_commons.config.IReconfigurable.IReconfigurable</span></code></a>, <a class="reference internal" href="pip_services_commons.refer.IReferenceable.html#pip_services_commons.refer.IReferenceable.IReferenceable" title="pip_services_commons.refer.IReferenceable.IReferenceable"><code class="xref py py-class docutils literal notranslate"><span class="pre">pip_services_commons.refer.IReferenceable.IReferenceable</span></code></a></p>
+<p>Helper class for resolving component dependencies.
+The resolver is configured to resolve named dependencies by specific locator.
+During deployment the dependency locator can be changed.</p>
+<p>This mechanism can be used to clarify specific dependency among several alternatives.
+Typically components are configured to retrieve the first dependency that matches
+logical group, type and version. But if container contains more than one instance
+and resolution has to be specific about those instances, they can be given a unique
+name and dependency resolvers can be reconfigured to retrieve dependencies by their name.</p>
+<p>Configuration parameters</p>
+<p>dependencies:
+- [dependency name 1]: Dependency 1 locator (descriptor)
+- …
+- [dependency name N]: Dependency N locator (descriptor)</p>
+<p>References
+- References must match configured dependencies.</p>
+<dl class="docutils">
+<dt>Example:</dt>
+<dd><dl class="first last docutils">
+<dt>class MyComponent(IConfigurable, IReferenceable):</dt>
+<dd><p class="first">_dependencyResolver = None
+_persistence = None</p>
+<dl class="docutils">
+<dt>def __init__(self):</dt>
+<dd>self._dependencyResolver.put(“persistence”, new Descriptor(“mygroup”, “persistence”, “*”, “*”, “1.0”))</dd>
+<dt>def configure(self, config):</dt>
+<dd>self._dependencyResolver.configure(config)</dd>
+<dt>def set_references(self, references):</dt>
+<dd>self._dependencyResolver.setReferences(references)
+self._persistence = self._dependencyResolver.get_one_required(“persistence”)</dd>
+</dl>
+<p>component = MyComponent()
+component.configure(ConfigParams.from_tuples(
+“dependencies.persistence”, “mygroup:persistence:<a href="#id1"><span class="problematic" id="id2">*</span></a>:persistence2:1.0”))</p>
+<p class="last">component.setReferences(References.from_tuples(Descriptor(“mygroup”,”persistence”,”*”,”persistence1”,”1.0”),
+MyPersistence(),
+Descriptor(“mygroup”,”persistence”,”*”,”persistence2”,”1.0”), MyPersistence()
+// This dependency shall be set))</p>
+</dd>
+</dl>
+</dd>
+</dl>
 <dl class="method">
 <dt id="pip_services_commons.refer.DependencyResolver.configure">
 <code class="descname">configure</code><span class="sig-paren">(</span><em>config</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.refer.DependencyResolver.configure" title="Permalink to this definition">¶</a></dt>
-<dd><p>Configures object by passing configuration parameters.
-:param config: configuration parameters to be set.</p>
+<dd><p>Configures the component with specified parameters.</p>
+<p>:param config:configuration parameters to set.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.refer.DependencyResolver.find">
 <code class="descname">find</code><span class="sig-paren">(</span><em>name</em>, <em>required</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.refer.DependencyResolver.find" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Finds all matching dependencies by their name.</p>
+<p>:param name:the dependency name to locate.</p>
+<p>:param required:true to raise an exception when no dependencies are found.</p>
+<p>:return:a list of found dependencies</p>
+</dd></dl>
 
 <dl class="staticmethod">
 <dt id="pip_services_commons.refer.DependencyResolver.from_tuples">
 <em class="property">static </em><code class="descname">from_tuples</code><span class="sig-paren">(</span><em>*tuples</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.refer.DependencyResolver.from_tuples" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Creates a new DependencyResolver from a list of key-value pairs called tuples
+where key is dependency name and value the depedency locator (descriptor).</p>
+<p>:param tuples:a list of values where odd elements are dependency name
+and the following even elements are dependency locator (descriptor)</p>
+<p>:return:a newly created DependencyResolver.</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.refer.DependencyResolver.get_one_optional">
 <code class="descname">get_one_optional</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.refer.DependencyResolver.get_one_optional" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Gets one optional dependency by its name.</p>
+<p>:param name:the dependency name to locate.</p>
+<p>:return:a dependency reference or null of the dependency was not found</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.refer.DependencyResolver.get_one_required">
 <code class="descname">get_one_required</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.refer.DependencyResolver.get_one_required" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Gets one required dependency by its name.
+At least one dependency must present. If the dependency was found it throws a [[ReferenceException]]</p>
+<p>:param name:the dependency name to locate.</p>
+<p>:return:a dependency reference</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.refer.DependencyResolver.get_optional">
 <code class="descname">get_optional</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.refer.DependencyResolver.get_optional" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Gets all optional dependencies by their name.</p>
+<p>:param name:the dependency name to locate.</p>
+<p>:return:a list with found dependencies or empty list of no dependencies was found.</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.refer.DependencyResolver.get_required">
 <code class="descname">get_required</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.refer.DependencyResolver.get_required" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Gets all required dependencies by their name.
+At least one dependency must be present. If no dependencies was found it throws a [[ReferenceException]]</p>
+<p>:param name:the dependency name to locate.</p>
+<p>:return:a list with found dependencies.</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.refer.DependencyResolver.put">
 <code class="descname">put</code><span class="sig-paren">(</span><em>name</em>, <em>locator</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.refer.DependencyResolver.put" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Adds a new dependency into this resolver.</p>
+<p>:param name:the dependency’s name.</p>
+<p>:param locator:the locator to find the dependency by.</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.refer.DependencyResolver.set_references">
 <code class="descname">set_references</code><span class="sig-paren">(</span><em>references</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.refer.DependencyResolver.set_references" title="Permalink to this definition">¶</a></dt>
-<dd><p>Sets references to other components.
-Using locators the component can find required dependencies</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd>references: component references</dd>
-</dl>
+<dd><p>Sets the component references. References must match configured dependencies.</p>
+<p>:param references:references to set.</p>
 </dd></dl>
 
 </dd></dl>

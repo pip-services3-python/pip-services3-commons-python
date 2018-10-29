@@ -30,9 +30,12 @@ class OptionsResolver(object):
     def resolve(config, config_as_default = False):
         """
         Resolves an "options" configuration section from component configuration parameters.
+
         :param config: configuration parameters
+
         :param config_as_default: (optional) When set true the method returns the entire parameter
                                   set when "options" section is not found. Default: false
+
         :return: configuration parameters from "options" section
         """
         options = config.get_section("options")

@@ -28,7 +28,9 @@ class DateTimeConverter(object):
     def to_nullable_datetime(value):
         """
         Converts value into Date or returns null when conversion is not possible.
+
         :param value: the value to convert.
+
         :return: Date value or null when conversion is not supported.
         """
         # Shortcuts
@@ -58,7 +60,9 @@ class DateTimeConverter(object):
     def to_datetime(value):
         """
         Converts value into Date or returns current date when conversion is not possible.
+
         :param value: the value to convert.
+
         :return: Date value or current date when conversion is not supported.
         """
         return DateTimeConverter.to_datetime_with_default(value, None)
@@ -67,8 +71,11 @@ class DateTimeConverter(object):
     def to_datetime_with_default(value, default_value):
         """
         Converts value into Date or returns default when conversion is not possible.
+
         :param value: the value to convert.
+
         :param default_value: the default value.
+
         :return: Date value or default when conversion is not supported.
         """
         result = DateTimeConverter.to_nullable_datetime(value)

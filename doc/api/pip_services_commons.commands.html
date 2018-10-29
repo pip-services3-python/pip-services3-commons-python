@@ -291,16 +291,15 @@ Otherwise it shall just delegate the call to the wrapped command.</p>
 Command allows to call a method or function using Command pattern.</p>
 <dl class="docutils">
 <dt>Example:</dt>
-<dd><p class="first">[code]
-def handler(<a href="#id1"><span class="problematic" id="id2">*</span></a>args):</p>
-<blockquote>
-<div>param1 = args.getAsFloat(“param1”)
+<dd><dl class="first docutils">
+<dt>def handler(<a href="#id1"><span class="problematic" id="id2">*</span></a>args):</dt>
+<dd>param1 = args.getAsFloat(“param1”)
 param2 = args.getAsFloat(“param2”)
-return param1 + param2</div></blockquote>
+return param1 + param2</dd>
+</dl>
 <p>command = Command(“add”, None, handler)</p>
 <p>result = command.execute(“123”,  Parameters.fromTuples(“param1”, 2, “param2”, 2))</p>
-<p class="last">print result.__str__()
-[/code]</p>
+<p class="last">print result.__str__()</p>
 </dd>
 </dl>
 <p>See ICommand, CommandSet</p>

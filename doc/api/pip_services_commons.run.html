@@ -102,12 +102,13 @@
 <span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-pip_services_commons.run" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="pip-services-commons-run-init">
 <h3>pip_services_commons.run.__init__<a class="headerlink" href="#pip-services-commons-run-init" title="Permalink to this headline">¶</a></h3>
-<p>Run module initialization</p>
+<p>Contains design patterns for the standard lifecycle of objects (opened,
+closed, openable, closable, runnable). Helper classes for lifecycle provisioning.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">copyright:</th><td class="field-body">Conceptual Vision Consulting LLC 2015-2016, see AUTHORS for more details.</td>
+<tr class="field-odd field"><th class="field-name">copyright:</th><td class="field-body">Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">license:</th><td class="field-body">MIT, see LICENSE for more details.</td>
 </tr>
@@ -117,102 +118,155 @@
 <dt id="pip_services_commons.run.Parameters">
 <em class="property">class </em><code class="descclassname">pip_services_commons.run.</code><code class="descname">Parameters</code><span class="sig-paren">(</span><em>map=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.run.Parameters" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="pip_services_commons.data.AnyValueMap.html#pip_services_commons.data.AnyValueMap.AnyValueMap" title="pip_services_commons.data.AnyValueMap.AnyValueMap"><code class="xref py py-class docutils literal notranslate"><span class="pre">pip_services_commons.data.AnyValueMap.AnyValueMap</span></code></a></p>
+<p>Contains map with execution parameters.</p>
+<p>In general, this map may contain non-serializable values.
+And in contrast with other maps, its getters and setters
+support dot notation and able to access properties in the entire object graph.</p>
+<p>This class is often use to pass execution and notification
+arguments, and parameterize classes before execution.</p>
 <dl class="method">
 <dt id="pip_services_commons.run.Parameters.assign_to">
 <code class="descname">assign_to</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.run.Parameters.assign_to" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Assigns (copies over) properties from the specified value to this map.</p>
+<p>:param value:value whose properties shall be copied over.</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.run.Parameters.contains_key">
 <code class="descname">contains_key</code><span class="sig-paren">(</span><em>key</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.run.Parameters.contains_key" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Checks if this map contains an element with specified key.</p>
+<p>The key can be defined using dot notation
+and allows to recursively access elements of elements.</p>
+<p>:param key:a key to be checked</p>
+<p>:return:true if this map contains the key or false otherwise.</p>
+</dd></dl>
 
 <dl class="staticmethod">
 <dt id="pip_services_commons.run.Parameters.from_config">
 <em class="property">static </em><code class="descname">from_config</code><span class="sig-paren">(</span><em>config</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.run.Parameters.from_config" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Creates new Parameters from ConfigMap object.</p>
+<p>:param config:a ConfigParams that contain parameters.</p>
+<p>:return:a new Parameters object.</p>
+</dd></dl>
 
 <dl class="staticmethod">
 <dt id="pip_services_commons.run.Parameters.from_json">
 <em class="property">static </em><code class="descname">from_json</code><span class="sig-paren">(</span><em>json</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.run.Parameters.from_json" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Creates new Parameters from JSON object.</p>
+<p>:param json:a JSON string containing parameters.</p>
+<p>:return:a new Parameters object.</p>
+</dd></dl>
 
 <dl class="staticmethod">
 <dt id="pip_services_commons.run.Parameters.from_tuples">
 <em class="property">static </em><code class="descname">from_tuples</code><span class="sig-paren">(</span><em>*tuples</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.run.Parameters.from_tuples" title="Permalink to this definition">¶</a></dt>
-<dd><p>Creates a new AnyValueMap from a list of key-value pairs called tuples.
-:param tuples: a list of values where odd elements are keys and the following even elements are values
-:return:a newly created AnyValueMap.</p>
+<dd><p>Creates a new Parameters object filled with provided key-value pairs called tuples.
+Tuples parameters contain a sequence of key1, value1, key2, value2, … pairs.</p>
+<p>:param tuples:the tuples to fill a new Parameters object.</p>
+<p>:return:a new Parameters object.</p>
 </dd></dl>
 
 <dl class="staticmethod">
 <dt id="pip_services_commons.run.Parameters.from_value">
 <em class="property">static </em><code class="descname">from_value</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.run.Parameters.from_value" title="Permalink to this definition">¶</a></dt>
-<dd><p>Converts specified value into AnyValueMap.
-:param value:value to be converted
-:return:a newly created AnyValueMap.</p>
+<dd><p>Creates a new Parameters object filled with key-value pairs from specified object.</p>
+<p>:param value:an object with key-value pairs used to initialize a new Parameters.</p>
+<p>:return:a new Parameters object.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.run.Parameters.get">
 <code class="descname">get</code><span class="sig-paren">(</span><em>key</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.run.Parameters.get" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gets a map element specified by its key.
-:param key: a key of the element to get.
-:return:the value of the map element.</p>
+<dd><p>Gets a map element specified by its key.</p>
+<p>The key can be defined using dot notation
+and allows to recursively access elements of elements.</p>
+<p>:param key:a key of the element to get.</p>
+<p>:return:the value of the map element.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.run.Parameters.get_as_nullable_parameters">
 <code class="descname">get_as_nullable_parameters</code><span class="sig-paren">(</span><em>key</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.run.Parameters.get_as_nullable_parameters" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Converts map element into an Parameters or returns null if conversion is not possible.</p>
+<p>:param key:a key of element to get.</p>
+<p>:return:Parameters value of the element or null if conversion is not supported.</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.run.Parameters.get_as_parameters">
 <code class="descname">get_as_parameters</code><span class="sig-paren">(</span><em>key</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.run.Parameters.get_as_parameters" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Converts map element into an Parameters or returns empty Parameters if conversion is not possible.</p>
+<p>:param key:a key of element to get.</p>
+<p>:return:Parameters value of the element or empty Parameters if conversion is not supported.</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.run.Parameters.get_as_parameters_with_default">
 <code class="descname">get_as_parameters_with_default</code><span class="sig-paren">(</span><em>key</em>, <em>default_value</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.run.Parameters.get_as_parameters_with_default" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Converts map element into an Parameters or returns default value if conversion is not possible.</p>
+<p>:param key:a key of element to get.</p>
+<p>:param default_value:the default value</p>
+<p>:return:Parameters value of the element or default value if conversion is not supported.</p>
+</dd></dl>
 
 <dl class="staticmethod">
 <dt id="pip_services_commons.run.Parameters.merge_params">
 <em class="property">static </em><code class="descname">merge_params</code><span class="sig-paren">(</span><em>*parameters</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.run.Parameters.merge_params" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Merges two or more Parameters into one. The following Parameters override previously defined parameters.</p>
+<p>:param parameters:a list of Parameters objects to be merged.</p>
+<p>:return:a new Parameters object.</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.run.Parameters.omit">
 <code class="descname">omit</code><span class="sig-paren">(</span><em>*props</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.run.Parameters.omit" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Omits selected parameters from this Parameters and returns the rest as a new Parameters object.</p>
+<p>:param props:keys to be omitted from copying over to new Parameters.</p>
+<p>:return:a new Parameters object.</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.run.Parameters.override">
 <code class="descname">override</code><span class="sig-paren">(</span><em>parameters</em>, <em>recursive=False</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.run.Parameters.override" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Overrides parameters with new values from specified Parameters and returns a new Parameters object.</p>
+<p>:param parameters:Parameters with parameters to override the current values.</p>
+<p>:param recursive:(optional) true to perform deep copy, and false for shallow copy. Default: false</p>
+<p>:return:a new Parameters object.</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.run.Parameters.pick">
 <code class="descname">pick</code><span class="sig-paren">(</span><em>*props</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.run.Parameters.pick" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Picks select parameters from this Parameters and returns them as a new Parameters object.</p>
+<p>:param props:keys to be picked and copied over to new Parameters.</p>
+<p>:return:a new Parameters object.</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.run.Parameters.put">
 <code class="descname">put</code><span class="sig-paren">(</span><em>key</em>, <em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.run.Parameters.put" title="Permalink to this definition">¶</a></dt>
-<dd><p>Puts a new value into map element specified by its key.
-:param key:a key of the element to put.
-:param value:a new value for map element.</p>
+<dd><p>Puts a new value into map element specified by its key.</p>
+<p>The key can be defined using dot notation
+and allows to recursively access elements of elements.</p>
+<p>:param key:a key of the element to put.</p>
+<p>:param value:a new value for map element.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.run.Parameters.set_defaults">
 <code class="descname">set_defaults</code><span class="sig-paren">(</span><em>default_values</em>, <em>recursive=False</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.run.Parameters.set_defaults" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Set default values from specified Parameters and returns a new Parameters object.</p>
+<p>:param default_values:Parameters with default parameter values.</p>
+<p>:param recursive:(optional) true to perform deep copy, and false for shallow copy. Default: false</p>
+<p>:return:a new Parameters object.</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.run.Parameters.to_json">
 <code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.run.Parameters.to_json" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Converts this map to JSON object.</p>
+<p>:return:a JSON representation of this map.</p>
+</dd></dl>
 
 </dd></dl>
 
@@ -220,16 +274,12 @@
 <dt id="pip_services_commons.run.IParameterized">
 <em class="property">class </em><code class="descclassname">pip_services_commons.run.</code><code class="descname">IParameterized</code><a class="headerlink" href="#pip_services_commons.run.IParameterized" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>Interface for components that require parameters</p>
+<p>Interface for components that require execution parameters.</p>
 <dl class="method">
 <dt id="pip_services_commons.run.IParameterized.set_parameters">
 <code class="descname">set_parameters</code><span class="sig-paren">(</span><em>parameters</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.run.IParameterized.set_parameters" title="Permalink to this definition">¶</a></dt>
-<dd><p>Sets component configuration parameters</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd>parameters: configuration parameters</dd>
-</dl>
-<p>Raises: ConfigException when configuration is wrong</p>
+<dd><p>Sets execution parameters.</p>
+<p>:param parameters:execution parameters.</p>
 </dd></dl>
 
 </dd></dl>
@@ -238,15 +288,16 @@
 <dt id="pip_services_commons.run.FixedRateTimer">
 <em class="property">class </em><code class="descclassname">pip_services_commons.run.</code><code class="descname">FixedRateTimer</code><span class="sig-paren">(</span><em>task=None</em>, <em>interval=None</em>, <em>delay=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.run.FixedRateTimer" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="pip_services_commons.run.IClosable.html#pip_services_commons.run.IClosable.IClosable" title="pip_services_commons.run.IClosable.IClosable"><code class="xref py py-class docutils literal notranslate"><span class="pre">pip_services_commons.run.IClosable.IClosable</span></code></a></p>
+<p>Timer that is triggered in equal time intervals.</p>
+<p>It has summetric cross-language implementation
+and is often used by Pip.Services toolkit to perform periodic processing and cleanup in microservices.</p>
 <dl class="method">
 <dt id="pip_services_commons.run.FixedRateTimer.close">
 <code class="descname">close</code><span class="sig-paren">(</span><em>correlation_id</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.run.FixedRateTimer.close" title="Permalink to this definition">¶</a></dt>
-<dd><p>Closes component, disconnects it from services, disposes resources</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd>correlation_id: a unique transaction id to trace calls across components</dd>
-</dl>
-<p>Raises: ApplicationException on any error</p>
+<dd><p>Closes the timer.
+This is required by [[ICloseable]] interface,
+but besides that it is identical to stop().</p>
+<p>:param correlation_id:(optional) transaction id to trace execution through call chain.</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -262,7 +313,10 @@
 <dl class="method">
 <dt id="pip_services_commons.run.FixedRateTimer.start">
 <code class="descname">start</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.run.FixedRateTimer.start" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Starts the timer.
+Initially the timer is triggered after delay.
+After that it is triggered after interval until it is stopped.</p>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="pip_services_commons.run.FixedRateTimer.started">
@@ -272,7 +326,8 @@
 <dl class="method">
 <dt id="pip_services_commons.run.FixedRateTimer.stop">
 <code class="descname">stop</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.run.FixedRateTimer.stop" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Stops the timer.</p>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="pip_services_commons.run.FixedRateTimer.task">
@@ -285,10 +340,15 @@
 <dt id="pip_services_commons.run.ICleanable">
 <em class="property">class </em><code class="descclassname">pip_services_commons.run.</code><code class="descname">ICleanable</code><a class="headerlink" href="#pip_services_commons.run.ICleanable" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Interface for components that should clean their state.
+Cleaning state most often is used during testing.
+But there may be situations when it can be done in production.</p>
 <dl class="method">
 <dt id="pip_services_commons.run.ICleanable.clear">
 <code class="descname">clear</code><span class="sig-paren">(</span><em>correlation_id</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.run.ICleanable.clear" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Clears component state.</p>
+<p>:param correlation_id:(optional) transaction id to trace execution through call chain.</p>
+</dd></dl>
 
 </dd></dl>
 
@@ -296,27 +356,25 @@
 <dt id="pip_services_commons.run.Cleaner">
 <em class="property">class </em><code class="descclassname">pip_services_commons.run.</code><code class="descname">Cleaner</code><a class="headerlink" href="#pip_services_commons.run.Cleaner" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>Helper class that cleans components</p>
+<p>Helper class that cleans stored object state.</p>
 <dl class="staticmethod">
 <dt id="pip_services_commons.run.Cleaner.clear">
 <em class="property">static </em><code class="descname">clear</code><span class="sig-paren">(</span><em>correlation_id</em>, <em>components</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.run.Cleaner.clear" title="Permalink to this definition">¶</a></dt>
-<dd><p>Cleans components that implement ICleanable interface</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd>correlation_id: a unique transaction id to trace calls across components
-components: a list of components to be cleaned</dd>
-</dl>
+<dd><p>Clears state of multiple components.</p>
+<p>To be cleaned state components must implement [[ICleanable]] interface.
+If they don’t the call to this method has no effect.</p>
+<p>:param correlation_id:(optional) transaction id to trace execution through call chain.</p>
+<p>:param components:the list of components that are to be cleaned.</p>
 </dd></dl>
 
 <dl class="staticmethod">
 <dt id="pip_services_commons.run.Cleaner.clear_one">
 <em class="property">static </em><code class="descname">clear_one</code><span class="sig-paren">(</span><em>correlation_id</em>, <em>component</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.run.Cleaner.clear_one" title="Permalink to this definition">¶</a></dt>
-<dd><p>Cleans component that implements ICleanable interface</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd>correlation_id: a unique transaction id to trace calls across components
-component: a component to be cleaned</dd>
-</dl>
+<dd><p>Clears state of specific component.</p>
+<p>To be cleaned state components must implement [[ICleanable]] interface.
+If they don’t the call to this method has no effect.</p>
+<p>:param correlation_id:(optional) transaction id to trace execution through call chain.</p>
+<p>:param component:the component that is to be cleaned.</p>
 </dd></dl>
 
 </dd></dl>
@@ -325,23 +383,20 @@ component: a component to be cleaned</dd>
 <dt id="pip_services_commons.run.IOpenable">
 <em class="property">class </em><code class="descclassname">pip_services_commons.run.</code><code class="descname">IOpenable</code><a class="headerlink" href="#pip_services_commons.run.IOpenable" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="pip_services_commons.run.IClosable.html#pip_services_commons.run.IClosable.IClosable" title="pip_services_commons.run.IClosable.IClosable"><code class="xref py py-class docutils literal notranslate"><span class="pre">pip_services_commons.run.IClosable.IClosable</span></code></a></p>
-<p>Interface for components that require explicit opening</p>
+<p>Interface for components that require explicit opening and closing.
+For components that perform opening on demand consider using [[ICloseable]] interface instead.</p>
 <dl class="method">
 <dt id="pip_services_commons.run.IOpenable.is_opened">
 <code class="descname">is_opened</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.run.IOpenable.is_opened" title="Permalink to this definition">¶</a></dt>
-<dd><p>Checks if component is opened</p>
-<p>Returns: True is component is opened and False otherwise</p>
+<dd><p>Checks if the component is opened.</p>
+<p>:return:true if the component has been opened and false otherwise.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.run.IOpenable.open">
 <code class="descname">open</code><span class="sig-paren">(</span><em>correlation_id</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.run.IOpenable.open" title="Permalink to this definition">¶</a></dt>
-<dd><p>Opens component, establishes connections to services</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd>correlation_id: a unique transaction id to trace calls across components</dd>
-</dl>
-<p>Raises: ApplicationException on any error</p>
+<dd><p>Opens the component.</p>
+<p>:param correlation_id:(optional) transaction id to trace execution through call chain.</p>
 </dd></dl>
 
 </dd></dl>
@@ -350,47 +405,45 @@ component: a component to be cleaned</dd>
 <dt id="pip_services_commons.run.Opener">
 <em class="property">class </em><code class="descclassname">pip_services_commons.run.</code><code class="descname">Opener</code><a class="headerlink" href="#pip_services_commons.run.Opener" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>Helper class that opens a collection of components</p>
+<p>Helper class that opens components.</p>
 <dl class="staticmethod">
 <dt id="pip_services_commons.run.Opener.is_opened">
 <em class="property">static </em><code class="descname">is_opened</code><span class="sig-paren">(</span><em>components</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.run.Opener.is_opened" title="Permalink to this definition">¶</a></dt>
-<dd><p>Checks if all components that implement IOpenable interface are opened</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd>components: a list of components to be checked</dd>
-</dl>
+<dd><p>Checks if all components are opened.</p>
+<p>To be checked components must implement [[IOpenable]] interface.
+If they don’t the call to this method returns true.</p>
+<p>:param components:a list of components that are to be checked.</p>
+<p>:return:true if all components are opened and false if at least one component is closed.</p>
 </dd></dl>
 
 <dl class="staticmethod">
 <dt id="pip_services_commons.run.Opener.is_opened_one">
 <em class="property">static </em><code class="descname">is_opened_one</code><span class="sig-paren">(</span><em>component</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.run.Opener.is_opened_one" title="Permalink to this definition">¶</a></dt>
-<dd><p>Checks if component that implements IOpenable interface is opened</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd>component: a components to be checked</dd>
-</dl>
+<dd><p>Checks if specified component is opened.</p>
+<p>To be checked components must implement [[IOpenable]] interface.
+If they don’t the call to this method returns true.</p>
+<p>:param component:the component that is to be checked.</p>
+<p>:return:true if component is opened and false otherwise.</p>
 </dd></dl>
 
 <dl class="staticmethod">
 <dt id="pip_services_commons.run.Opener.open">
 <em class="property">static </em><code class="descname">open</code><span class="sig-paren">(</span><em>correlation_id</em>, <em>components</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.run.Opener.open" title="Permalink to this definition">¶</a></dt>
-<dd><p>Opens components that implement IOpenable interface</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd>correlation_id: a unique transaction id to trace calls across components
-components: a list of components to be opened</dd>
-</dl>
+<dd><p>Opens multiple components.</p>
+<p>To be opened components must implement [[IOpenable]] interface.
+If they don’t the call to this method has no effect.</p>
+<p>:param correlation_id:(optional) transaction id to trace execution through call chain.</p>
+<p>:param components:the list of components that are to be closed.</p>
 </dd></dl>
 
 <dl class="staticmethod">
 <dt id="pip_services_commons.run.Opener.open_one">
 <em class="property">static </em><code class="descname">open_one</code><span class="sig-paren">(</span><em>correlation_id</em>, <em>component</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.run.Opener.open_one" title="Permalink to this definition">¶</a></dt>
-<dd><p>Opens a component that implements IOpenable interface</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd>correlation_id: a unique transaction id to trace calls across components
-component: a components to be opened</dd>
-</dl>
+<dd><p>Opens specific component.</p>
+<p>To be opened components must implement [[IOpenable]] interface.
+If they don’t the call to this method has no effect.</p>
+<p>:param correlation_id:(optional) transaction id to trace execution through call chain.</p>
+<p>:param component:the component that is to be opened.</p>
 </dd></dl>
 
 </dd></dl>
@@ -399,16 +452,13 @@ component: a components to be opened</dd>
 <dt id="pip_services_commons.run.IClosable">
 <em class="property">class </em><code class="descclassname">pip_services_commons.run.</code><code class="descname">IClosable</code><a class="headerlink" href="#pip_services_commons.run.IClosable" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>Interface for components that require explicit closure</p>
+<p>Interface for components that require explicit closure.</p>
+<p>For components that require opening as well as closing use [[IOpenable]] interface instead.</p>
 <dl class="method">
 <dt id="pip_services_commons.run.IClosable.close">
 <code class="descname">close</code><span class="sig-paren">(</span><em>correlation_id</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.run.IClosable.close" title="Permalink to this definition">¶</a></dt>
-<dd><p>Closes component, disconnects it from services, disposes resources</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd>correlation_id: a unique transaction id to trace calls across components</dd>
-</dl>
-<p>Raises: ApplicationException on any error</p>
+<dd><p>Closes component and frees used resources.</p>
+<p>:param correlation_id:(optional) transaction id to trace execution through call chain.</p>
 </dd></dl>
 
 </dd></dl>
@@ -417,27 +467,25 @@ component: a components to be opened</dd>
 <dt id="pip_services_commons.run.Closer">
 <em class="property">class </em><code class="descclassname">pip_services_commons.run.</code><code class="descname">Closer</code><a class="headerlink" href="#pip_services_commons.run.Closer" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>Helper class that closes components</p>
+<p>Helper class that closes previously opened components.</p>
 <dl class="staticmethod">
 <dt id="pip_services_commons.run.Closer.close">
 <em class="property">static </em><code class="descname">close</code><span class="sig-paren">(</span><em>correlation_id</em>, <em>components</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.run.Closer.close" title="Permalink to this definition">¶</a></dt>
-<dd><p>Closes components that implement ICloseable interface</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd>correlation_id: a unique transaction id to trace calls across components
-components: a list of components to be closed</dd>
-</dl>
+<dd><p>Closes multiple components.</p>
+<p>To be closed components must implement [[ICloseable]] interface.
+If they don’t the call to this method has no effect.</p>
+<p>:param correlation_id:(optional) transaction id to trace execution through call chain.</p>
+<p>:param components:the list of components that are to be closed.</p>
 </dd></dl>
 
 <dl class="staticmethod">
 <dt id="pip_services_commons.run.Closer.close_one">
 <em class="property">static </em><code class="descname">close_one</code><span class="sig-paren">(</span><em>correlation_id</em>, <em>component</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.run.Closer.close_one" title="Permalink to this definition">¶</a></dt>
-<dd><p>Closes component that implement ICloseable interface</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd>correlation_id: a unique transaction id to trace calls across components
-component: a component to be closed</dd>
-</dl>
+<dd><p>Closes specific component.</p>
+<p>To be closed components must implement [[ICloseable]] interface.
+If they don’t the call to this method has no effect.</p>
+<p>:param correlation_id:(optional) transaction id to trace execution through call chain.</p>
+<p>:param component:the component that is to be closed.</p>
 </dd></dl>
 
 </dd></dl>
@@ -446,18 +494,14 @@ component: a component to be closed</dd>
 <dt id="pip_services_commons.run.IExecutable">
 <em class="property">class </em><code class="descclassname">pip_services_commons.run.</code><code class="descname">IExecutable</code><a class="headerlink" href="#pip_services_commons.run.IExecutable" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>Interface for components that support parameterized one-way notification</p>
+<p>Interface for components that can be called to execute work.</p>
 <dl class="method">
 <dt id="pip_services_commons.run.IExecutable.execute">
 <code class="descname">execute</code><span class="sig-paren">(</span><em>correlation_id</em>, <em>args</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.run.IExecutable.execute" title="Permalink to this definition">¶</a></dt>
-<dd><p>Executes a unit of work with given parameters</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd>correlation_id: a unique transaction id to trace calls across components
-args: a set of parameters for execution</dd>
-</dl>
-<p>Returns: execution result</p>
-<p>Raises: ApplicationException on any error</p>
+<dd><p>Executes component with arguments and receives execution result.</p>
+<p>:param correlation_id:(optional) transaction id to trace execution through call chain.</p>
+<p>:param args:execution arguments.</p>
+<p>:return:execution result</p>
 </dd></dl>
 
 </dd></dl>
@@ -466,31 +510,36 @@ args: a set of parameters for execution</dd>
 <dt id="pip_services_commons.run.Executor">
 <em class="property">class </em><code class="descclassname">pip_services_commons.run.</code><code class="descname">Executor</code><a class="headerlink" href="#pip_services_commons.run.Executor" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>Helper class that triggers execution for components</p>
+<p>Helper class that executes components.</p>
 <dl class="staticmethod">
 <dt id="pip_services_commons.run.Executor.execute">
 <em class="property">static </em><code class="descname">execute</code><span class="sig-paren">(</span><em>correlation_id</em>, <em>components</em>, <em>args=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.run.Executor.execute" title="Permalink to this definition">¶</a></dt>
-<dd><p>Triggers execution for components that implement IExecutable interface</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd>correlation_id: a unique transaction id to trace calls across components
-components:  components a list of components to be notified
-args: a set of parameters to pass to executed components</dd>
-</dl>
-<p>Returns: array of execution results</p>
+<dd><p>Executes multiple components.</p>
+<p>To be executed components must implement [[IExecutable]] interface.
+If they don’t the call to this method has no effect.</p>
+<p>:param correlation_id:(optional) transaction id to trace execution through call chain.</p>
+<p>:param components:a list of components that are to be executed.</p>
+<p>:param args:execution arguments.</p>
+<p>:return:execution result</p>
 </dd></dl>
 
 <dl class="staticmethod">
 <dt id="pip_services_commons.run.Executor.execute_one">
 <em class="property">static </em><code class="descname">execute_one</code><span class="sig-paren">(</span><em>correlation_id</em>, <em>component</em>, <em>args</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.run.Executor.execute_one" title="Permalink to this definition">¶</a></dt>
-<dd><p>Triggers execution for components that implement IExecutable interfaces</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd>correlation_id: a unique transaction id to trace calls across components
-components:  components a list of components to be notified
-args: a set of parameters to pass to executed components</dd>
-</dl>
-<p>Returns: execution results</p>
+<dd><p>Executes specific component.
+To be executed components must implement [[IExecutable]] interface.
+If they don’t the call to this method has no effect.</p>
+<p>:param correlation_id:(optional) transaction id to trace execution through call chain.</p>
+<p>:param component:the component that is to be executed.</p>
+<p>:param args:execution arguments.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">execution result</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </dd></dl>
@@ -499,17 +548,14 @@ args: a set of parameters to pass to executed components</dd>
 <dt id="pip_services_commons.run.INotifiable">
 <em class="property">class </em><code class="descclassname">pip_services_commons.run.</code><code class="descname">INotifiable</code><a class="headerlink" href="#pip_services_commons.run.INotifiable" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>Interface for components that support parameterized one-way notification</p>
+<p>Interface for components that can be asynchronously notified.
+The notification may include optional argument that describe the occured event</p>
 <dl class="method">
 <dt id="pip_services_commons.run.INotifiable.notify">
 <code class="descname">notify</code><span class="sig-paren">(</span><em>correlation_id</em>, <em>args</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.run.INotifiable.notify" title="Permalink to this definition">¶</a></dt>
-<dd><p>Executes a unit of work with given parameters</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd>correlation_id: a unique transaction id to trace calls across components
-args: a set of parameters for execution</dd>
-</dl>
-<p>Raises: ApplicationException on any error</p>
+<dd><p>Notifies the component about occured event.</p>
+<p>:param correlation_id:(optional) transaction id to trace execution through call chain.</p>
+<p>:param args:notification arguments.</p>
 </dd></dl>
 
 </dd></dl>
@@ -518,28 +564,27 @@ args: a set of parameters for execution</dd>
 <dt id="pip_services_commons.run.Notifier">
 <em class="property">class </em><code class="descclassname">pip_services_commons.run.</code><code class="descname">Notifier</code><a class="headerlink" href="#pip_services_commons.run.Notifier" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Helper class that notifies components.</p>
 <dl class="staticmethod">
 <dt id="pip_services_commons.run.Notifier.notify">
 <em class="property">static </em><code class="descname">notify</code><span class="sig-paren">(</span><em>correlation_id</em>, <em>components</em>, <em>args=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.run.Notifier.notify" title="Permalink to this definition">¶</a></dt>
-<dd><p>Triggers notification for components that implement INotifiable interface.</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd>correlation_id: a unique transaction id to trace calls across components
-components:  components a list of components to be notified
-args: a set of parameters to pass to notified components</dd>
-</dl>
+<dd><p>Notifies multiple components.</p>
+<p>To be notified components must implement [[INotifiable]] interface.
+If they don’t the call to this method has no effect.</p>
+<p>:param correlation_id:(optional) transaction id to trace execution through call chain.</p>
+<p>:param components:a list of components that are to be notified.</p>
+<p>:param args:notification arguments.</p>
 </dd></dl>
 
 <dl class="staticmethod">
 <dt id="pip_services_commons.run.Notifier.notify_one">
 <em class="property">static </em><code class="descname">notify_one</code><span class="sig-paren">(</span><em>correlation_id</em>, <em>component</em>, <em>args</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.run.Notifier.notify_one" title="Permalink to this definition">¶</a></dt>
-<dd><p>Triggers notification for components that implement INotifiable interface.</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd>correlation_id: a unique transaction id to trace calls across components
-components:  components a list of components to be notified
-args: a set of parameters to pass to notified components</dd>
-</dl>
+<dd><p>Notifies specific component.
+To be notiied components must implement [[INotifiable]] interface.
+If they don’t the call to this method has no effect.</p>
+<p>:param correlation_id:(optional) transaction id to trace execution through call chain.</p>
+<p>:param component:the component that is to be notified.</p>
+<p>:param args:notifiation arguments.</p>
 </dd></dl>
 
 </dd></dl>

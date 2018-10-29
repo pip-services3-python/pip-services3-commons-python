@@ -31,6 +31,7 @@ class IConfigurable:
     def configure(self, config):
         """
         Configures object by passing configuration parameters.
+
         :param config: configuration parameters to be set.
         """
         raise NotImplementedError('Method from interface definition')

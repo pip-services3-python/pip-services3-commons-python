@@ -5,7 +5,7 @@
     
     Referencer component implementation
     
-    :copyright: Conceptual Vision Consulting LLC 2015-2016, see AUTHORS for more details.
+    :copyright: Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.
     :license: MIT, see LICENSE for more details.
 """
 
@@ -14,17 +14,20 @@ from .IUnreferenceable import IUnreferenceable
 
 class Referencer:
     """
-    Helper class that assigns references to components
+    Helper class that sets and unsets references to components.
     """
 
     @staticmethod
     def set_references_for_one(references, component):
         """
-        Assigns references to components that implement IReferenceable interface  
+        Sets references to specific component.
 
-        Args:
-            references: references to be assigned
-            component: a component to assign references
+        To set references components must implement [[IReferenceable]] interface.
+        If they don't the call to this method has no effect.
+
+        :param references: the references to be set.
+
+        :param component:the component to set references to.
         """
         if isinstance(component, IReferenceable):
             component.set_references(references)
@@ -32,11 +35,14 @@ class Referencer:
     @staticmethod
     def set_references(references, components):
         """
-        Assigns references to components that implement IReferenceable interface  
+        Sets references to multiple components.
 
-        Args:
-            references: references to be assigned
-            components: a list of components to assign references
+        To set references components must implement [[IReferenceable]] interface.
+        If they don't the call to this method has no effect.
+
+        :param references:the references to be set.
+
+        :param components:a list of components to set the references to.
         """
         if components == None:
             return
@@ -47,10 +53,12 @@ class Referencer:
     @staticmethod
     def unset_references_for_one(component):
         """
-        Clears references for components that implement IUnreferenceable interface
+        Unsets references in specific component.
 
-        Args:
-            component: a component to clear references
+        To unset references components must implement [[IUnreferenceable]] interface.
+        If they don't the call to this method has no effect.
+
+        :param component:the component to unset references.
         """
         if isinstance(component, IUnreferenceable):
             component.unset_references()
@@ -58,10 +66,12 @@ class Referencer:
     @staticmethod
     def unset_references(components):
         """
-        Clears references for components that implement IUnreferenceable interface
+        Unsets references in multiple components.
 
-        Args:
-            components: a list of components to clear references
+        To unset references components must implement [[IUnreferenceable]] interface.
+        If they don't the call to this method has no effect.
+
+        :param components:the list of components, whose references must be cleared.
         """
         if components == None:
             return

@@ -46,7 +46,7 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">copyright:</th><td class="field-body">Conceptual Vision Consulting LLC 2015-2016, see AUTHORS for more details.</td>
+<tr class="field-odd field"><th class="field-name">copyright:</th><td class="field-body">Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">license:</th><td class="field-body">MIT, see LICENSE for more details.</td>
 </tr>
@@ -56,20 +56,50 @@
 <dt id="pip_services_commons.reflect.RecursiveObjectWriter.RecursiveObjectWriter">
 <em class="property">class </em><code class="descclassname">pip_services_commons.reflect.RecursiveObjectWriter.</code><code class="descname">RecursiveObjectWriter</code><a class="headerlink" href="#pip_services_commons.reflect.RecursiveObjectWriter.RecursiveObjectWriter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Helper class to perform property introspection and dynamic writing.</p>
+<p>It is similar to [[ObjectWriter]] but writes properties recursively
+through the entire object graph. Nested property names are defined
+using dot notation as “object.subobject.property”</p>
 <dl class="staticmethod">
 <dt id="pip_services_commons.reflect.RecursiveObjectWriter.RecursiveObjectWriter.copy_properties">
 <em class="property">static </em><code class="descname">copy_properties</code><span class="sig-paren">(</span><em>dest</em>, <em>src</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.reflect.RecursiveObjectWriter.RecursiveObjectWriter.copy_properties" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Copies content of one object to another object
+by recursively reading all properties from source object
+and then recursively writing them to destination object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>dest</strong> – a destination object to write properties to.</td>
+</tr>
+</tbody>
+</table>
+<p>:param src:a source object to read properties from</p>
+</dd></dl>
 
 <dl class="staticmethod">
 <dt id="pip_services_commons.reflect.RecursiveObjectWriter.RecursiveObjectWriter.set_properties">
 <em class="property">static </em><code class="descname">set_properties</code><span class="sig-paren">(</span><em>obj</em>, <em>values</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.reflect.RecursiveObjectWriter.RecursiveObjectWriter.set_properties" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Recursively sets values of some (all) object and its subobjects properties.</p>
+<p>The object can be a user defined object, map or array.
+Property values correspondently are object properties, map key-pairs or array elements with their indexes.</p>
+<p>If some properties do not exist or introspection fails they are just silently skipped and no errors thrown.</p>
+<p>:param obj:an object to write properties to.</p>
+<p>:param values:a map, containing property names and their values.</p>
+</dd></dl>
 
 <dl class="staticmethod">
 <dt id="pip_services_commons.reflect.RecursiveObjectWriter.RecursiveObjectWriter.set_property">
 <em class="property">static </em><code class="descname">set_property</code><span class="sig-paren">(</span><em>obj</em>, <em>name</em>, <em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.reflect.RecursiveObjectWriter.RecursiveObjectWriter.set_property" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Recursively sets value of object and its subobjects property specified by its name.</p>
+<p>The object can be a user defined object, map or array.
+The property name correspondently must be object property, map key or array index.</p>
+<p>If the property does not exist or introspection fails
+this method doesn’t do anything and doesn’t any throw errors.</p>
+<p>:param obj:an object to write property to.</p>
+<p>:param name:a name of the property to set.</p>
+<p>:param value:a new value for the property to set.</p>
+</dd></dl>
 
 </dd></dl>
 

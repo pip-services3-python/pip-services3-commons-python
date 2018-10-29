@@ -3,9 +3,11 @@
     pip_services_commons.random.__init__
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     
-    Random module initialization
+    Contains implementation of random value generators that are used for
+    functional as well as non-functional testing. Used to generate random
+    objects and fill databases with unique objects.
     
-    :copyright: Conceptual Vision Consulting LLC 2015-2016, see AUTHORS for more details.
+    :copyright: Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.
     :license: MIT, see LICENSE for more details.
 """
 

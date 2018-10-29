@@ -343,15 +343,22 @@ it is converted into [[ErrorDescription]] object and restored on receiving end i
 <dl class="method">
 <dt id="pip_services_commons.errors.ApplicationException.get_cause_string">
 <code class="descname">get_cause_string</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.errors.ApplicationException.get_cause_string" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gets original error wrapped by this exception as a string message.
-:return:an original error message.</p>
+<dd><p>Gets original error wrapped by this exception as a string message.</p>
+<p>:return:an original error message.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.errors.ApplicationException.get_stack_trace_string">
 <code class="descname">get_stack_trace_string</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.errors.ApplicationException.get_stack_trace_string" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gets a stack trace where this exception occured.
-:return: a stack trace as a string.</p>
+<dd><p>Gets a stack trace where this exception occured.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">a stack trace as a string.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="attribute">
@@ -362,16 +369,22 @@ it is converted into [[ErrorDescription]] object and restored on receiving end i
 <dl class="method">
 <dt id="pip_services_commons.errors.ApplicationException.set_cause_string">
 <code class="descname">set_cause_string</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.errors.ApplicationException.set_cause_string" title="Permalink to this definition">¶</a></dt>
-<dd><p>Sets original error wrapped by this exception as a string message.
-:param value: an original error message.</p>
+<dd><p>Sets original error wrapped by this exception as a string message.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>value</strong> – an original error message.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.errors.ApplicationException.set_stack_trace_string">
 <code class="descname">set_stack_trace_string</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.errors.ApplicationException.set_stack_trace_string" title="Permalink to this definition">¶</a></dt>
-<dd><p>Sets a stack trace where this exception occured.
-:param value:a stack trace as a string
-:return:</p>
+<dd><p>Sets a stack trace where this exception occured.</p>
+<p>:param value:a stack trace as a string</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -393,27 +406,34 @@ it is converted into [[ErrorDescription]] object and restored on receiving end i
 <dt id="pip_services_commons.errors.ApplicationException.with_cause">
 <code class="descname">with_cause</code><span class="sig-paren">(</span><em>cause</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.errors.ApplicationException.with_cause" title="Permalink to this definition">¶</a></dt>
 <dd><p>Sets a original error wrapped by this exception</p>
-<p>This method returns reference to this exception to implement Builder pattern to chain additional calls.
-:param cause:original error object
-:return:this exception object</p>
+<p>This method returns reference to this exception to implement Builder pattern to chain additional calls.</p>
+<p>:param cause:original error object</p>
+<p>:return:this exception object</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.errors.ApplicationException.with_code">
 <code class="descname">with_code</code><span class="sig-paren">(</span><em>code</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.errors.ApplicationException.with_code" title="Permalink to this definition">¶</a></dt>
 <dd><p>Sets a unique error code.
-This method returns reference to this exception to implement Builder pattern to chain additional calls.
-:param code: a unique error code
-:return:this exception object</p>
+This method returns reference to this exception to implement Builder pattern to chain additional calls.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>code</strong> – a unique error code</td>
+</tr>
+</tbody>
+</table>
+<p>:return:this exception object</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.errors.ApplicationException.with_correlation_id">
 <code class="descname">with_correlation_id</code><span class="sig-paren">(</span><em>correlation_id</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.errors.ApplicationException.with_correlation_id" title="Permalink to this definition">¶</a></dt>
 <dd><p>Sets a correlation id which can be used to trace this error through a call chain.</p>
-<p>This method returns reference to this exception to implement Builder pattern to chain additional calls.
-:param correlation_id:a unique transaction id to trace error through call chain
-:return:this exception object</p>
+<p>This method returns reference to this exception to implement Builder pattern to chain additional calls.</p>
+<p>:param correlation_id:a unique transaction id to trace error through call chain</p>
+<p>:return:this exception object</p>
 </dd></dl>
 
 <dl class="method">
@@ -421,19 +441,19 @@ This method returns reference to this exception to implement Builder pattern to 
 <code class="descname">with_details</code><span class="sig-paren">(</span><em>key</em>, <em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.errors.ApplicationException.with_details" title="Permalink to this definition">¶</a></dt>
 <dd><p>Sets a parameter for additional error details.
 This details can be used to restore error description in other languages.</p>
-<p>This method returns reference to this exception to implement Builder pattern to chain additional calls.
-:param key:a details parameter name
-:param value:a details parameter name
-:return:this exception object</p>
+<p>This method returns reference to this exception to implement Builder pattern to chain additional calls.</p>
+<p>:param key:a details parameter name</p>
+<p>:param value:a details parameter name</p>
+<p>:return:this exception object</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.errors.ApplicationException.with_status">
 <code class="descname">with_status</code><span class="sig-paren">(</span><em>status</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.errors.ApplicationException.with_status" title="Permalink to this definition">¶</a></dt>
 <dd><p>Sets a HTTP status code which shall be returned by REST calls.
-This method returns reference to this exception to implement Builder pattern to chain additional calls.
-:param status:an HTTP error code.
-:return:this exception object</p>
+This method returns reference to this exception to implement Builder pattern to chain additional calls.</p>
+<p>:param status:an HTTP error code.</p>
+<p>:return:this exception object</p>
 </dd></dl>
 
 <dl class="method">
@@ -441,9 +461,9 @@ This method returns reference to this exception to implement Builder pattern to 
 <code class="descname">wrap</code><span class="sig-paren">(</span><em>cause</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.errors.ApplicationException.wrap" title="Permalink to this definition">¶</a></dt>
 <dd><p>Wraps another exception into an application exception object.</p>
 <p>If original exception is of ApplicationException type it is returned without changes.
-Otherwise a new ApplicationException is created and original error is set as its cause.
-:param cause:an original error object
-:return:an original or newly created ApplicationException</p>
+Otherwise a new ApplicationException is created and original error is set as its cause.</p>
+<p>:param cause:an original error object</p>
+<p>:return:an original or newly created ApplicationException</p>
 </dd></dl>
 
 <dl class="staticmethod">
@@ -451,10 +471,10 @@ Otherwise a new ApplicationException is created and original error is set as its
 <em class="property">static </em><code class="descname">wrap_exception</code><span class="sig-paren">(</span><em>exception</em>, <em>cause</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.errors.ApplicationException.wrap_exception" title="Permalink to this definition">¶</a></dt>
 <dd><p>Wraps another exception into specified application exception object.</p>
 <p>If original exception is of ApplicationException type it is returned without changes.
-Otherwise the original error is set as a cause to specified ApplicationException object.
-:param exception:an ApplicationException object to wrap the cause
-:param cause:an original error object
-:return:an original or newly created ApplicationException</p>
+Otherwise the original error is set as a cause to specified ApplicationException object.</p>
+<p>:param exception:an ApplicationException object to wrap the cause</p>
+<p>:param cause:an original error object</p>
+<p>:return:an original or newly created ApplicationException</p>
 </dd></dl>
 
 </dd></dl>
@@ -468,9 +488,16 @@ Otherwise the original error is set as a cause to specified ApplicationException
 <dt id="pip_services_commons.errors.ApplicationExceptionFactory.create">
 <em class="property">static </em><code class="descname">create</code><span class="sig-paren">(</span><em>description</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.errors.ApplicationExceptionFactory.create" title="Permalink to this definition">¶</a></dt>
 <dd><p>Recreates ApplicationException object from serialized ErrorDescription.</p>
-<p>It tries to restore original exception type using type or error category fields.
-:param description: a serialized error description received as a result of remote call
-:return:new ApplicationException object from serialized ErrorDescription.</p>
+<p>It tries to restore original exception type using type or error category fields.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>description</strong> – a serialized error description received as a result of remote call</td>
+</tr>
+</tbody>
+</table>
+<p>:return:new ApplicationException object from serialized ErrorDescription.</p>
 </dd></dl>
 
 </dd></dl>
@@ -487,9 +514,9 @@ close to the original type and preserve additional information.</p>
 <dl class="staticmethod">
 <dt id="pip_services_commons.errors.ErrorDescriptionFactory.create">
 <em class="property">static </em><code class="descname">create</code><span class="sig-paren">(</span><em>ex</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.errors.ErrorDescriptionFactory.create" title="Permalink to this definition">¶</a></dt>
-<dd><p>Creates a serializable ErrorDescription from error object.
-:param ex:an error object
-:return:a serializeable ErrorDescription object that describes the error.</p>
+<dd><p>Creates a serializable ErrorDescription from error object.</p>
+<p>:param ex:an error object</p>
+<p>:return:a serializeable ErrorDescription object that describes the error.</p>
 </dd></dl>
 
 </dd></dl>

@@ -36,7 +36,8 @@ class AnyValueArray(list):
     def __init__(self, values = None):
         """
         Creates a new instance of the array and assigns its value.
-        :param values:(optional) values to initialize this array.
+
+        :param values: (optional) values to initialize this array.
         """
         super(AnyValueArray, self).__init__()
         if values != None and len(values) > 0:
@@ -53,8 +54,10 @@ class AnyValueArray(list):
         """
         Gets the value stored in array element without any conversions.
         When element index is not defined it returns the entire array value.
-        :param index:(optional) an index of the element to get
-        :return:the element value or value of the array when index is not defined.
+
+        :param index: (optional) an index of the element to get
+
+        :return: the element value or value of the array when index is not defined.
         """
         if index == None:
             return self.get_as_array(index)
@@ -66,8 +69,10 @@ class AnyValueArray(list):
         Sets a new value to array element specified by its index.
         When the index is not defined, it resets the entire array value.
         This method has double purpose because method overrides are not supported in JavaScript.
-        :param index:(optional) an index of the element to set
-        :param value:a new element or array value.
+
+        :param index: (optional) an index of the element to set
+
+        :param value: a new element or array value.
         """
         if index == None and value != None:
             self.set_as_array(value)
@@ -77,8 +82,10 @@ class AnyValueArray(list):
     def get_as_array(self, index):
         """
         Converts array element into an AnyValueArray or returns empty AnyValueArray if conversion is not possible.
+
         :param index: an index of element to get.
-        :return:AnyValueArray value of the element or empty AnyValueArray if conversion is not supported.
+
+        :return: AnyValueArray value of the element or empty AnyValueArray if conversion is not supported.
         """
         if index == None:
             array = []
@@ -92,7 +99,8 @@ class AnyValueArray(list):
     def set_as_array(self, values):
         """
         Sets a new values to array element
-        :param values:values to set
+
+        :param values: values to set
         """
         del self[:]
         for value in values:
@@ -101,8 +109,10 @@ class AnyValueArray(list):
     def get_as_nullable_string(self, index):
         """
         Converts array element into a string or returns None if conversion is not possible.
-        :param index:an index of element to get.
-        :return:string value of the element or None if conversion is not supported.
+
+        :param index: an index of element to get.
+
+        :return: string value of the element or None if conversion is not supported.
         """
         value = self[index]
         return StringConverter.to_nullable_string(value)
@@ -110,8 +120,10 @@ class AnyValueArray(list):
     def get_as_string(self, index):
         """
         Converts array element into a string or returns "" if conversion is not possible.
-        :param index:an index of element to get.
-        :return:string value ot the element or "" if conversion is not supported.
+
+        :param index: an index of element to get.
+
+        :return: string value ot the element or "" if conversion is not supported.
         """
         value = self[index]
         return StringConverter.to_string(value)
@@ -119,9 +131,12 @@ class AnyValueArray(list):
     def get_as_string_with_default(self, index, default_value):
         """
         Converts array element into a string or returns default value if conversion is not possible.
-        :param index:an index of element to get.
-        :param default_value:the default value
-        :return:string value ot the element or default value if conversion is not supported.
+
+        :param index: an index of element to get.
+
+        :param default_value: the default value
+
+        :return: string value ot the element or default value if conversion is not supported.
         """
         value = self[index]
         return StringConverter.to_string_with_default(value, default_value)
@@ -129,8 +144,10 @@ class AnyValueArray(list):
     def get_as_nullable_boolean(self, index):
         """
         Converts array element into a boolean or returns None if conversion is not possible
-        :param index:an index of element to get.
-        :return:boolean value of the element or None if conversion is not supported.
+
+        :param index: an index of element to get.
+
+        :return: boolean value of the element or None if conversion is not supported.
         """
         value = self[index]
         return BooleanConverter.to_nullable_boolean(value)
@@ -138,8 +155,10 @@ class AnyValueArray(list):
     def get_as_boolean(self, index):
         """
         Converts array element into a boolean or returns false if conversion is not possible.
-        :param index:an index of element to get.
-        :return:boolean value ot the element or false if conversion is not supported.
+
+        :param index: an index of element to get.
+
+        :return: boolean value ot the element or false if conversion is not supported.
         """
         value = self[index]
         return BooleanConverter.to_boolean(value)
@@ -147,9 +166,12 @@ class AnyValueArray(list):
     def get_as_boolean_with_default(self, index, default_value):
         """
         Converts array element into a boolean or returns default value if conversion is not possible.
-        :param index:an index of element to get.
-        :param default_value:the default value
-        :return:boolean value ot the element or default value if conversion is not supported.
+
+        :param index: an index of element to get.
+
+        :param default_value: the default value
+
+        :return: boolean value ot the element or default value if conversion is not supported.
         """
         value = self[index]
         return BooleanConverter.to_boolean_with_default(value, default_value)
@@ -157,8 +179,10 @@ class AnyValueArray(list):
     def get_as_nullable_integer(self, index):
         """
         Converts array element into an integer or returns None if conversion is not possible.
-        :param index:an index of element to get.
-        :return:integer value of the element or None if conversion is not supported.
+
+        :param index: an index of element to get.
+
+        :return: integer value of the element or None if conversion is not supported.
         """
         value = self[index]
         return IntegerConverter.to_nullable_integer(value)
@@ -166,8 +190,10 @@ class AnyValueArray(list):
     def get_as_integer(self, index):
         """
         Converts array element into an integer or returns 0 if conversion is not possible.
-        :param index:an index of element to get.
-        :return:integer value ot the element or 0 if conversion is not supported.
+
+        :param index: an index of element to get.
+
+        :return: integer value ot the element or 0 if conversion is not supported.
         """
         value = self[index]
         return IntegerConverter.to_integer(value)
@@ -175,9 +201,12 @@ class AnyValueArray(list):
     def get_as_integer_with_default(self, index, default_value):
         """
         Converts array element into an integer or returns default value if conversion is not possible.
-        :param index:an index of element to get.
-        :param default_value:the default value
-        :return:integer value ot the element or default value if conversion is not supported.
+
+        :param index: an index of element to get.
+
+        :param default_value: the default value
+
+        :return: integer value ot the element or default value if conversion is not supported.
         """
         value = self[index]
         return IntegerConverter.to_integer_with_default(value, default_value)
@@ -197,8 +226,10 @@ class AnyValueArray(list):
     def get_as_nullable_float(self, index):
         """
         Converts array element into a float or returns None if conversion is not possible.
-        :param index:an index of element to get.
-        :return:float value of the element or None if conversion is not supported.
+
+        :param index: an index of element to get.
+
+        :return: float value of the element or None if conversion is not supported.
         """
         value = self[index]
         return FloatConverter.to_nullable_float(value)
@@ -206,8 +237,10 @@ class AnyValueArray(list):
     def get_as_float(self, index):
         """
         Converts array element into a float or returns 0 if conversion is not possible.
-        :param index:an index of element to get.
-        :return:float value ot the element or 0 if conversion is not supported.
+
+        :param index: an index of element to get.
+
+        :return: float value ot the element or 0 if conversion is not supported.
         """
         value = self[index]
         return FloatConverter.to_float(value)
@@ -215,9 +248,12 @@ class AnyValueArray(list):
     def get_as_float_with_default(self, index, default_value):
         """
         Converts array element into a float or returns default value if conversion is not possible.
-        :param index:an index of element to get.
-        :param default_value:the default value
-        :return:float value ot the element or default value if conversion is not supported.
+
+        :param index: an index of element to get.
+
+        :param default_value: the default value
+
+        :return: float value ot the element or default value if conversion is not supported.
         """
         value = self[index]
         return FloatConverter.to_float_with_default(value, default_value)
@@ -225,8 +261,10 @@ class AnyValueArray(list):
     def get_as_nullable_datetime(self, index):
         """
         Converts array element into a Date or returns None if conversion is not possible.
-        :param index:an index of element to get.
-        :return:Date value of the element or None if conversion is not supported.
+
+        :param index: an index of element to get.
+
+        :return: Date value of the element or None if conversion is not supported.
         """
         value = self[index]
         return DateTimeConverter.to_nullable_datetime(value)
@@ -234,8 +272,10 @@ class AnyValueArray(list):
     def get_as_datetime(self, index):
         """
         Converts array element into a Date or returns the current date if conversion is not possible.
-        :param index:an index of element to get.
-        :return:Date value ot the element or the current date if conversion is not supported.
+
+        :param index: an index of element to get.
+
+        :return: Date value ot the element or the current date if conversion is not supported.
         """
         value = self[index]
         return DateTimeConverter.to_datetime(value)
@@ -243,9 +283,12 @@ class AnyValueArray(list):
     def get_as_datetime_with_default(self, index, default_value):
         """
         Converts array element into a Date or returns default value if conversion is not possible.
-        :param index:an index of element to get.
-        :param default_value:the default value
-        :return:Date value ot the element or default value if conversion is not supported.
+
+        :param index: an index of element to get.
+
+        :param default_value: the default value
+
+        :return: Date value ot the element or default value if conversion is not supported.
         """
         value = self[index]
         return DateTimeConverter.to_datetime_with_default(value, default_value)
@@ -254,9 +297,12 @@ class AnyValueArray(list):
         """
         Converts array element into a value defined by specied typecode.
         If conversion is not possible it returns None.
-        :param index:an index of element to get.
-        :param value_type:the TypeCode that defined the type of the result
-        :return:element value defined by the typecode or None if conversion is not supported.
+
+        :param index: an index of element to get.
+
+        :param value_type: the TypeCode that defined the type of the result
+
+        :return: element value defined by the typecode or None if conversion is not supported.
         """
         value = self[index]
         return TypeConverter.to_nullable_type(value_type, value)
@@ -265,9 +311,12 @@ class AnyValueArray(list):
         """
         Converts array element into a value defined by specied typecode.
         If conversion is not possible it returns default value for the specified type.
-        :param index:an index of element to get.
-        :param value_type:the TypeCode that defined the type of the result
-        :return:element value defined by the typecode or default if conversion is not supported.
+
+        :param index: an index of element to get.
+
+        :param value_type: the TypeCode that defined the type of the result
+
+        :return: element value defined by the typecode or default if conversion is not supported.
         """
         value = self[index]
         return TypeConverter.to_type(value_type, value)
@@ -276,10 +325,14 @@ class AnyValueArray(list):
         """
         Converts array element into a value defined by specied typecode.
         If conversion is not possible it returns default value.
-        :param index:an index of element to get.
-        :param value_type:the TypeCode that defined the type of the result
-        :param default_value:the default value
-        :return:element value defined by the typecode or default value if conversion is not supported.
+
+        :param index: an index of element to get.
+
+        :param value_type: the TypeCode that defined the type of the result
+
+        :param default_value: the default value
+
+        :return: element value defined by the typecode or default value if conversion is not supported.
         """
         value = self[index]
         return TypeConverter.to_type_with_default(value_type, value, default_value)
@@ -291,8 +344,10 @@ class AnyValueArray(list):
     def get_as_value(self, index):
         """
         Converts array element into an AnyValue or returns an empty AnyValue if conversion is not possible.
-        :param index:an index of element to get.
-        :return:AnyValue value of the element or empty AnyValue if conversion is not supported.
+
+        :param index: an index of element to get.
+
+        :return: AnyValue value of the element or empty AnyValue if conversion is not supported.
         """
         value = self[index]
         return AnyValue(value)
@@ -300,8 +355,10 @@ class AnyValueArray(list):
     def get_as_map(self, index):
         """
         Converts array element into an AnyValueMap or returns empty AnyValueMap if conversion is not possible.
-        :param index:an index of element to get.
-        :return:AnyValueMap value of the element or empty AnyValueMap if conversion is not supported.
+
+        :param index: an index of element to get.
+
+        :return: AnyValueMap value of the element or empty AnyValueMap if conversion is not supported.
         """
         value = self[index]
         return AnyValueMap.from_value(value)
@@ -311,8 +368,10 @@ class AnyValueArray(list):
         """
         Checks if this array contains a value.
         The check uses direct comparison between elements and the specified value.
-        :param value:a value to be checked
-        :return:true if this array contains the value or false otherwise.
+
+        :param value: a value to be checked
+
+        :return: true if this array contains the value or false otherwise.
         """
         str_value = StringConverter.to_nullable_string(value)
 
@@ -334,9 +393,12 @@ class AnyValueArray(list):
         """
         Checks if this array contains a value.
         The check before comparison converts elements and the value to type specified by type code.
-        :param value_type:a type code that defines a type to convert values before comparison
-        :param value:a value to be checked
-        :return:true if this array contains the value or false otherwise.
+
+        :param value_type: a type code that defines a type to convert values before comparison
+
+        :param value: a value to be checked
+
+        :return: true if this array contains the value or false otherwise.
         """
         typed_value = TypeConverter.to_nullable_type(value_type, value)
 
@@ -356,6 +418,7 @@ class AnyValueArray(list):
     def clone(self):
         """
         Creates a binary clone of this object.
+
         :return: a clone of this object.
         """
         array = AnyValueArray()
@@ -367,7 +430,8 @@ class AnyValueArray(list):
         Gets a string representation of the object.
         The result is a comma-separated list of string representations of individual elements as
         "value1,value2,value3"
-        :return:a string representation of the object.
+
+        :return: a string representation of the object.
         """
         result = ''
 
@@ -382,8 +446,10 @@ class AnyValueArray(list):
     def from_values(*values):
         """
         Creates a new AnyValueArray from a list of values
-        :param values:a list of values to initialize the created AnyValueArray
-        :return:a newly created AnyValueArray.
+
+        :param values: a list of values to initialize the created AnyValueArray
+
+        :return: a newly created AnyValueArray.
         """
         return AnyValueArray(values)
 
@@ -391,8 +457,10 @@ class AnyValueArray(list):
     def from_value(value):
         """
         Converts specified value into AnyValueArray.
-        :param value:value to be converted
-        :return:a newly created AnyValueArray.
+
+        :param value: value to be converted
+
+        :return: a newly created AnyValueArray.
         """
         value = ArrayConverter.to_nullable_array(value)
         if value != None:
@@ -404,10 +472,14 @@ class AnyValueArray(list):
         """
         Splits specified string into elements using a separator and assigns
         the elements to a newly created AnyValueArray.
-        :param values:a string value to be split and assigned to AnyValueArray
+
+        :param values: a string value to be split and assigned to AnyValueArray
+
         :param separator: a separator to split the string
-        :param remove_duplicates:(optional) true to remove duplicated elements
-        :return:a newly created AnyValueArray.
+
+        :param remove_duplicates: (optional) true to remove duplicated elements
+
+        :return: a newly created AnyValueArray.
         """
         result = AnyValueArray()
 

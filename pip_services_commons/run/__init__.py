@@ -3,9 +3,10 @@
     pip_services_commons.run.__init__
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     
-    Run module initialization
+    Contains design patterns for the standard lifecycle of objects (opened,
+    closed, openable, closable, runnable). Helper classes for lifecycle provisioning.
     
-    :copyright: Conceptual Vision Consulting LLC 2015-2016, see AUTHORS for more details.
+    :copyright: Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.
     :license: MIT, see LICENSE for more details.
 """
 

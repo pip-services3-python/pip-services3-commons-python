@@ -37,7 +37,9 @@ class TypeConverter():
     def to_type_code(value):
         """
         Gets TypeCode for specific value.
+
         :param value: value whose TypeCode is to be resolved.
+
         :return: the TypeCode that corresponds to the passed object's type.
         """
         if value == None:
@@ -76,8 +78,11 @@ class TypeConverter():
     def to_nullable_type(value_type, value):
         """
         Converts value into an object type specified by Type Code or returns null when conversion is not possible.
+
         :param value_type: the TypeCode for the data type into which 'value' is to be converted.
+
         :param value: the value to convert.
+
         :return: object value of type corresponding to TypeCode, or null when conversion is not supported.
         """
         result_type = TypeConverter.to_type_code(value_type)
@@ -114,8 +119,11 @@ class TypeConverter():
     def to_type(value_type, value):
         """
         Converts value into an object type specified by Type Code or returns type default when conversion is not possible.
+
         :param value_type: the TypeCode for the data type into which 'value' is to be converted.
+
         :param value: the value to convert.
+
         :return: object value of type corresponding to TypeCode, or type default when conversion is not supported.
         """
         # Convert to the specified type
@@ -141,10 +149,14 @@ class TypeConverter():
     def to_type_with_default(value_type, value, default_value):
         """
         Converts value into an object type specified by Type Code or returns default value when conversion is not possible.
-        :param value_type:the TypeCode for the data type into which 'value' is to be converted.
-        :param value:the value to convert.
-        :param default_value:the default value to return if conversion is not possible (returns None).
-        :return:object value of type corresponding to TypeCode, or default value when conversion is not supported.
+
+        :param value_type: the TypeCode for the data type into which 'value' is to be converted.
+
+        :param value: the value to convert.
+
+        :param default_value: the default value to return if conversion is not possible (returns None).
+
+        :return: object value of type corresponding to TypeCode, or default value when conversion is not supported.
         """
         result = TypeConverter.to_nullable_type(value_type, value)
         return result if result != None else default_value
@@ -154,8 +166,10 @@ class TypeConverter():
     def to_string(type):
         """
         Converts a TypeCode into its string name.
-        :param type:the TypeCode to convert into a string.
-        :return:the name of the TypeCode passed as a string value.
+
+        :param type: the TypeCode to convert into a string.
+
+        :return: the name of the TypeCode passed as a string value.
         """
         if type == None:
             return "unknown"

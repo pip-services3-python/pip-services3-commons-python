@@ -26,7 +26,9 @@ class BooleanConverter():
     def to_nullable_boolean(value):
         """
         Converts value into boolean or returns None when conversion is not possible.
+
         :param value: the value to convert.
+
         :return: boolean value or None when convertion is not supported.
         """
         # Shortcuts
@@ -50,7 +52,9 @@ class BooleanConverter():
     def to_boolean(value):
         """
         Converts value into boolean or returns false when conversion is not possible.
+
         :param value: the value to convert.
+
         :return: boolean value or false when conversion is not supported.
         """
         return BooleanConverter.to_boolean_with_default(value, False)
@@ -59,8 +63,11 @@ class BooleanConverter():
     def to_boolean_with_default(value, default_value):
         """
         Converts value into boolean or returns default value when conversion is not possible
+
         :param value: the value to convert.
+
         :param default_value: the default value
+
         :return: boolean value or default when conversion is not supported.
         """
         result = BooleanConverter.to_nullable_boolean(value)

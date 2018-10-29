@@ -46,7 +46,7 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">copyright:</th><td class="field-body">Conceptual Vision Consulting LLC 2015-2016, see AUTHORS for more details.</td>
+<tr class="field-odd field"><th class="field-name">copyright:</th><td class="field-body">Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">license:</th><td class="field-body">MIT, see LICENSE for more details.</td>
 </tr>
@@ -56,28 +56,27 @@
 <dt id="pip_services_commons.run.Notifier.Notifier">
 <em class="property">class </em><code class="descclassname">pip_services_commons.run.Notifier.</code><code class="descname">Notifier</code><a class="headerlink" href="#pip_services_commons.run.Notifier.Notifier" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Helper class that notifies components.</p>
 <dl class="staticmethod">
 <dt id="pip_services_commons.run.Notifier.Notifier.notify">
 <em class="property">static </em><code class="descname">notify</code><span class="sig-paren">(</span><em>correlation_id</em>, <em>components</em>, <em>args=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.run.Notifier.Notifier.notify" title="Permalink to this definition">¶</a></dt>
-<dd><p>Triggers notification for components that implement INotifiable interface.</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd>correlation_id: a unique transaction id to trace calls across components
-components:  components a list of components to be notified
-args: a set of parameters to pass to notified components</dd>
-</dl>
+<dd><p>Notifies multiple components.</p>
+<p>To be notified components must implement [[INotifiable]] interface.
+If they don’t the call to this method has no effect.</p>
+<p>:param correlation_id:(optional) transaction id to trace execution through call chain.</p>
+<p>:param components:a list of components that are to be notified.</p>
+<p>:param args:notification arguments.</p>
 </dd></dl>
 
 <dl class="staticmethod">
 <dt id="pip_services_commons.run.Notifier.Notifier.notify_one">
 <em class="property">static </em><code class="descname">notify_one</code><span class="sig-paren">(</span><em>correlation_id</em>, <em>component</em>, <em>args</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.run.Notifier.Notifier.notify_one" title="Permalink to this definition">¶</a></dt>
-<dd><p>Triggers notification for components that implement INotifiable interface.</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd>correlation_id: a unique transaction id to trace calls across components
-components:  components a list of components to be notified
-args: a set of parameters to pass to notified components</dd>
-</dl>
+<dd><p>Notifies specific component.
+To be notiied components must implement [[INotifiable]] interface.
+If they don’t the call to this method has no effect.</p>
+<p>:param correlation_id:(optional) transaction id to trace execution through call chain.</p>
+<p>:param component:the component that is to be notified.</p>
+<p>:param args:notifiation arguments.</p>
 </dd></dl>
 
 </dd></dl>

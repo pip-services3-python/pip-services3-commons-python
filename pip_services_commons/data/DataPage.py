@@ -38,8 +38,10 @@ class DataPage():
     def __init__(self, data, total = None):
         """
         Creates a new instance of data page and assigns its values.
-        :param data:a list of items from the retrieved page.
-        :param total:total amount of items in a request.
+
+        :param data: a list of items from the retrieved page.
+
+        :param total: total amount of items in a request.
         """
         self.data = data
         self.total = total

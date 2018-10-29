@@ -26,7 +26,9 @@ class FloatConverter():
     def to_nullable_float(value):
         """
         Converts value into float or returns null when conversion is not possible.
+
         :param value: the value to convert.
+
         :return: float value or null when conversion is not supported.
         """
         # Shortcuts
@@ -42,7 +44,9 @@ class FloatConverter():
     def to_float(value):
         """
         Converts value into float or returns 0 when conversion is not possible.
+
         :param value: the value to convert.
+
         :return: float value or 0 when conversion is not supported.
         """
         return FloatConverter.to_float_with_default(value, 0.0)
@@ -51,8 +55,11 @@ class FloatConverter():
     def to_float_with_default(value, default_value):
         """
         Converts value into float or returns default when conversion is not possible.
+
         :param value: the value to convert.
+
         :param default_value: the default value.
+
         :return: float value or default value when conversion is not supported.
         """
         result = FloatConverter.to_nullable_float(value)

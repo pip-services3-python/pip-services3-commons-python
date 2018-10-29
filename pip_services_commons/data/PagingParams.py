@@ -39,9 +39,12 @@ class PagingParams():
     def __init__(self, skip = None, take = None, total = True):
         """
         Creates a new instance and sets its values.
-        :param skip:the number of items to skip.
-        :param take:the number of items to return.
-        :param total:true to return the total number of items.
+
+        :param skip: the number of items to skip.
+
+        :param take: the number of items to return.
+
+        :param total: true to return the total number of items.
         """
         self.skip = IntegerConverter.to_nullable_integer(skip)
         self.take = IntegerConverter.to_nullable_integer(take)
@@ -50,8 +53,10 @@ class PagingParams():
     def get_skip(self, min_skip):
         """
         Gets the number of items to skip.
-        :param min_skip:the minimum number of items to skip.
-        :return:the number of items to skip.
+
+        :param min_skip: the minimum number of items to skip.
+
+        :return: the number of items to skip.
         """
         if self.skip == None:
             return min_skip
@@ -62,8 +67,10 @@ class PagingParams():
     def get_take(self, max_take):
         """
         Gets the number of items to return in a page.
-        :param max_take:the maximum number of items to return.
-        :return:the number of items to return.
+
+        :param max_take: the maximum number of items to return.
+
+        :return: the number of items to return.
         """
         if self.take == None:
             return max_take
@@ -97,8 +104,10 @@ class PagingParams():
     def from_value(value):
         """
         Converts specified value into PagingParams.
-        :param value:value to be converted
-        :return:a newly created PagingParams.
+
+        :param value: value to be converted
+
+        :return: a newly created PagingParams.
         """
         if isinstance(value, PagingParams):
             return value
@@ -112,8 +121,10 @@ class PagingParams():
     def from_tuples(*tuples):
         """
         Creates a new PagingParams from a list of key-value pairs called tuples.
-        :param tuples:a list of values where odd elements are keys and the following even elements are values
-        :return:a newly created PagingParams.
+
+        :param tuples: a list of values where odd elements are keys and the following even elements are values
+
+        :return: a newly created PagingParams.
         """
         map = AnyValueMap.from_tuples_array(tuples)
         return PagingParams.from_map(map)
@@ -122,8 +133,10 @@ class PagingParams():
     def from_map(map):
         """
         Creates a new PagingParams and sets it parameters from the specified map
-        :param map:a AnyValueMap or StringValueMap to initialize this PagingParams
-        :return:a newly created PagingParams.
+
+        :param map: a AnyValueMap or StringValueMap to initialize this PagingParams
+
+        :return: a newly created PagingParams.
         """
         skip = map.get_as_nullable_integer("skip")
         take = map.get_as_nullable_integer("take")

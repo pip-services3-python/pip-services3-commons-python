@@ -46,7 +46,7 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">copyright:</th><td class="field-body">Conceptual Vision Consulting LLC 2015-2016, see AUTHORS for more details.</td>
+<tr class="field-odd field"><th class="field-name">copyright:</th><td class="field-body">Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">license:</th><td class="field-body">MIT, see LICENSE for more details.</td>
 </tr>
@@ -56,25 +56,44 @@
 <dt id="pip_services_commons.random.RandomString.RandomString">
 <em class="property">class </em><code class="descclassname">pip_services_commons.random.RandomString.</code><code class="descname">RandomString</code><a class="headerlink" href="#pip_services_commons.random.RandomString.RandomString" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Random generator for string values.</p>
+<dl class="docutils">
+<dt>Example:</dt>
+<dd>value1 = RandomString.pickChar(“ABC”)     // Possible result: “C”
+value2 = RandomString.pick([“A”,”B”,”C”]) // Possible result: “gBW”</dd>
+</dl>
 <dl class="staticmethod">
 <dt id="pip_services_commons.random.RandomString.RandomString.distort">
 <em class="property">static </em><code class="descname">distort</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.random.RandomString.RandomString.distort" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Distorts a string by randomly replacing characters in it.</p>
+<p>:param value:a string to distort.</p>
+<p>:return:a distored string.</p>
+</dd></dl>
 
 <dl class="staticmethod">
 <dt id="pip_services_commons.random.RandomString.RandomString.next_alpha_char">
 <em class="property">static </em><code class="descname">next_alpha_char</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.random.RandomString.RandomString.next_alpha_char" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Generates random alpha characted [A-Za-z]
+:return:a random characted.</p>
+</dd></dl>
 
 <dl class="staticmethod">
 <dt id="pip_services_commons.random.RandomString.RandomString.next_string">
 <em class="property">static </em><code class="descname">next_string</code><span class="sig-paren">(</span><em>min_size</em>, <em>max_size</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.random.RandomString.RandomString.next_string" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Generates a random string, consisting of upper and lower case letters (of the English alphabet),
+digits (0-9), and symbols (“_,.:-/.[].{},#-!,$=%.+^.&amp;*-() “).</p>
+<p>:param min_size:(optional) minimum string length.</p>
+<p>:param max_size:maximum string length.</p>
+<p>:return:a random string.</p>
+</dd></dl>
 
 <dl class="staticmethod">
 <dt id="pip_services_commons.random.RandomString.RandomString.pick">
 <em class="property">static </em><code class="descname">pick</code><span class="sig-paren">(</span><em>values</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.random.RandomString.RandomString.pick" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Picks a random string from an array of string.</p>
+<p>:param values:a string to pick from</p>
+<p>:return:a randomly picked string.</p>
+</dd></dl>
 
 </dd></dl>
 

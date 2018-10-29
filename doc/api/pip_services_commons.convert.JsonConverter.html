@@ -65,42 +65,86 @@ value2 = JsonConverter.to_map({ key: 123}) // Result: “{“key”:123}”</dd>
 <dl class="staticmethod">
 <dt id="pip_services_commons.convert.JsonConverter.JsonConverter.from_json">
 <em class="property">static </em><code class="descname">from_json</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.convert.JsonConverter.JsonConverter.from_json" title="Permalink to this definition">¶</a></dt>
-<dd><p>Converts JSON string into a value.
-:param value: the JSON string to convert.
-:return: converted object value or null when value is None.</p>
+<dd><p>Converts JSON string into a value.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>value</strong> – the JSON string to convert.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">converted object value or null when value is None.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="staticmethod">
 <dt id="pip_services_commons.convert.JsonConverter.JsonConverter.to_json">
 <em class="property">static </em><code class="descname">to_json</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.convert.JsonConverter.JsonConverter.to_json" title="Permalink to this definition">¶</a></dt>
-<dd><p>Converts value into JSON string.
-:param value: the value to convert.
-:return: JSON string or null when value is None.</p>
+<dd><p>Converts value into JSON string.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>value</strong> – the value to convert.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">JSON string or null when value is None.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="staticmethod">
 <dt id="pip_services_commons.convert.JsonConverter.JsonConverter.to_map">
 <em class="property">static </em><code class="descname">to_map</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.convert.JsonConverter.JsonConverter.to_map" title="Permalink to this definition">¶</a></dt>
-<dd><p>Converts JSON string into map object or returns empty map when conversion is not possible.
-:param value: the JSON string to convert.
-:return: Map object value or empty object when conversion is not supported.</p>
+<dd><p>Converts JSON string into map object or returns empty map when conversion is not possible.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>value</strong> – the JSON string to convert.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Map object value or empty object when conversion is not supported.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="staticmethod">
 <dt id="pip_services_commons.convert.JsonConverter.JsonConverter.to_map_with_default">
 <em class="property">static </em><code class="descname">to_map_with_default</code><span class="sig-paren">(</span><em>value</em>, <em>default_value</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.convert.JsonConverter.JsonConverter.to_map_with_default" title="Permalink to this definition">¶</a></dt>
-<dd><p>Converts JSON string into map object or returns default value when conversion is not possible.
-:param value: the JSON string to convert.
-:param default_value: the default value.
-:return: Map object value or default when conversion is not supported.</p>
+<dd><p>Converts JSON string into map object or returns default value when conversion is not possible.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>value</strong> – the JSON string to convert.</li>
+<li><strong>default_value</strong> – the default value.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">Map object value or default when conversion is not supported.</p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="staticmethod">
 <dt id="pip_services_commons.convert.JsonConverter.JsonConverter.to_nullable_map">
 <em class="property">static </em><code class="descname">to_nullable_map</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.convert.JsonConverter.JsonConverter.to_nullable_map" title="Permalink to this definition">¶</a></dt>
-<dd><p>Converts JSON string into map object or returns null when conversion is not possible.
-:param value: the JSON string to convert.
-:return: Map object value or null when conversion is not supported.</p>
+<dd><p>Converts JSON string into map object or returns null when conversion is not possible.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>value</strong> – the JSON string to convert.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Map object value or null when conversion is not supported.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </dd></dl>

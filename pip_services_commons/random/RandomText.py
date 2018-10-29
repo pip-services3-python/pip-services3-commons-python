@@ -5,7 +5,7 @@
     
     RandomText implementation
     
-    :copyright: Conceptual Vision Consulting LLC 2015-2016, see AUTHORS for more details.
+    :copyright: Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.
     :license: MIT, see LICENSE for more details.
 """
 
@@ -76,25 +76,62 @@ _street_names = [
 _all_words = _first_names + _last_names + _colors + _stuffs + _adjectives + _verbs
 
 class RandomText(object):
+    """
+    Random generator for various text values like names, addresses or phone numbers.
 
+    Example:
+        value1 = RandomText.name()     // Possible result: "Sergio"
+        value2 = RandomText.verb()      // Possible result: "Run"
+        value3 = RandomText.text(50)    // Possible result: "Run jorge. Red high scream?"
+    """
     @staticmethod
     def color():
+        """
+        Generates a random color name. The result value is capitalized.
+
+        :return:a random color name.
+        """
         return random.choice(_colors)
 
     @staticmethod
     def stuff():
+        """
+        Generates a random noun. The result value is capitalized.
+
+        :return:a random noun.
+        """
         return random.choice(_stuffs)
 
     @staticmethod
     def adjective():
+        """
+        Generates a random adjective. The result value is capitalized.
+
+        :return:a random adjective.
+        """
         return random.choice(_adjectives)
 
     @staticmethod
     def verb():
+        """
+        Generates a random verb. The result value is capitalized.
+
+        :return:a random verb.
+        """
         return random.choice(_verbs)
 
     @staticmethod
     def phrase(min_size, max_size = None):
+        """
+        Generates a random phrase which consists of few words separated by spaces.
+        The first word is capitalized, others are not.
+
+        :param min_size:(optional) minimum string length.
+
+        :param max_size:maximum string length.
+
+        :return:a random phrase.
+        """
         max_size = max_size if max_size != None else min_size
         size = RandomInteger.next_integer(min_size, max_size)
         if size <= 0:
@@ -109,6 +146,12 @@ class RandomText(object):
 
     @staticmethod
     def name():
+        """
+        Generates a random person's name which has the following structure
+        <optional prefix> <first name> <second name> <optional suffix>
+
+        :return:a random name.
+        """
         result = ""
 
         if RandomBoolean.chance(3, 5):
@@ -123,10 +166,24 @@ class RandomText(object):
 
     @staticmethod
     def word():
+        """
+        Generates a random word from available first names, last names, colors, stuffs, adjectives, or verbs.
+
+        :return:a random word.
+        """
         return random.choice(_all_words)
 
     @staticmethod
     def words(min_size, max_size = None):
+        """
+        Generates a random text that consists of random number of random words separated by spaces.
+
+        :param min_size:(optional) a minimum number of words.
+
+        :param max_size:a maximum number of words.
+
+        :return:a random text.
+        """
         max_size = max_size if max_size != None else min_size
         result = ""
         
@@ -138,6 +195,11 @@ class RandomText(object):
 
     @staticmethod
     def phone():
+        """
+        Generates a random phone number. The phone number has the format: (XXX) XXX-YYYY
+
+        :return:a random phone number.
+        """
         result = ""
         result += "(" + str(RandomInteger.next_integer(111, 999)) + ") "
         result += str(RandomInteger.next_integer(111, 999))
@@ -146,10 +208,25 @@ class RandomText(object):
 
     @staticmethod
     def email():
+        """
+        Generates a random email address.
+
+        :return:a random email address.
+        """
         return RandomText.words(2,6) + "@" + RandomText.words(1,3) + ".com"
 
     @staticmethod
     def text(min_size, max_size):
+        """
+        Generates a random text, consisting of first names, last names, colors, stuffs, adjectives, verbs,
+        and punctuation marks.
+
+        :param min_size: minimum amount of words to generate. Text will contain 'minSize' words if 'maxSize' is omitted.
+
+        :param max_size:(optional) maximum amount of words to generate.
+
+        :return:a random text.
+        """
         max_size = max_size if max_size != None else min_size
         size = RandomInteger.next_integer(min_size, max_size)
 

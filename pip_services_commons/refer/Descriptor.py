@@ -5,7 +5,7 @@
     
     Component descriptor implementation
     
-    :copyright: Conceptual Vision Consulting LLC 2015-2016, see AUTHORS for more details.
+    :copyright: Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.
     :license: MIT, see LICENSE for more details.
 """
 
@@ -13,12 +13,28 @@ from ..errors.ConfigException import ConfigException
 
 class Descriptor(object):
     """
-    Component descriptor used to find a component by its descriptive elements:
-    - logical group: package or other logical group of components like 'pip-services-storage-blocks'
-    - component type: identifies component interface like 'controller', 'services' or 'cache'
-    - component kind: identifies component implementation like 'memory', 'file' or 'mongodb', ...
-    - component name: identifies component internal content, ...
-    - implementation version: '1.0', '1.5' or '10.4'
+    Locator type that most often used in PipServices toolkit.
+    It locates components using several fields:
+    - Group: a package or just named group of components like "pip-services"
+    - Type: logical component type that defines it's contract like "persistence"
+    - Kind: physical implementation type like "mongodb"
+    - Name: unique component name like "default"
+    - Version: version of the component contract like "1.0"
+
+    The locator matching can be done by all or only few selected fields.
+    The fields that shall be excluded from the matching must be set to <code>"*"</code> or <code>null</code>.
+    That approach allows to implement many interesting scenarios. For instance:
+    - Locate all loggers (match by type and version)
+    - Locate persistence components for a microservice (match by group and type)
+    - Locate specific component by its name (match by name)
+
+    Example:
+        locator1 = Descriptor("mygroup", "connector", "aws", "default", "1.0")
+        locator2 = Descriptor.from_string("mygroup:connector:*:*:1.0")
+
+        locator1.match(locator2);		// Result: true
+        locator1.eq(locator2);		// Result: true
+        locator1.exact_match(locator2);	// Result: false
     """
 
     _group = None
@@ -29,14 +45,17 @@ class Descriptor(object):
     
     def __init__(self, group, type, kind, name, version):
         """
-        Creates instance of a component descriptor
+        Creates a new instance of the descriptor.
 
-        Args:
-            group: logical group: 'pip-services-runtime', 'pip-services-logging'
-            type: external type: 'cache', 'services' or 'controllers'
-            kind - implementation: 'memory', 'file' or 'memcached' 
-            name - internal content
-            version: compatibility version: '1.0'. '1.5' or '10.4'
+        :param group:a logical component group
+
+        :param type:a logical component type or contract
+
+        :param kind:a component implementation type
+
+        :param name:a unique component name
+
+        :param version:a component implementation version
         """
         group = None if "*" == group else group 
         type = None if "*" == type else type
@@ -52,37 +71,42 @@ class Descriptor(object):
 
     def get_group(self): 
         """
-        Gets the component group
-        Returns: the component group
+         Gets the component's logical group.
+
+        :return:the component's logical group
         """
         return self._group 
 
     def get_type(self):
         """
-        Gets the component type
-        Returns: the component type
-        """ 
+        Gets the component's logical type.
+
+        :return:the component's logical type.
+        """
         return self._type
 
     def get_kind(self):
         """
-        Gets the component kind
-        Returns: the component kind
+        Gets the component's implementation type.
+
+        :return:the component's implementation type.
         """
         return self._kind
 
     def get_name(self):
         """
-        Gets the component name
-        Returns: the component name
-        """ 
+        Gets the unique component's name.
+
+        :return:the unique component's name.
+        """
         return self._name 
 
     def get_version(self):
         """
-        Gets the implementation version
-        Returns: the implementation version
-        """ 
+        Gets the component's implementation version.
+
+        :return:the component's implementation version.
+        """
         return self._version 
 
     def _match_field(self, field1, field2):
@@ -92,14 +116,12 @@ class Descriptor(object):
 
     def match(self, descriptor):
         """
-        Matches this descriptor to another descriptor.
-        All '*' or null descriptor elements match to any other value.
-        Specific values must match exactly.
-         
-        Args:
-            descriptor: another descriptor to match this one.
+        Partially matches this descriptor to another descriptor.
+        Fields that contain "*" or null are excluded from the match.
 
-        Returns: True if descriptors match or False otherwise. 
+        :param descriptor: the descriptor to match this one against.
+
+        :return:true if descriptors match and false otherwise
         """
         return self._match_field(self._group, descriptor.get_group()) \
             and self._match_field(self._type, descriptor.get_type()) \
@@ -116,12 +138,11 @@ class Descriptor(object):
 
     def exact_match(self, descriptor):
         """
-        Matches this descriptor to another descriptor exactly.
-         
-        Args:
-            descriptor: another descriptor to match this one.
+        Matches this descriptor to another descriptor by all fields. No exceptions are made.
 
-        Returns: True if descriptors match or False otherwise. 
+        :param descriptor: the descriptor to match this one against.
+
+        :return:true if descriptors match and false otherwise.
         """
         return self._exact_match_field(self._group, descriptor.get_group()) \
             and self._exact_atch_field(self._type, descriptor.get_type()) \
@@ -130,10 +151,24 @@ class Descriptor(object):
             and self._exact_match_field(self._version, descriptor.get_version())
 
     def is_complete(self):
+        """
+        Checks whether all descriptor fields are set.
+        If descriptor has at least one "*" or null field it is considered "incomplete"
+
+        :return:true if all descriptor fields are defined and false otherwise.
+        """
         return self._group != None and self._type != None \
             and self._kind != None and self._name != None and self._version != None
 
     def __eq__(self, other):
+        """
+        Compares this descriptor to a value.
+        If value is a Descriptor it tries to match them, otherwise the method returns false.
+
+        :param other:the value to match against this descriptor.
+
+        :return:true if the value is matching descriptor and false otherwise.
+        """
         if isinstance(other, Descriptor):
             return self.match(other)
         return False
@@ -142,6 +177,12 @@ class Descriptor(object):
         return not self.__eq__(other)
 
     def __str__(self):
+        """
+        Gets a string representation of the object.
+        The result is a colon-separated list of descriptor fields as "mygroup:connector:aws:default:1.0"
+
+        :return:a string representation of the object.
+        """
         result = ''
         result += self._group if self._group != None else '*'
         result += ':'
@@ -156,6 +197,13 @@ class Descriptor(object):
     
     @staticmethod
     def from_string(value):
+        """
+        Parses colon-separated list of descriptor fields and returns them as a Descriptor.
+
+        :param value: colon-separated descriptor fields to initialize Descriptor.
+
+        :return:a newly created Descriptor.
+        """
         if value == None or len(value) == 0:
             return None
                 

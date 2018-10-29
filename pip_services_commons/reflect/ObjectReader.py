@@ -5,7 +5,7 @@
     
     Object reader implementation
     
-    :copyright: Conceptual Vision Consulting LLC 2015-2016, see AUTHORS for more details.
+    :copyright: Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.
     :license: MIT, see LICENSE for more details.
 """
 
@@ -13,15 +13,65 @@ from ..convert.IntegerConverter import IntegerConverter
 from .PropertyReflector import PropertyReflector
 
 class ObjectReader:
+    """
+    Helper class to perform property introspection and dynamic reading.
 
+    In contrast to [[PropertyReflector]] which only introspects regular objects,
+    this ObjectReader is also able to handle maps and arrays.
+
+    For maps properties are key-pairs identified by string keys,
+    For arrays properties are elements identified by integer index.
+
+    This class has symmetric implementation across all languages supported
+    by Pip.Services toolkit and used to support dynamic data processing.
+
+    Because all languages have different casing and case sensitivity rules,
+    this ObjectReader treats all property names as case insensitive.
+
+    Example:
+        myObj = MyObject()
+
+        properties = ObjectReader.get_property_names()
+
+        ObjectReader.has_property(myObj, "myProperty")
+        value = PropertyReflector.get_property(myObj, "myProperty")
+
+        myMap = { key1: 123, key2: "ABC" }
+        ObjectReader.has_property(myMap, "key1")
+        value = ObjectReader.get_property(myMap, "key1")
+
+        myArray = [1, 2, 3]
+        ObjectReader.has_property(myArrat, "0")
+        value = ObjectReader.get_property(myArray, "0")
+    """
     @staticmethod
     def get_value(obj):
+        """
+        Gets a real object value. If object is a wrapper, it unwraps the value behind it.
+        Otherwise it returns the same object value.
+
+        :param obj:an object to unwrap.
+
+        :return:an actual (unwrapped) object value.
+        """
         # Todo: just a blank implementation for compatibility
         return obj
 
 
     @staticmethod
     def has_property(obj, name):
+        """
+        Checks if object has a property with specified name.
+
+        The object can be a user defined object, map or array.
+        The property name correspondently must be object property, map key or array index.
+
+        :param obj:an object to introspect.
+
+        :param name:a name of the property to check.
+
+        :return:true if the object has the property and false if it doesn't.
+        """
         if obj == None or name == None:
             return False
 
@@ -41,6 +91,18 @@ class ObjectReader:
 
     @staticmethod
     def get_property(obj, name):
+        """
+        Gets value of object property specified by its name.
+
+        The object can be a user defined object, map or array.
+        The property name correspondently must be object property, map key or array index.
+
+        :param obj:an object to read property from.
+
+        :param name:a name of the property to get.
+
+        :return:the property value or null if property doesn't exist or introspection failed.
+        """
         if obj == None or name == None:
             return False
 
@@ -62,6 +124,16 @@ class ObjectReader:
 
     @staticmethod
     def get_property_names(obj):
+        """
+        Gets names of all properties implemented in specified object.
+
+        The object can be a user defined object, map or array.
+        Returned property name correspondently are object properties, map keys or array indexes.
+
+        :param obj:an object to introspect.
+
+        :return:a list with property names.
+        """
         property_names = []
 
         if isinstance(obj, dict):
@@ -78,6 +150,16 @@ class ObjectReader:
 
     @staticmethod
     def get_properties(obj):
+        """
+        Get values of all properties in specified object and returns them as a map.
+
+        The object can be a user defined object, map or array.
+        Returned properties correspondently are object properties, map key-pairs or array elements with their indexes.
+
+        :param obj:an object to get properties from.
+
+        :return:a map, containing the names of the object's properties and their values.
+        """
         map = {}
 
         if isinstance(obj, dict):

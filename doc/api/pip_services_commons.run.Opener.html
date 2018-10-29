@@ -46,7 +46,7 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">copyright:</th><td class="field-body">Conceptual Vision Consulting LLC 2015-2016, see AUTHORS for more details.</td>
+<tr class="field-odd field"><th class="field-name">copyright:</th><td class="field-body">Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">license:</th><td class="field-body">MIT, see LICENSE for more details.</td>
 </tr>
@@ -56,47 +56,45 @@
 <dt id="pip_services_commons.run.Opener.Opener">
 <em class="property">class </em><code class="descclassname">pip_services_commons.run.Opener.</code><code class="descname">Opener</code><a class="headerlink" href="#pip_services_commons.run.Opener.Opener" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>Helper class that opens a collection of components</p>
+<p>Helper class that opens components.</p>
 <dl class="staticmethod">
 <dt id="pip_services_commons.run.Opener.Opener.is_opened">
 <em class="property">static </em><code class="descname">is_opened</code><span class="sig-paren">(</span><em>components</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.run.Opener.Opener.is_opened" title="Permalink to this definition">¶</a></dt>
-<dd><p>Checks if all components that implement IOpenable interface are opened</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd>components: a list of components to be checked</dd>
-</dl>
+<dd><p>Checks if all components are opened.</p>
+<p>To be checked components must implement [[IOpenable]] interface.
+If they don’t the call to this method returns true.</p>
+<p>:param components:a list of components that are to be checked.</p>
+<p>:return:true if all components are opened and false if at least one component is closed.</p>
 </dd></dl>
 
 <dl class="staticmethod">
 <dt id="pip_services_commons.run.Opener.Opener.is_opened_one">
 <em class="property">static </em><code class="descname">is_opened_one</code><span class="sig-paren">(</span><em>component</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.run.Opener.Opener.is_opened_one" title="Permalink to this definition">¶</a></dt>
-<dd><p>Checks if component that implements IOpenable interface is opened</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd>component: a components to be checked</dd>
-</dl>
+<dd><p>Checks if specified component is opened.</p>
+<p>To be checked components must implement [[IOpenable]] interface.
+If they don’t the call to this method returns true.</p>
+<p>:param component:the component that is to be checked.</p>
+<p>:return:true if component is opened and false otherwise.</p>
 </dd></dl>
 
 <dl class="staticmethod">
 <dt id="pip_services_commons.run.Opener.Opener.open">
 <em class="property">static </em><code class="descname">open</code><span class="sig-paren">(</span><em>correlation_id</em>, <em>components</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.run.Opener.Opener.open" title="Permalink to this definition">¶</a></dt>
-<dd><p>Opens components that implement IOpenable interface</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd>correlation_id: a unique transaction id to trace calls across components
-components: a list of components to be opened</dd>
-</dl>
+<dd><p>Opens multiple components.</p>
+<p>To be opened components must implement [[IOpenable]] interface.
+If they don’t the call to this method has no effect.</p>
+<p>:param correlation_id:(optional) transaction id to trace execution through call chain.</p>
+<p>:param components:the list of components that are to be closed.</p>
 </dd></dl>
 
 <dl class="staticmethod">
 <dt id="pip_services_commons.run.Opener.Opener.open_one">
 <em class="property">static </em><code class="descname">open_one</code><span class="sig-paren">(</span><em>correlation_id</em>, <em>component</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.run.Opener.Opener.open_one" title="Permalink to this definition">¶</a></dt>
-<dd><p>Opens a component that implements IOpenable interface</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd>correlation_id: a unique transaction id to trace calls across components
-component: a components to be opened</dd>
-</dl>
+<dd><p>Opens specific component.</p>
+<p>To be opened components must implement [[IOpenable]] interface.
+If they don’t the call to this method has no effect.</p>
+<p>:param correlation_id:(optional) transaction id to trace execution through call chain.</p>
+<p>:param component:the component that is to be opened.</p>
 </dd></dl>
 
 </dd></dl>

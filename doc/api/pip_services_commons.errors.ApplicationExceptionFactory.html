@@ -61,9 +61,16 @@
 <dt id="pip_services_commons.errors.ApplicationExceptionFactory.ApplicationExceptionFactory.create">
 <em class="property">static </em><code class="descname">create</code><span class="sig-paren">(</span><em>description</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.errors.ApplicationExceptionFactory.ApplicationExceptionFactory.create" title="Permalink to this definition">¶</a></dt>
 <dd><p>Recreates ApplicationException object from serialized ErrorDescription.</p>
-<p>It tries to restore original exception type using type or error category fields.
-:param description: a serialized error description received as a result of remote call
-:return:new ApplicationException object from serialized ErrorDescription.</p>
+<p>It tries to restore original exception type using type or error category fields.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>description</strong> – a serialized error description received as a result of remote call</td>
+</tr>
+</tbody>
+</table>
+<p>:return:new ApplicationException object from serialized ErrorDescription.</p>
 </dd></dl>
 
 </dd></dl>
