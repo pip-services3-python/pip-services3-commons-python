@@ -46,7 +46,7 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">copyright:</th><td class="field-body">Conceptual Vision Consulting LLC 2015-2016, see AUTHORS for more details.</td>
+<tr class="field-odd field"><th class="field-name">copyright:</th><td class="field-body">Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">license:</th><td class="field-body">MIT, see LICENSE for more details.</td>
 </tr>
@@ -56,10 +56,38 @@
 <dt id="pip_services_commons.validate.ObjectSchema.ObjectSchema">
 <em class="property">class </em><code class="descclassname">pip_services_commons.validate.ObjectSchema.</code><code class="descname">ObjectSchema</code><a class="headerlink" href="#pip_services_commons.validate.ObjectSchema.ObjectSchema" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="pip_services_commons.validate.Schema.html#pip_services_commons.validate.Schema.Schema" title="pip_services_commons.validate.Schema.Schema"><code class="xref py py-class docutils literal notranslate"><span class="pre">pip_services_commons.validate.Schema.Schema</span></code></a></p>
+<p>Schema to validate user defined objects.</p>
+<dl class="docutils">
+<dt>Example:</dt>
+<dd><dl class="first docutils">
+<dt>schema = ObjectSchema(false)</dt>
+<dd>.with_optional_property(“id”, TypeCode.String)
+.with_required_property(“name”, TypeCode.String)</dd>
+</dl>
+<p class="last">schema.validate({ id: “1”, name: “ABC” })       // Result: no errors
+schema.validate({ name: “ABC” })                // Result: no errors
+schema.validate({ id: 1, name: “ABC” })         // Result: id type mismatch
+schema.validate({ id: 1, _name: “ABC” })        // Result: name is missing, unexpected _name
+schema.validate(“ABC”)                          // Result: type mismatch</p>
+</dd>
+</dl>
 <dl class="method">
 <dt id="pip_services_commons.validate.ObjectSchema.ObjectSchema.allow_undefined">
 <code class="descname">allow_undefined</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.validate.ObjectSchema.ObjectSchema.allow_undefined" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Sets flag to allow undefined properties</p>
+<p>This method returns reference to this exception to implement Builder pattern
+to chain additional calls.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>value</strong> – true to allow undefined properties and false to disallow.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">this validation schema.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="pip_services_commons.validate.ObjectSchema.ObjectSchema.is_allow_undefined">
@@ -74,17 +102,64 @@
 <dl class="method">
 <dt id="pip_services_commons.validate.ObjectSchema.ObjectSchema.with_optional_property">
 <code class="descname">with_optional_property</code><span class="sig-paren">(</span><em>name</em>, <em>typ</em>, <em>*rules</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.validate.ObjectSchema.ObjectSchema.with_optional_property" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Adds a validation schema for an optional object property.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>name</strong> – a property name.</li>
+<li><strong>typ</strong> – (optional) a property schema or type.</li>
+<li><strong>rules</strong> – (optional) a list of property validation rules.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">the validation schema</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.validate.ObjectSchema.ObjectSchema.with_property">
 <code class="descname">with_property</code><span class="sig-paren">(</span><em>schema</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.validate.ObjectSchema.ObjectSchema.with_property" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Adds a validation schema for an object property.</p>
+<p>This method returns reference to this exception to implement Builder pattern
+to chain additional calls.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>schema</strong> – a property validation schema to be added.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">this validation schema.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.validate.ObjectSchema.ObjectSchema.with_required_property">
 <code class="descname">with_required_property</code><span class="sig-paren">(</span><em>name</em>, <em>typ</em>, <em>*rules</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.validate.ObjectSchema.ObjectSchema.with_required_property" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Adds a validation schema for a required object property.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>name</strong> – a property name.</li>
+<li><strong>typ</strong> – (optional) a property schema or type.</li>
+<li><strong>rules</strong> – (optional) a list of property validation rules.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">the validation schema</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 </dd></dl>
 

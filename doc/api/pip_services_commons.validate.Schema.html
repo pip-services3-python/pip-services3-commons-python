@@ -46,7 +46,7 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">copyright:</th><td class="field-body">Conceptual Vision Consulting LLC 2015-2016, see AUTHORS for more details.</td>
+<tr class="field-odd field"><th class="field-name">copyright:</th><td class="field-body">Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">license:</th><td class="field-body">MIT, see LICENSE for more details.</td>
 </tr>
@@ -56,15 +56,42 @@
 <dt id="pip_services_commons.validate.Schema.Schema">
 <em class="property">class </em><code class="descclassname">pip_services_commons.validate.Schema.</code><code class="descname">Schema</code><span class="sig-paren">(</span><em>required=False</em>, <em>rules=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.validate.Schema.Schema" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Basic schema that validates values against a set of validation rules.</p>
+<p>This schema is used as a basis for specific schemas to validate
+objects, project properties, arrays and maps.</p>
 <dl class="method">
 <dt id="pip_services_commons.validate.Schema.Schema.make_optional">
 <code class="descname">make_optional</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.validate.Schema.Schema.make_optional" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Makes validated values optional.
+Validation for null values will be skipped.</p>
+<p>This method returns reference to this exception to implement Builder pattern
+to chain additional calls.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">this validation schema</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.validate.Schema.Schema.make_required">
 <code class="descname">make_required</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.validate.Schema.Schema.make_required" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Makes validated values always required (non-null).
+For null values the schema will raise errors.</p>
+<p>This method returns reference to this exception to implement Builder pattern
+to chain additional calls.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">this validation schema</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="pip_services_commons.validate.Schema.Schema.required">
@@ -79,17 +106,55 @@
 <dl class="method">
 <dt id="pip_services_commons.validate.Schema.Schema.validate">
 <code class="descname">validate</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.validate.Schema.Schema.validate" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Validates the given value and results validation results.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>value</strong> – a value to be validated.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">a list with validation results.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.validate.Schema.Schema.validate_and_throw_exception">
 <code class="descname">validate_and_throw_exception</code><span class="sig-paren">(</span><em>correlation_id</em>, <em>value</em>, <em>strict=False</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.validate.Schema.Schema.validate_and_throw_exception" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Validates the given value and throws a [[ValidationException]] if errors were found.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>correlation_id</strong> – (optional) transaction id to trace execution through call chain.</li>
+<li><strong>value</strong> – a value to be validated.</li>
+<li><strong>strict</strong> – true to treat warnings as errors.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.validate.Schema.Schema.with_rule">
 <code class="descname">with_rule</code><span class="sig-paren">(</span><em>rule</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.validate.Schema.Schema.with_rule" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Adds validation rule to this schema.</p>
+<p>This method returns reference to this exception to implement Builder pattern
+to chain additional calls.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>rule</strong> – a validation rule to be added.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">this validation schema.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 </dd></dl>
 

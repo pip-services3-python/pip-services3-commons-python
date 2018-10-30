@@ -27,6 +27,6 @@ class IReferenceable:
         """
         Sets references to dependent components.
 
-        :param references:references to locate the component dependencies.
+        :param references: references to locate the component dependencies.
         """
         raise NotImplementedError('Method from interface definition')

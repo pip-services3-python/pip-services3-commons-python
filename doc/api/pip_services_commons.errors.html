@@ -344,7 +344,14 @@ it is converted into [[ErrorDescription]] object and restored on receiving end i
 <dt id="pip_services_commons.errors.ApplicationException.get_cause_string">
 <code class="descname">get_cause_string</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.errors.ApplicationException.get_cause_string" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets original error wrapped by this exception as a string message.</p>
-<p>:return:an original error message.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">an original error message.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
@@ -384,7 +391,14 @@ it is converted into [[ErrorDescription]] object and restored on receiving end i
 <dt id="pip_services_commons.errors.ApplicationException.set_stack_trace_string">
 <code class="descname">set_stack_trace_string</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.errors.ApplicationException.set_stack_trace_string" title="Permalink to this definition">¶</a></dt>
 <dd><p>Sets a stack trace where this exception occured.</p>
-<p>:param value:a stack trace as a string</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>value</strong> – a stack trace as a string</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="attribute">
@@ -407,8 +421,16 @@ it is converted into [[ErrorDescription]] object and restored on receiving end i
 <code class="descname">with_cause</code><span class="sig-paren">(</span><em>cause</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.errors.ApplicationException.with_cause" title="Permalink to this definition">¶</a></dt>
 <dd><p>Sets a original error wrapped by this exception</p>
 <p>This method returns reference to this exception to implement Builder pattern to chain additional calls.</p>
-<p>:param cause:original error object</p>
-<p>:return:this exception object</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>cause</strong> – original error object</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">this exception object</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
@@ -422,9 +444,10 @@ This method returns reference to this exception to implement Builder pattern to 
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>code</strong> – a unique error code</td>
 </tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">this exception object</td>
+</tr>
 </tbody>
 </table>
-<p>:return:this exception object</p>
 </dd></dl>
 
 <dl class="method">
@@ -432,8 +455,16 @@ This method returns reference to this exception to implement Builder pattern to 
 <code class="descname">with_correlation_id</code><span class="sig-paren">(</span><em>correlation_id</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.errors.ApplicationException.with_correlation_id" title="Permalink to this definition">¶</a></dt>
 <dd><p>Sets a correlation id which can be used to trace this error through a call chain.</p>
 <p>This method returns reference to this exception to implement Builder pattern to chain additional calls.</p>
-<p>:param correlation_id:a unique transaction id to trace error through call chain</p>
-<p>:return:this exception object</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>correlation_id</strong> – a unique transaction id to trace error through call chain</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">this exception object</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
@@ -442,9 +473,21 @@ This method returns reference to this exception to implement Builder pattern to 
 <dd><p>Sets a parameter for additional error details.
 This details can be used to restore error description in other languages.</p>
 <p>This method returns reference to this exception to implement Builder pattern to chain additional calls.</p>
-<p>:param key:a details parameter name</p>
-<p>:param value:a details parameter name</p>
-<p>:return:this exception object</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>key</strong> – a details parameter name</li>
+<li><strong>value</strong> – a details parameter name</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">this exception object</p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
@@ -452,8 +495,16 @@ This details can be used to restore error description in other languages.</p>
 <code class="descname">with_status</code><span class="sig-paren">(</span><em>status</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.errors.ApplicationException.with_status" title="Permalink to this definition">¶</a></dt>
 <dd><p>Sets a HTTP status code which shall be returned by REST calls.
 This method returns reference to this exception to implement Builder pattern to chain additional calls.</p>
-<p>:param status:an HTTP error code.</p>
-<p>:return:this exception object</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>status</strong> – an HTTP error code.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">this exception object</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
@@ -462,8 +513,16 @@ This method returns reference to this exception to implement Builder pattern to 
 <dd><p>Wraps another exception into an application exception object.</p>
 <p>If original exception is of ApplicationException type it is returned without changes.
 Otherwise a new ApplicationException is created and original error is set as its cause.</p>
-<p>:param cause:an original error object</p>
-<p>:return:an original or newly created ApplicationException</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>cause</strong> – an original error object</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">an original or newly created ApplicationException</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="staticmethod">
@@ -472,9 +531,21 @@ Otherwise a new ApplicationException is created and original error is set as its
 <dd><p>Wraps another exception into specified application exception object.</p>
 <p>If original exception is of ApplicationException type it is returned without changes.
 Otherwise the original error is set as a cause to specified ApplicationException object.</p>
-<p>:param exception:an ApplicationException object to wrap the cause</p>
-<p>:param cause:an original error object</p>
-<p>:return:an original or newly created ApplicationException</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>exception</strong> – an ApplicationException object to wrap the cause</li>
+<li><strong>cause</strong> – an original error object</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">an original or newly created ApplicationException</p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </dd></dl>
@@ -495,9 +566,10 @@ Otherwise the original error is set as a cause to specified ApplicationException
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>description</strong> – a serialized error description received as a result of remote call</td>
 </tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">ApplicationException object from serialized ErrorDescription.</td>
+</tr>
 </tbody>
 </table>
-<p>:return:new ApplicationException object from serialized ErrorDescription.</p>
 </dd></dl>
 
 </dd></dl>
@@ -515,8 +587,16 @@ close to the original type and preserve additional information.</p>
 <dt id="pip_services_commons.errors.ErrorDescriptionFactory.create">
 <em class="property">static </em><code class="descname">create</code><span class="sig-paren">(</span><em>ex</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.errors.ErrorDescriptionFactory.create" title="Permalink to this definition">¶</a></dt>
 <dd><p>Creates a serializable ErrorDescription from error object.</p>
-<p>:param ex:an error object</p>
-<p>:return:a serializeable ErrorDescription object that describes the error.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>ex</strong> – an error object</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">a serializeable ErrorDescription object that describes the error.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </dd></dl>

@@ -70,11 +70,14 @@ and then recursively writing them to destination object.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>dest</strong> – a destination object to write properties to.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>dest</strong> – a destination object to write properties to.</li>
+<li><strong>src</strong> – a source object to read properties from</li>
+</ul>
+</td>
 </tr>
 </tbody>
 </table>
-<p>:param src:a source object to read properties from</p>
 </dd></dl>
 
 <dl class="staticmethod">
@@ -84,8 +87,18 @@ and then recursively writing them to destination object.</p>
 <p>The object can be a user defined object, map or array.
 Property values correspondently are object properties, map key-pairs or array elements with their indexes.</p>
 <p>If some properties do not exist or introspection fails they are just silently skipped and no errors thrown.</p>
-<p>:param obj:an object to write properties to.</p>
-<p>:param values:a map, containing property names and their values.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>obj</strong> – an object to write properties to.</li>
+<li><strong>values</strong> – a map, containing property names and their values.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="staticmethod">
@@ -96,9 +109,19 @@ Property values correspondently are object properties, map key-pairs or array el
 The property name correspondently must be object property, map key or array index.</p>
 <p>If the property does not exist or introspection fails
 this method doesn’t do anything and doesn’t any throw errors.</p>
-<p>:param obj:an object to write property to.</p>
-<p>:param name:a name of the property to set.</p>
-<p>:param value:a new value for the property to set.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>obj</strong> – an object to write property to.</li>
+<li><strong>name</strong> – a name of the property to set.</li>
+<li><strong>value</strong> – a new value for the property to set.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </dd></dl>

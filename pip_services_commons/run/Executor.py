@@ -24,11 +24,11 @@ class Executor:
         To be executed components must implement [[IExecutable]] interface.
         If they don't the call to this method has no effect.
 
-        :param correlation_id:(optional) transaction id to trace execution through call chain.
+        :param correlation_id: (optional) transaction id to trace execution through call chain.
 
-        :param component:the component that is to be executed.
+        :param component: the component that is to be executed.
 
-        :param args:execution arguments.
+        :param args: execution arguments.
 
         :return: execution result
         """
@@ -45,13 +45,13 @@ class Executor:
         To be executed components must implement [[IExecutable]] interface.
         If they don't the call to this method has no effect.
 
-        :param correlation_id:(optional) transaction id to trace execution through call chain.
+        :param correlation_id: (optional) transaction id to trace execution through call chain.
 
-        :param components:a list of components that are to be executed.
+        :param components: a list of components that are to be executed.
 
-        :param args:execution arguments.
+        :param args: execution arguments.
 
-        :return:execution result
+        :return: execution result
         """
         results = []
 

@@ -21,7 +21,7 @@ class IOpenable(IClosable):
         """
         Checks if the component is opened.
 
-        :return:true if the component has been opened and false otherwise.
+        :return: true if the component has been opened and false otherwise.
         """
         raise NotImplementedError('Method from interface definition')
 
@@ -29,6 +29,6 @@ class IOpenable(IClosable):
         """
         Opens the component.
 
-        :param correlation_id:(optional) transaction id to trace execution through call chain.
+        :param correlation_id: (optional) transaction id to trace execution through call chain.
         """
         raise NotImplementedError('Method from interface definition')

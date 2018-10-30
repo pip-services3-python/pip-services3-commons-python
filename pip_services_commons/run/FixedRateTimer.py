@@ -53,11 +53,11 @@ class FixedRateTimer(IClosable):
         """
         Creates new instance of the timer and sets its values.
 
-        :param task:(optional) a Notifiable object or callback function to call when timer is triggered.
+        :param task: (optional) a Notifiable object or callback function to call when timer is triggered.
 
-        :param interval:(optional) an interval to trigger timer in milliseconds.
+        :param interval: (optional) an interval to trigger timer in milliseconds.
 
-        :param delay:(optional) a delay before the first triggering in milliseconds.
+        :param delay: (optional) a delay before the first triggering in milliseconds.
         """
         self._lock = Lock()
         self.task = task
@@ -117,7 +117,7 @@ class FixedRateTimer(IClosable):
         This is required by [[ICloseable]] interface,
         but besides that it is identical to stop().
 
-        :param correlation_id:(optional) transaction id to trace execution through call chain.
+        :param correlation_id: (optional) transaction id to trace execution through call chain.
         """
         self.stop()
 

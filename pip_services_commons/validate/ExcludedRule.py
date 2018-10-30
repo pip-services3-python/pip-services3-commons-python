@@ -30,7 +30,7 @@ class ExcludedRule(IValidationRule):
         """
         Creates a new validation rule and sets its values.
 
-        :param values:a list of constants that value must be excluded from
+        :param values: a list of constants that value must be excluded from
         """
         self._values = values
 
@@ -38,13 +38,13 @@ class ExcludedRule(IValidationRule):
         """
         Validates a given value against this rule.
 
-        :param path:a dot notation path to the value.
+        :param path: a dot notation path to the value.
 
-        :param schema:a schema this rule is called from
+        :param schema: a schema this rule is called from
 
-        :param value:a value to be validated.
+        :param value: a value to be validated.
 
-        :param results:a list with validation results to add new results.
+        :param results: a list with validation results to add new results.
         """
         name = path if path != None else "value"
         found = False

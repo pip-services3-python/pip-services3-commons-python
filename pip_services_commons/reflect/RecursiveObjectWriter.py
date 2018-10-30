@@ -52,11 +52,11 @@ class RecursiveObjectWriter:
         If the property does not exist or introspection fails
         this method doesn't do anything and doesn't any throw errors.
 
-        :param obj:an object to write property to.
+        :param obj: an object to write property to.
 
-        :param name:a name of the property to set.
+        :param name: a name of the property to set.
 
-        :param value:a new value for the property to set.
+        :param value: a new value for the property to set.
         """
         if obj == None or name == None:
             return
@@ -78,9 +78,9 @@ class RecursiveObjectWriter:
 
         If some properties do not exist or introspection fails they are just silently skipped and no errors thrown.
 
-        :param obj:an object to write properties to.
+        :param obj: an object to write properties to.
 
-        :param values:a map, containing property names and their values.
+        :param values: a map, containing property names and their values.
         """
         if values == None or len(values) == 0:
             return
@@ -98,7 +98,7 @@ class RecursiveObjectWriter:
 
         :param dest: a destination object to write properties to.
 
-        :param src:a source object to read properties from
+        :param src: a source object to read properties from
         """
         if dest == None or src == None:
             return

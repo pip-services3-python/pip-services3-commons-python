@@ -18,6 +18,6 @@ class IParameterized:
         """
         Sets execution parameters.
 
-        :param parameters:execution parameters.
+        :param parameters: execution parameters.
         """
         raise NotImplementedError('Method from interface definition')

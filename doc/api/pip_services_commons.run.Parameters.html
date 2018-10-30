@@ -66,7 +66,14 @@ arguments, and parameterize classes before execution.</p>
 <dt id="pip_services_commons.run.Parameters.Parameters.assign_to">
 <code class="descname">assign_to</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.run.Parameters.Parameters.assign_to" title="Permalink to this definition">¶</a></dt>
 <dd><p>Assigns (copies over) properties from the specified value to this map.</p>
-<p>:param value:value whose properties shall be copied over.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>value</strong> – value whose properties shall be copied over.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
@@ -75,24 +82,48 @@ arguments, and parameterize classes before execution.</p>
 <dd><p>Checks if this map contains an element with specified key.</p>
 <p>The key can be defined using dot notation
 and allows to recursively access elements of elements.</p>
-<p>:param key:a key to be checked</p>
-<p>:return:true if this map contains the key or false otherwise.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>key</strong> – a key to be checked</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">true if this map contains the key or false otherwise.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="staticmethod">
 <dt id="pip_services_commons.run.Parameters.Parameters.from_config">
 <em class="property">static </em><code class="descname">from_config</code><span class="sig-paren">(</span><em>config</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.run.Parameters.Parameters.from_config" title="Permalink to this definition">¶</a></dt>
 <dd><p>Creates new Parameters from ConfigMap object.</p>
-<p>:param config:a ConfigParams that contain parameters.</p>
-<p>:return:a new Parameters object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>config</strong> – a ConfigParams that contain parameters.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">a new Parameters object.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="staticmethod">
 <dt id="pip_services_commons.run.Parameters.Parameters.from_json">
 <em class="property">static </em><code class="descname">from_json</code><span class="sig-paren">(</span><em>json</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.run.Parameters.Parameters.from_json" title="Permalink to this definition">¶</a></dt>
 <dd><p>Creates new Parameters from JSON object.</p>
-<p>:param json:a JSON string containing parameters.</p>
-<p>:return:a new Parameters object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>json</strong> – a JSON string containing parameters.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">a new Parameters object.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="staticmethod">
@@ -100,16 +131,32 @@ and allows to recursively access elements of elements.</p>
 <em class="property">static </em><code class="descname">from_tuples</code><span class="sig-paren">(</span><em>*tuples</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.run.Parameters.Parameters.from_tuples" title="Permalink to this definition">¶</a></dt>
 <dd><p>Creates a new Parameters object filled with provided key-value pairs called tuples.
 Tuples parameters contain a sequence of key1, value1, key2, value2, … pairs.</p>
-<p>:param tuples:the tuples to fill a new Parameters object.</p>
-<p>:return:a new Parameters object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>tuples</strong> – the tuples to fill a new Parameters object.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">a new Parameters object.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="staticmethod">
 <dt id="pip_services_commons.run.Parameters.Parameters.from_value">
 <em class="property">static </em><code class="descname">from_value</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.run.Parameters.Parameters.from_value" title="Permalink to this definition">¶</a></dt>
 <dd><p>Creates a new Parameters object filled with key-value pairs from specified object.</p>
-<p>:param value:an object with key-value pairs used to initialize a new Parameters.</p>
-<p>:return:a new Parameters object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>value</strong> – an object with key-value pairs used to initialize a new Parameters.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">a new Parameters object.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
@@ -118,66 +165,138 @@ Tuples parameters contain a sequence of key1, value1, key2, value2, … pairs.</
 <dd><p>Gets a map element specified by its key.</p>
 <p>The key can be defined using dot notation
 and allows to recursively access elements of elements.</p>
-<p>:param key:a key of the element to get.</p>
-<p>:return:the value of the map element.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>key</strong> – a key of the element to get.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">the value of the map element.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.run.Parameters.Parameters.get_as_nullable_parameters">
 <code class="descname">get_as_nullable_parameters</code><span class="sig-paren">(</span><em>key</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.run.Parameters.Parameters.get_as_nullable_parameters" title="Permalink to this definition">¶</a></dt>
 <dd><p>Converts map element into an Parameters or returns null if conversion is not possible.</p>
-<p>:param key:a key of element to get.</p>
-<p>:return:Parameters value of the element or null if conversion is not supported.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>key</strong> – a key of element to get.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Parameters value of the element or null if conversion is not supported.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.run.Parameters.Parameters.get_as_parameters">
 <code class="descname">get_as_parameters</code><span class="sig-paren">(</span><em>key</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.run.Parameters.Parameters.get_as_parameters" title="Permalink to this definition">¶</a></dt>
 <dd><p>Converts map element into an Parameters or returns empty Parameters if conversion is not possible.</p>
-<p>:param key:a key of element to get.</p>
-<p>:return:Parameters value of the element or empty Parameters if conversion is not supported.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>key</strong> – a key of element to get.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Parameters value of the element or empty Parameters if conversion is not supported.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.run.Parameters.Parameters.get_as_parameters_with_default">
 <code class="descname">get_as_parameters_with_default</code><span class="sig-paren">(</span><em>key</em>, <em>default_value</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.run.Parameters.Parameters.get_as_parameters_with_default" title="Permalink to this definition">¶</a></dt>
 <dd><p>Converts map element into an Parameters or returns default value if conversion is not possible.</p>
-<p>:param key:a key of element to get.</p>
-<p>:param default_value:the default value</p>
-<p>:return:Parameters value of the element or default value if conversion is not supported.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>key</strong> – a key of element to get.</li>
+<li><strong>default_value</strong> – the default value</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">Parameters value of the element or default value if conversion is not supported.</p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="staticmethod">
 <dt id="pip_services_commons.run.Parameters.Parameters.merge_params">
 <em class="property">static </em><code class="descname">merge_params</code><span class="sig-paren">(</span><em>*parameters</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.run.Parameters.Parameters.merge_params" title="Permalink to this definition">¶</a></dt>
 <dd><p>Merges two or more Parameters into one. The following Parameters override previously defined parameters.</p>
-<p>:param parameters:a list of Parameters objects to be merged.</p>
-<p>:return:a new Parameters object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>parameters</strong> – a list of Parameters objects to be merged.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">a new Parameters object.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.run.Parameters.Parameters.omit">
 <code class="descname">omit</code><span class="sig-paren">(</span><em>*props</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.run.Parameters.Parameters.omit" title="Permalink to this definition">¶</a></dt>
 <dd><p>Omits selected parameters from this Parameters and returns the rest as a new Parameters object.</p>
-<p>:param props:keys to be omitted from copying over to new Parameters.</p>
-<p>:return:a new Parameters object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>props</strong> – keys to be omitted from copying over to new Parameters.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">a new Parameters object.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.run.Parameters.Parameters.override">
 <code class="descname">override</code><span class="sig-paren">(</span><em>parameters</em>, <em>recursive=False</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.run.Parameters.Parameters.override" title="Permalink to this definition">¶</a></dt>
 <dd><p>Overrides parameters with new values from specified Parameters and returns a new Parameters object.</p>
-<p>:param parameters:Parameters with parameters to override the current values.</p>
-<p>:param recursive:(optional) true to perform deep copy, and false for shallow copy. Default: false</p>
-<p>:return:a new Parameters object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>parameters</strong> – Parameters with parameters to override the current values.</li>
+<li><strong>recursive</strong> – (optional) true to perform deep copy, and false for shallow copy. Default: false</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">a new Parameters object.</p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.run.Parameters.Parameters.pick">
 <code class="descname">pick</code><span class="sig-paren">(</span><em>*props</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.run.Parameters.Parameters.pick" title="Permalink to this definition">¶</a></dt>
 <dd><p>Picks select parameters from this Parameters and returns them as a new Parameters object.</p>
-<p>:param props:keys to be picked and copied over to new Parameters.</p>
-<p>:return:a new Parameters object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>props</strong> – keys to be picked and copied over to new Parameters.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">a new Parameters object.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
@@ -186,24 +305,53 @@ and allows to recursively access elements of elements.</p>
 <dd><p>Puts a new value into map element specified by its key.</p>
 <p>The key can be defined using dot notation
 and allows to recursively access elements of elements.</p>
-<p>:param key:a key of the element to put.</p>
-<p>:param value:a new value for map element.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>key</strong> – a key of the element to put.</li>
+<li><strong>value</strong> – a new value for map element.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.run.Parameters.Parameters.set_defaults">
 <code class="descname">set_defaults</code><span class="sig-paren">(</span><em>default_values</em>, <em>recursive=False</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.run.Parameters.Parameters.set_defaults" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set default values from specified Parameters and returns a new Parameters object.</p>
-<p>:param default_values:Parameters with default parameter values.</p>
-<p>:param recursive:(optional) true to perform deep copy, and false for shallow copy. Default: false</p>
-<p>:return:a new Parameters object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>default_values</strong> – Parameters with default parameter values.</li>
+<li><strong>recursive</strong> – (optional) true to perform deep copy, and false for shallow copy. Default: false</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">a new Parameters object.</p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.run.Parameters.Parameters.to_json">
 <code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.run.Parameters.Parameters.to_json" title="Permalink to this definition">¶</a></dt>
 <dd><p>Converts this map to JSON object.</p>
-<p>:return:a JSON representation of this map.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">a JSON representation of this map.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </dd></dl>

@@ -19,8 +19,8 @@ class INotifiable:
         """
         Notifies the component about occured event.
 
-        :param correlation_id:(optional) transaction id to trace execution through call chain.
+        :param correlation_id: (optional) transaction id to trace execution through call chain.
 
-        :param args:notification arguments.
+        :param args: notification arguments.
         """
         raise NotImplementedError('Method from interface definition')

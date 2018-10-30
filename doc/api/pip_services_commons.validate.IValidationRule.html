@@ -46,7 +46,7 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">copyright:</th><td class="field-body">Conceptual Vision Consulting LLC 2015-2016, see AUTHORS for more details.</td>
+<tr class="field-odd field"><th class="field-name">copyright:</th><td class="field-body">Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">license:</th><td class="field-body">MIT, see LICENSE for more details.</td>
 </tr>
@@ -56,10 +56,30 @@
 <dt id="pip_services_commons.validate.IValidationRule.IValidationRule">
 <em class="property">class </em><code class="descclassname">pip_services_commons.validate.IValidationRule.</code><code class="descname">IValidationRule</code><a class="headerlink" href="#pip_services_commons.validate.IValidationRule.IValidationRule" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Interface for validation rules.
+Validation rule can validate one or multiple values
+against complex rules like: value is in range, one property is less than another property,
+enforce enumerated values and more.</p>
+<p>This interface allows to implement custom rules.</p>
 <dl class="method">
 <dt id="pip_services_commons.validate.IValidationRule.IValidationRule.validate">
 <code class="descname">validate</code><span class="sig-paren">(</span><em>path</em>, <em>schema</em>, <em>value</em>, <em>results</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.validate.IValidationRule.IValidationRule.validate" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Validates a given value against this rule.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>path</strong> – a dot notation path to the value.</li>
+<li><strong>schema</strong> – a schema this rule is called from</li>
+<li><strong>value</strong> – a value to be validated.</li>
+<li><strong>results</strong> – a list with validation results to add new results.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 </dd></dl>
 

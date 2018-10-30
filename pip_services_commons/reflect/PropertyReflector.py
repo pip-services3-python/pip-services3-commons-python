@@ -44,11 +44,11 @@ class PropertyReflector:
         """
         Checks if object has a property with specified name.
 
-        :param obj:an object to introspect.
+        :param obj: an object to introspect.
 
-        :param name:a name of the property to check.
+        :param name: a name of the property to check.
 
-        :return:true if the object has the property and false if it doesn't.
+        :return: true if the object has the property and false if it doesn't.
         """
         if obj == None:
             raise Exception("Object cannot be null")
@@ -74,11 +74,11 @@ class PropertyReflector:
         """
         Gets value of object property specified by its name.
 
-        :param obj:an object to read property from.
+        :param obj: an object to read property from.
 
-        :param name:a name of the property to get.
+        :param name: a name of the property to get.
 
-        :return:the property value or null if property doesn't exist or introspection failed.
+        :return: the property value or null if property doesn't exist or introspection failed.
         """
         if obj == None:
             raise Exception("Object cannot be null")
@@ -107,9 +107,9 @@ class PropertyReflector:
         """
         Gets names of all properties implemented in specified object.
 
-        :param obj:an objec to introspect.
+        :param obj: an objec to introspect.
 
-        :return:a list with property names.
+        :return: a list with property names.
         """
         property_names = []
         
@@ -128,9 +128,9 @@ class PropertyReflector:
         """
         Get values of all properties in specified object and returns them as a map.
 
-        :param obj:an object to get properties from.
+        :param obj: an object to get properties from.
 
-        :return:a map, containing the names of the object's properties and their values.
+        :return: a map, containing the names of the object's properties and their values.
         """
         properties = {}
         
@@ -152,11 +152,11 @@ class PropertyReflector:
         If the property does not exist or introspection fails
         this method doesn't do anything and doesn't any throw errors.
 
-        :param obj:an object to write property to.
+        :param obj: an object to write property to.
 
-        :param name:a name of the property to set.
+        :param name: a name of the property to set.
 
-        :param value:a new value for the property to set.
+        :param value: a new value for the property to set.
         """
         if obj == None:
             raise Exception("Object cannot be null")
@@ -186,9 +186,9 @@ class PropertyReflector:
         If some properties do not exist or introspection fails
         they are just silently skipped and no errors thrown.
 
-        :param obj:an object to write properties to.
+        :param obj: an object to write properties to.
 
-        :param values:a map, containing property names and their values.
+        :param values: a map, containing property names and their values.
         """
         if values == None or len(values) == 0:
             return

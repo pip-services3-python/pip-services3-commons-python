@@ -89,7 +89,7 @@ class RandomText(object):
         """
         Generates a random color name. The result value is capitalized.
 
-        :return:a random color name.
+        :return: a random color name.
         """
         return random.choice(_colors)
 
@@ -98,7 +98,7 @@ class RandomText(object):
         """
         Generates a random noun. The result value is capitalized.
 
-        :return:a random noun.
+        :return: a random noun.
         """
         return random.choice(_stuffs)
 
@@ -107,7 +107,7 @@ class RandomText(object):
         """
         Generates a random adjective. The result value is capitalized.
 
-        :return:a random adjective.
+        :return: a random adjective.
         """
         return random.choice(_adjectives)
 
@@ -116,7 +116,7 @@ class RandomText(object):
         """
         Generates a random verb. The result value is capitalized.
 
-        :return:a random verb.
+        :return: a random verb.
         """
         return random.choice(_verbs)
 
@@ -126,11 +126,11 @@ class RandomText(object):
         Generates a random phrase which consists of few words separated by spaces.
         The first word is capitalized, others are not.
 
-        :param min_size:(optional) minimum string length.
+        :param min_size: (optional) minimum string length.
 
-        :param max_size:maximum string length.
+        :param max_size: maximum string length.
 
-        :return:a random phrase.
+        :return: a random phrase.
         """
         max_size = max_size if max_size != None else min_size
         size = RandomInteger.next_integer(min_size, max_size)
@@ -150,7 +150,7 @@ class RandomText(object):
         Generates a random person's name which has the following structure
         <optional prefix> <first name> <second name> <optional suffix>
 
-        :return:a random name.
+        :return: a random name.
         """
         result = ""
 
@@ -169,7 +169,7 @@ class RandomText(object):
         """
         Generates a random word from available first names, last names, colors, stuffs, adjectives, or verbs.
 
-        :return:a random word.
+        :return: a random word.
         """
         return random.choice(_all_words)
 
@@ -178,11 +178,11 @@ class RandomText(object):
         """
         Generates a random text that consists of random number of random words separated by spaces.
 
-        :param min_size:(optional) a minimum number of words.
+        :param min_size: (optional) a minimum number of words.
 
-        :param max_size:a maximum number of words.
+        :param max_size: a maximum number of words.
 
-        :return:a random text.
+        :return: a random text.
         """
         max_size = max_size if max_size != None else min_size
         result = ""
@@ -198,7 +198,7 @@ class RandomText(object):
         """
         Generates a random phone number. The phone number has the format: (XXX) XXX-YYYY
 
-        :return:a random phone number.
+        :return: a random phone number.
         """
         result = ""
         result += "(" + str(RandomInteger.next_integer(111, 999)) + ") "
@@ -211,7 +211,7 @@ class RandomText(object):
         """
         Generates a random email address.
 
-        :return:a random email address.
+        :return: a random email address.
         """
         return RandomText.words(2,6) + "@" + RandomText.words(1,3) + ".com"
 
@@ -223,9 +223,9 @@ class RandomText(object):
 
         :param min_size: minimum amount of words to generate. Text will contain 'minSize' words if 'maxSize' is omitted.
 
-        :param max_size:(optional) maximum amount of words to generate.
+        :param max_size: (optional) maximum amount of words to generate.
 
-        :return:a random text.
+        :return: a random text.
         """
         max_size = max_size if max_size != None else min_size
         size = RandomInteger.next_integer(min_size, max_size)

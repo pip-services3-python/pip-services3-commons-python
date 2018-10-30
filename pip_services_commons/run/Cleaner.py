@@ -24,9 +24,9 @@ class Cleaner:
         To be cleaned state components must implement [[ICleanable]] interface.
         If they don't the call to this method has no effect.
 
-        :param correlation_id:(optional) transaction id to trace execution through call chain.
+        :param correlation_id: (optional) transaction id to trace execution through call chain.
 
-        :param component:the component that is to be cleaned.
+        :param component: the component that is to be cleaned.
 
         """
         if isinstance(component, ICleanable):
@@ -40,9 +40,9 @@ class Cleaner:
         To be cleaned state components must implement [[ICleanable]] interface.
         If they don't the call to this method has no effect.
 
-        :param correlation_id:(optional) transaction id to trace execution through call chain.
+        :param correlation_id: (optional) transaction id to trace execution through call chain.
 
-        :param components:the list of components that are to be cleaned.
+        :param components: the list of components that are to be cleaned.
         """
         if components == None:
             return

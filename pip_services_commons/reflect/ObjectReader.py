@@ -50,9 +50,9 @@ class ObjectReader:
         Gets a real object value. If object is a wrapper, it unwraps the value behind it.
         Otherwise it returns the same object value.
 
-        :param obj:an object to unwrap.
+        :param obj: an object to unwrap.
 
-        :return:an actual (unwrapped) object value.
+        :return: an actual (unwrapped) object value.
         """
         # Todo: just a blank implementation for compatibility
         return obj
@@ -66,11 +66,11 @@ class ObjectReader:
         The object can be a user defined object, map or array.
         The property name correspondently must be object property, map key or array index.
 
-        :param obj:an object to introspect.
+        :param obj: an object to introspect.
 
-        :param name:a name of the property to check.
+        :param name: a name of the property to check.
 
-        :return:true if the object has the property and false if it doesn't.
+        :return: true if the object has the property and false if it doesn't.
         """
         if obj == None or name == None:
             return False
@@ -97,11 +97,11 @@ class ObjectReader:
         The object can be a user defined object, map or array.
         The property name correspondently must be object property, map key or array index.
 
-        :param obj:an object to read property from.
+        :param obj: an object to read property from.
 
-        :param name:a name of the property to get.
+        :param name: a name of the property to get.
 
-        :return:the property value or null if property doesn't exist or introspection failed.
+        :return: the property value or null if property doesn't exist or introspection failed.
         """
         if obj == None or name == None:
             return False
@@ -130,9 +130,9 @@ class ObjectReader:
         The object can be a user defined object, map or array.
         Returned property name correspondently are object properties, map keys or array indexes.
 
-        :param obj:an object to introspect.
+        :param obj: an object to introspect.
 
-        :return:a list with property names.
+        :return: a list with property names.
         """
         property_names = []
 
@@ -156,9 +156,9 @@ class ObjectReader:
         The object can be a user defined object, map or array.
         Returned properties correspondently are object properties, map key-pairs or array elements with their indexes.
 
-        :param obj:an object to get properties from.
+        :param obj: an object to get properties from.
 
-        :return:a map, containing the names of the object's properties and their values.
+        :return: a map, containing the names of the object's properties and their values.
         """
         map = {}
 

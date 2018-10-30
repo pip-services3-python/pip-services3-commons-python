@@ -88,24 +88,52 @@ Descriptor(“mygroup”, “controller”, “default”, “default”, “1.0
 <dt id="pip_services_commons.refer.IReferences.IReferences.find">
 <code class="descname">find</code><span class="sig-paren">(</span><em>locator</em>, <em>required</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.refer.IReferences.IReferences.find" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets all component references that match specified locator.</p>
-<p>:param locator:the locator to find a reference by.</p>
-<p>:param required:forces to raise an exception if no reference is found.</p>
-<p>:return:a list with matching component references.</p>
-<p>:raises:a [[ReferenceException]] when required is set to true but no references found.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>locator</strong> – the locator to find a reference by.</li>
+<li><strong>required</strong> – forces to raise an exception if no reference is found.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">a list with matching component references.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last">a [[ReferenceException]] when required is set to true but no references found.</p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.refer.IReferences.IReferences.get_all">
 <code class="descname">get_all</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.refer.IReferences.IReferences.get_all" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets all component references registered in this reference map.</p>
-<p>:return:a list with component references.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">a list with component references.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.refer.IReferences.IReferences.get_all_locators">
 <code class="descname">get_all_locators</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.refer.IReferences.IReferences.get_all_locators" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets locators for all registered component references in this reference map.</p>
-<p>:return:a list with component locators.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">a list with component locators.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
@@ -117,25 +145,50 @@ Descriptor(“mygroup”, “controller”, “default”, “default”, “1.0
 <dt id="pip_services_commons.refer.IReferences.IReferences.get_one_optional">
 <code class="descname">get_one_optional</code><span class="sig-paren">(</span><em>locator</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.refer.IReferences.IReferences.get_one_optional" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets an optional component reference that matches specified locator.</p>
-<p>:param locator:the locator to find references by.</p>
-<p>:return:a matching component reference or null if nothing was found.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>locator</strong> – the locator to find references by.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">a matching component reference or null if nothing was found.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.refer.IReferences.IReferences.get_one_required">
 <code class="descname">get_one_required</code><span class="sig-paren">(</span><em>locator</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.refer.IReferences.IReferences.get_one_required" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets a required component reference that matches specified locator.</p>
-<p>:param locator:the locator to find a reference by.</p>
-<p>:return:a matching component reference.</p>
-<p>:raises:a [[ReferenceException]] when no references found.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>locator</strong> – the locator to find a reference by.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">a matching component reference.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body">a [[ReferenceException]] when no references found.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.refer.IReferences.IReferences.get_optional">
 <code class="descname">get_optional</code><span class="sig-paren">(</span><em>locator</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.refer.IReferences.IReferences.get_optional" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets all component references that match specified locator.</p>
-<p>:param locator:the locator to find references by.</p>
-<p>:return:a list with matching component references or empty list if nothing was found.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>locator</strong> – the locator to find references by.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">a list with matching component references or empty list if nothing was found.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
@@ -143,17 +196,36 @@ Descriptor(“mygroup”, “controller”, “default”, “default”, “1.0
 <code class="descname">get_required</code><span class="sig-paren">(</span><em>locator</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.refer.IReferences.IReferences.get_required" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets all component references that match specified locator.
 At least one component reference must be present. If it doesn’t the method throws an error.</p>
-<p>:param locator:the locator to find references by.</p>
-<p>:return:a list with matching component references.</p>
-<p>:raises:a [[ReferenceException]] when no references found.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>locator</strong> – the locator to find references by.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">a list with matching component references.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body">a [[ReferenceException]] when no references found.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.refer.IReferences.IReferences.put">
 <code class="descname">put</code><span class="sig-paren">(</span><em>locator=None</em>, <em>reference=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.refer.IReferences.IReferences.put" title="Permalink to this definition">¶</a></dt>
 <dd><p>Puts a new reference into this reference map.</p>
-<p>:param locator:a component reference to be added.</p>
-<p>:param reference:a locator to find the reference by.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>locator</strong> – a component reference to be added.</li>
+<li><strong>reference</strong> – a locator to find the reference by.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
@@ -162,8 +234,16 @@ At least one component reference must be present. If it doesn’t the method thr
 <dd><p>Removes a previously added reference that matches specified locator.
 If many references match the locator, it removes only the first one.
 When all references shall be removed, use [[removeAll]] method instead.</p>
-<p>:param locator:a locator to remove reference</p>
-<p>:return:the removed component reference.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>locator</strong> – a locator to remove reference</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">the removed component reference.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </dd></dl>

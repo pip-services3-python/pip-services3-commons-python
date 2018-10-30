@@ -85,8 +85,16 @@ value = ObjectReader.get_property(myArray, “0”)</p>
 <dd><p>Get values of all properties in specified object and returns them as a map.</p>
 <p>The object can be a user defined object, map or array.
 Returned properties correspondently are object properties, map key-pairs or array elements with their indexes.</p>
-<p>:param obj:an object to get properties from.</p>
-<p>:return:a map, containing the names of the object’s properties and their values.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>obj</strong> – an object to get properties from.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">a map, containing the names of the object’s properties and their values.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="staticmethod">
@@ -95,9 +103,21 @@ Returned properties correspondently are object properties, map key-pairs or arra
 <dd><p>Gets value of object property specified by its name.</p>
 <p>The object can be a user defined object, map or array.
 The property name correspondently must be object property, map key or array index.</p>
-<p>:param obj:an object to read property from.</p>
-<p>:param name:a name of the property to get.</p>
-<p>:return:the property value or null if property doesn’t exist or introspection failed.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>obj</strong> – an object to read property from.</li>
+<li><strong>name</strong> – a name of the property to get.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">the property value or null if property doesn’t exist or introspection failed.</p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="staticmethod">
@@ -106,8 +126,16 @@ The property name correspondently must be object property, map key or array inde
 <dd><p>Gets names of all properties implemented in specified object.</p>
 <p>The object can be a user defined object, map or array.
 Returned property name correspondently are object properties, map keys or array indexes.</p>
-<p>:param obj:an object to introspect.</p>
-<p>:return:a list with property names.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>obj</strong> – an object to introspect.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">a list with property names.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="staticmethod">
@@ -115,8 +143,16 @@ Returned property name correspondently are object properties, map keys or array 
 <em class="property">static </em><code class="descname">get_value</code><span class="sig-paren">(</span><em>obj</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.reflect.ObjectReader.ObjectReader.get_value" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets a real object value. If object is a wrapper, it unwraps the value behind it.
 Otherwise it returns the same object value.</p>
-<p>:param obj:an object to unwrap.</p>
-<p>:return:an actual (unwrapped) object value.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>obj</strong> – an object to unwrap.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">an actual (unwrapped) object value.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="staticmethod">
@@ -125,9 +161,21 @@ Otherwise it returns the same object value.</p>
 <dd><p>Checks if object has a property with specified name.</p>
 <p>The object can be a user defined object, map or array.
 The property name correspondently must be object property, map key or array index.</p>
-<p>:param obj:an object to introspect.</p>
-<p>:param name:a name of the property to check.</p>
-<p>:return:true if the object has the property and false if it doesn’t.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>obj</strong> – an object to introspect.</li>
+<li><strong>name</strong> – a name of the property to check.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">true if the object has the property and false if it doesn’t.</p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </dd></dl>

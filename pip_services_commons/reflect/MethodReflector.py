@@ -43,11 +43,11 @@ class MethodReflector:
         """
         Checks if object has a method with specified name.
 
-        :param obj:an object to introspect.
+        :param obj: an object to introspect.
 
-        :param name:a name of the method to check.
+        :param name: a name of the method to check.
 
-        :return:true if the object has the method and false if it doesn't.
+        :return: true if the object has the method and false if it doesn't.
         """
         if obj == None:
             raise Exception("Object cannot be null")
@@ -73,13 +73,13 @@ class MethodReflector:
         """
         Invokes an object method by its name with specified parameters.
 
-        :param obj:an object to invoke.
+        :param obj: an object to invoke.
 
-        :param name:a name of the method to invoke.
+        :param name: a name of the method to invoke.
 
-        :param args:a list of method arguments.
+        :param args: a list of method arguments.
 
-        :return:the result of the method invocation or null if method returns void.
+        :return: the result of the method invocation or null if method returns void.
         """
         if obj == None:
             raise Exception("Object cannot be null")
@@ -108,9 +108,9 @@ class MethodReflector:
         """
         Gets names of all methods implemented in specified object.
 
-        :param obj:an object to introspect.
+        :param obj: an object to introspect.
 
-        :return:a list with method names.
+        :return: a list with method names.
         """
         method_names = []
         

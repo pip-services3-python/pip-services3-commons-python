@@ -23,9 +23,9 @@ class Opener:
         To be checked components must implement [[IOpenable]] interface.
         If they don't the call to this method returns true.
 
-        :param component:the component that is to be checked.
+        :param component: the component that is to be checked.
 
-        :return:true if component is opened and false otherwise.
+        :return: true if component is opened and false otherwise.
         """
         if isinstance(component, IOpenable):
             return component.is_opened()
@@ -40,9 +40,9 @@ class Opener:
         To be checked components must implement [[IOpenable]] interface.
         If they don't the call to this method returns true.
 
-        :param components:a list of components that are to be checked.
+        :param components: a list of components that are to be checked.
 
-        :return:true if all components are opened and false if at least one component is closed.
+        :return: true if all components are opened and false if at least one component is closed.
         """
         if components == None:
             return True
@@ -61,9 +61,9 @@ class Opener:
         To be opened components must implement [[IOpenable]] interface.
         If they don't the call to this method has no effect.
 
-        :param correlation_id:(optional) transaction id to trace execution through call chain.
+        :param correlation_id: (optional) transaction id to trace execution through call chain.
 
-        :param component:the component that is to be opened.
+        :param component: the component that is to be opened.
         """
         if isinstance(component, IOpenable):
             component.open(correlation_id)
@@ -76,9 +76,9 @@ class Opener:
         To be opened components must implement [[IOpenable]] interface.
         If they don't the call to this method has no effect.
 
-        :param correlation_id:(optional) transaction id to trace execution through call chain.
+        :param correlation_id: (optional) transaction id to trace execution through call chain.
 
-        :param components:the list of components that are to be closed.
+        :param components: the list of components that are to be closed.
         """
         if components == None:
             return

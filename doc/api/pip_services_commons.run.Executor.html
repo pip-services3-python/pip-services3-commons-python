@@ -63,10 +63,22 @@
 <dd><p>Executes multiple components.</p>
 <p>To be executed components must implement [[IExecutable]] interface.
 If they don’t the call to this method has no effect.</p>
-<p>:param correlation_id:(optional) transaction id to trace execution through call chain.</p>
-<p>:param components:a list of components that are to be executed.</p>
-<p>:param args:execution arguments.</p>
-<p>:return:execution result</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>correlation_id</strong> – (optional) transaction id to trace execution through call chain.</li>
+<li><strong>components</strong> – a list of components that are to be executed.</li>
+<li><strong>args</strong> – execution arguments.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">execution result</p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="staticmethod">
@@ -75,14 +87,19 @@ If they don’t the call to this method has no effect.</p>
 <dd><p>Executes specific component.
 To be executed components must implement [[IExecutable]] interface.
 If they don’t the call to this method has no effect.</p>
-<p>:param correlation_id:(optional) transaction id to trace execution through call chain.</p>
-<p>:param component:the component that is to be executed.</p>
-<p>:param args:execution arguments.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">execution result</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>correlation_id</strong> – (optional) transaction id to trace execution through call chain.</li>
+<li><strong>component</strong> – the component that is to be executed.</li>
+<li><strong>args</strong> – execution arguments.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">execution result</p>
+</td>
 </tr>
 </tbody>
 </table>

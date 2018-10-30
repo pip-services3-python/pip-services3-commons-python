@@ -24,11 +24,11 @@ class TypeMatcher:
         Matches expected type to a type of a value.
         The expected type can be specified by a type, type name or [[TypeCode]].
 
-        :param expected_type:an expected type to match.
+        :param expected_type: an expected type to match.
 
-        :param actual_value:a value to match its type to the expected one.
+        :param actual_value: a value to match its type to the expected one.
 
-        :return:true if types are matching and false if they don't.
+        :return: true if types are matching and false if they don't.
         """
         if expected_type == None:
             return True
@@ -44,11 +44,11 @@ class TypeMatcher:
         Matches expected type to an actual type.
         The types can be specified as types, type names or [[TypeCode]].
 
-        :param expected_type:an expected type to match.
+        :param expected_type: an expected type to match.
 
-        :param actual_type:an actual type to match.
+        :param actual_type: an actual type to match.
 
-        :return:true if types are matching and false if they don't.
+        :return: true if types are matching and false if they don't.
         """
         if expected_type == None:
             return True
@@ -69,11 +69,11 @@ class TypeMatcher:
         """
         Matches expected type to a type of a value.
 
-        :param expected_type:an expected type name to match.
+        :param expected_type: an expected type name to match.
 
-        :param actual_value:a value to match its type to the expected one.
+        :param actual_value: a value to match its type to the expected one.
 
-        :return:true if types are matching and false if they don't.
+        :return: true if types are matching and false if they don't.
         """
         if expected_type == None:
             return True
@@ -88,11 +88,11 @@ class TypeMatcher:
         """
         Matches expected type to an actual type.
 
-        :param expected_type:an expected type name to match.
+        :param expected_type: an expected type name to match.
 
-        :param actual_type:an actual type to match defined by type code.
+        :param actual_type: an actual type to match defined by type code.
 
-        :return:true if types are matching and false if they don't.
+        :return: true if types are matching and false if they don't.
         """
         if expected_type == None:
             return True

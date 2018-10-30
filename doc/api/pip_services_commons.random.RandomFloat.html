@@ -67,21 +67,43 @@ value3 = RandomFloat.update_float(10, 3)   // Possible result: 9.2</dd>
 <dt id="pip_services_commons.random.RandomFloat.RandomFloat.next_float">
 <em class="property">static </em><code class="descname">next_float</code><span class="sig-paren">(</span><em>min</em>, <em>max=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.random.RandomFloat.RandomFloat.next_float" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generates a float in the range [‘min’, ‘max’]. If ‘max’ is omitted, then the range will be set to [0, ‘min’].</p>
-<dl class="docutils">
-<dt>:param min:minimum value of the float that will be generated.</dt>
-<dd>If ‘max’ is omitted, then ‘max’ is set to ‘min’ and ‘min’ is set to 0.</dd>
-</dl>
-<p>:param max:(optional) maximum value of the float that will be generated. Defaults to ‘min’ if omitted.</p>
-<p>:return:generated random float value.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>min</strong> – minimum value of the float that will be generated.
+If ‘max’ is omitted, then ‘max’ is set to ‘min’ and ‘min’ is set to 0.</li>
+<li><strong>max</strong> – (optional) maximum value of the float that will be generated. Defaults to ‘min’ if omitted.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">generated random float value.</p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="staticmethod">
 <dt id="pip_services_commons.random.RandomFloat.RandomFloat.update_float">
 <em class="property">static </em><code class="descname">update_float</code><span class="sig-paren">(</span><em>value</em>, <em>range=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.random.RandomFloat.RandomFloat.update_float" title="Permalink to this definition">¶</a></dt>
 <dd><p>Updates (drifts) a float value within specified range defined</p>
-<p>:param value:a float value to drift.</p>
-<p>:param range:(optional) a range. Default: 10% of the value</p>
-<p>:return:updated random float value.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>value</strong> – a float value to drift.</li>
+<li><strong>range</strong> – (optional) a range. Default: 10% of the value</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">updated random float value.</p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </dd></dl>

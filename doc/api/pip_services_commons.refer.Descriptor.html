@@ -57,18 +57,26 @@
 <em class="property">class </em><code class="descclassname">pip_services_commons.refer.Descriptor.</code><code class="descname">Descriptor</code><span class="sig-paren">(</span><em>group</em>, <em>type</em>, <em>kind</em>, <em>name</em>, <em>version</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.refer.Descriptor.Descriptor" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Locator type that most often used in PipServices toolkit.
-It locates components using several fields:
-- Group: a package or just named group of components like “pip-services”
-- Type: logical component type that defines it’s contract like “persistence”
-- Kind: physical implementation type like “mongodb”
-- Name: unique component name like “default”
-- Version: version of the component contract like “1.0”</p>
+It locates components using several fields:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Group: a package or just named group of components like “pip-services”</li>
+<li>Type: logical component type that defines it’s contract like “persistence”</li>
+<li>Kind: physical implementation type like “mongodb”</li>
+<li>Name: unique component name like “default”</li>
+<li>Version: version of the component contract like “1.0”</li>
+</ul>
+</div></blockquote>
 <p>The locator matching can be done by all or only few selected fields.
 The fields that shall be excluded from the matching must be set to &lt;code&gt;”*”&lt;/code&gt; or &lt;code&gt;null&lt;/code&gt;.
-That approach allows to implement many interesting scenarios. For instance:
-- Locate all loggers (match by type and version)
-- Locate persistence components for a microservice (match by group and type)
-- Locate specific component by its name (match by name)</p>
+That approach allows to implement many interesting scenarios. For instance:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Locate all loggers (match by type and version)</li>
+<li>Locate persistence components for a microservice (match by group and type)</li>
+<li>Locate specific component by its name (match by name)</li>
+</ul>
+</div></blockquote>
 <dl class="docutils">
 <dt>Example:</dt>
 <dd><p class="first">locator1 = Descriptor(“mygroup”, “connector”, “aws”, “default”, “1.0”)
@@ -88,9 +96,10 @@ locator1.exact_match(locator2); // Result: false</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>descriptor</strong> – the descriptor to match this one against.</td>
 </tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">true if descriptors match and false otherwise.</td>
+</tr>
 </tbody>
 </table>
-<p>:return:true if descriptors match and false otherwise.</p>
 </dd></dl>
 
 <dl class="staticmethod">
@@ -103,9 +112,10 @@ locator1.exact_match(locator2); // Result: false</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>value</strong> – colon-separated descriptor fields to initialize Descriptor.</td>
 </tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">a newly created Descriptor.</td>
+</tr>
 </tbody>
 </table>
-<p>:return:a newly created Descriptor.</p>
 </dd></dl>
 
 <dl class="method">
@@ -113,35 +123,70 @@ locator1.exact_match(locator2); // Result: false</p>
 <code class="descname">get_group</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.refer.Descriptor.Descriptor.get_group" title="Permalink to this definition">¶</a></dt>
 <dd><blockquote>
 <div>Gets the component’s logical group.</div></blockquote>
-<p>:return:the component’s logical group</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the component’s logical group</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.refer.Descriptor.Descriptor.get_kind">
 <code class="descname">get_kind</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.refer.Descriptor.Descriptor.get_kind" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets the component’s implementation type.</p>
-<p>:return:the component’s implementation type.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the component’s implementation type.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.refer.Descriptor.Descriptor.get_name">
 <code class="descname">get_name</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.refer.Descriptor.Descriptor.get_name" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets the unique component’s name.</p>
-<p>:return:the unique component’s name.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the unique component’s name.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.refer.Descriptor.Descriptor.get_type">
 <code class="descname">get_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.refer.Descriptor.Descriptor.get_type" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets the component’s logical type.</p>
-<p>:return:the component’s logical type.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the component’s logical type.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.refer.Descriptor.Descriptor.get_version">
 <code class="descname">get_version</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.refer.Descriptor.Descriptor.get_version" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets the component’s implementation version.</p>
-<p>:return:the component’s implementation version.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the component’s implementation version.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
@@ -149,7 +194,14 @@ locator1.exact_match(locator2); // Result: false</p>
 <code class="descname">is_complete</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.refer.Descriptor.Descriptor.is_complete" title="Permalink to this definition">¶</a></dt>
 <dd><p>Checks whether all descriptor fields are set.
 If descriptor has at least one “*” or null field it is considered “incomplete”</p>
-<p>:return:true if all descriptor fields are defined and false otherwise.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">true if all descriptor fields are defined and false otherwise.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
@@ -163,9 +215,10 @@ Fields that contain “*” or null are excluded from the match.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>descriptor</strong> – the descriptor to match this one against.</td>
 </tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">true if descriptors match and false otherwise</td>
+</tr>
 </tbody>
 </table>
-<p>:return:true if descriptors match and false otherwise</p>
 </dd></dl>
 
 </dd></dl>

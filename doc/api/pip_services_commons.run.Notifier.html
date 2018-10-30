@@ -63,9 +63,19 @@
 <dd><p>Notifies multiple components.</p>
 <p>To be notified components must implement [[INotifiable]] interface.
 If they don’t the call to this method has no effect.</p>
-<p>:param correlation_id:(optional) transaction id to trace execution through call chain.</p>
-<p>:param components:a list of components that are to be notified.</p>
-<p>:param args:notification arguments.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>correlation_id</strong> – (optional) transaction id to trace execution through call chain.</li>
+<li><strong>components</strong> – a list of components that are to be notified.</li>
+<li><strong>args</strong> – notification arguments.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="staticmethod">
@@ -74,9 +84,19 @@ If they don’t the call to this method has no effect.</p>
 <dd><p>Notifies specific component.
 To be notiied components must implement [[INotifiable]] interface.
 If they don’t the call to this method has no effect.</p>
-<p>:param correlation_id:(optional) transaction id to trace execution through call chain.</p>
-<p>:param component:the component that is to be notified.</p>
-<p>:param args:notifiation arguments.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>correlation_id</strong> – (optional) transaction id to trace execution through call chain.</li>
+<li><strong>component</strong> – the component that is to be notified.</li>
+<li><strong>args</strong> – notifiation arguments.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </dd></dl>

@@ -46,7 +46,7 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">copyright:</th><td class="field-body">Conceptual Vision Consulting LLC 2015-2016, see AUTHORS for more details.</td>
+<tr class="field-odd field"><th class="field-name">copyright:</th><td class="field-body">Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">license:</th><td class="field-body">MIT, see LICENSE for more details.</td>
 </tr>
@@ -56,6 +56,15 @@
 <dt id="pip_services_commons.validate.ArraySchema.ArraySchema">
 <em class="property">class </em><code class="descclassname">pip_services_commons.validate.ArraySchema.</code><code class="descname">ArraySchema</code><span class="sig-paren">(</span><em>value_type</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.validate.ArraySchema.ArraySchema" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="pip_services_commons.validate.Schema.html#pip_services_commons.validate.Schema.Schema" title="pip_services_commons.validate.Schema.Schema"><code class="xref py py-class docutils literal notranslate"><span class="pre">pip_services_commons.validate.Schema.Schema</span></code></a></p>
+<p>Schema to validate arrays.</p>
+<dl class="docutils">
+<dt>Example:</dt>
+<dd><p class="first">schema = ArraySchema(TypeCode.String)</p>
+<p class="last">schema.validate([“A”, “B”, “C”])    // Result: no errors
+schema.validate([1, 2, 3])          // Result: element type mismatch
+schema.validate(“A”)                // Result: type mismatch</p>
+</dd>
+</dl>
 <dl class="attribute">
 <dt id="pip_services_commons.validate.ArraySchema.ArraySchema.value_type">
 <code class="descname">value_type</code><em class="property"> = None</em><a class="headerlink" href="#pip_services_commons.validate.ArraySchema.ArraySchema.value_type" title="Permalink to this definition">¶</a></dt>

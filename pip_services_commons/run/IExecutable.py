@@ -18,10 +18,10 @@ class IExecutable:
         """
         Executes component with arguments and receives execution result.
 
-        :param correlation_id:(optional) transaction id to trace execution through call chain.
+        :param correlation_id: (optional) transaction id to trace execution through call chain.
 
-        :param args:execution arguments.
+        :param args: execution arguments.
 
-        :return:execution result
+        :return: execution result
         """
         raise NotImplementedError('Method from interface definition')

@@ -15,18 +15,18 @@ class Descriptor(object):
     """
     Locator type that most often used in PipServices toolkit.
     It locates components using several fields:
-    - Group: a package or just named group of components like "pip-services"
-    - Type: logical component type that defines it's contract like "persistence"
-    - Kind: physical implementation type like "mongodb"
-    - Name: unique component name like "default"
-    - Version: version of the component contract like "1.0"
+        - Group: a package or just named group of components like "pip-services"
+        - Type: logical component type that defines it's contract like "persistence"
+        - Kind: physical implementation type like "mongodb"
+        - Name: unique component name like "default"
+        - Version: version of the component contract like "1.0"
 
     The locator matching can be done by all or only few selected fields.
     The fields that shall be excluded from the matching must be set to <code>"*"</code> or <code>null</code>.
     That approach allows to implement many interesting scenarios. For instance:
-    - Locate all loggers (match by type and version)
-    - Locate persistence components for a microservice (match by group and type)
-    - Locate specific component by its name (match by name)
+        - Locate all loggers (match by type and version)
+        - Locate persistence components for a microservice (match by group and type)
+        - Locate specific component by its name (match by name)
 
     Example:
         locator1 = Descriptor("mygroup", "connector", "aws", "default", "1.0")
@@ -47,15 +47,15 @@ class Descriptor(object):
         """
         Creates a new instance of the descriptor.
 
-        :param group:a logical component group
+        :param group: a logical component group
 
-        :param type:a logical component type or contract
+        :param type: a logical component type or contract
 
-        :param kind:a component implementation type
+        :param kind: a component implementation type
 
-        :param name:a unique component name
+        :param name: a unique component name
 
-        :param version:a component implementation version
+        :param version: a component implementation version
         """
         group = None if "*" == group else group 
         type = None if "*" == type else type
@@ -73,7 +73,7 @@ class Descriptor(object):
         """
          Gets the component's logical group.
 
-        :return:the component's logical group
+        :return: the component's logical group
         """
         return self._group 
 
@@ -81,7 +81,7 @@ class Descriptor(object):
         """
         Gets the component's logical type.
 
-        :return:the component's logical type.
+        :return: the component's logical type.
         """
         return self._type
 
@@ -89,7 +89,7 @@ class Descriptor(object):
         """
         Gets the component's implementation type.
 
-        :return:the component's implementation type.
+        :return: the component's implementation type.
         """
         return self._kind
 
@@ -97,7 +97,7 @@ class Descriptor(object):
         """
         Gets the unique component's name.
 
-        :return:the unique component's name.
+        :return: the unique component's name.
         """
         return self._name 
 
@@ -105,7 +105,7 @@ class Descriptor(object):
         """
         Gets the component's implementation version.
 
-        :return:the component's implementation version.
+        :return: the component's implementation version.
         """
         return self._version 
 
@@ -121,7 +121,7 @@ class Descriptor(object):
 
         :param descriptor: the descriptor to match this one against.
 
-        :return:true if descriptors match and false otherwise
+        :return: true if descriptors match and false otherwise
         """
         return self._match_field(self._group, descriptor.get_group()) \
             and self._match_field(self._type, descriptor.get_type()) \
@@ -142,10 +142,10 @@ class Descriptor(object):
 
         :param descriptor: the descriptor to match this one against.
 
-        :return:true if descriptors match and false otherwise.
+        :return: true if descriptors match and false otherwise.
         """
         return self._exact_match_field(self._group, descriptor.get_group()) \
-            and self._exact_atch_field(self._type, descriptor.get_type()) \
+            and self._exact_match_field(self._type, descriptor.get_type()) \
             and self._exact_match_field(self._kind, descriptor.get_kind()) \
             and self._exact_match_field(self._name, descriptor.get_name()) \
             and self._exact_match_field(self._version, descriptor.get_version())
@@ -155,7 +155,7 @@ class Descriptor(object):
         Checks whether all descriptor fields are set.
         If descriptor has at least one "*" or null field it is considered "incomplete"
 
-        :return:true if all descriptor fields are defined and false otherwise.
+        :return: true if all descriptor fields are defined and false otherwise.
         """
         return self._group != None and self._type != None \
             and self._kind != None and self._name != None and self._version != None
@@ -165,9 +165,9 @@ class Descriptor(object):
         Compares this descriptor to a value.
         If value is a Descriptor it tries to match them, otherwise the method returns false.
 
-        :param other:the value to match against this descriptor.
+        :param other: the value to match against this descriptor.
 
-        :return:true if the value is matching descriptor and false otherwise.
+        :return: true if the value is matching descriptor and false otherwise.
         """
         if isinstance(other, Descriptor):
             return self.match(other)
@@ -181,7 +181,7 @@ class Descriptor(object):
         Gets a string representation of the object.
         The result is a colon-separated list of descriptor fields as "mygroup:connector:aws:default:1.0"
 
-        :return:a string representation of the object.
+        :return: a string representation of the object.
         """
         result = ''
         result += self._group if self._group != None else '*'
@@ -202,7 +202,7 @@ class Descriptor(object):
 
         :param value: colon-separated descriptor fields to initialize Descriptor.
 
-        :return:a newly created Descriptor.
+        :return: a newly created Descriptor.
         """
         if value == None or len(value) == 0:
             return None

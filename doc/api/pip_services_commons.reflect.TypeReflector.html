@@ -73,45 +73,101 @@ TypeDescriptor.is_primitive(123)                                // Result: true<
 <dt id="pip_services_commons.reflect.TypeReflector.TypeReflector.create_instance">
 <em class="property">static </em><code class="descname">create_instance</code><span class="sig-paren">(</span><em>name</em>, <em>library</em>, <em>*args</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.reflect.TypeReflector.TypeReflector.create_instance" title="Permalink to this definition">¶</a></dt>
 <dd><p>Creates an instance of an object type specified by its name and library where it is defined.</p>
-<p>:param name:an object type (factory function) to create.</p>
-<p>:param library:a library (module) where object type is defined.</p>
-<p>:param args:arguments for the object constructor.</p>
-<p>:return:the created object instance.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>name</strong> – an object type (factory function) to create.</li>
+<li><strong>library</strong> – a library (module) where object type is defined.</li>
+<li><strong>args</strong> – arguments for the object constructor.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">the created object instance.</p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="staticmethod">
 <dt id="pip_services_commons.reflect.TypeReflector.TypeReflector.create_instance_by_descriptor">
 <em class="property">static </em><code class="descname">create_instance_by_descriptor</code><span class="sig-paren">(</span><em>descriptor</em>, <em>*args</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.reflect.TypeReflector.TypeReflector.create_instance_by_descriptor" title="Permalink to this definition">¶</a></dt>
 <dd><p>Creates an instance of an object type specified by type descriptor.</p>
-<p>:param descriptor:a type descriptor that points to an object type</p>
-<p>:param args:arguments for the object constructor.</p>
-<p>:return:the created object instance.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>descriptor</strong> – a type descriptor that points to an object type</li>
+<li><strong>args</strong> – arguments for the object constructor.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">the created object instance.</p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="staticmethod">
 <dt id="pip_services_commons.reflect.TypeReflector.TypeReflector.create_instance_by_type">
 <em class="property">static </em><code class="descname">create_instance_by_type</code><span class="sig-paren">(</span><em>obj_type</em>, <em>*args</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.reflect.TypeReflector.TypeReflector.create_instance_by_type" title="Permalink to this definition">¶</a></dt>
 <dd><p>Creates an instance of an object type.</p>
-<p>:param obj_type:an object type (factory function) to create.</p>
-<p>:param args:arguments for the object constructor.</p>
-<p>:return:the created object instance.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>obj_type</strong> – an object type (factory function) to create.</li>
+<li><strong>args</strong> – arguments for the object constructor.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">the created object instance.</p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="staticmethod">
 <dt id="pip_services_commons.reflect.TypeReflector.TypeReflector.get_type">
 <em class="property">static </em><code class="descname">get_type</code><span class="sig-paren">(</span><em>name</em>, <em>library</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.reflect.TypeReflector.TypeReflector.get_type" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets object type by its name and library where it is defined.</p>
-<p>:param name:an object type name.</p>
-<p>:param library:a library where the type is defined</p>
-<p>:return:the object type or null is the type wasn’t found.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>name</strong> – an object type name.</li>
+<li><strong>library</strong> – a library where the type is defined</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">the object type or null is the type wasn’t found.</p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="staticmethod">
 <dt id="pip_services_commons.reflect.TypeReflector.TypeReflector.get_type_by_descriptor">
 <em class="property">static </em><code class="descname">get_type_by_descriptor</code><span class="sig-paren">(</span><em>descriptor</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.reflect.TypeReflector.TypeReflector.get_type_by_descriptor" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets object type by type descriptor.</p>
-<p>:param descriptor:a type descriptor that points to an object type</p>
-<p>:return:the object type or null is the type wasn’t found.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>descriptor</strong> – a type descriptor that points to an object type</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">the object type or null is the type wasn’t found.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="staticmethod">
@@ -120,8 +176,16 @@ TypeDescriptor.is_primitive(123)                                // Result: true<
 <dd><p>Checks if value has primitive type.</p>
 <p>Primitive types are: numbers, strings, booleans, date and time.
 Complex (non-primitive types are): objects, maps and arrays</p>
-<p>:param value:a value to check</p>
-<p>:return:true if the value has primitive type and false if value type is complex.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>value</strong> – a value to check</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">true if the value has primitive type and false if value type is complex.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </dd></dl>

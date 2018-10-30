@@ -30,12 +30,12 @@ class DependencyResolver(IReconfigurable, IReferenceable):
     Configuration parameters
 
     dependencies:
-    - [dependency name 1]: Dependency 1 locator (descriptor)
-    - ...
-    - [dependency name N]: Dependency N locator (descriptor)
+        - [dependency name 1]: Dependency 1 locator (descriptor)
+        - ...
+        - [dependency name N]: Dependency N locator (descriptor)
 
-    References
-    - References must match configured dependencies.
+    References:
+        - References must match configured dependencies.
 
     Example:
         class MyComponent(IConfigurable, IReferenceable):
@@ -68,9 +68,9 @@ class DependencyResolver(IReconfigurable, IReferenceable):
         """
         Creates a new instance of the dependency resolver.
 
-        :param config:(optional) default configuration where key is dependency name and value is locator (descriptor)
+        :param config: (optional) default configuration where key is dependency name and value is locator (descriptor)
 
-        :param references:(optional) default component references
+        :param references: (optional) default component references
         """
         self._dependencies = {}
         if config != None:
@@ -82,7 +82,7 @@ class DependencyResolver(IReconfigurable, IReferenceable):
         """
         Configures the component with specified parameters.
 
-        :param config:configuration parameters to set.
+        :param config: configuration parameters to set.
         """
         dependencies = config.get_section("dependencies")
         names = dependencies.get_key_names()
@@ -105,7 +105,7 @@ class DependencyResolver(IReconfigurable, IReferenceable):
         """
         Sets the component references. References must match configured dependencies.
 
-        :param references:references to set.
+        :param references: references to set.
         """
         self._references = references
 
@@ -114,9 +114,9 @@ class DependencyResolver(IReconfigurable, IReferenceable):
         """
         Adds a new dependency into this resolver.
 
-        :param name:the dependency's name.
+        :param name: the dependency's name.
 
-        :param locator:the locator to find the dependency by.
+        :param locator: the locator to find the dependency by.
         """
         self._dependencies[name] = locator
 
@@ -126,7 +126,7 @@ class DependencyResolver(IReconfigurable, IReferenceable):
         Gets a dependency locator by its name.
 
         :param name: the name of the dependency to locate.
-        :return:the dependency locator or null if locator was not configured.
+        :return: the dependency locator or null if locator was not configured.
         """
         if name == None:
             raise Exception("Dependency name cannot be null")
@@ -140,9 +140,9 @@ class DependencyResolver(IReconfigurable, IReferenceable):
         """
         Gets all optional dependencies by their name.
 
-        :param name:the dependency name to locate.
+        :param name: the dependency name to locate.
 
-        :return:a list with found dependencies or empty list of no dependencies was found.
+        :return: a list with found dependencies or empty list of no dependencies was found.
         """
         locator = self._locate(name)
         return self._references.get_optional(locator) if locator != None else None
@@ -153,9 +153,9 @@ class DependencyResolver(IReconfigurable, IReferenceable):
         Gets all required dependencies by their name.
         At least one dependency must be present. If no dependencies was found it throws a [[ReferenceException]]
 
-        :param name:the dependency name to locate.
+        :param name: the dependency name to locate.
 
-        :return:a list with found dependencies.
+        :return: a list with found dependencies.
         """
         locator = self._locate(name)
         if locator == None:
@@ -168,9 +168,9 @@ class DependencyResolver(IReconfigurable, IReferenceable):
         """
         Gets one optional dependency by its name.
 
-        :param name:the dependency name to locate.
+        :param name: the dependency name to locate.
 
-        :return:a dependency reference or null of the dependency was not found
+        :return: a dependency reference or null of the dependency was not found
         """
         locator = self._locate(name)
         return self._references.get_one_optional(locator) if locator != None else None
@@ -181,9 +181,9 @@ class DependencyResolver(IReconfigurable, IReferenceable):
         Gets one required dependency by its name.
         At least one dependency must present. If the dependency was found it throws a [[ReferenceException]]
 
-        :param name:the dependency name to locate.
+        :param name: the dependency name to locate.
 
-        :return:a dependency reference
+        :return: a dependency reference
         """
         locator = self._locate(name)
         if locator == None:
@@ -196,11 +196,11 @@ class DependencyResolver(IReconfigurable, IReferenceable):
         """
         Finds all matching dependencies by their name.
 
-        :param name:the dependency name to locate.
+        :param name: the dependency name to locate.
 
-        :param required:true to raise an exception when no dependencies are found.
+        :param required: true to raise an exception when no dependencies are found.
 
-        :return:a list of found dependencies
+        :return: a list of found dependencies
         """
         if name == None:
             raise Exception("Name cannot be null")
@@ -220,10 +220,10 @@ class DependencyResolver(IReconfigurable, IReferenceable):
         Creates a new DependencyResolver from a list of key-value pairs called tuples
         where key is dependency name and value the depedency locator (descriptor).
 
-        :param tuples:a list of values where odd elements are dependency name
+        :param tuples: a list of values where odd elements are dependency name
         and the following even elements are dependency locator (descriptor)
 
-        :return:a newly created DependencyResolver.
+        :return: a newly created DependencyResolver.
         """
         result = DependencyResolver()
         if tuples == None or len(tuples) == 0:

@@ -115,22 +115,44 @@ by Pip.Services toolkit and used to support dynamic data processing.</p>
 <em class="property">static </em><code class="descname">from_string</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.reflect.TypeDescriptor.from_string" title="Permalink to this definition">¶</a></dt>
 <dd><p>Parses a string to get descriptor fields and returns them as a Descriptor.
 The string must have format name[,library]</p>
-<p>:param value:a string to parse.</p>
-<p>:return:a newly created Descriptor.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>value</strong> – a string to parse.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">a newly created Descriptor.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.reflect.TypeDescriptor.get_library">
 <code class="descname">get_library</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.reflect.TypeDescriptor.get_library" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets the name of the library or module where the object type is defined.</p>
-<p>:return:the name of the library or module.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the name of the library or module.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.reflect.TypeDescriptor.get_name">
 <code class="descname">get_name</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.reflect.TypeDescriptor.get_name" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the name of the object type.</p>
-<p>:return:the name of the object type.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the name of the object type.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </dd></dl>
@@ -156,45 +178,101 @@ TypeDescriptor.is_primitive(123)                                // Result: true<
 <dt id="pip_services_commons.reflect.TypeReflector.create_instance">
 <em class="property">static </em><code class="descname">create_instance</code><span class="sig-paren">(</span><em>name</em>, <em>library</em>, <em>*args</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.reflect.TypeReflector.create_instance" title="Permalink to this definition">¶</a></dt>
 <dd><p>Creates an instance of an object type specified by its name and library where it is defined.</p>
-<p>:param name:an object type (factory function) to create.</p>
-<p>:param library:a library (module) where object type is defined.</p>
-<p>:param args:arguments for the object constructor.</p>
-<p>:return:the created object instance.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>name</strong> – an object type (factory function) to create.</li>
+<li><strong>library</strong> – a library (module) where object type is defined.</li>
+<li><strong>args</strong> – arguments for the object constructor.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">the created object instance.</p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="staticmethod">
 <dt id="pip_services_commons.reflect.TypeReflector.create_instance_by_descriptor">
 <em class="property">static </em><code class="descname">create_instance_by_descriptor</code><span class="sig-paren">(</span><em>descriptor</em>, <em>*args</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.reflect.TypeReflector.create_instance_by_descriptor" title="Permalink to this definition">¶</a></dt>
 <dd><p>Creates an instance of an object type specified by type descriptor.</p>
-<p>:param descriptor:a type descriptor that points to an object type</p>
-<p>:param args:arguments for the object constructor.</p>
-<p>:return:the created object instance.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>descriptor</strong> – a type descriptor that points to an object type</li>
+<li><strong>args</strong> – arguments for the object constructor.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">the created object instance.</p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="staticmethod">
 <dt id="pip_services_commons.reflect.TypeReflector.create_instance_by_type">
 <em class="property">static </em><code class="descname">create_instance_by_type</code><span class="sig-paren">(</span><em>obj_type</em>, <em>*args</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.reflect.TypeReflector.create_instance_by_type" title="Permalink to this definition">¶</a></dt>
 <dd><p>Creates an instance of an object type.</p>
-<p>:param obj_type:an object type (factory function) to create.</p>
-<p>:param args:arguments for the object constructor.</p>
-<p>:return:the created object instance.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>obj_type</strong> – an object type (factory function) to create.</li>
+<li><strong>args</strong> – arguments for the object constructor.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">the created object instance.</p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="staticmethod">
 <dt id="pip_services_commons.reflect.TypeReflector.get_type">
 <em class="property">static </em><code class="descname">get_type</code><span class="sig-paren">(</span><em>name</em>, <em>library</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.reflect.TypeReflector.get_type" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets object type by its name and library where it is defined.</p>
-<p>:param name:an object type name.</p>
-<p>:param library:a library where the type is defined</p>
-<p>:return:the object type or null is the type wasn’t found.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>name</strong> – an object type name.</li>
+<li><strong>library</strong> – a library where the type is defined</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">the object type or null is the type wasn’t found.</p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="staticmethod">
 <dt id="pip_services_commons.reflect.TypeReflector.get_type_by_descriptor">
 <em class="property">static </em><code class="descname">get_type_by_descriptor</code><span class="sig-paren">(</span><em>descriptor</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.reflect.TypeReflector.get_type_by_descriptor" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets object type by type descriptor.</p>
-<p>:param descriptor:a type descriptor that points to an object type</p>
-<p>:return:the object type or null is the type wasn’t found.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>descriptor</strong> – a type descriptor that points to an object type</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">the object type or null is the type wasn’t found.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="staticmethod">
@@ -203,8 +281,16 @@ TypeDescriptor.is_primitive(123)                                // Result: true<
 <dd><p>Checks if value has primitive type.</p>
 <p>Primitive types are: numbers, strings, booleans, date and time.
 Complex (non-primitive types are): objects, maps and arrays</p>
-<p>:param value:a value to check</p>
-<p>:return:true if the value has primitive type and false if value type is complex.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>value</strong> – a value to check</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">true if the value has primitive type and false if value type is complex.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </dd></dl>
@@ -230,27 +316,59 @@ MethodReflector.invoke_method(myObj, “myMethod”, 123)</p>
 <dt id="pip_services_commons.reflect.MethodReflector.get_method_names">
 <em class="property">static </em><code class="descname">get_method_names</code><span class="sig-paren">(</span><em>obj</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.reflect.MethodReflector.get_method_names" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets names of all methods implemented in specified object.</p>
-<p>:param obj:an object to introspect.</p>
-<p>:return:a list with method names.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>obj</strong> – an object to introspect.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">a list with method names.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="staticmethod">
 <dt id="pip_services_commons.reflect.MethodReflector.has_method">
 <em class="property">static </em><code class="descname">has_method</code><span class="sig-paren">(</span><em>obj</em>, <em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.reflect.MethodReflector.has_method" title="Permalink to this definition">¶</a></dt>
 <dd><p>Checks if object has a method with specified name.</p>
-<p>:param obj:an object to introspect.</p>
-<p>:param name:a name of the method to check.</p>
-<p>:return:true if the object has the method and false if it doesn’t.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>obj</strong> – an object to introspect.</li>
+<li><strong>name</strong> – a name of the method to check.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">true if the object has the method and false if it doesn’t.</p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="staticmethod">
 <dt id="pip_services_commons.reflect.MethodReflector.invoke_method">
 <em class="property">static </em><code class="descname">invoke_method</code><span class="sig-paren">(</span><em>obj</em>, <em>name</em>, <em>*args</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.reflect.MethodReflector.invoke_method" title="Permalink to this definition">¶</a></dt>
 <dd><p>Invokes an object method by its name with specified parameters.</p>
-<p>:param obj:an object to invoke.</p>
-<p>:param name:a name of the method to invoke.</p>
-<p>:param args:a list of method arguments.</p>
-<p>:return:the result of the method invocation or null if method returns void.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>obj</strong> – an object to invoke.</li>
+<li><strong>name</strong> – a name of the method to invoke.</li>
+<li><strong>args</strong> – a list of method arguments.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">the result of the method invocation or null if method returns void.</p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </dd></dl>
@@ -277,34 +395,74 @@ PropertyReflector.set_property(myObj, “myProperty”, 123)</p>
 <dt id="pip_services_commons.reflect.PropertyReflector.get_properties">
 <em class="property">static </em><code class="descname">get_properties</code><span class="sig-paren">(</span><em>obj</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.reflect.PropertyReflector.get_properties" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get values of all properties in specified object and returns them as a map.</p>
-<p>:param obj:an object to get properties from.</p>
-<p>:return:a map, containing the names of the object’s properties and their values.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>obj</strong> – an object to get properties from.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">a map, containing the names of the object’s properties and their values.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="staticmethod">
 <dt id="pip_services_commons.reflect.PropertyReflector.get_property">
 <em class="property">static </em><code class="descname">get_property</code><span class="sig-paren">(</span><em>obj</em>, <em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.reflect.PropertyReflector.get_property" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets value of object property specified by its name.</p>
-<p>:param obj:an object to read property from.</p>
-<p>:param name:a name of the property to get.</p>
-<p>:return:the property value or null if property doesn’t exist or introspection failed.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>obj</strong> – an object to read property from.</li>
+<li><strong>name</strong> – a name of the property to get.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">the property value or null if property doesn’t exist or introspection failed.</p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="staticmethod">
 <dt id="pip_services_commons.reflect.PropertyReflector.get_property_names">
 <em class="property">static </em><code class="descname">get_property_names</code><span class="sig-paren">(</span><em>obj</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.reflect.PropertyReflector.get_property_names" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets names of all properties implemented in specified object.</p>
-<p>:param obj:an objec to introspect.</p>
-<p>:return:a list with property names.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>obj</strong> – an objec to introspect.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">a list with property names.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="staticmethod">
 <dt id="pip_services_commons.reflect.PropertyReflector.has_property">
 <em class="property">static </em><code class="descname">has_property</code><span class="sig-paren">(</span><em>obj</em>, <em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.reflect.PropertyReflector.has_property" title="Permalink to this definition">¶</a></dt>
 <dd><p>Checks if object has a property with specified name.</p>
-<p>:param obj:an object to introspect.</p>
-<p>:param name:a name of the property to check.</p>
-<p>:return:true if the object has the property and false if it doesn’t.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>obj</strong> – an object to introspect.</li>
+<li><strong>name</strong> – a name of the property to check.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">true if the object has the property and false if it doesn’t.</p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="staticmethod">
@@ -313,8 +471,18 @@ PropertyReflector.set_property(myObj, “myProperty”, 123)</p>
 <dd><p>Sets values of some (all) object properties.</p>
 <p>If some properties do not exist or introspection fails
 they are just silently skipped and no errors thrown.</p>
-<p>:param obj:an object to write properties to.</p>
-<p>:param values:a map, containing property names and their values.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>obj</strong> – an object to write properties to.</li>
+<li><strong>values</strong> – a map, containing property names and their values.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="staticmethod">
@@ -323,9 +491,19 @@ they are just silently skipped and no errors thrown.</p>
 <dd><p>Sets value of object property specified by its name.</p>
 <p>If the property does not exist or introspection fails
 this method doesn’t do anything and doesn’t any throw errors.</p>
-<p>:param obj:an object to write property to.</p>
-<p>:param name:a name of the property to set.</p>
-<p>:param value:a new value for the property to set.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>obj</strong> – an object to write property to.</li>
+<li><strong>name</strong> – a name of the property to set.</li>
+<li><strong>value</strong> – a new value for the property to set.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </dd></dl>
@@ -342,18 +520,42 @@ by Pip.Services toolkit and used to support dynamic data processing.</p>
 <em class="property">static </em><code class="descname">match_type</code><span class="sig-paren">(</span><em>expected_type</em>, <em>actual_type</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.reflect.TypeMatcher.match_type" title="Permalink to this definition">¶</a></dt>
 <dd><p>Matches expected type to an actual type.
 The types can be specified as types, type names or [[TypeCode]].</p>
-<p>:param expected_type:an expected type to match.</p>
-<p>:param actual_type:an actual type to match.</p>
-<p>:return:true if types are matching and false if they don’t.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>expected_type</strong> – an expected type to match.</li>
+<li><strong>actual_type</strong> – an actual type to match.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">true if types are matching and false if they don’t.</p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="staticmethod">
 <dt id="pip_services_commons.reflect.TypeMatcher.match_type_by_name">
 <em class="property">static </em><code class="descname">match_type_by_name</code><span class="sig-paren">(</span><em>expected_type</em>, <em>actual_type</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.reflect.TypeMatcher.match_type_by_name" title="Permalink to this definition">¶</a></dt>
 <dd><p>Matches expected type to an actual type.</p>
-<p>:param expected_type:an expected type name to match.</p>
-<p>:param actual_type:an actual type to match defined by type code.</p>
-<p>:return:true if types are matching and false if they don’t.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>expected_type</strong> – an expected type name to match.</li>
+<li><strong>actual_type</strong> – an actual type to match defined by type code.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">true if types are matching and false if they don’t.</p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="staticmethod">
@@ -361,18 +563,42 @@ The types can be specified as types, type names or [[TypeCode]].</p>
 <em class="property">static </em><code class="descname">match_value</code><span class="sig-paren">(</span><em>expected_type</em>, <em>actual_value</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.reflect.TypeMatcher.match_value" title="Permalink to this definition">¶</a></dt>
 <dd><p>Matches expected type to a type of a value.
 The expected type can be specified by a type, type name or [[TypeCode]].</p>
-<p>:param expected_type:an expected type to match.</p>
-<p>:param actual_value:a value to match its type to the expected one.</p>
-<p>:return:true if types are matching and false if they don’t.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>expected_type</strong> – an expected type to match.</li>
+<li><strong>actual_value</strong> – a value to match its type to the expected one.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">true if types are matching and false if they don’t.</p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="staticmethod">
 <dt id="pip_services_commons.reflect.TypeMatcher.match_value_by_name">
 <em class="property">static </em><code class="descname">match_value_by_name</code><span class="sig-paren">(</span><em>expected_type</em>, <em>actual_value</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.reflect.TypeMatcher.match_value_by_name" title="Permalink to this definition">¶</a></dt>
 <dd><p>Matches expected type to a type of a value.</p>
-<p>:param expected_type:an expected type name to match.</p>
-<p>:param actual_value:a value to match its type to the expected one.</p>
-<p>:return:true if types are matching and false if they don’t.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>expected_type</strong> – an expected type name to match.</li>
+<li><strong>actual_value</strong> – a value to match its type to the expected one.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">true if types are matching and false if they don’t.</p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </dd></dl>
@@ -410,8 +636,16 @@ value = ObjectReader.get_property(myArray, “0”)</p>
 <dd><p>Get values of all properties in specified object and returns them as a map.</p>
 <p>The object can be a user defined object, map or array.
 Returned properties correspondently are object properties, map key-pairs or array elements with their indexes.</p>
-<p>:param obj:an object to get properties from.</p>
-<p>:return:a map, containing the names of the object’s properties and their values.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>obj</strong> – an object to get properties from.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">a map, containing the names of the object’s properties and their values.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="staticmethod">
@@ -420,9 +654,21 @@ Returned properties correspondently are object properties, map key-pairs or arra
 <dd><p>Gets value of object property specified by its name.</p>
 <p>The object can be a user defined object, map or array.
 The property name correspondently must be object property, map key or array index.</p>
-<p>:param obj:an object to read property from.</p>
-<p>:param name:a name of the property to get.</p>
-<p>:return:the property value or null if property doesn’t exist or introspection failed.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>obj</strong> – an object to read property from.</li>
+<li><strong>name</strong> – a name of the property to get.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">the property value or null if property doesn’t exist or introspection failed.</p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="staticmethod">
@@ -431,8 +677,16 @@ The property name correspondently must be object property, map key or array inde
 <dd><p>Gets names of all properties implemented in specified object.</p>
 <p>The object can be a user defined object, map or array.
 Returned property name correspondently are object properties, map keys or array indexes.</p>
-<p>:param obj:an object to introspect.</p>
-<p>:return:a list with property names.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>obj</strong> – an object to introspect.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">a list with property names.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="staticmethod">
@@ -440,8 +694,16 @@ Returned property name correspondently are object properties, map keys or array 
 <em class="property">static </em><code class="descname">get_value</code><span class="sig-paren">(</span><em>obj</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.reflect.ObjectReader.get_value" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets a real object value. If object is a wrapper, it unwraps the value behind it.
 Otherwise it returns the same object value.</p>
-<p>:param obj:an object to unwrap.</p>
-<p>:return:an actual (unwrapped) object value.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>obj</strong> – an object to unwrap.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">an actual (unwrapped) object value.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="staticmethod">
@@ -450,9 +712,21 @@ Otherwise it returns the same object value.</p>
 <dd><p>Checks if object has a property with specified name.</p>
 <p>The object can be a user defined object, map or array.
 The property name correspondently must be object property, map key or array index.</p>
-<p>:param obj:an object to introspect.</p>
-<p>:param name:a name of the property to check.</p>
-<p>:return:true if the object has the property and false if it doesn’t.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>obj</strong> – an object to introspect.</li>
+<li><strong>name</strong> – a name of the property to check.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">true if the object has the property and false if it doesn’t.</p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </dd></dl>
@@ -487,8 +761,18 @@ ObjectWriter.set_property(myArray, “0”, 123)</p>
 <p>The object can be a user defined object, map or array.
 Property values correspondently are object properties, map key-pairs or array elements with their indexes.</p>
 <p>If some properties do not exist or introspection fails they are just silently skipped and no errors thrown.</p>
-<p>:param obj:an object to write properties to.</p>
-<p>:param values:a map, containing property names and their values.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>obj</strong> – an object to write properties to.</li>
+<li><strong>values</strong> – a map, containing property names and their values.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="staticmethod">
@@ -499,9 +783,19 @@ Property values correspondently are object properties, map key-pairs or array el
 The property name correspondently must be object property, map key or array index.</p>
 <p>If the property does not exist or introspection fails
 this method doesn’t do anything and doesn’t any throw errors.</p>
-<p>:param obj:an object to write property to.</p>
-<p>:param name:a name of the property to set.</p>
-<p>:param value:a new value for the property to set.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>obj</strong> – an object to write property to.</li>
+<li><strong>name</strong> – a name of the property to set.</li>
+<li><strong>value</strong> – a new value for the property to set.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </dd></dl>
@@ -520,8 +814,16 @@ using dot notation as “object.subobject.property”</p>
 <dd><p>Get values of all properties in specified object and its subobjects and returns them as a map.</p>
 <p>The object can be a user defined object, map or array.
 Returned properties correspondently are object properties, map key-pairs or array elements with their indexes.</p>
-<p>:param obj:an object to get properties from.</p>
-<p>:return:a map, containing the names of the object’s properties and their values.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>obj</strong> – an object to get properties from.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">a map, containing the names of the object’s properties and their values.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="staticmethod">
@@ -530,9 +832,21 @@ Returned properties correspondently are object properties, map key-pairs or arra
 <dd><p>Recursively gets value of object or its subobjects property specified by its name.</p>
 <p>The object can be a user defined object, map or array.
 The property name correspondently must be object property, map key or array index.</p>
-<p>:param obj:an object to read property from.</p>
-<p>:param name:a name of the property to get.</p>
-<p>:return:the property value or null if property doesn’t exist or introspection failed.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>obj</strong> – an object to read property from.</li>
+<li><strong>name</strong> – a name of the property to get.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">the property value or null if property doesn’t exist or introspection failed.</p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="staticmethod">
@@ -541,8 +855,16 @@ The property name correspondently must be object property, map key or array inde
 <dd><p>Recursively gets names of all properties implemented in specified object and its subobjects.</p>
 <p>The object can be a user defined object, map or array.
 Returned property name correspondently are object properties, map keys or array indexes.</p>
-<p>:param obj:an objec to introspect.</p>
-<p>:return:a list with property names.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>obj</strong> – an object to introspect.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">a list with property names.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="staticmethod">
@@ -551,9 +873,21 @@ Returned property name correspondently are object properties, map keys or array 
 <dd><p>Checks recursively if object or its subobjects has a property with specified name.</p>
 <p>The object can be a user defined object, map or array.
 The property name correspondently must be object property, map key or array index.</p>
-<p>:param obj:an object to introspect.</p>
-<p>:param name:a name of the property to check.</p>
-<p>:return:true if the object has the property and false if it doesn’t.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>obj</strong> – an object to introspect.</li>
+<li><strong>name</strong> – a name of the property to check.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">true if the object has the property and false if it doesn’t.</p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </dd></dl>
@@ -576,11 +910,14 @@ and then recursively writing them to destination object.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>dest</strong> – a destination object to write properties to.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>dest</strong> – a destination object to write properties to.</li>
+<li><strong>src</strong> – a source object to read properties from</li>
+</ul>
+</td>
 </tr>
 </tbody>
 </table>
-<p>:param src:a source object to read properties from</p>
 </dd></dl>
 
 <dl class="staticmethod">
@@ -590,8 +927,18 @@ and then recursively writing them to destination object.</p>
 <p>The object can be a user defined object, map or array.
 Property values correspondently are object properties, map key-pairs or array elements with their indexes.</p>
 <p>If some properties do not exist or introspection fails they are just silently skipped and no errors thrown.</p>
-<p>:param obj:an object to write properties to.</p>
-<p>:param values:a map, containing property names and their values.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>obj</strong> – an object to write properties to.</li>
+<li><strong>values</strong> – a map, containing property names and their values.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="staticmethod">
@@ -602,9 +949,19 @@ Property values correspondently are object properties, map key-pairs or array el
 The property name correspondently must be object property, map key or array index.</p>
 <p>If the property does not exist or introspection fails
 this method doesn’t do anything and doesn’t any throw errors.</p>
-<p>:param obj:an object to write property to.</p>
-<p>:param name:a name of the property to set.</p>
-<p>:param value:a new value for the property to set.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>obj</strong> – an object to write property to.</li>
+<li><strong>name</strong> – a name of the property to set.</li>
+<li><strong>value</strong> – a new value for the property to set.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </dd></dl>

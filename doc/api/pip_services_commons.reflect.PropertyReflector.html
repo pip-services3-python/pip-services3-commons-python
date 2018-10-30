@@ -74,34 +74,74 @@ PropertyReflector.set_property(myObj, “myProperty”, 123)</p>
 <dt id="pip_services_commons.reflect.PropertyReflector.PropertyReflector.get_properties">
 <em class="property">static </em><code class="descname">get_properties</code><span class="sig-paren">(</span><em>obj</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.reflect.PropertyReflector.PropertyReflector.get_properties" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get values of all properties in specified object and returns them as a map.</p>
-<p>:param obj:an object to get properties from.</p>
-<p>:return:a map, containing the names of the object’s properties and their values.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>obj</strong> – an object to get properties from.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">a map, containing the names of the object’s properties and their values.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="staticmethod">
 <dt id="pip_services_commons.reflect.PropertyReflector.PropertyReflector.get_property">
 <em class="property">static </em><code class="descname">get_property</code><span class="sig-paren">(</span><em>obj</em>, <em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.reflect.PropertyReflector.PropertyReflector.get_property" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets value of object property specified by its name.</p>
-<p>:param obj:an object to read property from.</p>
-<p>:param name:a name of the property to get.</p>
-<p>:return:the property value or null if property doesn’t exist or introspection failed.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>obj</strong> – an object to read property from.</li>
+<li><strong>name</strong> – a name of the property to get.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">the property value or null if property doesn’t exist or introspection failed.</p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="staticmethod">
 <dt id="pip_services_commons.reflect.PropertyReflector.PropertyReflector.get_property_names">
 <em class="property">static </em><code class="descname">get_property_names</code><span class="sig-paren">(</span><em>obj</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.reflect.PropertyReflector.PropertyReflector.get_property_names" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets names of all properties implemented in specified object.</p>
-<p>:param obj:an objec to introspect.</p>
-<p>:return:a list with property names.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>obj</strong> – an objec to introspect.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">a list with property names.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="staticmethod">
 <dt id="pip_services_commons.reflect.PropertyReflector.PropertyReflector.has_property">
 <em class="property">static </em><code class="descname">has_property</code><span class="sig-paren">(</span><em>obj</em>, <em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.reflect.PropertyReflector.PropertyReflector.has_property" title="Permalink to this definition">¶</a></dt>
 <dd><p>Checks if object has a property with specified name.</p>
-<p>:param obj:an object to introspect.</p>
-<p>:param name:a name of the property to check.</p>
-<p>:return:true if the object has the property and false if it doesn’t.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>obj</strong> – an object to introspect.</li>
+<li><strong>name</strong> – a name of the property to check.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">true if the object has the property and false if it doesn’t.</p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="staticmethod">
@@ -110,8 +150,18 @@ PropertyReflector.set_property(myObj, “myProperty”, 123)</p>
 <dd><p>Sets values of some (all) object properties.</p>
 <p>If some properties do not exist or introspection fails
 they are just silently skipped and no errors thrown.</p>
-<p>:param obj:an object to write properties to.</p>
-<p>:param values:a map, containing property names and their values.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>obj</strong> – an object to write properties to.</li>
+<li><strong>values</strong> – a map, containing property names and their values.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="staticmethod">
@@ -120,9 +170,19 @@ they are just silently skipped and no errors thrown.</p>
 <dd><p>Sets value of object property specified by its name.</p>
 <p>If the property does not exist or introspection fails
 this method doesn’t do anything and doesn’t any throw errors.</p>
-<p>:param obj:an object to write property to.</p>
-<p>:param name:a name of the property to set.</p>
-<p>:param value:a new value for the property to set.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>obj</strong> – an object to write property to.</li>
+<li><strong>name</strong> – a name of the property to set.</li>
+<li><strong>value</strong> – a new value for the property to set.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </dd></dl>

@@ -31,9 +31,9 @@ class MapSchema(Schema):
         """
         Creates a new instance of validation schema and sets its values.
 
-        :param key_type:a type of map keys. Null means that keys may have any type.
+        :param key_type: a type of map keys. Null means that keys may have any type.
 
-        :param value_type:a type of map values. Null means that values may have any type.
+        :param value_type: a type of map values. Null means that values may have any type.
         """
         super(MapSchema, self).__init__()
         self.key_type = key_type
@@ -43,11 +43,11 @@ class MapSchema(Schema):
         """
         Validates a given value against the schema and configured validation rules.
 
-        :param path:
+        :param path: a dot notation path to the value.
 
-        :param value:
+        :param value: a value to be validated.
 
-        :param results:
+        :param results: a list with validation results to add new results.
         """
         name = path if path != None else "value"
         value = ObjectReader.get_value(value)

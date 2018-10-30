@@ -72,76 +72,155 @@ value1.get_as_float()     // Result: 123.456</p>
 <dd><p>Compares this object value to specified specified value.
 When direct comparison gives negative results it converts
 values to type specified by type code and compare them again.</p>
-<p>:param value_type:the Typecode type that defined the type of the result</p>
-<p>:param other:the value to be compared with.</p>
-<p>:return:true when objects are equal and false otherwise.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>value_type</strong> – the Typecode type that defined the type of the result</li>
+<li><strong>other</strong> – the value to be compared with.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">true when objects are equal and false otherwise.</p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.data.AnyValue.AnyValue.get_as_array">
 <code class="descname">get_as_array</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.data.AnyValue.AnyValue.get_as_array" title="Permalink to this definition">¶</a></dt>
 <dd><p>Converts object value into an AnyArray or returns empty AnyArray if conversion is not possible.</p>
-<p>:return:AnyArray value or empty AnyArray if conversion is not supported.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">AnyArray value or empty AnyArray if conversion is not supported.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.data.AnyValue.AnyValue.get_as_boolean">
 <code class="descname">get_as_boolean</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.data.AnyValue.AnyValue.get_as_boolean" title="Permalink to this definition">¶</a></dt>
 <dd><p>Converts object value into a boolean or returns false if conversion is not possible.</p>
-<p>:return:string value or false if conversion is not supported.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">string value or false if conversion is not supported.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.data.AnyValue.AnyValue.get_as_boolean_with_default">
 <code class="descname">get_as_boolean_with_default</code><span class="sig-paren">(</span><em>default_value</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.data.AnyValue.AnyValue.get_as_boolean_with_default" title="Permalink to this definition">¶</a></dt>
 <dd><p>Converts object value into a boolean or returns default value if conversion is not possible.</p>
-<p>:param default_value:the default value.</p>
-<p>:return:boolean value or default if conversion is not supported.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>default_value</strong> – the default value.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">boolean value or default if conversion is not supported.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.data.AnyValue.AnyValue.get_as_datetime">
 <code class="descname">get_as_datetime</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.data.AnyValue.AnyValue.get_as_datetime" title="Permalink to this definition">¶</a></dt>
 <dd><p>Converts object value into a Date or returns current date if conversion is not possible.</p>
-<p>:return:Date value or current date if conversion is not supported.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Date value or current date if conversion is not supported.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.data.AnyValue.AnyValue.get_as_datetime_with_default">
 <code class="descname">get_as_datetime_with_default</code><span class="sig-paren">(</span><em>default_value</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.data.AnyValue.AnyValue.get_as_datetime_with_default" title="Permalink to this definition">¶</a></dt>
 <dd><p>Converts object value into a Date or returns default value if conversion is not possible.</p>
-<p>:param default_value:the default value.</p>
-<p>:return:Date value or default if conversion is not supported.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>default_value</strong> – the default value.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Date value or default if conversion is not supported.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.data.AnyValue.AnyValue.get_as_float">
 <code class="descname">get_as_float</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.data.AnyValue.AnyValue.get_as_float" title="Permalink to this definition">¶</a></dt>
 <dd><p>Converts object value into a float or returns 0 if conversion is not possible.</p>
-<p>:return:float value or 0 if conversion is not supported.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">float value or 0 if conversion is not supported.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.data.AnyValue.AnyValue.get_as_float_with_default">
 <code class="descname">get_as_float_with_default</code><span class="sig-paren">(</span><em>default_value</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.data.AnyValue.AnyValue.get_as_float_with_default" title="Permalink to this definition">¶</a></dt>
 <dd><p>Converts object value into a float or returns default value if conversion is not possible.</p>
-<p>:param default_value:the default value.</p>
-<p>:return:float value or default if conversion is not supported.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>default_value</strong> – the default value.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">float value or default if conversion is not supported.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.data.AnyValue.AnyValue.get_as_integer">
 <code class="descname">get_as_integer</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.data.AnyValue.AnyValue.get_as_integer" title="Permalink to this definition">¶</a></dt>
 <dd><p>Converts object value into an integer or returns 0 if conversion is not possible.</p>
-<p>:return:integer value or 0 if conversion is not supported.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">integer value or 0 if conversion is not supported.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.data.AnyValue.AnyValue.get_as_integer_with_default">
 <code class="descname">get_as_integer_with_default</code><span class="sig-paren">(</span><em>default_value</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.data.AnyValue.AnyValue.get_as_integer_with_default" title="Permalink to this definition">¶</a></dt>
 <dd><p>Converts object value into a integer or returns default value if conversion is not possible.</p>
-<p>:param default_value:the default value.</p>
-<p>:return:integer value or default if conversion is not supported.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>default_value</strong> – the default value.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">integer value or default if conversion is not supported.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
@@ -158,35 +237,70 @@ values to type specified by type code and compare them again.</p>
 <dt id="pip_services_commons.data.AnyValue.AnyValue.get_as_map">
 <code class="descname">get_as_map</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.data.AnyValue.AnyValue.get_as_map" title="Permalink to this definition">¶</a></dt>
 <dd><p>Converts object value into AnyMap or returns empty AnyMap if conversion is not possible.</p>
-<p>:return:AnyMap value or empty AnyMap if conversion is not supported.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">AnyMap value or empty AnyMap if conversion is not supported.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.data.AnyValue.AnyValue.get_as_nullable_boolean">
 <code class="descname">get_as_nullable_boolean</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.data.AnyValue.AnyValue.get_as_nullable_boolean" title="Permalink to this definition">¶</a></dt>
 <dd><p>Converts object value into a boolean or returns null if conversion is not possible.</p>
-<p>:return:boolean value or null if conversion is not supported.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">boolean value or null if conversion is not supported.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.data.AnyValue.AnyValue.get_as_nullable_datetime">
 <code class="descname">get_as_nullable_datetime</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.data.AnyValue.AnyValue.get_as_nullable_datetime" title="Permalink to this definition">¶</a></dt>
 <dd><p>Converts object value into a Date or returns None if conversion is not possible.</p>
-<p>:return:Date value or None if conversion is not supported.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Date value or None if conversion is not supported.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.data.AnyValue.AnyValue.get_as_nullable_float">
 <code class="descname">get_as_nullable_float</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.data.AnyValue.AnyValue.get_as_nullable_float" title="Permalink to this definition">¶</a></dt>
 <dd><p>Converts object value into a float or returns None if conversion is not possible.</p>
-<p>:return:float value or None if conversion is not supported.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">float value or None if conversion is not supported.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.data.AnyValue.AnyValue.get_as_nullable_integer">
 <code class="descname">get_as_nullable_integer</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.data.AnyValue.AnyValue.get_as_nullable_integer" title="Permalink to this definition">¶</a></dt>
 <dd><p>Converts object value into an integer or returns None if conversion is not possible.</p>
-<p>:return:integer value or None if conversion is not supported.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">integer value or None if conversion is not supported.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
@@ -198,29 +312,58 @@ values to type specified by type code and compare them again.</p>
 <dt id="pip_services_commons.data.AnyValue.AnyValue.get_as_nullable_string">
 <code class="descname">get_as_nullable_string</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.data.AnyValue.AnyValue.get_as_nullable_string" title="Permalink to this definition">¶</a></dt>
 <dd><p>Converts object value into a string or returns null if conversion is not possible.</p>
-<p>:return:string value or None if conversion is not supported.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">string value or None if conversion is not supported.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.data.AnyValue.AnyValue.get_as_nullable_type">
 <code class="descname">get_as_nullable_type</code><span class="sig-paren">(</span><em>value_type</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.data.AnyValue.AnyValue.get_as_nullable_type" title="Permalink to this definition">¶</a></dt>
 <dd><p>Converts object value into a value defined by specied typecode. If conversion is not possible it returns None.</p>
-<p>:param value_type:the TypeCode that defined the type of the result</p>
-<p>:return:value defined by the typecode or null if conversion is not supported.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>value_type</strong> – the TypeCode that defined the type of the result</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">value defined by the typecode or null if conversion is not supported.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.data.AnyValue.AnyValue.get_as_object">
 <code class="descname">get_as_object</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.data.AnyValue.AnyValue.get_as_object" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets the value stored in this object without any conversions</p>
-<p>:return:the object value.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the object value.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.data.AnyValue.AnyValue.get_as_string">
 <code class="descname">get_as_string</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.data.AnyValue.AnyValue.get_as_string" title="Permalink to this definition">¶</a></dt>
 <dd><p>Converts object value into a string or returns “” if conversion is not possible.</p>
-<p>:return:string value or “” if conversion is not supported.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">string value or “” if conversion is not supported.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
@@ -233,9 +376,10 @@ values to type specified by type code and compare them again.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>default_value</strong> – the default value.</td>
 </tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">string value or default if conversion is not supported.</td>
+</tr>
 </tbody>
 </table>
-<p>:return:string value or default if conversion is not supported.</p>
 </dd></dl>
 
 <dl class="method">
@@ -243,8 +387,16 @@ values to type specified by type code and compare them again.</p>
 <code class="descname">get_as_type</code><span class="sig-paren">(</span><em>value_type</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.data.AnyValue.AnyValue.get_as_type" title="Permalink to this definition">¶</a></dt>
 <dd><p>Converts object value into a value defined by specied typecode.
 If conversion is not possible it returns default value for the specified type.</p>
-<p>:param value_type:the TypeCode that defined the type of the result</p>
-<p>:return:value defined by the typecode or type default value if conversion is not supported.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>value_type</strong> – the TypeCode that defined the type of the result</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">value defined by the typecode or type default value if conversion is not supported.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
@@ -252,9 +404,21 @@ If conversion is not possible it returns default value for the specified type.</
 <code class="descname">get_as_type_with_default</code><span class="sig-paren">(</span><em>value_type</em>, <em>default_value</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.data.AnyValue.AnyValue.get_as_type_with_default" title="Permalink to this definition">¶</a></dt>
 <dd><p>Converts object value into a value defined by specied typecode.
 If conversion is not possible it returns default value.</p>
-<p>:param value_type:the TypeCode that defined the type of the result</p>
-<p>:param default_value:the default value</p>
-<p>:return:value defined by the typecode or type default value if conversion is not supported.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>value_type</strong> – the TypeCode that defined the type of the result</li>
+<li><strong>default_value</strong> – the default value</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">value defined by the typecode or type default value if conversion is not supported.</p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
@@ -275,7 +439,14 @@ If conversion is not possible it returns default value.</p>
 <dt id="pip_services_commons.data.AnyValue.AnyValue.set_as_object">
 <code class="descname">set_as_object</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.data.AnyValue.AnyValue.set_as_object" title="Permalink to this definition">¶</a></dt>
 <dd><p>Sets a new value for this object</p>
-<p>:param value:the new object value.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>value</strong> – the new object value.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="attribute">

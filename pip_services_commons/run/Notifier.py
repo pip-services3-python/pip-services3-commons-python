@@ -23,11 +23,11 @@ class Notifier:
         To be notiied components must implement [[INotifiable]] interface.
         If they don't the call to this method has no effect.
 
-        :param correlation_id:(optional) transaction id to trace execution through call chain.
+        :param correlation_id: (optional) transaction id to trace execution through call chain.
 
-        :param component:the component that is to be notified.
+        :param component: the component that is to be notified.
 
-        :param args:notifiation arguments.
+        :param args: notifiation arguments.
         """
         if component == None:
             return
@@ -43,11 +43,11 @@ class Notifier:
         To be notified components must implement [[INotifiable]] interface.
         If they don't the call to this method has no effect.
 
-        :param correlation_id:(optional) transaction id to trace execution through call chain.
+        :param correlation_id: (optional) transaction id to trace execution through call chain.
 
-        :param components:a list of components that are to be notified.
+        :param components: a list of components that are to be notified.
 
-        :param args:notification arguments.
+        :param args: notification arguments.
         """
         if components == None:
             return

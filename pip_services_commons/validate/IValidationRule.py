@@ -22,12 +22,12 @@ class IValidationRule(object):
         """
         Validates a given value against this rule.
 
-        :param path:a dot notation path to the value.
+        :param path: a dot notation path to the value.
 
-        :param schema:a schema this rule is called from
+        :param schema: a schema this rule is called from
 
-        :param value:a value to be validated.
+        :param value: a value to be validated.
 
-        :param results:a list with validation results to add new results.
+        :param results: a list with validation results to add new results.
         """
         raise NotImplementedError('Method from interface definition')

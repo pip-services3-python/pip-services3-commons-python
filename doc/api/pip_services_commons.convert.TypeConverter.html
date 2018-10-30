@@ -90,8 +90,16 @@ value3 = TypeConverter.to_type(TypeCode.Boolean, “F”) // Result: false</dd>
 <dt id="pip_services_commons.convert.TypeConverter.TypeConverter.to_string">
 <em class="property">static </em><code class="descname">to_string</code><span class="sig-paren">(</span><em>type</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.convert.TypeConverter.TypeConverter.to_string" title="Permalink to this definition">¶</a></dt>
 <dd><p>Converts a TypeCode into its string name.</p>
-<p>:param type:the TypeCode to convert into a string.</p>
-<p>:return:the name of the TypeCode passed as a string value.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>type</strong> – the TypeCode to convert into a string.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">the name of the TypeCode passed as a string value.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="staticmethod">
@@ -135,10 +143,22 @@ value3 = TypeConverter.to_type(TypeCode.Boolean, “F”) // Result: false</dd>
 <dt id="pip_services_commons.convert.TypeConverter.TypeConverter.to_type_with_default">
 <em class="property">static </em><code class="descname">to_type_with_default</code><span class="sig-paren">(</span><em>value_type</em>, <em>value</em>, <em>default_value</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.convert.TypeConverter.TypeConverter.to_type_with_default" title="Permalink to this definition">¶</a></dt>
 <dd><p>Converts value into an object type specified by Type Code or returns default value when conversion is not possible.</p>
-<p>:param value_type:the TypeCode for the data type into which ‘value’ is to be converted.</p>
-<p>:param value:the value to convert.</p>
-<p>:param default_value:the default value to return if conversion is not possible (returns None).</p>
-<p>:return:object value of type corresponding to TypeCode, or default value when conversion is not supported.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>value_type</strong> – the TypeCode for the data type into which ‘value’ is to be converted.</li>
+<li><strong>value</strong> – the value to convert.</li>
+<li><strong>default_value</strong> – the default value to return if conversion is not possible (returns None).</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">object value of type corresponding to TypeCode, or default value when conversion is not supported.</p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </dd></dl>

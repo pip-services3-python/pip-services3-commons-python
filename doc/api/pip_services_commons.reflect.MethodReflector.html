@@ -73,27 +73,59 @@ MethodReflector.invoke_method(myObj, “myMethod”, 123)</p>
 <dt id="pip_services_commons.reflect.MethodReflector.MethodReflector.get_method_names">
 <em class="property">static </em><code class="descname">get_method_names</code><span class="sig-paren">(</span><em>obj</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.reflect.MethodReflector.MethodReflector.get_method_names" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets names of all methods implemented in specified object.</p>
-<p>:param obj:an object to introspect.</p>
-<p>:return:a list with method names.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>obj</strong> – an object to introspect.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">a list with method names.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="staticmethod">
 <dt id="pip_services_commons.reflect.MethodReflector.MethodReflector.has_method">
 <em class="property">static </em><code class="descname">has_method</code><span class="sig-paren">(</span><em>obj</em>, <em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.reflect.MethodReflector.MethodReflector.has_method" title="Permalink to this definition">¶</a></dt>
 <dd><p>Checks if object has a method with specified name.</p>
-<p>:param obj:an object to introspect.</p>
-<p>:param name:a name of the method to check.</p>
-<p>:return:true if the object has the method and false if it doesn’t.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>obj</strong> – an object to introspect.</li>
+<li><strong>name</strong> – a name of the method to check.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">true if the object has the method and false if it doesn’t.</p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="staticmethod">
 <dt id="pip_services_commons.reflect.MethodReflector.MethodReflector.invoke_method">
 <em class="property">static </em><code class="descname">invoke_method</code><span class="sig-paren">(</span><em>obj</em>, <em>name</em>, <em>*args</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.reflect.MethodReflector.MethodReflector.invoke_method" title="Permalink to this definition">¶</a></dt>
 <dd><p>Invokes an object method by its name with specified parameters.</p>
-<p>:param obj:an object to invoke.</p>
-<p>:param name:a name of the method to invoke.</p>
-<p>:param args:a list of method arguments.</p>
-<p>:return:the result of the method invocation or null if method returns void.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>obj</strong> – an object to invoke.</li>
+<li><strong>name</strong> – a name of the method to invoke.</li>
+<li><strong>args</strong> – a list of method arguments.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">the result of the method invocation or null if method returns void.</p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </dd></dl>

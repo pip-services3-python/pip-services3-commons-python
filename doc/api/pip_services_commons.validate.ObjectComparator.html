@@ -46,7 +46,7 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">copyright:</th><td class="field-body">Conceptual Vision Consulting LLC 2015-2016, see AUTHORS for more details.</td>
+<tr class="field-odd field"><th class="field-name">copyright:</th><td class="field-body">Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">license:</th><td class="field-body">MIT, see LICENSE for more details.</td>
 </tr>
@@ -56,35 +56,142 @@
 <dt id="pip_services_commons.validate.ObjectComparator.ObjectComparator">
 <em class="property">class </em><code class="descclassname">pip_services_commons.validate.ObjectComparator.</code><code class="descname">ObjectComparator</code><a class="headerlink" href="#pip_services_commons.validate.ObjectComparator.ObjectComparator" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Helper class to perform comparison operations over arbitrary values.</p>
+<dl class="docutils">
+<dt>Example:</dt>
+<dd>ObjectComparator.compare(2, “GT”, 1)        // Result: true
+ObjectComparator.areEqual(“A”, “B”)         // Result: false</dd>
+</dl>
 <dl class="staticmethod">
 <dt id="pip_services_commons.validate.ObjectComparator.ObjectComparator.are_equal">
 <em class="property">static </em><code class="descname">are_equal</code><span class="sig-paren">(</span><em>value1</em>, <em>value2</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.validate.ObjectComparator.ObjectComparator.are_equal" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Checks if two values are equal. The operation can be performed over values of any type.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>value1</strong> – the first value to compare</li>
+<li><strong>value2</strong> – the second value to compare</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">true if values are equal and false otherwise</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="staticmethod">
 <dt id="pip_services_commons.validate.ObjectComparator.ObjectComparator.are_not_equal">
 <em class="property">static </em><code class="descname">are_not_equal</code><span class="sig-paren">(</span><em>value1</em>, <em>value2</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.validate.ObjectComparator.ObjectComparator.are_not_equal" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Checks if two values are NOT equal. The operation can be performed over values of any type.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>value1</strong> – the first value to compare</li>
+<li><strong>value2</strong> – the second value to compare</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">true if values are NOT equal and false otherwise</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="staticmethod">
 <dt id="pip_services_commons.validate.ObjectComparator.ObjectComparator.compare">
 <em class="property">static </em><code class="descname">compare</code><span class="sig-paren">(</span><em>value1</em>, <em>operation</em>, <em>value2</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.validate.ObjectComparator.ObjectComparator.compare" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Perform comparison operation over two arguments.
+The operation can be performed over values of any type.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>value1</strong> – the first argument to compare</li>
+<li><strong>operation</strong> – the comparison operation: “==” (“=”, “EQ”), “!= ” (“&lt;&gt;”, “NE”); “&lt;”/”&gt;”
+(“LT”/”GT”), “&lt;=”/”&gt;=” (“LE”/”GE”); “LIKE”.</li>
+<li><strong>value2</strong> – the second argument to compare</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">result of the comparison operation</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="staticmethod">
 <dt id="pip_services_commons.validate.ObjectComparator.ObjectComparator.less">
 <em class="property">static </em><code class="descname">less</code><span class="sig-paren">(</span><em>value1</em>, <em>value2</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.validate.ObjectComparator.ObjectComparator.less" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Checks if first value is less than the second one.
+The operation can be performed over numbers or strings.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>value1</strong> – the first value to compare</li>
+<li><strong>value2</strong> – the second value to compare</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">true if the first value is less than second and false otherwise.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="staticmethod">
 <dt id="pip_services_commons.validate.ObjectComparator.ObjectComparator.match">
 <em class="property">static </em><code class="descname">match</code><span class="sig-paren">(</span><em>value1</em>, <em>value2</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.validate.ObjectComparator.ObjectComparator.match" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Checks if string matches a regular expression</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>value1</strong> – a string value to match</li>
+<li><strong>value2</strong> – a regular expression string</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">true if the value matches regular expression and false otherwise.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="staticmethod">
 <dt id="pip_services_commons.validate.ObjectComparator.ObjectComparator.more">
 <em class="property">static </em><code class="descname">more</code><span class="sig-paren">(</span><em>value1</em>, <em>value2</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.validate.ObjectComparator.ObjectComparator.more" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Checks if first value is greater than the second one.
+The operation can be performed over numbers or strings.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>value1</strong> – the first value to compare</li>
+<li><strong>value2</strong> – the second value to compare</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">true if the first value is greater than second and false otherwise.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 </dd></dl>
 

@@ -65,13 +65,19 @@ logical group, type and version. But if container contains more than one instanc
 and resolution has to be specific about those instances, they can be given a unique
 name and dependency resolvers can be reconfigured to retrieve dependencies by their name.</p>
 <p>Configuration parameters</p>
-<p>dependencies:
-- [dependency name 1]: Dependency 1 locator (descriptor)
-- …
-- [dependency name N]: Dependency N locator (descriptor)</p>
-<p>References
-- References must match configured dependencies.</p>
 <dl class="docutils">
+<dt>dependencies:</dt>
+<dd><ul class="first last simple">
+<li>[dependency name 1]: Dependency 1 locator (descriptor)</li>
+<li>…</li>
+<li>[dependency name N]: Dependency N locator (descriptor)</li>
+</ul>
+</dd>
+<dt>References:</dt>
+<dd><ul class="first last simple">
+<li>References must match configured dependencies.</li>
+</ul>
+</dd>
 <dt>Example:</dt>
 <dd><dl class="first last docutils">
 <dt>class MyComponent(IConfigurable, IReferenceable):</dt>
@@ -101,16 +107,35 @@ Descriptor(“mygroup”,”persistence”,”*”,”persistence2”,”1.0”)
 <dt id="pip_services_commons.refer.DependencyResolver.DependencyResolver.configure">
 <code class="descname">configure</code><span class="sig-paren">(</span><em>config</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.refer.DependencyResolver.DependencyResolver.configure" title="Permalink to this definition">¶</a></dt>
 <dd><p>Configures the component with specified parameters.</p>
-<p>:param config:configuration parameters to set.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>config</strong> – configuration parameters to set.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.refer.DependencyResolver.DependencyResolver.find">
 <code class="descname">find</code><span class="sig-paren">(</span><em>name</em>, <em>required</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.refer.DependencyResolver.DependencyResolver.find" title="Permalink to this definition">¶</a></dt>
 <dd><p>Finds all matching dependencies by their name.</p>
-<p>:param name:the dependency name to locate.</p>
-<p>:param required:true to raise an exception when no dependencies are found.</p>
-<p>:return:a list of found dependencies</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>name</strong> – the dependency name to locate.</li>
+<li><strong>required</strong> – true to raise an exception when no dependencies are found.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">a list of found dependencies</p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="staticmethod">
@@ -118,17 +143,39 @@ Descriptor(“mygroup”,”persistence”,”*”,”persistence2”,”1.0”)
 <em class="property">static </em><code class="descname">from_tuples</code><span class="sig-paren">(</span><em>*tuples</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.refer.DependencyResolver.DependencyResolver.from_tuples" title="Permalink to this definition">¶</a></dt>
 <dd><p>Creates a new DependencyResolver from a list of key-value pairs called tuples
 where key is dependency name and value the depedency locator (descriptor).</p>
-<p>:param tuples:a list of values where odd elements are dependency name
-and the following even elements are dependency locator (descriptor)</p>
-<p>:return:a newly created DependencyResolver.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>tuples</strong> – a list of values where odd elements are dependency name</td>
+</tr>
+</tbody>
+</table>
+<p>and the following even elements are dependency locator (descriptor)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">a newly created DependencyResolver.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.refer.DependencyResolver.DependencyResolver.get_one_optional">
 <code class="descname">get_one_optional</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.refer.DependencyResolver.DependencyResolver.get_one_optional" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets one optional dependency by its name.</p>
-<p>:param name:the dependency name to locate.</p>
-<p>:return:a dependency reference or null of the dependency was not found</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>name</strong> – the dependency name to locate.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">a dependency reference or null of the dependency was not found</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
@@ -136,16 +183,32 @@ and the following even elements are dependency locator (descriptor)</p>
 <code class="descname">get_one_required</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.refer.DependencyResolver.DependencyResolver.get_one_required" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets one required dependency by its name.
 At least one dependency must present. If the dependency was found it throws a [[ReferenceException]]</p>
-<p>:param name:the dependency name to locate.</p>
-<p>:return:a dependency reference</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>name</strong> – the dependency name to locate.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">a dependency reference</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.refer.DependencyResolver.DependencyResolver.get_optional">
 <code class="descname">get_optional</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.refer.DependencyResolver.DependencyResolver.get_optional" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets all optional dependencies by their name.</p>
-<p>:param name:the dependency name to locate.</p>
-<p>:return:a list with found dependencies or empty list of no dependencies was found.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>name</strong> – the dependency name to locate.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">a list with found dependencies or empty list of no dependencies was found.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
@@ -153,23 +216,48 @@ At least one dependency must present. If the dependency was found it throws a [[
 <code class="descname">get_required</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.refer.DependencyResolver.DependencyResolver.get_required" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets all required dependencies by their name.
 At least one dependency must be present. If no dependencies was found it throws a [[ReferenceException]]</p>
-<p>:param name:the dependency name to locate.</p>
-<p>:return:a list with found dependencies.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>name</strong> – the dependency name to locate.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">a list with found dependencies.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.refer.DependencyResolver.DependencyResolver.put">
 <code class="descname">put</code><span class="sig-paren">(</span><em>name</em>, <em>locator</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.refer.DependencyResolver.DependencyResolver.put" title="Permalink to this definition">¶</a></dt>
 <dd><p>Adds a new dependency into this resolver.</p>
-<p>:param name:the dependency’s name.</p>
-<p>:param locator:the locator to find the dependency by.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>name</strong> – the dependency’s name.</li>
+<li><strong>locator</strong> – the locator to find the dependency by.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="pip_services_commons.refer.DependencyResolver.DependencyResolver.set_references">
 <code class="descname">set_references</code><span class="sig-paren">(</span><em>references</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.refer.DependencyResolver.DependencyResolver.set_references" title="Permalink to this definition">¶</a></dt>
 <dd><p>Sets the component references. References must match configured dependencies.</p>
-<p>:param references:references to set.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>references</strong> – references to set.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </dd></dl>

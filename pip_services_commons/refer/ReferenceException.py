@@ -20,9 +20,9 @@ class ReferenceException(InternalException):
         """
         Creates an error instance and assigns its values.
 
-        :param correlation_id:(optional) a unique transaction id to trace execution through call chain.
+        :param correlation_id: (optional) a unique transaction id to trace execution through call chain.
 
-        :param locator:the locator to find reference to dependent component.
+        :param locator: the locator to find reference to dependent component.
         """
         message = 'Cannot locate reference: ' + (str(locator) if locator != None else '<None>')
         super(ReferenceException, self).__init__(correlation_id, "REF_ERROR", message)

@@ -31,7 +31,7 @@ class ArraySchema(Schema):
         """
         Creates a new instance of validation schema and sets its values.
 
-        :param value_type:a type of array elements. None means that elements may have any type.
+        :param value_type: a type of array elements. None means that elements may have any type.
         """
         super(ArraySchema, self).__init__()
         self.value_type = value_type
@@ -40,11 +40,11 @@ class ArraySchema(Schema):
         """
         Validates a given value against the schema and configured validation rules.
 
-        :param path:a dot notation path to the value.
+        :param path: a dot notation path to the value.
 
-        :param value:a value to be validated.
+        :param value: a value to be validated.
 
-        :param results:a list with validation results to add new results.
+        :param results: a list with validation results to add new results.
         """
         name = path if path != None else "value"
         value = ObjectReader.get_value(value)

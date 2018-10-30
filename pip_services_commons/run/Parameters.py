@@ -41,9 +41,9 @@ class Parameters(AnyValueMap):
         The key can be defined using dot notation
         and allows to recursively access elements of elements.
 
-        :param key:a key of the element to get.
+        :param key: a key of the element to get.
 
-        :return:the value of the map element.
+        :return: the value of the map element.
         """
         if key == None or key == '':
             return None
@@ -59,9 +59,9 @@ class Parameters(AnyValueMap):
         The key can be defined using dot notation
         and allows to recursively access elements of elements.
 
-        :param key:a key of the element to put.
+        :param key: a key of the element to put.
 
-        :param value:a new value for map element.
+        :param value: a new value for map element.
         """
         if key == None or key == '':
             return None
@@ -76,9 +76,9 @@ class Parameters(AnyValueMap):
         """
         Converts map element into an Parameters or returns null if conversion is not possible.
 
-        :param key:a key of element to get.
+        :param key: a key of element to get.
 
-        :return:Parameters value of the element or null if conversion is not supported.
+        :return: Parameters value of the element or null if conversion is not supported.
         """
         value = self.get_as_nullable_map(key)
         return Parameters(value) if value != None else None
@@ -87,9 +87,9 @@ class Parameters(AnyValueMap):
         """
         Converts map element into an Parameters or returns empty Parameters if conversion is not possible.
 
-        :param key:a key of element to get.
+        :param key: a key of element to get.
 
-        :return:Parameters value of the element or empty Parameters if conversion is not supported.
+        :return: Parameters value of the element or empty Parameters if conversion is not supported.
         """
         value = self.get_as_map(key)
         return Parameters(value)
@@ -98,11 +98,11 @@ class Parameters(AnyValueMap):
         """
         Converts map element into an Parameters or returns default value if conversion is not possible.
 
-        :param key:a key of element to get.
+        :param key: a key of element to get.
 
-        :param default_value:the default value
+        :param default_value: the default value
 
-        :return:Parameters value of the element or default value if conversion is not supported.
+        :return: Parameters value of the element or default value if conversion is not supported.
         """
         result = self.get_as_nullable_parameters(key)
         return result if result != None else default_value
@@ -114,9 +114,9 @@ class Parameters(AnyValueMap):
         The key can be defined using dot notation
         and allows to recursively access elements of elements.
 
-        :param key:a key to be checked
+        :param key: a key to be checked
 
-        :return:true if this map contains the key or false otherwise.
+        :return: true if this map contains the key or false otherwise.
         """
         return RecursiveObjectReader.has_property(self, key)
 
@@ -124,11 +124,11 @@ class Parameters(AnyValueMap):
         """
         Overrides parameters with new values from specified Parameters and returns a new Parameters object.
 
-        :param parameters:Parameters with parameters to override the current values.
+        :param parameters: Parameters with parameters to override the current values.
 
-        :param recursive:(optional) true to perform deep copy, and false for shallow copy. Default: false
+        :param recursive: (optional) true to perform deep copy, and false for shallow copy. Default: false
 
-        :return:a new Parameters object.
+        :return: a new Parameters object.
         """
         result = Parameters()
 
@@ -145,11 +145,11 @@ class Parameters(AnyValueMap):
         """
         Set default values from specified Parameters and returns a new Parameters object.
 
-        :param default_values:Parameters with default parameter values.
+        :param default_values: Parameters with default parameter values.
 
-        :param recursive:(optional) true to perform deep copy, and false for shallow copy. Default: false
+        :param recursive: (optional) true to perform deep copy, and false for shallow copy. Default: false
 
-        :return:a new Parameters object.
+        :return: a new Parameters object.
         """
         result = Parameters()
 
@@ -166,7 +166,7 @@ class Parameters(AnyValueMap):
         """
         Assigns (copies over) properties from the specified value to this map.
 
-        :param value:value whose properties shall be copied over.
+        :param value: value whose properties shall be copied over.
         """
         if value == None or len(self) == 0:
             return
@@ -177,9 +177,9 @@ class Parameters(AnyValueMap):
         """
         Picks select parameters from this Parameters and returns them as a new Parameters object.
 
-        :param props:keys to be picked and copied over to new Parameters.
+        :param props: keys to be picked and copied over to new Parameters.
 
-        :return:a new Parameters object.
+        :return: a new Parameters object.
         """
         result = Parameters()
         for prop in props:
@@ -191,9 +191,9 @@ class Parameters(AnyValueMap):
         """
         Omits selected parameters from this Parameters and returns the rest as a new Parameters object.
 
-        :param props:keys to be omitted from copying over to new Parameters.
+        :param props: keys to be omitted from copying over to new Parameters.
 
-        :return:a new Parameters object.
+        :return: a new Parameters object.
         """
         result = Parameters(self)
         for prop in props:
@@ -204,7 +204,7 @@ class Parameters(AnyValueMap):
         """
         Converts this map to JSON object.
 
-        :return:a JSON representation of this map.
+        :return: a JSON representation of this map.
         """
         return JsonConverter.to_json(self)
 
@@ -213,9 +213,9 @@ class Parameters(AnyValueMap):
         """
         Creates a new Parameters object filled with key-value pairs from specified object.
 
-        :param value:an object with key-value pairs used to initialize a new Parameters.
+        :param value: an object with key-value pairs used to initialize a new Parameters.
 
-        :return:a new Parameters object.
+        :return: a new Parameters object.
         """
         map = value if isinstance(value, dict) else RecursiveObjectReader.get_properties(value)
         return Parameters(map)
@@ -226,9 +226,9 @@ class Parameters(AnyValueMap):
         Creates a new Parameters object filled with provided key-value pairs called tuples.
         Tuples parameters contain a sequence of key1, value1, key2, value2, ... pairs.
 
-        :param tuples:the tuples to fill a new Parameters object.
+        :param tuples: the tuples to fill a new Parameters object.
 
-        :return:a new Parameters object.
+        :return: a new Parameters object.
         """
         map = AnyValueMap.from_tuples_array(tuples)
         return Parameters(map)
@@ -238,9 +238,9 @@ class Parameters(AnyValueMap):
         """
         Merges two or more Parameters into one. The following Parameters override previously defined parameters.
 
-        :param parameters:a list of Parameters objects to be merged.
+        :param parameters: a list of Parameters objects to be merged.
 
-        :return:a new Parameters object.
+        :return: a new Parameters object.
         """
         map = AnyValueMap.from_maps(parameters)
         return Parameters(map)
@@ -250,9 +250,9 @@ class Parameters(AnyValueMap):
         """
         Creates new Parameters from JSON object.
 
-        :param json:a JSON string containing parameters.
+        :param json: a JSON string containing parameters.
 
-        :return:a new Parameters object.
+        :return: a new Parameters object.
         """
         map = JsonConverter.to_nullable_map(json)
         return Parameters(map)
@@ -262,9 +262,9 @@ class Parameters(AnyValueMap):
         """
         Creates new Parameters from ConfigMap object.
 
-        :param config:a ConfigParams that contain parameters.
+        :param config: a ConfigParams that contain parameters.
 
-        :return:a new Parameters object.
+        :return: a new Parameters object.
         """
         result = Parameters()
         

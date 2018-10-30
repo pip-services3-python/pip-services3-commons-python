@@ -46,7 +46,7 @@ class References(IReferences):
         """
         Creates a new instance of references and initializes it with references.
 
-        :param tuples:(optional) a list of values where odd elements are locators
+        :param tuples: (optional) a list of values where odd elements are locators
         and the following even elements are component references
         """
         self._references = []
@@ -65,9 +65,9 @@ class References(IReferences):
         """
         Puts a new reference into this reference map.
 
-        :param locator:a component reference to be added.
+        :param locator: a component reference to be added.
 
-        :param component:a locator to find the reference by.
+        :param component: a locator to find the reference by.
         """
         if component == None:
             raise Exception("Component cannot be null")
@@ -85,9 +85,9 @@ class References(IReferences):
         If many references match the locator, it removes only the first one.
         When all references shall be removed, use [[removeAll]] method instead.
 
-        :param locator:a locator to remove reference
+        :param locator: a locator to remove reference
 
-        :return:the removed component reference.
+        :return: the removed component reference.
         """
         if locator == None:
             return None
@@ -107,9 +107,9 @@ class References(IReferences):
         """
         Removes all component references that match the specified locator.
 
-        :param locator:a locator to remove reference by.
+        :param locator: a locator to remove reference by.
 
-        :return:a list, containing all removed references.
+        :return: a list, containing all removed references.
         """
         components = []
 
@@ -131,7 +131,7 @@ class References(IReferences):
         """
         Gets locators for all registered component references in this reference map.
 
-        :return:a list with component locators.
+        :return: a list with component locators.
         """
         locators = []
 
@@ -148,7 +148,7 @@ class References(IReferences):
         """
         Gets all component references registered in this reference map.
 
-        :return:a list with component references.
+        :return: a list with component references.
         """
         components = []
         
@@ -166,9 +166,9 @@ class References(IReferences):
         """
         Gets all component references that match specified locator.
 
-        :param locator:the locator to find references by.
+        :param locator: the locator to find references by.
 
-        :return:a list with matching component references or empty list if nothing was found.
+        :return: a list with matching component references or empty list if nothing was found.
         """
         try:
             return self.find(locator, False)
@@ -181,11 +181,11 @@ class References(IReferences):
         Gets all component references that match specified locator.
         At least one component reference must be present. If it doesn't the method throws an error.
 
-        :param locator:the locator to find references by.
+        :param locator: the locator to find references by.
 
-        :return:a list with matching component references.
+        :return: a list with matching component references.
 
-        :raises:a [[ReferenceException]] when no references found.
+        :raises: a [[ReferenceException]] when no references found.
         """
         return self.find(locator, True)
 
@@ -194,9 +194,9 @@ class References(IReferences):
         """
         Gets an optional component reference that matches specified locator.
 
-        :param locator:the locator to find references by.
+        :param locator: the locator to find references by.
 
-        :return:a matching component reference or null if nothing was found.
+        :return: a matching component reference or null if nothing was found.
         """
         try:
             components = self.find(locator, False)
@@ -209,11 +209,11 @@ class References(IReferences):
         """
          Gets a required component reference that matches specified locator.
 
-         :param locator:the locator to find a reference by.
+         :param locator: the locator to find a reference by.
 
-         :return:a matching component reference.
+         :return: a matching component reference.
 
-         :raises:a [[ReferenceException]] when no references found.
+         :raises: a [[ReferenceException]] when no references found.
          """
         components = self.find(locator, True)
         return components[0] if len(components) > 0 else None
@@ -223,13 +223,13 @@ class References(IReferences):
         """
         Gets all component references that match specified locator.
 
-        :param locator:the locator to find a reference by.
+        :param locator: the locator to find a reference by.
 
-        :param required:forces to raise an exception if no reference is found.
+        :param required: forces to raise an exception if no reference is found.
 
-        :return:a list with matching component references.
+        :return: a list with matching component references.
 
-        :raises:a [[ReferenceException]] when required is set to true but no references found.
+        :raises: a [[ReferenceException]] when required is set to true but no references found.
         """
         if locator == None:
             raise Exception("Locator cannot be null")
@@ -260,9 +260,9 @@ class References(IReferences):
         """
         Creates a new References from a list of key-value pairs called tuples.
 
-        :param tuples:a list of values where odd elements are locators
+        :param tuples: a list of values where odd elements are locators
                       and the following even elements are component references
 
-        :return:a newly created References.
+        :return: a newly created References.
         """
         return References(tuples)

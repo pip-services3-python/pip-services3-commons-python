@@ -44,9 +44,9 @@ class IReferences:
         """
         Puts a new reference into this reference map.
 
-        :param locator:a component reference to be added.
+        :param locator: a component reference to be added.
 
-        :param reference:a locator to find the reference by.
+        :param reference: a locator to find the reference by.
         """
         raise NotImplementedError('Method from interface definition')
 
@@ -56,9 +56,9 @@ class IReferences:
         If many references match the locator, it removes only the first one.
         When all references shall be removed, use [[removeAll]] method instead.
 
-        :param locator:a locator to remove reference
+        :param locator: a locator to remove reference
 
-        :return:the removed component reference.
+        :return: the removed component reference.
         """
         raise NotImplementedError('Method from interface definition')
 
@@ -66,7 +66,7 @@ class IReferences:
         """
         Gets locators for all registered component references in this reference map.
 
-        :return:a list with component locators.
+        :return: a list with component locators.
         """
         raise NotImplementedError('Method from interface definition')
 
@@ -74,7 +74,7 @@ class IReferences:
         """
         Gets all component references registered in this reference map.
 
-        :return:a list with component references.
+        :return: a list with component references.
         """
         raise NotImplementedError('Method from interface definition')
 
@@ -82,9 +82,9 @@ class IReferences:
         """
         Gets all component references that match specified locator.
 
-        :param locator:the locator to find references by.
+        :param locator: the locator to find references by.
 
-        :return:a list with matching component references or empty list if nothing was found.
+        :return: a list with matching component references or empty list if nothing was found.
         """
         raise NotImplementedError('Method from interface definition')
 
@@ -93,11 +93,11 @@ class IReferences:
         Gets all component references that match specified locator.
         At least one component reference must be present. If it doesn't the method throws an error.
 
-        :param locator:the locator to find references by.
+        :param locator: the locator to find references by.
 
-        :return:a list with matching component references.
+        :return: a list with matching component references.
 
-        :raises:a [[ReferenceException]] when no references found.
+        :raises: a [[ReferenceException]] when no references found.
         """
         raise NotImplementedError('Method from interface definition')
 
@@ -105,9 +105,9 @@ class IReferences:
         """
         Gets an optional component reference that matches specified locator.
 
-        :param locator:the locator to find references by.
+        :param locator: the locator to find references by.
 
-        :return:a matching component reference or null if nothing was found.
+        :return: a matching component reference or null if nothing was found.
         """
         raise NotImplementedError('Method from interface definition')
 
@@ -115,11 +115,11 @@ class IReferences:
         """
         Gets a required component reference that matches specified locator.
 
-        :param locator:the locator to find a reference by.
+        :param locator: the locator to find a reference by.
 
-        :return:a matching component reference.
+        :return: a matching component reference.
 
-        :raises:a [[ReferenceException]] when no references found.
+        :raises: a [[ReferenceException]] when no references found.
         """
         raise NotImplementedError('Method from interface definition')
 
@@ -130,12 +130,12 @@ class IReferences:
         """
         Gets all component references that match specified locator.
 
-        :param locator:the locator to find a reference by.
+        :param locator: the locator to find a reference by.
 
-        :param required:forces to raise an exception if no reference is found.
+        :param required: forces to raise an exception if no reference is found.
 
-        :return:a list with matching component references.
+        :return: a list with matching component references.
 
-        :raises:a [[ReferenceException]] when required is set to true but no references found.
+        :raises: a [[ReferenceException]] when required is set to true but no references found.
         """
         raise NotImplementedError('Method from interface definition')

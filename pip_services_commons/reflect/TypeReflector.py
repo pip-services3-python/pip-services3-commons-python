@@ -37,11 +37,11 @@ class TypeReflector:
         """
         Gets object type by its name and library where it is defined.
 
-        :param name:an object type name.
+        :param name: an object type name.
 
-        :param library:a library where the type is defined
+        :param library: a library where the type is defined
 
-        :return:the object type or null is the type wasn't found.
+        :return: the object type or null is the type wasn't found.
         """
         if name == None:
             raise Exception("Class name cannot be null")
@@ -59,9 +59,9 @@ class TypeReflector:
         """
         Gets object type by type descriptor.
 
-        :param descriptor:a type descriptor that points to an object type
+        :param descriptor: a type descriptor that points to an object type
 
-        :return:the object type or null is the type wasn't found.
+        :return: the object type or null is the type wasn't found.
         """
         if descriptor == None:
             raise Exception("Type descriptor cannot be null")
@@ -73,13 +73,13 @@ class TypeReflector:
         """
         Creates an instance of an object type specified by its name and library where it is defined.
 
-        :param name:an object type (factory function) to create.
+        :param name: an object type (factory function) to create.
 
-        :param library:a library (module) where object type is defined.
+        :param library: a library (module) where object type is defined.
 
-        :param args:arguments for the object constructor.
+        :param args: arguments for the object constructor.
 
-        :return:the created object instance.
+        :return: the created object instance.
         """
         obj_type = TypeReflector.get_type(name, library)
         if obj_type == None:
@@ -94,11 +94,11 @@ class TypeReflector:
         """
         Creates an instance of an object type.
 
-        :param obj_type:an object type (factory function) to create.
+        :param obj_type: an object type (factory function) to create.
 
-        :param args:arguments for the object constructor.
+        :param args: arguments for the object constructor.
 
-        :return:the created object instance.
+        :return: the created object instance.
         """
         if obj_type == None:
             raise Exception("Class type cannot be null")
@@ -110,11 +110,11 @@ class TypeReflector:
         """
         Creates an instance of an object type specified by type descriptor.
 
-        :param descriptor:a type descriptor that points to an object type
+        :param descriptor: a type descriptor that points to an object type
 
-        :param args:arguments for the object constructor.
+        :param args: arguments for the object constructor.
 
-        :return:the created object instance.
+        :return: the created object instance.
         """
         if descriptor == None:
             raise Exception("Type descriptor cannot be null")
@@ -129,9 +129,9 @@ class TypeReflector:
         Primitive types are: numbers, strings, booleans, date and time.
         Complex (non-primitive types are): objects, maps and arrays
 
-        :param value:a value to check
+        :param value: a value to check
 
-        :return:true if the value has primitive type and false if value type is complex.
+        :return: true if the value has primitive type and false if value type is complex.
         """
         typeCode = TypeConverter.to_type_code(value)
         return typeCode == TypeCode.String or typeCode == TypeCode.Enum or typeCode == TypeCode.Boolean \

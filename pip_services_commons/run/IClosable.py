@@ -20,6 +20,6 @@ class IClosable:
         """
         Closes component and frees used resources.
 
-        :param correlation_id:(optional) transaction id to trace execution through call chain.
+        :param correlation_id: (optional) transaction id to trace execution through call chain.
         """
         raise NotImplementedError('Method from interface definition')

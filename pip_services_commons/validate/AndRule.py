@@ -30,7 +30,7 @@ class AndRule(IValidationRule):
         """
         Creates a new validation rule and sets its values.
 
-        :param rules:a list of rules to join with AND operator
+        :param rules: a list of rules to join with AND operator
         """
         self._rules = rules
     
@@ -38,13 +38,13 @@ class AndRule(IValidationRule):
         """
         Validates a given value against this rule.
 
-        :param path:a dot notation path to the value.
+        :param path: a dot notation path to the value.
 
-        :param schema:a schema this rule is called from
+        :param schema: a schema this rule is called from
 
-        :param value:a value to be validated.
+        :param value: a value to be validated.
 
-        :param results:a list with validation results to add new results.
+        :param results: a list with validation results to add new results.
         """
         if self._rules == None:
             return

@@ -26,9 +26,9 @@ class TypeDescriptor:
         """
         Creates a new instance of the type descriptor and sets its values.
 
-        :param name:a name of the object type.
+        :param name: a name of the object type.
 
-        :param library:a library or module where this object type is implemented.
+        :param library: a library or module where this object type is implemented.
         """
         self._name = name
         self._library = library
@@ -37,7 +37,7 @@ class TypeDescriptor:
         """
         Get the name of the object type.
 
-        :return:the name of the object type.
+        :return: the name of the object type.
         """
         return self._name
 
@@ -45,7 +45,7 @@ class TypeDescriptor:
         """
         Gets the name of the library or module where the object type is defined.
 
-        :return:the name of the library or module.
+        :return: the name of the library or module.
         """
         return self._library
 
@@ -55,9 +55,9 @@ class TypeDescriptor:
         If the value is also a TypeDescriptor it compares their name and library fields.
         Otherwise this method returns false.
 
-        :param other:a value to compare.
+        :param other: a value to compare.
 
-        :return:true if value is identical TypeDescriptor and false otherwise.
+        :return: true if value is identical TypeDescriptor and false otherwise.
         """
         if isinstance(other, TypeDescriptor):
             if self._name == None or other._name == None:
@@ -73,7 +73,7 @@ class TypeDescriptor:
         """
         Gets a string representation of the object. The result has format name[,library]
 
-        :return:a string representation of the object.
+        :return: a string representation of the object.
         """
         result = self._name
         if self._library != None:
@@ -86,9 +86,9 @@ class TypeDescriptor:
         Parses a string to get descriptor fields and returns them as a Descriptor.
         The string must have format name[,library]
 
-        :param value:a string to parse.
+        :param value: a string to parse.
 
-        :return:a newly created Descriptor.
+        :return: a newly created Descriptor.
         """
         if value == None or len(value) == 0:
             return None

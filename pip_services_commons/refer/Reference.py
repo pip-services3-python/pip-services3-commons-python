@@ -23,9 +23,9 @@ class Reference(object):
         """
         Create a new instance of the reference object and assigns its values.
 
-        :param locator:a locator to find the reference.
+        :param locator: a locator to find the reference.
 
-        :param component:a reference to component.
+        :param component: a reference to component.
         """
         if component == None:
             raise Exception("Component cannot be null")
@@ -39,9 +39,9 @@ class Reference(object):
         Matches locator to this reference locator. Descriptors are matched using equal method.
         All other locator types are matched using direct comparison.
 
-        :param locator:the locator to match.
+        :param locator: the locator to match.
 
-        :return:true if locators are matching and false it they don't.
+        :return: true if locators are matching and false it they don't.
         """
         # Locate by direct reference matching
         if self._component == locator:
@@ -57,7 +57,7 @@ class Reference(object):
         """
         Gets the stored component reference.
 
-        :return:the component's references.
+        :return: the component's references.
         """
         return self._component
 
@@ -66,6 +66,6 @@ class Reference(object):
         """
         Gets the stored component locator.
 
-        :return:the component's locator.
+        :return: the component's locator.
         """
         return self._locator

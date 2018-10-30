@@ -63,8 +63,16 @@
 <dd><p>Checks if all components are opened.</p>
 <p>To be checked components must implement [[IOpenable]] interface.
 If they don’t the call to this method returns true.</p>
-<p>:param components:a list of components that are to be checked.</p>
-<p>:return:true if all components are opened and false if at least one component is closed.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>components</strong> – a list of components that are to be checked.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">true if all components are opened and false if at least one component is closed.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="staticmethod">
@@ -73,8 +81,16 @@ If they don’t the call to this method returns true.</p>
 <dd><p>Checks if specified component is opened.</p>
 <p>To be checked components must implement [[IOpenable]] interface.
 If they don’t the call to this method returns true.</p>
-<p>:param component:the component that is to be checked.</p>
-<p>:return:true if component is opened and false otherwise.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>component</strong> – the component that is to be checked.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">true if component is opened and false otherwise.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="staticmethod">
@@ -83,8 +99,18 @@ If they don’t the call to this method returns true.</p>
 <dd><p>Opens multiple components.</p>
 <p>To be opened components must implement [[IOpenable]] interface.
 If they don’t the call to this method has no effect.</p>
-<p>:param correlation_id:(optional) transaction id to trace execution through call chain.</p>
-<p>:param components:the list of components that are to be closed.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>correlation_id</strong> – (optional) transaction id to trace execution through call chain.</li>
+<li><strong>components</strong> – the list of components that are to be closed.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="staticmethod">
@@ -93,8 +119,18 @@ If they don’t the call to this method has no effect.</p>
 <dd><p>Opens specific component.</p>
 <p>To be opened components must implement [[IOpenable]] interface.
 If they don’t the call to this method has no effect.</p>
-<p>:param correlation_id:(optional) transaction id to trace execution through call chain.</p>
-<p>:param component:the component that is to be opened.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>correlation_id</strong> – (optional) transaction id to trace execution through call chain.</li>
+<li><strong>component</strong> – the component that is to be opened.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </dd></dl>
