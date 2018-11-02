@@ -100,10 +100,6 @@ div.sphinxsidebar input {
     font-size: 1em;
 }
 
-
-
-/* -- hyperlink styles ------------------------------------------------------ */
-
 a {
     color: #355f7c;
     text-decoration: none;
@@ -117,10 +113,6 @@ a:visited {
 a:hover {
     text-decoration: underline;
 }
-
-
-
-/* -- body styles ----------------------------------------------------------- */
 
 div.body h1,
 div.body h2,
