@@ -1,5 +1,22 @@
 # Basic portable abstractions for Pip.Services in Python Changelog
 
+## <a name="3.0.0"></a>3.0.0 (2018-10-30)
+
+### New release
+* Restructuring package
+
+### Features
+* **commands** Command and Eventing patterns
+* **config** Configuration framework
+* **convert** Portable soft data converters
+* **data** Data value objects and random value generators
+* **errors** Portable application errors
+* **random** Random components
+* **refer** Component referencing framework
+* **reflect** Portable reflection helpers
+* **run** Execution framework
+* **validate** Data validators
+
 ## <a name="2.4.0"></a> 2.4.0 (2017-04-20)
 
 ### Breaking changes
