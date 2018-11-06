@@ -15,6 +15,6 @@ Welcome to Pip-services-commons's documentation!
 Indices and tables
 ==================
 
-* :ref:`genindex.html`
-* :ref:`modules.html`
-* :ref:`search.html`
+* :ref:`genindex`
+* :ref:`py-modindex`
+* :ref:`search`
