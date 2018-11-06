@@ -1,0 +1,244 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>pip_services_commons.data.PagingParams module &#8212; Pip.Services Commons for Python API</title>
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Pip.Services Commons for Python API</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-pip_services_commons.data.PagingParams">
+<span id="pip-services-commons-data-pagingparams-module"></span><h1>pip_services_commons.data.PagingParams module<a class="headerlink" href="#module-pip_services_commons.data.PagingParams" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="pip-services-commons-data-pagingparams">
+<h2>pip_services_commons.data.PagingParams<a class="headerlink" href="#pip-services-commons-data-pagingparams" title="Permalink to this headline">¶</a></h2>
+<p>Data paging parameters implementation</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">copyright:</th><td class="field-body">Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">license:</th><td class="field-body">MIT, see LICENSE for more details.</td>
+</tr>
+</tbody>
+</table>
+<dl class="class">
+<dt id="pip_services_commons.data.PagingParams.PagingParams">
+<em class="property">class </em><code class="descclassname">pip_services_commons.data.PagingParams.</code><code class="descname">PagingParams</code><span class="sig-paren">(</span><em>skip=None</em>, <em>take=None</em>, <em>total=True</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.data.PagingParams.PagingParams" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Data transfer object to pass paging parameters for queries.</p>
+<p>The page is defined by two parameters:
+- the &lt;code&gt;skip&lt;/code&gt; parameter defines number of items to skip.
+- the &lt;code&gt;take&lt;/code&gt; parameter sets how many items to return in a page.
+- additionally, the optional &lt;code&gt;total&lt;/code&gt; parameter tells to return total number of items in the query.</p>
+<blockquote>
+<div><p>Remember: not all implementations support the &lt;code&gt;total&lt;/code&gt; parameter
+because its generation may lead to severe performance implications.</p>
+<dl class="docutils">
+<dt>Example:</dt>
+<dd><p class="first">filter = FilterParams.fromTuples(“type”, “Type1”)
+paging = PagingParams(0, 100)</p>
+<p class="last">myDataClient.get_data_by_filter(filter, paging)</p>
+</dd>
+</dl>
+</div></blockquote>
+<dl class="staticmethod">
+<dt id="pip_services_commons.data.PagingParams.PagingParams.from_json">
+<em class="property">static </em><code class="descname">from_json</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.data.PagingParams.PagingParams.from_json" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="pip_services_commons.data.PagingParams.PagingParams.from_map">
+<em class="property">static </em><code class="descname">from_map</code><span class="sig-paren">(</span><em>map</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.data.PagingParams.PagingParams.from_map" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a new PagingParams and sets it parameters from the specified map</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>map</strong> – a AnyValueMap or StringValueMap to initialize this PagingParams</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">a newly created PagingParams.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="pip_services_commons.data.PagingParams.PagingParams.from_tuples">
+<em class="property">static </em><code class="descname">from_tuples</code><span class="sig-paren">(</span><em>*tuples</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.data.PagingParams.PagingParams.from_tuples" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a new PagingParams from a list of key-value pairs called tuples.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>tuples</strong> – a list of values where odd elements are keys and the following even elements are values</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">a newly created PagingParams.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="pip_services_commons.data.PagingParams.PagingParams.from_value">
+<em class="property">static </em><code class="descname">from_value</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.data.PagingParams.PagingParams.from_value" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts specified value into PagingParams.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>value</strong> – value to be converted</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">a newly created PagingParams.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pip_services_commons.data.PagingParams.PagingParams.get_skip">
+<code class="descname">get_skip</code><span class="sig-paren">(</span><em>min_skip</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.data.PagingParams.PagingParams.get_skip" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the number of items to skip.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>min_skip</strong> – the minimum number of items to skip.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">the number of items to skip.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pip_services_commons.data.PagingParams.PagingParams.get_take">
+<code class="descname">get_take</code><span class="sig-paren">(</span><em>max_take</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.data.PagingParams.PagingParams.get_take" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the number of items to return in a page.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>max_take</strong> – the maximum number of items to return.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">the number of items to return.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pip_services_commons.data.PagingParams.PagingParams.has_total">
+<code class="descname">has_total</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.data.PagingParams.PagingParams.has_total" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pip_services_commons.data.PagingParams.PagingParams.skip">
+<code class="descname">skip</code><em class="property"> = None</em><a class="headerlink" href="#pip_services_commons.data.PagingParams.PagingParams.skip" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pip_services_commons.data.PagingParams.PagingParams.take">
+<code class="descname">take</code><em class="property"> = None</em><a class="headerlink" href="#pip_services_commons.data.PagingParams.PagingParams.take" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pip_services_commons.data.PagingParams.PagingParams.to_json">
+<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pip_services_commons.data.PagingParams.PagingParams.to_json" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pip_services_commons.data.PagingParams.PagingParams.total">
+<code class="descname">total</code><em class="property"> = True</em><a class="headerlink" href="#pip_services_commons.data.PagingParams.PagingParams.total" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">pip_services_commons.data.PagingParams module</a><ul>
+<li><a class="reference internal" href="#pip-services-commons-data-pagingparams">pip_services_commons.data.PagingParams</a></li>
+</ul>
+</li>
+</ul>
+
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/pip_services_commons.data.PagingParams.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Pip.Services Commons for Python API</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2018, Conceptual Vision Consulting LLC.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.1.
+    </div>
+  </body>
+</html>
