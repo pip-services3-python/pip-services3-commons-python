@@ -9,9 +9,9 @@
 
 from datetime import datetime
 
-from pip_services_commons.convert import TypeCode
-from pip_services_commons.convert import TypeConverter
-from pip_services_commons.convert import DateTimeConverter
+from pip_services3_commons.convert import TypeCode
+from pip_services3_commons.convert import TypeConverter
+from pip_services3_commons.convert import DateTimeConverter
 
 class TestTypeConverter:
 

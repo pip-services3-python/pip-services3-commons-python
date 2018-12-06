@@ -12,12 +12,12 @@ import pytest
 from .TestSubObject import TestSubObject
 from .TestObject import TestObject
 
-from pip_services_commons.convert import JsonConverter, MapConverter
-from pip_services_commons.convert import RecursiveMapConverter
-from pip_services_commons.validate import Schema
-from pip_services_commons.validate import ObjectSchema
-from pip_services_commons.validate import ArraySchema
-from pip_services_commons.validate import MapSchema
+from pip_services3_commons.convert import JsonConverter, MapConverter
+from pip_services3_commons.convert import RecursiveMapConverter
+from pip_services3_commons.validate import Schema
+from pip_services3_commons.validate import ObjectSchema
+from pip_services3_commons.validate import ArraySchema
+from pip_services3_commons.validate import MapSchema
 
 class TestSchema:
 

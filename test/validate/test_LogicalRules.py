@@ -9,10 +9,10 @@
 
 import pytest
 
-from pip_services_commons.validate import Schema
-from pip_services_commons.validate import OrRule
-from pip_services_commons.validate import AndRule
-from pip_services_commons.validate import ValueComparisonRule
+from pip_services3_commons.validate import Schema
+from pip_services3_commons.validate import OrRule
+from pip_services3_commons.validate import AndRule
+from pip_services3_commons.validate import ValueComparisonRule
 
 class TesLogicalRules:
     

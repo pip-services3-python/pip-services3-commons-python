@@ -3,7 +3,7 @@ Pip.Services Commons
 --------------------
 
 Pip.Services is an open-source library of basic microservices.
-pip_services_commons package provides basic abstractions portable across variety of languages.
+pip_services3_commons package provides basic abstractions portable across variety of languages.
 
 Links
 `````
@@ -17,9 +17,9 @@ from setuptools import setup
 from setuptools import find_packages
 
 setup(
-    name='pip_services_commons',
+    name='pip_services3_commons',
     version='3.0.0',
-    url='http://github.com/pip-services-python/pip-services-commons-python',
+    url='http://github.com/pip-services3-python/pip-services3-commons-python',
     license='MIT',
     description='Basic portable abstractions for Pip.Services in Python',
     author='Conceptual Vision Consulting LLC',

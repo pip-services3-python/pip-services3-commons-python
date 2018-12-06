@@ -7,7 +7,7 @@
     :license: MIT, see LICENSE for more details.
 """
 
-from pip_services_commons.convert import RecursiveMapConverter
+from pip_services3_commons.convert import RecursiveMapConverter
 
 class TestClass(object):
     def __init__(self, value1, value2):

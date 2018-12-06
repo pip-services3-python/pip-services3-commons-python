@@ -11,7 +11,7 @@ import pytest
 import datetime
 import pytz
 
-from pip_services_commons.random import RandomDateTime
+from pip_services3_commons.random import RandomDateTime
 
 class TestRandomDateTime:
 

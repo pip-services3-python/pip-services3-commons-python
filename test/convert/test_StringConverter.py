@@ -9,7 +9,7 @@
 
 from datetime import datetime
 
-from pip_services_commons.convert import StringConverter
+from pip_services3_commons.convert import StringConverter
 
 class TestStringConverter:
 

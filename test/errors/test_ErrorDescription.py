@@ -9,11 +9,11 @@
 
 import pytest
 
-from pip_services_commons.errors import UnsupportedException
-from pip_services_commons.errors import ErrorDescription
-from pip_services_commons.errors import ErrorDescriptionFactory
-from pip_services_commons.errors import ApplicationExceptionFactory
-from pip_services_commons.errors import ErrorCategory
+from pip_services3_commons.errors import UnsupportedException
+from pip_services3_commons.errors import ErrorDescription
+from pip_services3_commons.errors import ErrorDescriptionFactory
+from pip_services3_commons.errors import ApplicationExceptionFactory
+from pip_services3_commons.errors import ErrorCategory
 
 class TestApplicationException:
 

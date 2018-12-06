@@ -9,7 +9,7 @@
 
 import pytest
 
-from pip_services_commons.random import RandomFloat
+from pip_services3_commons.random import RandomFloat
 
 class TestRandomFloat:
 

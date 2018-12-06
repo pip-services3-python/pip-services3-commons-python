@@ -9,9 +9,9 @@
 
 import pytest
 from datetime import *
-from pip_services_commons.convert.UTC import UTC
+from pip_services3_commons.convert.UTC import UTC
 
-from pip_services_commons.convert import DateTimeConverter
+from pip_services3_commons.convert import DateTimeConverter
 
 class TestDateTimeConverter:
 

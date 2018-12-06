@@ -9,7 +9,7 @@
 
 import pytest
 
-from pip_services_commons.reflect import PropertyReflector
+from pip_services3_commons.reflect import PropertyReflector
 
 from .TestClass import TestClass
 

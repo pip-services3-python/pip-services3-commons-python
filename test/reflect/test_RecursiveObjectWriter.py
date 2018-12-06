@@ -9,10 +9,10 @@
 
 import pytest
 
-from pip_services_commons.convert import JsonConverter
-from pip_services_commons.data import AnyValueMap
-from pip_services_commons.reflect import RecursiveObjectReader
-from pip_services_commons.reflect import RecursiveObjectWriter
+from pip_services3_commons.convert import JsonConverter
+from pip_services3_commons.data import AnyValueMap
+from pip_services3_commons.reflect import RecursiveObjectReader
+from pip_services3_commons.reflect import RecursiveObjectWriter
 
 from .TestClass import TestClass
 

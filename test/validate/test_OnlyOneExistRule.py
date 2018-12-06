@@ -10,8 +10,8 @@
 import pytest
 
 from .TestObject import TestObject
-from pip_services_commons.validate import OnlyOneExistRule
-from pip_services_commons.validate import Schema
+from pip_services3_commons.validate import OnlyOneExistRule
+from pip_services3_commons.validate import Schema
 
 class TestOnlyOneExistRule:
 

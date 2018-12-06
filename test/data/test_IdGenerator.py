@@ -9,7 +9,7 @@
 
 import pytest
 
-from pip_services_commons.data import IdGenerator
+from pip_services3_commons.data import IdGenerator
 
 class TestIdGenerator:
 

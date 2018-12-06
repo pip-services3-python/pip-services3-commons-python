@@ -9,8 +9,8 @@
 
 import pytest
 
-from pip_services_commons.config import ConfigParams
-from pip_services_commons.config import NameResolver
+from pip_services3_commons.config import ConfigParams
+from pip_services3_commons.config import NameResolver
 
 class TestNameResolver:
 

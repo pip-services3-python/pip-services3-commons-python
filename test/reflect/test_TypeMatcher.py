@@ -10,7 +10,7 @@
 import pytest
 import datetime
 
-from pip_services_commons.reflect import TypeMatcher
+from pip_services3_commons.reflect import TypeMatcher
 
 class TestTypeMatcher:
 

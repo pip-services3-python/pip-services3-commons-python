@@ -9,10 +9,10 @@
 
 import pytest
 
-from pip_services_commons.refer import Descriptor
-from pip_services_commons.refer import References
-from pip_services_commons.refer import DependencyResolver
-from pip_services_commons.config import ConfigParams
+from pip_services3_commons.refer import Descriptor
+from pip_services3_commons.refer import References
+from pip_services3_commons.refer import DependencyResolver
+from pip_services3_commons.config import ConfigParams
 
 class TestDependencyResolver:
 

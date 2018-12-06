@@ -9,7 +9,7 @@
 
 import pytest
 
-from pip_services_commons.reflect import MethodReflector
+from pip_services3_commons.reflect import MethodReflector
 
 from .TestClass import TestClass
 

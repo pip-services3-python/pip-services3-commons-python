@@ -9,9 +9,9 @@
 
 import pytest
 
-from pip_services_commons.commands import Command
-from pip_services_commons.commands import CommandSet
-from pip_services_commons.run import Parameters
+from pip_services3_commons.commands import Command
+from pip_services3_commons.commands import CommandSet
+from pip_services3_commons.run import Parameters
 
 
 class TestCommandSet:

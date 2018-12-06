@@ -9,7 +9,7 @@
 
 import pytest
 
-from pip_services_commons.refer import References
+from pip_services3_commons.refer import References
 
 class TestReferences:
 

@@ -7,7 +7,7 @@
     :license: MIT, see LICENSE for more details.
 """
 
-from pip_services_commons.data.ProjectionParams import ProjectionParams
+from pip_services3_commons.data.ProjectionParams import ProjectionParams
 
 class TestProjectionParams():
 

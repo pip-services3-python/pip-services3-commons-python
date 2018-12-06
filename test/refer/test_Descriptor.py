@@ -9,7 +9,7 @@
 
 import pytest
 
-from pip_services_commons.refer import Descriptor
+from pip_services3_commons.refer import Descriptor
 
 class TestDescriptor:
 

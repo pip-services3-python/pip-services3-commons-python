@@ -9,7 +9,7 @@
 
 import pytest
 
-from pip_services_commons.errors import ApplicationException
+from pip_services3_commons.errors import ApplicationException
 
 class TestApplicationException:
 

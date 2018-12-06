@@ -9,7 +9,7 @@
 
 import pytest
 
-from pip_services_commons.random import RandomInteger
+from pip_services3_commons.random import RandomInteger
 
 class TestRandomInteger:
 

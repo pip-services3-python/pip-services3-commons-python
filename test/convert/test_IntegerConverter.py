@@ -7,7 +7,7 @@
     :license: MIT, see LICENSE for more details.
 """
 
-from pip_services_commons.convert import IntegerConverter
+from pip_services3_commons.convert import IntegerConverter
 
 class TestIntegerConverter:
 
