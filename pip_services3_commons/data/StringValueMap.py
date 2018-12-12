@@ -497,7 +497,7 @@ class StringValueMap(dict):
                 break
 
             key = StringConverter.to_string(tuples[index])
-            value = tuples[index + 1]
+            value = StringConverter.to_nullable_string(tuples[index + 1])
             index += 2
 
             result.put(key, value)

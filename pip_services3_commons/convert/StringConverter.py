@@ -44,6 +44,14 @@ class StringConverter():
                 return value.isoformat() + "Z"
             else:
                 return value.isoformat()
+
+        if type(value) == list:
+            builder = ''
+            for element in value:
+                if len(builder) > 0:
+                    builder = builder + ","
+                builder = builder + element
+            return builder.__str__()
         return str(value)
 
     @staticmethod
