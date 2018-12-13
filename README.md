@@ -21,10 +21,10 @@ All functionality is decomposed into several packages:
 
 Quick Links:
 
-* [Downloads](https://github.com/pip-services-python/pip-services-commons-python/blob/master/doc/Downloads.md)
-* [API Reference](http://htmlpreview.github.io/?https://github.com/pip-services-python/pip-services-commons-python/blob/master/doc/api/index.html)
-* [Building and Testing](https://github.com/pip-services-python/pip-services-commons-python/blob/master/doc/Development.md)
-* [Contributing](https://github.com/pip-services-python/pip-services-commons-python/blob/master/doc/Development.md/#contrib)
+* [Downloads](https://github.com/pip-services3-python/pip-services3-commons-python/blob/master/doc/Downloads.md)
+* [API Reference](https://pip-services3-commons-python.readthedocs.io/en/latest/index.html)
+* [Building and Testing](https://github.com/pip-services3-python/pip-services3-commons-python/blob/master/doc/Development.md)
+* [Contributing](https://github.com/pip-services3-python/pip-services3-commons-python/blob/master/doc/Development.md/#contrib)
 
 ## Acknowledgements
 
