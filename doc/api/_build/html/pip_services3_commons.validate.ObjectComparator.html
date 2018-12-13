@@ -1,0 +1,281 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>pip_services3_commons.validate.ObjectComparator module &#8212; Pip.Services Commons for Python API</title>
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="pip_services3_commons.validate.ObjectSchema module" href="pip_services3_commons.validate.ObjectSchema.html" />
+    <link rel="prev" title="pip_services3_commons.validate.NotRule module" href="pip_services3_commons.validate.NotRule.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="pip_services3_commons.validate.ObjectSchema.html" title="pip_services3_commons.validate.ObjectSchema module"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="pip_services3_commons.validate.NotRule.html" title="pip_services3_commons.validate.NotRule module"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Pip.Services Commons for Python API</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="modules.html" >pip_services3_commons</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="pip_services3_commons.html" >pip_services3_commons package</a> &#187;</li>
+          <li class="nav-item nav-item-3"><a href="pip_services3_commons.validate.html" accesskey="U">pip_services3_commons.validate package</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-pip_services3_commons.validate.ObjectComparator">
+<span id="pip-services3-commons-validate-objectcomparator-module"></span><h1>pip_services3_commons.validate.ObjectComparator module<a class="headerlink" href="#module-pip_services3_commons.validate.ObjectComparator" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="pip-services3-commons-validate-objectcomparator">
+<h2>pip_services3_commons.validate.ObjectComparator<a class="headerlink" href="#pip-services3-commons-validate-objectcomparator" title="Permalink to this headline">¶</a></h2>
+<p>Object comparator implementation</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">copyright:</th><td class="field-body">Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">license:</th><td class="field-body">MIT, see LICENSE for more details.</td>
+</tr>
+</tbody>
+</table>
+<dl class="class">
+<dt id="pip_services3_commons.validate.ObjectComparator.ObjectComparator">
+<em class="property">class </em><code class="descclassname">pip_services3_commons.validate.ObjectComparator.</code><code class="descname">ObjectComparator</code><a class="headerlink" href="#pip_services3_commons.validate.ObjectComparator.ObjectComparator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Helper class to perform comparison operations over arbitrary values.</p>
+<dl class="docutils">
+<dt>Example:</dt>
+<dd>ObjectComparator.compare(2, “GT”, 1)        // Result: true
+ObjectComparator.areEqual(“A”, “B”)         // Result: false</dd>
+</dl>
+<dl class="staticmethod">
+<dt id="pip_services3_commons.validate.ObjectComparator.ObjectComparator.are_equal">
+<em class="property">static </em><code class="descname">are_equal</code><span class="sig-paren">(</span><em>value1</em>, <em>value2</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.validate.ObjectComparator.ObjectComparator.are_equal" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks if two values are equal. The operation can be performed over values of any type.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>value1</strong> – the first value to compare</li>
+<li><strong>value2</strong> – the second value to compare</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">true if values are equal and false otherwise</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="pip_services3_commons.validate.ObjectComparator.ObjectComparator.are_not_equal">
+<em class="property">static </em><code class="descname">are_not_equal</code><span class="sig-paren">(</span><em>value1</em>, <em>value2</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.validate.ObjectComparator.ObjectComparator.are_not_equal" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks if two values are NOT equal. The operation can be performed over values of any type.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>value1</strong> – the first value to compare</li>
+<li><strong>value2</strong> – the second value to compare</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">true if values are NOT equal and false otherwise</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="pip_services3_commons.validate.ObjectComparator.ObjectComparator.compare">
+<em class="property">static </em><code class="descname">compare</code><span class="sig-paren">(</span><em>value1</em>, <em>operation</em>, <em>value2</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.validate.ObjectComparator.ObjectComparator.compare" title="Permalink to this definition">¶</a></dt>
+<dd><p>Perform comparison operation over two arguments.
+The operation can be performed over values of any type.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>value1</strong> – the first argument to compare</li>
+<li><strong>operation</strong> – the comparison operation: “==” (“=”, “EQ”), “!= ” (“&lt;&gt;”, “NE”); “&lt;”/”&gt;”
+(“LT”/”GT”), “&lt;=”/”&gt;=” (“LE”/”GE”); “LIKE”.</li>
+<li><strong>value2</strong> – the second argument to compare</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">result of the comparison operation</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="pip_services3_commons.validate.ObjectComparator.ObjectComparator.less">
+<em class="property">static </em><code class="descname">less</code><span class="sig-paren">(</span><em>value1</em>, <em>value2</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.validate.ObjectComparator.ObjectComparator.less" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks if first value is less than the second one.
+The operation can be performed over numbers or strings.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>value1</strong> – the first value to compare</li>
+<li><strong>value2</strong> – the second value to compare</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">true if the first value is less than second and false otherwise.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="pip_services3_commons.validate.ObjectComparator.ObjectComparator.match">
+<em class="property">static </em><code class="descname">match</code><span class="sig-paren">(</span><em>value1</em>, <em>value2</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.validate.ObjectComparator.ObjectComparator.match" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks if string matches a regular expression</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>value1</strong> – a string value to match</li>
+<li><strong>value2</strong> – a regular expression string</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">true if the value matches regular expression and false otherwise.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="pip_services3_commons.validate.ObjectComparator.ObjectComparator.more">
+<em class="property">static </em><code class="descname">more</code><span class="sig-paren">(</span><em>value1</em>, <em>value2</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.validate.ObjectComparator.ObjectComparator.more" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks if first value is greater than the second one.
+The operation can be performed over numbers or strings.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>value1</strong> – the first value to compare</li>
+<li><strong>value2</strong> – the second value to compare</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">true if the first value is greater than second and false otherwise.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">pip_services3_commons.validate.ObjectComparator module</a><ul>
+<li><a class="reference internal" href="#pip-services3-commons-validate-objectcomparator">pip_services3_commons.validate.ObjectComparator</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="pip_services3_commons.validate.NotRule.html"
+                        title="previous chapter">pip_services3_commons.validate.NotRule module</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="pip_services3_commons.validate.ObjectSchema.html"
+                        title="next chapter">pip_services3_commons.validate.ObjectSchema module</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/pip_services3_commons.validate.ObjectComparator.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="pip_services3_commons.validate.ObjectSchema.html" title="pip_services3_commons.validate.ObjectSchema module"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="pip_services3_commons.validate.NotRule.html" title="pip_services3_commons.validate.NotRule module"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Pip.Services Commons for Python API</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="modules.html" >pip_services3_commons</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="pip_services3_commons.html" >pip_services3_commons package</a> &#187;</li>
+          <li class="nav-item nav-item-3"><a href="pip_services3_commons.validate.html" >pip_services3_commons.validate package</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2018, Conceptual Vision Consulting LLC.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.1.
+    </div>
+  </body>
+</html>

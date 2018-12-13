@@ -1,0 +1,7 @@
+pip\_services3\_commons.data.INamed module
+==========================================
+
+.. automodule:: pip_services3_commons.data.INamed
+    :members:
+    :undoc-members:
+    :show-inheritance:

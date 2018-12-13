@@ -1,0 +1,7 @@
+pip\_services3\_commons.refer.IUnreferenceable module
+=====================================================
+
+.. automodule:: pip_services3_commons.refer.IUnreferenceable
+    :members:
+    :undoc-members:
+    :show-inheritance:

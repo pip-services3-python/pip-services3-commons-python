@@ -1,0 +1,7 @@
+pip\_services3\_commons.reflect.ObjectReader module
+===================================================
+
+.. automodule:: pip_services3_commons.reflect.ObjectReader
+    :members:
+    :undoc-members:
+    :show-inheritance:

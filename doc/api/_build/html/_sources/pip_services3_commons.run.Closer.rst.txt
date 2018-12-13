@@ -1,0 +1,7 @@
+pip\_services3\_commons.run.Closer module
+=========================================
+
+.. automodule:: pip_services3_commons.run.Closer
+    :members:
+    :undoc-members:
+    :show-inheritance:

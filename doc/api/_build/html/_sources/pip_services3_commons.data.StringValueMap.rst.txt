@@ -1,0 +1,7 @@
+pip\_services3\_commons.data.StringValueMap module
+==================================================
+
+.. automodule:: pip_services3_commons.data.StringValueMap
+    :members:
+    :undoc-members:
+    :show-inheritance:
