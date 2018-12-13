@@ -7,7 +7,7 @@ Welcome to Pip-services-commons's documentation!
 ================================================
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
    
    modules
 
@@ -16,6 +16,6 @@ Welcome to Pip-services-commons's documentation!
 Indices and tables
 ==================
 
-* :ref:`genindex`
+* :ref:`index`
 * :ref:`modindex`
 * :ref:`search`
