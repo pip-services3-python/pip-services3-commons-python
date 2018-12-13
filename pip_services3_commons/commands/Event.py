@@ -34,8 +34,7 @@ class Event(IEvent):
         """
         Creates a new event and assigns its name.
 
-        Args:
-            :param name: name of the event
+        :param name: name of the event
 
         :raises: Exception: when Event name is not set.
         """
@@ -65,8 +64,7 @@ class Event(IEvent):
         """
         Adds a listener to receive notifications when this event is fired.
 
-        Args:
-            :param listener: a listener reference to added
+        :param listener: a listener reference to added
         """
         self._listeners.append(listener)
 
@@ -74,8 +72,7 @@ class Event(IEvent):
         """
         Removes a listener, so that it no longer receives notifications for this event.
 
-        Args:
-            :param listener: a listener reference to removed
+        :param listener: a listener reference to removed
         """
         self._listeners.remove(listener)
     
@@ -83,10 +80,9 @@ class Event(IEvent):
         """
         Fires this event and notifies all registred listeners.
 
-        Args:
-            :param correlation_id: (optional) transaction id to trace execution through call chain.
+        :param correlation_id: (optional) transaction id to trace execution through call chain.
 
-            :param args: the parameters to raise this event with.
+        :param args: the parameters to raise this event with.
         """
         for listener in self._listeners:
             try:

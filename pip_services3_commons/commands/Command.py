@@ -39,13 +39,12 @@ class Command(ICommand):
     def __init__(self, name, schema, function):
         """
         Creates a new command object and assigns it's parameters.
-        
-        Args:
-            :param name: the name of the command
 
-            :param schema: a validation schema for command arguments
+        :param name: the name of the command
 
-            :param function: an execution function to be wrapped into this command.
+        :param schema: a validation schema for command arguments
+
+        :param function: an execution function to be wrapped into this command.
         """
         if name == None:
             raise TypeError("Command name is not set")
@@ -70,10 +69,9 @@ class Command(ICommand):
         defined schema. The command execution intercepts ApplicationException raised
         by the called function and throws them.
         
-        Args:
-            :param correlation_id: (optional) transaction id to trace execution through call chain.
+        :param correlation_id: (optional) transaction id to trace execution through call chain.
 
-            :param args: the parameters (arguments) to pass to this command for execution.
+        :param args: the parameters (arguments) to pass to this command for execution.
         
         :return: an execution result.
         
@@ -99,8 +97,7 @@ class Command(ICommand):
         """
         Performs validation of the command arguments.
         
-        Args:
-            :param args: the parameters (arguments) to validate using this command's schema.
+        :param args: the parameters (arguments) to validate using this command's schema.
         
         :return: an array of ValidationResults or an empty array (if no schema is set).
         """

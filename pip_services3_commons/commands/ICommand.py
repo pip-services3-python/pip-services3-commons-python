@@ -29,8 +29,7 @@ class ICommand(IExecutable):
         """
         Validates command arguments before execution using defined schema.
         
-        Args:
-            :param args: the parameters (arguments) to validate.
+        :param args: the parameters (arguments) to validate.
 
         :return: a list of validation results
         """

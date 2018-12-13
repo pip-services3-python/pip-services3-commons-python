@@ -86,8 +86,7 @@ class CommandSet(object):
         """
         Searches for a command by its name.
         
-        Args:
-            :param command: the name of the command to search for.
+        :param command: the name of the command to search for.
 
         :return: the command, whose name matches the provided name.
         """
@@ -100,8 +99,7 @@ class CommandSet(object):
         """
         Searches for an event by its name in this command set.
         
-        Args:
-            :param event: the name of the event to search for.
+        :param event: the name of the event to search for.
 
         :return: the event, whose name matches the provided name.
         """
@@ -114,10 +112,7 @@ class CommandSet(object):
         """
         Builds execution chain including all intercepters and the specified command.
 
-        Args:
-            :param command: the command to build a chain.
-
-        Returns: None
+        :param command: the command to build a chain.
         """
         next = command
         for intercepter in reversed(self._intercepters):
@@ -131,8 +126,6 @@ class CommandSet(object):
         Because of that it is more efficient to register intercepters
         before registering commands (typically it will be done in abstract classes).
         However, that performance penalty will be only once during creation time.
-
-        Returns: None 
         """
         self._commands_by_name = {}
         for command in self._commands:
@@ -142,8 +135,7 @@ class CommandSet(object):
         """
         Adds a ICommand command to this command set.
         
-        Args:
-            :param command: a command instance to be added
+        :param command: a command instance to be added
         """
         self._commands.append(command)
         self._build_command_chain(command)
@@ -152,8 +144,7 @@ class CommandSet(object):
         """
         Adds multiple ICommand commands to this command set.
         
-        Args:
-            :param commands: the array of commands to add.
+        :param commands: the array of commands to add.
         """
         for command in commands:
             self.add_command(command)
@@ -162,8 +153,7 @@ class CommandSet(object):
         """
         Adds an IEvent event to this command set.
         
-        Args:
-            :param event: an event instance to be added
+        :param event: an event instance to be added
         """
         self._events.append(event)
         self._events_by_name[event.get_name] = event
@@ -172,8 +162,7 @@ class CommandSet(object):
         """
         Adds multiple [[IEvent events]] to this command set.
         
-        Args:
-            :param events: the array of events to add.
+        :param events: the array of events to add.
         """
         for event in events:
             self.add_event(event)
@@ -183,8 +172,7 @@ class CommandSet(object):
         Adds all of the commands and events from specified CommandSet command set
         into this one.
         
-        Args:
-            :param command_set: a commands set to add commands from
+        :param command_set: a commands set to add commands from
         """
         for command in command_set.get_commands():
             self.add_command(command)
@@ -196,8 +184,7 @@ class CommandSet(object):
         """
         Adds a ICommandInterceptor command interceptor to this command set.
         
-        Args:
-            :param intercepter: an intercepter instance to be added.
+        :param intercepter: an intercepter instance to be added.
         """
         self._intercepters.append(intercepter)
         self._rebuild_all_command_chains()
@@ -206,12 +193,11 @@ class CommandSet(object):
         """
         Executes a ICommand command specificed by its name.
         
-        Args:
-            :param correlation_id: (optional) transaction id to trace execution through call chain.
+        :param correlation_id: (optional) transaction id to trace execution through call chain.
 
-            :param command: the name of that command that is to be executed.
+        :param command: the name of that command that is to be executed.
 
-            :param args: the parameters (arguments) to pass to the command for execution.
+        :param args: the parameters (arguments) to pass to the command for execution.
         
         :return: the execution result.
         
@@ -244,10 +230,9 @@ class CommandSet(object):
         If validation schema is not defined than the methods returns no errors.
         It returns validation error if the command is not found.
         
-        Args:
-            :param command: the name of the command for which the 'args' must be validated.
+        :param command: the name of the command for which the 'args' must be validated.
 
-            :param args: the parameters (arguments) to validate.
+        :param args: the parameters (arguments) to validate.
         
         :return: an array of ValidationResults. If no command is found by the given
                  name, then the returned array of ValidationResults will contain a
@@ -271,8 +256,7 @@ class CommandSet(object):
         """
         Adds a IEventListener listener to receive notifications on fired events.
 
-        Args:
-            :param listener: a listener to be added
+        :param listener: a listener to be added
         """
         for event in self._events:
             event.add_listener(listener)
@@ -281,8 +265,7 @@ class CommandSet(object):
         """
         Removes previosly added IEventListener listener.
 
-        Args:
-            :param listener: a listener to be removed
+        :param listener: a listener to be removed
         """
         for event in self._events:
             event.remove_listener(listener)
@@ -292,12 +275,11 @@ class CommandSet(object):
         Fires event specified by its name and notifies all registered
         IEventListener listeners
 
-        Args:
-            :param correlation_id: (optional) transaction id to trace execution through call chain.
+        :param correlation_id: (optional) transaction id to trace execution through call chain.
 
-            :param event: the name of the event that is to be fired.
+        :param event: the name of the event that is to be fired.
 
-            :param value: the event arguments (parameters).
+        :param value: the event arguments (parameters).
         """
         e = self.find_event(event)
         if e != None:

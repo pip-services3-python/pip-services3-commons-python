@@ -25,11 +25,10 @@ class IEventListener(object):
         """
         A method called when events this listener is subscrubed to are fired.
 
-        Args:
-            :param correlation_id: (optional) transaction id to trace execution through call chain.
+        :param correlation_id: (optional) transaction id to trace execution through call chain.
 
-            :param event: event reference
+        :param event: event reference
 
-            :param value: event arguments
+        :param value: event arguments
         """
         raise NotImplementedError('Method from interface definition')

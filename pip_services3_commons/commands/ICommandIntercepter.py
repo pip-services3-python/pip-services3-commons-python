@@ -24,8 +24,7 @@ class ICommandIntercepter(object):
         The interceptor can use this method to override the command name.
         Otherwise it shall just delegate the call to the wrapped command.
 
-        Args:
-            :param command: the next command in the call chain.
+        :param command: the next command in the call chain.
 
         :return: the name of the wrapped command.
         """
@@ -38,12 +37,11 @@ class ICommandIntercepter(object):
         The interceptor can use this method to intercept and alter the command execution.
         Otherwise it shall just delete the call to the wrapped command.
         
-        Args:
-            :param correlation_id: (optional) transaction id to trace execution through call chain.
+        :param correlation_id: (optional) transaction id to trace execution through call chain.
 
-            :param command: the next command in the call chain that is to be executed.
+        :param command: the next command in the call chain that is to be executed.
 
-            :param args: the parameters (arguments) to pass to the command for execution.
+        :param args: the parameters (arguments) to pass to the command for execution.
         
         :return: an execution result.
         
@@ -58,10 +56,9 @@ class ICommandIntercepter(object):
         The interceptor can use this method to intercept and alter validation of the command arguments.
         Otherwise it shall just delegate the call to the wrapped command.
         
-        Args:
-            :param command: intercepted ICommand
+        :param command: intercepted ICommand
 
-            :param args: command arguments
+        :param args: command arguments
         
         :return: a list of validation results.
         """

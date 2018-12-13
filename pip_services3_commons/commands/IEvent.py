@@ -37,8 +37,7 @@ class IEvent(INotifiable):
         """
         Adds listener to receive notifications
 
-        Args:
-            :param listener: a listener reference to be added
+        :param listener: a listener reference to be added
         """
         raise NotImplementedError('Method from interface definition')
 
@@ -46,8 +45,7 @@ class IEvent(INotifiable):
         """
         Removes listener for event notifications.
 
-        Args:
-            :param listener: a listener reference to be removed
+        :param listener: a listener reference to be removed
         """
         raise NotImplementedError('Method from interface definition')
     

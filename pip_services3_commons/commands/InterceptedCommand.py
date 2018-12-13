@@ -37,10 +37,9 @@ class InterceptedCommand(ICommand):
         Creates a new InterceptedCommand, which serves as a link in an execution chain.
         Contains information about the interceptor that is being used and the next command in the chain.
         
-        Args:
-            :param intercepter: the intercepter reference.
+        :param intercepter: the intercepter reference.
 
-            :param next: the next intercepter or command in the chain.
+        :param next: the next intercepter or command in the chain.
         """
         self._intercepter = intercepter
         self._next = next
@@ -57,10 +56,9 @@ class InterceptedCommand(ICommand):
         """
         Executes the next command in the execution chain using the given Parameters parameters (arguments).
         
-        Args:
-            :param correlation_id: a unique correlation/transaction id
+        :param correlation_id: a unique correlation/transaction id
 
-            :param args: command arguments
+        :param args: command arguments
         
         :return: an execution result.
         
@@ -73,8 +71,7 @@ class InterceptedCommand(ICommand):
         Validates the Parameters parameters (arguments)
         that are to be passed to the command that is next in the execution chain.
         
-        Args:
-            :param args: command arguments
+        :param args: command arguments
         
         :return: a list of validation results
         """
