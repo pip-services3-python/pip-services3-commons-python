@@ -1,7 +1,7 @@
-pip_services_commons
-====================
+pip_services3_commons
+=====================
 
 .. toctree::
    :maxdepth: 4
 
-   pip_services_commons
+   pip_services3_commons

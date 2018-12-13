@@ -1,0 +1,7 @@
+pip\_services3\_commons.refer.IReferences module
+================================================
+
+.. automodule:: pip_services3_commons.refer.IReferences
+    :members:
+    :undoc-members:
+    :show-inheritance:

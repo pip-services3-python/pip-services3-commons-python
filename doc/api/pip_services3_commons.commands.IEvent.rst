@@ -1,0 +1,7 @@
+pip\_services3\_commons.commands.IEvent module
+==============================================
+
+.. automodule:: pip_services3_commons.commands.IEvent
+    :members:
+    :undoc-members:
+    :show-inheritance:
