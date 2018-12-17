@@ -3,9 +3,7 @@
     pip_services3_commons.data.__init__
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     
-    Abstract, portable data types. 
-    
-    For example – anytype, anyvalues, anyarrays, anymaps, stringmaps
+    Abstract, portable data types. For example – anytype, anyvalues, anyarrays, anymaps, stringmaps
     (on which many serializable objects are based on – configmap,
     filtermaps, connectionparams – all extend stringvaluemap). 
     Includes standard design patterns for working with data
