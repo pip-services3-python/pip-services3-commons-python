@@ -6,8 +6,10 @@
     Abstract, portable data types. 
     
     For example – anytype, anyvalues, anyarrays, anymaps, stringmaps
-    (on which many serializable objects are based on – configmap, filtermaps, connectionparams – all
-    extend stringvaluemap). Includes standard design patterns for working with data (data paging, filtering, GUIDs).
+    (on which many serializable objects are based on – configmap,
+    filtermaps, connectionparams – all extend stringvaluemap). 
+    Includes standard design patterns for working with data
+    (data paging, filtering, GUIDs).
     
     :copyright: Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.
     :license: MIT, see LICENSE for more details.
