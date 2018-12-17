@@ -98,44 +98,31 @@ section1.__str__() // Result: key1=AAA;key2=123
 <code class="descname">add_section</code><span class="sig-paren">(</span><em>section</em>, <em>section_params</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.config.ConfigParams.ConfigParams.add_section" title="Permalink to this definition">¶</a></dt>
 <dd><p>Adds parameters into this ConfigParams under specified section.
 Keys for the new parameters are appended with section dot prefix.</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">param section:</th><td class="field-body">name of the section where add new parameters</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">param section_params:</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body">new parameters to be added.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>section</strong> – name of the section where add new parameters</li>
+<li><strong>section_params</strong> – new parameters to be added.</li>
+</ul>
+</td>
 </tr>
 </tbody>
 </table>
-</dd>
-</dl>
 </dd></dl>
 
 <dl class="staticmethod">
 <dt id="pip_services3_commons.config.ConfigParams.ConfigParams.from_string">
 <em class="property">static </em><code class="descname">from_string</code><span class="sig-paren">(</span><em>line</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.config.ConfigParams.ConfigParams.from_string" title="Permalink to this definition">¶</a></dt>
 <dd><p>Creates a new ConfigParams object filled with key-value pairs serialized as a string.</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">param line:</th><td class="field-body">a string with serialized key-value pairs as “key1=value1;key2=value2;…”</td>
-</tr>
-</tbody>
-</table>
-</dd>
-</dl>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">a new ConfigParams object.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>line</strong> – a string with serialized key-value pairs as “key1=value1;key2=value2;…”</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">a new ConfigParams object.</td>
 </tr>
 </tbody>
 </table>
@@ -146,23 +133,13 @@ Keys for the new parameters are appended with section dot prefix.</p>
 <em class="property">static </em><code class="descname">from_tuples</code><span class="sig-paren">(</span><em>*tuples</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.config.ConfigParams.ConfigParams.from_tuples" title="Permalink to this definition">¶</a></dt>
 <dd><p>Creates a new ConfigParams object filled with provided key-value pairs called tuples.
 Tuples parameters contain a sequence of key1, value1, key2, value2, … pairs.</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">param tuples:</th><td class="field-body">the tuples to fill a new ConfigParams object.</td>
-</tr>
-</tbody>
-</table>
-</dd>
-</dl>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">a new ConfigParams object.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>tuples</strong> – the tuples to fill a new ConfigParams object.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">a new ConfigParams object.</td>
 </tr>
 </tbody>
 </table>
@@ -172,23 +149,13 @@ Tuples parameters contain a sequence of key1, value1, key2, value2, … pairs.</
 <dt id="pip_services3_commons.config.ConfigParams.ConfigParams.from_value">
 <em class="property">static </em><code class="descname">from_value</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.config.ConfigParams.ConfigParams.from_value" title="Permalink to this definition">¶</a></dt>
 <dd><p>Creates a new ConfigParams object filled with key-value pairs from specified object.</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">param value:</th><td class="field-body">an object with key-value pairs used to initialize a new ConfigParams.</td>
-</tr>
-</tbody>
-</table>
-</dd>
-</dl>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">a new ConfigParams object.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>value</strong> – an object with key-value pairs used to initialize a new ConfigParams.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">a new ConfigParams object.</td>
 </tr>
 </tbody>
 </table>
@@ -199,23 +166,13 @@ Tuples parameters contain a sequence of key1, value1, key2, value2, … pairs.</
 <code class="descname">get_section</code><span class="sig-paren">(</span><em>section</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.config.ConfigParams.ConfigParams.get_section" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets parameters from specific section stored in this ConfigMap.
 The section name is removed from parameter keys.</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">param section:</th><td class="field-body">name of the section to retrieve configuration parameters from.</td>
-</tr>
-</tbody>
-</table>
-</dd>
-</dl>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">all configuration parameters that belong to the section named ‘section’.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>section</strong> – name of the section to retrieve configuration parameters from.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">all configuration parameters that belong to the section named ‘section’.</td>
 </tr>
 </tbody>
 </table>
@@ -239,23 +196,13 @@ The section name is removed from parameter keys.</p>
 <dt id="pip_services3_commons.config.ConfigParams.ConfigParams.merge_configs">
 <em class="property">static </em><code class="descname">merge_configs</code><span class="sig-paren">(</span><em>*configs</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.config.ConfigParams.ConfigParams.merge_configs" title="Permalink to this definition">¶</a></dt>
 <dd><p>Merges two or more ConfigParams into one. The following ConfigParams override previously defined parameters.</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">param configs:</th><td class="field-body">a list of ConfigParams objects to be merged.</td>
-</tr>
-</tbody>
-</table>
-</dd>
-</dl>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">a new ConfigParams object.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>configs</strong> – a list of ConfigParams objects to be merged.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">a new ConfigParams object.</td>
 </tr>
 </tbody>
 </table>
@@ -265,24 +212,13 @@ The section name is removed from parameter keys.</p>
 <dt id="pip_services3_commons.config.ConfigParams.ConfigParams.override">
 <code class="descname">override</code><span class="sig-paren">(</span><em>config_params</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.config.ConfigParams.ConfigParams.override" title="Permalink to this definition">¶</a></dt>
 <dd><p>Overrides parameters with new values from specified ConfigParams and returns a new ConfigParams object.</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">param config_params:</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">ConfigMap with parameters to override the current values.</td>
-</tr>
-</tbody>
-</table>
-</dd>
-</dl>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">a new ConfigParams object.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>config_params</strong> – ConfigMap with parameters to override the current values.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">a new ConfigParams object.</td>
 </tr>
 </tbody>
 </table>
@@ -292,24 +228,13 @@ The section name is removed from parameter keys.</p>
 <dt id="pip_services3_commons.config.ConfigParams.ConfigParams.set_defaults">
 <code class="descname">set_defaults</code><span class="sig-paren">(</span><em>default_config_params</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.config.ConfigParams.ConfigParams.set_defaults" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set default values from specified ConfigParams and returns a new ConfigParams object.</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">param default_config_params:</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">ConfigMap with default parameter values.</td>
-</tr>
-</tbody>
-</table>
-</dd>
-</dl>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">a new ConfigParams object.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>default_config_params</strong> – ConfigMap with default parameter values.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">a new ConfigParams object.</td>
 </tr>
 </tbody>
 </table>

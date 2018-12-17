@@ -96,6 +96,7 @@
 <span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-pip_services3_commons.commands" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="pip-services3-commons-commands-init">
 <h3>pip_services3_commons.commands.__init__<a class="headerlink" href="#pip-services3-commons-commands-init" title="Permalink to this headline">¶</a></h3>
+<p>Commands initialization.</p>
 <p>Contains implementation of Command design patterns,
 which can be used to implement various remote procedure calls (RPCs).
 RPCs replace unique calls with universal “message transfer” calls,
@@ -167,23 +168,13 @@ Each command wraps a method or function and allows to call them in uniform and s
 <dt id="pip_services3_commons.commands.ICommand.validate">
 <code class="descname">validate</code><span class="sig-paren">(</span><em>args</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.commands.ICommand.validate" title="Permalink to this definition">¶</a></dt>
 <dd><p>Validates command arguments before execution using defined schema.</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">param args:</th><td class="field-body">the parameters (arguments) to validate.</td>
-</tr>
-</tbody>
-</table>
-</dd>
-</dl>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">a list of validation results</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>args</strong> – the parameters (arguments) to validate.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">a list of validation results</td>
 </tr>
 </tbody>
 </table>
@@ -204,30 +195,22 @@ and modify the command call chain.</p>
 <dd><p>Executes the wrapped command with specified arguments.</p>
 <p>The interceptor can use this method to intercept and alter the command execution.
 Otherwise it shall just delete the call to the wrapped command.</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">param correlation_id:</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">(optional) transaction id to trace execution through call chain.</td>
-</tr>
-<tr class="field-even field"><th class="field-name">param command:</th><td class="field-body">the next command in the call chain that is to be executed.</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">param args:</th><td class="field-body">the parameters (arguments) to pass to the command for execution.</td>
-</tr>
-</tbody>
-</table>
-</dd>
-</dl>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">an execution result.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>correlation_id</strong> – (optional) transaction id to trace execution through call chain.</li>
+<li><strong>command</strong> – the next command in the call chain that is to be executed.</li>
+<li><strong>args</strong> – the parameters (arguments) to pass to the command for execution.</li>
+</ul>
+</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body">ApplicationException when execution fails for whatever reason.</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">an execution result.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last">ApplicationException when execution fails for whatever reason.</p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -239,23 +222,13 @@ Otherwise it shall just delete the call to the wrapped command.</p>
 <dd><p>Gets the name of the wrapped command.</p>
 <p>The interceptor can use this method to override the command name.
 Otherwise it shall just delegate the call to the wrapped command.</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">param command:</th><td class="field-body">the next command in the call chain.</td>
-</tr>
-</tbody>
-</table>
-</dd>
-</dl>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the name of the wrapped command.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>command</strong> – the next command in the call chain.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">the name of the wrapped command.</td>
 </tr>
 </tbody>
 </table>
@@ -267,25 +240,18 @@ Otherwise it shall just delegate the call to the wrapped command.</p>
 <dd><p>Validates arguments of the wrapped command before its execution.</p>
 <p>The interceptor can use this method to intercept and alter validation of the command arguments.
 Otherwise it shall just delegate the call to the wrapped command.</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">param command:</th><td class="field-body">intercepted ICommand</td>
-</tr>
-<tr class="field-even field"><th class="field-name">param args:</th><td class="field-body">command arguments</td>
-</tr>
-</tbody>
-</table>
-</dd>
-</dl>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">a list of validation results.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>command</strong> – intercepted ICommand</li>
+<li><strong>args</strong> – command arguments</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">a list of validation results.</p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -319,28 +285,21 @@ return param1 + param2</dd>
 <dd><p>Executes the command. Before execution is validates Parameters args using the
 defined schema. The command execution intercepts ApplicationException raised
 by the called function and throws them.</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">param correlation_id:</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">(optional) transaction id to trace execution through call chain.</td>
-</tr>
-<tr class="field-even field"><th class="field-name">param args:</th><td class="field-body">the parameters (arguments) to pass to this command for execution.</td>
-</tr>
-</tbody>
-</table>
-</dd>
-</dl>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">an execution result.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>correlation_id</strong> – (optional) transaction id to trace execution through call chain.</li>
+<li><strong>args</strong> – the parameters (arguments) to pass to this command for execution.</li>
+</ul>
+</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body">ApplicationException: when execution fails for whatever reason.</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">an execution result.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last">ApplicationException: when execution fails for whatever reason.</p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -364,23 +323,13 @@ by the called function and throws them.</p>
 <dt id="pip_services3_commons.commands.Command.validate">
 <code class="descname">validate</code><span class="sig-paren">(</span><em>args</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.commands.Command.validate" title="Permalink to this definition">¶</a></dt>
 <dd><p>Performs validation of the command arguments.</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">param args:</th><td class="field-body">the parameters (arguments) to validate using this command’s schema.</td>
-</tr>
-</tbody>
-</table>
-</dd>
-</dl>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">an array of ValidationResults or an empty array (if no schema is set).</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>args</strong> – the parameters (arguments) to validate using this command’s schema.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">an array of ValidationResults or an empty array (if no schema is set).</td>
 </tr>
 </tbody>
 </table>
@@ -415,28 +364,21 @@ and delegate calls to a next command, which can be intercepted or concrete.</p>
 <dt id="pip_services3_commons.commands.InterceptedCommand.execute">
 <code class="descname">execute</code><span class="sig-paren">(</span><em>correlation_id</em>, <em>args</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.commands.InterceptedCommand.execute" title="Permalink to this definition">¶</a></dt>
 <dd><p>Executes the next command in the execution chain using the given Parameters parameters (arguments).</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">param correlation_id:</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">a unique correlation/transaction id</td>
-</tr>
-<tr class="field-even field"><th class="field-name">param args:</th><td class="field-body">command arguments</td>
-</tr>
-</tbody>
-</table>
-</dd>
-</dl>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">an execution result.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>correlation_id</strong> – a unique correlation/transaction id</li>
+<li><strong>args</strong> – command arguments</li>
+</ul>
+</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body">ValidationError: when execution fails for whatever reason.</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">an execution result.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last">ValidationError: when execution fails for whatever reason.</p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -461,23 +403,13 @@ and delegate calls to a next command, which can be intercepted or concrete.</p>
 <code class="descname">validate</code><span class="sig-paren">(</span><em>args</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.commands.InterceptedCommand.validate" title="Permalink to this definition">¶</a></dt>
 <dd><p>Validates the Parameters parameters (arguments)
 that are to be passed to the command that is next in the execution chain.</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">param args:</th><td class="field-body">command arguments</td>
-</tr>
-</tbody>
-</table>
-</dd>
-</dl>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">a list of validation results</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>args</strong> – command arguments</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">a list of validation results</td>
 </tr>
 </tbody>
 </table>
@@ -495,18 +427,14 @@ Events allows to send asynchronious notifications to multiple subscribed listene
 <dt id="pip_services3_commons.commands.IEvent.add_listener">
 <code class="descname">add_listener</code><span class="sig-paren">(</span><em>listener</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.commands.IEvent.add_listener" title="Permalink to this definition">¶</a></dt>
 <dd><p>Adds listener to receive notifications</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">param listener:</th><td class="field-body">a listener reference to be added</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>listener</strong> – a listener reference to be added</td>
 </tr>
 </tbody>
 </table>
-</dd>
-</dl>
 </dd></dl>
 
 <dl class="method">
@@ -541,18 +469,14 @@ Events allows to send asynchronious notifications to multiple subscribed listene
 <dt id="pip_services3_commons.commands.IEvent.remove_listener">
 <code class="descname">remove_listener</code><span class="sig-paren">(</span><em>listener</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.commands.IEvent.remove_listener" title="Permalink to this definition">¶</a></dt>
 <dd><p>Removes listener for event notifications.</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">param listener:</th><td class="field-body">a listener reference to be removed</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>listener</strong> – a listener reference to be removed</td>
 </tr>
 </tbody>
 </table>
-</dd>
-</dl>
 </dd></dl>
 
 </dd></dl>
@@ -578,23 +502,19 @@ Events allows to send asynchronious notifications to multiple subscribed listene
 <dt id="pip_services3_commons.commands.IEventListener.on_event">
 <code class="descname">on_event</code><span class="sig-paren">(</span><em>correlation_id</em>, <em>event</em>, <em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.commands.IEventListener.on_event" title="Permalink to this definition">¶</a></dt>
 <dd><p>A method called when events this listener is subscrubed to are fired.</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">param correlation_id:</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">(optional) transaction id to trace execution through call chain.</td>
-</tr>
-<tr class="field-even field"><th class="field-name">param event:</th><td class="field-body">event reference</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">param value:</th><td class="field-body">event arguments</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>correlation_id</strong> – (optional) transaction id to trace execution through call chain.</li>
+<li><strong>event</strong> – event reference</li>
+<li><strong>value</strong> – event arguments</li>
+</ul>
+</td>
 </tr>
 </tbody>
 </table>
-</dd>
-</dl>
 </dd></dl>
 
 </dd></dl>
@@ -617,18 +537,14 @@ It allows to send asynchronous notifications to multiple subscribed listeners.</
 <dt id="pip_services3_commons.commands.Event.add_listener">
 <code class="descname">add_listener</code><span class="sig-paren">(</span><em>listener</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.commands.Event.add_listener" title="Permalink to this definition">¶</a></dt>
 <dd><p>Adds a listener to receive notifications when this event is fired.</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">param listener:</th><td class="field-body">a listener reference to added</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>listener</strong> – a listener reference to added</td>
 </tr>
 </tbody>
 </table>
-</dd>
-</dl>
 </dd></dl>
 
 <dl class="method">
@@ -663,39 +579,32 @@ It allows to send asynchronous notifications to multiple subscribed listeners.</
 <dt id="pip_services3_commons.commands.Event.notify">
 <code class="descname">notify</code><span class="sig-paren">(</span><em>correlation_id</em>, <em>args</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.commands.Event.notify" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fires this event and notifies all registred listeners.</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">param correlation_id:</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">(optional) transaction id to trace execution through call chain.</td>
-</tr>
-<tr class="field-even field"><th class="field-name">param args:</th><td class="field-body">the parameters to raise this event with.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>correlation_id</strong> – (optional) transaction id to trace execution through call chain.</li>
+<li><strong>args</strong> – the parameters to raise this event with.</li>
+</ul>
+</td>
 </tr>
 </tbody>
 </table>
-</dd>
-</dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="pip_services3_commons.commands.Event.remove_listener">
 <code class="descname">remove_listener</code><span class="sig-paren">(</span><em>listener</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.commands.Event.remove_listener" title="Permalink to this definition">¶</a></dt>
 <dd><p>Removes a listener, so that it no longer receives notifications for this event.</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">param listener:</th><td class="field-body">a listener reference to removed</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>listener</strong> – a listener reference to removed</td>
 </tr>
 </tbody>
 </table>
-</dd>
-</dl>
 </dd></dl>
 
 </dd></dl>
@@ -742,18 +651,14 @@ handler</dd>
 <dt id="pip_services3_commons.commands.CommandSet.add_command">
 <code class="descname">add_command</code><span class="sig-paren">(</span><em>command</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.commands.CommandSet.add_command" title="Permalink to this definition">¶</a></dt>
 <dd><p>Adds a ICommand command to this command set.</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">param command:</th><td class="field-body">a command instance to be added</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>command</strong> – a command instance to be added</td>
 </tr>
 </tbody>
 </table>
-</dd>
-</dl>
 </dd></dl>
 
 <dl class="method">
@@ -761,140 +666,106 @@ handler</dd>
 <code class="descname">add_command_set</code><span class="sig-paren">(</span><em>command_set</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.commands.CommandSet.add_command_set" title="Permalink to this definition">¶</a></dt>
 <dd><p>Adds all of the commands and events from specified CommandSet command set
 into this one.</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">param command_set:</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">a commands set to add commands from</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>command_set</strong> – a commands set to add commands from</td>
 </tr>
 </tbody>
 </table>
-</dd>
-</dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="pip_services3_commons.commands.CommandSet.add_commands">
 <code class="descname">add_commands</code><span class="sig-paren">(</span><em>commands</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.commands.CommandSet.add_commands" title="Permalink to this definition">¶</a></dt>
 <dd><p>Adds multiple ICommand commands to this command set.</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">param commands:</th><td class="field-body">the array of commands to add.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>commands</strong> – the array of commands to add.</td>
 </tr>
 </tbody>
 </table>
-</dd>
-</dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="pip_services3_commons.commands.CommandSet.add_event">
 <code class="descname">add_event</code><span class="sig-paren">(</span><em>event</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.commands.CommandSet.add_event" title="Permalink to this definition">¶</a></dt>
 <dd><p>Adds an IEvent event to this command set.</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">param event:</th><td class="field-body">an event instance to be added</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>event</strong> – an event instance to be added</td>
 </tr>
 </tbody>
 </table>
-</dd>
-</dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="pip_services3_commons.commands.CommandSet.add_events">
 <code class="descname">add_events</code><span class="sig-paren">(</span><em>events</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.commands.CommandSet.add_events" title="Permalink to this definition">¶</a></dt>
 <dd><p>Adds multiple [[IEvent events]] to this command set.</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">param events:</th><td class="field-body">the array of events to add.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>events</strong> – the array of events to add.</td>
 </tr>
 </tbody>
 </table>
-</dd>
-</dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="pip_services3_commons.commands.CommandSet.add_intercepter">
 <code class="descname">add_intercepter</code><span class="sig-paren">(</span><em>intercepter</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.commands.CommandSet.add_intercepter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Adds a ICommandInterceptor command interceptor to this command set.</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">param intercepter:</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">an intercepter instance to be added.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>intercepter</strong> – an intercepter instance to be added.</td>
 </tr>
 </tbody>
 </table>
-</dd>
-</dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="pip_services3_commons.commands.CommandSet.add_listener">
 <code class="descname">add_listener</code><span class="sig-paren">(</span><em>listener</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.commands.CommandSet.add_listener" title="Permalink to this definition">¶</a></dt>
 <dd><p>Adds a IEventListener listener to receive notifications on fired events.</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">param listener:</th><td class="field-body">a listener to be added</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>listener</strong> – a listener to be added</td>
 </tr>
 </tbody>
 </table>
-</dd>
-</dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="pip_services3_commons.commands.CommandSet.execute">
 <code class="descname">execute</code><span class="sig-paren">(</span><em>correlation_id</em>, <em>command</em>, <em>args</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.commands.CommandSet.execute" title="Permalink to this definition">¶</a></dt>
 <dd><p>Executes a ICommand command specificed by its name.</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">param correlation_id:</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">(optional) transaction id to trace execution through call chain.</td>
-</tr>
-<tr class="field-even field"><th class="field-name">param command:</th><td class="field-body">the name of that command that is to be executed.</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">param args:</th><td class="field-body">the parameters (arguments) to pass to the command for execution.</td>
-</tr>
-</tbody>
-</table>
-</dd>
-</dl>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the execution result.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>correlation_id</strong> – (optional) transaction id to trace execution through call chain.</li>
+<li><strong>command</strong> – the name of that command that is to be executed.</li>
+<li><strong>args</strong> – the parameters (arguments) to pass to the command for execution.</li>
+</ul>
+</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body">ValidationException: when execution fails for any reason.</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">the execution result.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last">ValidationException: when execution fails for any reason.</p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -904,23 +775,13 @@ into this one.</p>
 <dt id="pip_services3_commons.commands.CommandSet.find_command">
 <code class="descname">find_command</code><span class="sig-paren">(</span><em>command</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.commands.CommandSet.find_command" title="Permalink to this definition">¶</a></dt>
 <dd><p>Searches for a command by its name.</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">param command:</th><td class="field-body">the name of the command to search for.</td>
-</tr>
-</tbody>
-</table>
-</dd>
-</dl>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the command, whose name matches the provided name.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>command</strong> – the name of the command to search for.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">the command, whose name matches the provided name.</td>
 </tr>
 </tbody>
 </table>
@@ -930,23 +791,13 @@ into this one.</p>
 <dt id="pip_services3_commons.commands.CommandSet.find_event">
 <code class="descname">find_event</code><span class="sig-paren">(</span><em>event</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.commands.CommandSet.find_event" title="Permalink to this definition">¶</a></dt>
 <dd><p>Searches for an event by its name in this command set.</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">param event:</th><td class="field-body">the name of the event to search for.</td>
-</tr>
-</tbody>
-</table>
-</dd>
-</dl>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the event, whose name matches the provided name.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>event</strong> – the name of the event to search for.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">the event, whose name matches the provided name.</td>
 </tr>
 </tbody>
 </table>
@@ -985,41 +836,33 @@ into this one.</p>
 <code class="descname">notify</code><span class="sig-paren">(</span><em>correlation_id</em>, <em>event</em>, <em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.commands.CommandSet.notify" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fires event specified by its name and notifies all registered
 IEventListener listeners</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">param correlation_id:</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">(optional) transaction id to trace execution through call chain.</td>
-</tr>
-<tr class="field-even field"><th class="field-name">param event:</th><td class="field-body">the name of the event that is to be fired.</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">param value:</th><td class="field-body">the event arguments (parameters).</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>correlation_id</strong> – (optional) transaction id to trace execution through call chain.</li>
+<li><strong>event</strong> – the name of the event that is to be fired.</li>
+<li><strong>value</strong> – the event arguments (parameters).</li>
+</ul>
+</td>
 </tr>
 </tbody>
 </table>
-</dd>
-</dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="pip_services3_commons.commands.CommandSet.remove_listener">
 <code class="descname">remove_listener</code><span class="sig-paren">(</span><em>listener</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.commands.CommandSet.remove_listener" title="Permalink to this definition">¶</a></dt>
 <dd><p>Removes previosly added IEventListener listener.</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">param listener:</th><td class="field-body">a listener to be removed</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>listener</strong> – a listener to be removed</td>
 </tr>
 </tbody>
 </table>
-</dd>
-</dl>
 </dd></dl>
 
 <dl class="method">
@@ -1028,27 +871,20 @@ IEventListener listeners</p>
 <dd><p>Validates Parameters args for command specified by its name using defined schema.
 If validation schema is not defined than the methods returns no errors.
 It returns validation error if the command is not found.</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">param command:</th><td class="field-body">the name of the command for which the ‘args’ must be validated.</td>
-</tr>
-<tr class="field-even field"><th class="field-name">param args:</th><td class="field-body">the parameters (arguments) to validate.</td>
-</tr>
-</tbody>
-</table>
-</dd>
-</dl>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">an array of ValidationResults. If no command is found by the given
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>command</strong> – the name of the command for which the ‘args’ must be validated.</li>
+<li><strong>args</strong> – the parameters (arguments) to validate.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">an array of ValidationResults. If no command is found by the given
 name, then the returned array of ValidationResults will contain a
-single entry, whose type will be ValidationResultType.Error.</td>
+single entry, whose type will be ValidationResultType.Error.</p>
+</td>
 </tr>
 </tbody>
 </table>

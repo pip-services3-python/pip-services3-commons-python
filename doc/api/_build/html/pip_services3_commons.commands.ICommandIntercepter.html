@@ -76,30 +76,22 @@ and modify the command call chain.</p>
 <dd><p>Executes the wrapped command with specified arguments.</p>
 <p>The interceptor can use this method to intercept and alter the command execution.
 Otherwise it shall just delete the call to the wrapped command.</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">param correlation_id:</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">(optional) transaction id to trace execution through call chain.</td>
-</tr>
-<tr class="field-even field"><th class="field-name">param command:</th><td class="field-body">the next command in the call chain that is to be executed.</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">param args:</th><td class="field-body">the parameters (arguments) to pass to the command for execution.</td>
-</tr>
-</tbody>
-</table>
-</dd>
-</dl>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">an execution result.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>correlation_id</strong> – (optional) transaction id to trace execution through call chain.</li>
+<li><strong>command</strong> – the next command in the call chain that is to be executed.</li>
+<li><strong>args</strong> – the parameters (arguments) to pass to the command for execution.</li>
+</ul>
+</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body">ApplicationException when execution fails for whatever reason.</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">an execution result.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last">ApplicationException when execution fails for whatever reason.</p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -111,23 +103,13 @@ Otherwise it shall just delete the call to the wrapped command.</p>
 <dd><p>Gets the name of the wrapped command.</p>
 <p>The interceptor can use this method to override the command name.
 Otherwise it shall just delegate the call to the wrapped command.</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">param command:</th><td class="field-body">the next command in the call chain.</td>
-</tr>
-</tbody>
-</table>
-</dd>
-</dl>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the name of the wrapped command.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>command</strong> – the next command in the call chain.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">the name of the wrapped command.</td>
 </tr>
 </tbody>
 </table>
@@ -139,25 +121,18 @@ Otherwise it shall just delegate the call to the wrapped command.</p>
 <dd><p>Validates arguments of the wrapped command before its execution.</p>
 <p>The interceptor can use this method to intercept and alter validation of the command arguments.
 Otherwise it shall just delegate the call to the wrapped command.</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">param command:</th><td class="field-body">intercepted ICommand</td>
-</tr>
-<tr class="field-even field"><th class="field-name">param args:</th><td class="field-body">command arguments</td>
-</tr>
-</tbody>
-</table>
-</dd>
-</dl>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">a list of validation results.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>command</strong> – intercepted ICommand</li>
+<li><strong>args</strong> – command arguments</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">a list of validation results.</p>
+</td>
 </tr>
 </tbody>
 </table>

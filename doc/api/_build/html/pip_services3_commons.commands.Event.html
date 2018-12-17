@@ -81,18 +81,14 @@ It allows to send asynchronous notifications to multiple subscribed listeners.</
 <dt id="pip_services3_commons.commands.Event.Event.add_listener">
 <code class="descname">add_listener</code><span class="sig-paren">(</span><em>listener</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.commands.Event.Event.add_listener" title="Permalink to this definition">¶</a></dt>
 <dd><p>Adds a listener to receive notifications when this event is fired.</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">param listener:</th><td class="field-body">a listener reference to added</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>listener</strong> – a listener reference to added</td>
 </tr>
 </tbody>
 </table>
-</dd>
-</dl>
 </dd></dl>
 
 <dl class="method">
@@ -127,39 +123,32 @@ It allows to send asynchronous notifications to multiple subscribed listeners.</
 <dt id="pip_services3_commons.commands.Event.Event.notify">
 <code class="descname">notify</code><span class="sig-paren">(</span><em>correlation_id</em>, <em>args</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.commands.Event.Event.notify" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fires this event and notifies all registred listeners.</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">param correlation_id:</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">(optional) transaction id to trace execution through call chain.</td>
-</tr>
-<tr class="field-even field"><th class="field-name">param args:</th><td class="field-body">the parameters to raise this event with.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>correlation_id</strong> – (optional) transaction id to trace execution through call chain.</li>
+<li><strong>args</strong> – the parameters to raise this event with.</li>
+</ul>
+</td>
 </tr>
 </tbody>
 </table>
-</dd>
-</dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="pip_services3_commons.commands.Event.Event.remove_listener">
 <code class="descname">remove_listener</code><span class="sig-paren">(</span><em>listener</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.commands.Event.Event.remove_listener" title="Permalink to this definition">¶</a></dt>
 <dd><p>Removes a listener, so that it no longer receives notifications for this event.</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">param listener:</th><td class="field-body">a listener reference to removed</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>listener</strong> – a listener reference to removed</td>
 </tr>
 </tbody>
 </table>
-</dd>
-</dl>
 </dd></dl>
 
 </dd></dl>

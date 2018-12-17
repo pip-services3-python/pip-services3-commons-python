@@ -3,6 +3,8 @@
     pip_services3_commons.commands.__init__
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     
+    Commands initialization.
+
     Contains implementation of Command design patterns,
     which can be used to implement various remote procedure calls (RPCs).
     RPCs replace unique calls with universal "message transfer" calls,
