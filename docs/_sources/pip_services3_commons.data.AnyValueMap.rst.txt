@@ -1,0 +1,7 @@
+pip\_services3\_commons.data.AnyValueMap module
+===============================================
+
+.. automodule:: pip_services3_commons.data.AnyValueMap
+    :members:
+    :undoc-members:
+    :show-inheritance:

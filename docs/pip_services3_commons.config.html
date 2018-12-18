@@ -1,0 +1,481 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>pip_services3_commons.config package &#8212; Pip.Services Commons for Python API</title>
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="pip_services3_commons.config.ConfigParams module" href="pip_services3_commons.config.ConfigParams.html" />
+    <link rel="prev" title="pip_services3_commons.commands.InterceptedCommand module" href="pip_services3_commons.commands.InterceptedCommand.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="pip_services3_commons.config.ConfigParams.html" title="pip_services3_commons.config.ConfigParams module"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="pip_services3_commons.commands.InterceptedCommand.html" title="pip_services3_commons.commands.InterceptedCommand module"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Pip.Services Commons for Python API</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="modules.html" >pip_services3_commons</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="pip_services3_commons.html" accesskey="U">pip_services3_commons package</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="pip-services3-commons-config-package">
+<h1>pip_services3_commons.config package<a class="headerlink" href="#pip-services3-commons-config-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="pip_services3_commons.config.ConfigParams.html">pip_services3_commons.config.ConfigParams module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pip_services3_commons.config.ConfigParams.html#pip-services3-commons-config-configparams">pip_services3_commons.config.ConfigParams</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pip_services3_commons.config.IConfigurable.html">pip_services3_commons.config.IConfigurable module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pip_services3_commons.config.IConfigurable.html#pip-services3-commons-config-iconfigurable">pip_services3_commons.config.IConfigurable</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pip_services3_commons.config.IReconfigurable.html">pip_services3_commons.config.IReconfigurable module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pip_services3_commons.config.IReconfigurable.html#pip-services3-commons-config-ireconfigurable">pip_services3_commons.config.IReconfigurable</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pip_services3_commons.config.NameResolver.html">pip_services3_commons.config.NameResolver module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pip_services3_commons.config.NameResolver.html#pip-services3-commons-config-nameresolver">pip_services3_commons.config.NameResolver</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pip_services3_commons.config.OptionsResolver.html">pip_services3_commons.config.OptionsResolver module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pip_services3_commons.config.OptionsResolver.html#pip-services3-commons-config-optionsresolver">pip_services3_commons.config.OptionsResolver</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="module-pip_services3_commons.config">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-pip_services3_commons.config" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="pip-services3-commons-config-init">
+<h3>pip_services3_commons.config.__init__<a class="headerlink" href="#pip-services3-commons-config-init" title="Permalink to this headline">¶</a></h3>
+<p>Contains the implementation of the config design pattern. The [[IConfigurable configurable interface]]
+contains just one method - “configure”, which takes ConfigParams as a parameter (extends StringValueMap class).
+If any object needs to be configurable, we implement this interface
+and parse the ConfigParams that the method received.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">copyright:</th><td class="field-body">Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">license:</th><td class="field-body">MIT, see LICENSE for more details.</td>
+</tr>
+</tbody>
+</table>
+<dl class="class">
+<dt id="pip_services3_commons.config.IConfigurable">
+<em class="property">class </em><code class="descclassname">pip_services3_commons.config.</code><code class="descname">IConfigurable</code><a class="headerlink" href="#pip_services3_commons.config.IConfigurable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>An interface to set configuration parameters to an object.</p>
+<p>It can be added to any existing class by implementing a single &lt;code&gt;configure()&lt;/code&gt; method.</p>
+<p>If you need to emphasis the fact that &lt;code&gt;configure()&lt;/code&gt; method can be called multiple times
+to change object configuration in runtime, use [[IReconfigurable]] interface instead.</p>
+<dl class="docutils">
+<dt>Example:</dt>
+<dd><p class="first">[code]
+class MyClass(IConfigurable):</p>
+<blockquote>
+<div>_myParam = “default value”</div></blockquote>
+<dl class="docutils">
+<dt>def configure(self, config):</dt>
+<dd>self._myParam = config.get_as_string_with_default(“options.param”, myParam)</dd>
+</dl>
+<p class="last">[/code]</p>
+</dd>
+</dl>
+<dl class="method">
+<dt id="pip_services3_commons.config.IConfigurable.configure">
+<code class="descname">configure</code><span class="sig-paren">(</span><em>config</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.config.IConfigurable.configure" title="Permalink to this definition">¶</a></dt>
+<dd><p>Configures object by passing configuration parameters.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>config</strong> – configuration parameters to be set.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pip_services3_commons.config.IReconfigurable">
+<em class="property">class </em><code class="descclassname">pip_services3_commons.config.</code><code class="descname">IReconfigurable</code><a class="headerlink" href="#pip_services3_commons.config.IReconfigurable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="pip_services3_commons.config.IConfigurable.html#pip_services3_commons.config.IConfigurable.IConfigurable" title="pip_services3_commons.config.IConfigurable.IConfigurable"><code class="xref py py-class docutils literal notranslate"><span class="pre">pip_services3_commons.config.IConfigurable.IConfigurable</span></code></a></p>
+<p>An interface to set configuration parameters to an object.
+It is similar to [[IConfigurable]] interface, but emphasises the fact
+that &lt;code&gt;configure()&lt;/code&gt; method can be called more than once to change object configuration in runtime.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="pip_services3_commons.config.ConfigParams">
+<em class="property">class </em><code class="descclassname">pip_services3_commons.config.</code><code class="descname">ConfigParams</code><span class="sig-paren">(</span><em>values=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.config.ConfigParams" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="pip_services3_commons.data.StringValueMap.html#pip_services3_commons.data.StringValueMap.StringValueMap" title="pip_services3_commons.data.StringValueMap.StringValueMap"><code class="xref py py-class docutils literal notranslate"><span class="pre">pip_services3_commons.data.StringValueMap.StringValueMap</span></code></a></p>
+<p>Contains a key-value map with configuration parameters.
+All values stored as strings and can be serialized as JSON or string forms.
+When retrieved the values can be automatically converted on read using GetAsXXX methods.</p>
+<p>The keys are case-sensitive, so it is recommended to use consistent C-style as: &lt;code&gt;”my_param”&lt;/code&gt;</p>
+<p>Configuration parameters can be broken into sections and subsections using dot notation as:
+&lt;code&gt;”section1.subsection1.param1”&lt;/code&gt;. Using GetSection method all parameters from specified section
+can be extracted from a ConfigMap.</p>
+<p>The ConfigParams supports serialization from/to plain strings as:
+&lt;code&gt;”key1=123;key2=ABC;key3=2016-09-16T00:00:00.00Z”&lt;/code&gt;</p>
+<p>ConfigParams are used to pass configurations to [[IConfigurable]] objects.
+They also serve as a basis for more concrete configurations such as ConnectionParams
+or CredentialParams (in the Pip.Services components package).</p>
+<dl class="docutils">
+<dt>Example:</dt>
+<dd><p class="first">[code]
+config = ConfigParams.fromTuples(“section1.key1”, “AAA”,</p>
+<blockquote>
+<div>“section1.key2”, 123,
+“section2.key1”, true)</div></blockquote>
+<p>config.get_as_string(“section1.key1”) // Result: AAA
+config.get_as_integer(“section1.key1”) // Result: 0</p>
+<p class="last">section1 = config.get_section(“section1”)
+section1.__str__() // Result: key1=AAA;key2=123
+[/code]</p>
+</dd>
+</dl>
+<dl class="method">
+<dt id="pip_services3_commons.config.ConfigParams.add_section">
+<code class="descname">add_section</code><span class="sig-paren">(</span><em>section</em>, <em>section_params</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.config.ConfigParams.add_section" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds parameters into this ConfigParams under specified section.
+Keys for the new parameters are appended with section dot prefix.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>section</strong> – name of the section where add new parameters</li>
+<li><strong>section_params</strong> – new parameters to be added.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="pip_services3_commons.config.ConfigParams.from_string">
+<em class="property">static </em><code class="descname">from_string</code><span class="sig-paren">(</span><em>line</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.config.ConfigParams.from_string" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a new ConfigParams object filled with key-value pairs serialized as a string.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>line</strong> – a string with serialized key-value pairs as “key1=value1;key2=value2;…”</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">a new ConfigParams object.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="pip_services3_commons.config.ConfigParams.from_tuples">
+<em class="property">static </em><code class="descname">from_tuples</code><span class="sig-paren">(</span><em>*tuples</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.config.ConfigParams.from_tuples" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a new ConfigParams object filled with provided key-value pairs called tuples.
+Tuples parameters contain a sequence of key1, value1, key2, value2, … pairs.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>tuples</strong> – the tuples to fill a new ConfigParams object.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">a new ConfigParams object.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="pip_services3_commons.config.ConfigParams.from_value">
+<em class="property">static </em><code class="descname">from_value</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.config.ConfigParams.from_value" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a new ConfigParams object filled with key-value pairs from specified object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>value</strong> – an object with key-value pairs used to initialize a new ConfigParams.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">a new ConfigParams object.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pip_services3_commons.config.ConfigParams.get_section">
+<code class="descname">get_section</code><span class="sig-paren">(</span><em>section</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.config.ConfigParams.get_section" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets parameters from specific section stored in this ConfigMap.
+The section name is removed from parameter keys.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>section</strong> – name of the section to retrieve configuration parameters from.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">all configuration parameters that belong to the section named ‘section’.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pip_services3_commons.config.ConfigParams.get_section_names">
+<code class="descname">get_section_names</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.config.ConfigParams.get_section_names" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a list with all 1st level section names.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">a list of section names stored in this ConfigMap.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="pip_services3_commons.config.ConfigParams.merge_configs">
+<em class="property">static </em><code class="descname">merge_configs</code><span class="sig-paren">(</span><em>*configs</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.config.ConfigParams.merge_configs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Merges two or more ConfigParams into one. The following ConfigParams override previously defined parameters.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>configs</strong> – a list of ConfigParams objects to be merged.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">a new ConfigParams object.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pip_services3_commons.config.ConfigParams.override">
+<code class="descname">override</code><span class="sig-paren">(</span><em>config_params</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.config.ConfigParams.override" title="Permalink to this definition">¶</a></dt>
+<dd><p>Overrides parameters with new values from specified ConfigParams and returns a new ConfigParams object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>config_params</strong> – ConfigMap with parameters to override the current values.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">a new ConfigParams object.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pip_services3_commons.config.ConfigParams.set_defaults">
+<code class="descname">set_defaults</code><span class="sig-paren">(</span><em>default_config_params</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.config.ConfigParams.set_defaults" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set default values from specified ConfigParams and returns a new ConfigParams object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>default_config_params</strong> – ConfigMap with default parameter values.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">a new ConfigParams object.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pip_services3_commons.config.NameResolver">
+<em class="property">class </em><code class="descclassname">pip_services3_commons.config.</code><code class="descname">NameResolver</code><a class="headerlink" href="#pip_services3_commons.config.NameResolver" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A helper class that allows to extract component name from configuration parameters.
+The name can be defined in “id”, “name” parameters or inside a component descriptor.</p>
+<dl class="docutils">
+<dt>Examples:</dt>
+<dd><p class="first">[code]
+config = ConfigParams.fromTuples(“descriptor”, “myservice:connector:aws:connector1:1.0”,</p>
+<blockquote>
+<div>“param1”, “ABC”,
+“param2”, 123)</div></blockquote>
+<p class="last">name = NameResolver.resolve(config)
+[/code]</p>
+</dd>
+</dl>
+<dl class="staticmethod">
+<dt id="pip_services3_commons.config.NameResolver.resolve">
+<em class="property">static </em><code class="descname">resolve</code><span class="sig-paren">(</span><em>config</em>, <em>default_name=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.config.NameResolver.resolve" title="Permalink to this definition">¶</a></dt>
+<dd><p>Resolves a component name from configuration parameters.
+The name can be stored in “id”, “name” fields or inside a component descriptor.
+If name cannot be determined it returns a defaultName.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>config</strong> – configuration parameters that may contain a component name.</li>
+<li><strong>default_name</strong> – (optional) a default component name.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">resolved name or default name if the name cannot be determined.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pip_services3_commons.config.OptionsResolver">
+<em class="property">class </em><code class="descclassname">pip_services3_commons.config.</code><code class="descname">OptionsResolver</code><a class="headerlink" href="#pip_services3_commons.config.OptionsResolver" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A helper class to parameters from “options” configuration section.</p>
+<dl class="docutils">
+<dt>Example:</dt>
+<dd><p class="first">[code]
+config = ConfigParams.fromTuples(</p>
+<blockquote>
+<div>…
+“options.param1”, “ABC”,
+“options.param2”, 123)</div></blockquote>
+<p class="last">options = OptionsResolver.resolve(config)
+[/code]</p>
+</dd>
+</dl>
+<dl class="staticmethod">
+<dt id="pip_services3_commons.config.OptionsResolver.resolve">
+<em class="property">static </em><code class="descname">resolve</code><span class="sig-paren">(</span><em>config</em>, <em>config_as_default=False</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.config.OptionsResolver.resolve" title="Permalink to this definition">¶</a></dt>
+<dd><p>Resolves an “options” configuration section from component configuration parameters.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>config</strong> – configuration parameters</li>
+<li><strong>config_as_default</strong> – (optional) When set true the method returns the entire parameter
+set when “options” section is not found. Default: false</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">configuration parameters from “options” section</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">pip_services3_commons.config package</a><ul>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-pip_services3_commons.config">Module contents</a><ul>
+<li><a class="reference internal" href="#pip-services3-commons-config-init">pip_services3_commons.config.__init__</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="pip_services3_commons.commands.InterceptedCommand.html"
+                        title="previous chapter">pip_services3_commons.commands.InterceptedCommand module</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="pip_services3_commons.config.ConfigParams.html"
+                        title="next chapter">pip_services3_commons.config.ConfigParams module</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/pip_services3_commons.config.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="pip_services3_commons.config.ConfigParams.html" title="pip_services3_commons.config.ConfigParams module"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="pip_services3_commons.commands.InterceptedCommand.html" title="pip_services3_commons.commands.InterceptedCommand module"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Pip.Services Commons for Python API</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="modules.html" >pip_services3_commons</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="pip_services3_commons.html" >pip_services3_commons package</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2018, Conceptual Vision Consulting LLC.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.1.
+    </div>
+  </body>
+</html>

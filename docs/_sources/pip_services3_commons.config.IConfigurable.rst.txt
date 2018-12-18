@@ -1,0 +1,7 @@
+pip\_services3\_commons.config.IConfigurable module
+===================================================
+
+.. automodule:: pip_services3_commons.config.IConfigurable
+    :members:
+    :undoc-members:
+    :show-inheritance:

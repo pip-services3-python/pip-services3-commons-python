@@ -1,0 +1,7 @@
+pip\_services3\_commons.random.RandomString module
+==================================================
+
+.. automodule:: pip_services3_commons.random.RandomString
+    :members:
+    :undoc-members:
+    :show-inheritance:

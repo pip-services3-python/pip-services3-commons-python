@@ -1,0 +1,7 @@
+pip\_services3\_commons.errors.FileException module
+===================================================
+
+.. automodule:: pip_services3_commons.errors.FileException
+    :members:
+    :undoc-members:
+    :show-inheritance:

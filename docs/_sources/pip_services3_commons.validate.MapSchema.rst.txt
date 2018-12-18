@@ -1,0 +1,7 @@
+pip\_services3\_commons.validate.MapSchema module
+=================================================
+
+.. automodule:: pip_services3_commons.validate.MapSchema
+    :members:
+    :undoc-members:
+    :show-inheritance:

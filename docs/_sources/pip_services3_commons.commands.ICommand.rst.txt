@@ -1,0 +1,7 @@
+pip\_services3\_commons.commands.ICommand module
+================================================
+
+.. automodule:: pip_services3_commons.commands.ICommand
+    :members:
+    :undoc-members:
+    :show-inheritance:

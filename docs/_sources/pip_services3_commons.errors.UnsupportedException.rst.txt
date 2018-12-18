@@ -1,0 +1,7 @@
+pip\_services3\_commons.errors.UnsupportedException module
+==========================================================
+
+.. automodule:: pip_services3_commons.errors.UnsupportedException
+    :members:
+    :undoc-members:
+    :show-inheritance:

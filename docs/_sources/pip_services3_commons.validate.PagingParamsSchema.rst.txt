@@ -1,0 +1,7 @@
+pip\_services3\_commons.validate.PagingParamsSchema module
+==========================================================
+
+.. automodule:: pip_services3_commons.validate.PagingParamsSchema
+    :members:
+    :undoc-members:
+    :show-inheritance:
