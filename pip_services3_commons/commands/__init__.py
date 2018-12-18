@@ -1,10 +1,14 @@
 # -*- coding: utf-8 -*-
-"""pip_services3_commons.commands.__init__.
+"""
+    pip_services3_commons.commands.__init__
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Commands initialization.
+    Commands initialization.
 
-Contains implementation of Command design patterns, which can be used to implement various remote procedure calls (RPCs).
-RPCs replace unique calls with universal "message transfer" calls, in which the message itself contains the called method's signature, as well as the parameters to pass for execution.
+    Contains implementation of Command design patterns,
+    which can be used to implement various remote procedure calls (RPCs).
+    RPCs replace unique calls with universal "message transfer" calls,
+    in which the message itself contains the called method's signature, as well as the parameters to pass for execution.
 
     When designing calls of methods/commands using the Command
     design pattern, uniform interfaces can be used, which, in turn,
