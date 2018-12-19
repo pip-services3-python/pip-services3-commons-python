@@ -67,16 +67,18 @@
 <dt id="pip_services3_commons.convert.IntegerConverter.IntegerConverter">
 <em class="property">class </em><code class="descclassname">pip_services3_commons.convert.IntegerConverter.</code><code class="descname">IntegerConverter</code><a class="headerlink" href="#pip_services3_commons.convert.IntegerConverter.IntegerConverter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>Converts arbitrary values into integers using extended conversion rules:
-- Strings are converted to floats, then to integers
-- DateTime: total number of milliseconds since unix epoсh
-- Boolean: 1 for true and 0 for false</p>
-<dl class="docutils">
-<dt>Example:</dt>
-<dd>value1 = IntegerConverter.to_nullable_integer(“ABC”) // Result: None
-value2 = IntegerConverter.to_nullable_integer(“123.456”) // Result: 123
-value3 = IntegerConverter.to_nullable_integer(true) // Result: 1
-value4 = IntegerConverter.to_nullable_integer(datetime.datetime.now()) // Result: current milliseconds</dd>
+  <p>Converts arbitrary values into integers using extended conversion rules:</p>
+  <ul>
+  <li>Strings are converted to floats, then to integers
+      <li>DateTime: total number of milliseconds since unix epoсh
+          <li>Boolean: 1 for true and 0 for false
+  </ul>
+  <dl class="docutils">
+  <dt>Example:</dt>
+  <dd>value1 = IntegerConverter.to_nullable_integer(“ABC”) // Result: None
+      <dd>value2 = IntegerConverter.to_nullable_integer(“123.456”) // Result: 123
+          <dd>value3 = IntegerConverter.to_nullable_integer(true) // Result: 1
+              <dd>value4 = IntegerConverter.to_nullable_integer(datetime.datetime.now()) // Result: current milliseconds</dd>
 </dl>
 <dl class="staticmethod">
 <dt id="pip_services3_commons.convert.IntegerConverter.IntegerConverter.to_integer">

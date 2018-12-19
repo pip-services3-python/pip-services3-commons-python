@@ -112,7 +112,7 @@
 <span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-pip_services3_commons.convert" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="pip-services3-commons-convert-init">
 <h3>pip_services3_commons.convert.__init__<a class="headerlink" href="#pip-services3-commons-convert-init" title="Permalink to this headline">¶</a></h3>
-<p>Contains “soft” data converters. Soft data converters differ from the data conversion algorithms
+<p>Contains <i>“soft”</i> data converters. Soft data converters differ from the data conversion algorithms
 found in typical programming language, due to the fact that they support rare conversions between
 various data types (such as integer to timespan, timespan to string, and so on).</p>
 <p>These converters are necessary, due to the fact that data in enterprise systems is represented in
@@ -131,18 +131,20 @@ various forms and conversion is often necessary – at times in very difficult c
 <dt id="pip_services3_commons.convert.StringConverter">
 <em class="property">class </em><code class="descclassname">pip_services3_commons.convert.</code><code class="descname">StringConverter</code><a class="headerlink" href="#pip_services3_commons.convert.StringConverter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>Converts arbitrary values into strings using extended conversion rules:
-- Numbers: are converted with ‘.’ as decimal point
-- DateTime: using ISO format
-- Boolean: “true” for true and “false” for false
-- Arrays: as comma-separated list
-- Other objects: using &lt;code&gt;toString()&lt;/code&gt; method</p>
+<p>Converts arbitrary values into strings using extended conversion rules:</p>
+  <ul>
+<li>Numbers: are converted with ‘.’ as decimal point
+<li>DateTime: using ISO format
+<li> “true” for true and “false” for false
+<li>Arrays: as comma-separated list
+<li>Other objects: using <i>to_string()</i> method
+  </ul>
 <dl class="docutils">
 <dt>Example:</dt>
-<dd>value1 = StringConverter.to_string(123.456) // Result: “123.456”
-value2 = StringConverter.to_string(true) // Result: “true”
-value3 = StringConverter.to_string(datetime.datetime(2018,0,1)) // Result: “2018-01-01T00:00:00.00”
-value4 = StringConverter.to_string([1,2,3]) // Result: “1,2,3”</dd>
+<dd>value1 = StringConverter.to_string(123.456) // Result: “123.456”</dd>
+<dd>value2 = StringConverter.to_string(true) // Result: “true”</dd>
+<dd>value3 = StringConverter.to_string(datetime.datetime(2018,0,1)) // Result: “2018-01-01T00:00:00.00”</dd>
+<dd>value4 = StringConverter.to_string([1,2,3]) // Result: “1,2,3”</dd>
 </dl>
 <dl class="staticmethod">
 <dt id="pip_services3_commons.convert.StringConverter.to_nullable_string">
@@ -203,16 +205,18 @@ value4 = StringConverter.to_string([1,2,3]) // Result: “1,2,3”</dd>
 <dt id="pip_services3_commons.convert.BooleanConverter">
 <em class="property">class </em><code class="descclassname">pip_services3_commons.convert.</code><code class="descname">BooleanConverter</code><a class="headerlink" href="#pip_services3_commons.convert.BooleanConverter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>Converts arbitrary values to boolean values using extended conversion rules:
-- Numbers: &lt;&gt;0 are true, =0 are false
-- Strings: “true”, “yes”, “T”, “Y”, “1” are true; “false”, “no”, “F”, “N” are false
-- DateTime: &lt;&gt;0 total milliseconds are true, =0 are false</p>
+<p>Converts arbitrary values to boolean values using extended conversion rules:</p>
+<ul>
+<li>Numbers: &lt;&gt;0 are true, =0 are false
+<li>Strings: “true”, “yes”, “T”, “Y”, “1” are true; “false”, “no”, “F”, “N” are false
+    <li>DateTime: &lt;&gt;0 total milliseconds are true, =0 are false
+</ul>
 <dl class="docutils">
 <dt>Example:</dt>
 <dd>value1 = BooleanConverter.to_nullable_boolean(true) // true
-value2 = BooleanConverter.to_nullable_boolean(“yes”) // true
-value3 = BooleanConverter.to_nullable_boolean(123) // true
-value4 = BooleanConverter.to_nullable_boolean({}) // None</dd>
+    <dd>value2 = BooleanConverter.to_nullable_boolean(“yes”) // true
+        <dd>value3 = BooleanConverter.to_nullable_boolean(123) // true
+            <dd>value4 = BooleanConverter.to_nullable_boolean({}) // None</dd>
 </dl>
 <dl class="staticmethod">
 <dt id="pip_services3_commons.convert.BooleanConverter.to_boolean">
@@ -273,16 +277,18 @@ value4 = BooleanConverter.to_nullable_boolean({}) // None</dd>
 <dt id="pip_services3_commons.convert.IntegerConverter">
 <em class="property">class </em><code class="descclassname">pip_services3_commons.convert.</code><code class="descname">IntegerConverter</code><a class="headerlink" href="#pip_services3_commons.convert.IntegerConverter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>Converts arbitrary values into integers using extended conversion rules:
-- Strings are converted to floats, then to integers
-- DateTime: total number of milliseconds since unix epoсh
-- Boolean: 1 for true and 0 for false</p>
+<p>Converts arbitrary values into integers using extended conversion rules:</p>
+<ul>
+<li>Strings are converted to floats, then to integers
+    <li>DateTime: total number of milliseconds since unix epoсh
+        <li>Boolean: 1 for true and 0 for false
+</ul>
 <dl class="docutils">
 <dt>Example:</dt>
 <dd>value1 = IntegerConverter.to_nullable_integer(“ABC”) // Result: None
-value2 = IntegerConverter.to_nullable_integer(“123.456”) // Result: 123
-value3 = IntegerConverter.to_nullable_integer(true) // Result: 1
-value4 = IntegerConverter.to_nullable_integer(datetime.datetime.now()) // Result: current milliseconds</dd>
+    <dd>value2 = IntegerConverter.to_nullable_integer(“123.456”) // Result: 123
+        <dd>value3 = IntegerConverter.to_nullable_integer(true) // Result: 1
+            <dd>value4 = IntegerConverter.to_nullable_integer(datetime.datetime.now()) // Result: current milliseconds</dd>
 </dl>
 <dl class="staticmethod">
 <dt id="pip_services3_commons.convert.IntegerConverter.to_integer">
@@ -364,16 +370,18 @@ value4 = IntegerConverter.to_nullable_integer(datetime.datetime.now()) // Result
 <dt id="pip_services3_commons.convert.FloatConverter">
 <em class="property">class </em><code class="descclassname">pip_services3_commons.convert.</code><code class="descname">FloatConverter</code><a class="headerlink" href="#pip_services3_commons.convert.FloatConverter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>Converts arbitrary values into float using extended conversion rules:
-- Strings are converted to float values
-- DateTime: total number of milliseconds since unix epoсh
-- Boolean: 1 for true and 0 for false</p>
+<p>Converts arbitrary values into float using extended conversion rules:</p>
+<ul>
+<li>Strings are converted to float values
+    <li>DateTime: total number of milliseconds since unix epoсh
+        <li>Boolean: 1 for true and 0 for false
+</ul>
 <dl class="docutils">
 <dt>Example:</dt>
 <dd>value1 = FloatConverter.to_nullable_float(“ABC”) // Result: None
-value2 = FloatConverter.to_nullable_float(“123.456”) // Result: 123.456
-value3 = FloatConverter.to_nullable_float(true) // Result: 1
-value4 = FloatConverter.to_nullable_float(datetime.datetime.now()) // Result: current milliseconds</dd>
+    <dd>value2 = FloatConverter.to_nullable_float(“123.456”) // Result: 123.456
+        <dd>value3 = FloatConverter.to_nullable_float(true) // Result: 1
+            <dd>value4 = FloatConverter.to_nullable_float(datetime.datetime.now()) // Result: current milliseconds</dd>
 </dl>
 <dl class="staticmethod">
 <dt id="pip_services3_commons.convert.FloatConverter.to_float">
@@ -434,14 +442,16 @@ value4 = FloatConverter.to_nullable_float(datetime.datetime.now()) // Result: cu
 <dt id="pip_services3_commons.convert.DateTimeConverter">
 <em class="property">class </em><code class="descclassname">pip_services3_commons.convert.</code><code class="descname">DateTimeConverter</code><a class="headerlink" href="#pip_services3_commons.convert.DateTimeConverter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>Converts arbitrary values into Date values using extended conversion rules:
-- Strings: converted using ISO time format
-- Numbers: converted using milliseconds since unix epoch</p>
+<p>Converts arbitrary values into Date values using extended conversion rules:</p>
+<ul>
+<li>Strings: converted using ISO time format
+    <li>Numbers: converted using milliseconds since unix epoch
+</ul>
 <dl class="docutils">
 <dt>Example:</dt>
 <dd>value1 = DateTimeConverter.to_nullable_datetime(“ABC”) // Result: None
-value2 = DateTimeConverter.to_nullable_datetime(“2018-01-01T11:30:00.0”) // Result: Date(2018,0,1,11,30)
-value3 = DateTimeConverter.to_nullable_datetime(123) // Result: Date(123)</dd>
+    <dd>value2 = DateTimeConverter.to_nullable_datetime(“2018-01-01T11:30:00.0”) // Result: Date(2018,0,1,11,30)
+        <dd>value3 = DateTimeConverter.to_nullable_datetime(123) // Result: Date(123)</dd>
 </dl>
 <dl class="staticmethod">
 <dt id="pip_services3_commons.convert.DateTimeConverter.to_datetime">
@@ -508,13 +518,13 @@ value3 = DateTimeConverter.to_nullable_datetime(123) // Result: Date(123)</dd>
 <em class="property">class </em><code class="descclassname">pip_services3_commons.convert.</code><code class="descname">ArrayConverter</code><a class="headerlink" href="#pip_services3_commons.convert.ArrayConverter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Converts arbitrary values into array objects.
-Example:</p>
+<p>Example:</p>
 <blockquote>
-<div>[code]
-value1 = ArrayConverter.to_array([1, 2])                 // Result: [1, 2]
-value2 = ArrayConverter.to_array(1)                       // Result: [1]
-value2 = ArrayConverter.list_to_array(“1,2,3”)  // Result: [“1”, “2”, “3”]
-[/code]</div></blockquote>
+<div>
+<dd>value1 = ArrayConverter.to_array([1, 2])                 // Result: [1, 2]
+<dd>value2 = ArrayConverter.to_array(1)                       // Result: [1]
+<dd>value2 = ArrayConverter.list_to_array(“1,2,3”)  // Result: [“1”, “2”, “3”]
+</div></blockquote>
 <dl class="staticmethod">
 <dt id="pip_services3_commons.convert.ArrayConverter.list_to_array">
 <em class="property">static </em><code class="descname">list_to_array</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.convert.ArrayConverter.list_to_array" title="Permalink to this definition">¶</a></dt>
@@ -595,13 +605,15 @@ Single values are converted into arrays with a single element.</p>
 <em class="property">class </em><code class="descclassname">pip_services3_commons.convert.</code><code class="descname">MapConverter</code><a class="headerlink" href="#pip_services3_commons.convert.MapConverter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Converts arbitrary values into map objects using extended conversion rules:
-- Objects: property names as keys, property values as values
-- Arrays: element indexes as keys, elements as values</p>
+  <ul>
+<li>Objects: property names as keys, property values as values
+    <li>Arrays: element indexes as keys, elements as values
+      </ul>
 <dl class="docutils">
 <dt>Example:</dt>
 <dd>value1 = MapConverter.to_nullable_map(“ABC”) // Result: None
-value2 = MapConverter.to_nullable_map({ key: 123 }) // Result: { key: 123 }
-value3 = MapConverter.to_nullable_map([1,2,3]) // Result: { “0”: 1, “1”: 2, “2”: 3 }</dd>
+<dd>value2 = MapConverter.to_nullable_map({ key: 123 }) // Result: { key: 123 }
+<dd>value3 = MapConverter.to_nullable_map([1,2,3]) // Result: { “0”: 1, “1”: 2, “2”: 3 }</dd>
 </dl>
 <dl class="staticmethod">
 <dt id="pip_services3_commons.convert.MapConverter.to_map">
@@ -663,12 +675,12 @@ value3 = MapConverter.to_nullable_map([1,2,3]) // Result: { “0”: 1, “1”:
 <em class="property">class </em><code class="descclassname">pip_services3_commons.convert.</code><code class="descname">RecursiveMapConverter</code><a class="headerlink" href="#pip_services3_commons.convert.RecursiveMapConverter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Converts arbitrary values into map objects using extended conversion rules.
-This class is similar to [[MapConverter]], but is recursively converts all values stored in objects and arrays.</p>
+This class is similar to MapConverter, but is recursively converts all values stored in objects and arrays.</p>
 <dl class="docutils">
 <dt>Example:</dt>
 <dd>value1 = RecursiveMapConverted.to_nullable_map(“ABC”) // Result: None
-value2 = RecursiveMapConverted.to_nullable_map({ key: 123 }) // Result: { key: 123 }
-value3 = RecursiveMapConverted.to_nullable_map([1,[2,3]) // Result: { “0”: 1, { “0”: 2, “1”: 3 } }</dd>
+<dd>value2 = RecursiveMapConverted.to_nullable_map({ key: 123 }) // Result: { key: 123 }
+<dd>value3 = RecursiveMapConverted.to_nullable_map([1,[2,3]) // Result: { “0”: 1, { “0”: 2, “1”: 3 } }</dd>
 </dl>
 <dl class="staticmethod">
 <dt id="pip_services3_commons.convert.RecursiveMapConverter.to_map">
@@ -733,7 +745,7 @@ value3 = RecursiveMapConverted.to_nullable_map([1,[2,3]) // Result: { “0”: 1
 <dl class="docutils">
 <dt>Example:</dt>
 <dd>value1 = JsonConverter.from_json(“{“key”:123}”) // Result: { key: 123 }
-value2 = JsonConverter.to_map({ key: 123}) // Result: “{“key”:123}”</dd>
+<dd>value2 = JsonConverter.to_map({ key: 123}) // Result: “{“key”:123}”</dd>
 </dl>
 <dl class="staticmethod">
 <dt id="pip_services3_commons.convert.JsonConverter.from_json">
@@ -826,7 +838,7 @@ value2 = JsonConverter.to_map({ key: 123}) // Result: “{“key”:123}”</dd>
 <dt id="pip_services3_commons.convert.TypeCode">
 <em class="property">class </em><code class="descclassname">pip_services3_commons.convert.</code><code class="descname">TypeCode</code><a class="headerlink" href="#pip_services3_commons.convert.TypeCode" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>Codes for the data types that can be converted using [[TypeConverter]].</p>
+<p>Codes for the data types that can be converted using TypeConverter.</p>
 <dl class="attribute">
 <dt id="pip_services3_commons.convert.TypeCode.Array">
 <code class="descname">Array</code><em class="property"> = 11</em><a class="headerlink" href="#pip_services3_commons.convert.TypeCode.Array" title="Permalink to this definition">¶</a></dt>
@@ -904,8 +916,8 @@ extended conversion rules to convert the values.</p>
 <dl class="docutils">
 <dt>Example:</dt>
 <dd>value1 = TypeConverter.to_type(TypeCode.Integer, “123.456”) // Result: 123
-value2 = TypeConverter.to_type(TypeCode.DateTime, 123) // Result: Date(123)
-value3 = TypeConverter.to_type(TypeCode.Boolean, “F”) // Result: false</dd>
+<dd>value2 = TypeConverter.to_type(TypeCode.DateTime, 123) // Result: Date(123)
+<dd>value3 = TypeConverter.to_type(TypeCode.Boolean, “F”) // Result: false</dd>
 </dl>
 <dl class="staticmethod">
 <dt id="pip_services3_commons.convert.TypeConverter.to_nullable_type">

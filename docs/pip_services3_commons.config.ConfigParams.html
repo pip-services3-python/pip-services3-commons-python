@@ -69,16 +69,16 @@
 <dd><p>Bases: <a class="reference internal" href="pip_services3_commons.data.StringValueMap.html#pip_services3_commons.data.StringValueMap.StringValueMap" title="pip_services3_commons.data.StringValueMap.StringValueMap"><code class="xref py py-class docutils literal notranslate"><span class="pre">pip_services3_commons.data.StringValueMap.StringValueMap</span></code></a></p>
 <p>Contains a key-value map with configuration parameters.
 All values stored as strings and can be serialized as JSON or string forms.
-When retrieved the values can be automatically converted on read using GetAsXXX methods.</p>
-<p>The keys are case-sensitive, so it is recommended to use consistent C-style as: &lt;code&gt;”my_param”&lt;/code&gt;</p>
+When retrieved the values can be automatically converted on read using <i>GetAsXXX</i> methods.</p>
+<p>The keys are case-sensitive, so it is recommended to use consistent C-style as: <i>”my_param”</i></p>
 <p>Configuration parameters can be broken into sections and subsections using dot notation as:
-&lt;code&gt;”section1.subsection1.param1”&lt;/code&gt;. Using GetSection method all parameters from specified section
+<i>”section1.subsection1.param1”</i>. Using GetSection method all parameters from specified section
 can be extracted from a ConfigMap.</p>
 <p>The ConfigParams supports serialization from/to plain strings as:
-&lt;code&gt;”key1=123;key2=ABC;key3=2016-09-16T00:00:00.00Z”&lt;/code&gt;</p>
-<p>ConfigParams are used to pass configurations to [[IConfigurable]] objects.
-They also serve as a basis for more concrete configurations such as ConnectionParams
-or CredentialParams (in the Pip.Services components package).</p>
+<i>”key1=123;key2=ABC;key3=2016-09-16T00:00:00.00Z”</i></p>
+<p>ConfigParams are used to pass configurations to <a href="https://pip-services3-python.github.io/pip-services3-commons-python/pip_services3_commons.config.IConfigurable.html">IConfigurable</a> objects.
+They also serve as a basis for more concrete configurations such as <a href="https://pip-services3-python.github.io/pip-services3-components-python/pip_services3_components.connect.ConnectionParams.html">ConnectionParams</a>
+or <a href="https://pip-services3-python.github.io/pip-services3-components-python/pip_services3_components.auth.CredentialParams.html">CredentialParams</a> (in the Pip.Services components package).</p>
 <dl class="docutils">
 <dt>Example:</dt>
 <dd><p class="first">[code]

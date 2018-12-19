@@ -70,11 +70,12 @@
 <p>Data transfer object used to pass filter parameters as simple key-value pairs.</p>
 <dl class="docutils">
 <dt>Example:</dt>
-<dd><p class="first">filter = FilterParams.from_tuples(“type”, “Type1”,
-“from_create_time”, datetime.datetime(2000, 0, 1),
-“to_create_time”, datetime.datetime.now(),
-“completed”, true)
-paging = PagingParams(0, 100)</p>
+<dd><p class="first">filter = FilterParams.from_tuples(
+<br>“type”, “Type1”,
+<br>“from_create_time”, datetime.datetime(2000, 0, 1),
+<br>“to_create_time”, datetime.datetime.now(),
+<br>“completed”, true)
+<dd>paging = PagingParams(0, 100)</p>
 <p class="last">myDataClient.get_data_by_filter(filter, paging)</p>
 </dd>
 </dl>

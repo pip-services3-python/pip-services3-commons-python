@@ -69,17 +69,17 @@
 <dd><p>Bases: <a class="reference internal" href="pip_services3_commons.validate.Schema.html#pip_services3_commons.validate.Schema.Schema" title="pip_services3_commons.validate.Schema.Schema"><code class="xref py py-class docutils literal notranslate"><span class="pre">pip_services3_commons.validate.Schema.Schema</span></code></a></p>
 <p>Schema to validate user defined objects.</p>
 <dl class="docutils">
-<dt>Example:</dt>
-<dd><dl class="first docutils">
-<dt>schema = ObjectSchema(false)</dt>
-<dd>.with_optional_property(“id”, TypeCode.String)
-.with_required_property(“name”, TypeCode.String)</dd>
-</dl>
-<p class="last">schema.validate({ id: “1”, name: “ABC” })       // Result: no errors
-schema.validate({ name: “ABC” })                // Result: no errors
-schema.validate({ id: 1, name: “ABC” })         // Result: id type mismatch
-schema.validate({ id: 1, _name: “ABC” })        // Result: name is missing, unexpected _name
-schema.validate(“ABC”)                          // Result: type mismatch</p>
+    <dt>Example:</dt>
+    <dd><dl class="first docutils">
+    <dt>schema = ObjectSchema(false)</dt>
+    <dd>.with_optional_property(“id”, TypeCode.String)
+    .with_required_property(“name”, TypeCode.String)</dd>
+    </dl>
+    <dd>schema.validate({ id: “1”, name: “ABC” })       // Result: no errors
+    <dd>schema.validate({ name: “ABC” })                // Result: no errors
+    <dd>schema.validate({ id: 1, name: “ABC” })         // Result: id type mismatch
+    <dd>schema.validate({ id: 1, _name: “ABC” })        // Result: name is missing, unexpected _name
+    <dd>schema.validate(“ABC”)                          // Result: type mismatch
 </dd>
 </dl>
 <dl class="method">

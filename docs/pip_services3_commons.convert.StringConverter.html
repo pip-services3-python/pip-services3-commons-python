@@ -67,18 +67,20 @@
 <dt id="pip_services3_commons.convert.StringConverter.StringConverter">
 <em class="property">class </em><code class="descclassname">pip_services3_commons.convert.StringConverter.</code><code class="descname">StringConverter</code><a class="headerlink" href="#pip_services3_commons.convert.StringConverter.StringConverter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>Converts arbitrary values into strings using extended conversion rules:
-- Numbers: are converted with ‘.’ as decimal point
-- DateTime: using ISO format
-- Boolean: “true” for true and “false” for false
-- Arrays: as comma-separated list
-- Other objects: using &lt;code&gt;toString()&lt;/code&gt; method</p>
+  <p>Converts arbitrary values into strings using extended conversion rules:</p>
+  <ul>
+<li>Numbers: are converted with ‘.’ as decimal point
+<li>DateTime: using ISO format
+<li> “true” for true and “false” for false
+<li>Arrays: as comma-separated list
+<li>Other objects: using <i>to_string()</i> method
+  </ul>
 <dl class="docutils">
 <dt>Example:</dt>
-<dd>value1 = StringConverter.to_string(123.456) // Result: “123.456”
-value2 = StringConverter.to_string(true) // Result: “true”
-value3 = StringConverter.to_string(datetime.datetime(2018,0,1)) // Result: “2018-01-01T00:00:00.00”
-value4 = StringConverter.to_string([1,2,3]) // Result: “1,2,3”</dd>
+<dd>value1 = StringConverter.to_string(123.456) // Result: “123.456”</dd>
+<dd>value2 = StringConverter.to_string(true) // Result: “true”</dd>
+<dd>value3 = StringConverter.to_string(datetime.datetime(2018,0,1)) // Result: “2018-01-01T00:00:00.00”</dd>
+<dd>value4 = StringConverter.to_string([1,2,3]) // Result: “1,2,3”</dd>
 </dl>
 <dl class="staticmethod">
 <dt id="pip_services3_commons.convert.StringConverter.StringConverter.to_nullable_string">

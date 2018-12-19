@@ -101,24 +101,24 @@
 which can be used to implement various remote procedure calls (RPCs).
 RPCs replace unique calls with universal “message transfer” calls,
 in which the message itself contains the called method’s signature, as well as the parameters to pass for execution.</p>
-<p>When designing calls of methods/commands using the Command
-design pattern, uniform interfaces can be used, which, in turn,
+<p>When designing calls of methods/commands using the <a href="https://pip-services3-python.github.io/pip-services3-commons-python/pip_services3_commons.commands.Command.html">Command
+design pattern</a>, uniform interfaces can be used, which, in turn,
 allow any amount of concrete methods to be called.</p>
 <p>Command design patterns can be used for intercepting messages
 and for various logging implementations.</p>
 <p>These design patterns allow us to create
-[[ICommandable Interfaces]], which are completely universal.
-If an object extends [[ICommandable]] and returns a
-[[CommandSet]], then we can implement, with minimal code, a
+<a href="https://pip-services3-python.github.io/pip-services3-commons-python/pip_services3_commons.commands.ICommandable.html">ICommandable Interfaces</a>, which are completely universal.
+If an object extends <a href="https://pip-services3-python.github.io/pip-services3-commons-python/pip_services3_commons.commands.ICommandable.html">ICommandable</a> and returns a
+<a href="https://pip-services3-python.github.io/pip-services3-commons-python/pip_services3_commons.commands.CommandSet.html">CommandSet</a>, then we can implement, with minimal code, a
 commandable client for this object, using various technologies.</p>
 <ul class="simple">
-<li>[[ICommandable Commandable Interfaces]] – part of the command
+<li><a href="https://pip-services3-python.github.io/pip-services3-commons-python/pip_services3_commons.commands.ICommandable.html">Commandable Interfaces</a> – part of the command
 design pattern, used to make classes with certain logic, which
 are capable of receiving and processing commands in this
 universal form.</li>
 </ul>
 <ul class="simple">
-<li>[[ICommandInterceptor Command interceptors]] – modify the
+<li><a href="https://pip-services3-python.github.io/pip-services3-commons-python/pip_services3_commons.commands.ICommandIntercepter.html">Command interceptors</a> – modify the
 message execution pipeline. Command interceptors are used to
 intercept calls, perform a set of actions, and, optionally, 
 cancel the command’s actual execution by simply returning a
@@ -140,7 +140,7 @@ which can:</li>
 manner: the result can be written to cache, so that the next
 call doesn’t have to be made.</p>
 <ul class="simple">
-<li>[[InterceptedCommand Intercepted commands]] are used as pattern decorators in the command design pattern. They are
+<li><a href="https://pip-services3-python.github.io/pip-services3-commons-python/pip_services3_commons.commands.InterceptedCommand.html">Intercepted commands</a> are used as pattern decorators in the command design pattern. They are
 represented as regular commands, but run their own logic
 before calling the actual command.</li>
 </ul>

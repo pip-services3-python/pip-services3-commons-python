@@ -67,14 +67,16 @@
 <dt id="pip_services3_commons.convert.MapConverter.MapConverter">
 <em class="property">class </em><code class="descclassname">pip_services3_commons.convert.MapConverter.</code><code class="descname">MapConverter</code><a class="headerlink" href="#pip_services3_commons.convert.MapConverter.MapConverter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>Converts arbitrary values into map objects using extended conversion rules:
-- Objects: property names as keys, property values as values
-- Arrays: element indexes as keys, elements as values</p>
-<dl class="docutils">
-<dt>Example:</dt>
-<dd>value1 = MapConverter.to_nullable_map(“ABC”) // Result: None
-value2 = MapConverter.to_nullable_map({ key: 123 }) // Result: { key: 123 }
-value3 = MapConverter.to_nullable_map([1,2,3]) // Result: { “0”: 1, “1”: 2, “2”: 3 }</dd>
+  <p>Converts arbitrary values into map objects using extended conversion rules:
+      <ul>
+    <li>Objects: property names as keys, property values as values
+        <li>Arrays: element indexes as keys, elements as values
+          </ul>
+    <dl class="docutils">
+    <dt>Example:</dt>
+    <dd>value1 = MapConverter.to_nullable_map(“ABC”) // Result: None
+    <dd>value2 = MapConverter.to_nullable_map({ key: 123 }) // Result: { key: 123 }
+    <dd>value3 = MapConverter.to_nullable_map([1,2,3]) // Result: { “0”: 1, “1”: 2, “2”: 3 }</dd>
 </dl>
 <dl class="staticmethod">
 <dt id="pip_services3_commons.convert.MapConverter.MapConverter.to_map">

@@ -76,13 +76,13 @@ values to determine if one object has newer or older version than another one.</
 <dt>Example:</dt>
 <dd><dl class="first last docutils">
 <dt>class MyData(IStringIdentifiable, IVersioned):</dt>
-<dd><p class="first">id = None
-version = None
-…</p>
+<dd>id = None
+<dd>version = None
+<dd>…</p>
 <dl class="docutils">
 <dt>def update_data(item):</dt>
 <dd><p class="first">…
-if item.version &lt; old_item.version:</p>
+<dd>if item.version &lt; old_item.version:</p>
 <blockquote class="last">
 <div>raise ConcurrencyException(null, “VERSION_CONFLICT”, “The change has older version stored value”)</div></blockquote>
 </dd>

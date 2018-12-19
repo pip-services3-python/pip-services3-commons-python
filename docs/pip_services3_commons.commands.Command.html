@@ -67,7 +67,7 @@
 <dt id="pip_services3_commons.commands.Command.Command">
 <em class="property">class </em><code class="descclassname">pip_services3_commons.commands.Command.</code><code class="descname">Command</code><span class="sig-paren">(</span><em>name</em>, <em>schema</em>, <em>function</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.commands.Command.Command" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="pip_services3_commons.commands.ICommand.html#pip_services3_commons.commands.ICommand.ICommand" title="pip_services3_commons.commands.ICommand.ICommand"><code class="xref py py-class docutils literal notranslate"><span class="pre">pip_services3_commons.commands.ICommand.ICommand</span></code></a></p>
-<p>Concrete implementation of ICommand interface.
+<p>Concrete implementation of <a href="https://pip-services3-python.github.io/pip-services3-commons-python/pip_services3_commons.commands.ICommand.html">ICommand interface</a>.
 Command allows to call a method or function using Command pattern.</p>
 <dl class="docutils">
 <dt>Example:</dt>
@@ -82,12 +82,11 @@ return param1 + param2</dd>
 <p class="last">print result.__str__()</p>
 </dd>
 </dl>
-<p>See ICommand, CommandSet</p>
 <dl class="method">
 <dt id="pip_services3_commons.commands.Command.Command.execute">
 <code class="descname">execute</code><span class="sig-paren">(</span><em>correlation_id</em>, <em>args</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.commands.Command.Command.execute" title="Permalink to this definition">¶</a></dt>
-<dd><p>Executes the command. Before execution is validates Parameters args using the
-defined schema. The command execution intercepts ApplicationException raised
+<dd><p>Executes the command. Before execution is validates <a href="https://pip-services3-python.github.io/pip-services3-commons-python/pip_services3_commons.run.Parameters.html">Parameters</a> args using the
+defined schema. The command execution intercepts <a href="https://pip-services3-python.github.io/pip-services3-commons-python/pip_services3_commons.errors.ApplicationException.html">ApplicationException</a> raised
 by the called function and throws them.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -133,7 +132,7 @@ by the called function and throws them.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>args</strong> – the parameters (arguments) to validate using this command’s schema.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">an array of ValidationResults or an empty array (if no schema is set).</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">an array of <a href="https://pip-services3-python.github.io/pip-services3-commons-python/pip_services3_commons.validate.ValidationResult.html">ValidationResults</a> or an empty array (if no schema is set).</td>
 </tr>
 </tbody>
 </table>

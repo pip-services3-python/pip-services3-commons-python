@@ -80,10 +80,10 @@
 <span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-pip_services3_commons.config" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="pip-services3-commons-config-init">
 <h3>pip_services3_commons.config.__init__<a class="headerlink" href="#pip-services3-commons-config-init" title="Permalink to this headline">¶</a></h3>
-<p>Contains the implementation of the config design pattern. The [[IConfigurable configurable interface]]
-contains just one method - “configure”, which takes ConfigParams as a parameter (extends StringValueMap class).
+<p>Contains the implementation of the config design pattern. The <a href="https://pip-services3-python.github.io/pip-services3-commons-python/pip_services3_commons.config.IConfigurable.html">IConfigurable interface</a>
+contains just one method - “configure”, which takes <a href="https://pip-services3-python.github.io/pip-services3-commons-python/pip_services3_commons.config.ConfigParams.html">ConfigParams</a> as a parameter (extends <a href="https://pip-services3-python.github.io/pip-services3-commons-python/pip_services3_commons.data.StringValueMap.html">StringValueMap class</a>).
 If any object needs to be configurable, we implement this interface
-and parse the ConfigParams that the method received.</p>
+and parse the <a href="https://pip-services3-python.github.io/pip-services3-commons-python/pip_services3_commons.config.ConfigParams.html">ConfigParams</a> that the method received.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -99,9 +99,9 @@ and parse the ConfigParams that the method received.</p>
 <em class="property">class </em><code class="descclassname">pip_services3_commons.config.</code><code class="descname">IConfigurable</code><a class="headerlink" href="#pip_services3_commons.config.IConfigurable" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>An interface to set configuration parameters to an object.</p>
-<p>It can be added to any existing class by implementing a single &lt;code&gt;configure()&lt;/code&gt; method.</p>
-<p>If you need to emphasis the fact that &lt;code&gt;configure()&lt;/code&gt; method can be called multiple times
-to change object configuration in runtime, use [[IReconfigurable]] interface instead.</p>
+<p>It can be added to any existing class by implementing a single <b>configure()</b> method.</p>
+<p>If you need to emphasis the fact that <b>configure()</b> method can be called multiple times
+to change object configuration in runtime, use IReconfigurable interface instead.</p>
 <dl class="docutils">
 <dt>Example:</dt>
 <dd><p class="first">[code]
@@ -136,8 +136,8 @@ class MyClass(IConfigurable):</p>
 <em class="property">class </em><code class="descclassname">pip_services3_commons.config.</code><code class="descname">IReconfigurable</code><a class="headerlink" href="#pip_services3_commons.config.IReconfigurable" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="pip_services3_commons.config.IConfigurable.html#pip_services3_commons.config.IConfigurable.IConfigurable" title="pip_services3_commons.config.IConfigurable.IConfigurable"><code class="xref py py-class docutils literal notranslate"><span class="pre">pip_services3_commons.config.IConfigurable.IConfigurable</span></code></a></p>
 <p>An interface to set configuration parameters to an object.
-It is similar to [[IConfigurable]] interface, but emphasises the fact
-that &lt;code&gt;configure()&lt;/code&gt; method can be called more than once to change object configuration in runtime.</p>
+It is similar to IConfigurable interface, but emphasises the fact
+that <b>configure()</b> method can be called more than once to change object configuration in runtime.</p>
 </dd></dl>
 
 <dl class="class">
@@ -147,13 +147,13 @@ that &lt;code&gt;configure()&lt;/code&gt; method can be called more than once to
 <p>Contains a key-value map with configuration parameters.
 All values stored as strings and can be serialized as JSON or string forms.
 When retrieved the values can be automatically converted on read using GetAsXXX methods.</p>
-<p>The keys are case-sensitive, so it is recommended to use consistent C-style as: &lt;code&gt;”my_param”&lt;/code&gt;</p>
+<p>The keys are case-sensitive, so it is recommended to use consistent C-style as: <i>”my_param”</i></p>
 <p>Configuration parameters can be broken into sections and subsections using dot notation as:
-&lt;code&gt;”section1.subsection1.param1”&lt;/code&gt;. Using GetSection method all parameters from specified section
+<i>”section1.subsection1.param1”</i>. Using GetSection method all parameters from specified section
 can be extracted from a ConfigMap.</p>
 <p>The ConfigParams supports serialization from/to plain strings as:
-&lt;code&gt;”key1=123;key2=ABC;key3=2016-09-16T00:00:00.00Z”&lt;/code&gt;</p>
-<p>ConfigParams are used to pass configurations to [[IConfigurable]] objects.
+<i>”key1=123;key2=ABC;key3=2016-09-16T00:00:00.00Z”</i></p>
+<p>ConfigParams are used to pass configurations to IConfigurable objects.
 They also serve as a basis for more concrete configurations such as ConnectionParams
 or CredentialParams (in the Pip.Services components package).</p>
 <dl class="docutils">

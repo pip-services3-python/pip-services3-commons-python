@@ -69,32 +69,32 @@
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Serializeable error description. It is use to pass information about errors
 between microservices implemented in different languages. On the receiving side
-[[ErrorDescription]] is used to recreate exception object close to its original type
+<a href="https://pip-services3-python.github.io/pip-services3-commons-python/pip_services3_commons.errors.ErrorDescription.html">ErrorDescription</a> is used to recreate exception object close to its original type
 without missing additional details.</p>
 <dl class="attribute">
 <dt id="pip_services3_commons.errors.ErrorDescription.ErrorDescription.category">
 <code class="descname">category</code><em class="property"> = None</em><a class="headerlink" href="#pip_services3_commons.errors.ErrorDescription.ErrorDescription.category" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd>Standard error category</dd></dl>
 
 <dl class="attribute">
 <dt id="pip_services3_commons.errors.ErrorDescription.ErrorDescription.cause">
 <code class="descname">cause</code><em class="property"> = None</em><a class="headerlink" href="#pip_services3_commons.errors.ErrorDescription.ErrorDescription.cause" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd>Original error wrapped by this exception</dd></dl>
 
 <dl class="attribute">
 <dt id="pip_services3_commons.errors.ErrorDescription.ErrorDescription.code">
 <code class="descname">code</code><em class="property"> = None</em><a class="headerlink" href="#pip_services3_commons.errors.ErrorDescription.ErrorDescription.code" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd>A unique error code</dd></dl>
 
 <dl class="attribute">
 <dt id="pip_services3_commons.errors.ErrorDescription.ErrorDescription.correlation_id">
 <code class="descname">correlation_id</code><em class="property"> = None</em><a class="headerlink" href="#pip_services3_commons.errors.ErrorDescription.ErrorDescription.correlation_id" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd>A unique transaction id to trace execution throug call chain</dd></dl>
 
 <dl class="attribute">
 <dt id="pip_services3_commons.errors.ErrorDescription.ErrorDescription.details">
 <code class="descname">details</code><em class="property"> = None</em><a class="headerlink" href="#pip_services3_commons.errors.ErrorDescription.ErrorDescription.details" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd>A map with additional details that can be used to restore error description in other languages</dd></dl>
 
 <dl class="staticmethod">
 <dt id="pip_services3_commons.errors.ErrorDescription.ErrorDescription.from_json">
@@ -104,17 +104,17 @@ without missing additional details.</p>
 <dl class="attribute">
 <dt id="pip_services3_commons.errors.ErrorDescription.ErrorDescription.message">
 <code class="descname">message</code><em class="property"> = None</em><a class="headerlink" href="#pip_services3_commons.errors.ErrorDescription.ErrorDescription.message" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd>A human-readable error description (usually written in English)</dd></dl>
 
 <dl class="attribute">
 <dt id="pip_services3_commons.errors.ErrorDescription.ErrorDescription.stack_trace">
 <code class="descname">stack_trace</code><em class="property"> = None</em><a class="headerlink" href="#pip_services3_commons.errors.ErrorDescription.ErrorDescription.stack_trace" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd>Stack trace of the exception</dd></dl>
 
 <dl class="attribute">
 <dt id="pip_services3_commons.errors.ErrorDescription.ErrorDescription.status">
 <code class="descname">status</code><em class="property"> = None</em><a class="headerlink" href="#pip_services3_commons.errors.ErrorDescription.ErrorDescription.status" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd>HTTP status code associated with this error type</dd></dl>
 
 <dl class="method">
 <dt id="pip_services3_commons.errors.ErrorDescription.ErrorDescription.to_json">

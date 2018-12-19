@@ -66,9 +66,9 @@
 <p>Validation rule that compares value to a constant.</p>
 <dl class="docutils">
 <dt>Example:</dt>
-<dd><p class="first">schema = Schema().with_rule(ValueComparisonRule(“EQ”, 1))</p>
-<p class="last">schema.validate(1)          // Result: no errors
-schema.validate(2)          // Result: 2 is not equal to 1</p>
+<dd>schema = Schema().with_rule(ValueComparisonRule(“EQ”, 1))
+<dd>schema.validate(1)          // Result: no errors
+<dd>schema.validate(2)          // Result: 2 is not equal to 1
 </dd>
 </dl>
 <dl class="method">

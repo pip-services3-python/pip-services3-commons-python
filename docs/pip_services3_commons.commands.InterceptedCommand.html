@@ -67,7 +67,7 @@
 <dt id="pip_services3_commons.commands.InterceptedCommand.InterceptedCommand">
 <em class="property">class </em><code class="descclassname">pip_services3_commons.commands.InterceptedCommand.</code><code class="descname">InterceptedCommand</code><span class="sig-paren">(</span><em>intercepter</em>, <em>next</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.commands.InterceptedCommand.InterceptedCommand" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="pip_services3_commons.commands.ICommand.html#pip_services3_commons.commands.ICommand.ICommand" title="pip_services3_commons.commands.ICommand.ICommand"><code class="xref py py-class docutils literal notranslate"><span class="pre">pip_services3_commons.commands.ICommand.ICommand</span></code></a></p>
-<p>Implements a ICommand command wrapped by an interceptor.
+<p>Implements a <a href="https://pip-services3-python.github.io/pip-services3-commons-python/pip_services3_commons.commands.ICommand.html">ICommand command</a> wrapped by an interceptor.
 It allows to build command call chains. The interceptor can alter execution
 and delegate calls to a next command, which can be intercepted or concrete.</p>
 <dl class="docutils">
@@ -89,7 +89,7 @@ and delegate calls to a next command, which can be intercepted or concrete.</p>
 <dl class="method">
 <dt id="pip_services3_commons.commands.InterceptedCommand.InterceptedCommand.execute">
 <code class="descname">execute</code><span class="sig-paren">(</span><em>correlation_id</em>, <em>args</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.commands.InterceptedCommand.InterceptedCommand.execute" title="Permalink to this definition">¶</a></dt>
-<dd><p>Executes the next command in the execution chain using the given Parameters parameters (arguments).</p>
+<dd><p>Executes the next command in the execution chain using the given <a href="https://pip-services3-python.github.io/pip-services3-commons-python/pip_services3_commons.run.Parameters.html">Parameters</a> parameters (arguments).</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -127,7 +127,7 @@ and delegate calls to a next command, which can be intercepted or concrete.</p>
 <dl class="method">
 <dt id="pip_services3_commons.commands.InterceptedCommand.InterceptedCommand.validate">
 <code class="descname">validate</code><span class="sig-paren">(</span><em>args</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.commands.InterceptedCommand.InterceptedCommand.validate" title="Permalink to this definition">¶</a></dt>
-<dd><p>Validates the Parameters parameters (arguments)
+<dd><p>Validates the <a href="https://pip-services3-python.github.io/pip-services3-commons-python/pip_services3_commons.run.Parameters.html">Parameters</a> parameters (arguments)
 that are to be passed to the command that is next in the execution chain.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />

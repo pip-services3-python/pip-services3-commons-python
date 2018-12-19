@@ -67,16 +67,18 @@
 <dt id="pip_services3_commons.convert.BooleanConverter.BooleanConverter">
 <em class="property">class </em><code class="descclassname">pip_services3_commons.convert.BooleanConverter.</code><code class="descname">BooleanConverter</code><a class="headerlink" href="#pip_services3_commons.convert.BooleanConverter.BooleanConverter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>Converts arbitrary values to boolean values using extended conversion rules:
-- Numbers: &lt;&gt;0 are true, =0 are false
-- Strings: “true”, “yes”, “T”, “Y”, “1” are true; “false”, “no”, “F”, “N” are false
-- DateTime: &lt;&gt;0 total milliseconds are true, =0 are false</p>
-<dl class="docutils">
-<dt>Example:</dt>
-<dd>value1 = BooleanConverter.to_nullable_boolean(true) // true
-value2 = BooleanConverter.to_nullable_boolean(“yes”) // true
-value3 = BooleanConverter.to_nullable_boolean(123) // true
-value4 = BooleanConverter.to_nullable_boolean({}) // None</dd>
+  <p>Converts arbitrary values to boolean values using extended conversion rules:</p>
+  <ul>
+  <li>Numbers: &lt;&gt;0 are true, =0 are false
+  <li>Strings: “true”, “yes”, “T”, “Y”, “1” are true; “false”, “no”, “F”, “N” are false
+      <li>DateTime: &lt;&gt;0 total milliseconds are true, =0 are false
+  </ul>
+  <dl class="docutils">
+  <dt>Example:</dt>
+  <dd>value1 = BooleanConverter.to_nullable_boolean(true) // true
+      <dd>value2 = BooleanConverter.to_nullable_boolean(“yes”) // true
+          <dd>value3 = BooleanConverter.to_nullable_boolean(123) // true
+              <dd>value4 = BooleanConverter.to_nullable_boolean({}) // None</dd>
 </dl>
 <dl class="staticmethod">
 <dt id="pip_services3_commons.convert.BooleanConverter.BooleanConverter.to_boolean">

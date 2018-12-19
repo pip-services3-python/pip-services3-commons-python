@@ -179,10 +179,10 @@ this TypeReflector treats all type names as case insensitive.</p>
 <dl class="docutils">
 <dt>Example:</dt>
 <dd>descriptor = TypeDescriptor(“MyObject”, “mylibrary”)
-Typeeflector.get_type_by_descriptor(descriptor)
-myObj = TypeReflector.create_instance_by_descriptor(descriptor)
-TypeDescriptor.is_primitive(myObject)           // Result: false
-TypeDescriptor.is_primitive(123)                                // Result: true</dd>
+<dd>Typeeflector.get_type_by_descriptor(descriptor)
+<dd>myObj = TypeReflector.create_instance_by_descriptor(descriptor)
+<dd>TypeDescriptor.is_primitive(myObject)           // Result: false
+<dd>TypeDescriptor.is_primitive(123)                                // Result: true</dd>
 </dl>
 <dl class="staticmethod">
 <dt id="pip_services3_commons.reflect.TypeReflector.create_instance">
@@ -318,8 +318,8 @@ this MethodReflector treats all method names as case insensitive.</p>
 <dt>Example:</dt>
 <dd><p class="first">myObj = new MyObject()</p>
 <p class="last">methods = MethodReflector.get_method_names()
-MethodReflector.has_method(myObj, “myMethod”)
-MethodReflector.invoke_method(myObj, “myMethod”, 123)</p>
+<dd>MethodReflector.has_method(myObj, “myMethod”)
+<dd>MethodReflector.invoke_method(myObj, “myMethod”, 123)</p>
 </dd>
 </dl>
 <dl class="staticmethod">
@@ -394,11 +394,11 @@ by Pip.Services toolkit and used to support dynamic data processing.</p>
 this PropertyReflector treats all property names as case insensitive.</p>
 <dl class="docutils">
 <dt>Example:</dt>
-<dd><p class="first">myObj = MyObject()</p>
-<p>properties = PropertyReflector.get_property_names()
-PropertyReflector.has_property(myObj, “myProperty”)</p>
-<p class="last">value = PropertyReflector.get_property(myObj, “myProperty”)
-PropertyReflector.set_property(myObj, “myProperty”, 123)</p>
+<dd>myObj = MyObject()
+<dd>properties = PropertyReflector.get_property_names()
+<dd>PropertyReflector.has_property(myObj, “myProperty”)
+<dd>value = PropertyReflector.get_property(myObj, “myProperty”)
+<dd>PropertyReflector.set_property(myObj, “myProperty”, 123)
 </dd>
 </dl>
 <dl class="staticmethod">
@@ -572,7 +572,7 @@ The types can be specified as types, type names or [[TypeCode]].</p>
 <dt id="pip_services3_commons.reflect.TypeMatcher.match_value">
 <em class="property">static </em><code class="descname">match_value</code><span class="sig-paren">(</span><em>expected_type</em>, <em>actual_value</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.reflect.TypeMatcher.match_value" title="Permalink to this definition">¶</a></dt>
 <dd><p>Matches expected type to a type of a value.
-The expected type can be specified by a type, type name or [[TypeCode]].</p>
+The expected type can be specified by a type, type name or TypeCode.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -618,7 +618,7 @@ The expected type can be specified by a type, type name or [[TypeCode]].</p>
 <em class="property">class </em><code class="descclassname">pip_services3_commons.reflect.</code><code class="descname">ObjectReader</code><a class="headerlink" href="#pip_services3_commons.reflect.ObjectReader" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Helper class to perform property introspection and dynamic reading.</p>
-<p>In contrast to [[PropertyReflector]] which only introspects regular objects,
+<p>In contrast to PropertyReflector which only introspects regular objects,
 this ObjectReader is also able to handle maps and arrays.</p>
 <p>For maps properties are key-pairs identified by string keys,
 For arrays properties are elements identified by integer index.</p>
@@ -628,16 +628,16 @@ by Pip.Services toolkit and used to support dynamic data processing.</p>
 this ObjectReader treats all property names as case insensitive.</p>
 <dl class="docutils">
 <dt>Example:</dt>
-<dd><p class="first">myObj = MyObject()</p>
-<p>properties = ObjectReader.get_property_names()</p>
-<p>ObjectReader.has_property(myObj, “myProperty”)
-value = PropertyReflector.get_property(myObj, “myProperty”)</p>
-<p>myMap = { key1: 123, key2: “ABC” }
-ObjectReader.has_property(myMap, “key1”)
-value = ObjectReader.get_property(myMap, “key1”)</p>
-<p class="last">myArray = [1, 2, 3]
-ObjectReader.has_property(myArrat, “0”)
-value = ObjectReader.get_property(myArray, “0”)</p>
+<dd>myObj = MyObject()
+<dd>properties = ObjectReader.get_property_names()
+<dd>ObjectReader.has_property(myObj, “myProperty”)
+<dd>value = PropertyReflector.get_property(myObj, “myProperty”)
+<dd>myMap = { key1: 123, key2: “ABC” }
+<dd>ObjectReader.has_property(myMap, “key1”)
+<dd>value = ObjectReader.get_property(myMap, “key1”)
+<dd>myArray = [1, 2, 3]
+<dd>ObjectReader.has_property(myArrat, “0”)
+<dd>value = ObjectReader.get_property(myArray, “0”)
 </dd>
 </dl>
 <dl class="staticmethod">
@@ -746,7 +746,7 @@ The property name correspondently must be object property, map key or array inde
 <em class="property">class </em><code class="descclassname">pip_services3_commons.reflect.</code><code class="descname">ObjectWriter</code><a class="headerlink" href="#pip_services3_commons.reflect.ObjectWriter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Helper class to perform property introspection and dynamic writing.</p>
-<p>In contrast to [[PropertyReflector]] which only introspects regular objects,
+<p>In contrast to PropertyReflector which only introspects regular objects,
 this ObjectWriter is also able to handle maps and arrays.
 For maps properties are key-pairs identified by string keys,
 For arrays properties are elements identified by integer index.</p>
@@ -756,12 +756,12 @@ by Pip.Services toolkit and used to support dynamic data processing.</p>
 this ObjectWriter treats all property names as case insensitive.</p>
 <dl class="docutils">
 <dt>Example:</dt>
-<dd><p class="first">myObj = MyObject()</p>
-<p>ObjectWriter.set_property(myObj, “myProperty”, 123)
-myMap = { key1: 123, key2: “ABC” }
-ObjectWriter.set_property(myMap, “key1”, “XYZ”)</p>
-<p class="last">myArray = [1, 2, 3]
-ObjectWriter.set_property(myArray, “0”, 123)</p>
+<dd>myObj = MyObject()
+<dd>ObjectWriter.set_property(myObj, “myProperty”, 123)
+<dd>myMap = { key1: 123, key2: “ABC” }
+<dd>ObjectWriter.set_property(myMap, “key1”, “XYZ”)
+<dd>myArray = [1, 2, 3]
+<dd>ObjectWriter.set_property(myArray, “0”, 123)
 </dd>
 </dl>
 <dl class="staticmethod">

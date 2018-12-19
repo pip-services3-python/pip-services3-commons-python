@@ -460,7 +460,7 @@ and is often used by Pip.Services toolkit to perform periodic processing and cle
 <dt id="pip_services3_commons.run.FixedRateTimer.close">
 <code class="descname">close</code><span class="sig-paren">(</span><em>correlation_id</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.run.FixedRateTimer.close" title="Permalink to this definition">¶</a></dt>
 <dd><p>Closes the timer.
-This is required by [[ICloseable]] interface,
+This is required by ICloseable interface,
 but besides that it is identical to stop().</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -540,7 +540,7 @@ But there may be situations when it can be done in production.</p>
 <dt id="pip_services3_commons.run.Cleaner.clear">
 <em class="property">static </em><code class="descname">clear</code><span class="sig-paren">(</span><em>correlation_id</em>, <em>components</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.run.Cleaner.clear" title="Permalink to this definition">¶</a></dt>
 <dd><p>Clears state of multiple components.</p>
-<p>To be cleaned state components must implement [[ICleanable]] interface.
+<p>To be cleaned state components must implement ICleanable interface.
 If they don’t the call to this method has no effect.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -560,7 +560,7 @@ If they don’t the call to this method has no effect.</p>
 <dt id="pip_services3_commons.run.Cleaner.clear_one">
 <em class="property">static </em><code class="descname">clear_one</code><span class="sig-paren">(</span><em>correlation_id</em>, <em>component</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.run.Cleaner.clear_one" title="Permalink to this definition">¶</a></dt>
 <dd><p>Clears state of specific component.</p>
-<p>To be cleaned state components must implement [[ICleanable]] interface.
+<p>To be cleaned state components must implement ICleanable interface.
 If they don’t the call to this method has no effect.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -583,7 +583,7 @@ If they don’t the call to this method has no effect.</p>
 <em class="property">class </em><code class="descclassname">pip_services3_commons.run.</code><code class="descname">IOpenable</code><a class="headerlink" href="#pip_services3_commons.run.IOpenable" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="pip_services3_commons.run.IClosable.html#pip_services3_commons.run.IClosable.IClosable" title="pip_services3_commons.run.IClosable.IClosable"><code class="xref py py-class docutils literal notranslate"><span class="pre">pip_services3_commons.run.IClosable.IClosable</span></code></a></p>
 <p>Interface for components that require explicit opening and closing.
-For components that perform opening on demand consider using [[ICloseable]] interface instead.</p>
+For components that perform opening on demand consider using ICloseable interface instead.</p>
 <dl class="method">
 <dt id="pip_services3_commons.run.IOpenable.is_opened">
 <code class="descname">is_opened</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.run.IOpenable.is_opened" title="Permalink to this definition">¶</a></dt>
@@ -623,7 +623,7 @@ For components that perform opening on demand consider using [[ICloseable]] inte
 <dt id="pip_services3_commons.run.Opener.is_opened">
 <em class="property">static </em><code class="descname">is_opened</code><span class="sig-paren">(</span><em>components</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.run.Opener.is_opened" title="Permalink to this definition">¶</a></dt>
 <dd><p>Checks if all components are opened.</p>
-<p>To be checked components must implement [[IOpenable]] interface.
+<p>To be checked components must implement IOpenable interface.
 If they don’t the call to this method returns true.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -641,7 +641,7 @@ If they don’t the call to this method returns true.</p>
 <dt id="pip_services3_commons.run.Opener.is_opened_one">
 <em class="property">static </em><code class="descname">is_opened_one</code><span class="sig-paren">(</span><em>component</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.run.Opener.is_opened_one" title="Permalink to this definition">¶</a></dt>
 <dd><p>Checks if specified component is opened.</p>
-<p>To be checked components must implement [[IOpenable]] interface.
+<p>To be checked components must implement IOpenable interface.
 If they don’t the call to this method returns true.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -659,7 +659,7 @@ If they don’t the call to this method returns true.</p>
 <dt id="pip_services3_commons.run.Opener.open">
 <em class="property">static </em><code class="descname">open</code><span class="sig-paren">(</span><em>correlation_id</em>, <em>components</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.run.Opener.open" title="Permalink to this definition">¶</a></dt>
 <dd><p>Opens multiple components.</p>
-<p>To be opened components must implement [[IOpenable]] interface.
+<p>To be opened components must implement IOpenable interface.
 If they don’t the call to this method has no effect.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -679,7 +679,7 @@ If they don’t the call to this method has no effect.</p>
 <dt id="pip_services3_commons.run.Opener.open_one">
 <em class="property">static </em><code class="descname">open_one</code><span class="sig-paren">(</span><em>correlation_id</em>, <em>component</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.run.Opener.open_one" title="Permalink to this definition">¶</a></dt>
 <dd><p>Opens specific component.</p>
-<p>To be opened components must implement [[IOpenable]] interface.
+<p>To be opened components must implement IOpenable interface.
 If they don’t the call to this method has no effect.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -702,7 +702,7 @@ If they don’t the call to this method has no effect.</p>
 <em class="property">class </em><code class="descclassname">pip_services3_commons.run.</code><code class="descname">IClosable</code><a class="headerlink" href="#pip_services3_commons.run.IClosable" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Interface for components that require explicit closure.</p>
-<p>For components that require opening as well as closing use [[IOpenable]] interface instead.</p>
+<p>For components that require opening as well as closing use IOpenable interface instead.</p>
 <dl class="method">
 <dt id="pip_services3_commons.run.IClosable.close">
 <code class="descname">close</code><span class="sig-paren">(</span><em>correlation_id</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.run.IClosable.close" title="Permalink to this definition">¶</a></dt>
@@ -728,7 +728,7 @@ If they don’t the call to this method has no effect.</p>
 <dt id="pip_services3_commons.run.Closer.close">
 <em class="property">static </em><code class="descname">close</code><span class="sig-paren">(</span><em>correlation_id</em>, <em>components</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.run.Closer.close" title="Permalink to this definition">¶</a></dt>
 <dd><p>Closes multiple components.</p>
-<p>To be closed components must implement [[ICloseable]] interface.
+<p>To be closed components must implement ICloseable interface.
 If they don’t the call to this method has no effect.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -748,7 +748,7 @@ If they don’t the call to this method has no effect.</p>
 <dt id="pip_services3_commons.run.Closer.close_one">
 <em class="property">static </em><code class="descname">close_one</code><span class="sig-paren">(</span><em>correlation_id</em>, <em>component</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.run.Closer.close_one" title="Permalink to this definition">¶</a></dt>
 <dd><p>Closes specific component.</p>
-<p>To be closed components must implement [[ICloseable]] interface.
+<p>To be closed components must implement ICloseable interface.
 If they don’t the call to this method has no effect.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -803,7 +803,7 @@ If they don’t the call to this method has no effect.</p>
 <dt id="pip_services3_commons.run.Executor.execute">
 <em class="property">static </em><code class="descname">execute</code><span class="sig-paren">(</span><em>correlation_id</em>, <em>components</em>, <em>args=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.run.Executor.execute" title="Permalink to this definition">¶</a></dt>
 <dd><p>Executes multiple components.</p>
-<p>To be executed components must implement [[IExecutable]] interface.
+<p>To be executed components must implement IExecutable interface.
 If they don’t the call to this method has no effect.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -827,7 +827,7 @@ If they don’t the call to this method has no effect.</p>
 <dt id="pip_services3_commons.run.Executor.execute_one">
 <em class="property">static </em><code class="descname">execute_one</code><span class="sig-paren">(</span><em>correlation_id</em>, <em>component</em>, <em>args</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.run.Executor.execute_one" title="Permalink to this definition">¶</a></dt>
 <dd><p>Executes specific component.
-To be executed components must implement [[IExecutable]] interface.
+To be executed components must implement IExecutable interface.
 If they don’t the call to this method has no effect.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -884,7 +884,7 @@ The notification may include optional argument that describe the occured event</
 <dt id="pip_services3_commons.run.Notifier.notify">
 <em class="property">static </em><code class="descname">notify</code><span class="sig-paren">(</span><em>correlation_id</em>, <em>components</em>, <em>args=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.run.Notifier.notify" title="Permalink to this definition">¶</a></dt>
 <dd><p>Notifies multiple components.</p>
-<p>To be notified components must implement [[INotifiable]] interface.
+<p>To be notified components must implement INotifiable interface.
 If they don’t the call to this method has no effect.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -905,7 +905,7 @@ If they don’t the call to this method has no effect.</p>
 <dt id="pip_services3_commons.run.Notifier.notify_one">
 <em class="property">static </em><code class="descname">notify_one</code><span class="sig-paren">(</span><em>correlation_id</em>, <em>component</em>, <em>args</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.run.Notifier.notify_one" title="Permalink to this definition">¶</a></dt>
 <dd><p>Notifies specific component.
-To be notiied components must implement [[INotifiable]] interface.
+To be notiied components must implement INotifiable interface.
 If they don’t the call to this method has no effect.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />

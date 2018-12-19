@@ -67,15 +67,15 @@
 <dt id="pip_services3_commons.data.DataPage.DataPage">
 <em class="property">class </em><code class="descclassname">pip_services3_commons.data.DataPage.</code><code class="descname">DataPage</code><span class="sig-paren">(</span><em>data</em>, <em>total=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.data.DataPage.DataPage" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>Data transfer object that is used to pass results of paginated queries.
-It contains items of retrieved page and optional total number of items.</p>
-<p>Most often this object type is used to send responses to paginated queries.
-Pagination parameters are defined by [[PagingParams]] object.
-The &lt;code&gt;skip&lt;/code&gt; parameter in the PagingParams there means how many items to skip.
-The &lt;code&gt;takes&lt;/code&gt; parameter sets number of items to return in the page.
-And the optional &lt;code&gt;total&lt;/code&gt; parameter tells to return total number of items in the query.</p>
-<p>Remember: not all implementations support the &lt;code&gt;total&lt;/code&gt; parameter
-because its generation may lead to severe performance implications.</p>
+  <p>Data transfer object that is used to pass results of paginated queries.
+      It contains items of retrieved page and optional total number of items.</p>
+      <p>Most often this object type is used to send responses to paginated queries.
+      Pagination parameters are defined by <a href="https://pip-services3-python.github.io/pip-services3-commons-python/pip_services3_commons.data.PagingParams.html">PagingParams object</a>.
+      The <i>skip</i> parameter in the <a href="https://pip-services3-python.github.io/pip-services3-commons-python/pip_services3_commons.data.PagingParams.html">PagingParams</a> there means how many items to skip.
+      The <i>takes</i> parameter sets number of items to return in the page.
+      And the optional <i>total</i> parameter tells to return total number of items in the query.</p>
+      <p>Remember: not all implementations support the <i>total</i> parameter
+      because its generation may lead to severe performance implications.</p>
 <dl class="docutils">
 <dt>Example:</dt>
 <dd><dl class="first last docutils">

@@ -71,11 +71,11 @@
 When all rules returns no errors, than this rule also returns no errors.
 When one of the rules return errors, than the rules returns all errors.</p>
 <dl class="docutils">
-<dt>Example:</dt>
-<dd><p class="first">schema = Schema().with_rule(AndRule(ValueComparisonRule(“GTE”, 1), ValueComparisonRule(“LTE”, 10)))</p>
-<p class="last">schema.validate(0)          // Result: 0 must be greater or equal to 1
-schema.validate(5)          // Result: no error
-schema.validate(20)         // Result: 20 must be letter or equal 10</p>
+    <dt>Example:</dt>
+    <dd>schema = Schema().with_rule(AndRule(ValueComparisonRule(“GTE”, 1), ValueComparisonRule(“LTE”, 10)))
+    <dd>schema.validate(0)          // Result: 0 must be greater or equal to 1
+    <dd>schema.validate(5)          // Result: no error
+    <dd>schema.validate(20)         // Result: 20 must be letter or equal 10
 </dd>
 </dl>
 <dl class="method">

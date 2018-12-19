@@ -69,11 +69,11 @@
 <dd><p>Bases: <a class="reference internal" href="pip_services3_commons.validate.Schema.html#pip_services3_commons.validate.Schema.Schema" title="pip_services3_commons.validate.Schema.Schema"><code class="xref py py-class docutils literal notranslate"><span class="pre">pip_services3_commons.validate.Schema.Schema</span></code></a></p>
 <p>Schema to validate maps.</p>
 <dl class="docutils">
-<dt>Example:</dt>
-<dd>schema = MapSchema(TypeCode.String, TypeCode.Integer)
-schema.validate({ “key1”: “A”, “key2”: “B” })       // Result: no errors
-schema.validate({ “key1”: 1, “key2”: 2 })           // Result: element type mismatch
-schema.validate([ 1, 2, 3 ])                        // Result: type mismatch</dd>
+    <dt>Example:</dt>
+    <dd>schema = MapSchema(TypeCode.String, TypeCode.Integer)
+    <dd>schema.validate({ “key1”: “A”, “key2”: “B” })       // Result: no errors
+    <dd>schema.validate({ “key1”: 1, “key2”: 2 })           // Result: element type mismatch
+    <dd>schema.validate([ 1, 2, 3 ])                        // Result: type mismatch</dd>
 </dl>
 <dl class="attribute">
 <dt id="pip_services3_commons.validate.MapSchema.MapSchema.key_type">

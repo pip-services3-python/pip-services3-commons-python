@@ -79,7 +79,7 @@ It locates components using several fields:</p>
 </ul>
 </div></blockquote>
 <p>The locator matching can be done by all or only few selected fields.
-The fields that shall be excluded from the matching must be set to &lt;code&gt;”*”&lt;/code&gt; or &lt;code&gt;null&lt;/code&gt;.
+The fields that shall be excluded from the matching must be set to <i>”*”</i> or <i>None</i>.
 That approach allows to implement many interesting scenarios. For instance:</p>
 <blockquote>
 <div><ul class="simple">
@@ -89,12 +89,12 @@ That approach allows to implement many interesting scenarios. For instance:</p>
 </ul>
 </div></blockquote>
 <dl class="docutils">
-<dt>Example:</dt>
-<dd><p class="first">locator1 = Descriptor(“mygroup”, “connector”, “aws”, “default”, “1.0”)
-locator2 = Descriptor.from_string(“mygroup:connector:<em>:</em>:1.0”)</p>
-<p class="last">locator1.match(locator2);               // Result: true
-locator1.eq(locator2);          // Result: true
-locator1.exact_match(locator2); // Result: false</p>
+    <dt>Example:</dt>
+    <dd>locator1 = Descriptor(“mygroup”, “connector”, “aws”, “default”, “1.0”)
+    <dd>locator2 = Descriptor.from_string(“mygroup:connector: *: *:1.0”)
+    <dd>locator1.match(locator2);               // Result: true
+    <dd>locator1.eq(locator2);          // Result: true
+    <dd>locator1.exact_match(locator2); // Result: false</p>
 </dd>
 </dl>
 <dl class="method">

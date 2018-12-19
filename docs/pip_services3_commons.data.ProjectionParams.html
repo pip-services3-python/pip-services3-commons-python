@@ -67,18 +67,18 @@
 <dt id="pip_services3_commons.data.ProjectionParams.ProjectionParams">
 <em class="property">class </em><code class="descclassname">pip_services3_commons.data.ProjectionParams.</code><code class="descname">ProjectionParams</code><span class="sig-paren">(</span><em>values=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.data.ProjectionParams.ProjectionParams" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></p>
-<p>Defines projection parameters with list if fields to include into query results.</p>
-<p>The parameters support two formats: dot format and nested format.</p>
-<p>The dot format is the standard way to define included fields and subfields using
-dot object notation: &lt;code&gt;”field1,field2.field21,field2.field22.field221”&lt;/code&gt;.</p>
-<p>As alternative the nested format offers a more compact representation:
-&lt;code&gt;”field1,field2(field21,field22(field221))”&lt;/code&gt;.</p>
-<dl class="docutils">
-<dt>Example:</dt>
-<dd><p class="first">filter = FilterParams.fromTuples(“type”, “Type1”)
-paging = PagingParams(0, 100)
-projection = ProjectionParams.from_value(“field1,field2(field21,field22)”)</p>
-<p class="last">myDataClient.get_data_by_filter(filter, paging, projection)</p>
+  <p>Defines projection parameters with list if fields to include into query results.</p>
+  <p>The parameters support two formats: dot format and nested format.</p>
+  <p>The dot format is the standard way to define included fields and subfields using
+  dot object notation: <i>”field1,field2.field21,field2.field22.field221”</i>.</p>
+  <p>As alternative the nested format offers a more compact representation:
+  <i>”field1,field2(field21,field22(field221))”</i>.</p>
+  <dl class="docutils">
+  <dt>Example:</dt>
+  <dd>filter = FilterParams.fromTuples(“type”, “Type1”)
+  <dd>paging = PagingParams(0, 100)
+  <dd>projection = ProjectionParams.from_value(“field1,field2(field21,field22)”)
+  <dd>myDataClient.get_data_by_filter(filter, paging, projection)</dd>
 </dd>
 </dl>
 <dl class="attribute">

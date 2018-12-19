@@ -67,19 +67,19 @@
 <dt id="pip_services3_commons.data.PagingParams.PagingParams">
 <em class="property">class </em><code class="descclassname">pip_services3_commons.data.PagingParams.</code><code class="descname">PagingParams</code><span class="sig-paren">(</span><em>skip=None</em>, <em>take=None</em>, <em>total=True</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.data.PagingParams.PagingParams" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>Data transfer object to pass paging parameters for queries.</p>
-<p>The page is defined by two parameters:
-- the &lt;code&gt;skip&lt;/code&gt; parameter defines number of items to skip.
-- the &lt;code&gt;take&lt;/code&gt; parameter sets how many items to return in a page.
-- additionally, the optional &lt;code&gt;total&lt;/code&gt; parameter tells to return total number of items in the query.</p>
-<blockquote>
-<div><p>Remember: not all implementations support the &lt;code&gt;total&lt;/code&gt; parameter
-because its generation may lead to severe performance implications.</p>
-<dl class="docutils">
-<dt>Example:</dt>
-<dd><p class="first">filter = FilterParams.fromTuples(“type”, “Type1”)
-paging = PagingParams(0, 100)</p>
-<p class="last">myDataClient.get_data_by_filter(filter, paging)</p>
+  <p>Data transfer object to pass paging parameters for queries.</p>
+  <p>The page is defined by two parameters:</p>
+  <ul>
+    <li>the <i>skip</i> parameter defines number of items to skip.
+      <li>the <i>take</i> parameter sets how many items to return in a page.
+        <li>additionally, the optional <i>total</i> parameter tells to return total number of items in the query.</ul>
+  <p>Remember: not all implementations support the <i>total</i> parameter
+  because its generation may lead to severe performance implications.</p>
+  <dl class="docutils">
+  <dt>Example:</dt>
+  <dd><p class="first">filter = FilterParams.fromTuples(“type”, “Type1”)
+  paging = PagingParams(0, 100)</p>
+  <p class="last">myDataClient.get_data_by_filter(filter, paging)</p>
 </dd>
 </dl>
 </div></blockquote>

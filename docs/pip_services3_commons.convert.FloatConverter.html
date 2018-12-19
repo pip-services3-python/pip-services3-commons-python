@@ -67,16 +67,18 @@
 <dt id="pip_services3_commons.convert.FloatConverter.FloatConverter">
 <em class="property">class </em><code class="descclassname">pip_services3_commons.convert.FloatConverter.</code><code class="descname">FloatConverter</code><a class="headerlink" href="#pip_services3_commons.convert.FloatConverter.FloatConverter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>Converts arbitrary values into float using extended conversion rules:
-- Strings are converted to float values
-- DateTime: total number of milliseconds since unix epoсh
-- Boolean: 1 for true and 0 for false</p>
-<dl class="docutils">
-<dt>Example:</dt>
-<dd>value1 = FloatConverter.to_nullable_float(“ABC”) // Result: None
-value2 = FloatConverter.to_nullable_float(“123.456”) // Result: 123.456
-value3 = FloatConverter.to_nullable_float(true) // Result: 1
-value4 = FloatConverter.to_nullable_float(datetime.datetime.now()) // Result: current milliseconds</dd>
+  <p>Converts arbitrary values into float using extended conversion rules:</p>
+  <ul>
+  <li>Strings are converted to float values
+      <li>DateTime: total number of milliseconds since unix epoсh
+          <li>Boolean: 1 for true and 0 for false
+  </ul>
+  <dl class="docutils">
+  <dt>Example:</dt>
+  <dd>value1 = FloatConverter.to_nullable_float(“ABC”) // Result: None
+      <dd>value2 = FloatConverter.to_nullable_float(“123.456”) // Result: 123.456
+          <dd>value3 = FloatConverter.to_nullable_float(true) // Result: 1
+              <dd>value4 = FloatConverter.to_nullable_float(datetime.datetime.now()) // Result: current milliseconds</dd>
 </dl>
 <dl class="staticmethod">
 <dt id="pip_services3_commons.convert.FloatConverter.FloatConverter.to_float">

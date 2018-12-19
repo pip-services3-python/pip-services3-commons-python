@@ -66,7 +66,7 @@
 <dl class="class">
 <dt id="pip_services3_commons.refer.DependencyResolver.DependencyResolver">
 <em class="property">class </em><code class="descclassname">pip_services3_commons.refer.DependencyResolver.</code><code class="descname">DependencyResolver</code><span class="sig-paren">(</span><em>config=None</em>, <em>references=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.refer.DependencyResolver.DependencyResolver" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="pip_services3_commons.config.IReconfigurable.html#pip_services3_commons.config.IReconfigurable.IReconfigurable" title="pip_services3_commons.config.IReconfigurable.IReconfigurable"><code class="xref py py-class docutils literal notranslate"><span class="pre">pip_services3_commons.config.IReconfigurable.IReconfigurable</span></code></a>, <a class="reference internal" href="pip_services3_commons.refer.IReferenceable.html#pip_services3_commons.refer.IReferenceable.IReferenceable" title="pip_services3_commons.refer.IReferenceable.IReferenceable"><code class="xref py py-class docutils literal notranslate"><span class="pre">pip_services3_commons.refer.IReferenceable.IReferenceable</span></code></a></p>
+<dd><p>Bases:<a class="reference internal" href="pip_services3_commons.config.IReconfigurable.html#pip_services3_commons.config.IReconfigurable.IReconfigurable" title="pip_services3_commons.config.IReconfigurable.IReconfigurable"><code class="xref py py-class docutils literal notranslate"><span class="pre">pip_services3_commons.config.IReconfigurable.IReconfigurable</span></code></a>, <a class="reference internal" href="pip_services3_commons.refer.IReferenceable.html#pip_services3_commons.refer.IReferenceable.IReferenceable" title="pip_services3_commons.refer.IReferenceable.IReferenceable"><code class="xref py py-class docutils literal notranslate"><span class="pre">pip_services3_commons.refer.IReferenceable.IReferenceable</span></code></a></p>
 <p>Helper class for resolving component dependencies.
 The resolver is configured to resolve named dependencies by specific locator.
 During deployment the dependency locator can be changed.</p>
@@ -101,14 +101,12 @@ _persistence = None</p>
 <dd>self._dependencyResolver.configure(config)</dd>
 <dt>def set_references(self, references):</dt>
 <dd>self._dependencyResolver.setReferences(references)
-self._persistence = self._dependencyResolver.get_one_required(“persistence”)</dd>
+<dd>self._persistence = self._dependencyResolver.get_one_required(“persistence”)</dd>
 </dl>
 <p>component = MyComponent()
-component.configure(ConfigParams.from_tuples(
-“dependencies.persistence”, “mygroup:persistence:<a href="#id1"><span class="problematic" id="id2">*</span></a>:persistence2:1.0”))</p>
-<p class="last">component.setReferences(References.from_tuples(Descriptor(“mygroup”,”persistence”,”*”,”persistence1”,”1.0”),
-MyPersistence(),
-Descriptor(“mygroup”,”persistence”,”*”,”persistence2”,”1.0”), MyPersistence()
+<dd>component.configure(ConfigParams.from_tuples(“dependencies.persistence”, “mygroup:persistence:<a href="#id1"><span class="problematic" id="id2">*</span></a>:persistence2:1.0”))</p>
+<dd>component.setReferences(References.from_tuples(<br>Descriptor(“mygroup”,”persistence”,”*”,”persistence1”,”1.0”), MyPersistence(),
+<br>Descriptor(“mygroup”,”persistence”,”*”,”persistence2”,”1.0”), MyPersistence()
 // This dependency shall be set))</p>
 </dd>
 </dl>
@@ -193,7 +191,7 @@ where key is dependency name and value the depedency locator (descriptor).</p>
 <dt id="pip_services3_commons.refer.DependencyResolver.DependencyResolver.get_one_required">
 <code class="descname">get_one_required</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.refer.DependencyResolver.DependencyResolver.get_one_required" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets one required dependency by its name.
-At least one dependency must present. If the dependency was found it throws a [[ReferenceException]]</p>
+At least one dependency must present. If the dependency was found it throws a <a href="https://pip-services3-python.github.io/pip-services3-commons-python/pip_services3_commons.refer.ReferenceException.html">ReferenceException</a></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -226,7 +224,7 @@ At least one dependency must present. If the dependency was found it throws a [[
 <dt id="pip_services3_commons.refer.DependencyResolver.DependencyResolver.get_required">
 <code class="descname">get_required</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.refer.DependencyResolver.DependencyResolver.get_required" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets all required dependencies by their name.
-At least one dependency must be present. If no dependencies was found it throws a [[ReferenceException]]</p>
+At least one dependency must be present. If no dependencies was found it throws a <a href="https://pip-services3-python.github.io/pip-services3-commons-python/pip_services3_commons.refer.ReferenceException.html">ReferenceException</a></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />

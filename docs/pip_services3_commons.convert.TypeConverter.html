@@ -67,14 +67,14 @@
 <dt id="pip_services3_commons.convert.TypeConverter.TypeConverter">
 <em class="property">class </em><code class="descclassname">pip_services3_commons.convert.TypeConverter.</code><code class="descname">TypeConverter</code><a class="headerlink" href="#pip_services3_commons.convert.TypeConverter.TypeConverter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>Converts arbitrary values into objects specific by TypeCodes.
-For each TypeCode this class calls corresponding converter which applies
-extended conversion rules to convert the values.</p>
-<dl class="docutils">
-<dt>Example:</dt>
-<dd>value1 = TypeConverter.to_type(TypeCode.Integer, “123.456”) // Result: 123
-value2 = TypeConverter.to_type(TypeCode.DateTime, 123) // Result: Date(123)
-value3 = TypeConverter.to_type(TypeCode.Boolean, “F”) // Result: false</dd>
+  <p>Converts arbitrary values into objects specific by TypeCodes.
+      For each TypeCode this class calls corresponding converter which applies
+      extended conversion rules to convert the values.</p>
+      <dl class="docutils">
+      <dt>Example:</dt>
+      <dd>value1 = TypeConverter.to_type(TypeCode.Integer, “123.456”) // Result: 123
+      <dd>value2 = TypeConverter.to_type(TypeCode.DateTime, 123) // Result: Date(123)
+      <dd>value3 = TypeConverter.to_type(TypeCode.Boolean, “F”) // Result: false</dd>
 </dl>
 <dl class="staticmethod">
 <dt id="pip_services3_commons.convert.TypeConverter.TypeConverter.to_nullable_type">

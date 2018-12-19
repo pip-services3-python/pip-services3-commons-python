@@ -68,7 +68,7 @@
 <em class="property">class </em><code class="descclassname">pip_services3_commons.reflect.ObjectReader.</code><code class="descname">ObjectReader</code><a class="headerlink" href="#pip_services3_commons.reflect.ObjectReader.ObjectReader" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Helper class to perform property introspection and dynamic reading.</p>
-<p>In contrast to [[PropertyReflector]] which only introspects regular objects,
+<p>In contrast to <a href="https://pip-services3-python.github.io/pip-services3-commons-python/pip_services3_commons.reflect.PropertyReflector.html">PropertyReflector</a> which only introspects regular objects,
 this ObjectReader is also able to handle maps and arrays.</p>
 <p>For maps properties are key-pairs identified by string keys,
 For arrays properties are elements identified by integer index.</p>
@@ -77,17 +77,17 @@ by Pip.Services toolkit and used to support dynamic data processing.</p>
 <p>Because all languages have different casing and case sensitivity rules,
 this ObjectReader treats all property names as case insensitive.</p>
 <dl class="docutils">
-<dt>Example:</dt>
-<dd><p class="first">myObj = MyObject()</p>
-<p>properties = ObjectReader.get_property_names()</p>
-<p>ObjectReader.has_property(myObj, “myProperty”)
-value = PropertyReflector.get_property(myObj, “myProperty”)</p>
-<p>myMap = { key1: 123, key2: “ABC” }
-ObjectReader.has_property(myMap, “key1”)
-value = ObjectReader.get_property(myMap, “key1”)</p>
-<p class="last">myArray = [1, 2, 3]
-ObjectReader.has_property(myArrat, “0”)
-value = ObjectReader.get_property(myArray, “0”)</p>
+    <dt>Example:</dt>
+    <dd>myObj = MyObject()
+    <dd>properties = ObjectReader.get_property_names()
+    <dd>ObjectReader.has_property(myObj, “myProperty”)
+    <dd>value = PropertyReflector.get_property(myObj, “myProperty”)
+    <dd>myMap = { key1: 123, key2: “ABC” }
+    <dd>ObjectReader.has_property(myMap, “key1”)
+    <dd>value = ObjectReader.get_property(myMap, “key1”)
+    <dd>myArray = [1, 2, 3]
+    <dd>ObjectReader.has_property(myArrat, “0”)
+    <dd>value = ObjectReader.get_property(myArray, “0”)
 </dd>
 </dl>
 <dl class="staticmethod">

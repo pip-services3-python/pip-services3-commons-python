@@ -68,7 +68,7 @@
 <em class="property">class </em><code class="descclassname">pip_services3_commons.reflect.ObjectWriter.</code><code class="descname">ObjectWriter</code><a class="headerlink" href="#pip_services3_commons.reflect.ObjectWriter.ObjectWriter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Helper class to perform property introspection and dynamic writing.</p>
-<p>In contrast to [[PropertyReflector]] which only introspects regular objects,
+<p>In contrast to <a href="https://pip-services3-python.github.io/pip-services3-commons-python/pip_services3_commons.reflect.PropertyReflector.html">PropertyReflector</a> which only introspects regular objects,
 this ObjectWriter is also able to handle maps and arrays.
 For maps properties are key-pairs identified by string keys,
 For arrays properties are elements identified by integer index.</p>
@@ -77,13 +77,13 @@ by Pip.Services toolkit and used to support dynamic data processing.</p>
 <p>Because all languages have different casing and case sensitivity rules,
 this ObjectWriter treats all property names as case insensitive.</p>
 <dl class="docutils">
-<dt>Example:</dt>
-<dd><p class="first">myObj = MyObject()</p>
-<p>ObjectWriter.set_property(myObj, “myProperty”, 123)
-myMap = { key1: 123, key2: “ABC” }
-ObjectWriter.set_property(myMap, “key1”, “XYZ”)</p>
-<p class="last">myArray = [1, 2, 3]
-ObjectWriter.set_property(myArray, “0”, 123)</p>
+    <dt>Example:</dt>
+    <dd>myObj = MyObject()
+    <dd>ObjectWriter.set_property(myObj, “myProperty”, 123)
+    <dd>myMap = { key1: 123, key2: “ABC” }
+    <dd>ObjectWriter.set_property(myMap, “key1”, “XYZ”)
+    <dd>myArray = [1, 2, 3]
+    <dd>ObjectWriter.set_property(myArray, “0”, 123)
 </dd>
 </dl>
 <dl class="staticmethod">

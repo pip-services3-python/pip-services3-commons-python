@@ -69,11 +69,11 @@
 <dd><p>Bases: <a class="reference internal" href="pip_services3_commons.validate.Schema.html#pip_services3_commons.validate.Schema.Schema" title="pip_services3_commons.validate.Schema.Schema"><code class="xref py py-class docutils literal notranslate"><span class="pre">pip_services3_commons.validate.Schema.Schema</span></code></a></p>
 <p>Schema to validate arrays.</p>
 <dl class="docutils">
-<dt>Example:</dt>
-<dd><p class="first">schema = ArraySchema(TypeCode.String)</p>
-<p class="last">schema.validate([“A”, “B”, “C”])    // Result: no errors
-schema.validate([1, 2, 3])          // Result: element type mismatch
-schema.validate(“A”)                // Result: type mismatch</p>
+    <dt>Example:</dt>
+    <dd>schema = ArraySchema(TypeCode.String)
+    <dd>schema.validate([“A”, “B”, “C”])    // Result: no errors
+    <dd>schema.validate([1, 2, 3])          // Result: element type mismatch
+    <dd>schema.validate(“A”)                // Result: type mismatch
 </dd>
 </dl>
 <dl class="attribute">

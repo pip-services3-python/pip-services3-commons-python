@@ -69,13 +69,13 @@
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Interface for a map that holds component references and passes them to components
 to establish dependencies with each other.</p>
-<p>Together with [[IReferenceable]] and [[IUnreferenceable]] interfaces it implements
+<p>Together with <a href="https://pip-services3-python.github.io/pip-services3-commons-python/pip_services3_commons.refer.IReferenceable.html">IReferenceable</a> and <a href="https://pip-services3-python.github.io/pip-services3-commons-python/pip_services3_commons.refer.IUnreferenceable.html">IUnreferenceable interface</a> it implements
 a Locator pattern that is used by PipServices toolkit for Inversion of Control
 to assign external dependencies to components.</p>
 <p>The IReferences object is a simple map, where keys are locators
 and values are component references. It allows to add, remove and find components
 by their locators. Locators can be any values like integers, strings or component types.
-But most often PipServices toolkit uses [[Descriptor]] as locators that match
+But most often PipServices toolkit uses <a href="https://pip-services3-python.github.io/pip-services3-commons-python/pip_services3_commons.refer.Descriptor.html">Descriptor</a> as locators that match
 by 5 fields: group, type, kind, name and version.</p>
 <dl class="docutils">
 <dt>Example:</dt>
@@ -112,7 +112,7 @@ Descriptor(“mygroup”, “controller”, “default”, “default”, “1.0
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">a list with matching component references.</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last">a [[ReferenceException]] when required is set to true but no references found.</p>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last">a ReferenceException when required is set to true but no references found.</p>
 </td>
 </tr>
 </tbody>
@@ -180,7 +180,7 @@ Descriptor(“mygroup”, “controller”, “default”, “default”, “1.0
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">a matching component reference.</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body">a [[ReferenceException]] when no references found.</td>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body">a ReferenceException when no references found.</td>
 </tr>
 </tbody>
 </table>
@@ -215,7 +215,7 @@ At least one component reference must be present. If it doesn’t the method thr
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">a list with matching component references.</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body">a [[ReferenceException]] when no references found.</td>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body">a ReferenceException when no references found.</td>
 </tr>
 </tbody>
 </table>
@@ -244,7 +244,7 @@ At least one component reference must be present. If it doesn’t the method thr
 <code class="descname">remove</code><span class="sig-paren">(</span><em>locator</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.refer.IReferences.IReferences.remove" title="Permalink to this definition">¶</a></dt>
 <dd><p>Removes a previously added reference that matches specified locator.
 If many references match the locator, it removes only the first one.
-When all references shall be removed, use [[removeAll]] method instead.</p>
+When all references shall be removed, use removeAll method instead.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
