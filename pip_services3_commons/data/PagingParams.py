@@ -36,7 +36,7 @@ class PagingParams():
     take = None
     total = True
 
-    def __init__(self, skip = None, take = None, total = True):
+    def __init__(self, skip = None, take = None, total = False):
         """
         Creates a new instance and sets its values.
 
@@ -48,7 +48,7 @@ class PagingParams():
         """
         self.skip = IntegerConverter.to_nullable_integer(skip)
         self.take = IntegerConverter.to_nullable_integer(take)
-        self.total = BooleanConverter.to_boolean_with_default(total, True)
+        self.total = BooleanConverter.to_boolean_with_default(total, False)
 
     def get_skip(self, min_skip):
         """
