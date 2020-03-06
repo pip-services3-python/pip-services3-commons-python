@@ -4,10 +4,11 @@
     "files.exclude": {
         "**/*.pyc": true
     },
-    "python.unitTest.pyTestEnabled": true,
-    "python.unitTest.pyTestArgs": [
+    "python.testing.pytestEnabled": true,
+    "python.testing.pytestArgs": [
         "--exitfirst",
         "--verbose"
     ],
-    "python.linting.pylintEnabled": false
+    "python.linting.pylintEnabled": false,
+    "python.pythonPath": "C:\\Program Files\\Python38\\python.exe"
 }
