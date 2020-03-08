@@ -62,7 +62,7 @@ class MultiString(dict):
 
         return value
 
-    def getLanguages(self):
+    def get_languages(self):
         """
         Gets all languages stored in this MultiString object,
 
@@ -124,7 +124,7 @@ class MultiString(dict):
         return count
 
     @staticmethod
-    def fromValue(value):
+    def from_value(value):
         """
         Creates a new MultiString object from a value that contains language-translation pairs.
 
@@ -135,7 +135,7 @@ class MultiString(dict):
         return MultiString(value)
 
     @staticmethod
-    def fromTuples(*tuples):
+    def from_tuples(*tuples):
         """
         Creates a new MultiString object from language-translation pairs (tuples).
 
@@ -143,10 +143,10 @@ class MultiString(dict):
         :return: a MultiString Object.
         :see [[fromTuplesArray]]
         """
-        return MultiString.fromTuplesArray(tuples)
+        return MultiString.from_tuples_array(tuples)
 
     @staticmethod
-    def fromTuplesArray(tuples):
+    def from_tuples_array(tuples):
         """
         Creates a new MultiString object from language-translation pairs (tuples) specified as array.
 

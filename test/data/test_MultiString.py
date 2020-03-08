@@ -17,20 +17,20 @@ class TestMultiString:
                                 'ru': 'Привет мир!',
                                 'en': 'do you speak english'}
 
-        assert multi_string.getLanguages() == ['fr', 'ru', 'en']
+        assert multi_string.get_languages() == ['fr', 'ru', 'en']
         assert multi_string.get('en') == 'do you speak english'
         multi_string.remove('en')
-        assert multi_string.getLanguages() == ['fr', 'ru']
+        assert multi_string.get_languages() == ['fr', 'ru']
 
     def test_multistring_from(self):
 
-        from_tuples = MultiString.fromTuples('en', 'do you speak english',
+        from_tuples = MultiString.from_tuples('en', 'do you speak english',
                                              'fr', 'parle français',
                                              'de', 'sprichst du deutsch'
-                                             )
+                                              )
         assert len(from_tuples) == 3
         assert from_tuples == {'en': 'do you speak english',
                                'fr': 'parle français',
                                'de': 'sprichst du deutsch'}
-        from_value = MultiString.fromValue({'en': 'do you speak english'})
+        from_value = MultiString.from_value({'en': 'do you speak english'})
         assert from_value == {'en': 'do you speak english'}
