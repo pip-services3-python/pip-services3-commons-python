@@ -65,17 +65,25 @@ class ProjectionParams(list):
             index += 1
         return builder
 
-    def _parse_value(self, prefix, result, value):
+    @staticmethod
+    def _parse_value(prefix, result, value):
         value = value.strip()
-
+        try:
+            if value[0:2] == ' ,':
+                value = value[2:]
+            elif value[0:2] == ', ':
+                value = value[2:]
+            elif value[0:1] == ',':
+                value = value[1:]
+        except KeyError:
+            pass
         open_bracket = 0
         open_bracket_index = -1
         close_bracket_index = -1
         comma_index = -1
 
         break_cycle_required = False
-        index = 0
-        while index < len(value):
+        for index in range(len(value)):
             if value[index] == '(':
                 if open_bracket == 0:
                     open_bracket_index = index
@@ -91,15 +99,15 @@ class ProjectionParams(list):
                         previous_prefix = prefix
 
                         if prefix and len(prefix) > 0:
-                            prefix = prefix + '.' + value[0:open_bracket_index]
+                            prefix = prefix + '.' + value[0: open_bracket_index]
                         else:
                             prefix = value[0:open_bracket_index]
 
-                        sub_value = value[open_bracket_index + 1:close_bracket_index]
-                        self._parse_value(prefix, result, sub_value)
+                        sub_value = value[open_bracket_index + 1: close_bracket_index]
+                        ProjectionParams._parse_value(prefix, result, sub_value)
 
                         sub_value = value[close_bracket_index + 1:]
-                        self._parse_value(previous_prefix, result, sub_value)
+                        ProjectionParams._parse_value(previous_prefix, result, sub_value)
                         break_cycle_required = True
 
             elif value[index] == ',':
@@ -116,13 +124,11 @@ class ProjectionParams(list):
                         sub_value = value[comma_index + 1:]
 
                         if sub_value and len(sub_value) > 0:
-                            self._parse_value(prefix, result, sub_value)
+                            ProjectionParams._parse_value(prefix, result, sub_value)
                             break_cycle_required = True
 
             if break_cycle_required:
                 break
-
-            index += 1
 
         if value and len(value) > 0 and open_bracket_index == -1 and comma_index == -1:
             if prefix and len(prefix) > 0:
@@ -131,7 +137,7 @@ class ProjectionParams(list):
                 result.append(value)
 
     @staticmethod
-    def from_value(*value):
+    def from_value(value):
         """
           Converts specified value into ProjectionParams.
 
@@ -139,7 +145,7 @@ class ProjectionParams(list):
 
           :return: a newly created ProjectionParams.
           """
-        value = AnyValueArray.from_value(list(value))
+        value = AnyValueArray.from_value(value)
         return ProjectionParams(value)
 
     @staticmethod
@@ -151,8 +157,9 @@ class ProjectionParams(list):
         :return: a newly created ProjectionParams.
         """
         result = ProjectionParams()
-
+        values = list(values)
         for value in values:
-            result._parse_value('', result, value)
+            ProjectionParams._parse_value('', result, value)
 
         return result
+
