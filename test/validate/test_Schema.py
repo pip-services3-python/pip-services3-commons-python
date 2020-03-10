@@ -19,6 +19,7 @@ from pip_services3_commons.validate import ObjectSchema
 from pip_services3_commons.validate import ArraySchema
 from pip_services3_commons.validate import MapSchema
 
+
 class TestSchema:
 
     def test_empty_schema(self):
@@ -139,7 +140,7 @@ class TestSchema:
         results = schema.validate(obj)
         assert 0 == len(results)
 
-    #todo test
+    # todo test
     # def test_json_schema(self):
     #     sub_schema = ObjectSchema() \
     #         .with_required_property("Id", "String") \
