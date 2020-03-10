@@ -23,7 +23,7 @@ class TestRandomDateTime:
         date = RandomDateTime.next_date(datetime.now())
         assert datetime.now().year - 10 <= date.year <= datetime.now().year
 
-    def test_update_datatime(self):
+    def test_update_datetime(self):
         old_date = datetime(2016, 11, 10, 0, 0, 0, 0)
 
         date = RandomDateTime.update_datetime(old_date)

@@ -57,9 +57,9 @@ class RandomDateTime(object):
         Generates a random Date and time in the range ['minYear', 'maxYear'].
         This method generate dates without time (or time set to 00:00:00)
 
-        :param min_year:
-        :param max_year:
-        :return:
+        :param min_year: min range value
+        :param max_year: (optional) maximum range value
+        :return: a random Date and time value.
         """
         if max_year is None:
             max_year = min_year
