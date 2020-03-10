@@ -11,7 +11,8 @@
 
 import json
 
-from .RecursiveMapConverter import RecursiveMapConverter
+from .MapConverter import MapConverter
+
 
 class JsonConverter():
     """
@@ -21,6 +22,7 @@ class JsonConverter():
         value1 = JsonConverter.from_json("{\"key\":123}") // Result: { key: 123 }
         value2 = JsonConverter.to_map({ key: 123}) // Result: "{\"key\":123}"
     """
+
     @staticmethod
     def from_json(value):
         """
@@ -64,7 +66,7 @@ class JsonConverter():
         # Parse JSON
         try:
             value = json.loads(value)
-            return RecursiveMapConverter.to_nullable_map(value)
+            return MapConverter.to_nullable_map(value)
         except:
             return None
 
