@@ -33,15 +33,6 @@ class TestRecursiveMapConverter:
         result = RecursiveMapConverter.to_nullable_map(value)
         assert value == result
 
-        # Non-recursive conversion
-        # value = InitTestClass(123, InitTestClass(111, 222))
-        # result = RecursiveMapConverter.to_map(value, None, False)
-        # assert result != None
-        # assert 123 == result["value1"]
-        # assert result["value2"] != None
-        # assert not isinstance(result["value2"], dict)
-        # assert instanceof(result["value2"], InitTestClass)
-
         # Recursive conversion
         value = InitTestClass(123, InitTestClass(111, 222))
         result = RecursiveMapConverter.to_nullable_map(value)
