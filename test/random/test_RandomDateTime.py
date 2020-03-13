@@ -32,8 +32,7 @@ class TestRandomDateTime:
 
         date = RandomDateTime.update_datetime(old_date, 3 * 24 * 3600000)
         assert (date.timestamp() * 1000) >= (old_date.timestamp() * 1000) - 3 * 24 * 3600000 or (
-                    date.timestamp() * 1000) >= (old_date.timestamp() * 1000) + 3 * 24 * 3600000
+                date.timestamp() * 1000) >= (old_date.timestamp() * 1000) + 3 * 24 * 3600000
 
         date = RandomDateTime.update_datetime(old_date, -3)
         assert (date.timestamp() * 1000) == (old_date.timestamp() * 1000)
-

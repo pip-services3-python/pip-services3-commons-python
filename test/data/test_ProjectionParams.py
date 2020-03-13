@@ -64,7 +64,8 @@ class TestProjectionParams():
         assert "object1.object2.field2" == parameters[1]
         assert "object1.object2.object3.field1" == parameters[2]
 
-        parameters = ProjectionParams.from_string("object1(field1, object2(field1, field2, field3, field4), field3)", "field2")
+        parameters = ProjectionParams.from_string("object1(field1, object2(field1, field2, field3, field4), field3)",
+                                                  "field2")
 
         assert 7 == len(parameters)
         assert "object1.field1" == parameters[0]

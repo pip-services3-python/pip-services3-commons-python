@@ -9,6 +9,7 @@
 
 from pip_services3_commons.convert import FloatConverter
 
+
 class TestFloatConverter:
 
     def test_to_float(self):

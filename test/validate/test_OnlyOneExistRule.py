@@ -13,6 +13,7 @@ from .TestObject import TestObject
 from pip_services3_commons.validate import OnlyOneExistRule
 from pip_services3_commons.validate import Schema
 
+
 class TestOnlyOneExistRule:
 
     def test_only_one_exist_rule(self):

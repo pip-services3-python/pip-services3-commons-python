@@ -14,8 +14,9 @@ from pip_services3_commons.validate import OrRule
 from pip_services3_commons.validate import AndRule
 from pip_services3_commons.validate import ValueComparisonRule
 
+
 class TesLogicalRules:
-    
+
     def test_or_rule(self):
         schema = Schema().with_rule(
             OrRule(

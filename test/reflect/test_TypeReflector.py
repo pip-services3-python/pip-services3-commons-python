@@ -15,6 +15,7 @@ from pip_services3_commons.reflect import TypeReflector
 
 from .TestClass import TestClass
 
+
 class TestTypeReflector:
 
     def test_get_type(self):

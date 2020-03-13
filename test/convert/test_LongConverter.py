@@ -9,6 +9,7 @@
 
 from pip_services3_commons.convert import LongConverter
 
+
 class TestLongConverter:
 
     def test_to_long(self):

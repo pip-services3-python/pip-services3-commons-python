@@ -11,6 +11,7 @@ import pytest
 
 from pip_services3_commons.data import IdGenerator
 
+
 class TestIdGenerator:
 
     def test_next_short(self):
@@ -32,4 +33,3 @@ class TestIdGenerator:
         assert id2 != None
         assert len(id2) == 32
         assert id1 != id2
-        

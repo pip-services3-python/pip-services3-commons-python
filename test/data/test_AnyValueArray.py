@@ -11,13 +11,14 @@ import pytest
 
 from pip_services3_commons.data import AnyValueArray
 
+
 class TestAnyValueMap:
 
     def test_create_value_array(self):
         array = AnyValueArray()
         assert 0 == len(array)
 
-        array = AnyValueArray([1, 2, 3 ])
+        array = AnyValueArray([1, 2, 3])
         assert 3 == len(array)
         assert "1,2,3" == str(array)
 

@@ -13,6 +13,7 @@ from pip_services3_commons.reflect import MethodReflector
 
 from .TestClass import TestClass
 
+
 class TestMethodReflector:
 
     def test_has_method(self):

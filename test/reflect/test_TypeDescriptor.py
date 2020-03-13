@@ -12,12 +12,13 @@ import pytest
 from pip_services3_commons.reflect import TypeDescriptor
 from pip_services3_commons.errors import ConfigException
 
+
 class TestTypeDescriptor:
 
     def test_from_string(self):
         descriptor = TypeDescriptor.from_string(None)
         assert None == descriptor
-        
+
         descriptor = TypeDescriptor.from_string("xxx,yyy")
         assert "xxx" == descriptor.get_name()
         assert "yyy" == descriptor.get_library()

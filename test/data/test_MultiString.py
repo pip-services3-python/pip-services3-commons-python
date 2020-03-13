@@ -23,10 +23,9 @@ class TestMultiString:
         assert multi_string.get_languages() == ['fr', 'ru']
 
     def test_multistring_from(self):
-
         from_tuples = MultiString.from_tuples('en', 'do you speak english',
-                                             'fr', 'parle français',
-                                             'de', 'sprichst du deutsch'
+                                              'fr', 'parle français',
+                                              'de', 'sprichst du deutsch'
                                               )
         assert len(from_tuples) == 3
         assert from_tuples == {'en': 'do you speak english',

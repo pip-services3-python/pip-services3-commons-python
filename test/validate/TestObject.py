@@ -11,6 +11,7 @@ import pytest
 
 from .TestSubObject import TestSubObject
 
+
 class TestObject(object):
     _private_field = None
     _private_property = None
@@ -29,8 +30,8 @@ class TestObject(object):
         self.int_field = 12345
         self.string_property = "ABC"
         self.null_property = None
-        self.int_array_property = [ 1, 2, 3 ]
-        self.string_list_property = [ "AAA", "BBB" ]
-        self.map_property = { 'Key1': 111, 'Key2': 222 }
+        self.int_array_property = [1, 2, 3]
+        self.string_list_property = ["AAA", "BBB"]
+        self.map_property = {'Key1': 111, 'Key2': 222}
         self.sub_object_property = TestSubObject("1")
-        self.sub_array_property = [ TestSubObject("2"), TestSubObject("3") ]
+        self.sub_array_property = [TestSubObject("2"), TestSubObject("3")]

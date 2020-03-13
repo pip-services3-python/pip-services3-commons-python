@@ -11,6 +11,7 @@ import pytest
 
 from pip_services3_commons.random import RandomText
 
+
 class TestRandomText:
 
     def test_phrase(self):
@@ -18,16 +19,15 @@ class TestRandomText:
         assert RandomText.phrase(-1, -2) == ""
         assert RandomText.phrase(-1, 0) == ""
         assert RandomText.phrase(-2, -1) == ""
-        
+
         text = RandomText.phrase(4)
-        assert len(text) >= 4 and len(text) <= 10
+        assert 4 <= len(text) <= 10
         text = RandomText.phrase(4, 10)
         assert len(text) >= 4
 
     def test_name(self):
         text = RandomText.name()
         assert text.find(" ") > 0
-
 
     def test_phone(self):
         text = RandomText.phone()

@@ -9,6 +9,7 @@
 
 from pip_services3_commons.convert import JsonConverter
 
+
 class TestJsonConverter:
 
     def test_json_to_map(self):
@@ -36,4 +37,3 @@ class TestJsonConverter:
         assert resultElement0 != None
         assert 111 == resultElement0["value1"]
         assert 222 == resultElement0["value2"]
-        

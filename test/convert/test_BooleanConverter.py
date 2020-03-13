@@ -9,6 +9,7 @@
 
 from pip_services3_commons.convert import BooleanConverter
 
+
 class TestBooleanConverter:
 
     def test_to_boolean(self):

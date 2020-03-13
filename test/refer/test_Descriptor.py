@@ -11,6 +11,7 @@ import pytest
 
 from pip_services3_commons.refer import Descriptor
 
+
 class TestDescriptor:
 
     def test_match(self):
@@ -31,10 +32,10 @@ class TestDescriptor:
         assert descriptor.match(Descriptor("*", "*", "*", "*", "1.0"))
 
         # Check match by all values
-        assert descriptor.match(Descriptor("pip-services-dummies", "controller", "default", "default",  None))
+        assert descriptor.match(Descriptor("pip-services-dummies", "controller", "default", "default", None))
         assert descriptor.match(Descriptor(None, "controller", "default", "default", "1.0"))
         assert descriptor.match(Descriptor("pip-services-dummies", "controller", "default", "default", "1.0"))
-        
+
         # Check mismatch by individual fields
         assert not descriptor.match(Descriptor("pip-services-runtime", None, None, None, None))
         assert not descriptor.match(Descriptor(None, "cache", None, None, None))
@@ -42,10 +43,9 @@ class TestDescriptor:
         assert not descriptor.match(Descriptor(None, None, None, "special", None))
         assert not descriptor.match(Descriptor(None, None, None, None, "2.0"))
 
-
     def test_to_string(self):
         descriptor1 = Descriptor("pip-services-dummies", "controller", "default", "default", "1.0")
         assert "pip-services-dummies:controller:default:default:1.0" == str(descriptor1)
 
         descriptor2 = Descriptor(None, None, None, None, None)
-        assert "*:*:*:*:*" == str(descriptor2)    
+        assert "*:*:*:*:*" == str(descriptor2)

@@ -11,6 +11,7 @@ import pytest
 
 from pip_services3_commons.data import AnyValue
 
+
 class TestAnyValue:
 
     def test_get_and_set_any_value(self):
@@ -21,7 +22,6 @@ class TestAnyValue:
         assert 1 == value.get_as_integer()
         assert 0.001 > 1.0 - value.get_as_float()
         assert "1" == value.get_as_string()
-
 
     def test_equal_any_value(self):
         value = AnyValue(1)

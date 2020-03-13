@@ -9,19 +9,21 @@
 
 from pip_services3_commons.convert import RecursiveMapConverter
 
+
 class InitTestClass(object):
     def __init__(self, value1, value2):
         self.value1 = value1
         self.value2 = value2
-        
+
+
 class TestRecursiveMapConverter:
-    
+
     def test_object_to_map(self):
         # Handling nulls
         value = None
         result = RecursiveMapConverter.to_nullable_map(value)
         assert result == None
-        
+
         # Handling simple objects
         value = InitTestClass(123, 234)
         result = RecursiveMapConverter.to_nullable_map(value)
@@ -43,7 +45,7 @@ class TestRecursiveMapConverter:
         assert isinstance(result["value2"], dict)
 
         # Handling arrays
-        value = InitTestClass([ InitTestClass(111, 222) ], None)
+        value = InitTestClass([InitTestClass(111, 222)], None)
         result = RecursiveMapConverter.to_nullable_map(value)
         assert result != None
         assert type(result["value1"]) != list
@@ -54,7 +56,7 @@ class TestRecursiveMapConverter:
         assert 222 == resultElement0["value2"]
 
         # Handling map_to_map
-        value = {'list':[ InitTestClass(111, 222), 10 ], 'anotherEl':'test'}
+        value = {'list': [InitTestClass(111, 222), 10], 'anotherEl': 'test'}
         result = RecursiveMapConverter.to_nullable_map(value)
         assert result != None
         assert type(result) is dict

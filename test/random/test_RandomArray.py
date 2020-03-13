@@ -11,13 +11,14 @@ import pytest
 
 from pip_services3_commons.random import RandomArray
 
+
 class TestRandomArray:
 
     def test_pick(self):
         listEmpty = []
         value = RandomArray.pick(listEmpty)
-        assert None == value 
-        
+        assert None == value
+
         array = [1, 2]
         value = RandomArray.pick(array)
-        assert value == 1 or value == 2 
+        assert value == 1 or value == 2

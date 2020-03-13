@@ -13,6 +13,7 @@ from pip_services3_commons.validate import Schema
 from pip_services3_commons.validate import IncludedRule
 from pip_services3_commons.validate import ExcludedRule
 
+
 class TestInclusionRules:
 
     def test_included_rule(self):

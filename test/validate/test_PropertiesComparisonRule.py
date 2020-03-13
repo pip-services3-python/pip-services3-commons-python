@@ -13,6 +13,7 @@ from .TestObject import TestObject
 from pip_services3_commons.validate import Schema
 from pip_services3_commons.validate import PropertiesComparisonRule
 
+
 class TestPropertiesComparisonRule:
 
     def test_properties_comparison(self):
