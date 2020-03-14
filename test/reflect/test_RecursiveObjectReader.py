@@ -14,11 +14,13 @@ from pip_services3_commons.reflect import RecursiveObjectReader
 
 from .TestClass import TestClass
 
+
 class TestRecursiveObjectReader:
 
     def test_has_property(self):
         obj = JsonConverter.to_map(
-            "{ \"value1\": 123, \"value2\": { \"value21\": 111, \"value22\": 222 }, \"value3\": [ 444, { \"value311\": 555 } ] }"
+            "{ \"value1\": 123, \"value2\": { \"value21\": 111, \"value22\": 222 }, \"value3\": [ 444, "
+            "{ \"value311\": 555 } ] } "
         )
 
         has = RecursiveObjectReader.has_property(obj, "")
@@ -60,10 +62,10 @@ class TestRecursiveObjectReader:
         has = RecursiveObjectReader.has_property(obj, "value3.2")
         assert False == has
 
-
     def test_get_property(self):
         obj = JsonConverter.to_map(
-            "{ \"value1\": 123, \"value2\": { \"value21\": 111, \"value22\": 222 }, \"value3\": [ 444, { \"value311\": 555 } ] }"
+            "{ \"value1\": 123, \"value2\": { \"value21\": 111, \"value22\": 222 }, \"value3\": [ 444, "
+            "{ \"value311\": 555 } ] } "
         )
 
         value = RecursiveObjectReader.get_property(obj, "")
@@ -105,10 +107,10 @@ class TestRecursiveObjectReader:
         value = RecursiveObjectReader.get_property(obj, "value3.2")
         assert None == value
 
-
     def test_get_property_names(self):
         obj = JsonConverter.to_map(
-            "{ \"value1\": 123, \"value2\": { \"value21\": 111, \"value22\": 222 }, \"value3\": [ 444, { \"value311\": 555 } ] }"
+            "{ \"value1\": 123, \"value2\": { \"value21\": 111, \"value22\": 222 }, \"value3\": [ 444, "
+            "{ \"value311\": 555 } ] } "
         )
 
         names = RecursiveObjectReader.get_property_names(obj)
@@ -119,10 +121,10 @@ class TestRecursiveObjectReader:
         assert "value3.0" in names
         assert "value3.1.value311" in names
 
-
     def test_get_properties(self):
         obj = JsonConverter.to_map(
-            "{ \"value1\": 123, \"value2\": { \"value21\": 111, \"value22\": 222 }, \"value3\": [ 444, { \"value311\": 555 } ] }"
+            "{ \"value1\": 123, \"value2\": { \"value21\": 111, \"value22\": 222 }, \"value3\": [ 444, "
+            "{ \"value311\": 555 } ] } "
         )
 
         values = RecursiveObjectReader.get_properties(obj)

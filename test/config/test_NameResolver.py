@@ -12,6 +12,7 @@ import pytest
 from pip_services3_commons.config import ConfigParams
 from pip_services3_commons.config import NameResolver
 
+
 class TestNameResolver:
 
     def test_read_config(self):

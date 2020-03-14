@@ -14,8 +14,6 @@ class TestAnyValueMap():
     def test_get_as_string(self):
         message = AnyValueMap.from_tuples("key1", 123,
                                           "key2", "ABC")
-        # restored_message_object = JsonConverter.from_json(JsonConverter.to_json(message))
-        # restored_message = AnyValueMap.from_value(restored_message_object)
 
         assert len(message) == 2
         assert message.get_as_integer("key1") == 123

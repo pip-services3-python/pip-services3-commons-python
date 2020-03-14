@@ -11,20 +11,21 @@ import pytest
 
 from pip_services3_commons.random import RandomBoolean
 
+
 class TestRandomBoolean:
 
     def test_chance(self):
         value = RandomBoolean.chance(5, 10)
-        assert value or not value 
-        
+        assert value or not value
+
         value = RandomBoolean.chance(5, 5)
-        assert value or not value 
-        
+        assert value or not value
+
         value = RandomBoolean.chance(0, 0)
-        assert False == value 
-        
+        assert False == value
+
         value = RandomBoolean.chance(-1, 0)
-        assert False == value 
-        
+        assert False == value
+
         value = RandomBoolean.chance(-1, -1)
         assert False == value

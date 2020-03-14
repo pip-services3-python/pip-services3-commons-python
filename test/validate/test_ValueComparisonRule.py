@@ -13,8 +13,9 @@ import pytest
 from pip_services3_commons.validate import Schema
 from pip_services3_commons.validate import ValueComparisonRule
 
+
 class TestValueComparisonRule:
-    
+
     def test_equal_comparison(self):
         schema = Schema().with_rule(ValueComparisonRule("EQ", 123))
         results = schema.validate(123)

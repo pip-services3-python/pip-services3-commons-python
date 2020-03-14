@@ -9,10 +9,12 @@
 
 from pip_services3_commons.convert import MapConverter
 
+
 class TestClass(object):
     def __init__(self, value1, value2):
         self.value1 = value1
         self.value2 = value2
+
 
 class TestMapConverter:
 
@@ -21,7 +23,7 @@ class TestMapConverter:
         value = None
         result = MapConverter.to_nullable_map(value)
         assert result == None
-        
+
         # Handling simple objects
         value = TestClass(123, 234)
         result = MapConverter.to_nullable_map(value)
@@ -49,15 +51,15 @@ class TestMapConverter:
         assert result != None
         assert 123 == result["value1"]
         assert result["value2"] != None
-        #assert isinstance(result["value2"], dict)
+        # assert isinstance(result["value2"], dict)
 
         # Handling arrays
-        value = TestClass([ TestClass(111, 222) ], None)
+        value = TestClass([TestClass(111, 222)], None)
         result = MapConverter.to_nullable_map(value)
         assert result != None
         assert type(result["value1"]) == list
         resultElements = result["value1"]
         resultElement0 = resultElements[0]
         assert resultElement0 != None
-        #assert 111 == resultElement0["value1"]
-        #assert 222 == resultElement0["value2"]
+        # assert 111 == resultElement0["value1"]
+        # assert 222 == resultElement0["value2"]

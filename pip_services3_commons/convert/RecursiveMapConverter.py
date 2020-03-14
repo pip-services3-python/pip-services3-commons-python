@@ -9,6 +9,7 @@
     :license: MIT, see LICENSE for more details.
 """
 
+
 class RecursiveMapConverter():
     """
     Converts arbitrary values into map objects using extended conversion rules.
@@ -19,29 +20,53 @@ class RecursiveMapConverter():
         value2 = RecursiveMapConverted.to_nullable_map({ key: 123 }) // Result: { key: 123 }
         value3 = RecursiveMapConverted.to_nullable_map([1,[2,3]) // Result: { "0": 1, { "0": 2, "1": 3 } }
     """
+
     @staticmethod
-    def _value_to_map(value, classkey = None):
+    def _value_to_map(value, classkey=None):
+
         if isinstance(value, dict):
-            data = {}
-            for (k, v) in value.items():
-                data[k] = RecursiveMapConverter._value_to_map(v, classkey)
-            return data
+            return RecursiveMapConverter._map_to_map(value, classkey)
+
+        elif isinstance(value, list):
+            return RecursiveMapConverter._array_to_map(value)
+        
         elif hasattr(value, "_ast"):
             return RecursiveMapConverter._value_to_map(value._ast())
-        elif hasattr(value, "__iter__"):
+
+        elif hasattr(value, "__iter__") and type(value) != str:
             return [RecursiveMapConverter._value_to_map(v, classkey) for v in value]
+
         elif hasattr(value, "__dict__"):
             data = {} 
+
             for k in dir(value):
                 v = getattr(value, k)
                 if not callable(v) and not k.startswith('_'):
                     data[k] = RecursiveMapConverter._value_to_map(v, classkey)
+
             if classkey is not None and hasattr(value, "__class__"):
                 data[classkey] = value.__class__.__name__
             return data
         else:
             return value
 
+    @staticmethod
+    def _array_to_map(value):
+        result = {}
+        try:
+            for i in range(len(value)):
+                result[i] = RecursiveMapConverter._value_to_map(value[i])
+            return result
+        except TypeError:
+            return value
+
+    @staticmethod
+    def _map_to_map(value, classkey = None):
+        data = {}
+        for (k, v) in value.items():
+            data[k] = RecursiveMapConverter._value_to_map(v, classkey)
+        return data
+    
     @staticmethod
     def to_nullable_map(value):
         """
@@ -51,7 +76,7 @@ class RecursiveMapConverter():
 
         :return: map object or null when conversion is not supported.
         """
-        if value == None:
+        if value is None:
             return None
 
         return RecursiveMapConverter._value_to_map(value)
@@ -66,7 +91,7 @@ class RecursiveMapConverter():
         :return: map object or empty map when conversion is not supported.
         """
         result = RecursiveMapConverter.to_nullable_map(value)
-        return result if result != None else {}
+        return result if result is not None else {}
 
     @staticmethod
     def to_map_with_default(value, default_value):
@@ -80,4 +105,4 @@ class RecursiveMapConverter():
         :return: map object or emptu map when conversion is not supported.
         """
         result = RecursiveMapConverter.to_nullable_map(value)
-        return result if result != None else default_value
+        return result if result is not None else default_value

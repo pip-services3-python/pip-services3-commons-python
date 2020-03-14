@@ -19,6 +19,7 @@ from pip_services3_commons.validate import ObjectSchema
 from pip_services3_commons.validate import ArraySchema
 from pip_services3_commons.validate import MapSchema
 
+
 class TestSchema:
 
     def test_empty_schema(self):
@@ -138,28 +139,3 @@ class TestSchema:
         obj = TestObject()
         results = schema.validate(obj)
         assert 0 == len(results)
-
-    #todo test
-    # def test_json_schema(self):
-    #     sub_schema = ObjectSchema() \
-    #         .with_required_property("Id", "String") \
-    #         .with_required_property("FLOAT_FIELD", "float") \
-    #         .with_optional_property("null_property", "Object")
-    #
-    #     schema = ObjectSchema() \
-    #         .with_required_property("int_field", "Integer") \
-    #         .with_required_property("string_property", "String") \
-    #         .with_optional_property("null_property", "Object") \
-    #         .with_required_property("int_array_property", ArraySchema("Integer")) \
-    #         .with_required_property("string_list_property", ArraySchema("String")) \
-    #         .with_required_property("map_property", MapSchema("String", "Integer")) \
-    #         .with_required_property("sub_object_property", sub_schema) \
-    #         .with_required_property("sub_array_property", ArraySchema(sub_schema))
-    #
-    #     obj = TestObject()
-    #     map = MapConverter.to_map(obj)
-    #     json = JsonConverter.to_json(map)
-    #     json_obj = JsonConverter.to_map(json)
-    #
-    #     results = schema.validate(json_obj)
-    #     assert 0 == len(results)

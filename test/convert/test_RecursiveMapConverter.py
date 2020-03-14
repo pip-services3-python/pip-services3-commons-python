@@ -9,41 +9,34 @@
 
 from pip_services3_commons.convert import RecursiveMapConverter
 
-class TestClass(object):
+
+class InitTestClass(object):
     def __init__(self, value1, value2):
         self.value1 = value1
         self.value2 = value2
-        
+
+
 class TestRecursiveMapConverter:
-    
+
     def test_object_to_map(self):
         # Handling nulls
         value = None
         result = RecursiveMapConverter.to_nullable_map(value)
         assert result == None
-        
+
         # Handling simple objects
-        value = TestClass(123, 234)
+        value = InitTestClass(123, 234)
         result = RecursiveMapConverter.to_nullable_map(value)
         assert 123 == result["value1"]
         assert 234 == result["value2"]
 
         # Handling dictionaries
-        # value = {}
-        # result = RecursiveMapConverter.to_nullable_map(value)
-        # assert value == result
-
-        # Non-recursive conversion
-        # value = TestClass(123, TestClass(111, 222))
-        # result = RecursiveMapConverter.to_map(value, None, False)
-        # assert result != None
-        # assert 123 == result["value1"]
-        # assert result["value2"] != None
-        # assert not isinstance(result["value2"], dict)
-        # assert instanceof(result["value2"], TestClass)
+        value = {}
+        result = RecursiveMapConverter.to_nullable_map(value)
+        assert value == result
 
         # Recursive conversion
-        value = TestClass(123, TestClass(111, 222))
+        value = InitTestClass(123, InitTestClass(111, 222))
         result = RecursiveMapConverter.to_nullable_map(value)
         assert isinstance(result, dict)
         assert result != None
@@ -52,12 +45,22 @@ class TestRecursiveMapConverter:
         assert isinstance(result["value2"], dict)
 
         # Handling arrays
-        value = TestClass([ TestClass(111, 222) ], None)
+        value = InitTestClass([InitTestClass(111, 222)], None)
         result = RecursiveMapConverter.to_nullable_map(value)
         assert result != None
-        assert type(result["value1"]) == list
+        assert type(result["value1"]) != list
         resultElements = result["value1"]
         resultElement0 = resultElements[0]
         assert resultElement0 != None
         assert 111 == resultElement0["value1"]
         assert 222 == resultElement0["value2"]
+
+        # Handling map_to_map
+        value = {'list': [InitTestClass(111, 222), 10], 'anotherEl': 'test'}
+        result = RecursiveMapConverter.to_nullable_map(value)
+        assert result != None
+        assert type(result) is dict
+        assert type(result["list"]) is dict
+        value["anotherEl"] = result["anotherEl"]
+        assert 111 == result["list"][0]["value1"]
+        assert 222 == result["list"][0]["value2"]

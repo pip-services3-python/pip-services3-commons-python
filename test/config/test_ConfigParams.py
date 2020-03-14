@@ -13,6 +13,7 @@ from pip_services3_commons.data import AnyValueMap
 from pip_services3_commons.data import AnyValueArray
 from pip_services3_commons.config import ConfigParams
 
+
 class TestConfigParams:
 
     def test_config_sections(self):
@@ -40,19 +41,18 @@ class TestConfigParams:
         assert 2 == len(sections)
         assert "Section1" in sections
         assert "Section2" in sections
-        
+
         section1 = config.get_section("Section1")
         assert 3 == len(section1)
         assert "Value1" == section1.get("Key1")
         assert "Value2" == section1.get("Key2")
         assert "Value3" == section1.get("Key3")
 
-
     def test_config_from_string(self):
-        config = ConfigParams.from_string("Queue=TestQueue;Endpoint=sb://cvctestbus.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=K70UpCUXN1Q5RFykll6/gz4Et14iJrYFnGPlwiFBlow=")
+        config = ConfigParams.from_string(
+            "Queue=TestQueue;Endpoint=sb://cvctestbus.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=K70UpCUXN1Q5RFykll6/gz4Et14iJrYFnGPlwiFBlow=")
         assert 4 == len(config)
         assert "TestQueue" == config.get("Queue")
-
 
     def test_config_from_object(self):
         value = AnyValueMap.from_tuples(
@@ -62,7 +62,7 @@ class TestConfigParams:
             ),
             "field3", True
         )
-        
+
         config = ConfigParams.from_value(value);
         assert 7 == len(config)
         assert 123 == config.get_as_integer("field1.field11")

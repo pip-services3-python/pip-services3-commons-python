@@ -9,6 +9,7 @@
 
 from pip_services3_commons.convert import IntegerConverter
 
+
 class TestIntegerConverter:
 
     def test_to_integer(self):

@@ -11,36 +11,37 @@ import pytest
 
 from pip_services3_commons.random import RandomInteger
 
+
 class TestRandomInteger:
 
     def test_next_integer(self):
         value = RandomInteger.next_integer(5)
         assert value <= 5
-        
+
         value = RandomInteger.next_integer(2, 5)
-        assert value <= 5 and value >= 2
+        assert 5 >= value >= 2
 
     def test_update_integer(self):
         value = RandomInteger.update_integer(0, 5)
-        assert value <= 5 and value >= -5
-        
+        assert 5 >= value >= -5
+
         value = RandomInteger.update_integer(5, 0)
-        
+
         value = RandomInteger.update_integer(0)
         assert value == 0
 
     def test_sequence(self):
         seq = RandomInteger.sequence(1, 5)
-        assert len(seq) <= 5 and len(seq) >= 1
-        
+        assert 5 >= len(seq) >= 1
+
         seq = RandomInteger.sequence(-1, 0)
         assert len(seq) == 0
-        
+
         seq = RandomInteger.sequence(-1, -4)
         assert len(seq) == 0
-        
+
         seq = RandomInteger.sequence(4, 4)
         assert len(seq) == 4
-        
+
         seq = RandomInteger.sequence(5)
         assert len(seq) == 5

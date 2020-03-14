@@ -11,6 +11,7 @@ import pytest
 
 from pip_services3_commons.refer import References
 
+
 class TestReferences:
 
     def test_put(self):
@@ -29,7 +30,7 @@ class TestReferences:
             444, "DDD"
         )
         assert 4 == len(refs.get_all())
-        
+
         item = refs.get_one_optional(555)
         assert None == item
 
@@ -41,4 +42,3 @@ class TestReferences:
 
         items = refs.get_required(333)
         assert 1 == len(items)
-

@@ -14,6 +14,7 @@ from pip_services3_commons.refer import References
 from pip_services3_commons.refer import DependencyResolver
 from pip_services3_commons.config import ConfigParams
 
+
 class TestDependencyResolver:
 
     def test_resolve_depedencies(self):
@@ -23,7 +24,7 @@ class TestDependencyResolver:
             "Reference1", ref1,
             Descriptor("pip-services-commons", "reference", "object", "ref2", "1.0"), ref2
         )
-        
+
         resolver = DependencyResolver.from_tuples(
             "ref1", "Reference1",
             "ref2", Descriptor("pip-services-commons", "reference", "*", "*", "*")
@@ -34,7 +35,6 @@ class TestDependencyResolver:
         assert ref2 == resolver.get_one_required("ref2")
         assert None == resolver.get_one_optional("ref3")
 
-
     def test_configure_depedencies(self):
         ref1 = "AAA"
         ref2 = "BBB"
@@ -42,13 +42,13 @@ class TestDependencyResolver:
             "Reference1", ref1,
             Descriptor("pip-services-commons", "reference", "object", "ref2", "1.0"), ref2
         )
-        
+
         config = ConfigParams.from_tuples(
             "dependencies.ref1", "Reference1",
             "dependencies.ref2", "pip-services-commons:reference:*:*:*",
             "dependencies.ref3", None
         )
-        
+
         resolver = DependencyResolver(config)
         resolver.set_references(refs)
 

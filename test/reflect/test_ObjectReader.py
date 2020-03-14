@@ -16,6 +16,7 @@ from pip_services3_commons.data import AnyValueArray
 
 from .TestClass import TestClass
 
+
 class TestObjectReader:
 
     def test_get_object_property(self):
@@ -23,10 +24,10 @@ class TestObjectReader:
 
         value = ObjectReader.get_property(obj, "private_field")
         assert None == value
-        
+
         value = ObjectReader.get_property(obj, "public_field")
         assert "ABC" == value
-        
+
         value = ObjectReader.get_property(obj, "public_prop")
         assert None != value
 
@@ -38,10 +39,10 @@ class TestObjectReader:
 
         value = ObjectReader.get_property(map, "key3")
         assert None == value
-        
+
         value = ObjectReader.get_property(map, "Key1")
         assert 123 == value
-        
+
         value = ObjectReader.get_property(map, "KEY2")
         assert "ABC" == value
 
@@ -50,21 +51,21 @@ class TestObjectReader:
 
         value = ObjectReader.get_property(array, "3")
         assert None == value
-        
+
         value = ObjectReader.get_property(array, "0")
         assert 123 == value
-        
+
         value = ObjectReader.get_property(array, "1")
         assert "ABC" == value
 
-        array = [ 123, "ABC" ]
-        
+        array = [123, "ABC"]
+
         value = ObjectReader.get_property(array, "3")
         assert None == value
-        
+
         value = ObjectReader.get_property(array, "0")
         assert 123 == value
-        
+
         value = ObjectReader.get_property(array, "1")
         assert "ABC" == value
 
@@ -74,7 +75,7 @@ class TestObjectReader:
         assert 2 == len(names)
         assert "public_field" in names
         assert "public_prop" in names
-        
+
         map = ObjectReader.get_properties(obj)
         assert 2 == len(map)
         assert "ABC" == map["public_field"]
@@ -90,34 +91,33 @@ class TestObjectReader:
         assert 2 == len(names)
         assert "key1" in names
         assert "key2" in names
-        
+
         values = ObjectReader.get_properties(map)
         assert 2 == len(values)
         assert 123 == values["key1"]
         assert "ABC" == values["key2"]
 
     def test_get_array_properties(self):
-        array = AnyValueArray.from_values(123, "ABC" )
-        
-        names = ObjectReader.get_property_names(array)
-        assert 2 == len(names)
-        assert "0" in names
-        assert "1" in names
-        
-        values = ObjectReader.get_properties(array)
-        assert 2 == len(values)
-        assert 123 == values["0"]
-        assert "ABC" == values["1"]
-        
-        array = [ 123, "ABC" ]
+        array = AnyValueArray.from_values(123, "ABC")
 
         names = ObjectReader.get_property_names(array)
         assert 2 == len(names)
         assert "0" in names
         assert "1" in names
-        
+
         values = ObjectReader.get_properties(array)
         assert 2 == len(values)
         assert 123 == values["0"]
         assert "ABC" == values["1"]
 
+        array = [123, "ABC"]
+
+        names = ObjectReader.get_property_names(array)
+        assert 2 == len(names)
+        assert "0" in names
+        assert "1" in names
+
+        values = ObjectReader.get_properties(array)
+        assert 2 == len(values)
+        assert 123 == values["0"]
+        assert "ABC" == values["1"]

@@ -9,6 +9,7 @@
     :license: MIT, see LICENSE for more details.
 """
 
+
 class SortParams(list):
     """
     Defines a field name and order used to sort query results.
@@ -20,7 +21,8 @@ class SortParams(list):
 
          myDataClient.get_data_by_filter(filter, paging, sorting)
     """
-    def __init__(self, **fields):
+
+    def __init__(self, *fields):
         """
         Creates a new instance and initializes it with specified sort fields.
 

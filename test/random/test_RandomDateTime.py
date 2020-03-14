@@ -8,39 +8,31 @@
 """
 
 import pytest
-import datetime
+from datetime import datetime
 import pytz
 
 from pip_services3_commons.random import RandomDateTime
 
+
 class TestRandomDateTime:
 
     def test_next_date(self):
-        date = RandomDateTime.next_date(2015, 2016)
-        assert date.year == 2015 or date.year == 2016  
+        date = RandomDateTime.next_date(datetime(2015, 2, 1), datetime(2016, 2, 1))
+        assert date.year == 2015 or date.year == 2016
 
-        date = RandomDateTime.next_date()
-        assert date.year >= datetime.datetime.now().year - 10 \
-            and date.year <= datetime.datetime.now().year
+        date = RandomDateTime.next_date(datetime.now())
+        assert datetime.now().year - 10 <= date.year <= datetime.now().year
 
-    def total_secs(days):
-        return days * 24 * 3600000
+    def test_update_datetime(self):
+        old_date = datetime(2016, 11, 10, 0, 0, 0, 0)
 
-    # def test_update_datetime(self):
-    #     old_date = datetime.datetime(2016, 10, 10, 0, 0, 0, 0, pytz.utc)
-    #
-    #     # date = RandomDateTime.update_datetime(old_date)
-    #     # delta = old_date - date
-    #     # assert date.total_seconds() >= old_date.total_seconds() - self.total_secs(-10) or \
-    #     #        date.total_seconds() >= old_date.total_seconds() - self.total_secs(10)
-    #
-    #     date = RandomDateTime.update_datetime(old_date)
-    #     delta = old_date - date
-    #     assert delta.total_seconds() >= self.total_secs(-10) or delta.total_seconds() >= self.total_secs(10)
-    #
-    #     date = RandomDateTime.update_datetime(old_date, 3)
-    #     delta = old_date - date
-    #     assert delta.total_seconds() >= self.total_secs(-3) or delta.total_seconds() >= self.total_secs(3)
-    #
-    #     date = RandomDateTime.update_datetime(old_date, -3)
-    #     assert date.year == old_date.year
+        date = RandomDateTime.update_datetime(old_date)
+        assert (date.timestamp() * 1000) >= (old_date.timestamp() * 1000) - 10 * 24 * 3600000 or (
+                date.timestamp() * 1000) >= (old_date.timestamp() * 1000) + 10 * 24 * 3600000
+
+        date = RandomDateTime.update_datetime(old_date, 3 * 24 * 3600000)
+        assert (date.timestamp() * 1000) >= (old_date.timestamp() * 1000) - 3 * 24 * 3600000 or (
+                date.timestamp() * 1000) >= (old_date.timestamp() * 1000) + 3 * 24 * 3600000
+
+        date = RandomDateTime.update_datetime(old_date, -3)
+        assert (date.timestamp() * 1000) == (old_date.timestamp() * 1000)

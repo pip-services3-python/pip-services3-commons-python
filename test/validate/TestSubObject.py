@@ -9,6 +9,7 @@
 
 import pytest
 
+
 class TestSubObject(object):
     _id = None
     _null_property = None
@@ -33,4 +34,3 @@ class TestSubObject(object):
         self._null_property = value
 
     null_property = property(get_null_property, set_null_property)
-

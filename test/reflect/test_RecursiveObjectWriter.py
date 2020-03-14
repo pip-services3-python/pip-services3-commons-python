@@ -16,39 +16,39 @@ from pip_services3_commons.reflect import RecursiveObjectWriter
 
 from .TestClass import TestClass
 
+
 class TestRecursiveObjectWriter:
 
     def test_set_property(self):
         obj = JsonConverter.to_map(
-            "{ \"value1\": 123, \"value2\": { \"value21\": 111, \"value22\": 222 }, \"value3\": [ 444, { \"value311\": 555 } ] }"
+            "{ \"value1\": 123, \"value2\": { \"value21\": 111, \"value22\": 222 }, \"value3\": [ 444, "
+            "{ \"value311\": 555 } ] } "
         )
 
-        #RecursiveObjectWriter.set_property(obj, "", None)
+        # RecursiveObjectWriter.set_property(obj, "", None)
         RecursiveObjectWriter.set_property(obj, "value1", "AAA")
         RecursiveObjectWriter.set_property(obj, "value2", "BBB")
         RecursiveObjectWriter.set_property(obj, "value3.1.value312", "CCC")
         RecursiveObjectWriter.set_property(obj, "value3.3", "DDD")
         RecursiveObjectWriter.set_property(obj, "value4.1", "EEE")
-        
+
         values = RecursiveObjectReader.get_properties(obj)
         assert 8 == len(values)
         assert "AAA" == values["value1"]
         assert "BBB" == values["value2"]
-        #assert None == values["value2.value21"]
         assert 444 == values["value3.0"]
         assert 555 == values["value3.1.value311"]
         assert "CCC" == values["value3.1.value312"]
-        #assert None == values["value3.2"]
+        assert None == values["value3.2"]
         assert "DDD" == values["value3.3"]
         assert "EEE" == values["value4.1"]
 
-
     def test_set_properties(self):
         obj = JsonConverter.to_map(
-            "{ \"value1\": 123, \"value2\": { \"value21\": 111, \"value22\": 222 }, \"value3\": [ 444, { \"value311\": 555 } ] }"
+            "{ \"value1\": 123, \"value2\": { \"value21\": 111, \"value22\": 222 }, \"value3\": [ 444, "
+            "{ \"value311\": 555 } ] } "
         )
 
-        #values = Parameters.from_tuples(
         values = AnyValueMap.from_tuples(
             "value1", "AAA",
             "value2", "BBB",
@@ -57,15 +57,14 @@ class TestRecursiveObjectWriter:
             "value4.1", "EEE"
         )
         RecursiveObjectWriter.set_properties(obj, values)
-        
+
         values = RecursiveObjectReader.get_properties(obj)
         assert 8 == len(values)
         assert "AAA" == values["value1"]
         assert "BBB", values["value2"]
-        #assert None == values["value2.value21"]
         assert 444 == values["value3.0"]
         assert 555 == values["value3.1.value311"]
         assert "CCC", values["value3.1.value312"]
-        #assert None == values["value3.2"]
+        assert None is values["value3.2"]
         assert "DDD" == values["value3.3"]
         assert "EEE" == values["value4.1"]
