@@ -15,10 +15,14 @@ Links
 
 from setuptools import setup
 from setuptools import find_packages
+import json
+
+with open('component.json') as json_file:
+    config = json.load(json_file)
 
 setup(
     name='pip_services3_commons',
-    version='3.0.1',
+    version=config['version'],
     url='http://github.com/pip-services3-python/pip-services3-commons-python',
     license='MIT',
     description='Basic portable abstractions for Pip.Services in Python',
