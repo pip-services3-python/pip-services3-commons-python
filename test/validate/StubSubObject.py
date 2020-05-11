@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-    tests.validate.TestSubObject
+    tests.validate.StubSubObject
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     
     :copyright: (c) Conceptual Vision Consulting LLC 2015-2016, see AUTHORS for more details.
@@ -10,7 +10,7 @@
 import pytest
 
 
-class TestSubObject(object):
+class StubSubObject(object):
     _id = None
     _null_property = None
 

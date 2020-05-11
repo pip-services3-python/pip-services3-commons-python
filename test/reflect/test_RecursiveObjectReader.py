@@ -12,7 +12,7 @@ import pytest
 from pip_services3_commons.convert import JsonConverter
 from pip_services3_commons.reflect import RecursiveObjectReader
 
-from .TestClass import TestClass
+from .StubClass import StubClass
 
 
 class TestRecursiveObjectReader:

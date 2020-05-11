@@ -8,12 +8,7 @@
 """
 
 from pip_services3_commons.convert import MapConverter
-
-
-class TestClass(object):
-    def __init__(self, value1, value2):
-        self.value1 = value1
-        self.value2 = value2
+from .StubClass import StubClass
 
 
 class TestMapConverter:
@@ -25,7 +20,7 @@ class TestMapConverter:
         assert result == None
 
         # Handling simple objects
-        value = TestClass(123, 234)
+        value = StubClass(123, 234)
         result = MapConverter.to_nullable_map(value)
         assert 123 == result["value1"]
         assert 234 == result["value2"]
@@ -36,16 +31,16 @@ class TestMapConverter:
         # assert value == result
 
         # Non-recursive conversion
-        # value = TestClass(123, TestClass(111, 222))
+        # value = StubClass(123, StubClass(111, 222))
         # result = MapConverter.to_map(value, None, False)
         # assert result != None
         # assert 123 == result["value1"]
         # assert result["value2"] != None
         # assert not isinstance(result["value2"], dict)
-        # assert instanceof(result["value2"], TestClass)
+        # assert instanceof(result["value2"], StubClass)
 
         # Recursive conversion
-        value = TestClass(123, TestClass(111, 222))
+        value = StubClass(123, StubClass(111, 222))
         result = MapConverter.to_nullable_map(value)
         assert isinstance(result, dict)
         assert result != None
@@ -54,7 +49,7 @@ class TestMapConverter:
         # assert isinstance(result["value2"], dict)
 
         # Handling arrays
-        value = TestClass([TestClass(111, 222)], None)
+        value = StubClass([StubClass(111, 222)], None)
         result = MapConverter.to_nullable_map(value)
         assert result != None
         assert type(result["value1"]) == list

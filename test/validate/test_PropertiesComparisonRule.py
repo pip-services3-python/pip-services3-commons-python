@@ -9,7 +9,7 @@
 
 import pytest
 
-from .TestObject import TestObject
+from .StubObject import StubObject
 from pip_services3_commons.validate import Schema
 from pip_services3_commons.validate import PropertiesComparisonRule
 
@@ -17,7 +17,7 @@ from pip_services3_commons.validate import PropertiesComparisonRule
 class TestPropertiesComparisonRule:
 
     def test_properties_comparison(self):
-        obj = TestObject()
+        obj = StubObject()
         schema = Schema().with_rule(PropertiesComparisonRule("String_Property", "EQ", "Null_Property"))
 
         obj.string_property = "ABC"

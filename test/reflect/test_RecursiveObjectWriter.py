@@ -14,7 +14,7 @@ from pip_services3_commons.data import AnyValueMap
 from pip_services3_commons.reflect import RecursiveObjectReader
 from pip_services3_commons.reflect import RecursiveObjectWriter
 
-from .TestClass import TestClass
+from .StubClass import StubClass
 
 
 class TestRecursiveObjectWriter:

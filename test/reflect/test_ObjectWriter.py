@@ -14,13 +14,13 @@ from pip_services3_commons.reflect import ObjectWriter
 from pip_services3_commons.data import AnyValueMap
 from pip_services3_commons.data import AnyValueArray
 
-from .TestClass import TestClass
+from .StubClass import StubClass
 
 
 class TestObjectWriter:
 
     def test_set_object_property(self):
-        obj = TestClass()
+        obj = StubClass()
 
         ObjectWriter.set_property(obj, "private_pield", "XYZ")
 

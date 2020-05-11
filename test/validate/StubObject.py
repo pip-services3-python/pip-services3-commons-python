@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-    tests.validate.TestObject
+    tests.validate.StubObject
     ~~~~~~~~~~~~~~~~~~~~~~~~~
     
     :copyright: (c) Conceptual Vision Consulting LLC 2015-2016, see AUTHORS for more details.
@@ -9,10 +9,10 @@
 
 import pytest
 
-from .TestSubObject import TestSubObject
+from .StubSubObject import StubSubObject
 
 
-class TestObject(object):
+class StubObject(object):
     _private_field = None
     _private_property = None
     int_field = None
@@ -33,5 +33,5 @@ class TestObject(object):
         self.int_array_property = [1, 2, 3]
         self.string_list_property = ["AAA", "BBB"]
         self.map_property = {'Key1': 111, 'Key2': 222}
-        self.sub_object_property = TestSubObject("1")
-        self.sub_array_property = [TestSubObject("2"), TestSubObject("3")]
+        self.sub_object_property = StubSubObject("1")
+        self.sub_array_property = [StubSubObject("2"), StubSubObject("3")]

@@ -14,13 +14,13 @@ from pip_services3_commons.reflect import ObjectReader
 from pip_services3_commons.data import AnyValueMap
 from pip_services3_commons.data import AnyValueArray
 
-from .TestClass import TestClass
+from .StubClass import StubClass
 
 
 class TestObjectReader:
 
     def test_get_object_property(self):
-        obj = TestClass()
+        obj = StubClass()
 
         value = ObjectReader.get_property(obj, "private_field")
         assert None == value
@@ -70,7 +70,7 @@ class TestObjectReader:
         assert "ABC" == value
 
     def test_get_object_properties(self):
-        obj = TestClass()
+        obj = StubClass()
         names = ObjectReader.get_property_names(obj)
         assert 2 == len(names)
         assert "public_field" in names

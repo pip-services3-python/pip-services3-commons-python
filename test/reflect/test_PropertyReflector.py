@@ -11,13 +11,13 @@ import pytest
 
 from pip_services3_commons.reflect import PropertyReflector
 
-from .TestClass import TestClass
+from .StubClass import StubClass
 
 
 class TestPropertyReflector:
 
     def test_get_property(self):
-        obj = TestClass()
+        obj = StubClass()
 
         value = PropertyReflector.get_property(obj, "_private_field")
         assert None == value
@@ -29,7 +29,7 @@ class TestPropertyReflector:
         assert None != value
 
     def test_get_properties(self):
-        obj = TestClass()
+        obj = StubClass()
         names = PropertyReflector.get_property_names(obj)
         assert 2 == len(names)
         assert "public_field" in names

@@ -9,8 +9,8 @@
 
 import pytest
 
-from .TestSubObject import TestSubObject
-from .TestObject import TestObject
+from .StubSubObject import StubSubObject
+from .StubObject import StubObject
 
 from pip_services3_commons.convert import JsonConverter, MapConverter
 from pip_services3_commons.convert import RecursiveMapConverter
@@ -34,7 +34,7 @@ class TestSchema:
 
     def test_unexpected(self):
         schema = ObjectSchema()
-        obj = TestObject()
+        obj = StubObject()
         results = schema.validate(obj)
         assert 8 == len(results)
 
@@ -49,7 +49,7 @@ class TestSchema:
             .with_optional_property("sub_object_property", None) \
             .with_optional_property("sub_array_property", None)
 
-        obj = TestObject()
+        obj = StubObject()
         results = schema.validate(obj)
         assert 0 == len(results)
 
@@ -64,7 +64,7 @@ class TestSchema:
             .with_required_property("sub_object_property", None) \
             .with_required_property("sub_array_property", None)
 
-        obj = TestObject()
+        obj = StubObject()
         obj.sub_array_property = None
 
         results = schema.validate(obj)
@@ -78,10 +78,10 @@ class TestSchema:
             .with_required_property("int_array_property", list) \
             .with_required_property("string_list_property", list) \
             .with_required_property("map_property", dict) \
-            .with_required_property("sub_object_property", TestSubObject) \
+            .with_required_property("sub_object_property", StubSubObject) \
             .with_required_property("sub_array_property", list)
 
-        obj = TestObject()
+        obj = StubObject()
         results = schema.validate(obj)
         assert 0 == len(results)
 
@@ -93,10 +93,10 @@ class TestSchema:
             .with_required_property("int_array_property", "int[]") \
             .with_required_property("string_list_property", "list") \
             .with_required_property("map_property", "dict") \
-            .with_required_property("sub_object_property", "TestSubObject") \
-            .with_required_property("sub_array_property", "TestSubObject[]")
+            .with_required_property("sub_object_property", "StubSubObject") \
+            .with_required_property("sub_array_property", "StubSubObject[]")
 
-        obj = TestObject()
+        obj = StubObject()
         results = schema.validate(obj)
         assert 0 == len(results)
 
@@ -114,9 +114,9 @@ class TestSchema:
             .with_required_property("string_list_property", "list") \
             .with_required_property("map_property", "map") \
             .with_required_property("sub_object_property", sub_schema) \
-            .with_required_property("sub_array_property", "TestSubObject[]")
+            .with_required_property("sub_array_property", "StubSubObject[]")
 
-        obj = TestObject()
+        obj = StubObject()
         results = schema.validate(obj)
         assert 0 == len(results)
 
@@ -136,6 +136,6 @@ class TestSchema:
             .with_required_property("sub_object_property", sub_schema) \
             .with_required_property("sub_array_property", ArraySchema(sub_schema))
 
-        obj = TestObject()
+        obj = StubObject()
         results = schema.validate(obj)
         assert 0 == len(results)

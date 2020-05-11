@@ -1,7 +1,7 @@
 import datetime
 
 
-class TestClass:
+class StubClass:
     _private_field = 123
     public_field = "ABC"
     _public_prop = datetime.datetime.now()

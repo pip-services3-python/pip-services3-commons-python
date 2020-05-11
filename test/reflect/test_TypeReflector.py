@@ -13,7 +13,7 @@ import importlib
 from pip_services3_commons.reflect import TypeDescriptor
 from pip_services3_commons.reflect import TypeReflector
 
-from .TestClass import TestClass
+from .StubClass import StubClass
 
 
 class TestTypeReflector:
@@ -26,5 +26,5 @@ class TestTypeReflector:
         assert None == obj_type
 
     def test_create_instance(self):
-        value = TypeReflector.create_instance("TestClass", "reflect.TestClass")
+        value = TypeReflector.create_instance("StubClass", "reflect.StubClass")
         assert None != value
