@@ -205,7 +205,7 @@ class CommandSet(object):
         """
         # Get command and throw error if it doesn't exist
         cref = self.find_command(command)
-        if cref == None:
+        if cref is None:
             raise BadRequestException(
                 correlation_id,
                 "CMD_NOT_FOUND",
@@ -214,7 +214,7 @@ class CommandSet(object):
 
         # Generate correlationId if it doesn't exist
         # Use short ids for now
-        if correlation_id == None:
+        if correlation_id is None:
            correlation_id = IdGenerator.next_short()
         
         # Validate command arguments before execution and throw the 1st found error
@@ -239,7 +239,7 @@ class CommandSet(object):
                  single entry, whose type will be ValidationResultType.Error.
         """
         cref = self.find_command(command)
-        if cref == None:
+        if cref is None:
             results = []
             results.append( \
                 ValidationResult(
@@ -282,5 +282,5 @@ class CommandSet(object):
         :param value: the event arguments (parameters).
         """
         e = self.find_event(event)
-        if e != None:
+        if not (e is None):
             e.notify(correlation_id, value)

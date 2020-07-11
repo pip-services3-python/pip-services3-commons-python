@@ -30,9 +30,9 @@ class TypeMatcher:
 
         :return: true if types are matching and false if they don't.
         """
-        if expected_type == None:
+        if expected_type is None:
             return True
-        if actual_value == None:
+        if actual_value is None:
             raise Exception("Actual value cannot be null")
 
         return TypeMatcher.match_type(expected_type, type(actual_value))
@@ -50,9 +50,9 @@ class TypeMatcher:
 
         :return: true if types are matching and false if they don't.
         """
-        if expected_type == None:
+        if expected_type is None:
             return True
-        if actual_type == None:
+        if actual_type is None:
             raise Exception("Actual type cannot be null")
 
         if isinstance(expected_type, type):
@@ -75,9 +75,9 @@ class TypeMatcher:
 
         :return: true if types are matching and false if they don't.
         """
-        if expected_type == None:
+        if expected_type is None:
             return True
-        if actual_value == None:
+        if actual_value is None:
             raise Exception("Actual value cannot be null")
 
         return TypeMatcher.match_type_by_name(expected_type, type(actual_value))
@@ -94,9 +94,9 @@ class TypeMatcher:
 
         :return: true if types are matching and false if they don't.
         """
-        if expected_type == None:
+        if expected_type is None:
             return True
-        if actual_type == None:
+        if actual_type is None:
             raise Exception("Actual type cannot be null")
         
         expected_type = expected_type.lower()

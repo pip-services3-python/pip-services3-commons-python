@@ -44,7 +44,7 @@ class Referencer:
 
         :param components: a list of components to set the references to.
         """
-        if components == None:
+        if components is None:
             return
 
         for component in components:
@@ -73,7 +73,7 @@ class Referencer:
 
         :param components: the list of components, whose references must be cleared.
         """
-        if components == None:
+        if components is None:
             return
 
         for component in components:

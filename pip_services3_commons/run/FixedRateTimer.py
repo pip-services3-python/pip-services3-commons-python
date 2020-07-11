@@ -74,7 +74,7 @@ class FixedRateTimer(IClosable):
         self._lock.acquire()
         try:
             # Stop previously set timer
-            if self._timer != None:
+            if not (self._timer is None):
                 self._timer.stop()
                 self._timer = None
 
@@ -102,7 +102,7 @@ class FixedRateTimer(IClosable):
         self._lock.acquire()
         try:
             # Stop the timer
-            if self._timer != None:
+            if not (self._timer is None):
                 self._timer.stop()
                 self._timer = None
             

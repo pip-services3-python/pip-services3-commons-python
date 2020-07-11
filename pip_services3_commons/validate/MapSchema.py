@@ -49,17 +49,17 @@ class MapSchema(Schema):
 
         :param results: a list with validation results to add new results.
         """
-        name = path if path != None else "value"
+        name = path if not (path is None) else "value"
         value = ObjectReader.get_value(value)
 
         super(MapSchema, self)._perform_validation(path, value, results)
 
-        if value == None:
+        if value is None:
             return
 
         if isinstance(value, dict):
             for (key, value) in value.items():
-                element_path = key if path == None or len(path) == 0 else path + "." + key
+                element_path = key if path is None or len(path) == 0 else path + "." + key
 
                 self._perform_type_validation(element_path, self.key_type, key, results)
                 self._perform_type_validation(element_path, self.value_type, value, results)

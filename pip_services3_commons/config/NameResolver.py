@@ -40,12 +40,12 @@ class NameResolver(object):
         :return: resolved name or default name if the name cannot be determined.
         """
         name = config.get_as_nullable_string("name")
-        name = name if name != None else config.get_as_nullable_string("id")
+        name = name if not (name is None) else config.get_as_nullable_string("id")
 
-        if name == None:
+        if name is None:
             descriptor_str = config.get_as_nullable_string("descriptor")
             descriptor = Descriptor.from_string(descriptor_str)
-            if descriptor != None:
+            if not (descriptor is None):
                 name = descriptor.get_name()
 
-        return name if name != None else default_name
+        return name if not (name is None) else default_name

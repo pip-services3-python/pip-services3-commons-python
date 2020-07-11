@@ -30,7 +30,7 @@ class ArrayConverter():
         :return: array object or None when value is None.
         """
         # Shortcuts
-        if value == None:
+        if value is None:
             return None
         if type(value) == list:
             return value 
@@ -65,7 +65,7 @@ class ArrayConverter():
         :return: array object or default array when value is None.
         """
         result = ArrayConverter.to_nullable_array(value)
-        return result if result != None else default_value
+        return result if not (result is None) else default_value
 
     @staticmethod
     def list_to_array(value):
@@ -77,7 +77,7 @@ class ArrayConverter():
 
         :return: array object or empty array when value is None
         """
-        if value == None:
+        if value is None:
             return []
         elif type(value) in [list, tuple, set]:
             return list(value)

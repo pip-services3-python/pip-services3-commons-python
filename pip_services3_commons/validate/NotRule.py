@@ -47,10 +47,10 @@ class NotRule(IValidationRule):
 
         :param results: a list with validation results to add new results.
         """
-        if self._rule == None:
+        if self._rule is None:
             return
 
-        name = path if path != None else "value"
+        name = path if not (path is None) else "value"
         local_results = []
 
         self._rule.validate(path, schema, value, local_results)

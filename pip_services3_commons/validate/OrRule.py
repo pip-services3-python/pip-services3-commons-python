@@ -46,7 +46,7 @@ class OrRule(IValidationRule):
 
         :param results: a list with validation results to add new results.
         """
-        if self._rules == None or len(self._rules) == 0:
+        if self._rules is None or len(self._rules) == 0:
             return
 
         local_results = []

@@ -44,7 +44,7 @@ class Cleaner:
 
         :param components: the list of components that are to be cleaned.
         """
-        if components == None:
+        if components is None:
             return
 
         for component in components:

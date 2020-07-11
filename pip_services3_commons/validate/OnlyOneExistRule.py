@@ -47,12 +47,12 @@ class OnlyOneExistRule(IValidationRule):
 
         :param results: a list with validation results to add new results.
         """
-        name = path if path != None else "value"
+        name = path if not (path is None) else "value"
         found = []
 
         for prop in self._properties:
             property_value = ObjectReader.get_property(value, prop)
-            if property_value != None:
+            if not (property_value is None):
                 found.append(prop)
 
         if len(found) == 0:

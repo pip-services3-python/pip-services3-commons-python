@@ -38,7 +38,7 @@ class Event(IEvent):
 
         :raises: Exception: when Event name is not set.
         """
-        if name == None:
+        if name is None:
             raise Exception("Event name is not set")
 
         self._name = name

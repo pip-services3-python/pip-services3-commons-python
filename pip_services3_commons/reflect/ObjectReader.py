@@ -72,7 +72,7 @@ class ObjectReader:
 
         :return: true if the object has the property and false if it doesn't.
         """
-        if obj == None or name == None:
+        if obj is None or name is None:
             return False
 
         name = name.lower()
@@ -103,7 +103,7 @@ class ObjectReader:
 
         :return: the property value or null if property doesn't exist or introspection failed.
         """
-        if obj == None or name == None:
+        if obj is None or name is None:
             return False
 
         name = name.lower()

@@ -32,7 +32,7 @@ class RandomFloat(object):
 
         :return: generated random float value.
         """
-        if max == None:
+        if max is None:
             max = min
             min = 0
 
@@ -52,7 +52,7 @@ class RandomFloat(object):
 
         :return: updated random float value.
         """
-        if range == None:
+        if range is None:
             range = 0.1 * value
         
         min = value - range

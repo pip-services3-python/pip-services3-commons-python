@@ -43,7 +43,7 @@ class ValidationException(BadRequestException):
         message = ''
         message += 'Validation failed'
 
-        if results != None and len(results) > 0:
+        if not (results is None) and len(results) > 0:
             first = True
             for result in results:
                 if result.type != ValidationResultType.Information:

@@ -30,11 +30,11 @@ class RecursiveObjectWriter:
     def _perform_set_property(obj, names, name_index, value):
         if name_index < len(names) - 1:
             sub_obj = ObjectReader.get_property(obj, names[name_index])
-            if sub_obj != None:
+            if not (sub_obj is None):
                 RecursiveObjectWriter._perform_set_property(sub_obj, names, name_index + 1, value)
             else:
                 sub_obj = RecursiveObjectWriter._create_property(obj, names[name_index])
-                if sub_obj != None:
+                if not (sub_obj is None):
                     RecursiveObjectWriter._perform_set_property(sub_obj, names, name_index + 1, value)
                     ObjectWriter.set_property(obj, names[name_index], sub_obj)
         else:
@@ -58,11 +58,11 @@ class RecursiveObjectWriter:
 
         :param value: a new value for the property to set.
         """
-        if obj == None or name == None:
+        if obj is None or name is None:
             return
 
         names = name.split(".")
-        if names == None or len(names) == 0:
+        if names is None or len(names) == 0:
             return
 
         RecursiveObjectWriter._perform_set_property(obj, names, 0, value)
@@ -82,7 +82,7 @@ class RecursiveObjectWriter:
 
         :param values: a map, containing property names and their values.
         """
-        if values == None or len(values) == 0:
+        if values is None or len(values) == 0:
             return
         
         for (key, value) in values.items():
@@ -100,7 +100,7 @@ class RecursiveObjectWriter:
 
         :param src: a source object to read properties from
         """
-        if dest == None or src == None:
+        if dest is None or src is None:
             return
         
         values = RecursiveObjectReader.get_properties(src)

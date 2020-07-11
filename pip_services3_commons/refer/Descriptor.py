@@ -110,8 +110,8 @@ class Descriptor(object):
         return self._version 
 
     def _match_field(self, field1, field2):
-        return field1 == None \
-            or field2 == None \
+        return field1 is None \
+            or field2 is None \
             or field1 == field2
 
     def match(self, descriptor):
@@ -130,9 +130,9 @@ class Descriptor(object):
             and self._match_field(self._version, descriptor.get_version())
 
     def _exact_match_field(self, field1, field2):
-        if field1 == None and field2 == None:
+        if field1 is None and field2 is None:
             return True
-        if field1 == None or field2 == None:
+        if field1 is None or field2 is None:
             return False
         return field1 == field2
 
@@ -157,8 +157,8 @@ class Descriptor(object):
 
         :return: true if all descriptor fields are defined and false otherwise.
         """
-        return self._group != None and self._type != None \
-            and self._kind != None and self._name != None and self._version != None
+        return not (self._group is None) and not (self._type is None) \
+            and not (self._kind is None) and not (self._name is None) and not (self._version is None)
 
     def __eq__(self, other):
         """
@@ -184,15 +184,15 @@ class Descriptor(object):
         :return: a string representation of the object.
         """
         result = ''
-        result += self._group if self._group != None else '*'
+        result += self._group if not (self._group is None) else '*'
         result += ':'
-        result += self._type if self._type != None else '*'
+        result += self._type if not (self._type is None) else '*'
         result += ':'
-        result += self._kind if self._kind != None else '*'
+        result += self._kind if not (self._kind is None) else '*'
         result += ':'
-        result += self._name if self._name != None else '*'
+        result += self._name if not (self._name is None) else '*'
         result += ':'
-        result += self._version if self._version != None else '*'
+        result += self._version if not (self._version is None) else '*'
         return result
     
     @staticmethod
@@ -204,7 +204,7 @@ class Descriptor(object):
 
         :return: a newly created Descriptor.
         """
-        if value == None or len(value) == 0:
+        if value is None or len(value) == 0:
             return None
                 
         tokens = value.split(":")

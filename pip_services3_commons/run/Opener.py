@@ -44,7 +44,7 @@ class Opener:
 
         :return: true if all components are opened and false if at least one component is closed.
         """
-        if components == None:
+        if components is None:
             return True
 
         result = True
@@ -80,7 +80,7 @@ class Opener:
 
         :param components: the list of components that are to be closed.
         """
-        if components == None:
+        if components is None:
             return
 
         for component in components:

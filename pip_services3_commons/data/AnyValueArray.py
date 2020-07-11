@@ -59,7 +59,7 @@ class AnyValueArray(list):
 
         :return: the element value or value of the array when index is not defined.
         """
-        if index == None:
+        if index is None:
             return self.get_as_array(index)
         else:
             return self[index]
@@ -74,7 +74,7 @@ class AnyValueArray(list):
 
         :param value: a new element or array value.
         """
-        if index == None and value != None:
+        if index is None and not (value is None):
             self.set_as_array(value)
         else:
             self[index] = value
@@ -87,7 +87,7 @@ class AnyValueArray(list):
 
         :return: AnyValueArray value of the element or empty AnyValueArray if conversion is not supported.
         """
-        if index == None:
+        if index is None:
             array = []
             for value in self:
                 array.append(value)
@@ -378,9 +378,9 @@ class AnyValueArray(list):
         for element in self:
             str_element = StringConverter.to_string(element)
 
-            if str_value == None and str_element == None:
+            if str_value is None and str_element is None:
                 return True
-            if str_value == None or str_element == None:
+            if str_value is None or str_element is None:
                 continue
             
             if str_value == str_element:
@@ -405,9 +405,9 @@ class AnyValueArray(list):
         for element in self:
             typed_element = TypeConverter.to_type(value_type, element)
 
-            if typed_value == None and typed_element == None:
+            if typed_value is None and typed_element is None:
                 return True
-            if typed_value == None or typed_element == None:
+            if typed_value is None or typed_element is None:
                 continue
             
             if typed_value == typed_element:
@@ -463,7 +463,7 @@ class AnyValueArray(list):
         :return: a newly created AnyValueArray.
         """
         value = ArrayConverter.to_nullable_array(value)
-        if value != None:
+        if not (value is None):
             return AnyValueArray(value)
         return AnyValueArray()
 
@@ -483,7 +483,7 @@ class AnyValueArray(list):
         """
         result = AnyValueArray()
 
-        if values == None or len(values) == 0:
+        if values is None or len(values) == 0:
             return result
 
         items = str(values).split(separator)

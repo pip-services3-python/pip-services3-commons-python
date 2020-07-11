@@ -35,12 +35,12 @@ class StringConverter():
 
         :return: string value or None when value is None.
         """
-        if value == None:
+        if value is None:
             return None
         if type(value) == datetime.date:
             return value.isoformat()
         if type(value) == datetime.datetime:
-            if value.tzinfo == None:
+            if value.tzinfo is None:
                 return value.isoformat() + "Z"
             else:
                 return value.isoformat()
@@ -77,4 +77,4 @@ class StringConverter():
         :return: string value or default when value is null.
         """
         result = StringConverter.to_nullable_string(value)
-        return result if result != None else default_value
+        return result if not (result is None) else default_value

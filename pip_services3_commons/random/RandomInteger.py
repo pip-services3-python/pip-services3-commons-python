@@ -32,7 +32,7 @@ class RandomInteger(object):
 
         :return: generated random integer value.
         """
-        if max == None:
+        if max is None:
             max = min
             min = 0
 
@@ -52,7 +52,7 @@ class RandomInteger(object):
 
         :return: updated integer value.
         """
-        if range == None:
+        if range is None:
             range = int(0.1 * value)
         
         min = value - range

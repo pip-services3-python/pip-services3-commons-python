@@ -104,7 +104,7 @@ class AnyValueMap(dict):
 
         :return: the element value or value of the map when index is not defined.
         """
-        if key == None:
+        if key is None:
             return dict(self)
         else:
             return self.get(key)
@@ -142,7 +142,7 @@ class AnyValueMap(dict):
         value = self.get(key)
         return AnyValueMap.from_value(value)
 
-        # if key == None:
+        # if key is None:
         #     map = {}
         #     for (k, v) in self.items():
         #         map[k] = v
@@ -458,7 +458,7 @@ class AnyValueMap(dict):
             if len(result) > 0:
                 result += ';'
 
-            if value != None:
+            if not (value is None):
                 result += key + '=' + StringConverter.to_string_with_default(value, '')
             else:
                 result += key
@@ -501,7 +501,7 @@ class AnyValueMap(dict):
         """
         result = AnyValueMap()
 
-        if tuples == None or len(tuples) == 0:
+        if tuples is None or len(tuples) == 0:
             return result
 
         index = 0
@@ -529,7 +529,7 @@ class AnyValueMap(dict):
         """
         result = AnyValueMap()
         
-        if maps == None or len(maps) == 0:
+        if maps is None or len(maps) == 0:
             return result
 
         for map in maps:

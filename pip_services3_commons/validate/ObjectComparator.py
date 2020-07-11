@@ -36,7 +36,7 @@ class ObjectComparator(object):
 
         :return: result of the comparison operation
         """
-        if operation == None:
+        if operation is None:
             return False
         
         operation = operation.upper()
@@ -69,9 +69,9 @@ class ObjectComparator(object):
 
         :return: true if values are equal and false otherwise
         """
-        if value1 == None or value2 == None:
+        if value1 is None or value2 is None:
             return True
-        if value1 == None or value2 == None:
+        if value1 is None or value2 is None:
             return False
         return value1 == value2
 
@@ -103,7 +103,7 @@ class ObjectComparator(object):
         number1 = FloatConverter.to_nullable_float(value1)
         number2 = FloatConverter.to_nullable_float(value2)
 
-        if number1 == None or number2 == None:
+        if number1 is None or number2 is None:
             return False
 
         return number1 < number2
@@ -123,7 +123,7 @@ class ObjectComparator(object):
         number1 = FloatConverter.to_nullable_float(value1)
         number2 = FloatConverter.to_nullable_float(value2)
 
-        if number1 == None or number2 == None:
+        if number1 is None or number2 is None:
             return False
 
         return number1 > number2
@@ -139,9 +139,9 @@ class ObjectComparator(object):
 
         :return: true if the value matches regular expression and false otherwise.
         """
-        if value1 == None and value2 == None:
+        if value1 is None and value2 is None:
             return True
-        if value1 == None or value2 == None:
+        if value1 is None or value2 is None:
             return False
 
         string1 = str(value1)

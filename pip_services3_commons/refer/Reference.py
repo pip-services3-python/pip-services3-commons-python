@@ -27,7 +27,7 @@ class Reference(object):
 
         :param component: a reference to component.
         """
-        if component == None:
+        if component is None:
             raise Exception("Component cannot be null")
         
         self._locator = locator
@@ -47,7 +47,7 @@ class Reference(object):
         if self._component == locator:
             return True
         # Locate by direct locator matching
-        elif self._locator != None:
+        elif not (self._locator is None):
             return self._locator == locator
         else:
             return False

@@ -43,9 +43,9 @@ class TypeReflector:
 
         :return: the object type or null is the type wasn't found.
         """
-        if name == None:
+        if name is None:
             raise Exception("Class name cannot be null")
-        if library == None:
+        if library is None:
             raise Exception("Module name cannot be null")
 
         try:
@@ -63,7 +63,7 @@ class TypeReflector:
 
         :return: the object type or null is the type wasn't found.
         """
-        if descriptor == None:
+        if descriptor is None:
             raise Exception("Type descriptor cannot be null")
 
         return TypeReflector.get_type(descriptor.get_name(), descriptor.get_library())
@@ -82,7 +82,7 @@ class TypeReflector:
         :return: the created object instance.
         """
         obj_type = TypeReflector.get_type(name, library)
-        if obj_type == None:
+        if obj_type is None:
             raise NotFoundException(
                 None, "TYPE_NOT_FOUND", "Type " + name + "," + library + " was not found"
             ).with_details("type", name).with_details("library", library)
@@ -100,7 +100,7 @@ class TypeReflector:
 
         :return: the created object instance.
         """
-        if obj_type == None:
+        if obj_type is None:
             raise Exception("Class type cannot be null")
 
         return obj_type(*args)
@@ -116,7 +116,7 @@ class TypeReflector:
 
         :return: the created object instance.
         """
-        if descriptor == None:
+        if descriptor is None:
             raise Exception("Type descriptor cannot be null")
 
         return TypeReflector.create_instance(descriptor.get_name(), descriptor.get_library(), args)

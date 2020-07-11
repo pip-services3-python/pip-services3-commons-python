@@ -57,7 +57,7 @@ class PropertiesComparisonRule(IValidationRule):
 
         :param results: a list with validation results to add new results.
         """
-        name = path if path != None else "value"
+        name = path if not (path is None) else "value"
         value1 = ObjectReader.get_property(value, self._property1)
         value2 = ObjectReader.get_property(value, self._property2)
 

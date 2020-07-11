@@ -52,7 +52,7 @@ class References(IReferences):
         self._references = []
         self._lock = threading.Lock()
 
-        if tuples != None:
+        if not (tuples is None):
             index = 0
             while index < len(tuples):
                 if index + 1 >= len(tuples):
@@ -69,7 +69,7 @@ class References(IReferences):
 
         :param component: a locator to find the reference by.
         """
-        if component == None:
+        if component is None:
             raise Exception("Component cannot be null")
 
         self._lock.acquire()
@@ -89,7 +89,7 @@ class References(IReferences):
 
         :return: the removed component reference.
         """
-        if locator == None:
+        if locator is None:
             return None
 
         self._lock.acquire()
@@ -113,7 +113,7 @@ class References(IReferences):
         """
         components = []
 
-        if locator == None:
+        if locator is None:
             return components
 
         self._lock.acquire()
@@ -231,7 +231,7 @@ class References(IReferences):
 
         :raises: a [[ReferenceException]] when required is set to true but no references found.
         """
-        if locator == None:
+        if locator is None:
             raise Exception("Locator cannot be null")
 
         components = []

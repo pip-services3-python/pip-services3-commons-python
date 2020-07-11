@@ -77,7 +77,7 @@ class ApplicationException(Exception):
         self.stack_trace = traceback.format_exc()
         
     def __str__(self):
-        return str(self.message) if self.message != None else 'Unknown error'
+        return str(self.message) if not (self.message is None) else 'Unknown error'
 
     def to_json(self):
         return { 
@@ -113,7 +113,7 @@ class ApplicationException(Exception):
 
         :return: a stack trace as a string.
         """
-        if (self.stack_trace != None):
+        if not (self.stack_trace is None):
             return self.stack_trace
         # elif (hasattr(self, 'tb_frame')):
         #     return traceback.format_tb(self)
@@ -166,7 +166,7 @@ class ApplicationException(Exception):
 
         :return: this exception object
         """
-        self.details = self.details if self.details != None else {}
+        self.details = self.details if not (self.details is None) else {}
         self.details[key] = value
         return self
         

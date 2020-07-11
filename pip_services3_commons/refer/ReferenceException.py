@@ -24,6 +24,6 @@ class ReferenceException(InternalException):
 
         :param locator: the locator to find reference to dependent component.
         """
-        message = 'Cannot locate reference: ' + (str(locator) if locator != None else '<None>')
+        message = 'Cannot locate reference: ' + (str(locator) if not (locator is None) else '<None>')
         super(ReferenceException, self).__init__(correlation_id, "REF_ERROR", message)
         self.with_details('locator', locator)

@@ -35,7 +35,7 @@ class Schema(object):
         :param rules: (optional) a list with validation rules.
         """
         self.required = required
-        self.rules = rules if rules != None else []
+        self.rules = rules if not (rules is None) else []
 
     def make_required(self):
         """
@@ -74,7 +74,7 @@ class Schema(object):
 
         :return: this validation schema.
         """
-        self.rules = self.rules if self.rules != None else []
+        self.rules = self.rules if not (self.rules is None) else []
         self.rules.append(rule)
         return self
 
@@ -88,9 +88,9 @@ class Schema(object):
 
         :param results: a list with validation results to add new results.
         """
-        name = path if path != None else "value"
+        name = path if not (path is None) else "value"
 
-        if value == None:
+        if value is None:
             # Check for required values
             if self.required:
                 results.append(
@@ -107,12 +107,12 @@ class Schema(object):
             value = ObjectReader.get_value(value)
 
             # Check validation rules
-            if self.rules != None:
+            if not (self.rules is None):
                 for rule in self.rules:
                     rule.validate(path, self, value, results)
 
     def _type_to_string(self, typ):
-        if typ == None:
+        if typ is None:
             return "unknown"
         return TypeConverter.to_string(typ)
 
@@ -131,7 +131,7 @@ class Schema(object):
         :param results: a list with validation results to add new results.
         """
         # If type it not defined then skip
-        if typ == None:
+        if typ is None:
             return
 
         # Perform validation against schema
@@ -142,10 +142,10 @@ class Schema(object):
 
         # If value is null then skip
         value = ObjectReader.get_value(value)
-        if value == None:
+        if value is None:
             return
 
-        name = path if path != None else "value"
+        name = path if not (path is None) else "value"
         value_type = type(value)
 
         # Match types
