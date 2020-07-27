@@ -85,7 +85,7 @@ class StringValueMap(dict):
 
         :param key: a key of the element to remove.
         """
-        self.pop(key)
+        self.pop(key, None)
 
     def append(self, map):
         """
