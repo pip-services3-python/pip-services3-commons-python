@@ -72,3 +72,12 @@ class TestConfigParams:
         assert 543 == config.get_as_integer("field2.2.field21")
         assert "XYZ" == config.get_as_string("field2.2.field22")
         assert True == config.get_as_boolean("field3")
+
+    def test_set_defaults(self):
+        config = {}
+        config1 = ConfigParams.from_tuples(
+            "connection.protocol", "http",
+            'connection.host', 'localhost',
+            'connection.port', 3000
+        )
+        default = config1.
