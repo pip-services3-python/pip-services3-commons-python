@@ -114,10 +114,10 @@ class CommandSet(object):
 
         :param command: the command to build a chain.
         """
-        next = command
+        next_command = command
         for intercepter in reversed(self._intercepters):
-            next = InterceptedCommand(intercepter, next)
-        self._commands_by_name[next.get_name()] = next
+            next_command = InterceptedCommand(intercepter, next_command)
+        self._commands_by_name[next_command.get_name()] = next_command
 
     def _rebuild_all_command_chains(self):
         """
@@ -180,7 +180,7 @@ class CommandSet(object):
         for event in command_set.get_events():
             self.add_event(event)
 
-    def add_intercepter(self, intercepter):
+    def add_interceptor(self, intercepter):
         """
         Adds a ICommandInterceptor command interceptor to this command set.
         
