@@ -85,7 +85,7 @@ class StringValueMap(dict):
 
         :param key: a key of the element to remove.
         """
-        self.pop(key)
+        self.pop(key, None)
 
     def append(self, map):
         """
@@ -106,7 +106,7 @@ class StringValueMap(dict):
 
         :return: the element value or value of the map when index is not defined.
         """
-        if key == None:
+        if key is None:
             return self.get_as_map()
         else:
             return self.get(key)
@@ -132,7 +132,7 @@ class StringValueMap(dict):
 
         :return: AnyValueMap value of the element or empty AnyValueMap if conversion is not supported.
         """
-        if key == None:
+        if key is None:
             map = {}
             for (k, v) in self.items():
                 map[k] = v
@@ -488,7 +488,7 @@ class StringValueMap(dict):
         """
         result = StringValueMap()
 
-        if tuples == None or len(tuples) == 0:
+        if tuples is None or len(tuples) == 0:
             return result
 
         index = 0
@@ -515,7 +515,7 @@ class StringValueMap(dict):
         """
         result = StringValueMap()
         
-        if line == None or len(line) == 0:
+        if line is None or len(line) == 0:
             return result
 
         tokens = str(line).split(';')
@@ -542,7 +542,7 @@ class StringValueMap(dict):
         """
         result = StringValueMap()
         
-        if maps == None or len(maps) == 0:
+        if maps is None or len(maps) == 0:
             return result
 
         for map in maps:

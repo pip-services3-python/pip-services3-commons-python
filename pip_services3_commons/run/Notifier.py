@@ -29,7 +29,7 @@ class Notifier:
 
         :param args: notifiation arguments.
         """
-        if component == None:
+        if component is None:
             return
 
         if isinstance(component, INotifiable):
@@ -49,9 +49,9 @@ class Notifier:
 
         :param args: notification arguments.
         """
-        if components == None:
+        if components is None:
             return
 
-        args = args if args != None else Parameters()
+        args = args if not (args is None) else Parameters()
         for component in components:
             Notifier.notify_one(correlation_id, component, args)

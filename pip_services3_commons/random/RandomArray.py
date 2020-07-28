@@ -27,7 +27,7 @@ class RandomArray():
 
         :return: a randomly picked item.
         """
-        if values == None or len(values) == 0:
+        if values is None or len(values) == 0:
             return None
 
         return random.choice(values)

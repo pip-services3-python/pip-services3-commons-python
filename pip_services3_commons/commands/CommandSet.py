@@ -114,10 +114,10 @@ class CommandSet(object):
 
         :param command: the command to build a chain.
         """
-        next = command
+        next_command = command
         for intercepter in reversed(self._intercepters):
-            next = InterceptedCommand(intercepter, next)
-        self._commands_by_name[next.get_name()] = next
+            next_command = InterceptedCommand(intercepter, next_command)
+        self._commands_by_name[next_command.get_name()] = next_command
 
     def _rebuild_all_command_chains(self):
         """
@@ -180,7 +180,7 @@ class CommandSet(object):
         for event in command_set.get_events():
             self.add_event(event)
 
-    def add_intercepter(self, intercepter):
+    def add_interceptor(self, intercepter):
         """
         Adds a ICommandInterceptor command interceptor to this command set.
         
@@ -205,7 +205,7 @@ class CommandSet(object):
         """
         # Get command and throw error if it doesn't exist
         cref = self.find_command(command)
-        if cref == None:
+        if cref is None:
             raise BadRequestException(
                 correlation_id,
                 "CMD_NOT_FOUND",
@@ -214,7 +214,7 @@ class CommandSet(object):
 
         # Generate correlationId if it doesn't exist
         # Use short ids for now
-        if correlation_id == None:
+        if correlation_id is None:
            correlation_id = IdGenerator.next_short()
         
         # Validate command arguments before execution and throw the 1st found error
@@ -239,7 +239,7 @@ class CommandSet(object):
                  single entry, whose type will be ValidationResultType.Error.
         """
         cref = self.find_command(command)
-        if cref == None:
+        if cref is None:
             results = []
             results.append( \
                 ValidationResult(
@@ -282,5 +282,5 @@ class CommandSet(object):
         :param value: the event arguments (parameters).
         """
         e = self.find_event(event)
-        if e != None:
+        if not (e is None):
             e.notify(correlation_id, value)

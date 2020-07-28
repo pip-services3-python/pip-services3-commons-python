@@ -73,9 +73,9 @@ class DependencyResolver(IReconfigurable, IReferenceable):
         :param references: (optional) default component references
         """
         self._dependencies = {}
-        if config != None:
+        if not (config is None):
             self.configure(config)
-        if references != None:
+        if not (references is None):
             self.set_references(references)
 
     def configure(self, config):
@@ -88,12 +88,12 @@ class DependencyResolver(IReconfigurable, IReferenceable):
         names = dependencies.get_key_names()
         for name in names:
             locator = dependencies.get(name)
-            if locator == None:
+            if locator is None:
                 continue
             
             try:
                 descriptor = Descriptor.from_string(locator)
-                if descriptor != None:
+                if not (descriptor is None):
                     self._dependencies[name] = descriptor
                 else:
                     self._dependencies[name] = locator
@@ -128,9 +128,9 @@ class DependencyResolver(IReconfigurable, IReferenceable):
         :param name: the name of the dependency to locate.
         :return: the dependency locator or null if locator was not configured.
         """
-        if name == None:
+        if name is None:
             raise Exception("Dependency name cannot be null")
-        if self._references == None:
+        if self._references is None:
             raise Exception("References shall be set")
         
         return self._dependencies.get(name)
@@ -145,7 +145,7 @@ class DependencyResolver(IReconfigurable, IReferenceable):
         :return: a list with found dependencies or empty list of no dependencies was found.
         """
         locator = self._locate(name)
-        return self._references.get_optional(locator) if locator != None else None
+        return self._references.get_optional(locator) if not (locator is None) else None
 
 
     def get_required(self, name):
@@ -158,7 +158,7 @@ class DependencyResolver(IReconfigurable, IReferenceable):
         :return: a list with found dependencies.
         """
         locator = self._locate(name)
-        if locator == None:
+        if locator is None:
             raise ReferenceException(None, name)
         
         return self._references.get_required(locator)
@@ -173,7 +173,7 @@ class DependencyResolver(IReconfigurable, IReferenceable):
         :return: a dependency reference or null of the dependency was not found
         """
         locator = self._locate(name)
-        return self._references.get_one_optional(locator) if locator != None else None
+        return self._references.get_one_optional(locator) if not (locator is None) else None
 
 
     def get_one_required(self, name):
@@ -186,7 +186,7 @@ class DependencyResolver(IReconfigurable, IReferenceable):
         :return: a dependency reference
         """
         locator = self._locate(name)
-        if locator == None:
+        if locator is None:
             raise ReferenceException(None, name)
         
         return self._references.get_one_required(locator)
@@ -202,11 +202,11 @@ class DependencyResolver(IReconfigurable, IReferenceable):
 
         :return: a list of found dependencies
         """
-        if name == None:
+        if name is None:
             raise Exception("Name cannot be null")
         
         locator = self._locate(name)
-        if locator == None:
+        if locator is None:
             if required:
                 raise ReferenceException(None, name)
             return None
@@ -226,7 +226,7 @@ class DependencyResolver(IReconfigurable, IReferenceable):
         :return: a newly created DependencyResolver.
         """
         result = DependencyResolver()
-        if tuples == None or len(tuples) == 0:
+        if tuples is None or len(tuples) == 0:
             return result
         
         index = 0

@@ -51,7 +51,7 @@ class ValueComparisonRule(IValidationRule):
 
         :param results: a list with validation results to add new results.
         """
-        name = path if path != None else "value"
+        name = path if not (path is None) else "value"
 
         if not ObjectComparator.compare(value, self._operation, self._value):
             results.append(

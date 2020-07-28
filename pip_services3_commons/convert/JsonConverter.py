@@ -32,7 +32,7 @@ class JsonConverter():
 
         :return: converted object value or null when value is None.
         """
-        if value == None:
+        if value is None:
             return None
 
         value = json.loads(value)
@@ -46,7 +46,7 @@ class JsonConverter():
 
         :return: JSON string or null when value is None.
         """
-        if value == None:
+        if value is None:
             return None
 
         return json.dumps(value)
@@ -60,7 +60,7 @@ class JsonConverter():
 
         :return: Map object value or null when conversion is not supported.
         """
-        if value == None:
+        if value is None:
             return None
 
         # Parse JSON
@@ -80,7 +80,7 @@ class JsonConverter():
         :return: Map object value or empty object when conversion is not supported.
         """
         result = JsonConverter.to_nullable_map(value)
-        return result if result != None else {}
+        return result if not (result is None) else {}
 
     @staticmethod
     def to_map_with_default(value, default_value):
@@ -94,4 +94,4 @@ class JsonConverter():
         :return: Map object value or default when conversion is not supported.
         """
         result = JsonConverter.to_nullable_map(value)
-        return result if result != None else default_value
+        return result if not (result is None) else default_value

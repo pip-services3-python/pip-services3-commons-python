@@ -34,7 +34,7 @@ class DateTimeConverter(object):
         :return: Date value or null when conversion is not supported.
         """
         # Shortcuts
-        if value == None:
+        if value is None:
             return None
         if type(value) == datetime:
             return DateTimeConverter.to_utc_datetime(value) 
@@ -79,14 +79,14 @@ class DateTimeConverter(object):
         :return: Date value or default when conversion is not supported.
         """
         result = DateTimeConverter.to_nullable_datetime(value)
-        return result if result != None else DateTimeConverter.to_utc_datetime(default_value)
+        return result if not (result is None) else DateTimeConverter.to_utc_datetime(default_value)
 
     @staticmethod
     def to_utc_datetime(value):
-        if value == None:
+        if value is None:
             return value
         elif type(value) == datetime:
-            if value.tzinfo == None:
+            if value.tzinfo is None:
                 value = value.replace(tzinfo=UTC)
             return value
         else:

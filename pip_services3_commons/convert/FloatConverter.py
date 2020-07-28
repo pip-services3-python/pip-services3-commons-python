@@ -32,7 +32,7 @@ class FloatConverter():
         :return: float value or null when conversion is not supported.
         """
         # Shortcuts
-        if value == None:
+        if value is None:
             return None
 
         try:
@@ -63,4 +63,4 @@ class FloatConverter():
         :return: float value or default value when conversion is not supported.
         """
         result = FloatConverter.to_nullable_float(value)
-        return result if result != None else default_value
+        return result if not (result is None) else default_value

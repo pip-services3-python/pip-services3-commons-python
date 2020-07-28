@@ -105,7 +105,7 @@ class ConfigParams(StringValueMap):
 
 
     def _is_shadow_name(self, name):
-        return name == None or len(name) == 0 or name[0] == "#" or name[0] == "!"
+        return name is None or len(name) == 0 or name[0] == "#" or name[0] == "!"
 
 
     def add_section(self, section, section_params):
@@ -117,12 +117,12 @@ class ConfigParams(StringValueMap):
 
         :param section_params: new parameters to be added.
         """
-        if section == None:
+        if section is None:
             raise Exception("Section name cannot be null")
 
         section = "" if self._is_shadow_name(section) else section 
         
-        if section_params == None or len(section_params) == 0:
+        if section_params is None or len(section_params) == 0:
             return
 
         for (key, value) in section_params.items():

@@ -43,7 +43,7 @@ class Closer:
 
         :param components: the list of components that are to be closed.
         """
-        if components == None:
+        if components is None:
             return
 
         for component in components:

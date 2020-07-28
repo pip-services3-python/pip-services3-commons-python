@@ -54,9 +54,9 @@ class ObjectWriter:
 
         :param value: a new value for the property to set.
         """
-        if obj == None:
+        if obj is None:
             raise Exception("Object cannot be null")
-        if name == None:
+        if name is None:
             raise Exception("Property name cannot be null")
 
         name = name.lower()
@@ -69,7 +69,7 @@ class ObjectWriter:
             obj[name] = value
         elif isinstance(obj, list) or isinstance(obj, tuple) or isinstance(obj, set):
             index = IntegerConverter.to_nullable_integer(name)
-            if index == None:
+            if index is None:
                 return
             if index >= 0 and index < len(obj):
                 obj[index] = value
@@ -95,7 +95,7 @@ class ObjectWriter:
 
         :param values: a map, containing property names and their values.
         """
-        if values == None or len(values) == 0:
+        if values is None or len(values) == 0:
             return
         
         for (key, value) in values.items():

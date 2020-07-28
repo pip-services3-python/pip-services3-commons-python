@@ -46,11 +46,11 @@ class ExcludedRule(IValidationRule):
 
         :param results: a list with validation results to add new results.
         """
-        name = path if path != None else "value"
+        name = path if not (path is None) else "value"
         found = False
 
         for this_value in self._values:
-            if this_value != None and this_value == value:
+            if not (this_value is None) and this_value == value:
                 found = True
                 break
 

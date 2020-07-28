@@ -62,7 +62,7 @@ class MapConverter():
         :return: map object or empty map when conversion is not supported.
         """
         result = MapConverter.to_nullable_map(value)
-        return result if result != None else {}
+        return result if not (result is None) else {}
 
     @staticmethod
     def to_map_with_default(value, default_value):
@@ -76,4 +76,4 @@ class MapConverter():
         :return: map object or emptu map when conversion is not supported.
         """
         result = MapConverter.to_nullable_map(value)
-        return result if result != None else default_value
+        return result if not (result is None) else default_value

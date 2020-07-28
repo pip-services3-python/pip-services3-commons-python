@@ -42,7 +42,7 @@ class TypeConverter():
 
         :return: the TypeCode that corresponds to the passed object's type.
         """
-        if value == None:
+        if value is None:
             return TypeCode.Unknown
 
         if not isinstance(value, type):
@@ -87,7 +87,7 @@ class TypeConverter():
         """
         result_type = TypeConverter.to_type_code(value_type)
 
-        if value == None:
+        if value is None:
             return None
         if isinstance(value, type):
             return value
@@ -128,7 +128,7 @@ class TypeConverter():
         """
         # Convert to the specified type
         result = TypeConverter.to_nullable_type(value_type, value)
-        if result != None:
+        if not (result is None):
             return result
 
         # Define and return default value based on type
@@ -159,7 +159,7 @@ class TypeConverter():
         :return: object value of type corresponding to TypeCode, or default value when conversion is not supported.
         """
         result = TypeConverter.to_nullable_type(value_type, value)
-        return result if result != None else default_value
+        return result if not (result is None) else default_value
 
 
     @staticmethod
@@ -171,7 +171,7 @@ class TypeConverter():
 
         :return: the name of the TypeCode passed as a string value.
         """
-        if type == None:
+        if type is None:
             return "unknown"
         elif type == TypeCode.Unknown:
             return "unknown"

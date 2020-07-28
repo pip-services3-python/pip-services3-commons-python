@@ -65,7 +65,7 @@ class ObjectSchema(Schema):
 
         :return: this validation schema.
         """
-        self.properties = self.properties if self.properties != None else []
+        self.properties = self.properties if not (self.properties is None) else []
         self.properties.append(schema)
         return self
 
@@ -81,7 +81,7 @@ class ObjectSchema(Schema):
 
         :return: the validation schema
         """
-        self.properties = self.properties if self.properties != None else []
+        self.properties = self.properties if not (self.properties is None) else []
         schema = PropertySchema(name, typ)
         schema.rules = rules
         schema.make_required()
@@ -99,7 +99,7 @@ class ObjectSchema(Schema):
 
         :return: the validation schema
         """
-        self.properties = self.properties if self.properties != None else []
+        self.properties = self.properties if not (self.properties is None) else []
         schema = PropertySchema(name, typ)
         schema.rules = rules
         schema.make_optional()
@@ -117,32 +117,32 @@ class ObjectSchema(Schema):
         """
         super(ObjectSchema, self)._perform_validation(path, value, results)
 
-        if value == None:
+        if value is None:
             return
 
-        name = path if path != None else "value"
+        name = path if not (path is None) else "value"
         properties = ObjectReader.get_properties(value)
 
         # Process defined properties
-        if self.properties != None:
+        if not (self.properties is None):
             for property_schema in self.properties:
                 processed_name = None
 
                 for (key, value) in properties.items():
                     # Find properties case insensitive
-                    if property_schema.name != None and key.lower() == property_schema.name.lower():
+                    if not (property_schema.name is None) and key.lower() == property_schema.name.lower():
                         property_schema._perform_validation(path, value, results)
                         processed_name = key
                         break
 
-                if processed_name == None:
+                if processed_name is None:
                     property_schema._perform_validation(path, None, results)
                 else:
                     del properties[processed_name]
 
         # Process unexpected properties
         for (key, value) in properties.items():
-            property_path = key if path == None or len(path) == 0 else path + "." + key
+            property_path = key if path is None or len(path) == 0 else path + "." + key
 
             results.append(
                 ValidationResult(

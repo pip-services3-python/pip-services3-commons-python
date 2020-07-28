@@ -50,9 +50,9 @@ class PropertyReflector:
 
         :return: true if the object has the property and false if it doesn't.
         """
-        if obj == None:
+        if obj is None:
             raise Exception("Object cannot be null")
-        if name == None:
+        if name is None:
             raise Exception("Property name cannot be null")
 
         name = name.lower()
@@ -80,9 +80,9 @@ class PropertyReflector:
 
         :return: the property value or null if property doesn't exist or introspection failed.
         """
-        if obj == None:
+        if obj is None:
             raise Exception("Object cannot be null")
-        if name == None:
+        if name is None:
             raise Exception("Property name cannot be null")
         
         name = name.lower()
@@ -158,9 +158,9 @@ class PropertyReflector:
 
         :param value: a new value for the property to set.
         """
-        if obj == None:
+        if obj is None:
             raise Exception("Object cannot be null")
-        if name == None:
+        if name is None:
             raise Exception("Property name cannot be null")
         
         name = name.lower()
@@ -190,7 +190,7 @@ class PropertyReflector:
 
         :param values: a map, containing property names and their values.
         """
-        if values == None or len(values) == 0:
+        if values is None or len(values) == 0:
             return
 
         for (name, value) in values:

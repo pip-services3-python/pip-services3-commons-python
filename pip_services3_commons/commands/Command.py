@@ -46,9 +46,9 @@ class Command(ICommand):
 
         :param function: an execution function to be wrapped into this command.
         """
-        if name == None:
+        if name is None:
             raise TypeError("Command name is not set")
-        if function == None:
+        if function is None:
             raise TypeError("Command function is not set")
         
         self._name = name
@@ -78,7 +78,7 @@ class Command(ICommand):
         :raises: ApplicationException: when execution fails for whatever reason.
         """
         # Validate arguments
-        if self._schema != None:
+        if not (self._schema is None):
             self._schema.validate_and_throw_exception(correlation_id, args)
         
         # Call the function
@@ -102,7 +102,7 @@ class Command(ICommand):
         :return: an array of ValidationResults or an empty array (if no schema is set).
         """
         # When schema is not defined, then skip validation
-        if self._schema != None: 
+        if not (self._schema is None): 
             return self._schema.validate(args)
         
         # ToDo: Complete implementation

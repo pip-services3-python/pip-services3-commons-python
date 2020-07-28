@@ -38,7 +38,7 @@ class RandomString(object):
 
         :return: a randomly picked string.
         """
-        if values == None or len(values) == 0:
+        if values is None or len(values) == 0:
             return None
 
         return random.choice(values)

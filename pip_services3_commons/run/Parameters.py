@@ -45,7 +45,7 @@ class Parameters(AnyValueMap):
 
         :return: the value of the map element.
         """
-        if key == None or key == '':
+        if key is None or key == '':
             return None
         elif key.find('.') > 0:
             return RecursiveObjectReader.get_property(self, key)
@@ -63,7 +63,7 @@ class Parameters(AnyValueMap):
 
         :param value: a new value for map element.
         """
-        if key == None or key == '':
+        if key is None or key == '':
             return None
         elif key.find('.') > 0:
             RecursiveObjectWriter.set_property(self, key, value)
@@ -81,7 +81,7 @@ class Parameters(AnyValueMap):
         :return: Parameters value of the element or null if conversion is not supported.
         """
         value = self.get_as_nullable_map(key)
-        return Parameters(value) if value != None else None
+        return Parameters(value) if not (value is None) else None
 
     def get_as_parameters(self, key):
         """
@@ -105,7 +105,7 @@ class Parameters(AnyValueMap):
         :return: Parameters value of the element or default value if conversion is not supported.
         """
         result = self.get_as_nullable_parameters(key)
-        return result if result != None else default_value
+        return result if not (result is None) else default_value
 
     def contains_key(self, key):
         """
@@ -168,7 +168,7 @@ class Parameters(AnyValueMap):
 
         :param value: value whose properties shall be copied over.
         """
-        if value == None or len(self) == 0:
+        if value is None or len(self) == 0:
             return
 
         RecursiveObjectWriter.copy_properties(value, self)
@@ -268,7 +268,7 @@ class Parameters(AnyValueMap):
         """
         result = Parameters()
         
-        if config == None or len(config) == 0:
+        if config is None or len(config) == 0:
             return result
         
         for (key, value) in config.items():

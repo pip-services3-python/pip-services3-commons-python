@@ -32,7 +32,7 @@ class BooleanConverter():
         :return: boolean value or None when convertion is not supported.
         """
         # Shortcuts
-        if value == None:
+        if value is None:
             return None
         if type(value) == type(True):
             return value
@@ -71,4 +71,4 @@ class BooleanConverter():
         :return: boolean value or default when conversion is not supported.
         """
         result = BooleanConverter.to_nullable_boolean(value)
-        return result if result != None else default_value
+        return result if not (result is None) else default_value

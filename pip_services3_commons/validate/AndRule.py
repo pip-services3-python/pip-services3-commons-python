@@ -46,7 +46,7 @@ class AndRule(IValidationRule):
 
         :param results: a list with validation results to add new results.
         """
-        if self._rules == None:
+        if self._rules is None:
             return
 
         for rule in self._rules:

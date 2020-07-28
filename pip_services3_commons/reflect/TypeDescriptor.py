@@ -60,11 +60,11 @@ class TypeDescriptor:
         :return: true if value is identical TypeDescriptor and false otherwise.
         """
         if isinstance(other, TypeDescriptor):
-            if self._name == None or other._name == None:
+            if self._name is None or other._name is None:
                 return False
             if self._name != other._name:
                 return False
-            if self._library == None or other._library == None or self._library == other._library: 
+            if self._library is None or other._library is None or self._library == other._library: 
                 return True
         
         return False
@@ -76,7 +76,7 @@ class TypeDescriptor:
         :return: a string representation of the object.
         """
         result = self._name
-        if self._library != None:
+        if not (self._library is None):
             result += ','+ self._library
         return result
 
@@ -90,7 +90,7 @@ class TypeDescriptor:
 
         :return: a newly created Descriptor.
         """
-        if value == None or len(value) == 0:
+        if value is None or len(value) == 0:
             return None
                 
         tokens = value.split(",")

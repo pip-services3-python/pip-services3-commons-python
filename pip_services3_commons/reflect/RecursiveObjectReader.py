@@ -25,7 +25,7 @@ class RecursiveObjectReader:
     def _perform_has_property(obj, names, name_index):
         if name_index < len(names) - 1:
             value  = ObjectReader.get_property(obj, names[name_index])
-            if value != None:
+            if not (value is None):
                 return RecursiveObjectReader._perform_has_property(value, names, name_index + 1)
             else:
                 return False
@@ -47,11 +47,11 @@ class RecursiveObjectReader:
 
         :return: true if the object has the property and false if it doesn't.
         """
-        if obj == None or name == None:
+        if obj is None or name is None:
             return False
 
         names = name.split(".")
-        if names == None or len(names) == 0: 
+        if names is None or len(names) == 0: 
             return False
 
         return RecursiveObjectReader._perform_has_property(obj, names, 0)
@@ -61,7 +61,7 @@ class RecursiveObjectReader:
     def _perform_get_property(obj, names, name_index):
         if name_index < len(names) - 1:
             value = ObjectReader.get_property(obj, names[name_index])
-            if value != None:
+            if not (value is None):
                 return RecursiveObjectReader._perform_get_property(value, names, name_index + 1)
             else:
                 return None
@@ -83,11 +83,11 @@ class RecursiveObjectReader:
 
         :return: the property value or null if property doesn't exist or introspection failed.
         """
-        if obj == None or name == None:
+        if obj is None or name is None:
             return None
 
         names = name.split(".")
-        if names == None or len(names) == 0:
+        if names is None or len(names) == 0:
             return None
 
         return RecursiveObjectReader._perform_get_property(obj, names, 0)
@@ -111,7 +111,7 @@ class RecursiveObjectReader:
                     if value in cycle_detect:
                         continue
 
-                    key = path + "." + key if path != None else key
+                    key = path + "." + key if not (path is None) else key
                     
                     # Add simple values directly
                     if RecursiveObjectReader._is_simple_value(value):
@@ -122,7 +122,7 @@ class RecursiveObjectReader:
             finally:
                 cycle_detect.remove(obj)
         else:
-            if path != None:
+            if not (path is None):
                 result.append(path)
 
 
@@ -140,7 +140,7 @@ class RecursiveObjectReader:
         """
         property_names = []
         
-        if obj != None:
+        if not (obj is None):
             cycle_detect = []
             RecursiveObjectReader._perform_get_property_names(obj, None, property_names, cycle_detect)
 
@@ -158,7 +158,7 @@ class RecursiveObjectReader:
                     if value in cycle_detect:
                         continue
 
-                    key = path + "." + key if path != None else key
+                    key = path + "." + key if not (path is None) else key
                     
                     # Add simple values directly
                     if RecursiveObjectReader._is_simple_value(value):
@@ -169,7 +169,7 @@ class RecursiveObjectReader:
             finally:
                 cycle_detect.remove(obj)
         else:
-            if path != None:
+            if not (path is None):
                 result[path] = obj
 
 
@@ -187,7 +187,7 @@ class RecursiveObjectReader:
         """
         properties = {}
         
-        if obj != None:
+        if not (obj is None):
             cycle_detect = []
             RecursiveObjectReader._perform_get_properties(obj, None, properties, cycle_detect)
 

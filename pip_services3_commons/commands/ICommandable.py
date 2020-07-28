@@ -23,7 +23,7 @@ class ICommandable:
             _commandSet = None
 
             def get_command_set(self):
-                if self._commandSet == None:
+                if self._commandSet is None:
                     _commandSet = MyDataCommandSet(self)
                 return self._commandSet
     """

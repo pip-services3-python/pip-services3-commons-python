@@ -58,7 +58,7 @@ class PagingParams():
 
         :return: the number of items to skip.
         """
-        if self.skip == None:
+        if self.skip is None:
             return min_skip
         if self.skip < min_skip:
             return min_skip
@@ -72,7 +72,7 @@ class PagingParams():
 
         :return: the number of items to return.
         """
-        if self.take == None:
+        if self.take is None:
             return max_take
         if self.take < 0:
             return 0

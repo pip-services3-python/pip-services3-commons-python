@@ -55,10 +55,10 @@ class Executor:
         """
         results = []
 
-        if components == None:
+        if components is None:
             return
 
-        args = args if args != None else Parameters()
+        args = args if not (args is None) else Parameters()
         for component in components:
             result = Executor.execute_one(correlation_id, component, args)
             results.append(result)

@@ -32,7 +32,7 @@ class IntegerConverter():
         :return: integer value or null when conversion is not supported.
         """
         # Shortcuts
-        if value == None:
+        if value is None:
             return None
 
         try:
@@ -64,4 +64,4 @@ class IntegerConverter():
         :return: integer value or default when conversion is not supported.
         """
         result = IntegerConverter.to_nullable_integer(value)
-        return result if result != None else default_value
+        return result if not (result is None) else default_value

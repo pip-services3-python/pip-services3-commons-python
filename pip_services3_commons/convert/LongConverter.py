@@ -14,7 +14,7 @@ class LongConverter():
     @staticmethod
     def to_nullable_long(value):
         # Shortcuts
-        if value == None:
+        if value is None:
             return None
 
         try:
@@ -30,5 +30,5 @@ class LongConverter():
     @staticmethod
     def to_long_with_default(value, default_value):
         result = LongConverter.to_nullable_long(value)
-        return result if result != None else default_value
+        return result if not (result is None) else default_value
 

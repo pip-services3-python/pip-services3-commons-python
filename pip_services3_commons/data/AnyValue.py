@@ -269,9 +269,9 @@ class AnyValue():
 
         :return: true when objects are equal and false otherwise.
         """
-        if other == None and self.value == None:
+        if other is None and self.value is None:
             return True
-        if other == None or self.value == None:
+        if other is None or self.value is None:
             return False
 
         if isinstance(other, AnyValue):
@@ -283,7 +283,7 @@ class AnyValue():
         str_value1 = StringConverter.to_string(self.value)
         str_value2 = StringConverter.to_string(other)
 
-        if str_value1 == None or str_value2 == None:
+        if str_value1 is None or str_value2 is None:
             return False
 
         return str_value1 == str_value2
@@ -305,9 +305,9 @@ class AnyValue():
 
         :return: true when objects are equal and false otherwise.
         """
-        if other == None and self.value == None:
+        if other is None and self.value is None:
             return True
-        if other == None or self.value == None:
+        if other is None or self.value is None:
             return False
 
         if isinstance(other, AnyValue):
@@ -319,7 +319,7 @@ class AnyValue():
         value1 = TypeConverter.to_type(value_type, self.value)
         value2 = TypeConverter.to_type(value_type, other)
 
-        if value1 == None or value2 == None:
+        if value1 is None or value2 is None:
             return False
 
         return value1 == value2

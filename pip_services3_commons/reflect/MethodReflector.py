@@ -27,7 +27,7 @@ class MethodReflector:
     """
     @staticmethod
     def _is_method(method, name):
-        if method == None:
+        if method is None:
             return False
         if not callable(method):
             return False
@@ -49,9 +49,9 @@ class MethodReflector:
 
         :return: true if the object has the method and false if it doesn't.
         """
-        if obj == None:
+        if obj is None:
             raise Exception("Object cannot be null")
-        if name == None:
+        if name is None:
             raise Exception("Method name cannot be null")
 
         name = name.lower()
@@ -81,9 +81,9 @@ class MethodReflector:
 
         :return: the result of the method invocation or null if method returns void.
         """
-        if obj == None:
+        if obj is None:
             raise Exception("Object cannot be null")
-        if name == None:
+        if name is None:
             raise Exception("Method name cannot be null")
         
         name = name.lower()
