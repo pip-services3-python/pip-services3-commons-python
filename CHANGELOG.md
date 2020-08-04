@@ -1,6 +1,6 @@
 # Basic portable abstractions for Pip.Services in Python Changelog
 
-## <a name="3.0.2"></a>3.0.0 (2020-08-01)
+## <a name="3.1.0"></a>3.1.0 (2020-08-04)
 * Fixed issues
 
 ## <a name="3.0.0"></a>3.0.0 (2018-10-30)
