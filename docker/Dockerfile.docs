@@ -1,0 +1,21 @@
+FROM python:3.8-slim-buster
+
+# set working directory
+WORKDIR /usr/src/app
+
+COPY requirements.txt .
+
+# copy all project
+COPY . .
+
+# install dependencies
+RUN pip install -r requirements.txt
+RUN pip install -e .
+RUN pip install -U sphinx
+
+# docs generation
+RUN sphinx-apidoc -f -e -o build pip_services3_commons
+RUN cp conf.py ./build/
+RUN mv build/modules.rst build/index.rst
+RUN sphinx-build -b html build docs -c .
+RUN rm -rf build
