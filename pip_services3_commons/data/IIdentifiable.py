@@ -9,6 +9,9 @@
     :license: MIT, see LICENSE for more details.
 """
 
+from typing import Any
+
+
 class IIdentifiable:
     """
     Generic interface for data objects that can be uniquely identified by an id.
@@ -20,5 +23,5 @@ class IIdentifiable:
             id = None
             ...
     """
-    # id = None
+    id: Any
     pass
