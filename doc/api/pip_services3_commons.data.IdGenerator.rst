@@ -1,7 +1,0 @@
-pip\_services3\_commons.data.IdGenerator module
-===============================================
-
-.. automodule:: pip_services3_commons.data.IdGenerator
-    :members:
-    :undoc-members:
-    :show-inheritance:

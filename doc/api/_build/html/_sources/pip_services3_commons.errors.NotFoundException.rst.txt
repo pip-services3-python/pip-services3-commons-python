@@ -1,7 +1,0 @@
-pip\_services3\_commons.errors.NotFoundException module
-=======================================================
-
-.. automodule:: pip_services3_commons.errors.NotFoundException
-    :members:
-    :undoc-members:
-    :show-inheritance:

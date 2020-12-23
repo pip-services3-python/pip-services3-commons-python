@@ -1,7 +1,0 @@
-pip\_services3\_commons.errors.UnauthorizedException module
-===========================================================
-
-.. automodule:: pip_services3_commons.errors.UnauthorizedException
-    :members:
-    :undoc-members:
-    :show-inheritance:

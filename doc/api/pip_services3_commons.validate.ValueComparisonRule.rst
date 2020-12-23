@@ -1,7 +1,0 @@
-pip\_services3\_commons.validate.ValueComparisonRule module
-===========================================================
-
-.. automodule:: pip_services3_commons.validate.ValueComparisonRule
-    :members:
-    :undoc-members:
-    :show-inheritance:

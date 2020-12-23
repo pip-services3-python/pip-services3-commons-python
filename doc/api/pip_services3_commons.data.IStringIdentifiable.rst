@@ -1,7 +1,0 @@
-pip\_services3\_commons.data.IStringIdentifiable module
-=======================================================
-
-.. automodule:: pip_services3_commons.data.IStringIdentifiable
-    :members:
-    :undoc-members:
-    :show-inheritance:

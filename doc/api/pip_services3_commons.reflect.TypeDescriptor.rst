@@ -1,7 +1,0 @@
-pip\_services3\_commons.reflect.TypeDescriptor module
-=====================================================
-
-.. automodule:: pip_services3_commons.reflect.TypeDescriptor
-    :members:
-    :undoc-members:
-    :show-inheritance:

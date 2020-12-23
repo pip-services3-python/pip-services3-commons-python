@@ -1,7 +1,0 @@
-pip\_services3\_commons.validate.ValidationException module
-===========================================================
-
-.. automodule:: pip_services3_commons.validate.ValidationException
-    :members:
-    :undoc-members:
-    :show-inheritance:

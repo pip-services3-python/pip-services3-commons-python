@@ -1,7 +1,0 @@
-pip\_services3\_commons.reflect.ObjectWriter module
-===================================================
-
-.. automodule:: pip_services3_commons.reflect.ObjectWriter
-    :members:
-    :undoc-members:
-    :show-inheritance:

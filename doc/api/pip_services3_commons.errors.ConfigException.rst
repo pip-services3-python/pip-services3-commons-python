@@ -1,7 +1,0 @@
-pip\_services3\_commons.errors.ConfigException module
-=====================================================
-
-.. automodule:: pip_services3_commons.errors.ConfigException
-    :members:
-    :undoc-members:
-    :show-inheritance:

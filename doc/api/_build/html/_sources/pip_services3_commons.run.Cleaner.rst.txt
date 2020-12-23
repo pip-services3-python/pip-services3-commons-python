@@ -1,7 +1,0 @@
-pip\_services3\_commons.run.Cleaner module
-==========================================
-
-.. automodule:: pip_services3_commons.run.Cleaner
-    :members:
-    :undoc-members:
-    :show-inheritance:

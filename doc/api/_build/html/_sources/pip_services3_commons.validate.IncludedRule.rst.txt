@@ -1,7 +1,0 @@
-pip\_services3\_commons.validate.IncludedRule module
-====================================================
-
-.. automodule:: pip_services3_commons.validate.IncludedRule
-    :members:
-    :undoc-members:
-    :show-inheritance:

@@ -1,7 +1,0 @@
-pip\_services3\_commons.run.Executor module
-===========================================
-
-.. automodule:: pip_services3_commons.run.Executor
-    :members:
-    :undoc-members:
-    :show-inheritance:

@@ -1,7 +1,0 @@
-pip\_services3\_commons.refer.DependencyResolver module
-=======================================================
-
-.. automodule:: pip_services3_commons.refer.DependencyResolver
-    :members:
-    :undoc-members:
-    :show-inheritance:

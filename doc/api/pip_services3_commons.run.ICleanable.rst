@@ -1,7 +1,0 @@
-pip\_services3\_commons.run.ICleanable module
-=============================================
-
-.. automodule:: pip_services3_commons.run.ICleanable
-    :members:
-    :undoc-members:
-    :show-inheritance:
