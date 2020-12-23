@@ -5,6 +5,7 @@ Submodules
 ----------
 
 .. toctree::
+   :maxdepth: 4
 
    pip_services3_commons.reflect.MethodReflector
    pip_services3_commons.reflect.ObjectReader
@@ -20,6 +21,6 @@ Module contents
 ---------------
 
 .. automodule:: pip_services3_commons.reflect
-    :members:
-    :undoc-members:
-    :show-inheritance:
+   :members:
+   :undoc-members:
+   :show-inheritance:

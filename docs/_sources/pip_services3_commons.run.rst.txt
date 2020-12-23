@@ -5,6 +5,7 @@ Submodules
 ----------
 
 .. toctree::
+   :maxdepth: 4
 
    pip_services3_commons.run.Cleaner
    pip_services3_commons.run.Closer
@@ -24,6 +25,6 @@ Module contents
 ---------------
 
 .. automodule:: pip_services3_commons.run
-    :members:
-    :undoc-members:
-    :show-inheritance:
+   :members:
+   :undoc-members:
+   :show-inheritance:

@@ -5,6 +5,7 @@ Submodules
 ----------
 
 .. toctree::
+   :maxdepth: 4
 
    pip_services3_commons.errors.ApplicationException
    pip_services3_commons.errors.ApplicationExceptionFactory
@@ -28,6 +29,6 @@ Module contents
 ---------------
 
 .. automodule:: pip_services3_commons.errors
-    :members:
-    :undoc-members:
-    :show-inheritance:
+   :members:
+   :undoc-members:
+   :show-inheritance:

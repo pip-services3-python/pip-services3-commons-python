@@ -2,6 +2,6 @@ pip\_services3\_commons.run.IParameterized module
 =================================================
 
 .. automodule:: pip_services3_commons.run.IParameterized
-    :members:
-    :undoc-members:
-    :show-inheritance:
+   :members:
+   :undoc-members:
+   :show-inheritance:

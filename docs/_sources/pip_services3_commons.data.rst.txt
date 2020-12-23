@@ -5,6 +5,7 @@ Submodules
 ----------
 
 .. toctree::
+   :maxdepth: 4
 
    pip_services3_commons.data.AnyValue
    pip_services3_commons.data.AnyValueArray
@@ -25,11 +26,12 @@ Submodules
    pip_services3_commons.data.SortField
    pip_services3_commons.data.SortParams
    pip_services3_commons.data.StringValueMap
+   pip_services3_commons.data.TagsProcessor
 
 Module contents
 ---------------
 
 .. automodule:: pip_services3_commons.data
-    :members:
-    :undoc-members:
-    :show-inheritance:
+   :members:
+   :undoc-members:
+   :show-inheritance:

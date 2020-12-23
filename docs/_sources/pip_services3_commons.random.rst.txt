@@ -5,6 +5,7 @@ Submodules
 ----------
 
 .. toctree::
+   :maxdepth: 4
 
    pip_services3_commons.random.RandomArray
    pip_services3_commons.random.RandomBoolean
@@ -18,6 +19,6 @@ Module contents
 ---------------
 
 .. automodule:: pip_services3_commons.random
-    :members:
-    :undoc-members:
-    :show-inheritance:
+   :members:
+   :undoc-members:
+   :show-inheritance:

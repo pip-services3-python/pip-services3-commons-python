@@ -5,6 +5,7 @@ Submodules
 ----------
 
 .. toctree::
+   :maxdepth: 4
 
    pip_services3_commons.refer.DependencyResolver
    pip_services3_commons.refer.Descriptor
@@ -20,6 +21,6 @@ Module contents
 ---------------
 
 .. automodule:: pip_services3_commons.refer
-    :members:
-    :undoc-members:
-    :show-inheritance:
+   :members:
+   :undoc-members:
+   :show-inheritance:

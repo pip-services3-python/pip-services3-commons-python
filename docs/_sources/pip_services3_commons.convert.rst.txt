@@ -5,6 +5,7 @@ Submodules
 ----------
 
 .. toctree::
+   :maxdepth: 4
 
    pip_services3_commons.convert.ArrayConverter
    pip_services3_commons.convert.BooleanConverter
@@ -24,6 +25,6 @@ Module contents
 ---------------
 
 .. automodule:: pip_services3_commons.convert
-    :members:
-    :undoc-members:
-    :show-inheritance:
+   :members:
+   :undoc-members:
+   :show-inheritance:
