@@ -14,6 +14,9 @@ class SortField:
     Defines a field name and order used to sort query results.
 
     Example:
+
+    .. code-block:: python
+    
          filter = FilterParams.fromTuples("type", "Type1")
          paging = PagingParams(0, 100)
          sorting = SortingParams(SortField("create_time", true))

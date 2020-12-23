@@ -26,11 +26,14 @@ class TypeReflector:
     this TypeReflector treats all type names as case insensitive.
 
     Example:
+
+    .. code-block:: python
+
         descriptor = TypeDescriptor("MyObject", "mylibrary")
         Typeeflector.get_type_by_descriptor(descriptor)
         myObj = TypeReflector.create_instance_by_descriptor(descriptor)
-        TypeDescriptor.is_primitive(myObject) 		// Result: false
-        TypeDescriptor.is_primitive(123)				// Result: true
+        TypeDescriptor.is_primitive(myObject)           # Result: false
+        TypeDescriptor.is_primitive(123)                # Result: true
     """
     @staticmethod
     def get_type(name, library):

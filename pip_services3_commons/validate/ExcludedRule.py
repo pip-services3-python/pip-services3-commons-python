@@ -19,10 +19,13 @@ class ExcludedRule(IValidationRule):
     Validation rule to check that value is excluded from the list of constants.
 
     Example:
+
+    .. code-block:: python
+    
         schema = Schema().with_rule(ExcludedRule(1, 2, 3))
 
-        schema.validate(2)      // Result: 2 must not be one of 1, 2, 3
-        schema.validate(10)     // Result: no errors
+        schema.validate(2)      # Result: 2 must not be one of 1, 2, 3
+        schema.validate(10)     # Result: no errors
     """
     _values = None
 

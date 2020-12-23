@@ -16,6 +16,9 @@ class MapConverter():
     - Arrays: element indexes as keys, elements as values
 
     Example:
+
+    .. code-block:: python
+    
         value1 = MapConverter.to_nullable_map("ABC") // Result: None
         value2 = MapConverter.to_nullable_map({ key: 123 }) // Result: { key: 123 }
         value3 = MapConverter.to_nullable_map([1,2,3]) // Result: { "0": 1, "1": 2, "2": 3 }

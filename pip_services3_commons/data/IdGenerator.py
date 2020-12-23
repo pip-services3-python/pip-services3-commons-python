@@ -21,8 +21,11 @@ class IdGenerator(object):
     ShortIDs are just 9-digit random numbers. They are not guaranteed be unique.
 
     Example:
-        IdGenerator.next_long()      // Possible result: "234ab342c56a2b49c2ab42bf23ff991ac"
-        IdGenerator.next_short()     // Possible result: "23495247"
+    
+    .. code-block:: python
+
+        IdGenerator.next_long()      # Possible result: "234ab342c56a2b49c2ab42bf23ff991ac"
+        IdGenerator.next_short()     # Possible result: "23495247"
     """
 
     @staticmethod

@@ -17,7 +17,7 @@ class ValidationException(BadRequestException):
     """
     Errors in schema validation.
 
-    Validation errors are usually generated based in [[ValidationResult]].
+    Validation errors are usually generated based in :class:`ValidationResult`.
     If using strict mode, warnings will also raise validation exceptions.
     """
     def __init__(self, correlation_id, results):

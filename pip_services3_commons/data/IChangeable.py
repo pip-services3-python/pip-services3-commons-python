@@ -14,10 +14,12 @@ class IChangeable:
     Interface for data objects that contain their latest change time.
 
     Example:
+
+    .. code-block:: python
+
         class MyData(IStringIdentifiable, IChangeable):
             id = None
             change_time = None
-            ...
 
     """
     # change_time = None

@@ -16,9 +16,12 @@ class RandomFloat(object):
     Random generator for float values.
 
     Example:
-        value1 = RandomFloat.next_float(5, 10)     // Possible result: 7.3
-        value2 = RandomFloat.next_float(10)        // Possible result: 3.7
-        value3 = RandomFloat.update_float(10, 3)   // Possible result: 9.2
+
+    .. code-block:: python
+
+        value1 = RandomFloat.next_float(5, 10)     # Possible result: 7.3
+        value2 = RandomFloat.next_float(10)        # Possible result: 3.7
+        value3 = RandomFloat.update_float(10, 3)   # Possible result: 9.2
     """
     @staticmethod
     def next_float(min, max = None):

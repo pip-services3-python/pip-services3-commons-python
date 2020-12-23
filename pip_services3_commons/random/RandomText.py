@@ -80,9 +80,12 @@ class RandomText(object):
     Random generator for various text values like names, addresses or phone numbers.
 
     Example:
-        value1 = RandomText.name()     // Possible result: "Sergio"
-        value2 = RandomText.verb()      // Possible result: "Run"
-        value3 = RandomText.text(50)    // Possible result: "Run jorge. Red high scream?"
+
+    .. code-block:: python
+
+        value1 = RandomText.name()      # Possible result: "Sergio"
+        value2 = RandomText.verb()      # Possible result: "Run"
+        value3 = RandomText.text(50)    # Possible result: "Run jorge. Red high scream?"
     """
     @staticmethod
     def color():

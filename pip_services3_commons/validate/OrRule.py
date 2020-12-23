@@ -18,11 +18,14 @@ class OrRule(IValidationRule):
     When all rules return errors, than the rule returns all errors.
 
     Example:
+    
+    .. code-block:: python
+
         schema = Schema().with_rule(OrRule(ValueComparisonRule("LT", 1), ValueComparisonRule("GT", 10)))
 
-        schema.validate(0)          // Result: no error
-        schema.validate(5)          // Result: 5 must be less than 1 or 5 must be more than 10
-        schema.validate(20)         // Result: no error
+        schema.validate(0)          # Result: no error
+        schema.validate(5)          # Result: 5 must be less than 1 or 5 must be more than 10
+        schema.validate(20)         # Result: no error
     """
     _rules = None
 

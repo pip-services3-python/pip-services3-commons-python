@@ -21,6 +21,9 @@ class StringConverter():
     - Other objects: using <code>toString()</code> method
 
     Example:
+
+    .. code-block:: python
+    
         value1 = StringConverter.to_string(123.456) // Result: "123.456"
         value2 = StringConverter.to_string(true) // Result: "true"
         value3 = StringConverter.to_string(datetime.datetime(2018,0,1)) // Result: "2018-01-01T00:00:00.00"

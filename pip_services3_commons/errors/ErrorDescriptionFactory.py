@@ -17,7 +17,7 @@ from .ApplicationException import ApplicationException
 
 class ErrorDescriptionFactory(object):
     """
-    Factory to create serializeable [[ErrorDescription]] from [[ApplicationException]]
+    Factory to create serializeable :class:`ErrorDescription` from :class:`ApplicationException`
     or from arbitrary errors.
 
     The ErrorDescriptions are used to pass errors through the wire between microservices

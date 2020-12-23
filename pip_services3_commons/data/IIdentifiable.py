@@ -19,9 +19,12 @@ class IIdentifiable:
     The type specified in the interface defines the type of id field.
 
     Example:
+    
+    .. code-block:: python
+
         class MyData(IIdentifiable):
             id = None
-            ...
+
     """
     id: Any
     pass

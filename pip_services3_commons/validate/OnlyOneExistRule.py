@@ -19,11 +19,14 @@ class OnlyOneExistRule(IValidationRule):
     Validation rule that check that at exactly one of the object properties is not null.
 
     Example:
+
+    .. code-block:: python
+
         schema = Schema().with_rule(OnlyOneExistsRule("field1", "field2"))
 
-        schema.validate({ field1: 1, field2: "A" })     // Result: only one of properties field1, field2 must exist
-        schema.validate({ field1: 1 })                  // Result: no errors
-        schema.validate({ })                            // Result: only one of properties field1, field2 must exist
+        schema.validate({ field1: 1, field2: "A" })     # Result: only one of properties field1, field2 must exist
+        schema.validate({ field1: 1 })                  # Result: no errors
+        schema.validate({ })                            # Result: only one of properties field1, field2 must exist
     """
     _properties = None
 

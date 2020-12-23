@@ -26,12 +26,15 @@ class AnyValue():
     Cross-language implementation of dynamic object what can hold value of any type.
     The stored value can be converted to different types using variety of accessor methods.
 
-    Example::
+    Example:
+
+    .. code-block:: python
+    
         value1 = AnyValue("123.456");
 
-        value1.get_as_integer()   // Result: 123
-        value1.get_as_string()    // Result: "123.456"
-        value1.get_as_float()     // Result: 123.456
+        value1.get_as_integer()   # Result: 123
+        value1.get_as_string()    # Result: "123.456"
+        value1.get_as_float()     # Result: 123.456
     """
     value = None
 

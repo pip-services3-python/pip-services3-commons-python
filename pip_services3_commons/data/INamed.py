@@ -14,10 +14,13 @@ class INamed:
     Interface for data objects that have human-readable names.
 
     Example:
+
+    .. code-block:: python
+    
         class MyData(IIdentifiable, INamed):
             id = None
             name = None
-            ...
+
     """
     # name = None
     pass

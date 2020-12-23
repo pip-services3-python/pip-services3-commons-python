@@ -22,7 +22,7 @@ class TypeMatcher:
     def match_value(expected_type, actual_value):
         """
         Matches expected type to a type of a value.
-        The expected type can be specified by a type, type name or [[TypeCode]].
+        The expected type can be specified by a type, type name or :class:`TypeCode`.
 
         :param expected_type: an expected type to match.
 
@@ -42,7 +42,7 @@ class TypeMatcher:
     def match_type(expected_type, actual_type):
         """
         Matches expected type to an actual type.
-        The types can be specified as types, type names or [[TypeCode]].
+        The types can be specified as types, type names or :class:`TypeCode`.
 
         :param expected_type: an expected type to match.
 

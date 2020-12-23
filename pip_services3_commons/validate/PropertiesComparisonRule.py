@@ -20,11 +20,14 @@ class PropertiesComparisonRule(IValidationRule):
     Validation rule that compares two object properties.
 
     Example:
+
+    .. code-block:: python
+
         schema = ObjectSchema().with_rule(PropertyComparisonRule("field1", "NE", "field2"))
 
-        schema.validate({ field1: 1, field2: 2 })       // Result: no errors
-        schema.validate({ field1: 1, field2: 1 })       // Result: field1 shall not be equal to field2
-        schema.validate({})                             // Result: no errors
+        schema.validate({ field1: 1, field2: 2 })       # Result: no errors
+        schema.validate({ field1: 1, field2: 1 })       # Result: field1 shall not be equal to field2
+        schema.validate({})                             # Result: no errors
     """
     _property1 = None
     _property2 = None

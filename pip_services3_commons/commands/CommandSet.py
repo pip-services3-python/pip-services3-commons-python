@@ -26,6 +26,9 @@ class CommandSet(object):
     without writing much code.
 
     Example:
+
+    .. code-block:: python
+
         class MyDataCommandSet(CommandSet):
             _controller = None
 
@@ -47,7 +50,7 @@ class CommandSet(object):
                     handler
                 )
 
-    See Command, Event, ICommandable
+    See :class:`Command`, :class:`Event`, :class:`ICommandable`
     """
 
     _commands = None
@@ -70,7 +73,7 @@ class CommandSet(object):
         """
         Gets all commands registered in this command set.
 
-        :return: ICommand list with all commands supported by component.
+        :return: :class:`ICommand` list with all commands supported by component.
         """
         return self._commands
 
@@ -78,7 +81,7 @@ class CommandSet(object):
         """
         Gets all events registered in this command set.
 
-        :return: ICommand list with all events supported by component.
+        :return: :class:`ICommand` list with all events supported by component.
         """
         return self._events
 
@@ -142,7 +145,7 @@ class CommandSet(object):
 
     def add_commands(self, commands):
         """
-        Adds multiple ICommand commands to this command set.
+        Adds multiple :class:`ICommand` commands to this command set.
         
         :param commands: the array of commands to add.
         """
@@ -151,7 +154,7 @@ class CommandSet(object):
 
     def add_event(self, event):
         """
-        Adds an IEvent event to this command set.
+        Adds an :class:`IEvent` event to this command set.
         
         :param event: an event instance to be added
         """
@@ -160,7 +163,7 @@ class CommandSet(object):
 
     def add_events(self, events):
         """
-        Adds multiple [[IEvent events]] to this command set.
+        Adds multiple :class:`IEvent` events to this command set.
         
         :param events: the array of events to add.
         """
@@ -182,7 +185,7 @@ class CommandSet(object):
 
     def add_interceptor(self, intercepter):
         """
-        Adds a ICommandInterceptor command interceptor to this command set.
+        Adds a :class:`ICommandInterceptor` command interceptor to this command set.
         
         :param intercepter: an intercepter instance to be added.
         """
@@ -191,7 +194,7 @@ class CommandSet(object):
 
     def execute(self, correlation_id, command, args):
         """
-        Executes a ICommand command specificed by its name.
+        Executes a :class:`ICommand` command specificed by its name.
         
         :param correlation_id: (optional) transaction id to trace execution through call chain.
 
@@ -236,7 +239,7 @@ class CommandSet(object):
         
         :return: an array of ValidationResults. If no command is found by the given
                  name, then the returned array of ValidationResults will contain a
-                 single entry, whose type will be ValidationResultType.Error.
+                 single entry, whose type will be :class:`ValidationResultType.Error`.
         """
         cref = self.find_command(command)
         if cref is None:
@@ -254,7 +257,7 @@ class CommandSet(object):
     
     def add_listener(self, listener):
         """
-        Adds a IEventListener listener to receive notifications on fired events.
+        Adds a :class:`IEventListener` listener to receive notifications on fired events.
 
         :param listener: a listener to be added
         """
@@ -263,7 +266,7 @@ class CommandSet(object):
 
     def remove_listener(self, listener):
         """
-        Removes previosly added IEventListener listener.
+        Removes previosly added :class:`IEventListener` listener.
 
         :param listener: a listener to be removed
         """
@@ -273,7 +276,7 @@ class CommandSet(object):
     def notify(self, correlation_id, event, value):
         """
         Fires event specified by its name and notifies all registered
-        IEventListener listeners
+        :class:`IEventListener` listeners
 
         :param correlation_id: (optional) transaction id to trace execution through call chain.
 

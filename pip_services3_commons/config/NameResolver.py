@@ -18,13 +18,14 @@ class NameResolver(object):
     The name can be defined in "id", "name" parameters or inside a component descriptor.
 
     Examples:
-        [code]
+
+    .. code-block:: python
+
         config = ConfigParams.fromTuples("descriptor", "myservice:connector:aws:connector1:1.0",
                                          "param1", "ABC",
                                          "param2", 123)
 
         name = NameResolver.resolve(config)
-        [/code]
     """
     @staticmethod
     def resolve(config, default_name = None):

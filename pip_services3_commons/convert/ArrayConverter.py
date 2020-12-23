@@ -13,11 +13,13 @@ class ArrayConverter():
     """
     Converts arbitrary values into array objects.
     Example:
-        [code]
-        value1 = ArrayConverter.to_array([1, 2])		 // Result: [1, 2]
-        value2 = ArrayConverter.to_array(1)			  // Result: [1]
-        value2 = ArrayConverter.list_to_array("1,2,3")	// Result: ["1", "2", "3"]
-        [/code]
+
+    .. code-block:: python
+
+        value1 = ArrayConverter.to_array([1, 2])       # Result: [1, 2]
+        value2 = ArrayConverter.to_array(1)            # Result: [1]
+        value2 = ArrayConverter.list_to_array("1,2,3") # Result: ["1", "2", "3"]
+
     """
     @staticmethod
     def to_nullable_array(value):

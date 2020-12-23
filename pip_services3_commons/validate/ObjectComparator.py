@@ -18,8 +18,11 @@ class ObjectComparator(object):
     Helper class to perform comparison operations over arbitrary values.
 
     Example:
-        ObjectComparator.compare(2, "GT", 1)        // Result: true
-        ObjectComparator.areEqual("A", "B")         // Result: false
+    
+    .. code-block:: python
+
+        ObjectComparator.compare(2, "GT", 1)        # Result: true
+        ObjectComparator.areEqual("A", "B")         # Result: false
     """
     @staticmethod
     def compare(value1, operation, value2):

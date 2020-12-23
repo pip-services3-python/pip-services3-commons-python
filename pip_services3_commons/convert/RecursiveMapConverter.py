@@ -13,12 +13,15 @@
 class RecursiveMapConverter():
     """
     Converts arbitrary values into map objects using extended conversion rules.
-    This class is similar to [[MapConverter]], but is recursively converts all values stored in objects and arrays.
+    This class is similar to :class:`MapConverter`, but is recursively converts all values stored in objects and arrays.
 
     Example:
-        value1 = RecursiveMapConverted.to_nullable_map("ABC") // Result: None
-        value2 = RecursiveMapConverted.to_nullable_map({ key: 123 }) // Result: { key: 123 }
-        value3 = RecursiveMapConverted.to_nullable_map([1,[2,3]) // Result: { "0": 1, { "0": 2, "1": 3 } }
+
+    .. code-block:: python
+
+        value1 = RecursiveMapConverted.to_nullable_map("ABC")        # Result: None
+        value2 = RecursiveMapConverted.to_nullable_map({ key: 123 }) # Result: { key: 123 }
+        value3 = RecursiveMapConverted.to_nullable_map([1,[2,3])     # Result: { "0": 1, { "0": 2, "1": 3 } }
     """
 
     @staticmethod

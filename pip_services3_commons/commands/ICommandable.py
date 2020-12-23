@@ -13,12 +13,15 @@ class ICommandable:
     """
     An interface for commandable objects, which are part of the command design pattern.
     The commandable object exposes its functonality as commands and events groupped
-    into a CommandSet.
+    into a :class:`CommandSet`.
 
     This interface is typically implemented by controllers and is used to auto generate
     external interfaces.
 
     Example:
+
+    .. code-block:: python
+    
         class MyDataController(ICommandable, IMyDataController):
             _commandSet = None
 

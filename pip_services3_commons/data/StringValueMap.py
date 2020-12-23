@@ -31,6 +31,9 @@ class StringValueMap(dict):
     ConfigParams, ConnectionParams, CredentialParams and others.
 
     Example:
+
+    .. code-block:: python
+
         value1 = StringValueMap.fromString("key1=1;key2=123.456;key3=2018-01-01")
         value1.get_as_boolean("key1")   // Result: true
         value1.get_as_integer("key2")   // Result: 123
@@ -436,7 +439,7 @@ class StringValueMap(dict):
         """
         Gets a string representation of the object.
         The result is a semicolon-separated list of key-value pairs as
-        "key1=value1;key2=value2;key=value3"
+        **"key1=value1;key2=value2;key=value3"**
 
         :return: a string representation of the object.
         """
@@ -480,7 +483,7 @@ class StringValueMap(dict):
     def from_tuples_array(tuples):
         """
         Creates a new StringValueMap from a list of key-value pairs called tuples.
-        The method is similar to [[fromTuples]] but tuples are passed as array instead of parameters.
+        The method is similar to :func:`from_tuples` but tuples are passed as array instead of parameters.
 
         :param tuples: a list of values where odd elements are keys and the following even elements are values
 

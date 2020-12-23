@@ -20,6 +20,8 @@ class DateTimeConverter(object):
     - Numbers: converted using milliseconds since unix epoch
 
     Example:
+    .. code-block:: python
+    
         value1 = DateTimeConverter.to_nullable_datetime("ABC") // Result: None
         value2 = DateTimeConverter.to_nullable_datetime("2018-01-01T11:30:00.0") // Result: Date(2018,0,1,11,30)
         value3 = DateTimeConverter.to_nullable_datetime(123) // Result: Date(123)

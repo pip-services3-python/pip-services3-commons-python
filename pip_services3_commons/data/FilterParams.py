@@ -16,6 +16,9 @@ class FilterParams(StringValueMap):
     Data transfer object used to pass filter parameters as simple key-value pairs.
 
     Example:
+
+    .. code-block:: python
+    
         filter = FilterParams.from_tuples("type", "Type1",
         "from_create_time", datetime.datetime(2000, 0, 1),
         "to_create_time", datetime.datetime.now(),

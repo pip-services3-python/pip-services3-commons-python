@@ -119,7 +119,7 @@ class Schema(object):
     def _perform_type_validation(self, path, typ, value, results):
         """
         Validates a given value to match specified type.
-        The type can be defined as a Schema, type, a type name or [[TypeCode]].
+        The type can be defined as a Schema, type, a type name or :class:`TypeCode`.
         When type is a Schema, it executes validation recursively against that Schema.
 
         :param path: a dot notation path to the value.
@@ -178,7 +178,7 @@ class Schema(object):
 
     def validate_and_throw_exception(self, correlation_id, value, strict = False):
         """
-        Validates the given value and throws a [[ValidationException]] if errors were found.
+        Validates the given value and throws a :class:`ValidationException` if errors were found.
 
         :param correlation_id: (optional) transaction id to trace execution through call chain.
 

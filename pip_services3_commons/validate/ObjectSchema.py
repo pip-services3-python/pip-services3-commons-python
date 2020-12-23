@@ -20,6 +20,9 @@ class ObjectSchema(Schema):
     Schema to validate user defined objects.
 
     Example:
+
+    .. code-block:: python
+    
         schema = ObjectSchema(false)
                             .with_optional_property("id", TypeCode.String)
                             .with_required_property("name", TypeCode.String)

@@ -17,10 +17,11 @@ class FloatConverter():
     - Boolean: 1 for true and 0 for false
 
     Example:
-        value1 = FloatConverter.to_nullable_float("ABC") // Result: None
-        value2 = FloatConverter.to_nullable_float("123.456") // Result: 123.456
-        value3 = FloatConverter.to_nullable_float(true) // Result: 1
-        value4 = FloatConverter.to_nullable_float(datetime.datetime.now()) // Result: current milliseconds
+    .. code-block:: python
+        value1 = FloatConverter.to_nullable_float("ABC")     # Result: None
+        value2 = FloatConverter.to_nullable_float("123.456") # Result: 123.456
+        value3 = FloatConverter.to_nullable_float(true)      # Result: 1
+        value4 = FloatConverter.to_nullable_float(datetime.datetime.now()) # Result: current milliseconds
     """
     @staticmethod
     def to_nullable_float(value):

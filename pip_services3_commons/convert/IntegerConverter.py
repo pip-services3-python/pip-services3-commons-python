@@ -17,10 +17,13 @@ class IntegerConverter():
     - Boolean: 1 for true and 0 for false
 
     Example:
-        value1 = IntegerConverter.to_nullable_integer("ABC") // Result: None
-        value2 = IntegerConverter.to_nullable_integer("123.456") // Result: 123
-        value3 = IntegerConverter.to_nullable_integer(true) // Result: 1
-        value4 = IntegerConverter.to_nullable_integer(datetime.datetime.now()) // Result: current milliseconds
+
+    .. code-block:: python
+
+        value1 = IntegerConverter.to_nullable_integer("ABC")     # Result: None
+        value2 = IntegerConverter.to_nullable_integer("123.456") # Result: 123
+        value3 = IntegerConverter.to_nullable_integer(true)      # Result: 1
+        value4 = IntegerConverter.to_nullable_integer(datetime.datetime.now()) # Result: current milliseconds
     """
     @staticmethod
     def to_nullable_integer(value):

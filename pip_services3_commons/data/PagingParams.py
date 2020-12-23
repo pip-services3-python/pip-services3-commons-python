@@ -18,14 +18,17 @@ class PagingParams():
     Data transfer object to pass paging parameters for queries.
 
     The page is defined by two parameters:
-    - the <code>skip</code> parameter defines number of items to skip.
-    - the <code>take</code> parameter sets how many items to return in a page.
-    - additionally, the optional <code>total</code> parameter tells to return total number of items in the query.
+    - the :func:`skip` parameter defines number of items to skip.
+    - the :func:`take` parameter sets how many items to return in a page.
+    - additionally, the optional :func:`total` parameter tells to return total number of items in the query.
 
-     Remember: not all implementations support the <code>total</code> parameter
+     Remember: not all implementations support the :func:`total` parameter
      because its generation may lead to severe performance implications.
 
      Example:
+
+     .. code-block:: python
+     
          filter = FilterParams.fromTuples("type", "Type1")
          paging = PagingParams(0, 100)
 

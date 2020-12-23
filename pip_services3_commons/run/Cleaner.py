@@ -21,7 +21,7 @@ class Cleaner:
         """
         Clears state of specific component.
 
-        To be cleaned state components must implement [[ICleanable]] interface.
+        To be cleaned state components must implement :class:`ICleanable` interface.
         If they don't the call to this method has no effect.
 
         :param correlation_id: (optional) transaction id to trace execution through call chain.
@@ -37,7 +37,7 @@ class Cleaner:
         """
         Clears state of multiple components.
 
-        To be cleaned state components must implement [[ICleanable]] interface.
+        To be cleaned state components must implement :class:`ICleanable` interface.
         If they don't the call to this method has no effect.
 
         :param correlation_id: (optional) transaction id to trace execution through call chain.

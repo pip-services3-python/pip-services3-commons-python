@@ -16,7 +16,7 @@ class ObjectWriter:
     """
     Helper class to perform property introspection and dynamic writing.
 
-    In contrast to [[PropertyReflector]] which only introspects regular objects,
+    In contrast to :class:`PropertyReflector` which only introspects regular objects,
     this ObjectWriter is also able to handle maps and arrays.
     For maps properties are key-pairs identified by string keys,
     For arrays properties are elements identified by integer index.
@@ -28,6 +28,9 @@ class ObjectWriter:
     this ObjectWriter treats all property names as case insensitive.
 
     Example:
+
+    .. code-block:: python
+    
         myObj = MyObject()
 
         ObjectWriter.set_property(myObj, "myProperty", 123)

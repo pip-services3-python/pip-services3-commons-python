@@ -16,7 +16,10 @@ class RandomArray():
     Random generator for array objects.
 
     Example:
-        value1 = RandomArray.pick([1, 2, 3, 4]) // Possible result: 3
+    
+    .. code-block:: python
+
+        value1 = RandomArray.pick([1, 2, 3, 4]) # Possible result: 3
     """
     @staticmethod
     def pick(values):

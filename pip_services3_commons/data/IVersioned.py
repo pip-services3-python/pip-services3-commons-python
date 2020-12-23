@@ -21,16 +21,23 @@ class IVersioned:
     It is a common pattern to use the time of change as the object version
 
     Example:
+
+    .. code-block:: python
+
         class MyData(IStringIdentifiable, IVersioned):
             id = None
             version = None
-            ...
+
+            # do something
 
             def update_data(item):
-                ...
+
+                # do something
+
                 if item.version < old_item.version:
                     raise ConcurrencyException(null, "VERSION_CONFLICT", "The change has older version stored value")
-            ...
+            
+            # do something
     """
     # version = None
     pass

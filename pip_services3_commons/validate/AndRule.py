@@ -18,11 +18,14 @@ class AndRule(IValidationRule):
     When one of the rules return errors, than the rules returns all errors.
 
     Example:
+
+    .. code-block:: python
+
         schema = Schema().with_rule(AndRule(ValueComparisonRule("GTE", 1), ValueComparisonRule("LTE", 10)))
 
-        schema.validate(0)          // Result: 0 must be greater or equal to 1
-        schema.validate(5)          // Result: no error
-        schema.validate(20)         // Result: 20 must be letter or equal 10
+        schema.validate(0)          # Result: 0 must be greater or equal to 1
+        schema.validate(5)          # Result: no error
+        schema.validate(20)         # Result: 20 must be letter or equal 10
     """
     _rules = None
 

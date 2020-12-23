@@ -19,6 +19,9 @@ class JsonConverter():
     Converts arbitrary values from and to JSON (JavaScript Object Notation) strings.
 
     Example:
+
+    .. code-block:: python
+    
         value1 = JsonConverter.from_json("{\"key\":123}") // Result: { key: 123 }
         value2 = JsonConverter.to_map({ key: 123}) // Result: "{\"key\":123}"
     """

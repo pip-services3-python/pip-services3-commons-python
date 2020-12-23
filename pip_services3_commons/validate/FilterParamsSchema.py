@@ -14,7 +14,7 @@ from .MapSchema import MapSchema
 
 class FilterParamsSchema(MapSchema):
     """
-    Schema to validate [[FilterParams]].
+    Schema to validate :class:`FilterParams`.
     """
     def __init__(self):
         """

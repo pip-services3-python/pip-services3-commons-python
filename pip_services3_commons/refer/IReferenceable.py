@@ -13,9 +13,12 @@ class IReferenceable:
     """
     Interface for components that depends on other components.
     If component requires explicit notification to unset references
-    it shall additionally implement [[IUnreferenceable]] interface.
+    it shall additionally implement :class:`IUnreferenceable` interface.
 
     Example:
+
+    .. code-block:: python
+    
         class MyController(IReferenceable):
             _persistence = None
 

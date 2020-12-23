@@ -22,13 +22,16 @@ class Descriptor(object):
         - Version: version of the component contract like "1.0"
 
     The locator matching can be done by all or only few selected fields.
-    The fields that shall be excluded from the matching must be set to <code>"*"</code> or <code>null</code>.
+    The fields that shall be excluded from the matching must be set to **"*"** or **None**.
     That approach allows to implement many interesting scenarios. For instance:
         - Locate all loggers (match by type and version)
         - Locate persistence components for a microservice (match by group and type)
         - Locate specific component by its name (match by name)
 
     Example:
+
+    .. code-block:: python
+    
         locator1 = Descriptor("mygroup", "connector", "aws", "default", "1.0")
         locator2 = Descriptor.from_string("mygroup:connector:*:*:1.0")
 

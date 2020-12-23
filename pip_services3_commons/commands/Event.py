@@ -14,17 +14,20 @@ from ..errors.InvocationException import InvocationException
 
 class Event(IEvent):
     """
-    Concrete implementation of IEvent interface.
+    Concrete implementation of :class:`IEvent` interface.
     It allows to send asynchronous notifications to multiple subscribed listeners.
 
     Example:
+
+    .. code-block:: python
+
         event = Event("my_event")
 
         event.addListener(myListener)
 
         event.notify("123", Parameters.fromTuples("param1", "ABC", "param2", 123)
 
-    See IEvent, IEventListener
+    See :class:`IEvent`, :class:`IEventListener`
     """
 
     _name = None

@@ -16,6 +16,9 @@ class IEventListener(object):
     An interface for listener objects that receive notifications on fired events.
 
     Example:
+
+    .. code-block:: python
+    
         class MyListener(IEventListener):
             def on_event(self, correlation_id, event, value):
                 print "Fired event " + event.get_name()

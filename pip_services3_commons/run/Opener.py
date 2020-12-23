@@ -20,7 +20,7 @@ class Opener:
         """
         Checks if specified component is opened.
 
-        To be checked components must implement [[IOpenable]] interface.
+        To be checked components must implement :class:`IOpenable` interface.
         If they don't the call to this method returns true.
 
         :param component: the component that is to be checked.
@@ -37,7 +37,7 @@ class Opener:
         """
         Checks if all components are opened.
 
-        To be checked components must implement [[IOpenable]] interface.
+        To be checked components must implement :class:`IOpenable` interface.
         If they don't the call to this method returns true.
 
         :param components: a list of components that are to be checked.
@@ -58,7 +58,7 @@ class Opener:
         """
         Opens specific component.
 
-        To be opened components must implement [[IOpenable]] interface.
+        To be opened components must implement :class:`IOpenable` interface.
         If they don't the call to this method has no effect.
 
         :param correlation_id: (optional) transaction id to trace execution through call chain.
@@ -73,7 +73,7 @@ class Opener:
         """
         Opens multiple components.
 
-        To be opened components must implement [[IOpenable]] interface.
+        To be opened components must implement :class:`IOpenable` interface.
         If they don't the call to this method has no effect.
 
         :param correlation_id: (optional) transaction id to trace execution through call chain.

@@ -19,6 +19,9 @@ class MethodReflector:
     this MethodReflector treats all method names as case insensitive.
 
     Example:
+
+    .. code-block:: python
+    
         myObj = new MyObject()
 
         methods = MethodReflector.get_method_names()

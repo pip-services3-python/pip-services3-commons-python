@@ -19,10 +19,13 @@ class MapSchema(Schema):
     Schema to validate maps.
 
     Example:
+
+    .. code-block:: python
+
         schema = MapSchema(TypeCode.String, TypeCode.Integer)
-        schema.validate({ "key1": "A", "key2": "B" })       // Result: no errors
-        schema.validate({ "key1": 1, "key2": 2 })           // Result: element type mismatch
-        schema.validate([ 1, 2, 3 ])                        // Result: type mismatch
+        schema.validate({ "key1": "A", "key2": "B" })       # Result: no errors
+        schema.validate({ "key1": 1, "key2": 2 })           # Result: element type mismatch
+        schema.validate([ 1, 2, 3 ])                        # Result: type mismatch
     """
     key_type = None
     value_type = None

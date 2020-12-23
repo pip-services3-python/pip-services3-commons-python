@@ -19,11 +19,14 @@ class ArraySchema(Schema):
     Schema to validate arrays.
 
     Example:
+
+    .. code-block:: python
+
         schema = ArraySchema(TypeCode.String)
 
-        schema.validate(["A", "B", "C"])    // Result: no errors
-        schema.validate([1, 2, 3])          // Result: element type mismatch
-        schema.validate("A")                // Result: type mismatch
+        schema.validate(["A", "B", "C"])    # Result: no errors
+        schema.validate([1, 2, 3])          # Result: element type mismatch
+        schema.validate("A")                # Result: type mismatch
     """
     value_type = None
 

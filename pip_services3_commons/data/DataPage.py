@@ -15,21 +15,24 @@ class DataPage():
     It contains items of retrieved page and optional total number of items.
 
     Most often this object type is used to send responses to paginated queries.
-    Pagination parameters are defined by [[PagingParams]] object.
-    The <code>skip</code> parameter in the PagingParams there means how many items to skip.
-    The <code>takes</code> parameter sets number of items to return in the page.
-    And the optional <code>total</code> parameter tells to return total number of items in the query.
+    Pagination parameters are defined by :class:`PagingParams` object.
+    The :func:`skip` parameter in the PagingParams there means how many items to skip.
+    The :func:`takes` parameter sets number of items to return in the page.
+    And the optional :func:`total` parameter tells to return total number of items in the query.
 
-    Remember: not all implementations support the <code>total</code> parameter
+    Remember: not all implementations support the :func:`total` parameter
     because its generation may lead to severe performance implications.
 
     Example:
+
+    .. code-block:: python
+
         myDataClient.get_data_by_filter("123",
                                         FilterParams.fromTuples("completed", true),
                                         PagingParams(0, 100, true),
                                         page)
         for item in page.get_data():
-            print item
+            print (item)
     """
 
     total = None

@@ -16,11 +16,14 @@ class PropertySchema(Schema):
     Schema to validate object properties
 
     Example:
+
+    .. code-block:: python
+    
         schema = ObjectSchema().with_property(PropertySchema("id", TypeCode.String))
 
-        schema.validate({ id: "1", name: "ABC" })       // Result: no errors
-        schema.validate({ name: "ABC" })                // Result: no errors
-        schema.validate({ id: 1, name: "ABC" })         // Result: id type mismatch
+        schema.validate({ id: "1", name: "ABC" })       # Result: no errors
+        schema.validate({ name: "ABC" })                # Result: no errors
+        schema.validate({ id: 1, name: "ABC" })         # Result: id type mismatch
     """
     name = None
     value_type = None 

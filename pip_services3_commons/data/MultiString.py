@@ -17,14 +17,16 @@ from pip_services3_commons.convert.StringConverter import StringConverter
     When English does not exists it falls back to the first defined language.
   
     ### Example ###
+
+    .. code-block:: python
   
-      values = MultiString.fromTuples(
+      values = MultiString.from_tuples(
           "en", "Hello World!",
           "ru", "Привет мир!"
       );
       
-      value1 = values.get('ru'); // Result: "Привет мир!"
-      value2 = values.get('pt'); // Result: "Hello World!"
+      value1 = values.get('ru') # Result: "Привет мир!"
+      value2 = values.get('pt') # Result: "Hello World!"
 """
 
 
@@ -130,7 +132,7 @@ class MultiString(dict):
 
         :param value: the value to initialize MultiString.
         :return: a MultiString object.
-        :see [[StringValueMap]]
+        :see :class:`StringValueMap`
         """
         return MultiString(value)
 
@@ -141,7 +143,7 @@ class MultiString(dict):
 
         :param tuples: an array that contains language-translation tuples.
         :return: a MultiString Object.
-        :see [[fromTuplesArray]]
+        :see :class:`fromTuplesArray`
         """
         return MultiString.from_tuples_array(tuples)
 

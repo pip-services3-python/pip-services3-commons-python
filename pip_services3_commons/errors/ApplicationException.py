@@ -28,11 +28,11 @@ class ApplicationException(Exception):
 
     Since number of potential exception types is endless, PipServices toolkit
     supports only 12 standard categories of exceptions defined in [[ErrorCategory]].
-    This [[ApplicationException]] class acts as a basis for all other 12 standard exception types.
+    This :class:`ApplicationException` class acts as a basis for all other 12 standard exception types.
 
     Most exceptions have just free-form message that describes occured error.
     That may not be sufficient to create meaninful error descriptions.
-    The [[ApplicationException]] class proposes an extended error definition that has more standard fields:
+    The :class:`ApplicationException` class proposes an extended error definition that has more standard fields:
     - message: is a human-readable error description
     - category: one of 12 standard error categories of errors
     - status: numeric HTTP status code for REST invocations
@@ -43,7 +43,7 @@ class ApplicationException(Exception):
     - cause: original error that is wrapped by this exception
 
     ApplicationException class is not serializable. To pass errors through the wire
-    it is converted into [[ErrorDescription]] object and restored on receiving end into identical exception type.
+    it is converted into :class:`ErrorDescription` object and restored on receiving end into identical exception type.
     """
 
     message = None

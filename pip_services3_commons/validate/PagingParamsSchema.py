@@ -14,7 +14,7 @@ from .ObjectSchema import ObjectSchema
 
 class PagingParamsSchema(ObjectSchema):
     """
-    Schema to validate [[PagingParams]].
+    Schema to validate :class:`PagingParams`.
     """
     def __init__(self):
         """

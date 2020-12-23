@@ -14,10 +14,13 @@ from ..errors.InvocationException import InvocationException
 
 class Command(ICommand):
     """
-    Concrete implementation of ICommand interface.
+    Concrete implementation of :class:`ICommand` interface.
     Command allows to call a method or function using Command pattern.
 
     Example:
+
+    .. code-block:: python
+
         def handler(*args):
             param1 = args.getAsFloat("param1")
             param2 = args.getAsFloat("param2")
@@ -29,7 +32,7 @@ class Command(ICommand):
 
         print result.__str__()
 
-    See ICommand, CommandSet
+    See :class:`ICommand`, :class:`CommandSet`
     """
 
     _name = None
@@ -66,7 +69,7 @@ class Command(ICommand):
     def execute(self, correlation_id, args):
         """
         Executes the command. Before execution is validates Parameters args using the
-        defined schema. The command execution intercepts ApplicationException raised
+        defined schema. The command execution intercepts :class:`ApplicationException` raised
         by the called function and throws them.
         
         :param correlation_id: (optional) transaction id to trace execution through call chain.
@@ -99,7 +102,7 @@ class Command(ICommand):
         
         :param args: the parameters (arguments) to validate using this command's schema.
         
-        :return: an array of ValidationResults or an empty array (if no schema is set).
+        :return: an array of :class:`ValidationResults` or an empty array (if no schema is set).
         """
         # When schema is not defined, then skip validation
         if not (self._schema is None): 

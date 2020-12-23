@@ -20,6 +20,9 @@ class PropertyReflector:
     this PropertyReflector treats all property names as case insensitive.
 
     Example:
+    
+    .. code-block:: python
+
         myObj = MyObject()
 
         properties = PropertyReflector.get_property_names()

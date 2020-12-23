@@ -14,13 +14,16 @@ class ICloneable():
     Interface for data objects that are able to create their full binary copy.
 
     Example:
+
+    .. code-block:: python
+
         class MyClass(IMyClass, ICloneable):
             def __init__():
-                ...
+                
 
             def clone(self):
                 clone_obj = self.__init__()
-                ...
+                
 
                 return clone_obj
 

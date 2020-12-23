@@ -18,35 +18,36 @@ class ConfigParams(StringValueMap):
     All values stored as strings and can be serialized as JSON or string forms.
     When retrieved the values can be automatically converted on read using GetAsXXX methods.
 
-    The keys are case-sensitive, so it is recommended to use consistent C-style as: <code>"my_param"</code>
+    The keys are case-sensitive, so it is recommended to use consistent C-style as: **"my_param"**
 
     Configuration parameters can be broken into sections and subsections using dot notation as:
-    <code>"section1.subsection1.param1"</code>. Using GetSection method all parameters from specified section
+    **"section1.subsection1.param1"**. Using GetSection method all parameters from specified section
     can be extracted from a ConfigMap.
 
     The ConfigParams supports serialization from/to plain strings as:
-    <code>"key1=123;key2=ABC;key3=2016-09-16T00:00:00.00Z"</code>
+    **"key1=123;key2=ABC;key3=2016-09-16T00:00:00.00Z"**
 
-    ConfigParams are used to pass configurations to [[IConfigurable]] objects.
-    They also serve as a basis for more concrete configurations such as ConnectionParams
-    or CredentialParams (in the Pip.Services components package).
+    ConfigParams are used to pass configurations to :class:`IConfigurable` objects.
+    They also serve as a basis for more concrete configurations such as :class:`ConnectionParams`
+    or :class:`CredentialParams` (in the Pip.Services components package).
 
     Example:
-        [code]
+
+    .. code-block:: python
+
         config = ConfigParams.fromTuples("section1.key1", "AAA",
                                          "section1.key2", 123,
                                          "section2.key1", true)
-        config.get_as_string("section1.key1") // Result: AAA
-        config.get_as_integer("section1.key1") // Result: 0
+        config.get_as_string("section1.key1")  # Result: AAA
+        config.get_as_integer("section1.key1") # Result: 0
 
         section1 = config.get_section("section1")
-        section1.__str__() // Result: key1=AAA;key2=123
-        [/code]
+        section1.__str__() # Result: key1=AAA;key2=123
     """
 
     def __init__(self, values = None):
         """
-        Creates a new ConfigParams and fills it with values.
+        Creates a new :class:`ConfigParams` and fills it with values.
 
         :param values: (optional) an object to be converted into key-value pairs to initialize this config map.
         """

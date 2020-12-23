@@ -12,7 +12,7 @@
 class Reference(object):
     """
     Contains a reference to a component and locator to find it.
-    It is used by [[References]] to store registered component references.
+    It is used by :class:`References` to store registered component references.
     """
 
     _locator = None

@@ -27,11 +27,14 @@ class AnyValueArray(list):
     The stored values can be converted to different types using variety of accessor methods.
 
     Example:
+
+    .. code-block:: python
+
         value1 = AnyValueArray([1, "123.456", "2018-01-01"])
-        value1.get_as_boolean(0)   // Result: true
-        value1.get_as_integer(1)   // Result: 123
-        value1.get_as_float(1)     // Result: 123.456
-        value1.get_as_datetime(2)  // Result: datetime.datetime(2018,0,1)
+        value1.get_as_boolean(0)   # Result: true
+        value1.get_as_integer(1)   # Result: 123
+        value1.get_as_float(1)     # Result: 123.456
+        value1.get_as_datetime(2)  # Result: datetime.datetime(2018,0,1)
     """
     def __init__(self, values = None):
         """
@@ -81,11 +84,11 @@ class AnyValueArray(list):
 
     def get_as_array(self, index):
         """
-        Converts array element into an AnyValueArray or returns empty AnyValueArray if conversion is not possible.
+        Converts array element into an :class:`AnyValueArray` or returns empty :class:`AnyValueArray` if conversion is not possible.
 
         :param index: an index of element to get.
 
-        :return: AnyValueArray value of the element or empty AnyValueArray if conversion is not supported.
+        :return: :class:`AnyValueArray` value of the element or empty :class:`AnyValueArray` if conversion is not supported.
         """
         if index is None:
             array = []
@@ -354,11 +357,11 @@ class AnyValueArray(list):
 
     def get_as_map(self, index):
         """
-        Converts array element into an AnyValueMap or returns empty AnyValueMap if conversion is not possible.
+        Converts array element into an :class:`AnyValueMap` or returns empty :class:`AnyValueMap` if conversion is not possible.
 
         :param index: an index of element to get.
 
-        :return: AnyValueMap value of the element or empty AnyValueMap if conversion is not supported.
+        :return: :class:`AnyValueMap` value of the element or empty :class:`AnyValueMap` if conversion is not supported.
         """
         value = self[index]
         return AnyValueMap.from_value(value)
@@ -429,7 +432,7 @@ class AnyValueArray(list):
         """
         Gets a string representation of the object.
         The result is a comma-separated list of string representations of individual elements as
-        "value1,value2,value3"
+        **"value1,value2,value3"**
 
         :return: a string representation of the object.
         """
@@ -445,22 +448,22 @@ class AnyValueArray(list):
     @staticmethod
     def from_values(*values):
         """
-        Creates a new AnyValueArray from a list of values
+        Creates a new :class:`AnyValueArray` from a list of values
 
-        :param values: a list of values to initialize the created AnyValueArray
+        :param values: a list of values to initialize the created :class:`AnyValueArray`
 
-        :return: a newly created AnyValueArray.
+        :return: a newly created :class:`AnyValueArray`.
         """
         return AnyValueArray(values)
 
     @staticmethod
     def from_value(value):
         """
-        Converts specified value into AnyValueArray.
+        Converts specified value into :class:`AnyValueArray`.
 
         :param value: value to be converted
 
-        :return: a newly created AnyValueArray.
+        :return: a newly created :class:`AnyValueArray`.
         """
         value = ArrayConverter.to_nullable_array(value)
         if not (value is None):

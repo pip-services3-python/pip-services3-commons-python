@@ -17,6 +17,8 @@ class BooleanConverter():
     - DateTime: <>0 total milliseconds are true, =0 are false
 
     Example:
+    .. code-block:: python
+    
         value1 = BooleanConverter.to_nullable_boolean(true) // true
         value2 = BooleanConverter.to_nullable_boolean("yes") // true
         value3 = BooleanConverter.to_nullable_boolean(123) // true

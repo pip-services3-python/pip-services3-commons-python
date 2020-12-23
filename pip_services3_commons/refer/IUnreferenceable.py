@@ -14,6 +14,9 @@ class IUnreferenceable:
     Interface for components that require explicit clearing of references to dependent components.
 
     Example:
+
+    .. code-block:: python
+
         class MyController(IReferenceable):
             _persistence = None
 
@@ -23,7 +26,7 @@ class IUnreferenceable:
             def unset_references(self):
                 self._persistence = None
 
-            ...
+            
     """
 
     def unset_references(self):

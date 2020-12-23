@@ -14,7 +14,7 @@ from .IConfigurable import IConfigurable
 class IReconfigurable(IConfigurable):
     """
     An interface to set configuration parameters to an object.
-    It is similar to [[IConfigurable]] interface, but emphasises the fact
-    that <code>configure()</code> method can be called more than once to change object configuration in runtime.
+    It is similar to :class:`IConfigurable` interface, but emphasises the fact
+    that :func:`configure()` method can be called more than once to change object configuration in runtime.
     """
     pass

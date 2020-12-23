@@ -17,7 +17,7 @@ class RecursiveObjectReader:
     """
     Helper class to perform property introspection and dynamic reading.
 
-    It is similar to [[ObjectReader]] but reads properties recursively
+    It is similar to :class:`ObjectReader` but reads properties recursively
     through the entire object graph. Nested property names are defined
     using dot notation as "object.subobject.property"
     """

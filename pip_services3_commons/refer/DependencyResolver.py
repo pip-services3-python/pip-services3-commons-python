@@ -27,17 +27,18 @@ class DependencyResolver(IReconfigurable, IReferenceable):
     and resolution has to be specific about those instances, they can be given a unique
     name and dependency resolvers can be reconfigured to retrieve dependencies by their name.
 
-    Configuration parameters
-
+    ### Configuration parameters ###
     dependencies:
         - [dependency name 1]: Dependency 1 locator (descriptor)
         - ...
         - [dependency name N]: Dependency N locator (descriptor)
-
     References:
         - References must match configured dependencies.
 
     Example:
+
+    .. code-block:: python
+
         class MyComponent(IConfigurable, IReferenceable):
             _dependencyResolver = None
             _persistence = None
@@ -59,7 +60,7 @@ class DependencyResolver(IReconfigurable, IReferenceable):
             component.setReferences(References.from_tuples(Descriptor("mygroup","persistence","*","persistence1","1.0"),
             MyPersistence(),
             Descriptor("mygroup","persistence","*","persistence2","1.0"), MyPersistence()
-            // This dependency shall be set))
+            # This dependency shall be set))
     """
     _dependencies = None
     _references = None
@@ -151,7 +152,7 @@ class DependencyResolver(IReconfigurable, IReferenceable):
     def get_required(self, name):
         """
         Gets all required dependencies by their name.
-        At least one dependency must be present. If no dependencies was found it throws a [[ReferenceException]]
+        At least one dependency must be present. If no dependencies was found it throws a :class:`ReferenceException`
 
         :param name: the dependency name to locate.
 
@@ -179,7 +180,7 @@ class DependencyResolver(IReconfigurable, IReferenceable):
     def get_one_required(self, name):
         """
         Gets one required dependency by its name.
-        At least one dependency must present. If the dependency was found it throws a [[ReferenceException]]
+        At least one dependency must present. If the dependency was found it throws a :class:`ReferenceException`
 
         :param name: the dependency name to locate.
 

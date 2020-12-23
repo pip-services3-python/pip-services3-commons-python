@@ -19,10 +19,13 @@ class AtLeastOneExistRule(IValidationRule):
     Validation rule that check that at least one of the object properties is not None.
 
     Example:
+
+    .. code-block:: python
+
         schema = Schema().with_rule(AtLeastOneExistsRule("field1", "field2"))
-        schema.validate({ field1: 1, field2: "A" })     // Result: no errors
-        schema.validate({ field1: 1 })                  // Result: no errors
-        schema.validate({ })                            // Result: at least one of properties field1, field2 must exist
+        schema.validate({ field1: 1, field2: "A" })     # Result: no errors
+        schema.validate({ field1: 1 })                  # Result: no errors
+        schema.validate({ })                            # Result: at least one of properties field1, field2 must exist
     """
     _properties = None
 

@@ -20,12 +20,15 @@ class ProjectionParams(list):
     The parameters support two formats: dot format and nested format.
 
     The dot format is the standard way to define included fields and subfields using
-    dot object notation: <code>"field1,field2.field21,field2.field22.field221"</code>.
+    dot object notation: **"field1,field2.field21,field2.field22.field221"**.
 
     As alternative the nested format offers a more compact representation:
-    <code>"field1,field2(field21,field22(field221))"</code>.
+    **"field1,field2(field21,field22(field221))"**.
 
     Example:
+
+    .. code-block:: python
+    
          filter = FilterParams.fromTuples("type", "Type1")
          paging = PagingParams(0, 100)
          projection = ProjectionParams.from_value(["field1","field2(field21,field22)"])
@@ -51,7 +54,7 @@ class ProjectionParams(list):
         """
         Gets a string representation of the object.
         The result is a comma-separated list of projection fields
-        "field1,field2.field21,field2.field22.field221"
+        **"field1,field2.field21,field2.field22.field221"**
 
         :return: a string representation of the object.
         """

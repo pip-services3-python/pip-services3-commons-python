@@ -27,12 +27,15 @@ class AnyValueMap(dict):
     The stored values can be converted to different types using variety of accessor methods.
 
     Example:
+
+    .. code-block:: python
+
         value1 = new AnyValueMap({ key1: 1, key2: "123.456", key3: "2018-01-01" })
 
-        value1.get_as_boolean("key1")   // Result: true
-        value1.get_as_integer("key2")   // Result: 123
-        value1.get_as_float("key2")     // Result: 123.456
-        value1.get_as_datetime("key3")  // Result: new Date(2018,0,1)
+        value1.get_as_boolean("key1")   # Result: true
+        value1.get_as_integer("key2")   # Result: 123
+        value1.get_as_float("key2")     # Result: 123.456
+        value1.get_as_datetime("key3")  # Result: new Date(2018,0,1)
     """
     def __init__(self, map = None):
         """
@@ -394,22 +397,22 @@ class AnyValueMap(dict):
 
     def get_as_array(self, key):
         """
-        Converts map element into an AnyValueMap or returns empty AnyValueMap if conversion is not possible.
+        Converts map element into an :class:`AnyValueMap` or returns empty :class:`AnyValueMap` if conversion is not possible.
 
         :param key: an index of element to get.
 
-        :return: AnyValueMap value of the element or empty AnyValueMap if conversion is not supported.
+        :return: :class:`AnyValueMap` value of the element or empty :class:`AnyValueMap` if conversion is not supported.
         """
         value = self.get(key)
         return AnyValueMap.from_value(value)
 
     def get_as_nullable_map(self, key):
         """
-        Converts map element into an AnyValueMap or returns None if conversion is not possible.
+        Converts map element into an :class:`AnyValueMap` or returns None if conversion is not possible.
 
         :param key: a key of element to get.
 
-        :return: AnyValueMap value of the element or None if conversion is not supported.
+        :return: :class:`AnyValueMap` value of the element or None if conversion is not supported.
         """
         value = self.get_as_object(key)
         return AnyValueMap.from_value(value)
@@ -426,7 +429,7 @@ class AnyValueMap(dict):
 
         :param default_value: the default value
 
-        :return: AnyValueMap value of the element or default value if conversion is not supported.
+        :return: :class:`AnyValueMap` value of the element or default value if conversion is not supported.
         """
         value = self.get_as_nullable_map(key)
         return MapConverter.to_map_with_default(value, default_value)
@@ -448,7 +451,7 @@ class AnyValueMap(dict):
         """
         Gets a string representation of the object.
         The result is a semicolon-separated list of key-value pairs as
-        "key1=value1;key2=value2;key=value3"
+        **"key1=value1;key2=value2;key=value3"**
 
         :return: a string representation of the object.
         """
@@ -485,7 +488,7 @@ class AnyValueMap(dict):
 
         :param tuples: a list of values where odd elements are keys and the following even elements are values
 
-        :return: a newly created AnyValueMap.
+        :return: a newly created :class:`AnyValueMap`.
         """
         return AnyValueMap.from_tuples_array(tuples)
 
@@ -493,11 +496,11 @@ class AnyValueMap(dict):
     def from_tuples_array(tuples):
         """
         Creates a new AnyValueMap from a list of key-value pairs called tuples.
-        The method is similar to [[fromTuples]] but tuples are passed as array instead of parameters.
+        The method is similar to :func:`from_tuples` but tuples are passed as array instead of parameters.
 
         :param tuples: a list of values where odd elements are keys and the following even elements are values
 
-        :return: a newly created AnyValueArray.
+        :return: a newly created :class:`AnyValueArray`.
         """
         result = AnyValueMap()
 
@@ -525,7 +528,7 @@ class AnyValueMap(dict):
 
         :param maps: an array of maps to be merged
 
-        :return: a newly created AnyValueMap.
+        :return: a newly created :class:`AnyValueMap`.
         """
         result = AnyValueMap()
         

@@ -18,15 +18,18 @@ class InterceptedCommand(ICommand):
     and delegate calls to a next command, which can be intercepted or concrete.
 
     Example:
+    
+    .. code-block:: python
+
         class CommandLogger(ICommandInterceptor):
             def get_name(self, command):
                 return command.get_name()
 
             def execute():
-                ...
+                # do something
 
             def validate():
-                ...
+                # do something
     """
 
     _intercepter = None
@@ -62,7 +65,7 @@ class InterceptedCommand(ICommand):
         
         :return: an execution result.
         
-        :raises: ValidationError: when execution fails for whatever reason.
+        :raises: :class:`ValidationError`: when execution fails for whatever reason.
         """
         return self._intercepter.execute(self._next, correlation_id, args)
 

@@ -17,14 +17,15 @@ class OptionsResolver(object):
     A helper class to parameters from "options" configuration section.
 
     Example:
-        [code]
+
+    .. code-block:: python
+
         config = ConfigParams.fromTuples(
           ...
           "options.param1", "ABC",
           "options.param2", 123)
 
         options = OptionsResolver.resolve(config)
-        [/code]
     """
     @staticmethod
     def resolve(config, config_as_default = False):

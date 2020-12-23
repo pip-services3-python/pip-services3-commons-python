@@ -16,8 +16,11 @@ class RandomBoolean(object):
     Random generator for boolean values.
 
     Example:
-        value1 = RandomBoolean.next_boolean()    // Possible result: true
-        value2 = RandomBoolean.chance(1,3)      // Possible result: false
+    
+    .. code-block:: python
+
+        value1 = RandomBoolean.next_boolean()   # Possible result: true
+        value2 = RandomBoolean.chance(1,3)      # Possible result: false
     """
     @staticmethod
     def chance(chances, max_chances):

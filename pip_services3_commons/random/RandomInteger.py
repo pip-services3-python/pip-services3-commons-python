@@ -16,9 +16,12 @@ class RandomInteger(object):
     Random generator for integer values.
 
     Example:
-        value1 = RandomInteger.next_integer(5, 10)     // Possible result: 7
-        value2 = RandomInteger.next_integer(10)        // Possible result: 3
-        value3 = RandomInteger.update_integer(10, 3)   // Possible result: 9
+    
+    .. code-block:: python
+
+        value1 = RandomInteger.next_integer(5, 10)     # Possible result: 7
+        value2 = RandomInteger.next_integer(10)        # Possible result: 3
+        value3 = RandomInteger.update_integer(10, 3)   # Possible result: 9
     """
     @staticmethod
     def next_integer(min, max = None):

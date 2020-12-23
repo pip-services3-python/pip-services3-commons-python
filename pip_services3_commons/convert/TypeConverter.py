@@ -29,6 +29,9 @@ class TypeConverter():
     extended conversion rules to convert the values.
 
     Example:
+
+    .. code-block:: python
+
         value1 = TypeConverter.to_type(TypeCode.Integer, "123.456") // Result: 123
         value2 = TypeConverter.to_type(TypeCode.DateTime, 123) // Result: Date(123)
         value3 = TypeConverter.to_type(TypeCode.Boolean, "F") // Result: false
@@ -36,7 +39,7 @@ class TypeConverter():
     @staticmethod
     def to_type_code(value):
         """
-        Gets TypeCode for specific value.
+        Gets :class:`TypeCode` for specific value.
 
         :param value: value whose TypeCode is to be resolved.
 
@@ -150,13 +153,13 @@ class TypeConverter():
         """
         Converts value into an object type specified by Type Code or returns default value when conversion is not possible.
 
-        :param value_type: the TypeCode for the data type into which 'value' is to be converted.
+        :param value_type: the :class:`TypeCode` for the data type into which 'value' is to be converted.
 
         :param value: the value to convert.
 
         :param default_value: the default value to return if conversion is not possible (returns None).
 
-        :return: object value of type corresponding to TypeCode, or default value when conversion is not supported.
+        :return: object value of type corresponding to :class:`TypeCode`, or default value when conversion is not supported.
         """
         result = TypeConverter.to_nullable_type(value_type, value)
         return result if not (result is None) else default_value
@@ -165,7 +168,7 @@ class TypeConverter():
     @staticmethod
     def to_string(type):
         """
-        Converts a TypeCode into its string name.
+        Converts a :class:`TypeCode` into its string name.
 
         :param type: the TypeCode to convert into a string.
 

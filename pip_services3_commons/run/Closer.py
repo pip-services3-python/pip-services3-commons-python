@@ -21,7 +21,7 @@ class Closer:
         """
         Closes specific component.
 
-        To be closed components must implement [[ICloseable]] interface.
+        To be closed components must implement :class:`ICloseable` interface.
         If they don't the call to this method has no effect.
 
         :param correlation_id: (optional) transaction id to trace execution through call chain.
@@ -36,7 +36,7 @@ class Closer:
         """
         Closes multiple components.
 
-        To be closed components must implement [[ICloseable]] interface.
+        To be closed components must implement :class:`ICloseable` interface.
         If they don't the call to this method has no effect.
 
         :param correlation_id: (optional) transaction id to trace execution through call chain.

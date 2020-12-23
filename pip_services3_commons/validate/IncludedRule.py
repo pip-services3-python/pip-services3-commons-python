@@ -19,10 +19,13 @@ class IncludedRule(IValidationRule):
     Validation rule to check that value is included into the list of constants.
 
     Example:
+
+    .. code-block:: python
+
         schema = new Schema().with_rule(IncludedRule(1, 2, 3))
 
-        schema.validate(2)      // Result: no errors
-        schema.validate(10)     // Result: 10 must be one of 1, 2, 3
+        schema.validate(2)      # Result: no errors
+        schema.validate(10)     # Result: 10 must be one of 1, 2, 3
     """
     _values = None
 

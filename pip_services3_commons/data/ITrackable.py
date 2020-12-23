@@ -14,6 +14,9 @@ class ITrackable:
     Interface for data objects that can track their changes, including logical deletion.
 
     Example:
+
+    .. code-block:: python
+    
         class MyData(IStringIdentifiable, ITrackable):
             id = None
             ...

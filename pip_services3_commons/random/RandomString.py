@@ -26,8 +26,11 @@ class RandomString(object):
     Random generator for string values.
 
     Example:
-        value1 = RandomString.pickChar("ABC")     // Possible result: "C"
-        value2 = RandomString.pick(["A","B","C"]) // Possible result: "gBW"
+    
+    .. code-block:: python
+
+        value1 = RandomString.pickChar("ABC")     # Possible result: "C"
+        value2 = RandomString.pick(["A","B","C"]) # Possible result: "gBW"
     """
     @staticmethod
     def pick(values):

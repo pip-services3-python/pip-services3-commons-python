@@ -20,10 +20,13 @@ class NotRule(IValidationRule):
     When embedded rule return errors, than the rule returns no errors.
 
     Example:
+
+    .. code-block:: python
+    
         schema = Schema().with_rule(NotRule(ValueComparisonRule("EQ", 1)))
 
-        schema.validate(1)          // Result: error
-        schema.validate(5)          // Result: no error
+        schema.validate(1)          # Result: error
+        schema.validate(5)          # Result: no error
     """
     _rule = None
 
