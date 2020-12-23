@@ -15,9 +15,9 @@ if (Test-Path "docs") {
 }
 
 # Build docker image
-docker build -f docker/Dockerfile.docs -t $docsImage .
+docker build --build-arg COMPONENT_NAME="$($component.name)" -f docker/Dockerfile.docs -t $docsImage .
 
 # Create and copy compiled files, then destroy
 docker create --name $container $docsImage
-docker cp "$($container):usr/src/app/docs" ./docs
+docker cp "$($container):/docs" ./docs
 docker rm $container
