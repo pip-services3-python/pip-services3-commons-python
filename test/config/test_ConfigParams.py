@@ -80,4 +80,4 @@ class TestConfigParams:
             'connection.host', 'localhost',
             'connection.port', 3000
         )
-        default = config1.
+        default = config
