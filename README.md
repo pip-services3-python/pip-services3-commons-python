@@ -127,5 +127,7 @@ Before committing changes run dockerized build and test as:
 ./clear.ps1
 ```
 
+## Contacts
+
 The initial implementation is done by **Sergey Seroukhov**. Pip.Services team is looking for volunteers to 
 take ownership over Python implementation in the project.
