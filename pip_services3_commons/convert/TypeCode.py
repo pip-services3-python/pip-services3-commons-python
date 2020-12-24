@@ -11,7 +11,7 @@
 
 class TypeCode():
     """
-    Codes for the data types that can be converted using [[TypeConverter]].
+    Codes for the data types that can be converted using :class:`TypeConverter`.
     """
     Unknown = 0
     String = 1

@@ -199,7 +199,7 @@ and support proper error propagation in microservices calls.</p>
 calls microservice(s) implemented in a different language(s), errors are returned
 throught the entire call chain and restored in their original (or close) type.</p>
 <p>Since number of potential exception types is endless, PipServices toolkit
-supports only 12 standard categories of exceptions defined in [[ErrorCategory]].
+supports only 12 standard categories of exceptions defined in <code class="xref py py-class docutils literal notranslate"><span class="pre">ErrorCategory</span></code>.
 This <a class="reference internal" href="#pip_services3_commons.errors.ApplicationException.ApplicationException" title="pip_services3_commons.errors.ApplicationException.ApplicationException"><code class="xref py py-class docutils literal notranslate"><span class="pre">ApplicationException</span></code></a> class acts as a basis for all other 12 standard exception types.</p>
 <p>Most exceptions have just free-form message that describes occured error.
 That may not be sufficient to create meaninful error descriptions.

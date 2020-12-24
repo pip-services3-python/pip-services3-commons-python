@@ -3,7 +3,7 @@
     pip_services3_commons.config.__init__
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     
-    Contains the implementation of the config design pattern. The [[IConfigurable configurable interface]]
+    Contains the implementation of the config design pattern. The :class:`IConfigurable` configurable interface
     contains just one method - "configure", which takes ConfigParams as a parameter (extends StringValueMap class).
     If any object needs to be configurable, we implement this interface
     and parse the ConfigParams that the method received.

@@ -27,7 +27,7 @@ class ApplicationException(Exception):
     throught the entire call chain and restored in their original (or close) type.
 
     Since number of potential exception types is endless, PipServices toolkit
-    supports only 12 standard categories of exceptions defined in [[ErrorCategory]].
+    supports only 12 standard categories of exceptions defined in :class:`ErrorCategory`.
     This :class:`ApplicationException` class acts as a basis for all other 12 standard exception types.
 
     Most exceptions have just free-form message that describes occured error.

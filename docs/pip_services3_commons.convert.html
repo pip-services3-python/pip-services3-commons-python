@@ -813,12 +813,12 @@ This class is similar to <a class="reference internal" href="pip_services3_commo
 - DateTime: using ISO format
 - Boolean: “true” for true and “false” for false
 - Arrays: as comma-separated list
-- Other objects: using &lt;code&gt;toString()&lt;/code&gt; method</p>
+- Other objects: using <a class="reference internal" href="#pip_services3_commons.convert.StringConverter.to_string" title="pip_services3_commons.convert.StringConverter.to_string"><code class="xref py py-func docutils literal notranslate"><span class="pre">to_string()</span></code></a> method</p>
 <p>Example:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">value1</span> <span class="o">=</span> <span class="n">StringConverter</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="mf">123.456</span><span class="p">)</span> <span class="o">//</span> <span class="n">Result</span><span class="p">:</span> <span class="s2">&quot;123.456&quot;</span>
-<span class="n">value2</span> <span class="o">=</span> <span class="n">StringConverter</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">true</span><span class="p">)</span> <span class="o">//</span> <span class="n">Result</span><span class="p">:</span> <span class="s2">&quot;true&quot;</span>
-<span class="n">value3</span> <span class="o">=</span> <span class="n">StringConverter</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2018</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span> <span class="o">//</span> <span class="n">Result</span><span class="p">:</span> <span class="s2">&quot;2018-01-01T00:00:00.00&quot;</span>
-<span class="n">value4</span> <span class="o">=</span> <span class="n">StringConverter</span><span class="o">.</span><span class="n">to_string</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span> <span class="o">//</span> <span class="n">Result</span><span class="p">:</span> <span class="s2">&quot;1,2,3&quot;</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">value1</span> <span class="o">=</span> <span class="n">StringConverter</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="mf">123.456</span><span class="p">)</span> <span class="c1"># Result: &quot;123.456&quot;</span>
+<span class="n">value2</span> <span class="o">=</span> <span class="n">StringConverter</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">true</span><span class="p">)</span>    <span class="c1"># Result: &quot;true&quot;</span>
+<span class="n">value3</span> <span class="o">=</span> <span class="n">StringConverter</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2018</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span> <span class="c1"># Result: &quot;2018-01-01T00:00:00.00&quot;</span>
+<span class="n">value4</span> <span class="o">=</span> <span class="n">StringConverter</span><span class="o">.</span><span class="n">to_string</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span> <span class="c1"># Result: &quot;1,2,3&quot;</span>
 </pre></div>
 </div>
 <dl class="py method">
@@ -872,7 +872,7 @@ This class is similar to <a class="reference internal" href="pip_services3_commo
 <dt id="pip_services3_commons.convert.TypeCode">
 <em class="property">class </em><code class="sig-prename descclassname">pip_services3_commons.convert.</code><code class="sig-name descname">TypeCode</code><a class="headerlink" href="#pip_services3_commons.convert.TypeCode" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>Codes for the data types that can be converted using [[TypeConverter]].</p>
+<p>Codes for the data types that can be converted using <a class="reference internal" href="pip_services3_commons.convert.TypeConverter.html#module-pip_services3_commons.convert.TypeConverter" title="pip_services3_commons.convert.TypeConverter"><code class="xref py py-class docutils literal notranslate"><span class="pre">TypeConverter</span></code></a>.</p>
 <dl class="py attribute">
 <dt id="pip_services3_commons.convert.TypeCode.Array">
 <code class="sig-name descname">Array</code><em class="property"> = 11</em><a class="headerlink" href="#pip_services3_commons.convert.TypeCode.Array" title="Permalink to this definition">¶</a></dt>

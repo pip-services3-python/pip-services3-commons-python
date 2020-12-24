@@ -18,16 +18,16 @@ class StringConverter():
     - DateTime: using ISO format
     - Boolean: "true" for true and "false" for false
     - Arrays: as comma-separated list
-    - Other objects: using <code>toString()</code> method
+    - Other objects: using :func:`to_string()` method
 
     Example:
 
     .. code-block:: python
     
-        value1 = StringConverter.to_string(123.456) // Result: "123.456"
-        value2 = StringConverter.to_string(true) // Result: "true"
-        value3 = StringConverter.to_string(datetime.datetime(2018,0,1)) // Result: "2018-01-01T00:00:00.00"
-        value4 = StringConverter.to_string([1,2,3]) // Result: "1,2,3"
+        value1 = StringConverter.to_string(123.456) # Result: "123.456"
+        value2 = StringConverter.to_string(true)    # Result: "true"
+        value3 = StringConverter.to_string(datetime.datetime(2018,0,1)) # Result: "2018-01-01T00:00:00.00"
+        value4 = StringConverter.to_string([1,2,3]) # Result: "1,2,3"
     """
     @staticmethod
     def to_nullable_string(value):
