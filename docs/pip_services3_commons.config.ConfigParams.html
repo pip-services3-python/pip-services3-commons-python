@@ -29,6 +29,7 @@
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
@@ -199,9 +200,9 @@ When retrieved the values can be automatically converted on read using GetAsXXX 
 can be extracted from a ConfigMap.</p>
 <p>The ConfigParams supports serialization from/to plain strings as:
 <strong>“key1=123;key2=ABC;key3=2016-09-16T00:00:00.00Z”</strong></p>
-<p>ConfigParams are used to pass configurations to <code class="xref py py-class docutils literal notranslate"><span class="pre">IConfigurable</span></code> objects.
-They also serve as a basis for more concrete configurations such as <code class="xref py py-class docutils literal notranslate"><span class="pre">ConnectionParams</span></code>
-or <code class="xref py py-class docutils literal notranslate"><span class="pre">CredentialParams</span></code> (in the Pip.Services components package).</p>
+<p>ConfigParams are used to pass configurations to <a class="reference internal" href="pip_services3_commons.config.IConfigurable.html#pip_services3_commons.config.IConfigurable.IConfigurable" title="pip_services3_commons.config.IConfigurable.IConfigurable"><code class="xref py py-class docutils literal notranslate"><span class="pre">IConfigurable</span></code></a> objects.
+They also serve as a basis for more concrete configurations such as <a class="reference external" href="https://pip-services3-python.github.io/pip-services3-components-python/pip_services3_components.connect.ConnectionParams.html#pip_services3_components.connect.ConnectionParams.ConnectionParams" title="(in pip-services3-components)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ConnectionParams</span></code></a>
+or <a class="reference external" href="https://pip-services3-python.github.io/pip-services3-components-python/pip_services3_components.auth.CredentialParams.html#pip_services3_components.auth.CredentialParams.CredentialParams" title="(in pip-services3-components)"><code class="xref py py-class docutils literal notranslate"><span class="pre">CredentialParams</span></code></a> (in the Pip.Services components package).</p>
 <p>Example:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">config</span> <span class="o">=</span> <span class="n">ConfigParams</span><span class="o">.</span><span class="n">fromTuples</span><span class="p">(</span><span class="s2">&quot;section1.key1&quot;</span><span class="p">,</span> <span class="s2">&quot;AAA&quot;</span><span class="p">,</span>
                                  <span class="s2">&quot;section1.key2&quot;</span><span class="p">,</span> <span class="mi">123</span><span class="p">,</span>

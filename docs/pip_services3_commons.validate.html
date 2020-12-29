@@ -29,6 +29,7 @@
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
@@ -367,13 +368,13 @@ When one of the rules return errors, than the rules returns all errors.</p>
 <dt id="pip_services3_commons.validate.FilterParamsSchema">
 <em class="property">class </em><code class="sig-prename descclassname">pip_services3_commons.validate.</code><code class="sig-name descname">FilterParamsSchema</code><a class="headerlink" href="#pip_services3_commons.validate.FilterParamsSchema" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="pip_services3_commons.validate.MapSchema.html#pip_services3_commons.validate.MapSchema.MapSchema" title="pip_services3_commons.validate.MapSchema.MapSchema"><code class="xref py py-class docutils literal notranslate"><span class="pre">pip_services3_commons.validate.MapSchema.MapSchema</span></code></a></p>
-<p>Schema to validate <code class="xref py py-class docutils literal notranslate"><span class="pre">FilterParams</span></code>.</p>
+<p>Schema to validate <a class="reference internal" href="pip_services3_commons.data.FilterParams.html#pip_services3_commons.data.FilterParams.FilterParams" title="pip_services3_commons.data.FilterParams.FilterParams"><code class="xref py py-class docutils literal notranslate"><span class="pre">FilterParams</span></code></a>.</p>
 </dd></dl>
 
 <dl class="py class">
 <dt id="pip_services3_commons.validate.IValidationRule">
 <em class="property">class </em><code class="sig-prename descclassname">pip_services3_commons.validate.</code><code class="sig-name descname">IValidationRule</code><a class="headerlink" href="#pip_services3_commons.validate.IValidationRule" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>Interface for validation rules.
 Validation rule can validate one or multiple values
 against complex rules like: value is in range, one property is less than another property,
@@ -486,7 +487,7 @@ When embedded rule return errors, than the rule returns no errors.</p>
 <dl class="py class">
 <dt id="pip_services3_commons.validate.ObjectComparator">
 <em class="property">class </em><code class="sig-prename descclassname">pip_services3_commons.validate.</code><code class="sig-name descname">ObjectComparator</code><a class="headerlink" href="#pip_services3_commons.validate.ObjectComparator" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>Helper class to perform comparison operations over arbitrary values.</p>
 <p>Example:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ObjectComparator</span><span class="o">.</span><span class="n">compare</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;GT&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>        <span class="c1"># Result: true</span>
@@ -767,7 +768,7 @@ When all rules return errors, than the rule returns all errors.</p>
 <dt id="pip_services3_commons.validate.PagingParamsSchema">
 <em class="property">class </em><code class="sig-prename descclassname">pip_services3_commons.validate.</code><code class="sig-name descname">PagingParamsSchema</code><a class="headerlink" href="#pip_services3_commons.validate.PagingParamsSchema" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="pip_services3_commons.validate.ObjectSchema.html#pip_services3_commons.validate.ObjectSchema.ObjectSchema" title="pip_services3_commons.validate.ObjectSchema.ObjectSchema"><code class="xref py py-class docutils literal notranslate"><span class="pre">pip_services3_commons.validate.ObjectSchema.ObjectSchema</span></code></a></p>
-<p>Schema to validate <code class="xref py py-class docutils literal notranslate"><span class="pre">PagingParams</span></code>.</p>
+<p>Schema to validate <a class="reference internal" href="pip_services3_commons.data.PagingParams.html#pip_services3_commons.data.PagingParams.PagingParams" title="pip_services3_commons.data.PagingParams.PagingParams"><code class="xref py py-class docutils literal notranslate"><span class="pre">PagingParams</span></code></a>.</p>
 </dd></dl>
 
 <dl class="py class">
@@ -829,7 +830,7 @@ When all rules return errors, than the rule returns all errors.</p>
 <dl class="py class">
 <dt id="pip_services3_commons.validate.Schema">
 <em class="property">class </em><code class="sig-prename descclassname">pip_services3_commons.validate.</code><code class="sig-name descname">Schema</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">required</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">rules</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.validate.Schema" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>Basic schema that validates values against a set of validation rules.</p>
 <p>This schema is used as a basis for specific schemas to validate
 objects, project properties, arrays and maps.</p>
@@ -888,7 +889,7 @@ to chain additional calls.</p>
 <dl class="py method">
 <dt id="pip_services3_commons.validate.Schema.validate_and_throw_exception">
 <code class="sig-name descname">validate_and_throw_exception</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">correlation_id</span></em>, <em class="sig-param"><span class="n">value</span></em>, <em class="sig-param"><span class="n">strict</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.validate.Schema.validate_and_throw_exception" title="Permalink to this definition">¶</a></dt>
-<dd><p>Validates the given value and throws a <a class="reference internal" href="pip_services3_commons.validate.ValidationException.html#module-pip_services3_commons.validate.ValidationException" title="pip_services3_commons.validate.ValidationException"><code class="xref py py-class docutils literal notranslate"><span class="pre">ValidationException</span></code></a> if errors were found.</p>
+<dd><p>Validates the given value and throws a <a class="reference internal" href="pip_services3_commons.validate.ValidationException.html#pip_services3_commons.validate.ValidationException.ValidationException" title="pip_services3_commons.validate.ValidationException.ValidationException"><code class="xref py py-class docutils literal notranslate"><span class="pre">ValidationException</span></code></a> if errors were found.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -923,7 +924,7 @@ to chain additional calls.</p>
 <em class="property">exception </em><code class="sig-prename descclassname">pip_services3_commons.validate.</code><code class="sig-name descname">ValidationException</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">correlation_id</span></em>, <em class="sig-param"><span class="n">results</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.validate.ValidationException" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="pip_services3_commons.errors.BadRequestException.html#pip_services3_commons.errors.BadRequestException.BadRequestException" title="pip_services3_commons.errors.BadRequestException.BadRequestException"><code class="xref py py-class docutils literal notranslate"><span class="pre">pip_services3_commons.errors.BadRequestException.BadRequestException</span></code></a></p>
 <p>Errors in schema validation.</p>
-<p>Validation errors are usually generated based in <a class="reference internal" href="pip_services3_commons.validate.ValidationResult.html#module-pip_services3_commons.validate.ValidationResult" title="pip_services3_commons.validate.ValidationResult"><code class="xref py py-class docutils literal notranslate"><span class="pre">ValidationResult</span></code></a>.
+<p>Validation errors are usually generated based in <a class="reference internal" href="pip_services3_commons.validate.ValidationResult.html#pip_services3_commons.validate.ValidationResult.ValidationResult" title="pip_services3_commons.validate.ValidationResult.ValidationResult"><code class="xref py py-class docutils literal notranslate"><span class="pre">ValidationResult</span></code></a>.
 If using strict mode, warnings will also raise validation exceptions.</p>
 <dl class="py method">
 <dt id="pip_services3_commons.validate.ValidationException.compose_message">
@@ -960,7 +961,7 @@ If validation results have no errors, than no exception is thrown.</p>
 <dl class="py class">
 <dt id="pip_services3_commons.validate.ValidationResult">
 <em class="property">class </em><code class="sig-prename descclassname">pip_services3_commons.validate.</code><code class="sig-name descname">ValidationResult</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">path</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">type</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">code</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">message</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">expected</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">actual</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.validate.ValidationResult" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>Result generated by schema validation</p>
 <dl class="py attribute">
 <dt id="pip_services3_commons.validate.ValidationResult.actual">
@@ -997,7 +998,7 @@ If validation results have no errors, than no exception is thrown.</p>
 <dl class="py class">
 <dt id="pip_services3_commons.validate.ValidationResultType">
 <em class="property">class </em><code class="sig-prename descclassname">pip_services3_commons.validate.</code><code class="sig-name descname">ValidationResultType</code><a class="headerlink" href="#pip_services3_commons.validate.ValidationResultType" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>Types of validation results generated by validation schemas.</p>
 <dl class="py attribute">
 <dt id="pip_services3_commons.validate.ValidationResultType.Error">

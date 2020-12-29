@@ -13,7 +13,7 @@ class IReferenceable:
     """
     Interface for components that depends on other components.
     If component requires explicit notification to unset references
-    it shall additionally implement :class:`IUnreferenceable` interface.
+    it shall additionally implement :class:`IUnreferenceable <pip_services3_commons.refer.IUnreferenceable.IUnreferenceable>` interface.
 
     Example:
 

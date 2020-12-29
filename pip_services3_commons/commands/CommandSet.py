@@ -50,7 +50,7 @@ class CommandSet(object):
                     handler
                 )
 
-    See :class:`Command`, :class:`Event`, :class:`ICommandable`
+    See :class:`Command <pip_services3_commons.commands.Command.Command>`, :class:`Event <pip_services3_commons.commands.Event.Event>`, :class:`ICommandable <pip_services3_commons.commands.ICommandable.ICommandable>`
     """
 
     _commands = None
@@ -73,7 +73,7 @@ class CommandSet(object):
         """
         Gets all commands registered in this command set.
 
-        :return: :class:`ICommand` list with all commands supported by component.
+        :return: :class:`ICommand <pip_services3_commons.commands.ICommand.ICommand>` list with all commands supported by component.
         """
         return self._commands
 
@@ -81,7 +81,7 @@ class CommandSet(object):
         """
         Gets all events registered in this command set.
 
-        :return: :class:`ICommand` list with all events supported by component.
+        :return: :class:`ICommand <pip_services3_commons.commands.ICommand.ICommand>` list with all events supported by component.
         """
         return self._events
 
@@ -145,7 +145,7 @@ class CommandSet(object):
 
     def add_commands(self, commands):
         """
-        Adds multiple :class:`ICommand` commands to this command set.
+        Adds multiple :class:`ICommand <pip_services3_commons.commands.ICommand.ICommand>` commands to this command set.
         
         :param commands: the array of commands to add.
         """
@@ -154,7 +154,7 @@ class CommandSet(object):
 
     def add_event(self, event):
         """
-        Adds an :class:`IEvent` event to this command set.
+        Adds an :class:`IEvent <pip_services3_commons.commands.IEvent.IEvent>` event to this command set.
         
         :param event: an event instance to be added
         """
@@ -163,7 +163,7 @@ class CommandSet(object):
 
     def add_events(self, events):
         """
-        Adds multiple :class:`IEvent` events to this command set.
+        Adds multiple :class:`IEvent <pip_services3_commons.commands.IEvent.IEvent>` events to this command set.
         
         :param events: the array of events to add.
         """
@@ -185,7 +185,7 @@ class CommandSet(object):
 
     def add_interceptor(self, intercepter):
         """
-        Adds a :class:`ICommandInterceptor` command interceptor to this command set.
+        Adds a :class:`ICommandIntercepter <pip_services3_commons.commands.ICommandIntercepterICommandIntercepter>` command interceptor to this command set.
         
         :param intercepter: an intercepter instance to be added.
         """
@@ -194,7 +194,7 @@ class CommandSet(object):
 
     def execute(self, correlation_id, command, args):
         """
-        Executes a :class:`ICommand` command specificed by its name.
+        Executes a :class:`ICommand <pip_services3_commons.commands.ICommand.ICommand>` command specificed by its name.
         
         :param correlation_id: (optional) transaction id to trace execution through call chain.
 
@@ -257,7 +257,7 @@ class CommandSet(object):
     
     def add_listener(self, listener):
         """
-        Adds a :class:`IEventListener` listener to receive notifications on fired events.
+        Adds a :class:`IEventListener <pip_services3_commons.commands.IEventListener.IEventListener>` listener to receive notifications on fired events.
 
         :param listener: a listener to be added
         """
@@ -266,7 +266,7 @@ class CommandSet(object):
 
     def remove_listener(self, listener):
         """
-        Removes previosly added :class:`IEventListener` listener.
+        Removes previosly added :class:`IEventListener <pip_services3_commons.commands.IEventListener.IEventListener>` listener.
 
         :param listener: a listener to be removed
         """
@@ -276,7 +276,7 @@ class CommandSet(object):
     def notify(self, correlation_id, event, value):
         """
         Fires event specified by its name and notifies all registered
-        :class:`IEventListener` listeners
+        :class:`IEventListener <pip_services3_commons.commands.IEventListener.IEventListener>` listeners
 
         :param correlation_id: (optional) transaction id to trace execution through call chain.
 

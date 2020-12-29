@@ -14,7 +14,7 @@ from .MapSchema import MapSchema
 
 class FilterParamsSchema(MapSchema):
     """
-    Schema to validate :class:`FilterParams`.
+    Schema to validate :class:`FilterParams <pip_services3_commons.data.FilterParams.FilterParams>`.
     """
     def __init__(self):
         """

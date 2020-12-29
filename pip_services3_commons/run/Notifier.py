@@ -20,7 +20,7 @@ class Notifier:
     def notify_one(correlation_id, component, args):
         """
         Notifies specific component.
-        To be notiied components must implement :class:`INotifiable` interface.
+        To be notiied components must implement :class:`INotifiable <pip_services3_commons.run.INotifiable.INotifiable>` interface.
         If they don't the call to this method has no effect.
 
         :param correlation_id: (optional) transaction id to trace execution through call chain.
@@ -40,7 +40,7 @@ class Notifier:
         """
         Notifies multiple components.
 
-        To be notified components must implement :class:`INotifiable` interface.
+        To be notified components must implement :class:`INotifiable <pip_services3_commons.run.INotifiable.INotifiable>` interface.
         If they don't the call to this method has no effect.
 
         :param correlation_id: (optional) transaction id to trace execution through call chain.

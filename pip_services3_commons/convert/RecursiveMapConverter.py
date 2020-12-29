@@ -13,7 +13,7 @@
 class RecursiveMapConverter():
     """
     Converts arbitrary values into map objects using extended conversion rules.
-    This class is similar to :class:`MapConverter`, but is recursively converts all values stored in objects and arrays.
+    This class is similar to :class:`MapConverter <pip_services3_commons.convert.MapConverter.MapConverter>`, but is recursively converts all values stored in objects and arrays.
 
     Example:
 

@@ -14,7 +14,7 @@ from ..errors.InvocationException import InvocationException
 
 class Event(IEvent):
     """
-    Concrete implementation of :class:`IEvent` interface.
+    Concrete implementation of :class:`IEvent <pip_services3_commons.commands.IEvent.IEvent>` interface.
     It allows to send asynchronous notifications to multiple subscribed listeners.
 
     Example:
@@ -27,7 +27,7 @@ class Event(IEvent):
 
         event.notify("123", Parameters.fromTuples("param1", "ABC", "param2", 123)
 
-    See :class:`IEvent`, :class:`IEventListener`
+    See :class:`IEvent <pip_services3_commons.commands.IEvent.IEvent>`, :class:`IEventListener <pip_services3_commons.commands.IEventListener.IEventListener>`
     """
 
     _name = None

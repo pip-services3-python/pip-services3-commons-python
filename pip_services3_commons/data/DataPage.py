@@ -15,7 +15,7 @@ class DataPage():
     It contains items of retrieved page and optional total number of items.
 
     Most often this object type is used to send responses to paginated queries.
-    Pagination parameters are defined by :class:`PagingParams` object.
+    Pagination parameters are defined by :class:`PagingParams <pip_services3_commons.data.PagingParams.PagingParams>` object.
     The :func:`skip` parameter in the PagingParams there means how many items to skip.
     The :func:`takes` parameter sets number of items to return in the page.
     And the optional :func:`total` parameter tells to return total number of items in the query.

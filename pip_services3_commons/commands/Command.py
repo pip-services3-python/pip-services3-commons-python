@@ -14,7 +14,7 @@ from ..errors.InvocationException import InvocationException
 
 class Command(ICommand):
     """
-    Concrete implementation of :class:`ICommand` interface.
+    Concrete implementation of :class:`ICommand <pip_services3_commons.commands.ICommand.ICommand>` interface.
     Command allows to call a method or function using Command pattern.
 
     Example:
@@ -32,7 +32,7 @@ class Command(ICommand):
 
         print result.__str__()
 
-    See :class:`ICommand`, :class:`CommandSet`
+    See :class:`ICommand <pip_services3_commons.commands.ICommand.ICommand>`, :class:`CommandSet <pip_services3_commons.commands.CommandSet.CommandSet>`
     """
 
     _name = None
@@ -69,7 +69,7 @@ class Command(ICommand):
     def execute(self, correlation_id, args):
         """
         Executes the command. Before execution is validates Parameters args using the
-        defined schema. The command execution intercepts :class:`ApplicationException` raised
+        defined schema. The command execution intercepts :class:`ApplicationException <pip_services3_commons.errors.ApplicationException.ApplicationException>` raised
         by the called function and throws them.
         
         :param correlation_id: (optional) transaction id to trace execution through call chain.
@@ -102,7 +102,7 @@ class Command(ICommand):
         
         :param args: the parameters (arguments) to validate using this command's schema.
         
-        :return: an array of :class:`ValidationResults` or an empty array (if no schema is set).
+        :return: an array of :class:`ValidationResult <pip_services3_commons.validate.ValidationResult.ValidationResult>` or an empty array (if no schema is set).
         """
         # When schema is not defined, then skip validation
         if not (self._schema is None): 

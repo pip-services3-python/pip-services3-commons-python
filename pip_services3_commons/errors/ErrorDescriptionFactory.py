@@ -17,7 +17,7 @@ from .ApplicationException import ApplicationException
 
 class ErrorDescriptionFactory(object):
     """
-    Factory to create serializeable :class:`ErrorDescription` from :class:`ApplicationException`
+    Factory to create serializeable :class:`ErrorDescription <pip_services3_commons.errors.ErrorDescription.ErrorDescription>` from :class:`ApplicationException <pip_services3_commons.errors.ApplicationException.ApplicationException>`
     or from arbitrary errors.
 
     The ErrorDescriptions are used to pass errors through the wire between microservices

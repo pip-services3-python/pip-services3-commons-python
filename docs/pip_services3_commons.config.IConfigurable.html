@@ -29,6 +29,7 @@
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
@@ -189,12 +190,12 @@
 <dl class="py class">
 <dt id="pip_services3_commons.config.IConfigurable.IConfigurable">
 <em class="property">class </em><code class="sig-prename descclassname">pip_services3_commons.config.IConfigurable.</code><code class="sig-name descname">IConfigurable</code><a class="headerlink" href="#pip_services3_commons.config.IConfigurable.IConfigurable" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <blockquote>
 <div><p>An interface to set configuration parameters to an object.</p>
 <p>It can be added to any existing class by implementing a single <a class="reference internal" href="pip_services3_commons.config.html#pip_services3_commons.config.IConfigurable.configure" title="pip_services3_commons.config.IConfigurable.configure"><code class="xref py py-func docutils literal notranslate"><span class="pre">configure()</span></code></a> method.</p>
 <p>If you need to emphasis the fact that <a class="reference internal" href="pip_services3_commons.config.html#pip_services3_commons.config.IConfigurable.configure" title="pip_services3_commons.config.IConfigurable.configure"><code class="xref py py-func docutils literal notranslate"><span class="pre">configure()</span></code></a> method can be called multiple times
-to change object configuration in runtime, use <code class="xref py py-class docutils literal notranslate"><span class="pre">IReconfigurable</span></code> interface instead.</p>
+to change object configuration in runtime, use <a class="reference internal" href="pip_services3_commons.config.IReconfigurable.html#pip_services3_commons.config.IReconfigurable.IReconfigurable" title="pip_services3_commons.config.IReconfigurable.IReconfigurable"><code class="xref py py-class docutils literal notranslate"><span class="pre">IReconfigurable</span></code></a> interface instead.</p>
 <p>Example:</p>
 </div></blockquote>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MyClass</span><span class="p">(</span><span class="n">IConfigurable</span><span class="p">):</span>

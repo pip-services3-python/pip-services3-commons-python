@@ -29,6 +29,7 @@
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
@@ -190,7 +191,7 @@
 <dt id="pip_services3_commons.commands.Command.Command">
 <em class="property">class </em><code class="sig-prename descclassname">pip_services3_commons.commands.Command.</code><code class="sig-name descname">Command</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span></em>, <em class="sig-param"><span class="n">schema</span></em>, <em class="sig-param"><span class="n">function</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.commands.Command.Command" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="pip_services3_commons.commands.ICommand.html#pip_services3_commons.commands.ICommand.ICommand" title="pip_services3_commons.commands.ICommand.ICommand"><code class="xref py py-class docutils literal notranslate"><span class="pre">pip_services3_commons.commands.ICommand.ICommand</span></code></a></p>
-<p>Concrete implementation of <code class="xref py py-class docutils literal notranslate"><span class="pre">ICommand</span></code> interface.
+<p>Concrete implementation of <a class="reference internal" href="pip_services3_commons.commands.ICommand.html#pip_services3_commons.commands.ICommand.ICommand" title="pip_services3_commons.commands.ICommand.ICommand"><code class="xref py py-class docutils literal notranslate"><span class="pre">ICommand</span></code></a> interface.
 Command allows to call a method or function using Command pattern.</p>
 <p>Example:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">handler</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
@@ -205,12 +206,12 @@ Command allows to call a method or function using Command pattern.</p>
 <span class="nb">print</span> <span class="n">result</span><span class="o">.</span><span class="fm">__str__</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>See <code class="xref py py-class docutils literal notranslate"><span class="pre">ICommand</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">CommandSet</span></code></p>
+<p>See <a class="reference internal" href="pip_services3_commons.commands.ICommand.html#pip_services3_commons.commands.ICommand.ICommand" title="pip_services3_commons.commands.ICommand.ICommand"><code class="xref py py-class docutils literal notranslate"><span class="pre">ICommand</span></code></a>, <a class="reference internal" href="pip_services3_commons.commands.CommandSet.html#pip_services3_commons.commands.CommandSet.CommandSet" title="pip_services3_commons.commands.CommandSet.CommandSet"><code class="xref py py-class docutils literal notranslate"><span class="pre">CommandSet</span></code></a></p>
 <dl class="py method">
 <dt id="pip_services3_commons.commands.Command.Command.execute">
 <code class="sig-name descname">execute</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">correlation_id</span></em>, <em class="sig-param"><span class="n">args</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.commands.Command.Command.execute" title="Permalink to this definition">¶</a></dt>
 <dd><p>Executes the command. Before execution is validates Parameters args using the
-defined schema. The command execution intercepts <code class="xref py py-class docutils literal notranslate"><span class="pre">ApplicationException</span></code> raised
+defined schema. The command execution intercepts <a class="reference internal" href="pip_services3_commons.errors.ApplicationException.html#pip_services3_commons.errors.ApplicationException.ApplicationException" title="pip_services3_commons.errors.ApplicationException.ApplicationException"><code class="xref py py-class docutils literal notranslate"><span class="pre">ApplicationException</span></code></a> raised
 by the called function and throws them.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -248,7 +249,7 @@ by the called function and throws them.</p>
 <dd class="field-odd"><p><strong>args</strong> – the parameters (arguments) to validate using this command’s schema.</p>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>an array of <code class="xref py py-class docutils literal notranslate"><span class="pre">ValidationResults</span></code> or an empty array (if no schema is set).</p>
+<dd class="field-even"><p>an array of <a class="reference internal" href="pip_services3_commons.validate.ValidationResult.html#pip_services3_commons.validate.ValidationResult.ValidationResult" title="pip_services3_commons.validate.ValidationResult.ValidationResult"><code class="xref py py-class docutils literal notranslate"><span class="pre">ValidationResult</span></code></a> or an empty array (if no schema is set).</p>
 </dd>
 </dl>
 </dd></dl>
