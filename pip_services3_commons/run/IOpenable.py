@@ -14,7 +14,7 @@ from .IClosable import IClosable
 class IOpenable(IClosable):
     """
     Interface for components that require explicit opening and closing.
-    For components that perform opening on demand consider using :class:`ICloseable` interface instead.
+    For components that perform opening on demand consider using :class:`IClosable <pip_services3_commons.run.IClosable.IClosable>` interface instead.
     """
 
     def is_opened(self):

@@ -132,7 +132,7 @@ class MultiString(dict):
 
         :param value: the value to initialize MultiString.
         :return: a MultiString object.
-        :see :class:`StringValueMap`
+        See :class:`StringValueMap <pip_services3_commons.data.StringValueMap.StringValueMap>`
         """
         return MultiString(value)
 
@@ -143,7 +143,7 @@ class MultiString(dict):
 
         :param tuples: an array that contains language-translation tuples.
         :return: a MultiString Object.
-        :see :class:`fromTuplesArray`
+        :see :class:`from_tuples_array`
         """
         return MultiString.from_tuples_array(tuples)
 

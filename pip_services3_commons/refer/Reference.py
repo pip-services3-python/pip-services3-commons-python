@@ -12,7 +12,7 @@
 class Reference(object):
     """
     Contains a reference to a component and locator to find it.
-    It is used by :class:`References` to store registered component references.
+    It is used by :class:`References <pip_services3_commons.refer.References.References>` to store registered component references.
     """
 
     _locator = None

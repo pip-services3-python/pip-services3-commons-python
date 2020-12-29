@@ -29,6 +29,7 @@
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
@@ -189,13 +190,13 @@
 <dl class="py class">
 <dt id="pip_services3_commons.run.Opener.Opener">
 <em class="property">class </em><code class="sig-prename descclassname">pip_services3_commons.run.Opener.</code><code class="sig-name descname">Opener</code><a class="headerlink" href="#pip_services3_commons.run.Opener.Opener" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>Helper class that opens components.</p>
 <dl class="py method">
 <dt id="pip_services3_commons.run.Opener.Opener.is_opened">
 <em class="property">static </em><code class="sig-name descname">is_opened</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">components</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.run.Opener.Opener.is_opened" title="Permalink to this definition">¶</a></dt>
 <dd><p>Checks if all components are opened.</p>
-<p>To be checked components must implement <code class="xref py py-class docutils literal notranslate"><span class="pre">IOpenable</span></code> interface.
+<p>To be checked components must implement <a class="reference internal" href="pip_services3_commons.run.IOpenable.html#pip_services3_commons.run.IOpenable.IOpenable" title="pip_services3_commons.run.IOpenable.IOpenable"><code class="xref py py-class docutils literal notranslate"><span class="pre">IOpenable</span></code></a> interface.
 If they don’t the call to this method returns true.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -211,7 +212,7 @@ If they don’t the call to this method returns true.</p>
 <dt id="pip_services3_commons.run.Opener.Opener.is_opened_one">
 <em class="property">static </em><code class="sig-name descname">is_opened_one</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">component</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.run.Opener.Opener.is_opened_one" title="Permalink to this definition">¶</a></dt>
 <dd><p>Checks if specified component is opened.</p>
-<p>To be checked components must implement <code class="xref py py-class docutils literal notranslate"><span class="pre">IOpenable</span></code> interface.
+<p>To be checked components must implement <a class="reference internal" href="pip_services3_commons.run.IOpenable.html#pip_services3_commons.run.IOpenable.IOpenable" title="pip_services3_commons.run.IOpenable.IOpenable"><code class="xref py py-class docutils literal notranslate"><span class="pre">IOpenable</span></code></a> interface.
 If they don’t the call to this method returns true.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -227,7 +228,7 @@ If they don’t the call to this method returns true.</p>
 <dt id="pip_services3_commons.run.Opener.Opener.open">
 <em class="property">static </em><code class="sig-name descname">open</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">correlation_id</span></em>, <em class="sig-param"><span class="n">components</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.run.Opener.Opener.open" title="Permalink to this definition">¶</a></dt>
 <dd><p>Opens multiple components.</p>
-<p>To be opened components must implement <code class="xref py py-class docutils literal notranslate"><span class="pre">IOpenable</span></code> interface.
+<p>To be opened components must implement <a class="reference internal" href="pip_services3_commons.run.IOpenable.html#pip_services3_commons.run.IOpenable.IOpenable" title="pip_services3_commons.run.IOpenable.IOpenable"><code class="xref py py-class docutils literal notranslate"><span class="pre">IOpenable</span></code></a> interface.
 If they don’t the call to this method has no effect.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -243,7 +244,7 @@ If they don’t the call to this method has no effect.</p>
 <dt id="pip_services3_commons.run.Opener.Opener.open_one">
 <em class="property">static </em><code class="sig-name descname">open_one</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">correlation_id</span></em>, <em class="sig-param"><span class="n">component</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.run.Opener.Opener.open_one" title="Permalink to this definition">¶</a></dt>
 <dd><p>Opens specific component.</p>
-<p>To be opened components must implement <code class="xref py py-class docutils literal notranslate"><span class="pre">IOpenable</span></code> interface.
+<p>To be opened components must implement <a class="reference internal" href="pip_services3_commons.run.IOpenable.html#pip_services3_commons.run.IOpenable.IOpenable" title="pip_services3_commons.run.IOpenable.IOpenable"><code class="xref py py-class docutils literal notranslate"><span class="pre">IOpenable</span></code></a> interface.
 If they don’t the call to this method has no effect.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>

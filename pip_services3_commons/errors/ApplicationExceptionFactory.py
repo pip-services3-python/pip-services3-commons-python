@@ -26,7 +26,7 @@ from .UnsupportedException import UnsupportedException
 
 class ApplicationExceptionFactory(object):
     """
-    Factory to recreate exceptions from :class:`ErrorDescription` values passed through the wire.
+    Factory to recreate exceptions from :class:`ErrorDescription <pip_services3_commons.errors.ErrorDescription.ErrorDescription>` values passed through the wire.
     """
     @staticmethod
     def create(description):

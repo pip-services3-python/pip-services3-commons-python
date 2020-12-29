@@ -16,7 +16,7 @@ class IConfigurable:
      It can be added to any existing class by implementing a single :func:`configure()` method.
 
      If you need to emphasis the fact that :func:`configure()` method can be called multiple times
-     to change object configuration in runtime, use :class:`IReconfigurable` interface instead.
+     to change object configuration in runtime, use :class:`IReconfigurable <pip_services3_commons.config.IReconfigurable.IReconfigurable>` interface instead.
 
      Example:
 

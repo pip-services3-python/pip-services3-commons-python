@@ -21,7 +21,7 @@ class Executor:
     def execute_one(correlation_id, component, args):
         """
         Executes specific component.
-        To be executed components must implement :class:`IExecutable` interface.
+        To be executed components must implement :class:`IExecutable <pip_services3_commons.run.IExecutable.IExecutable>` interface.
         If they don't the call to this method has no effect.
 
         :param correlation_id: (optional) transaction id to trace execution through call chain.
@@ -42,7 +42,7 @@ class Executor:
         """
         Executes multiple components.
 
-        To be executed components must implement :class:`IExecutable` interface.
+        To be executed components must implement :class:`IExecutable <pip_services3_commons.run.IExecutable.IExecutable>` interface.
         If they don't the call to this method has no effect.
 
         :param correlation_id: (optional) transaction id to trace execution through call chain.

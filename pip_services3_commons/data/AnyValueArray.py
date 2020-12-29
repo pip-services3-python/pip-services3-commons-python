@@ -84,11 +84,11 @@ class AnyValueArray(list):
 
     def get_as_array(self, index):
         """
-        Converts array element into an :class:`AnyValueArray` or returns empty :class:`AnyValueArray` if conversion is not possible.
+        Converts array element into an :class:`AnyValueArray <pip_services3_commons.data.AnyValueArray.AnyValueArray>` or returns empty :class:`AnyValueArray <pip_services3_commons.data.AnyValueArray.AnyValueArray>` if conversion is not possible.
 
         :param index: an index of element to get.
 
-        :return: :class:`AnyValueArray` value of the element or empty :class:`AnyValueArray` if conversion is not supported.
+        :return: :class:`AnyValueArray <pip_services3_commons.data.AnyValueArray.AnyValueArray>` value of the element or empty :class:`AnyValueArray <pip_services3_commons.data.AnyValueArray.AnyValueArray>` if conversion is not supported.
         """
         if index is None:
             array = []
@@ -357,11 +357,11 @@ class AnyValueArray(list):
 
     def get_as_map(self, index):
         """
-        Converts array element into an :class:`AnyValueMap` or returns empty :class:`AnyValueMap` if conversion is not possible.
+        Converts array element into an :class:`AnyValueMap <pip_services3_commons.data.AnyValueMap.AnyValueMap>` or returns empty :class:`AnyValueMap <pip_services3_commons.data.AnyValueMap.AnyValueMap>` if conversion is not possible.
 
         :param index: an index of element to get.
 
-        :return: :class:`AnyValueMap` value of the element or empty :class:`AnyValueMap` if conversion is not supported.
+        :return: :class:`AnyValueMap <pip_services3_commons.data.AnyValueMap.AnyValueMap>` value of the element or empty :class:`AnyValueMap <pip_services3_commons.data.AnyValueMap.AnyValueMap>` if conversion is not supported.
         """
         value = self[index]
         return AnyValueMap.from_value(value)
@@ -448,22 +448,22 @@ class AnyValueArray(list):
     @staticmethod
     def from_values(*values):
         """
-        Creates a new :class:`AnyValueArray` from a list of values
+        Creates a new :class:`AnyValueArray <pip_services3_commons.data.AnyValueArray.AnyValueArray>` from a list of values
 
-        :param values: a list of values to initialize the created :class:`AnyValueArray`
+        :param values: a list of values to initialize the created :class:`AnyValueArray <pip_services3_commons.data.AnyValueArray.AnyValueArray>`
 
-        :return: a newly created :class:`AnyValueArray`.
+        :return: a newly created :class:`AnyValueArray <pip_services3_commons.data.AnyValueArray.AnyValueArray>`.
         """
         return AnyValueArray(values)
 
     @staticmethod
     def from_value(value):
         """
-        Converts specified value into :class:`AnyValueArray`.
+        Converts specified value into :class:`AnyValueArray <pip_services3_commons.data.AnyValueArray.AnyValueArray>`.
 
         :param value: value to be converted
 
-        :return: a newly created :class:`AnyValueArray`.
+        :return: a newly created :class:`AnyValueArray <pip_services3_commons.data.AnyValueArray.AnyValueArray>`.
         """
         value = ArrayConverter.to_nullable_array(value)
         if not (value is None):

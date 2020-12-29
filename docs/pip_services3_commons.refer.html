@@ -29,6 +29,7 @@
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
@@ -350,7 +351,7 @@ where key is dependency name and value the depedency locator (descriptor).</p>
 <dt id="pip_services3_commons.refer.DependencyResolver.get_one_required">
 <code class="sig-name descname">get_one_required</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.refer.DependencyResolver.get_one_required" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets one required dependency by its name.
-At least one dependency must present. If the dependency was found it throws a <a class="reference internal" href="pip_services3_commons.refer.ReferenceException.html#module-pip_services3_commons.refer.ReferenceException" title="pip_services3_commons.refer.ReferenceException"><code class="xref py py-class docutils literal notranslate"><span class="pre">ReferenceException</span></code></a></p>
+At least one dependency must present. If the dependency was found it throws a <a class="reference internal" href="pip_services3_commons.refer.ReferenceException.html#pip_services3_commons.refer.ReferenceException.ReferenceException" title="pip_services3_commons.refer.ReferenceException.ReferenceException"><code class="xref py py-class docutils literal notranslate"><span class="pre">ReferenceException</span></code></a></p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>name</strong> – the dependency name to locate.</p>
@@ -379,7 +380,7 @@ At least one dependency must present. If the dependency was found it throws a <a
 <dt id="pip_services3_commons.refer.DependencyResolver.get_required">
 <code class="sig-name descname">get_required</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.refer.DependencyResolver.get_required" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets all required dependencies by their name.
-At least one dependency must be present. If no dependencies was found it throws a <a class="reference internal" href="pip_services3_commons.refer.ReferenceException.html#module-pip_services3_commons.refer.ReferenceException" title="pip_services3_commons.refer.ReferenceException"><code class="xref py py-class docutils literal notranslate"><span class="pre">ReferenceException</span></code></a></p>
+At least one dependency must be present. If no dependencies was found it throws a <a class="reference internal" href="pip_services3_commons.refer.ReferenceException.html#pip_services3_commons.refer.ReferenceException.ReferenceException" title="pip_services3_commons.refer.ReferenceException.ReferenceException"><code class="xref py py-class docutils literal notranslate"><span class="pre">ReferenceException</span></code></a></p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>name</strong> – the dependency name to locate.</p>
@@ -420,7 +421,7 @@ At least one dependency must be present. If no dependencies was found it throws 
 <dl class="py class">
 <dt id="pip_services3_commons.refer.Descriptor">
 <em class="property">class </em><code class="sig-prename descclassname">pip_services3_commons.refer.</code><code class="sig-name descname">Descriptor</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">group</span></em>, <em class="sig-param"><span class="n">type</span></em>, <em class="sig-param"><span class="n">kind</span></em>, <em class="sig-param"><span class="n">name</span></em>, <em class="sig-param"><span class="n">version</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.refer.Descriptor" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>Locator type that most often used in PipServices toolkit.
 It locates components using several fields:</p>
 <blockquote>
@@ -568,10 +569,10 @@ Fields that contain “*” or null are excluded from the match.</p>
 <dl class="py class">
 <dt id="pip_services3_commons.refer.IReferenceable">
 <em class="property">class </em><code class="sig-prename descclassname">pip_services3_commons.refer.</code><code class="sig-name descname">IReferenceable</code><a class="headerlink" href="#pip_services3_commons.refer.IReferenceable" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>Interface for components that depends on other components.
 If component requires explicit notification to unset references
-it shall additionally implement <a class="reference internal" href="pip_services3_commons.refer.IUnreferenceable.html#module-pip_services3_commons.refer.IUnreferenceable" title="pip_services3_commons.refer.IUnreferenceable"><code class="xref py py-class docutils literal notranslate"><span class="pre">IUnreferenceable</span></code></a> interface.</p>
+it shall additionally implement <a class="reference internal" href="pip_services3_commons.refer.IUnreferenceable.html#pip_services3_commons.refer.IUnreferenceable.IUnreferenceable" title="pip_services3_commons.refer.IUnreferenceable.IUnreferenceable"><code class="xref py py-class docutils literal notranslate"><span class="pre">IUnreferenceable</span></code></a> interface.</p>
 <p>Example:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MyController</span><span class="p">(</span><span class="n">IReferenceable</span><span class="p">):</span>
     <span class="n">_persistence</span> <span class="o">=</span> <span class="kc">None</span>
@@ -596,16 +597,16 @@ it shall additionally implement <a class="reference internal" href="pip_services
 <dl class="py class">
 <dt id="pip_services3_commons.refer.IReferences">
 <em class="property">class </em><code class="sig-prename descclassname">pip_services3_commons.refer.</code><code class="sig-name descname">IReferences</code><a class="headerlink" href="#pip_services3_commons.refer.IReferences" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>Interface for a map that holds component references and passes them to components
 to establish dependencies with each other.</p>
-<p>Together with <a class="reference internal" href="pip_services3_commons.refer.IReferenceable.html#module-pip_services3_commons.refer.IReferenceable" title="pip_services3_commons.refer.IReferenceable"><code class="xref py py-class docutils literal notranslate"><span class="pre">IReferenceable</span></code></a> and <a class="reference internal" href="pip_services3_commons.refer.IUnreferenceable.html#module-pip_services3_commons.refer.IUnreferenceable" title="pip_services3_commons.refer.IUnreferenceable"><code class="xref py py-class docutils literal notranslate"><span class="pre">IUnreferenceable</span></code></a> interfaces it implements
+<p>Together with <a class="reference internal" href="pip_services3_commons.refer.IReferenceable.html#pip_services3_commons.refer.IReferenceable.IReferenceable" title="pip_services3_commons.refer.IReferenceable.IReferenceable"><code class="xref py py-class docutils literal notranslate"><span class="pre">IReferenceable</span></code></a> and <a class="reference internal" href="pip_services3_commons.refer.IUnreferenceable.html#pip_services3_commons.refer.IUnreferenceable.IUnreferenceable" title="pip_services3_commons.refer.IUnreferenceable.IUnreferenceable"><code class="xref py py-class docutils literal notranslate"><span class="pre">IUnreferenceable</span></code></a> interfaces it implements
 a Locator pattern that is used by PipServices toolkit for Inversion of Control
 to assign external dependencies to components.</p>
 <p>The IReferences object is a simple map, where keys are locators
 and values are component references. It allows to add, remove and find components
 by their locators. Locators can be any values like integers, strings or component types.
-But most often PipServices toolkit uses <a class="reference internal" href="pip_services3_commons.refer.Descriptor.html#module-pip_services3_commons.refer.Descriptor" title="pip_services3_commons.refer.Descriptor"><code class="xref py py-class docutils literal notranslate"><span class="pre">Descriptor</span></code></a> as locators that match
+But most often PipServices toolkit uses <a class="reference internal" href="pip_services3_commons.refer.Descriptor.html#pip_services3_commons.refer.Descriptor.Descriptor" title="pip_services3_commons.refer.Descriptor.Descriptor"><code class="xref py py-class docutils literal notranslate"><span class="pre">Descriptor</span></code></a> as locators that match
 by 5 fields: group, type, kind, name and version.</p>
 <p>Example:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MyController</span><span class="p">(</span><span class="n">IReferences</span><span class="p">):</span>
@@ -638,7 +639,7 @@ by 5 fields: group, type, kind, name and version.</p>
 <dd class="field-even"><p>a list with matching component references.</p>
 </dd>
 <dt class="field-odd">Raises</dt>
-<dd class="field-odd"><p>a <a class="reference internal" href="pip_services3_commons.refer.ReferenceException.html#module-pip_services3_commons.refer.ReferenceException" title="pip_services3_commons.refer.ReferenceException"><code class="xref py py-class docutils literal notranslate"><span class="pre">ReferenceException</span></code></a> when required is set to true but no references found.</p>
+<dd class="field-odd"><p>a <a class="reference internal" href="pip_services3_commons.refer.ReferenceException.html#pip_services3_commons.refer.ReferenceException.ReferenceException" title="pip_services3_commons.refer.ReferenceException.ReferenceException"><code class="xref py py-class docutils literal notranslate"><span class="pre">ReferenceException</span></code></a> when required is set to true but no references found.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -696,7 +697,7 @@ by 5 fields: group, type, kind, name and version.</p>
 <dd class="field-even"><p>a matching component reference.</p>
 </dd>
 <dt class="field-odd">Raises</dt>
-<dd class="field-odd"><p>a <a class="reference internal" href="pip_services3_commons.refer.ReferenceException.html#module-pip_services3_commons.refer.ReferenceException" title="pip_services3_commons.refer.ReferenceException"><code class="xref py py-class docutils literal notranslate"><span class="pre">ReferenceException</span></code></a> when no references found.</p>
+<dd class="field-odd"><p>a <a class="reference internal" href="pip_services3_commons.refer.ReferenceException.html#pip_services3_commons.refer.ReferenceException.ReferenceException" title="pip_services3_commons.refer.ReferenceException.ReferenceException"><code class="xref py py-class docutils literal notranslate"><span class="pre">ReferenceException</span></code></a> when no references found.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -728,7 +729,7 @@ At least one component reference must be present. If it doesn’t the method thr
 <dd class="field-even"><p>a list with matching component references.</p>
 </dd>
 <dt class="field-odd">Raises</dt>
-<dd class="field-odd"><p>a <a class="reference internal" href="pip_services3_commons.refer.ReferenceException.html#module-pip_services3_commons.refer.ReferenceException" title="pip_services3_commons.refer.ReferenceException"><code class="xref py py-class docutils literal notranslate"><span class="pre">ReferenceException</span></code></a> when no references found.</p>
+<dd class="field-odd"><p>a <a class="reference internal" href="pip_services3_commons.refer.ReferenceException.html#pip_services3_commons.refer.ReferenceException.ReferenceException" title="pip_services3_commons.refer.ReferenceException.ReferenceException"><code class="xref py py-class docutils literal notranslate"><span class="pre">ReferenceException</span></code></a> when no references found.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -768,7 +769,7 @@ When all references shall be removed, use :func:remove_all method instead.</p>
 <dl class="py class">
 <dt id="pip_services3_commons.refer.IUnreferenceable">
 <em class="property">class </em><code class="sig-prename descclassname">pip_services3_commons.refer.</code><code class="sig-name descname">IUnreferenceable</code><a class="headerlink" href="#pip_services3_commons.refer.IUnreferenceable" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>Interface for components that require explicit clearing of references to dependent components.</p>
 <p>Example:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MyController</span><span class="p">(</span><span class="n">IReferenceable</span><span class="p">):</span>
@@ -792,9 +793,9 @@ When all references shall be removed, use :func:remove_all method instead.</p>
 <dl class="py class">
 <dt id="pip_services3_commons.refer.Reference">
 <em class="property">class </em><code class="sig-prename descclassname">pip_services3_commons.refer.</code><code class="sig-name descname">Reference</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">locator</span></em>, <em class="sig-param"><span class="n">component</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.refer.Reference" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>Contains a reference to a component and locator to find it.
-It is used by <a class="reference internal" href="pip_services3_commons.refer.References.html#module-pip_services3_commons.refer.References" title="pip_services3_commons.refer.References"><code class="xref py py-class docutils literal notranslate"><span class="pre">References</span></code></a> to store registered component references.</p>
+It is used by <a class="reference internal" href="pip_services3_commons.refer.References.html#pip_services3_commons.refer.References.References" title="pip_services3_commons.refer.References.References"><code class="xref py py-class docutils literal notranslate"><span class="pre">References</span></code></a> to store registered component references.</p>
 <dl class="py method">
 <dt id="pip_services3_commons.refer.Reference.get_component">
 <code class="sig-name descname">get_component</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.refer.Reference.get_component" title="Permalink to this definition">¶</a></dt>
@@ -844,13 +845,13 @@ All other locator types are matched using direct comparison.</p>
 <dl class="py class">
 <dt id="pip_services3_commons.refer.Referencer">
 <em class="property">class </em><code class="sig-prename descclassname">pip_services3_commons.refer.</code><code class="sig-name descname">Referencer</code><a class="headerlink" href="#pip_services3_commons.refer.Referencer" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>Helper class that sets and unsets references to components.</p>
 <dl class="py method">
 <dt id="pip_services3_commons.refer.Referencer.set_references">
 <em class="property">static </em><code class="sig-name descname">set_references</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">references</span></em>, <em class="sig-param"><span class="n">components</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.refer.Referencer.set_references" title="Permalink to this definition">¶</a></dt>
 <dd><p>Sets references to multiple components.</p>
-<p>To set references components must implement <a class="reference internal" href="pip_services3_commons.refer.IReferenceable.html#module-pip_services3_commons.refer.IReferenceable" title="pip_services3_commons.refer.IReferenceable"><code class="xref py py-class docutils literal notranslate"><span class="pre">IReferenceable</span></code></a> interface.
+<p>To set references components must implement <a class="reference internal" href="pip_services3_commons.refer.IReferenceable.html#pip_services3_commons.refer.IReferenceable.IReferenceable" title="pip_services3_commons.refer.IReferenceable.IReferenceable"><code class="xref py py-class docutils literal notranslate"><span class="pre">IReferenceable</span></code></a> interface.
 If they don’t the call to this method has no effect.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -866,7 +867,7 @@ If they don’t the call to this method has no effect.</p>
 <dt id="pip_services3_commons.refer.Referencer.set_references_for_one">
 <em class="property">static </em><code class="sig-name descname">set_references_for_one</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">references</span></em>, <em class="sig-param"><span class="n">component</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.refer.Referencer.set_references_for_one" title="Permalink to this definition">¶</a></dt>
 <dd><p>Sets references to specific component.</p>
-<p>To set references components must implement <a class="reference internal" href="pip_services3_commons.refer.IReferenceable.html#module-pip_services3_commons.refer.IReferenceable" title="pip_services3_commons.refer.IReferenceable"><code class="xref py py-class docutils literal notranslate"><span class="pre">IReferenceable</span></code></a> interface.
+<p>To set references components must implement <a class="reference internal" href="pip_services3_commons.refer.IReferenceable.html#pip_services3_commons.refer.IReferenceable.IReferenceable" title="pip_services3_commons.refer.IReferenceable.IReferenceable"><code class="xref py py-class docutils literal notranslate"><span class="pre">IReferenceable</span></code></a> interface.
 If they don’t the call to this method has no effect.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -882,7 +883,7 @@ If they don’t the call to this method has no effect.</p>
 <dt id="pip_services3_commons.refer.Referencer.unset_references">
 <em class="property">static </em><code class="sig-name descname">unset_references</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">components</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.refer.Referencer.unset_references" title="Permalink to this definition">¶</a></dt>
 <dd><p>Unsets references in multiple components.</p>
-<p>To unset references components must implement <a class="reference internal" href="pip_services3_commons.refer.IUnreferenceable.html#module-pip_services3_commons.refer.IUnreferenceable" title="pip_services3_commons.refer.IUnreferenceable"><code class="xref py py-class docutils literal notranslate"><span class="pre">IUnreferenceable</span></code></a> interface.
+<p>To unset references components must implement <a class="reference internal" href="pip_services3_commons.refer.IUnreferenceable.html#pip_services3_commons.refer.IUnreferenceable.IUnreferenceable" title="pip_services3_commons.refer.IUnreferenceable.IUnreferenceable"><code class="xref py py-class docutils literal notranslate"><span class="pre">IUnreferenceable</span></code></a> interface.
 If they don’t the call to this method has no effect.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -895,7 +896,7 @@ If they don’t the call to this method has no effect.</p>
 <dt id="pip_services3_commons.refer.Referencer.unset_references_for_one">
 <em class="property">static </em><code class="sig-name descname">unset_references_for_one</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">component</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.refer.Referencer.unset_references_for_one" title="Permalink to this definition">¶</a></dt>
 <dd><p>Unsets references in specific component.</p>
-<p>To unset references components must implement <a class="reference internal" href="pip_services3_commons.refer.IUnreferenceable.html#module-pip_services3_commons.refer.IUnreferenceable" title="pip_services3_commons.refer.IUnreferenceable"><code class="xref py py-class docutils literal notranslate"><span class="pre">IUnreferenceable</span></code></a> interface.
+<p>To unset references components must implement <a class="reference internal" href="pip_services3_commons.refer.IUnreferenceable.html#pip_services3_commons.refer.IUnreferenceable.IUnreferenceable" title="pip_services3_commons.refer.IUnreferenceable.IUnreferenceable"><code class="xref py py-class docutils literal notranslate"><span class="pre">IUnreferenceable</span></code></a> interface.
 If they don’t the call to this method has no effect.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -910,7 +911,7 @@ If they don’t the call to this method has no effect.</p>
 <dt id="pip_services3_commons.refer.References">
 <em class="property">class </em><code class="sig-prename descclassname">pip_services3_commons.refer.</code><code class="sig-name descname">References</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">tuples</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.refer.References" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="pip_services3_commons.refer.IReferences.html#pip_services3_commons.refer.IReferences.IReferences" title="pip_services3_commons.refer.IReferences.IReferences"><code class="xref py py-class docutils literal notranslate"><span class="pre">pip_services3_commons.refer.IReferences.IReferences</span></code></a></p>
-<p>The most basic implementation of <a class="reference internal" href="pip_services3_commons.refer.IReferences.html#module-pip_services3_commons.refer.IReferences" title="pip_services3_commons.refer.IReferences"><code class="xref py py-class docutils literal notranslate"><span class="pre">IReferences</span></code></a> to store and locate component references.</p>
+<p>The most basic implementation of <a class="reference internal" href="pip_services3_commons.refer.IReferences.html#pip_services3_commons.refer.IReferences.IReferences" title="pip_services3_commons.refer.IReferences.IReferences"><code class="xref py py-class docutils literal notranslate"><span class="pre">IReferences</span></code></a> to store and locate component references.</p>
 <p>Example:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MyController</span><span class="p">(</span><span class="n">IReferenceable</span><span class="p">):</span>
     <span class="n">_persistence</span> <span class="o">=</span> <span class="kc">None</span>
@@ -942,7 +943,7 @@ If they don’t the call to this method has no effect.</p>
 <dd class="field-even"><p>a list with matching component references.</p>
 </dd>
 <dt class="field-odd">Raises</dt>
-<dd class="field-odd"><p>a <a class="reference internal" href="pip_services3_commons.refer.ReferenceException.html#module-pip_services3_commons.refer.ReferenceException" title="pip_services3_commons.refer.ReferenceException"><code class="xref py py-class docutils literal notranslate"><span class="pre">ReferenceException</span></code></a> when required is set to true but no references found.</p>
+<dd class="field-odd"><p>a <a class="reference internal" href="pip_services3_commons.refer.ReferenceException.html#pip_services3_commons.refer.ReferenceException.ReferenceException" title="pip_services3_commons.refer.ReferenceException.ReferenceException"><code class="xref py py-class docutils literal notranslate"><span class="pre">ReferenceException</span></code></a> when required is set to true but no references found.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1010,7 +1011,7 @@ and the following even elements are component references</p>
 <dd class="field-even"><p>a matching component reference.</p>
 </dd>
 <dt class="field-odd">Raises</dt>
-<dd class="field-odd"><p>a <a class="reference internal" href="pip_services3_commons.refer.ReferenceException.html#module-pip_services3_commons.refer.ReferenceException" title="pip_services3_commons.refer.ReferenceException"><code class="xref py py-class docutils literal notranslate"><span class="pre">ReferenceException</span></code></a> when no references found.</p>
+<dd class="field-odd"><p>a <a class="reference internal" href="pip_services3_commons.refer.ReferenceException.html#pip_services3_commons.refer.ReferenceException.ReferenceException" title="pip_services3_commons.refer.ReferenceException.ReferenceException"><code class="xref py py-class docutils literal notranslate"><span class="pre">ReferenceException</span></code></a> when no references found.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1042,7 +1043,7 @@ At least one component reference must be present. If it doesn’t the method thr
 <dd class="field-even"><p>a list with matching component references.</p>
 </dd>
 <dt class="field-odd">Raises</dt>
-<dd class="field-odd"><p>a <a class="reference internal" href="pip_services3_commons.refer.ReferenceException.html#module-pip_services3_commons.refer.ReferenceException" title="pip_services3_commons.refer.ReferenceException"><code class="xref py py-class docutils literal notranslate"><span class="pre">ReferenceException</span></code></a> when no references found.</p>
+<dd class="field-odd"><p>a <a class="reference internal" href="pip_services3_commons.refer.ReferenceException.html#pip_services3_commons.refer.ReferenceException.ReferenceException" title="pip_services3_commons.refer.ReferenceException.ReferenceException"><code class="xref py py-class docutils literal notranslate"><span class="pre">ReferenceException</span></code></a> when no references found.</p>
 </dd>
 </dl>
 </dd></dl>

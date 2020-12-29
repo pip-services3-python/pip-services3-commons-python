@@ -29,6 +29,7 @@
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
@@ -197,7 +198,7 @@ and is often used by Pip.Services toolkit to perform periodic processing and cle
 <dt id="pip_services3_commons.run.FixedRateTimer.FixedRateTimer.close">
 <code class="sig-name descname">close</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">correlation_id</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.run.FixedRateTimer.FixedRateTimer.close" title="Permalink to this definition">¶</a></dt>
 <dd><p>Closes the timer.
-This is required by <code class="xref py py-class docutils literal notranslate"><span class="pre">ICloseable</span></code> interface,
+This is required by <a class="reference internal" href="pip_services3_commons.run.IClosable.html#pip_services3_commons.run.IClosable.IClosable" title="pip_services3_commons.run.IClosable.IClosable"><code class="xref py py-class docutils literal notranslate"><span class="pre">IClosable</span></code></a> interface,
 but besides that it is identical to stop().</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -245,7 +246,7 @@ After that it is triggered after interval until it is stopped.</p>
 <dl class="py class">
 <dt id="pip_services3_commons.run.FixedRateTimer.Timer">
 <em class="property">class </em><code class="sig-prename descclassname">pip_services3_commons.run.FixedRateTimer.</code><code class="sig-name descname">Timer</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">interval</span></em>, <em class="sig-param"><span class="n">callback</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.run.FixedRateTimer.Timer" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">threading.Thread</span></code></p>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/3/library/threading.html#threading.Thread" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">threading.Thread</span></code></a></p>
 <dl class="py method">
 <dt id="pip_services3_commons.run.FixedRateTimer.Timer.run">
 <code class="sig-name descname">run</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.run.FixedRateTimer.Timer.run" title="Permalink to this definition">¶</a></dt>

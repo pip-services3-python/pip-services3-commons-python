@@ -13,7 +13,7 @@ class ICommandable:
     """
     An interface for commandable objects, which are part of the command design pattern.
     The commandable object exposes its functonality as commands and events groupped
-    into a :class:`CommandSet`.
+    into a :class:`CommandSet <pip_services3_commons.commands.CommandSet.CommandSet>`.
 
     This interface is typically implemented by controllers and is used to auto generate
     external interfaces.

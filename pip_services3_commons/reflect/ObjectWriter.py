@@ -16,7 +16,7 @@ class ObjectWriter:
     """
     Helper class to perform property introspection and dynamic writing.
 
-    In contrast to :class:`PropertyReflector` which only introspects regular objects,
+    In contrast to :class:`PropertyReflector <pip_services3_commons.reflect.PropertyReflector.PropertyReflector>` which only introspects regular objects,
     this ObjectWriter is also able to handle maps and arrays.
     For maps properties are key-pairs identified by string keys,
     For arrays properties are elements identified by integer index.

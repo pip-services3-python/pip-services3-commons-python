@@ -13,7 +13,7 @@ class ErrorDescription(object):
     """
     Serializeable error description. It is use to pass information about errors
     between microservices implemented in different languages. On the receiving side
-    :class:`ErrorDescription` is used to recreate exception object close to its original type
+    :class:`ErrorDescription <pip_services3_commons.errors.ErrorDescription.ErrorDescription>` is used to recreate exception object close to its original type
     without missing additional details.
     """
     category = None

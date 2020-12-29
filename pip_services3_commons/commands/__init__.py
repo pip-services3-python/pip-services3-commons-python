@@ -18,17 +18,17 @@
     and for various logging implementations.
 
     These design patterns allow us to create
-    :class:`ICommandable`, which are completely universal.
-    If an object extends :class:`ICommandable` and returns a
-    :class:`CommandSet`, then we can implement, with minimal code, a
+    :class:`ICommandable <pip_services3_commons.commands.ICommandable.ICommandable>`, which are completely universal.
+    If an object extends :class:`ICommandable <pip_services3_commons.commands.ICommandable.ICommandable>` and returns a
+    :class:`CommandSet <pip_services3_commons.commands.CommandSet.CommandSet>`, then we can implement, with minimal code, a
     commandable client for this object, using various technologies.
 
-    - :class:`ICommandable` :class:`Commandable` – part of the command
+    - :class:`ICommandable <pip_services3_commons.commands.ICommandable.ICommandable>` Commandable – part of the command
     design pattern, used to make classes with certain logic, which
     are capable of receiving and processing commands in this
     universal form.
 
-    - :class:`ICommandInterceptor` Command interceptors – modify the
+    - :class:`ICommandIntercepter <pip_services3_commons.commands.ICommandIntercepter.ICommandIntercepter>` Command interceptors – modify the
     message execution pipeline. Command interceptors are used to
      intercept calls, perform a set of actions, and, optionally,
     cancel the command's actual execution by simply returning a
@@ -47,7 +47,7 @@
     manner: the result can be written to cache, so that the next
     call doesn’t have to be made.
 
-    - :class:`InterceptedCommand` Intercepted commands are used as
+    - :class:`InterceptedCommand <pip_services3_commons.commands.InterceptedCommand.InterceptedCommand>` Intercepted commands are used as
     pattern decorators in the command design pattern. They are
     represented as regular commands, but run their own logic
     before calling the actual command.

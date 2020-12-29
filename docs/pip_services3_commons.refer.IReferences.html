@@ -29,6 +29,7 @@
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
@@ -189,16 +190,16 @@
 <dl class="py class">
 <dt id="pip_services3_commons.refer.IReferences.IReferences">
 <em class="property">class </em><code class="sig-prename descclassname">pip_services3_commons.refer.IReferences.</code><code class="sig-name descname">IReferences</code><a class="headerlink" href="#pip_services3_commons.refer.IReferences.IReferences" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>Interface for a map that holds component references and passes them to components
 to establish dependencies with each other.</p>
-<p>Together with <code class="xref py py-class docutils literal notranslate"><span class="pre">IReferenceable</span></code> and <code class="xref py py-class docutils literal notranslate"><span class="pre">IUnreferenceable</span></code> interfaces it implements
+<p>Together with <a class="reference internal" href="pip_services3_commons.refer.IReferenceable.html#pip_services3_commons.refer.IReferenceable.IReferenceable" title="pip_services3_commons.refer.IReferenceable.IReferenceable"><code class="xref py py-class docutils literal notranslate"><span class="pre">IReferenceable</span></code></a> and <a class="reference internal" href="pip_services3_commons.refer.IUnreferenceable.html#pip_services3_commons.refer.IUnreferenceable.IUnreferenceable" title="pip_services3_commons.refer.IUnreferenceable.IUnreferenceable"><code class="xref py py-class docutils literal notranslate"><span class="pre">IUnreferenceable</span></code></a> interfaces it implements
 a Locator pattern that is used by PipServices toolkit for Inversion of Control
 to assign external dependencies to components.</p>
 <p>The IReferences object is a simple map, where keys are locators
 and values are component references. It allows to add, remove and find components
 by their locators. Locators can be any values like integers, strings or component types.
-But most often PipServices toolkit uses <code class="xref py py-class docutils literal notranslate"><span class="pre">Descriptor</span></code> as locators that match
+But most often PipServices toolkit uses <a class="reference internal" href="pip_services3_commons.refer.Descriptor.html#pip_services3_commons.refer.Descriptor.Descriptor" title="pip_services3_commons.refer.Descriptor.Descriptor"><code class="xref py py-class docutils literal notranslate"><span class="pre">Descriptor</span></code></a> as locators that match
 by 5 fields: group, type, kind, name and version.</p>
 <p>Example:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MyController</span><span class="p">(</span><span class="n">IReferences</span><span class="p">):</span>
@@ -231,7 +232,7 @@ by 5 fields: group, type, kind, name and version.</p>
 <dd class="field-even"><p>a list with matching component references.</p>
 </dd>
 <dt class="field-odd">Raises</dt>
-<dd class="field-odd"><p>a <code class="xref py py-class docutils literal notranslate"><span class="pre">ReferenceException</span></code> when required is set to true but no references found.</p>
+<dd class="field-odd"><p>a <a class="reference internal" href="pip_services3_commons.refer.ReferenceException.html#pip_services3_commons.refer.ReferenceException.ReferenceException" title="pip_services3_commons.refer.ReferenceException.ReferenceException"><code class="xref py py-class docutils literal notranslate"><span class="pre">ReferenceException</span></code></a> when required is set to true but no references found.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -289,7 +290,7 @@ by 5 fields: group, type, kind, name and version.</p>
 <dd class="field-even"><p>a matching component reference.</p>
 </dd>
 <dt class="field-odd">Raises</dt>
-<dd class="field-odd"><p>a <code class="xref py py-class docutils literal notranslate"><span class="pre">ReferenceException</span></code> when no references found.</p>
+<dd class="field-odd"><p>a <a class="reference internal" href="pip_services3_commons.refer.ReferenceException.html#pip_services3_commons.refer.ReferenceException.ReferenceException" title="pip_services3_commons.refer.ReferenceException.ReferenceException"><code class="xref py py-class docutils literal notranslate"><span class="pre">ReferenceException</span></code></a> when no references found.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -321,7 +322,7 @@ At least one component reference must be present. If it doesn’t the method thr
 <dd class="field-even"><p>a list with matching component references.</p>
 </dd>
 <dt class="field-odd">Raises</dt>
-<dd class="field-odd"><p>a <code class="xref py py-class docutils literal notranslate"><span class="pre">ReferenceException</span></code> when no references found.</p>
+<dd class="field-odd"><p>a <a class="reference internal" href="pip_services3_commons.refer.ReferenceException.html#pip_services3_commons.refer.ReferenceException.ReferenceException" title="pip_services3_commons.refer.ReferenceException.ReferenceException"><code class="xref py py-class docutils literal notranslate"><span class="pre">ReferenceException</span></code></a> when no references found.</p>
 </dd>
 </dl>
 </dd></dl>

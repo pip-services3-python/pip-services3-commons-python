@@ -29,6 +29,7 @@
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
@@ -275,7 +276,7 @@ that is closest to the initial exception type is chosen from the exceptions avai
 <dl class="py exception">
 <dt id="pip_services3_commons.errors.ApplicationException">
 <em class="property">exception </em><code class="sig-prename descclassname">pip_services3_commons.errors.</code><code class="sig-name descname">ApplicationException</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">category</span><span class="o">=</span><span class="default_value">'Unknown'</span></em>, <em class="sig-param"><span class="n">correlation_id</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">code</span><span class="o">=</span><span class="default_value">'UNKNOWN'</span></em>, <em class="sig-param"><span class="n">message</span><span class="o">=</span><span class="default_value">'Unknown error'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.errors.ApplicationException" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/3/library/exceptions.html#Exception" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></a></p>
 <p>Defines a base class to defive various application exceptions.</p>
 <p>Most languages have own definition of base exception (error) types.
 However, this class is implemented symmetrically in all languages
@@ -286,10 +287,10 @@ calls microservice(s) implemented in a different language(s), errors are returne
 throught the entire call chain and restored in their original (or close) type.</p>
 <p>Since number of potential exception types is endless, PipServices toolkit
 supports only 12 standard categories of exceptions defined in <a class="reference internal" href="pip_services3_commons.errors.ErrorCategory.html#module-pip_services3_commons.errors.ErrorCategory" title="pip_services3_commons.errors.ErrorCategory"><code class="xref py py-class docutils literal notranslate"><span class="pre">ErrorCategory</span></code></a>.
-This <a class="reference internal" href="pip_services3_commons.errors.ApplicationException.html#module-pip_services3_commons.errors.ApplicationException" title="pip_services3_commons.errors.ApplicationException"><code class="xref py py-class docutils literal notranslate"><span class="pre">ApplicationException</span></code></a> class acts as a basis for all other 12 standard exception types.</p>
+This <a class="reference internal" href="pip_services3_commons.errors.ApplicationException.html#pip_services3_commons.errors.ApplicationException.ApplicationException" title="pip_services3_commons.errors.ApplicationException.ApplicationException"><code class="xref py py-class docutils literal notranslate"><span class="pre">ApplicationException</span></code></a> class acts as a basis for all other 12 standard exception types.</p>
 <p>Most exceptions have just free-form message that describes occured error.
 That may not be sufficient to create meaninful error descriptions.
-The <a class="reference internal" href="pip_services3_commons.errors.ApplicationException.html#module-pip_services3_commons.errors.ApplicationException" title="pip_services3_commons.errors.ApplicationException"><code class="xref py py-class docutils literal notranslate"><span class="pre">ApplicationException</span></code></a> class proposes an extended error definition that has more standard fields:
+The <a class="reference internal" href="pip_services3_commons.errors.ApplicationException.html#pip_services3_commons.errors.ApplicationException.ApplicationException" title="pip_services3_commons.errors.ApplicationException.ApplicationException"><code class="xref py py-class docutils literal notranslate"><span class="pre">ApplicationException</span></code></a> class proposes an extended error definition that has more standard fields:
 - message: is a human-readable error description
 - category: one of 12 standard error categories of errors
 - status: numeric HTTP status code for REST invocations
@@ -299,7 +300,7 @@ The <a class="reference internal" href="pip_services3_commons.errors.Application
 - stack_trace: a stack trace
 - cause: original error that is wrapped by this exception</p>
 <p>ApplicationException class is not serializable. To pass errors through the wire
-it is converted into <a class="reference internal" href="pip_services3_commons.errors.ErrorDescription.html#module-pip_services3_commons.errors.ErrorDescription" title="pip_services3_commons.errors.ErrorDescription"><code class="xref py py-class docutils literal notranslate"><span class="pre">ErrorDescription</span></code></a> object and restored on receiving end into identical exception type.</p>
+it is converted into <a class="reference internal" href="pip_services3_commons.errors.ErrorDescription.html#pip_services3_commons.errors.ErrorDescription.ErrorDescription" title="pip_services3_commons.errors.ErrorDescription.ErrorDescription"><code class="xref py py-class docutils literal notranslate"><span class="pre">ErrorDescription</span></code></a> &lt;pip_services3_commons.errors.ErrorDescription.ErrorDescription&gt;` object and restored on receiving end into identical exception type.</p>
 <dl class="py attribute">
 <dt id="pip_services3_commons.errors.ApplicationException.category">
 <code class="sig-name descname">category</code><em class="property"> = 'Unknown'</em><a class="headerlink" href="#pip_services3_commons.errors.ApplicationException.category" title="Permalink to this definition">¶</a></dt>
@@ -508,8 +509,8 @@ Otherwise the original error is set as a cause to specified ApplicationException
 <dl class="py class">
 <dt id="pip_services3_commons.errors.ApplicationExceptionFactory">
 <em class="property">class </em><code class="sig-prename descclassname">pip_services3_commons.errors.</code><code class="sig-name descname">ApplicationExceptionFactory</code><a class="headerlink" href="#pip_services3_commons.errors.ApplicationExceptionFactory" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>Factory to recreate exceptions from <a class="reference internal" href="pip_services3_commons.errors.ErrorDescription.html#module-pip_services3_commons.errors.ErrorDescription" title="pip_services3_commons.errors.ErrorDescription"><code class="xref py py-class docutils literal notranslate"><span class="pre">ErrorDescription</span></code></a> values passed through the wire.</p>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Factory to recreate exceptions from <a class="reference internal" href="pip_services3_commons.errors.ErrorDescription.html#pip_services3_commons.errors.ErrorDescription.ErrorDescription" title="pip_services3_commons.errors.ErrorDescription.ErrorDescription"><code class="xref py py-class docutils literal notranslate"><span class="pre">ErrorDescription</span></code></a> values passed through the wire.</p>
 <dl class="py method">
 <dt id="pip_services3_commons.errors.ApplicationExceptionFactory.create">
 <em class="property">static </em><code class="sig-name descname">create</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">description</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.errors.ApplicationExceptionFactory.create" title="Permalink to this definition">¶</a></dt>
@@ -561,7 +562,7 @@ or remote service itself</p>
 <dl class="py class">
 <dt id="pip_services3_commons.errors.ErrorCategory">
 <em class="property">class </em><code class="sig-prename descclassname">pip_services3_commons.errors.</code><code class="sig-name descname">ErrorCategory</code><a class="headerlink" href="#pip_services3_commons.errors.ErrorCategory" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>Defines standard error categories to application exceptions supported by PipServices toolkit.</p>
 <dl class="py attribute">
 <dt id="pip_services3_commons.errors.ErrorCategory.BadRequest">
@@ -648,10 +649,10 @@ or not yet implemented functionality</p>
 <dl class="py class">
 <dt id="pip_services3_commons.errors.ErrorDescription">
 <em class="property">class </em><code class="sig-prename descclassname">pip_services3_commons.errors.</code><code class="sig-name descname">ErrorDescription</code><a class="headerlink" href="#pip_services3_commons.errors.ErrorDescription" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>Serializeable error description. It is use to pass information about errors
 between microservices implemented in different languages. On the receiving side
-<a class="reference internal" href="pip_services3_commons.errors.ErrorDescription.html#module-pip_services3_commons.errors.ErrorDescription" title="pip_services3_commons.errors.ErrorDescription"><code class="xref py py-class docutils literal notranslate"><span class="pre">ErrorDescription</span></code></a> is used to recreate exception object close to its original type
+<a class="reference internal" href="pip_services3_commons.errors.ErrorDescription.html#pip_services3_commons.errors.ErrorDescription.ErrorDescription" title="pip_services3_commons.errors.ErrorDescription.ErrorDescription"><code class="xref py py-class docutils literal notranslate"><span class="pre">ErrorDescription</span></code></a> is used to recreate exception object close to its original type
 without missing additional details.</p>
 <dl class="py attribute">
 <dt id="pip_services3_commons.errors.ErrorDescription.category">
@@ -708,8 +709,8 @@ without missing additional details.</p>
 <dl class="py class">
 <dt id="pip_services3_commons.errors.ErrorDescriptionFactory">
 <em class="property">class </em><code class="sig-prename descclassname">pip_services3_commons.errors.</code><code class="sig-name descname">ErrorDescriptionFactory</code><a class="headerlink" href="#pip_services3_commons.errors.ErrorDescriptionFactory" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>Factory to create serializeable <a class="reference internal" href="pip_services3_commons.errors.ErrorDescription.html#module-pip_services3_commons.errors.ErrorDescription" title="pip_services3_commons.errors.ErrorDescription"><code class="xref py py-class docutils literal notranslate"><span class="pre">ErrorDescription</span></code></a> from <a class="reference internal" href="pip_services3_commons.errors.ApplicationException.html#module-pip_services3_commons.errors.ApplicationException" title="pip_services3_commons.errors.ApplicationException"><code class="xref py py-class docutils literal notranslate"><span class="pre">ApplicationException</span></code></a>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Factory to create serializeable <a class="reference internal" href="pip_services3_commons.errors.ErrorDescription.html#pip_services3_commons.errors.ErrorDescription.ErrorDescription" title="pip_services3_commons.errors.ErrorDescription.ErrorDescription"><code class="xref py py-class docutils literal notranslate"><span class="pre">ErrorDescription</span></code></a> from <a class="reference internal" href="pip_services3_commons.errors.ApplicationException.html#pip_services3_commons.errors.ApplicationException.ApplicationException" title="pip_services3_commons.errors.ApplicationException.ApplicationException"><code class="xref py py-class docutils literal notranslate"><span class="pre">ApplicationException</span></code></a>
 or from arbitrary errors.</p>
 <p>The ErrorDescriptions are used to pass errors through the wire between microservices
 implemented in different languages. They allow to restore exceptions on the receiving side

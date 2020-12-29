@@ -397,22 +397,22 @@ class AnyValueMap(dict):
 
     def get_as_array(self, key):
         """
-        Converts map element into an :class:`AnyValueMap` or returns empty :class:`AnyValueMap` if conversion is not possible.
+        Converts map element into an :class:`AnyValueMap <pip_services3_commons.data.AnyValueMap.AnyValueMap>` or returns empty :class:`AnyValueMap <pip_services3_commons.data.AnyValueMap.AnyValueMap>` if conversion is not possible.
 
         :param key: an index of element to get.
 
-        :return: :class:`AnyValueMap` value of the element or empty :class:`AnyValueMap` if conversion is not supported.
+        :return: :class:`AnyValueMap <pip_services3_commons.data.AnyValueMap.AnyValueMap>` value of the element or empty :class:`AnyValueMap <pip_services3_commons.data.AnyValueMap.AnyValueMap>` if conversion is not supported.
         """
         value = self.get(key)
         return AnyValueMap.from_value(value)
 
     def get_as_nullable_map(self, key):
         """
-        Converts map element into an :class:`AnyValueMap` or returns None if conversion is not possible.
+        Converts map element into an :class:`AnyValueMap <pip_services3_commons.data.AnyValueMap.AnyValueMap>` or returns None if conversion is not possible.
 
         :param key: a key of element to get.
 
-        :return: :class:`AnyValueMap` value of the element or None if conversion is not supported.
+        :return: :class:`AnyValueMap <pip_services3_commons.data.AnyValueMap.AnyValueMap>` value of the element or None if conversion is not supported.
         """
         value = self.get_as_object(key)
         return AnyValueMap.from_value(value)
@@ -429,7 +429,7 @@ class AnyValueMap(dict):
 
         :param default_value: the default value
 
-        :return: :class:`AnyValueMap` value of the element or default value if conversion is not supported.
+        :return: :class:`AnyValueMap <pip_services3_commons.data.AnyValueMap.AnyValueMap>` value of the element or default value if conversion is not supported.
         """
         value = self.get_as_nullable_map(key)
         return MapConverter.to_map_with_default(value, default_value)
@@ -488,7 +488,7 @@ class AnyValueMap(dict):
 
         :param tuples: a list of values where odd elements are keys and the following even elements are values
 
-        :return: a newly created :class:`AnyValueMap`.
+        :return: a newly created :class:`AnyValueMap <pip_services3_commons.data.AnyValueMap.AnyValueMap>`.
         """
         return AnyValueMap.from_tuples_array(tuples)
 
@@ -500,7 +500,7 @@ class AnyValueMap(dict):
 
         :param tuples: a list of values where odd elements are keys and the following even elements are values
 
-        :return: a newly created :class:`AnyValueArray`.
+        :return: a newly created :class:`AnyValueArray <pip_services3_commons.data.AnyValueArray.AnyValueArray>`.
         """
         result = AnyValueMap()
 
@@ -528,7 +528,7 @@ class AnyValueMap(dict):
 
         :param maps: an array of maps to be merged
 
-        :return: a newly created :class:`AnyValueMap`.
+        :return: a newly created :class:`AnyValueMap <pip_services3_commons.data.AnyValueMap.AnyValueMap>`.
         """
         result = AnyValueMap()
         

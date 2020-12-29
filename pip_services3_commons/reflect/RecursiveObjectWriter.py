@@ -17,7 +17,7 @@ class RecursiveObjectWriter:
     """
     Helper class to perform property introspection and dynamic writing.
 
-    It is similar to :class:`ObjectWriter` but writes properties recursively
+    It is similar to :class:`ObjectWriter <pip_services3_commons.reflect.ObjectWriter.ObjectWriter>` but writes properties recursively
     through the entire object graph. Nested property names are defined
     using dot notation as "object.subobject.property"
     """

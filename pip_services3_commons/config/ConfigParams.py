@@ -27,9 +27,9 @@ class ConfigParams(StringValueMap):
     The ConfigParams supports serialization from/to plain strings as:
     **"key1=123;key2=ABC;key3=2016-09-16T00:00:00.00Z"**
 
-    ConfigParams are used to pass configurations to :class:`IConfigurable` objects.
-    They also serve as a basis for more concrete configurations such as :class:`ConnectionParams`
-    or :class:`CredentialParams` (in the Pip.Services components package).
+    ConfigParams are used to pass configurations to :class:`IConfigurable <pip_services3_commons.config.IConfigurable.IConfigurable>` objects.
+    They also serve as a basis for more concrete configurations such as :class:`ConnectionParams <pip_services3_components.connect.ConnectionParams.ConnectionParams>`
+    or :class:`CredentialParams <pip_services3_components.auth.CredentialParams.CredentialParams>` (in the Pip.Services components package).
 
     Example:
 

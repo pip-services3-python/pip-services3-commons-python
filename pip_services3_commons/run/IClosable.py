@@ -13,7 +13,7 @@ class IClosable:
     """
     Interface for components that require explicit closure.
 
-    For components that require opening as well as closing use :class:`IOpenable` interface instead.
+    For components that require opening as well as closing use :class:`IOpenable <pip_services3_commons.run.IOpenable.IOpenable>` interface instead.
     """
 
     def close(self, correlation_id):
