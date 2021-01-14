@@ -48,7 +48,7 @@ class ErrorDescriptionFactory(object):
             description.category = ErrorCategory.Unknown
             description.status = 500
             description.code = 'UNKNOWN'
-            description.message = ex.message
+            description.message = description.message = '; '.join(ex.args)
             #description.cause = ex.xxx
             if hasattr(ex, 'tb_trace'):
                 description.stack_trace = traceback.format_tb(ex)
