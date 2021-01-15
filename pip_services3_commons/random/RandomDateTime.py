@@ -68,7 +68,7 @@ class RandomDateTime(object):
             max_year = min_year
             min_year = datetime.datetime(2000, 1, 1)
 
-        diff = (max_year.timestamp() * 1000) - (min_year.timestamp() * 1000)
+        diff = int((max_year.timestamp() * 1000) - (min_year.timestamp() * 1000))
         if diff <= 0:
             return min_year
 
