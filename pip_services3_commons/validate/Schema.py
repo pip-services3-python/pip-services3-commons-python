@@ -9,12 +9,12 @@
     :license: MIT, see LICENSE for more details.
 """
 
-from .ValidationResultType import ValidationResultType
-from .ValidationResult import ValidationResult
 from .ValidationException import ValidationException
+from .ValidationResult import ValidationResult
+from .ValidationResultType import ValidationResultType
+from ..convert.TypeConverter import TypeConverter
 from ..reflect.ObjectReader import ObjectReader
 from ..reflect.TypeMatcher import TypeMatcher
-from ..convert.TypeConverter import TypeConverter
 
 
 class Schema(object):
@@ -37,6 +37,39 @@ class Schema(object):
         """
         self.required = required
         self.rules = rules if not (rules is None) else []
+
+    def is_required(self):
+        """
+        Gets a flag that always requires non-null values.
+        For null values it raises a validation error.
+
+        :return: true to always require non-null values and false to allow null values.
+        """
+        return self.required
+
+    def set_required(self, value):
+        """
+        Sets a flag that always requires non-null values.
+
+        :param value: true to always require non-null values and false to allow null values.
+        """
+        self.required = value
+
+    def get_rules(self):
+        """
+        Gets validation rules to check values against.
+
+        :return: a list with validation rules.
+        """
+        return self.rules
+
+    def set_results(self, value):
+        """
+        Sets validation rules to check values against.
+
+        :param value: a list with validation rules.
+        """
+        self.rules = value
 
     def make_required(self):
         """
@@ -115,6 +148,8 @@ class Schema(object):
     def _type_to_string(self, typ):
         if typ is None:
             return "unknown"
+        if isinstance(typ, int):
+            return TypeConverter.to_string(typ)
         return TypeConverter.to_string(typ)
 
     def _perform_type_validation(self, path, typ, value, results):
@@ -146,11 +181,11 @@ class Schema(object):
         if value is None:
             return
 
-        name = path if not (path is None) else "value"
-        value_type = type(value)
+        name = path or "value"
+        value_type = TypeConverter.to_type_code(value)
 
         # Match types
-        if TypeMatcher.match_type(typ, value_type):
+        if TypeMatcher.match_type(typ, value_type, value):
             return
 
         # Generate type mismatch error
@@ -178,6 +213,17 @@ class Schema(object):
         results = []
         self._perform_validation("", value, results)
         return results
+
+    def validate_and_return_exception(self, correlation_id, value, strict=False):
+        """
+        Validates the given value and returns a :class:`ValidationException <pip_services3_commons.validate.ValidationException.ValidationException>` if errors were found.
+
+        :param correlation_id: (optional) transaction id to trace execution through call chain.
+        :param value: a value to be validated.
+        :param strict: true to treat warnings as errors.
+        """
+        results = self.validate(value)
+        return ValidationException.from_results(correlation_id, results, strict)
 
     def validate_and_throw_exception(self, correlation_id, value, strict=False):
         """
