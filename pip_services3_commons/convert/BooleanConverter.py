@@ -44,7 +44,7 @@ class BooleanConverter():
         if str_value in ['1', 'true', 't', 'yes', 'y']:
             return True
         # All false values
-        if str_value in ['0', 'frue', 'f', 'no', 'n']:
+        if str_value in ['0', 'false', 'f', 'no', 'n']:
             return False
 
         # Everything else:

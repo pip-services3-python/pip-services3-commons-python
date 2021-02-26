@@ -11,6 +11,9 @@
 
 import datetime
 
+from pip_services3_commons.convert import TypeCode
+
+
 class TypeMatcher:
     """
     Helper class matches value types for equality.
@@ -28,7 +31,7 @@ class TypeMatcher:
 
         :param actual_value: a value to match its type to the expected one.
 
-        :return: true if types are matching and false if they don't.
+        :return: True if types are matching and False if they don't.
         """
         if expected_type is None:
             return True
@@ -36,7 +39,6 @@ class TypeMatcher:
             raise Exception("Actual value cannot be null")
 
         return TypeMatcher.match_type(expected_type, type(actual_value))
-
 
     @staticmethod
     def match_type(expected_type, actual_type):
@@ -48,7 +50,7 @@ class TypeMatcher:
 
         :param actual_type: an actual type to match.
 
-        :return: true if types are matching and false if they don't.
+        :return: True if types are matching and False if they don't.
         """
         if expected_type is None:
             return True
@@ -57,12 +59,25 @@ class TypeMatcher:
 
         if isinstance(expected_type, type):
             return issubclass(actual_type, expected_type)
-        
+
         if isinstance(expected_type, str):
             return TypeMatcher.match_type_by_name(expected_type, actual_type)
+        if isinstance(expected_type, int):
+            if expected_type == actual_type:
+                return True
+            # Special provisions for dynamic data
+            if expected_type == TypeCode.Integer and (actual_type == TypeCode.Long or actual_type == TypeCode.Float or actual_type == TypeCode.Double):
+                return True
+            if expected_type == TypeCode.Long and (actual_type == TypeCode.Integer or actual_type == TypeCode.Float or actual_type == TypeCode.Double):
+                return True
+            if expected_type == TypeCode.Float and (actual_type == TypeCode.Integer or actual_type == TypeCode.Long or actual_type == TypeCode.Double):
+                return True
+            if expected_type == TypeCode.Double and (actual_type == TypeCode.Integer or actual_type == TypeCode.Long or actual_type == TypeCode.Float):
+                return True
+            # if expected_type == TypeCode.DateTime and (actual_type == TypeCode.String and DateTimeConverter.toNullableDateTime(actualValue) != null):
+            #     return True
 
         return False
-
 
     @staticmethod
     def match_value_by_name(expected_type, actual_value):
@@ -73,7 +88,7 @@ class TypeMatcher:
 
         :param actual_value: a value to match its type to the expected one.
 
-        :return: true if types are matching and false if they don't.
+        :return: True if types are matching and False if they don't.
         """
         if expected_type is None:
             return True
@@ -81,7 +96,6 @@ class TypeMatcher:
             raise Exception("Actual value cannot be null")
 
         return TypeMatcher.match_type_by_name(expected_type, type(actual_value))
-
 
     @staticmethod
     def match_type_by_name(expected_type, actual_type):

@@ -16,6 +16,7 @@ from ..reflect.ObjectReader import ObjectReader
 from ..reflect.TypeMatcher import TypeMatcher
 from ..convert.TypeConverter import TypeConverter
 
+
 class Schema(object):
     """
     Basic schema that validates values against a set of validation rules.
@@ -26,7 +27,7 @@ class Schema(object):
     required = None
     rules = None
 
-    def __init__(self, required = False, rules = None):
+    def __init__(self, required=False, rules=None):
         """
         Creates a new instance of validation schema and sets its values.
 
@@ -151,14 +152,16 @@ class Schema(object):
         # Match types
         if TypeMatcher.match_type(typ, value_type):
             return
-        
+
         # Generate type mismatch error
         results.append(
             ValidationResult(
                 path,
                 ValidationResultType.Error,
                 "TYPE_MISMATCH",
-                name + " type must be " + self._type_to_string(typ) + " but found " + self._type_to_string(value_type),
+                name + " type must be " +
+                self._type_to_string(typ) + " but found " +
+                self._type_to_string(value_type),
                 typ,
                 value_type
             )
@@ -176,7 +179,7 @@ class Schema(object):
         self._perform_validation("", value, results)
         return results
 
-    def validate_and_throw_exception(self, correlation_id, value, strict = False):
+    def validate_and_throw_exception(self, correlation_id, value, strict=False):
         """
         Validates the given value and throws a :class:`ValidationException <pip_services3_commons.validate.ValidationException.ValidationException>` if errors were found.
 
@@ -187,4 +190,5 @@ class Schema(object):
         :param strict: true to treat warnings as errors.
         """
         results = self.validate(value)
-        ValidationException.throw_exception_if_needed(correlation_id, results, strict)
+        ValidationException.throw_exception_if_needed(
+            correlation_id, results, strict)
