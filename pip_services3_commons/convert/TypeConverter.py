@@ -9,20 +9,19 @@
     :license: MIT, see LICENSE for more details.
 """
 
-import types
 from datetime import datetime
 
-from .StringConverter import StringConverter
-from .BooleanConverter import BooleanConverter
+from .ArrayConverter import ArrayConverter
+from .DateTimeConverter import DateTimeConverter
+from .FloatConverter import FloatConverter
 from .IntegerConverter import IntegerConverter
 from .LongConverter import LongConverter
-from .FloatConverter import FloatConverter
-from .DateTimeConverter import DateTimeConverter
-from .ArrayConverter import ArrayConverter
 from .MapConverter import MapConverter
+from .StringConverter import StringConverter
 from .TypeCode import TypeCode
 
-class TypeConverter():
+
+class TypeConverter:
     """
     Converts arbitrary values into objects specific by TypeCodes.
     For each TypeCode this class calls corresponding converter which applies
@@ -36,6 +35,7 @@ class TypeConverter():
         value2 = TypeConverter.to_type(TypeCode.DateTime, 123) // Result: Date(123)
         value3 = TypeConverter.to_type(TypeCode.Boolean, "F") // Result: false
     """
+
     @staticmethod
     def to_type_code(value):
         """
@@ -51,31 +51,30 @@ class TypeConverter():
         if not isinstance(value, type):
             value = type(value)
 
-        if value is list:
+        if value is list or issubclass(value, list):
             return TypeCode.Array
-        elif value is tuple:
+        elif value is tuple or issubclass(value, tuple):
             return TypeCode.Array
-        elif value is set:
+        elif value is set or issubclass(value, set):
             return TypeCode.Array
-        elif value is bool:
+        elif value is bool or issubclass(value, bool):
             return TypeCode.Boolean
-        elif value is int:
+        elif value is int or issubclass(value, int):
             return TypeCode.Integer
         # elif value is long:
         #     return TypeCode.Long
-        elif value is float:
+        elif value is float or issubclass(value, float):
             return TypeCode.Float
-        elif value is str:
+        elif value is str or issubclass(value, str):
             return TypeCode.String
         # elif value is unicode:
         #     return TypeCode.String
-        elif value is datetime:
+        elif value is datetime or issubclass(value, datetime):
             return TypeCode.DateTime
-        elif value is dict:
+        elif value is dict or issubclass(value, dict):
             return TypeCode.Map
-            
-        return TypeCode.Object
 
+        return TypeCode.Object
 
     @staticmethod
     def to_nullable_type(value_type, value):
@@ -94,7 +93,7 @@ class TypeConverter():
             return None
         if isinstance(value, type):
             return value
-        
+
         # Convert to known types
         if result_type == TypeCode.String:
             return StringConverter.to_nullable_string(value)
@@ -116,7 +115,6 @@ class TypeConverter():
             return MapConverter.to_nullable_map(value)
 
         return None
-
 
     @staticmethod
     def to_type(value_type, value):
@@ -147,7 +145,6 @@ class TypeConverter():
         else:
             return None
 
-
     @staticmethod
     def to_type_with_default(value_type, value, default_value):
         """
@@ -164,41 +161,40 @@ class TypeConverter():
         result = TypeConverter.to_nullable_type(value_type, value)
         return result if not (result is None) else default_value
 
-
     @staticmethod
-    def to_string(type):
+    def to_string(typ):
         """
         Converts a :class:`TypeCode <pip_services3_commons.convert.TypeCode.TypeCode>` into its string name.
 
-        :param type: the TypeCode to convert into a string.
+        :param typ: the TypeCode to convert into a string.
 
         :return: the name of the TypeCode passed as a string value.
         """
-        if type is None:
+        if typ is None:
             return "unknown"
-        elif type == TypeCode.Unknown:
+        elif typ == TypeCode.Unknown:
             return "unknown"
-        elif type == TypeCode.String:
+        elif typ == TypeCode.String:
             return "string"
-        elif type == TypeCode.Integer:
+        elif typ == TypeCode.Integer:
             return "integer"
-        elif type == TypeCode.Long:
+        elif typ == TypeCode.Long:
             return "long"
-        elif type == TypeCode.Float:
+        elif typ == TypeCode.Float:
             return "float"
-        elif type == TypeCode.Double:
+        elif typ == TypeCode.Double:
             return "double"
-        elif type == TypeCode.Duration:
+        elif typ == TypeCode.Duration:
             return "duration"
-        elif type == TypeCode.DateTime:
+        elif typ == TypeCode.DateTime:
             return "datetime"
-        elif type == TypeCode.Object:
+        elif typ == TypeCode.Object:
             return "object"
-        elif type == TypeCode.Enum:
+        elif typ == TypeCode.Enum:
             return "enum"
-        elif type == TypeCode.Array:
+        elif typ == TypeCode.Array:
             return "array"
-        elif type == TypeCode.Map:
+        elif typ == TypeCode.Map:
             return "map"
         else:
             return "unknown"
