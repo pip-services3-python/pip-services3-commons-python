@@ -2,17 +2,18 @@
 """
     pip_services3_commons.validate.MapSchema
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    
+
     Map schema implementation
-    
+
     :copyright: Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.
     :license: MIT, see LICENSE for more details.
 """
 
 from .Schema import Schema
-from .ValidationResultType import ValidationResultType
 from .ValidationResult import ValidationResult
+from .ValidationResultType import ValidationResultType
 from ..reflect.ObjectReader import ObjectReader
+
 
 class MapSchema(Schema):
     """
@@ -30,15 +31,16 @@ class MapSchema(Schema):
     key_type = None
     value_type = None
 
-    def __init__(self, key_type = None, value_type = None):
+    def __init__(self, key_type=None, value_type=None, required=None, rules=None):
         """
         Creates a new instance of validation schema and sets its values.
 
         :param key_type: a type of map keys. Null means that keys may have any type.
-
         :param value_type: a type of map values. Null means that values may have any type.
+        :param required: (optional) true to always require non-null values.
+        :param rules: (optional) a list with validation rules.
         """
-        super(MapSchema, self).__init__()
+        super(MapSchema, self).__init__(required, rules)
         self.key_type = key_type
         self.value_type = value_type
 

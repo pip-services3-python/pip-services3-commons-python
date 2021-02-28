@@ -49,12 +49,12 @@ class ValidationException(BadRequestException):
         if not (results is None) and len(results) > 0:
             first = True
             for result in results:
-                if result.type != ValidationResultType.Information:
+                if result.get_type() != ValidationResultType.Information:
                     if not first:
                         message += ': '
                     else:
                         message += ', '
-                    message += result.message
+                    message += result.get_message()
                     first = False
 
         return message
@@ -75,10 +75,10 @@ class ValidationException(BadRequestException):
         for i in range(len(results)):
             result = results[i]
 
-            if result.type == ValidationResultType.Error:
+            if result.get_type() == ValidationResultType.Error:
                 has_errors = True
 
-            if strict and result.type == ValidationResultType.Warning:
+            if strict and result.get_type() == ValidationResultType.Warning:
                 has_errors = True
 
         return ValidationException(correlation_id, None, results) if has_errors else None
@@ -97,10 +97,10 @@ class ValidationException(BadRequestException):
         """
         has_errors = False
         for result in results:
-            if result.type == ValidationResultType.Error:
+            if result.get_type() == ValidationResultType.Error:
                 has_errors = True
-            if strict and result.type == ValidationResultType.Warning:
+            if strict and result.get_type() == ValidationResultType.Warning:
                 has_errors = True
 
         if has_errors:
-            raise ValidationException(correlation_id, results)
+            raise ValidationException.from_results(correlation_id, results, strict)

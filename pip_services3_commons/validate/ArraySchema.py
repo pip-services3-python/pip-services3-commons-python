@@ -2,9 +2,9 @@
 """
     pip_services3_commons.validate.ArraySchema
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    
+
     Array schema implementation
-    
+
     :copyright: Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.
     :license: MIT, see LICENSE for more details.
 """
@@ -13,6 +13,7 @@ from .Schema import Schema
 from .ValidationResultType import ValidationResultType
 from .ValidationResult import ValidationResult
 from ..reflect.ObjectReader import ObjectReader
+
 
 class ArraySchema(Schema):
     """
@@ -30,14 +31,34 @@ class ArraySchema(Schema):
     """
     value_type = None
 
-    def __init__(self, value_type):
+    def __init__(self, value_type=None, required=None, rules=None):
         """
         Creates a new instance of validation schema and sets its values.
 
         :param value_type: a type of array elements. None means that elements may have any type.
+        :param required: (optional) true to always require non-null values.
+        :param rules: (optional) a list with validation rules.
         """
-        super(ArraySchema, self).__init__()
+        super(ArraySchema, self).__init__(required, rules)
         self.value_type = value_type
+
+    def get_value_type(self):
+        """
+        Gets the type of array elements.
+        Null means that elements may have any type.
+
+        :return: the type of array elements.
+        """
+        return self.value_type
+
+    def set_value_type(self, value):
+        """
+        Sets the type of array elements.
+        Null means that elements may have any type.
+
+        :param value: a type of array elements.
+        """
+        self.value_type = value
 
     def _perform_validation(self, path, value, results):
         """
