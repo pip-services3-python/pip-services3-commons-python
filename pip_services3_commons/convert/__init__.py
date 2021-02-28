@@ -15,22 +15,23 @@
 """
 
 __all__ = [
-    'StringConverter', 'BooleanConverter', 'IntegerConverter', 
-    'LongConverter', 'FloatConverter', 'DateTimeConverter',
-    'ArrayConverter', 'MapConverter', 'RecursiveMapConverter', 
+    'StringConverter', 'BooleanConverter', 'IntegerConverter',
+    'LongConverter', 'FloatConverter', 'DoubleConverter', 'DateTimeConverter',
+    'ArrayConverter', 'MapConverter', 'RecursiveMapConverter',
     'JsonConverter', 'TypeCode', 'TypeConverter', 'UTC'
 ]
 
-from .StringConverter import StringConverter
-from .BooleanConverter import BooleanConverter
-from .IntegerConverter import IntegerConverter
-from .LongConverter import LongConverter
-from .FloatConverter import FloatConverter
-from .DateTimeConverter import DateTimeConverter
 from .ArrayConverter import ArrayConverter
+from .BooleanConverter import BooleanConverter
+from .DateTimeConverter import DateTimeConverter
+from .DoubleConverter import DoubleConverter
+from .FloatConverter import FloatConverter
+from .IntegerConverter import IntegerConverter
+from .JsonConverter import JsonConverter
+from .LongConverter import LongConverter
 from .MapConverter import MapConverter
 from .RecursiveMapConverter import RecursiveMapConverter
-from .JsonConverter import JsonConverter
+from .StringConverter import StringConverter
 from .TypeCode import TypeCode
 from .TypeConverter import TypeConverter
 from .UTC import UTC
