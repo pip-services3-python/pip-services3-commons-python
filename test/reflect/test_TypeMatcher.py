@@ -34,6 +34,11 @@ class TestTypeMatcher:
         assert True == TypeMatcher.match_value(float, 123.456)
         assert True == TypeMatcher.match_value(TypeCode.Float, 123.456)
 
+    def test_match_double(self):
+        assert True == TypeMatcher.match_value_type_by_name("double", 123.456)
+        assert True == TypeMatcher.match_value_type_by_name("Double", 123.456)
+        assert True == TypeMatcher.match_value(TypeCode.Double, 123.456)
+
     def test_match_string(self):
         assert True == TypeMatcher.match_value_type_by_name("string", "ABC")
         assert True == TypeMatcher.match_value(str, "ABC")

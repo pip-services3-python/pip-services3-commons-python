@@ -13,13 +13,14 @@
 
 __all__ = [
     'RandomArray', 'RandomBoolean', 'RandomDateTime',
-    'RandomFloat', 'RandomInteger', 
+    'RandomFloat', 'RandomInteger', 'RandomDouble',
     'RandomString', 'RandomText'
 ]
 
 from .RandomArray import RandomArray
 from .RandomBoolean import RandomBoolean
 from .RandomDateTime import RandomDateTime
+from .RandomDouble import RandomDouble
 from .RandomFloat import RandomFloat
 from .RandomInteger import RandomInteger
 from .RandomString import RandomString
