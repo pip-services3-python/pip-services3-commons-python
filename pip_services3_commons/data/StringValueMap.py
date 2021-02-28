@@ -110,7 +110,7 @@ class StringValueMap(dict):
         :return: the element value or value of the map when index is not defined.
         """
         if key is None:
-            return self.get_as_map()
+            return self.get_as_map(None)
         else:
             return self.get(key)
 
