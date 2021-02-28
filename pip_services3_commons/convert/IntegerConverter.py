@@ -8,6 +8,8 @@
     :copyright: Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.
     :license: MIT, see LICENSE for more details.
 """
+from pip_services3_commons.convert.LongConverter import LongConverter
+
 
 class IntegerConverter():
     """
@@ -25,6 +27,7 @@ class IntegerConverter():
         value3 = IntegerConverter.to_nullable_integer(true)      # Result: 1
         value4 = IntegerConverter.to_nullable_integer(datetime.datetime.now()) # Result: current milliseconds
     """
+
     @staticmethod
     def to_nullable_integer(value):
         """
@@ -34,15 +37,7 @@ class IntegerConverter():
 
         :return: integer value or null when conversion is not supported.
         """
-        # Shortcuts
-        if value is None:
-            return None
-
-        try:
-            value = float(value)
-            return int(value)
-        except:
-            return None
+        return LongConverter.to_nullable_long(value)
 
     @staticmethod
     def to_integer(value):
@@ -53,7 +48,7 @@ class IntegerConverter():
 
         :return: integer value or 0 when conversion is not supported.
         """
-        return IntegerConverter.to_integer_with_default(value, 0)
+        return LongConverter.to_long(value)
 
     @staticmethod
     def to_integer_with_default(value, default_value):
@@ -66,5 +61,4 @@ class IntegerConverter():
 
         :return: integer value or default when conversion is not supported.
         """
-        result = IntegerConverter.to_nullable_integer(value)
-        return result if not (result is None) else default_value
+        return LongConverter.to_long_with_default(value, default_value)

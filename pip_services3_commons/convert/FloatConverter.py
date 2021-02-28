@@ -8,6 +8,8 @@
     :copyright: Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.
     :license: MIT, see LICENSE for more details.
 """
+from pip_services3_commons.convert.DoubleConverter import DoubleConverter
+
 
 class FloatConverter():
     """
@@ -23,6 +25,7 @@ class FloatConverter():
         value3 = FloatConverter.to_nullable_float(true)      # Result: 1
         value4 = FloatConverter.to_nullable_float(datetime.datetime.now()) # Result: current milliseconds
     """
+
     @staticmethod
     def to_nullable_float(value):
         """
@@ -33,13 +36,7 @@ class FloatConverter():
         :return: float value or null when conversion is not supported.
         """
         # Shortcuts
-        if value is None:
-            return None
-
-        try:
-            return float(value)
-        except:
-            return None
+        return DoubleConverter.to_nullable_double(value)
 
     @staticmethod
     def to_float(value):
@@ -50,7 +47,7 @@ class FloatConverter():
 
         :return: float value or 0 when conversion is not supported.
         """
-        return FloatConverter.to_float_with_default(value, 0.0)
+        return DoubleConverter.to_double(value)
 
     @staticmethod
     def to_float_with_default(value, default_value):
@@ -63,5 +60,4 @@ class FloatConverter():
 
         :return: float value or default value when conversion is not supported.
         """
-        result = FloatConverter.to_nullable_float(value)
-        return result if not (result is None) else default_value
+        return DoubleConverter.to_double_with_default(value, default_value)

@@ -87,7 +87,7 @@ class TypeConverter:
 
         :return: object value of type corresponding to TypeCode, or null when conversion is not supported.
         """
-        result_type = TypeConverter.to_type_code(value_type)
+        # result_type = TypeConverter.to_type_code(value_type)
 
         if value is None:
             return None
@@ -95,23 +95,23 @@ class TypeConverter:
             return value
 
         # Convert to known types
-        if result_type == TypeCode.String:
+        if value_type == TypeCode.String:
             return StringConverter.to_nullable_string(value)
-        elif result_type == TypeCode.Integer:
+        elif value_type == TypeCode.Integer:
             return IntegerConverter.to_nullable_integer(value)
-        elif result_type == TypeCode.Long:
+        elif value_type == TypeCode.Long:
             return LongConverter.to_nullable_long(value)
-        elif result_type == TypeCode.Float:
+        elif value_type == TypeCode.Float:
             return FloatConverter.to_nullable_float(value)
-        elif result_type == TypeCode.Double:
+        elif value_type == TypeCode.Double:
             return FloatConverter.to_nullable_float(value)
-        elif result_type == TypeCode.Duration:
+        elif value_type == TypeCode.Duration:
             return LongConverter.to_nullable_long(value)
-        elif result_type == TypeCode.DateTime:
+        elif value_type == TypeCode.DateTime:
             return DateTimeConverter.to_nullable_datetime(value)
-        elif result_type == TypeCode.Array:
+        elif value_type == TypeCode.Array:
             return ArrayConverter.to_nullable_array(value)
-        elif result_type == TypeCode.Map:
+        elif value_type == TypeCode.Map:
             return MapConverter.to_nullable_map(value)
 
         return None
