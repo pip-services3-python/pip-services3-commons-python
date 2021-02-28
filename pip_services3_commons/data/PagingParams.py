@@ -9,9 +9,10 @@
     :license: MIT, see LICENSE for more details.
 """
 
-from ..convert.IntegerConverter import IntegerConverter
-from ..convert.BooleanConverter import BooleanConverter
 from .AnyValueMap import AnyValueMap
+from ..convert.BooleanConverter import BooleanConverter
+from ..convert.IntegerConverter import IntegerConverter
+
 
 class PagingParams():
     """
@@ -39,7 +40,7 @@ class PagingParams():
     take = None
     total = True
 
-    def __init__(self, skip = None, take = None, total = False):
+    def __init__(self, skip=None, take=None, total=False):
         """
         Creates a new instance and sets its values.
 
@@ -53,6 +54,9 @@ class PagingParams():
         self.take = IntegerConverter.to_nullable_integer(take)
         self.total = BooleanConverter.to_boolean_with_default(total, False)
 
+        if self.take == 0:
+            self.take = None
+
     def get_skip(self, min_skip):
         """
         Gets the number of items to skip.
@@ -65,7 +69,7 @@ class PagingParams():
             return min_skip
         if self.skip < min_skip:
             return min_skip
-        return self.skip 
+        return self.skip
 
     def get_take(self, max_take):
         """
@@ -97,7 +101,7 @@ class PagingParams():
     def from_json(value):
         if not isinstance(value, dict):
             return value
-        
+
         skip = value['skip'] if 'skip' in value else None
         take = value['take'] if 'take' in value else None
         total = value['total'] if 'total' in value else None
@@ -116,7 +120,7 @@ class PagingParams():
             return value
         if isinstance(value, AnyValueMap):
             return PagingParams.from_map(value)
-        
+
         map = AnyValueMap.from_value(value)
         return PagingParams.from_map(map)
 
