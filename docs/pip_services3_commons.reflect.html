@@ -3,9 +3,9 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>pip_services3_commons.reflect package &mdash; pip-services3-commons  documentation</title>
   
@@ -16,7 +16,10 @@
 
   
   
+
   
+  
+
   
 
   
@@ -51,7 +54,7 @@
           
 
           
-            <a href="index.html" class="icon icon-home" alt="Documentation Home"> pip-services3-commons
+            <a href="index.html" class="icon icon-home"> pip-services3-commons
           
 
           
@@ -143,6 +146,8 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
@@ -158,7 +163,7 @@
     
       <li class="wy-breadcrumbs-aside">
         
-            
+          
             <a href="_sources/pip_services3_commons.reflect.rst.txt" rel="nofollow"> View page source</a>
           
         
@@ -796,7 +801,7 @@ The string must have format name[,library]</p>
 by Pip.Services toolkit and used to support dynamic data processing.</p>
 <dl class="py method">
 <dt id="pip_services3_commons.reflect.TypeMatcher.match_type">
-<em class="property">static </em><code class="sig-name descname">match_type</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">expected_type</span></em>, <em class="sig-param"><span class="n">actual_type</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.reflect.TypeMatcher.match_type" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="sig-name descname">match_type</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">expected_type</span></em>, <em class="sig-param"><span class="n">actual_type</span></em>, <em class="sig-param"><span class="n">actual_value</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.reflect.TypeMatcher.match_type" title="Permalink to this definition">¶</a></dt>
 <dd><p>Matches expected type to an actual type.
 The types can be specified as types, type names or <a class="reference internal" href="pip_services3_commons.convert.TypeCode.html#pip_services3_commons.convert.TypeCode.TypeCode" title="pip_services3_commons.convert.TypeCode.TypeCode"><code class="xref py py-class docutils literal notranslate"><span class="pre">TypeCode</span></code></a>.</p>
 <dl class="field-list simple">
@@ -804,23 +809,25 @@ The types can be specified as types, type names or <a class="reference internal"
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>expected_type</strong> – an expected type to match.</p></li>
 <li><p><strong>actual_type</strong> – an actual type to match.</p></li>
+<li><p><strong>actual_value</strong> – an optional value to match its type to the expected one.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>true if types are matching and false if they don’t.</p>
+<dd class="field-even"><p>True if types are matching and False if they don’t.</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt id="pip_services3_commons.reflect.TypeMatcher.match_type_by_name">
-<em class="property">static </em><code class="sig-name descname">match_type_by_name</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">expected_type</span></em>, <em class="sig-param"><span class="n">actual_type</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.reflect.TypeMatcher.match_type_by_name" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="sig-name descname">match_type_by_name</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">expected_type</span></em>, <em class="sig-param"><span class="n">actual_type</span></em>, <em class="sig-param"><span class="n">actual_value</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.reflect.TypeMatcher.match_type_by_name" title="Permalink to this definition">¶</a></dt>
 <dd><p>Matches expected type to an actual type.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>expected_type</strong> – an expected type name to match.</p></li>
 <li><p><strong>actual_type</strong> – an actual type to match defined by type code.</p></li>
+<li><p><strong>actual_value</strong> – an optional value to match its type to the expected one.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -842,14 +849,14 @@ The expected type can be specified by a type, type name or <a class="reference i
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>true if types are matching and false if they don’t.</p>
+<dd class="field-even"><p>True if types are matching and False if they don’t.</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
-<dt id="pip_services3_commons.reflect.TypeMatcher.match_value_by_name">
-<em class="property">static </em><code class="sig-name descname">match_value_by_name</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">expected_type</span></em>, <em class="sig-param"><span class="n">actual_value</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.reflect.TypeMatcher.match_value_by_name" title="Permalink to this definition">¶</a></dt>
+<dt id="pip_services3_commons.reflect.TypeMatcher.match_value_type_by_name">
+<em class="property">static </em><code class="sig-name descname">match_value_type_by_name</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">expected_type</span></em>, <em class="sig-param"><span class="n">actual_value</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.reflect.TypeMatcher.match_value_type_by_name" title="Permalink to this definition">¶</a></dt>
 <dd><p>Matches expected type to a type of a value.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -859,7 +866,7 @@ The expected type can be specified by a type, type name or <a class="reference i
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>true if types are matching and false if they don’t.</p>
+<dd class="field-even"><p>True if types are matching and False if they don’t.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -993,37 +1000,29 @@ Complex (non-primitive types are): objects, maps and arrays</p>
            
           </div>
           <footer>
-  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="pip_services3_commons.reflect.MethodReflector.html" class="btn btn-neutral float-right" title="pip_services3_commons.reflect.MethodReflector module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="pip_services3_commons.refer.References.html" class="btn btn-neutral float-left" title="pip_services3_commons.refer.References module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+        <a href="pip_services3_commons.reflect.MethodReflector.html" class="btn btn-neutral float-right" title="pip_services3_commons.reflect.MethodReflector module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="pip_services3_commons.refer.References.html" class="btn btn-neutral float-left" title="pip_services3_commons.refer.References module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        
-        &copy; Copyright 2020, Sergey Seroukhov
+        &#169; Copyright 2020, Sergey Seroukhov.
 
     </p>
   </div>
     
     
     
-    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
     
     provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
-
         </div>
       </div>
 
