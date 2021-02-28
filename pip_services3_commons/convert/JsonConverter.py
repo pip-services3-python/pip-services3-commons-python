@@ -10,8 +10,10 @@
 """
 
 import json
+from datetime import datetime
 
 from .MapConverter import MapConverter
+from .TypeConverter import TypeConverter
 
 
 class JsonConverter():
@@ -27,9 +29,11 @@ class JsonConverter():
     """
 
     @staticmethod
-    def from_json(value):
+    def from_json(typ, value):
         """
         Converts JSON string into a value.
+
+        :param typ: the TypeCode for the data type into which 'value' is to be converted.
 
         :param value: the JSON string to convert.
 
@@ -39,6 +43,7 @@ class JsonConverter():
             return None
 
         value = json.loads(value)
+        return TypeConverter.to_type(typ, value)
 
     @staticmethod
     def to_json(value):
@@ -51,6 +56,10 @@ class JsonConverter():
         """
         if value is None:
             return None
+
+        if isinstance(value, datetime):
+            str_time = value.strftime("%Y-%m-%dT%H:%M:%S.%f%z")
+            return (str_time[:-8] + str_time[-5:]).split('+')[0] + 'Z'  # Remove microseconds
 
         return json.dumps(value)
 
