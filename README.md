@@ -129,5 +129,6 @@ Before committing changes run dockerized build and test as:
 
 ## Contacts
 
-The initial implementation is done by **Sergey Seroukhov**. Pip.Services team is looking for volunteers to 
-take ownership over Python implementation in the project.
+The library is created and maintained by:
+- **Sergey Seroukhov**
+- **Danil Prisiazhnyi**
