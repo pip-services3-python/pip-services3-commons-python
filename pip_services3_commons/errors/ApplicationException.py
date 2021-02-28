@@ -13,6 +13,7 @@ import traceback
 
 from .ErrorCategory import ErrorCategory
 
+
 class ApplicationException(Exception):
     """
     Defines a base class to defive various application exceptions.
@@ -54,8 +55,8 @@ class ApplicationException(Exception):
     correlation_id = None
     stack_trace = None
     cause = None
-    
-    def __init__(self, category = ErrorCategory.Unknown, correlation_id = None, code = 'UNKNOWN', message = 'Unknown error'):
+
+    def __init__(self, category=ErrorCategory.Unknown, correlation_id=None, code='UNKNOWN', message='Unknown error'):
         """
         Creates a new instance of application exception and assigns its values.
 
@@ -68,19 +69,19 @@ class ApplicationException(Exception):
         :param message: (optional) a human-readable description of the error.
         """
         super(ApplicationException, self).__init__(message)
-        
+
         self.message = message
         self.correlation_id = correlation_id;
         self.code = code
         self.category = category
         self.name = code
         self.stack_trace = traceback.format_exc()
-        
+
     def __str__(self):
         return str(self.message) if not (self.message is None) else 'Unknown error'
 
     def to_json(self):
-        return { 
+        return {
             'category': self.category,
             'code': self.code,
             'status': self.status,
@@ -90,7 +91,7 @@ class ApplicationException(Exception):
             'cause': str(self.cause),
             'stack_stace': self.stack
         }
-        
+
     def get_cause_string(self):
         """
         Gets original error wrapped by this exception as a string message.
@@ -140,7 +141,7 @@ class ApplicationException(Exception):
         self.code = code if code != None else 'UNKNOWN'
         self.name = code
         return self
-        
+
     def with_status(self, status):
         """
         Sets a HTTP status code which shall be returned by REST calls.
@@ -152,7 +153,7 @@ class ApplicationException(Exception):
         """
         self.status = status if status != None else 500
         return self
-        
+
     def with_details(self, key, value):
         """
         Sets a parameter for additional error details.
@@ -166,10 +167,12 @@ class ApplicationException(Exception):
 
         :return: this exception object
         """
-        self.details = self.details if not (self.details is None) else {}
-        self.details[key] = value
+        from ..data.StringValueMap import StringValueMap  # hack the circular import
+
+        self.details = self.details or StringValueMap()
+        self.details.set_as_object(key, value)
         return self
-        
+
     def with_cause(self, cause):
         """
         Sets a original error wrapped by this exception
@@ -182,7 +185,7 @@ class ApplicationException(Exception):
         """
         self.cause = cause
         return self
-        
+
     def with_correlation_id(self, correlation_id):
         """
         Sets a correlation id which can be used to trace this error through a call chain.
@@ -195,7 +198,7 @@ class ApplicationException(Exception):
         """
         self.correlation_id = correlation_id
         return self
-                
+
     def wrap(self, cause):
         """
         Wraps another exception into an application exception object.
@@ -209,7 +212,7 @@ class ApplicationException(Exception):
         """
         if isinstance(cause, ApplicationException):
             return cause
-            
+
         self.with_cause(cause)
         return self
 
@@ -229,10 +232,23 @@ class ApplicationException(Exception):
         """
         if isinstance(cause, ApplicationException):
             return cause
-        
+
         exception.with_cause(cause)
         return exception
-            
+
+    def with_stack_trace(self, stack_trace):
+        """
+        Sets a stack trace for this error.
+
+        This method returns reference to this exception to implement Builder pattern
+        to chain additional calls.
+
+        :param stack_trace: a stack trace where this error occured
+        :return: this exception object
+        """
+        self.stack_trace = stack_trace
+        return self
+
     # @staticmethod
     # def from_value(value):
     #     value = value if isinstance(value, dict) else dict(value)
