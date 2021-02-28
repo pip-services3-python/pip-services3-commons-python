@@ -1,5 +1,31 @@
 # <img src="https://uploads-ssl.webflow.com/5ea5d3315186cf5ec60c3ee4/5edf1c94ce4c859f2b188094_logo.svg" alt="Pip.Services Logo" width="200"> <br/> Portable Abstractions and Patterns for Python Changelog
 
+## <a name="3.2.0"></a> 3.2.0 (2021-03-01)
+
+### Features
+* **random** added DoubleConverter
+
+
+### Breaking changes
+* Сhanged access to variables from `Class.name` to `Class.get_name()` for:
+- Scheme
+- ArraySchema
+- Mapschema
+- ObjectSchema
+- PropertySchema
+- ValidationException
+- ValidationResult
+
+### Bug Fixes
+* TypeConverter fixed to_type_code, to_nullable_type, to_type
+* Fixed JsonConverter.from_json datetime convert
+* Fixed LongConverter.to_nullable_long
+* Fixed Map.Converter.to_nullable_map
+* Fixed ApplicationException with_details and with_stack_trace methods
+* Fixed init PagingParams
+* Fixed FixedRateTimer
+
+
 ## <a name="3.1.5-3.1.6"></a> 3.1.5-3.1.6 (2021-02-26)
 
 ### Bug Fixes
