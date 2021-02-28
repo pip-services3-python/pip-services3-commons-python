@@ -87,12 +87,10 @@ class TypeConverter:
 
         :return: object value of type corresponding to TypeCode, or null when conversion is not supported.
         """
-        # result_type = TypeConverter.to_type_code(value_type)
+        value_type = TypeConverter.to_type_code(value_type) if isinstance(value_type, type) else value_type
 
         if value is None:
             return None
-        if isinstance(value, type):
-            return value
 
         # Convert to known types
         if value_type == TypeCode.String:
@@ -114,7 +112,7 @@ class TypeConverter:
         elif value_type == TypeCode.Map:
             return MapConverter.to_nullable_map(value)
 
-        return None
+        return value
 
     @staticmethod
     def to_type(value_type, value):
@@ -129,19 +127,29 @@ class TypeConverter:
         """
         # Convert to the specified type
         result = TypeConverter.to_nullable_type(value_type, value)
-        if not (result is None):
+        if result is not None:
             return result
 
         # Define and return default value based on type
         result_type = TypeConverter.to_type_code(value_type)
         if result_type == TypeCode.String:
-            return None
+            return ''
         elif result_type == TypeCode.Integer:
             return 0
         elif result_type == TypeCode.Long:
             return 0
         elif result_type == TypeCode.Float:
             return 0.0
+        elif result_type == TypeCode.Double:
+            return 0
+        elif result_type == TypeCode.Boolean:
+            return False
+        elif result_type == TypeCode.DateTime:
+            return datetime.now()
+        elif result_type == TypeCode.Map:
+            return {}
+        elif result_type == TypeCode.Array:
+            return []
         else:
             return None
 
