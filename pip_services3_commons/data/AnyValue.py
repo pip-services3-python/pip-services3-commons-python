@@ -8,6 +8,8 @@
     :copyright: Conceptual Vision Consulting LLC 2015-2016, see AUTHORS for more details.
     :license: MIT, see LICENSE for more details.
 """
+from copy import deepcopy
+
 from pip_services3_commons.data import AnyValueArray, AnyValueMap
 
 from ..convert.TypeConverter import TypeConverter
@@ -334,3 +336,11 @@ class AnyValue():
         :return: a string representation of the object.
         """
         return StringConverter.to_string(self.value)
+
+    def clone(self):
+        """
+        Creates a binary clone of this object.
+
+        :return: a clone of this object.
+        """
+        return AnyValue(deepcopy(self.value))

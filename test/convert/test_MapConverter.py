@@ -13,6 +13,24 @@ from .StubClass import StubClass
 
 class TestMapConverter:
 
+    def test_to_nullable_map(self):
+        assert MapConverter.to_nullable_map(None) is None
+        assert MapConverter.to_nullable_map(5) is None
+
+        array = [1, 2]
+        map = MapConverter.to_nullable_map(array)
+        assert map is not None
+        assert 1 == map['0']
+        assert 2 == map['1']
+
+        dct = {'field1': 'abc', 'field2': 123}
+        map = MapConverter.to_nullable_map(dct)
+        assert map is not None
+        assert 'abc' == map['field1']
+        assert 123 == map['field2']
+
+        assert MapConverter.to_nullable_map('xyz') is None
+
     def test_object_to_map(self):
         # Handling nulls
         value = None

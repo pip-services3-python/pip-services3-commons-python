@@ -36,7 +36,7 @@ class MapConverter():
             return value
         elif hasattr(value, "_ast"):
             return value._ast()
-        elif hasattr(value, "__iter__"):
+        elif hasattr(value, "__iter__") and not isinstance(value, str):
             data = {}
             index = 0
             for v in value:
