@@ -2,6 +2,5 @@ iso8601
 PyYAML
 pystache
 pytest
-numpy
 pytz
 #Sphinx

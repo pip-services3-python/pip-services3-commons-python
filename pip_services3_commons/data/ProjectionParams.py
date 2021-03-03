@@ -9,7 +9,6 @@
     :license: MIT, see LICENSE for more details.
 """
 
-import numpy as np
 from pip_services3_commons.data import AnyValueArray
 
 
@@ -165,4 +164,3 @@ class ProjectionParams(list):
             ProjectionParams._parse_value('', result, value)
 
         return result
-
