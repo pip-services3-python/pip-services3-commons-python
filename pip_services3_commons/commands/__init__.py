@@ -28,7 +28,7 @@
     are capable of receiving and processing commands in this
     universal form.
 
-    - :class:`ICommandIntercepter <pip_services3_commons.commands.ICommandIntercepter.ICommandIntercepter>` Command interceptors – modify the
+    - :class:`ICommandInterceptor <pip_services3_commons.commands.ICommandInterceptor.ICommandInterceptor>` Command interceptors – modify the
     message execution pipeline. Command interceptors are used to
      intercept calls, perform a set of actions, and, optionally,
     cancel the command's actual execution by simply returning a
@@ -57,13 +57,13 @@
 """
 
 __all__ = [
-    'ICommand', 'ICommandIntercepter', 'Command', 
+    'ICommand', 'ICommandInterceptor', 'Command',
     'InterceptedCommand', 'IEvent', 'IEventListener',
     'Event', 'CommandSet', 'ICommandable'
 ]
 
 from .ICommand import ICommand
-from .ICommandIntercepter import ICommandIntercepter
+from .ICommandInterceptor import ICommandInterceptor
 from .Command import Command
 from .InterceptedCommand import InterceptedCommand
 from .IEvent import IEvent

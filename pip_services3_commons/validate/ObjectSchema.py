@@ -31,7 +31,7 @@ class ObjectSchema(Schema):
         schema.validate({ id: "1", name: "ABC" })       // Result: no errors
         schema.validate({ name: "ABC" })                // Result: no errors
         schema.validate({ id: 1, name: "ABC" })         // Result: id type mismatch
-        schema.validate({ id: 1, _name: "ABC" })        // Result: name is missing, unexpected _name
+        schema.validate({ id: 1, __name: "ABC" })        // Result: name is missing, unexpected __name
         schema.validate("ABC")                          // Result: type mismatch
     """
 

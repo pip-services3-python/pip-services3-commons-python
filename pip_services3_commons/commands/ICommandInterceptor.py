@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-    pip_services3_commons.commands.ICommandIntercepter
+    pip_services3_commons.commands.ICommandInterceptor
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     
     Interface for command intercepters.
@@ -9,7 +9,7 @@
     :license: MIT, see LICENSE for more details.
 """
 
-class ICommandIntercepter(object):
+class ICommandInterceptor(object):
     """
     An interface for stackable command intercepters, which can extend
     and modify the command call chain.
