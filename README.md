@@ -55,7 +55,7 @@ class MyComponentA(IConfigurable, IReferenceable, IOpenable):
 
     def configure(self, config):
         self._param1 = ConfigParams.get_as_string_with_default("param1", self._param1)
-        self._param2 = config.getAsIntegerWithDefault("param2", self._param2)
+        self._param2 = config.get_as_integer_with_default("param2", self._param2)
 
     def set_references(self, references):
         self._another_component = references.get_one_required(
