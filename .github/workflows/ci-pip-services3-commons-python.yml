@@ -9,7 +9,7 @@ on:
 jobs:
   Default:
     runs-on: ubuntu-16.04
-    if: "!contains(github.event.head_commit.message, '[skip-ci]')"
+    if: "!contains(github.event_name.head_commit.message, '[skip-ci]')"
     steps:
     - uses: actions/checkout@main
   

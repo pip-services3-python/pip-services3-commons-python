@@ -12,7 +12,8 @@
 from .ConfigParams import ConfigParams
 from ..refer.Descriptor import Descriptor
 
-class NameResolver(object):
+
+class NameResolver:
     """
     A helper class that allows to extract component name from configuration parameters.
     The name can be defined in "id", "name" parameters or inside a component descriptor.
@@ -27,8 +28,9 @@ class NameResolver(object):
 
         name = NameResolver.resolve(config)
     """
+
     @staticmethod
-    def resolve(config, default_name = None):
+    def resolve(config: ConfigParams, default_name: str = None) -> str:
         """
         Resolves a component name from configuration parameters.
         The name can be stored in "id", "name" fields or inside a component descriptor.

@@ -3,21 +3,22 @@
     pip_services_common.errors.InvocationException
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     
-    Invocation exception type
+    Invocation error type
     
     :copyright: Conceptual Vision Consulting LLC 2015-2016, see AUTHORS for more details.
     :license: MIT, see LICENSE for more details.
 """
 
-from .ErrorCategory import ErrorCategory
 from .ApplicationException import ApplicationException
+from .ErrorCategory import ErrorCategory
+
 
 class InvocationException(ApplicationException):
     """
     Errors returned by remote services or by the network during call attempts.
     """
 
-    def __init__(self, correlation_id = None, code = None, message = None):
+    def __init__(self, correlation_id: str = None, code: str = None, message: str = None):
         """
         Creates an error instance and assigns its values.
 

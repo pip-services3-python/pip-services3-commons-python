@@ -29,7 +29,7 @@ class TestTypeDescriptor:
 
         try:
             descriptor = TypeDescriptor.from_string("xxx,yyy,zzz")
-            raise Exception("Wrong descriptor shall raise an exception")
+            raise Exception("Wrong descriptor shall raise an error")
         except ConfigException:
             # Ok...
             pass

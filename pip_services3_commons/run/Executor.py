@@ -8,9 +8,11 @@
     :copyright: Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.
     :license: MIT, see LICENSE for more details.
 """
+from typing import Any, List
 
 from .IExecutable import IExecutable
 from .Parameters import Parameters
+
 
 class Executor:
     """
@@ -18,7 +20,7 @@ class Executor:
     """
 
     @staticmethod
-    def execute_one(correlation_id, component, args):
+    def execute_one(correlation_id: str, component: Any, args: Parameters):
         """
         Executes specific component.
         To be executed components must implement :class:`IExecutable <pip_services3_commons.run.IExecutable.IExecutable>` interface.
@@ -38,7 +40,7 @@ class Executor:
         return None
 
     @staticmethod
-    def execute(correlation_id, components, args = None):
+    def execute(correlation_id: str, components: List[Any], args: Parameters = None):
         """
         Executes multiple components.
 

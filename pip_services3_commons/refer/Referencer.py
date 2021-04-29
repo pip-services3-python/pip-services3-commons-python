@@ -8,9 +8,12 @@
     :copyright: Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.
     :license: MIT, see LICENSE for more details.
 """
+from typing import Any, List
 
+from pip_services3_commons.refer import IReferences
 from .IReferenceable import IReferenceable
 from .IUnreferenceable import IUnreferenceable
+
 
 class Referencer:
     """
@@ -18,7 +21,7 @@ class Referencer:
     """
 
     @staticmethod
-    def set_references_for_one(references, component):
+    def set_references_for_one(references: IReferences, component: Any):
         """
         Sets references to specific component.
 
@@ -33,7 +36,7 @@ class Referencer:
             component.set_references(references)
 
     @staticmethod
-    def set_references(references, components):
+    def set_references(references: IReferences, components: List[Any]):
         """
         Sets references to multiple components.
 
@@ -51,7 +54,7 @@ class Referencer:
             Referencer.set_references_for_one(references, component)
 
     @staticmethod
-    def unset_references_for_one(component):
+    def unset_references_for_one(component: Any):
         """
         Unsets references in specific component.
 
@@ -64,7 +67,7 @@ class Referencer:
             component.unset_references()
 
     @staticmethod
-    def unset_references(components):
+    def unset_references(components: List[Any]):
         """
         Unsets references in multiple components.
 

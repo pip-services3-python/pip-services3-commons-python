@@ -27,7 +27,7 @@ class TestApplicationExceptionFactory:
         self.descr.stack_trace = "stackTrace"
 
         map = StringValueMap()
-        map.put('key', 'value')
+        map.put('key', 'args')
 
         self.descr.details = map
 

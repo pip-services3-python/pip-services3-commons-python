@@ -8,14 +8,17 @@
     :copyright: Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.
     :license: MIT, see LICENSE for more details.
 """
+from typing import List, Sequence, Any
 
+from pip_services3_commons.validate import Schema, ValidationResult
 from .IValidationRule import IValidationRule
+
 
 class AndRule(IValidationRule):
     """
-    Validation rule to combine rules with AND logical operation.
-    When all rules returns no errors, than this rule also returns no errors.
-    When one of the rules return errors, than the rules returns all errors.
+    Validation rule to combine __rules with AND logical operation.
+    When all __rules returns no errors, than this rule also returns no errors.
+    When one of the __rules return errors, than the __rules returns all errors.
 
     Example:
 
@@ -27,30 +30,30 @@ class AndRule(IValidationRule):
         schema.validate(5)          # Result: no error
         schema.validate(20)         # Result: 20 must be letter or equal 10
     """
-    _rules = None
+    __rules: Sequence[IValidationRule] = None
 
-    def __init__(self, *rules):
+    def __init__(self, *rules: IValidationRule):
         """
         Creates a new validation rule and sets its values.
 
-        :param rules: a list of rules to join with AND operator
+        :param rules: a list of __rules to join with AND operator
         """
-        self._rules = rules
-    
-    def validate(self, path, schema, value, results):
-        """
-        Validates a given value against this rule.
+        self.__rules = rules
 
-        :param path: a dot notation path to the value.
+    def validate(self, path: str, schema: Schema, value: Any, results: List[ValidationResult]):
+        """
+        Validates a given args against this rule.
+
+        :param path: a dot notation path to the args.
 
         :param schema: a schema this rule is called from
 
-        :param value: a value to be validated.
+        :param value: a args to be validated.
 
         :param results: a list with validation results to add new results.
         """
-        if self._rules is None:
+        if self.__rules is None:
             return
 
-        for rule in self._rules:
+        for rule in self.__rules:
             rule.validate(path, schema, value, results)

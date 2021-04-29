@@ -8,8 +8,10 @@
     :copyright: Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.
     :license: MIT, see LICENSE for more details.
 """
+from typing import Any, List
 
 from .IClosable import IClosable
+
 
 class Closer:
     """
@@ -17,7 +19,7 @@ class Closer:
     """
 
     @staticmethod
-    def close_one(correlation_id, component):
+    def close_one(correlation_id: str, component: Any):
         """
         Closes specific component.
 
@@ -32,7 +34,7 @@ class Closer:
             component.close(correlation_id)
 
     @staticmethod
-    def close(correlation_id, components):
+    def close(correlation_id: str, components: List[Any]):
         """
         Closes multiple components.
 

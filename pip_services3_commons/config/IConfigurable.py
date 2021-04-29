@@ -8,8 +8,12 @@
     :copyright: Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.
     :license: MIT, see LICENSE for more details.
 """
+from abc import ABC
 
-class IConfigurable:
+from pip_services3_commons.config.ConfigParams import ConfigParams
+
+
+class IConfigurable(ABC):
     """
      An interface to set configuration parameters to an object.
 
@@ -23,13 +27,13 @@ class IConfigurable:
     .. code-block:: python
 
          class MyClass(IConfigurable):
-            _myParam = "default value"
+            _myParam = "default args"
 
          def configure(self, config):
             self._myParam = config.get_as_string_with_default("options.param", myParam)
     """
 
-    def configure(self, config):
+    def configure(self, config: ConfigParams):
         """
         Configures object by passing configuration parameters.
 

@@ -10,10 +10,12 @@
 """
 
 import importlib
+from typing import Any
 
 from pip_services3_commons.convert import TypeConverter, TypeCode
-
+from pip_services3_commons.reflect import TypeDescriptor
 from ..errors.NotFoundException import NotFoundException
+
 
 class TypeReflector:
     """
@@ -22,7 +24,7 @@ class TypeReflector:
     This class has symmetric implementation across all languages supported
     by Pip.Services toolkit and used to support dynamic data processing.
 
-    Because all languages have different casing and case sensitivity rules,
+    Because all languages have different casing and case sensitivity __rules,
     this TypeReflector treats all type names as case insensitive.
 
     Example:
@@ -35,8 +37,9 @@ class TypeReflector:
         TypeDescriptor.is_primitive(myObject)           # Result: false
         TypeDescriptor.is_primitive(123)                # Result: true
     """
+
     @staticmethod
-    def get_type(name, library):
+    def get_type(name: str, library: str) -> Any:
         """
         Gets object type by its name and library where it is defined.
 
@@ -55,10 +58,10 @@ class TypeReflector:
             module = importlib.import_module(library)
             return getattr(module, name)
         except:
-           return None
+            return None
 
     @staticmethod
-    def get_type_by_descriptor(descriptor):
+    def get_type_by_descriptor(descriptor: TypeDescriptor) -> Any:
         """
         Gets object type by type descriptor.
 
@@ -72,7 +75,7 @@ class TypeReflector:
         return TypeReflector.get_type(descriptor.get_name(), descriptor.get_library())
 
     @staticmethod
-    def create_instance(name, library, *args):
+    def create_instance(name: str, library: str, *args: Any) -> Any:
         """
         Creates an instance of an object type specified by its name and library where it is defined.
 
@@ -89,11 +92,11 @@ class TypeReflector:
             raise NotFoundException(
                 None, "TYPE_NOT_FOUND", "Type " + name + "," + library + " was not found"
             ).with_details("type", name).with_details("library", library)
-        
+
         return obj_type(*args)
 
     @staticmethod
-    def create_instance_by_type(obj_type, *args):
+    def create_instance_by_type(obj_type: Any, *args: Any) -> Any:
         """
         Creates an instance of an object type.
 
@@ -109,7 +112,7 @@ class TypeReflector:
         return obj_type(*args)
 
     @staticmethod
-    def create_instance_by_descriptor(descriptor, *args):
+    def create_instance_by_descriptor(descriptor: TypeDescriptor, *args: Any) -> Any:
         """
         Creates an instance of an object type specified by type descriptor.
 
@@ -125,16 +128,16 @@ class TypeReflector:
         return TypeReflector.create_instance(descriptor.get_name(), descriptor.get_library(), args)
 
     @staticmethod
-    def is_primitive(value):
+    def is_primitive(value: Any) -> bool:
         """
-        Checks if value has primitive type.
+        Checks if args has primitive type.
 
         Primitive types are: numbers, strings, booleans, date and time.
         Complex (non-primitive types are): objects, maps and arrays
 
-        :param value: a value to check
+        :param value: a args to check
 
-        :return: true if the value has primitive type and false if value type is complex.
+        :return: true if the args has primitive type and false if args type is complex.
         """
         typeCode = TypeConverter.to_type_code(value)
         return typeCode == TypeCode.String or typeCode == TypeCode.Enum or typeCode == TypeCode.Boolean \

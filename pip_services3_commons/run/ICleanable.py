@@ -8,14 +8,25 @@
     :copyright: Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.
     :license: MIT, see LICENSE for more details.
 """
+from abc import ABC
 
-class ICleanable:
+
+class ICleanable(ABC):
     """
     Interface for components that should clean their state.
     Cleaning state most often is used during testing.
     But there may be situations when it can be done in production.
+
+    .. code-block:: python
+        class MyObjectWithState(ICleanable):
+            _state = {}
+            ...
+
+            def clear(self, correlation_id):
+                self._state = {}
     """
-    def clear(self, correlation_id):
+
+    def clear(self, correlation_id: str):
         """
         Clears component state.
 

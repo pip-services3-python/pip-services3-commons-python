@@ -8,8 +8,10 @@
     :copyright: Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.
     :license: MIT, see LICENSE for more details.
 """
+from abc import ABC
 
-class IUnreferenceable:
+
+class IUnreferenceable(ABC):
     """
     Interface for components that require explicit clearing of references to dependent components.
 

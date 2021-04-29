@@ -8,8 +8,12 @@
     :copyright: Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.
     :license: MIT, see LICENSE for more details.
 """
+from typing import TypeVar, Sequence
 
-class DataPage():
+T = TypeVar('T')  # Declare type variable
+
+
+class DataPage:
     """
     Data transfer object that is used to pass results of paginated queries.
     It contains items of retrieved page and optional total number of items.
@@ -27,18 +31,15 @@ class DataPage():
 
     .. code-block:: python
 
-        myDataClient.get_data_by_filter("123",
-                                        FilterParams.fromTuples("completed", true),
+        my_data_client.get_data_by_filter("123",
+                                        FilterParams.from_tuples("completed", true),
                                         PagingParams(0, 100, true),
                                         page)
         for item in page.get_data():
             print (item)
     """
 
-    total = None
-    data = None
-
-    def __init__(self, data, total = None):
+    def __init__(self, data: Sequence[T], total: int = None):
         """
         Creates a new instance of data page and assigns its values.
 
@@ -46,8 +47,10 @@ class DataPage():
 
         :param total: total amount of items in a request.
         """
-        self.data = data
-        self.total = total
+        # The total amount of items in a request.
+        self.data: Sequence[T] = data
+        # The total amount of items in a request.
+        self.total: int = total
 
     def to_json(self):
         return {

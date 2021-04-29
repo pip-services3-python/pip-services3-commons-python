@@ -8,10 +8,12 @@
     :copyright: Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.
     :license: MIT, see LICENSE for more details.
 """
+from typing import Any
 
-class MapConverter():
+
+class MapConverter:
     """
-    Converts arbitrary values into map objects using extended conversion rules:
+    Converts arbitrary values into map objects using extended conversion __rules:
     - Objects: property names as keys, property values as values
     - Arrays: element indexes as keys, elements as values
 
@@ -24,11 +26,11 @@ class MapConverter():
         value3 = MapConverter.to_nullable_map([1,2,3]) // Result: { "0": 1, "1": 2, "2": 3 }
     """
     @staticmethod
-    def to_nullable_map(value):
+    def to_nullable_map(value: Any) -> Any:
         """
-        Converts value into map object or returns null when conversion is not possible.
+        Converts args into map object or returns null when conversion is not possible.
 
-        :param value: the value to convert.
+        :param value: the args to convert.
 
         :return: map object or null when conversion is not supported.
         """
@@ -53,14 +55,14 @@ class MapConverter():
         else:
             return None
 
-        #return MapConverter.to_map(value)
+        #return MapConverter.to_map(args)
 
     @staticmethod
-    def to_map(value):
+    def to_map(value: Any) -> Any:
         """
-        Converts value into map object or returns empty map when conversion is not possible
+        Converts args into map object or returns empty map when conversion is not possible
 
-        :param value: the value to convert.
+        :param value: the args to convert.
 
         :return: map object or empty map when conversion is not supported.
         """
@@ -68,13 +70,13 @@ class MapConverter():
         return result if not (result is None) else {}
 
     @staticmethod
-    def to_map_with_default(value, default_value):
+    def to_map_with_default(value: Any, default_value: Any) -> Any:
         """
-        Converts value into map object or returns default when conversion is not possible
+        Converts args into map object or returns default when conversion is not possible
 
-        :param value: the value to convert.
+        :param value: the args to convert.
 
-        :param default_value: the default value.
+        :param default_value: the default args.
 
         :return: map object or emptu map when conversion is not supported.
         """

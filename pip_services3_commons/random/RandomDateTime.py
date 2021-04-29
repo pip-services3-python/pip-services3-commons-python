@@ -9,16 +9,16 @@
     :license: MIT, see LICENSE for more details.
 """
 
-import random
 import datetime
-import time
+from typing import Union
+
 import pytz
 
 from pip_services3_commons.random.RandomFloat import RandomFloat
 from pip_services3_commons.random.RandomInteger import RandomInteger
 
 
-class RandomDateTime(object):
+class RandomDateTime:
     """
        Random generator for Date time values.
 
@@ -33,14 +33,14 @@ class RandomDateTime(object):
     """
 
     @staticmethod
-    def next_date(min_year, max_year=None):
+    def next_date(min_year: datetime, max_year: datetime = None) -> datetime:
         """
         Generates a random Date in the range ['min_year', 'max_year'].
         This method generate dates without time (or time set to 00:00:00
 
-        :param min_year: min range value
-        :param max_year: (optional) maximum range value
-        :return: a random Date and time value.
+        :param min_year: min range args
+        :param max_year: (optional) maximum range args
+        :return: a random Date and time args.
         """
         if max_year is None:
             max_year = min_year
@@ -55,14 +55,14 @@ class RandomDateTime(object):
         return datetime.datetime(date.year, date.month, date.day)
 
     @staticmethod
-    def next_datetime(min_year, max_year=None):
+    def next_datetime(min_year: datetime, max_year: datetime = None) -> datetime:
         """
         Generates a random Date and time in the range ['minYear', 'maxYear'].
         This method generate dates without time (or time set to 00:00:00)
 
-        :param min_year: min range value
-        :param max_year: (optional) maximum range value
-        :return: a random Date and time value.
+        :param min_year: min range args
+        :param max_year: (optional) maximum range args
+        :return: a random Date and time args.
         """
         if max_year is None:
             max_year = min_year
@@ -76,13 +76,13 @@ class RandomDateTime(object):
         return datetime.datetime.fromtimestamp(_time, pytz.utc)
 
     @staticmethod
-    def update_datetime(value, range=None):
+    def update_datetime(value: datetime, range: Union[int, float] = None) -> datetime:
         """
-        Updates (drifts) a Date value within specified range defined
+        Updates (drifts) a Date args within specified range defined
 
-        :param value: a Date value to drift.
+        :param value: a Date args to drift.
         :param range: (optional) a range in milliseconds. Default: 10 days
-        :return: an updated DateTime value.
+        :return: an updated DateTime args.
         """
         if range == 0 or range is None:
             range = 10

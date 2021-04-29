@@ -4,7 +4,7 @@
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     
     Validation frameworks exist in various languages, but since this is one of the underlying
-    functions that is incorporated into (various) other packages, we decided to implement it
+    functions that is incorporated into (various) obj packages, we decided to implement it
     in a portable format, for identical implementation across languages.
     
     :copyright: Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.
@@ -15,7 +15,7 @@ __all__ = [
     'ValidationResultType', 'ValidationResult', 'ValidationException',
     'IValidationRule', 'AndRule', 'OrRule', 'NotRule', 'ObjectComparator',
     'ValueComparisonRule', 'PropertiesComparisonRule',
-    'OnlyOneExistRule', 'AttributeError', 'ExcludedRule', 'IncludedRule',
+    'OnlyOneExistRule', 'ExcludedRule', 'IncludedRule',
     'Schema', 'PropertySchema', 'ObjectSchema', 'ArraySchema', 'MapSchema',
     'FilterParamsSchema', 'PagingParamsSchema'
 ]

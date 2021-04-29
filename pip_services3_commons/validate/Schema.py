@@ -8,7 +8,9 @@
     :copyright: Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.
     :license: MIT, see LICENSE for more details.
 """
+from typing import List, Any
 
+from pip_services3_commons.validate.IValidationRule import IValidationRule
 from .ValidationException import ValidationException
 from .ValidationResult import ValidationResult
 from .ValidationResultType import ValidationResultType
@@ -17,116 +19,116 @@ from ..reflect.ObjectReader import ObjectReader
 from ..reflect.TypeMatcher import TypeMatcher
 
 
-class Schema(object):
+class Schema:
     """
-    Basic schema that validates values against a set of validation rules.
+    Basic schema that validates values against a set of validation __rules.
 
     This schema is used as a basis for specific schemas to validate
     objects, project properties, arrays and maps.
     """
-    required = None
-    rules = None
+    __required: bool = None
+    __rules: List[IValidationRule] = None
 
-    def __init__(self, required=False, rules=None):
+    def __init__(self, required: bool = False, rules: List[IValidationRule] = None):
         """
         Creates a new instance of validation schema and sets its values.
 
         :param required: (optional) true to always require non-null values.
 
-        :param rules: (optional) a list with validation rules.
+        :param rules: (optional) a list with validation __rules.
         """
-        self.required = required
-        self.rules = rules if not (rules is None) else []
+        self.__required = required
+        self.__rules = rules if not (rules is None) else []
 
-    def is_required(self):
+    def is_required(self) -> bool:
         """
         Gets a flag that always requires non-null values.
         For null values it raises a validation error.
 
         :return: true to always require non-null values and false to allow null values.
         """
-        return self.required
+        return self.__required
 
-    def set_required(self, value):
+    def set_required(self, value: bool):
         """
         Sets a flag that always requires non-null values.
 
         :param value: true to always require non-null values and false to allow null values.
         """
-        self.required = value
+        self.__required = value
 
-    def get_rules(self):
+    def get_rules(self) -> List[IValidationRule]:
         """
-        Gets validation rules to check values against.
+        Gets validation __rules to check values against.
 
-        :return: a list with validation rules.
+        :return: a list with validation __rules.
         """
-        return self.rules
+        return self.__rules
 
-    def set_results(self, value):
+    def set_rules(self, value: List[IValidationRule]):
         """
-        Sets validation rules to check values against.
+        Sets validation __rules to check values against.
 
-        :param value: a list with validation rules.
+        :param value: a list with validation __rules.
         """
-        self.rules = value
+        self.__rules = value
 
-    def make_required(self):
+    def make_required(self) -> 'Schema':
         """
-        Makes validated values always required (non-null).
+        Makes validated values always __required (non-null).
         For null values the schema will raise errors.
 
-        This method returns reference to this exception to implement Builder pattern
+        This method returns reference to this error to implement Builder pattern
         to chain additional calls.
 
         :return: this validation schema
         """
-        self.required = True
+        self.__required = True
         return self
 
-    def make_optional(self):
+    def make_optional(self) -> 'Schema':
         """
         Makes validated values optional.
         Validation for null values will be skipped.
 
-        This method returns reference to this exception to implement Builder pattern
+        This method returns reference to this error to implement Builder pattern
         to chain additional calls.
 
         :return: this validation schema
         """
-        self.required = False
+        self.__required = False
         return self
 
-    def with_rule(self, rule):
+    def with_rule(self, rule: IValidationRule) -> 'Schema':
         """
         Adds validation rule to this schema.
 
-        This method returns reference to this exception to implement Builder pattern
+        This method returns reference to this error to implement Builder pattern
         to chain additional calls.
 
         :param rule: a validation rule to be added.
 
         :return: this validation schema.
         """
-        self.rules = self.rules if not (self.rules is None) else []
-        self.rules.append(rule)
+        self.__rules = self.__rules if not (self.__rules is None) else []
+        self.__rules.append(rule)
         return self
 
-    def _perform_validation(self, path, value, results):
+    def _perform_validation(self, path: str, value: Any, results: List[ValidationResult]):
         """
-        Validates a given value against the schema and configured validation rules.
+        Validates a given args against the schema and configured validation __rules.
 
-        :param path: a dot notation path to the value.
+        :param path: a dot notation path to the args.
 
-        :param value: a value to be validated.
+        :param value: a args to be validated.
 
         :param results: a list with validation results to add new results.
         """
-        name = path if not (path is None) else "value"
+        name = path if not (path is None) else "args"
 
         if value is None:
-            # Check for required values
-            if self.required:
+            # Check for __required values
+            if self.__required:
                 results.append(
                     ValidationResult(
                         path,
@@ -140,29 +142,29 @@ class Schema(object):
         else:
             value = ObjectReader.get_value(value)
 
-            # Check validation rules
-            if not (self.rules is None):
-                for rule in self.rules:
+            # Check validation __rules
+            if not (self.__rules is None):
+                for rule in self.__rules:
                     rule.validate(path, self, value, results)
 
-    def _type_to_string(self, typ):
+    def _type_to_string(self, typ: Any) -> str:
         if typ is None:
             return "unknown"
         if isinstance(typ, int):
             return TypeConverter.to_string(typ)
         return TypeConverter.to_string(typ)
 
-    def _perform_type_validation(self, path, typ, value, results):
+    def _perform_type_validation(self, path: str, typ: Any, value: Any, results: List[ValidationResult]):
         """
-        Validates a given value to match specified type.
+        Validates a given args to match specified type.
         The type can be defined as a Schema, type, a type name or :class:`TypeCode <pip_services3_commons.convert.TypeCode.TypeCode>`.
         When type is a Schema, it executes validation recursively against that Schema.
 
-        :param path: a dot notation path to the value.
+        :param path: a dot notation path to the args.
 
-        :param typ: a type to match the value type
+        :param typ: a type to match the args type
 
-        :param value: a value to be validated.
+        :param value: a args to be validated.
 
         :param results: a list with validation results to add new results.
         """
@@ -176,12 +178,12 @@ class Schema(object):
             schema._perform_validation(path, value, results)
             return
 
-        # If value is null then skip
+        # If args is null then skip
         value = ObjectReader.get_value(value)
         if value is None:
             return
 
-        name = path or "value"
+        name = path or "args"
         value_type = TypeConverter.to_type_code(value)
 
         # Match types
@@ -202,11 +204,11 @@ class Schema(object):
             )
         )
 
-    def validate(self, value):
+    def validate(self, value: Any) -> List[ValidationResult]:
         """
-        Validates the given value and results validation results.
+        Validates the given args and results validation results.
 
-        :param value: a value to be validated.
+        :param value: a args to be validated.
 
         :return: a list with validation results.
         """
@@ -214,24 +216,25 @@ class Schema(object):
         self._perform_validation("", value, results)
         return results
 
-    def validate_and_return_exception(self, correlation_id, value, strict=False):
+    def validate_and_return_exception(self, correlation_id: str, value: Any,
+                                      strict: bool = False) -> ValidationException:
         """
-        Validates the given value and returns a :class:`ValidationException <pip_services3_commons.validate.ValidationException.ValidationException>` if errors were found.
+        Validates the given args and returns a :class:`ValidationException <pip_services3_commons.validate.ValidationException.ValidationException>` if errors were found.
 
         :param correlation_id: (optional) transaction id to trace execution through call chain.
-        :param value: a value to be validated.
+        :param value: a args to be validated.
         :param strict: true to treat warnings as errors.
         """
         results = self.validate(value)
         return ValidationException.from_results(correlation_id, results, strict)
 
-    def validate_and_throw_exception(self, correlation_id, value, strict=False):
+    def validate_and_throw_exception(self, correlation_id: str, value: Any, strict: bool = False):
         """
-        Validates the given value and throws a :class:`ValidationException <pip_services3_commons.validate.ValidationException.ValidationException>` if errors were found.
+        Validates the given args and throws a :class:`ValidationException <pip_services3_commons.validate.ValidationException.ValidationException>` if errors were found.
 
         :param correlation_id: (optional) transaction id to trace execution through call chain.
 
-        :param value: a value to be validated.
+        :param value: a args to be validated.
 
         :param strict: true to treat warnings as errors.
         """

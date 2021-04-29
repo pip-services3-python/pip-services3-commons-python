@@ -8,15 +8,18 @@
     :copyright: Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.
     :license: MIT, see LICENSE for more details.
 """
+from typing import Any, List
 
 from .IOpenable import IOpenable
+
 
 class Opener:
     """
     Helper class that opens components.
     """
+
     @staticmethod
-    def is_opened_one(component):
+    def is_opened_one(component: Any) -> bool:
         """
         Checks if specified component is opened.
 
@@ -28,12 +31,12 @@ class Opener:
         :return: true if component is opened and false otherwise.
         """
         if isinstance(component, IOpenable):
-            return component.is_opened()
+            return component.is_open()
 
         return True
 
     @staticmethod
-    def is_opened(components):
+    def is_opened(components: List[Any]) -> bool:
         """
         Checks if all components are opened.
 
@@ -54,7 +57,7 @@ class Opener:
         return result
 
     @staticmethod
-    def open_one(correlation_id, component):
+    def open_one(correlation_id: str, component: Any):
         """
         Opens specific component.
 
@@ -69,7 +72,7 @@ class Opener:
             component.open(correlation_id)
 
     @staticmethod
-    def open(correlation_id, components):
+    def open(correlation_id: str, components: List[Any]):
         """
         Opens multiple components.
 

@@ -9,13 +9,15 @@
     :license: MIT, see LICENSE for more details.
 """
 
-from ..convert.TypeCode import TypeCode
 from .ObjectSchema import ObjectSchema
+from ..convert.TypeCode import TypeCode
+
 
 class PagingParamsSchema(ObjectSchema):
     """
     Schema to validate :class:`PagingParams <pip_services3_commons.data.PagingParams.PagingParams>`.
     """
+
     def __init__(self):
         """
         Creates a new instance of validation schema.

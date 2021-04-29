@@ -10,10 +10,12 @@
 """
 
 import re
+from typing import Any
 
 from ..convert.FloatConverter import FloatConverter
 
-class ObjectComparator(object):
+
+class ObjectComparator:
     """
     Helper class to perform comparison operations over arbitrary values.
 
@@ -24,8 +26,9 @@ class ObjectComparator(object):
         ObjectComparator.compare(2, "GT", 1)        # Result: true
         ObjectComparator.areEqual("A", "B")         # Result: false
     """
+
     @staticmethod
-    def compare(value1, operation, value2):
+    def compare(value1: Any, operation: str, value2: Any) -> bool:
         """
         Perform comparison operation over two arguments.
         The operation can be performed over values of any type.
@@ -41,7 +44,7 @@ class ObjectComparator(object):
         """
         if operation is None:
             return False
-        
+
         operation = operation.upper()
 
         if operation in ["=", "==", "EQ"]:
@@ -62,13 +65,13 @@ class ObjectComparator(object):
         return True
 
     @staticmethod
-    def are_equal(value1, value2):
+    def are_equal(value1: Any, value2: Any) -> bool:
         """
         Checks if two values are equal. The operation can be performed over values of any type.
 
-        :param value1: the first value to compare
+        :param value1: the first args to compare
 
-        :param value2: the second value to compare
+        :param value2: the second args to compare
 
         :return: true if values are equal and false otherwise
         """
@@ -79,29 +82,29 @@ class ObjectComparator(object):
         return value1 == value2
 
     @staticmethod
-    def are_not_equal(value1, value2):
+    def are_not_equal(value1: Any, value2: Any) -> bool:
         """
         Checks if two values are NOT equal. The operation can be performed over values of any type.
 
-        :param value1: the first value to compare
+        :param value1: the first args to compare
 
-        :param value2: the second value to compare
+        :param value2: the second args to compare
 
         :return: true if values are NOT equal and false otherwise
         """
         return not ObjectComparator.are_equal(value1, value2)
 
     @staticmethod
-    def less(value1, value2):
+    def less(value1: Any, value2: Any) -> bool:
         """
-        Checks if first value is less than the second one.
+        Checks if first args is less than the second one.
         The operation can be performed over numbers or strings.
 
-        :param value1: the first value to compare
+        :param value1: the first args to compare
 
-        :param value2: the second value to compare
+        :param value2: the second args to compare
 
-        :return: true if the first value is less than second and false otherwise.
+        :return: true if the first args is less than second and false otherwise.
         """
         number1 = FloatConverter.to_nullable_float(value1)
         number2 = FloatConverter.to_nullable_float(value2)
@@ -112,16 +115,16 @@ class ObjectComparator(object):
         return number1 < number2
 
     @staticmethod
-    def more(value1, value2):
+    def more(value1: Any, value2: Any) -> bool:
         """
-        Checks if first value is greater than the second one.
+        Checks if first args is greater than the second one.
         The operation can be performed over numbers or strings.
 
-        :param value1: the first value to compare
+        :param value1: the first args to compare
 
-        :param value2: the second value to compare
+        :param value2: the second args to compare
 
-        :return: true if the first value is greater than second and false otherwise.
+        :return: true if the first args is greater than second and false otherwise.
         """
         number1 = FloatConverter.to_nullable_float(value1)
         number2 = FloatConverter.to_nullable_float(value2)
@@ -132,15 +135,15 @@ class ObjectComparator(object):
         return number1 > number2
 
     @staticmethod
-    def match(value1, value2):
+    def match(value1: Any, value2: Any) -> bool:
         """
         Checks if string matches a regular expression
 
-        :param value1: a string value to match
+        :param value1: a string args to match
 
         :param value2: a regular expression string
 
-        :return: true if the value matches regular expression and false otherwise.
+        :return: true if the args matches regular expression and false otherwise.
         """
         if value1 is None and value2 is None:
             return True
@@ -149,4 +152,4 @@ class ObjectComparator(object):
 
         string1 = str(value1)
         string2 = str(value2)
-        return re.match(string2, string1) != None
+        return re.match(string2, string1) is not None

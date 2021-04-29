@@ -8,8 +8,10 @@
     :copyright: Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.
     :license: MIT, see LICENSE for more details.
 """
+from typing import Any, List
 
 from .ICleanable import ICleanable
+
 
 class Cleaner:
     """
@@ -17,7 +19,7 @@ class Cleaner:
     """
 
     @staticmethod
-    def clear_one(correlation_id, component):
+    def clear_one(correlation_id: str, component: Any):
         """
         Clears state of specific component.
 
@@ -33,7 +35,7 @@ class Cleaner:
             component.clear(correlation_id)
 
     @staticmethod
-    def clear(correlation_id, components):
+    def clear(correlation_id: str, components: List[Any]):
         """
         Clears state of multiple components.
 

@@ -8,9 +8,11 @@
     :copyright: Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.
     :license: MIT, see LICENSE for more details.
 """
+from typing import Any, List
 
-from ..convert.IntegerConverter import IntegerConverter
 from .PropertyReflector import PropertyReflector
+from ..convert.IntegerConverter import IntegerConverter
+
 
 class ObjectReader:
     """
@@ -25,7 +27,7 @@ class ObjectReader:
     This class has symmetric implementation across all languages supported
     by Pip.Services toolkit and used to support dynamic data processing.
 
-    Because all languages have different casing and case sensitivity rules,
+    Because all languages have different casing and case sensitivity __rules,
     this ObjectReader treats all property names as case insensitive.
 
     Example:
@@ -37,32 +39,32 @@ class ObjectReader:
         properties = ObjectReader.get_property_names()
 
         ObjectReader.has_property(myObj, "myProperty")
-        value = PropertyReflector.get_property(myObj, "myProperty")
+        args = PropertyReflector.get_property(myObj, "myProperty")
 
         myMap = { key1: 123, key2: "ABC" }
         ObjectReader.has_property(myMap, "key1")
-        value = ObjectReader.get_property(myMap, "key1")
+        args = ObjectReader.get_property(myMap, "key1")
 
         myArray = [1, 2, 3]
         ObjectReader.has_property(myArrat, "0")
-        value = ObjectReader.get_property(myArray, "0")
+        args = ObjectReader.get_property(myArray, "0")
     """
+
     @staticmethod
-    def get_value(obj):
+    def get_value(obj: Any) -> Any:
         """
-        Gets a real object value. If object is a wrapper, it unwraps the value behind it.
-        Otherwise it returns the same object value.
+        Gets a real object args. If object is a wrapper, it unwraps the args behind it.
+        Otherwise it returns the same object args.
 
         :param obj: an object to unwrap.
 
-        :return: an actual (unwrapped) object value.
+        :return: an actual (unwrapped) object args.
         """
         # Todo: just a blank implementation for compatibility
         return obj
 
-
     @staticmethod
-    def has_property(obj, name):
+    def has_property(obj: Any, name: str) -> bool:
         """
         Checks if object has a property with specified name.
 
@@ -91,11 +93,10 @@ class ObjectReader:
         else:
             return PropertyReflector.has_property(obj, name)
 
-
     @staticmethod
-    def get_property(obj, name):
+    def get_property(obj: Any, name: str) -> Any:
         """
-        Gets value of object property specified by its name.
+        Gets args of object property specified by its name.
 
         The object can be a user defined object, map or array.
         The property name correspondently must be object property, map key or array index.
@@ -104,7 +105,7 @@ class ObjectReader:
 
         :param name: a name of the property to get.
 
-        :return: the property value or null if property doesn't exist or introspection failed.
+        :return: the property args or null if property doesn't exist or introspection failed.
         """
         if obj is None or name is None:
             return False
@@ -124,9 +125,8 @@ class ObjectReader:
         else:
             return PropertyReflector.get_property(obj, name)
 
-
     @staticmethod
-    def get_property_names(obj):
+    def get_property_names(obj: Any) -> List[str]:
         """
         Gets names of all properties implemented in specified object.
 
@@ -150,9 +150,8 @@ class ObjectReader:
 
         return property_names
 
-
     @staticmethod
-    def get_properties(obj):
+    def get_properties(obj: Any) -> Any:
         """
         Get values of all properties in specified object and returns them as a map.
 

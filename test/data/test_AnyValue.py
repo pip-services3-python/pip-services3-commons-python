@@ -30,4 +30,4 @@ class TestAnyValue:
         assert 1 == value
         assert 1.0 == value
         assert "1" == value
-        assert value.equals_as(TypeCode.Float,"1")
+        assert value.equals_as_type(TypeCode.Float, "1")

@@ -9,6 +9,7 @@
     :license: MIT, see LICENSE for more details.
 """
 
+
 class SortField:
     """
     Defines a field name and order used to sort query results.
@@ -23,10 +24,8 @@ class SortField:
 
          myDataClient.get_data_by_filter(filter, paging, sorting)
     """
-    name = None
-    ascending = True
 
-    def __init__(self, name, ascending = True):
+    def __init__(self, name: str, ascending: bool = True):
         """
         Creates a new instance and assigns its values.
 
@@ -34,5 +33,5 @@ class SortField:
 
         :param ascending: true to sort in ascending order, and false to sort in descending order.
         """
-        self.name = name
-        self.ascending = ascending
+        self.name: str = name
+        self.ascending: bool = ascending

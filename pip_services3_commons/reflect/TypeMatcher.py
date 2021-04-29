@@ -8,39 +8,40 @@
     :copyright: Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.
     :license: MIT, see LICENSE for more details.
 """
+from typing import Any
 
 from pip_services3_commons.convert import TypeCode, TypeConverter, DateTimeConverter
 
 
 class TypeMatcher:
     """
-    Helper class matches value types for equality.
+    Helper class matches args types for equality.
 
     This class has symmetric implementation across all languages supported
     by Pip.Services toolkit and used to support dynamic data processing.
     """
 
     @staticmethod
-    def match_value(expected_type, actual_value):
+    def match_value_type(expected_type: Any, actual_value: Any) -> bool:
         """
-        Matches expected type to a type of a value.
+        Matches expected type to a type of a args.
         The expected type can be specified by a type, type name or :class:`TypeCode <pip_services3_commons.convert.TypeCode.TypeCode>`.
 
         :param expected_type: an expected type to match.
 
-        :param actual_value: a value to match its type to the expected one.
+        :param actual_value: a args to match its type to the expected one.
 
         :return: True if types are matching and False if they don't.
         """
         if expected_type is None:
             return True
         if actual_value is None:
-            raise Exception("Actual value cannot be null")
+            raise Exception("Actual args cannot be null")
 
         return TypeMatcher.match_type(expected_type, TypeConverter.to_type_code(actual_value), actual_value)
 
     @staticmethod
-    def match_type(expected_type, actual_type, actual_value=None):
+    def match_type(expected_type: Any, actual_type: TypeCode, actual_value: Any = None) -> bool:
         """
         Matches expected type to an actual type.
         The types can be specified as types, type names or :class:`TypeCode <pip_services3_commons.convert.TypeCode.TypeCode>`.
@@ -49,7 +50,7 @@ class TypeMatcher:
 
         :param actual_type: an actual type to match.
 
-        :param actual_value: an optional value to match its type to the expected one.
+        :param actual_value: an optional args to match its type to the expected one.
 
         :return: True if types are matching and False if they don't.
         """
@@ -93,25 +94,25 @@ class TypeMatcher:
         return False
 
     @staticmethod
-    def match_value_type_by_name(expected_type, actual_value):
+    def match_value_type_by_name(expected_type: str, actual_value: Any) -> bool:
         """
-        Matches expected type to a type of a value.
+        Matches expected type to a type of a args.
 
         :param expected_type: an expected type name to match.
 
-        :param actual_value: a value to match its type to the expected one.
+        :param actual_value: a args to match its type to the expected one.
 
         :return: True if types are matching and False if they don't.
         """
         if expected_type is None:
             return True
         if actual_value is None:
-            raise Exception("Actual value cannot be null")
+            raise Exception("Actual args cannot be null")
 
         return TypeMatcher.match_type_by_name(expected_type, TypeConverter.to_type_code(actual_value), actual_value)
 
     @staticmethod
-    def match_type_by_name(expected_type, actual_type, actual_value=None):
+    def match_type_by_name(expected_type: str, actual_type: TypeCode, actual_value: Any = None) -> bool:
         """
         Matches expected type to an actual type.
 
@@ -119,7 +120,7 @@ class TypeMatcher:
 
         :param actual_type: an actual type to match defined by type code.
 
-        :param actual_value: an optional value to match its type to the expected one.
+        :param actual_value: an optional args to match its type to the expected one.
 
         :return: true if types are matching and false if they don't.
         """

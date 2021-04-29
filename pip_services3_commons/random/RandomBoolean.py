@@ -11,7 +11,7 @@
 
 import random
 
-class RandomBoolean(object):
+class RandomBoolean:
     """
     Random generator for boolean values.
 
@@ -23,7 +23,7 @@ class RandomBoolean(object):
         value2 = RandomBoolean.chance(1,3)      # Possible result: false
     """
     @staticmethod
-    def chance(chances, max_chances):
+    def chance(chances: int, max_chances: int) -> bool:
         """
         Calculates "chance" out of "max chances".
         Example: 1 chance out of 3 chances (or 33.3%)
@@ -43,12 +43,12 @@ class RandomBoolean(object):
         start = (max_chances - chances) / 2
         end = start + chances
         hit = random.random() * max_chances
-        return hit >= start and hit <= end
+        return start <= hit <= end
 
     @staticmethod
-    def next_boolean():
+    def next_boolean() -> bool:
         """
-        Generates a random boolean value.
+        Generates a random boolean args.
 
         :return: a random boolean.
         """

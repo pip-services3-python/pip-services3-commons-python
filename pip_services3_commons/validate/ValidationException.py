@@ -3,12 +3,14 @@
     pip_services_common.validate.ValidationException
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     
-    Validation exception type
+    Validation error type
     
     :copyright: Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.
     :license: MIT, see LICENSE for more details.
 """
+from typing import List, Optional
 
+from pip_services3_commons.validate import ValidationResult
 from .ValidationResultType import ValidationResultType
 from ..errors.BadRequestException import BadRequestException
 
@@ -21,9 +23,9 @@ class ValidationException(BadRequestException):
     If using strict mode, warnings will also raise validation exceptions.
     """
 
-    def __init__(self, correlation_id, message, results):
+    def __init__(self, correlation_id: Optional[str], message: Optional[str], results: List[ValidationResult]):
         """
-        Creates a new instance of validation exception and assigns its values.
+        Creates a new instance of validation error and assigns its values.
 
         :param correlation_id: (optional) a unique transaction id to trace execution through call chain.
 
@@ -35,7 +37,7 @@ class ValidationException(BadRequestException):
                                                   ValidationException.compose_message(results) or message)
 
     @staticmethod
-    def compose_message(results):
+    def compose_message(results: List[ValidationResult]) -> str:
         """
         Composes human readable error message based on validation results.
 
@@ -60,7 +62,8 @@ class ValidationException(BadRequestException):
         return message
 
     @staticmethod
-    def from_results(correlation_id, results, strict):
+    def from_results(correlation_id: Optional[str], results: List[ValidationResult],
+                     strict: bool) -> 'ValidationException':
         """
         Creates a new ValidationException based on errors in validation results.
         If validation results have no errors, than null is returned.
@@ -84,10 +87,10 @@ class ValidationException(BadRequestException):
         return ValidationException(correlation_id, None, results) if has_errors else None
 
     @staticmethod
-    def throw_exception_if_needed(correlation_id, results, strict):
+    def throw_exception_if_needed(correlation_id: Optional[str], results: List[ValidationResult], strict: bool):
         """
         Throws ValidationException based on errors in validation results.
-        If validation results have no errors, than no exception is thrown.
+        If validation results have no errors, than no error is thrown.
 
         :param correlation_id: (optional) transaction id to trace execution through call chain.
 

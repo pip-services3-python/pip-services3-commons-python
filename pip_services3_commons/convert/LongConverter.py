@@ -10,12 +10,25 @@
 """
 import inspect
 from datetime import datetime
+from typing import Any, Optional
 
 
-class LongConverter():
+class LongConverter:
+    """
+    Converts arbitrary values into longs using extended conversion __rules:
+        - Strings are converted to floats, then to longs
+        - DateTime: total number of milliseconds since unix epoсh
+        - Boolean: 1 for true and 0 for false
+    """
 
     @staticmethod
-    def to_nullable_long(value):
+    def to_nullable_long(value: Any) -> Optional[float]:
+        """
+        Converts value into long or returns null when conversion is not possible.
+
+        :param value: the value to convert.
+        :return: long value or null when conversion is not supported.
+        """
         if value is None:
             return None
         if type(value) == int or isinstance(value, float):
@@ -33,10 +46,23 @@ class LongConverter():
         return None if result is None else int(result)
 
     @staticmethod
-    def to_long(value):
+    def to_long(value: Any) -> float:
+        """
+        Converts value into long or returns 0 when conversion is not possible.
+
+        :param value: the value to convert.
+        :return: long value or 0 when conversion is not supported.
+        """
         return LongConverter.to_long_with_default(value, 0)
 
     @staticmethod
-    def to_long_with_default(value, default_value):
+    def to_long_with_default(value: Any, default_value: float) -> float:
+        """
+        Converts value into integer or returns default when conversion is not possible.
+
+        :param value: the value to convert.
+        :param default_value: the default value.
+        :return: long value or default when conversion is not supported
+        """
         result = LongConverter.to_nullable_long(value)
         return result if not (result is None) else default_value

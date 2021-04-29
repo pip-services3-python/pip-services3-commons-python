@@ -27,4 +27,3 @@ class IIdentifiable:
 
     """
     id: Any
-    pass

@@ -8,11 +8,10 @@
     :copyright: Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.
     :license: MIT, see LICENSE for more details.
 """
+from pip_services3_commons.config.ConfigParams import ConfigParams
 
-from .ConfigParams import ConfigParams
-from ..refer.Descriptor import Descriptor
 
-class OptionsResolver(object):
+class OptionsResolver:
     """
     A helper class to parameters from "options" configuration section.
 
@@ -27,8 +26,9 @@ class OptionsResolver(object):
 
         options = OptionsResolver.resolve(config)
     """
+
     @staticmethod
-    def resolve(config, config_as_default = False):
+    def resolve(config: ConfigParams, config_as_default: bool = False) -> ConfigParams:
         """
         Resolves an "options" configuration section from component configuration parameters.
 

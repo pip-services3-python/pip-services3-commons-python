@@ -10,12 +10,14 @@
 """
 
 import threading
+from typing import List, Any, TypeVar, Sequence
 
-from .IReferenceable import IReferenceable
-from .IUnreferenceable import IUnreferenceable
 from .IReferences import IReferences
 from .Reference import Reference
 from .ReferenceException import ReferenceException
+
+T = TypeVar('T')  # Declare type variable
+
 
 class References(IReferences):
     """
@@ -42,18 +44,17 @@ class References(IReferences):
 
     """
 
-    _references = None
-    _lock = None
+    __lock = None
 
-    def __init__(self, tuples = None):
+    def __init__(self, tuples: Sequence[Any] = None):
         """
         Creates a new instance of references and initializes it with references.
 
         :param tuples: (optional) a list of values where odd elements are locators
         and the following even elements are component references
         """
-        self._references = []
-        self._lock = threading.Lock()
+        self._references: List[Reference] = []
+        self.__lock = threading.Lock()
 
         if not (tuples is None):
             index = 0
@@ -63,8 +64,7 @@ class References(IReferences):
                 self.put(tuples[index], tuples[index + 1])
                 index = index + 2
 
-
-    def put(self, locator = None, component = None):
+    def put(self, locator: Any = None, component: Any = None):
         """
         Puts a new reference into this reference map.
 
@@ -75,14 +75,13 @@ class References(IReferences):
         if component is None:
             raise Exception("Component cannot be null")
 
-        self._lock.acquire()
+        self.__lock.acquire()
         try:
             self._references.append(Reference(locator, component))
         finally:
-            self._lock.release()
+            self.__lock.release()
 
-
-    def remove(self, locator):
+    def remove(self, locator: Any) -> Any:
         """
         Removes a previously added reference that matches specified locator.
         If many references match the locator, it removes only the first one.
@@ -95,18 +94,18 @@ class References(IReferences):
         if locator is None:
             return None
 
-        self._lock.acquire()
+        self.__lock.acquire()
         try:
             for reference in reversed(self._references):
                 if reference.match(locator):
                     self._references.remove(reference)
                     return reference.get_component()
         finally:
-            self._lock.release()
-        
+            self.__lock.release()
+
         return None
 
-    def remove_all(self, locator):
+    def remove_all(self, locator: Any) -> List[Any]:
         """
         Removes all component references that match the specified locator.
 
@@ -119,18 +118,18 @@ class References(IReferences):
         if locator is None:
             return components
 
-        self._lock.acquire()
+        self.__lock.acquire()
         try:
             for reference in reversed(self._references):
                 if reference.match(locator):
                     self._references.remove(reference)
                     components.append(reference.get_component())
         finally:
-            self._lock.release()
-        
+            self.__lock.release()
+
         return components
 
-    def get_all_locators(self):
+    def get_all_locators(self) -> List[Any]:
         """
         Gets locators for all registered component references in this reference map.
 
@@ -138,34 +137,33 @@ class References(IReferences):
         """
         locators = []
 
-        self._lock.acquire()
+        self.__lock.acquire()
         try:
             for reference in self._references:
                 locators.append(reference.get_locator())
         finally:
-            self._lock.release()
+            self.__lock.release()
 
         return locators
 
-    def get_all(self):
+    def get_all(self) -> List[Any]:
         """
         Gets all component references registered in this reference map.
 
         :return: a list with component references.
         """
         components = []
-        
-        self._lock.acquire()
+
+        self.__lock.acquire()
         try:
             for reference in self._references:
                 components.append(reference.get_component())
         finally:
-            self._lock.release()
+            self.__lock.release()
 
         return components
 
-
-    def get_optional(self, locator):
+    def get_optional(self, locator: Any) -> List[T]:
         """
         Gets all component references that match specified locator.
 
@@ -178,8 +176,7 @@ class References(IReferences):
         except Exception as ex:
             return []
 
-
-    def get_required(self, locator):
+    def get_required(self, locator: Any) -> List[T]:
         """
         Gets all component references that match specified locator.
         At least one component reference must be present. If it doesn't the method throws an error.
@@ -192,8 +189,7 @@ class References(IReferences):
         """
         return self.find(locator, True)
 
-
-    def get_one_optional(self, locator):
+    def get_one_optional(self, locator: Any) -> T:
         """
         Gets an optional component reference that matches specified locator.
 
@@ -207,10 +203,9 @@ class References(IReferences):
         except Exception as ex:
             return None
 
-
-    def get_one_required(self, locator):
+    def get_one_required(self, locator: Any) -> T:
         """
-         Gets a required component reference that matches specified locator.
+         Gets a __required component reference that matches specified locator.
 
          :param locator: the locator to find a reference by.
 
@@ -221,28 +216,27 @@ class References(IReferences):
         components = self.find(locator, True)
         return components[0] if len(components) > 0 else None
 
-
-    def find(self, locator, required):
+    def find(self, locator: Any, required: bool) -> List[T]:
         """
         Gets all component references that match specified locator.
 
         :param locator: the locator to find a reference by.
 
-        :param required: forces to raise an exception if no reference is found.
+        :param required: forces to raise an error if no reference is found.
 
         :return: a list with matching component references.
 
-        :raises: a :class:`ReferenceException <pip_services3_commons.refer.ReferenceException.ReferenceException>` when required is set to true but no references found.
+        :raises: a :class:`ReferenceException <pip_services3_commons.refer.ReferenceException.ReferenceException>` when __required is set to true but no references found.
         """
         if locator is None:
             raise Exception("Locator cannot be null")
 
         components = []
 
-        self._lock.acquire()
+        self.__lock.acquire()
         try:
             index = len(self._references) - 1
-            
+
             while index >= 0:
                 reference = self._references[index]
                 if reference.match(locator):
@@ -253,15 +247,14 @@ class References(IReferences):
             if len(components) == 0 and required:
                 raise ReferenceException(None, locator)
         finally:
-            self._lock.release()
+            self.__lock.release()
 
         return components
 
-
     @staticmethod
-    def from_tuples(*tuples):
+    def from_tuples(*tuples: Any) -> 'References':
         """
-        Creates a new References from a list of key-value pairs called tuples.
+        Creates a new References from a list of key-args pairs called tuples.
 
         :param tuples: a list of values where odd elements are locators
                       and the following even elements are component references

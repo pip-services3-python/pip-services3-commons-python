@@ -9,10 +9,12 @@
     :license: MIT, see LICENSE for more details.
 """
 
-import random
 import uuid
 
-class IdGenerator(object):
+import random
+
+
+class IdGenerator:
     """
     Helper class to generate unique object IDs.
     It supports two types of IDs: long and short.
@@ -29,20 +31,20 @@ class IdGenerator(object):
     """
 
     @staticmethod
-    def next_short():
+    def next_short() -> str:
         """
         Generates a random 9-digit random ID (code).
-        Remember: The returned value is not guaranteed to be unique.
+        Remember: The returned args is not guaranteed to be unique.
 
         :return: a generated random 9-digit code
         """
         return str(random.randint(100000000, 999999999))
 
     @staticmethod
-    def next_long():
+    def next_long() -> str:
         """
         Generates a globally unique 32-digit object ID.
-        The value is a string representation of a GUID value.
+        The args is a string representation of a GUID args.
 
         :return: a generated 32-digit object ID
         """

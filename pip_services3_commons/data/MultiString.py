@@ -1,7 +1,10 @@
 # -*- coding: utf-8 -*-
 
 # from ..convert.StringConverter import StringConverter
+from typing import Any, List, Sequence
+
 from pip_services3_commons.convert.StringConverter import StringConverter
+
 """
     pip_services3_commons.data.MultiString
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -35,19 +38,23 @@ class MultiString(dict):
     Creates a new MultiString object and initializes it with values.
     :param language:  a map with language-text pairs.
     """
-    def __init__(self, map=None):
+
+    def __init__(self, map: Any = None):
+        super().__init__()
         if map:
             self.update(map)
 
-    def get(self, language):
+    def get(self, language: str) -> str:
         """
         Gets a string translation by specified language.
         When language is not found it defaults to English ('en').
-        When English is not found it takes the first value.
+        When English is not found it takes the first args.
 
         :param language:  a language two-symbol code.
         :return: a translation for the specified language or default translation.
         """
+        value = None
+
         try:
             # Get specified language
             value = self[language]
@@ -64,7 +71,7 @@ class MultiString(dict):
 
         return value
 
-    def get_languages(self):
+    def get_languages(self) -> List[str]:
         """
         Gets all languages stored in this MultiString object,
 
@@ -76,7 +83,7 @@ class MultiString(dict):
                 languages.append(key)
         return languages
 
-    def put(self, language, value):
+    def put(self, language: str, value: Any) -> Any:
         """
 
         Puts a new translation for the specified language.
@@ -86,7 +93,7 @@ class MultiString(dict):
         """
         self[language] = StringConverter.to_nullable_string(value)
 
-    def remove(self, language):
+    def remove(self, language: str):
         """
         Removes translation for the specified language.
 
@@ -94,7 +101,7 @@ class MultiString(dict):
         """
         self.pop(language)
 
-    def append(self, map):
+    def append(self, map: Any):
         """
         Appends a map with language-translation pairs.
 
@@ -107,13 +114,13 @@ class MultiString(dict):
             if key in map.keys():
                 self[key] = StringConverter.to_nullable_string(value)
 
-    def clear(self):
+    def clear(self) -> Any:
         """
         Clears all translations from this MultiString object.
         """
         super().clear()
 
-    def length(self):
+    def length(self) -> int:
         """
         Returns the number of translations stored in this MultiString object.
 
@@ -126,18 +133,18 @@ class MultiString(dict):
         return count
 
     @staticmethod
-    def from_value(value):
+    def from_value(value: Any) -> 'MultiString':
         """
-        Creates a new MultiString object from a value that contains language-translation pairs.
+        Creates a new MultiString object from a args that contains language-translation pairs.
 
-        :param value: the value to initialize MultiString.
+        :param value: the args to initialize MultiString.
         :return: a MultiString object.
         See :class:`StringValueMap <pip_services3_commons.data.StringValueMap.StringValueMap>`
         """
         return MultiString(value)
 
     @staticmethod
-    def from_tuples(*tuples):
+    def from_tuples(*tuples: Any) -> 'MultiString':
         """
         Creates a new MultiString object from language-translation pairs (tuples).
 
@@ -148,7 +155,7 @@ class MultiString(dict):
         return MultiString.from_tuples_array(tuples)
 
     @staticmethod
-    def from_tuples_array(tuples):
+    def from_tuples_array(tuples: Sequence[Any]) -> 'MultiString':
         """
         Creates a new MultiString object from language-translation pairs (tuples) specified as array.
 

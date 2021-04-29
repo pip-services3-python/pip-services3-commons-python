@@ -3,20 +3,22 @@
     pip_services_common.refer.ReferenceException
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     
-    Reference exception type
+    Reference error type
     
     :copyright: Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.
     :license: MIT, see LICENSE for more details.
 """
+from typing import Any
 
 from ..errors.InternalException import InternalException
 
+
 class ReferenceException(InternalException):
     """
-    Error when required component dependency cannot be found.
+    Error when __required component dependency cannot be found.
     """
 
-    def __init__(self, correlation_id = None, locator = None):
+    def __init__(self, correlation_id: str = None, locator: Any = None):
         """
         Creates an error instance and assigns its values.
 

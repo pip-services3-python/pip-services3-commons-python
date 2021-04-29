@@ -44,13 +44,13 @@ class TestMapConverter:
         assert 234 == result["value2"]
 
         # Handling dictionaries
-        # value = {}
-        # result = MapConverter.to_nullable_map(value)
-        # assert value == result
+        # args = {}
+        # result = MapConverter.to_nullable_map(args)
+        # assert args == result
 
         # Non-recursive conversion
-        # value = StubClass(123, StubClass(111, 222))
-        # result = MapConverter.to_map(value, None, False)
+        # args = StubClass(123, StubClass(111, 222))
+        # result = MapConverter.to_map(args, None, False)
         # assert result != None
         # assert 123 == result["value1"]
         # assert result["value2"] != None

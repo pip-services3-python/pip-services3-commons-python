@@ -8,7 +8,9 @@
     :copyright: Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.
     :license: MIT, see LICENSE for more details.
 """
+from typing import List, Any
 
+from pip_services3_commons.validate import IValidationRule, ValidationResult
 from .Schema import Schema
 
 
@@ -27,7 +29,8 @@ class PropertySchema(Schema):
         schema.validate({ id: 1, name: "ABC" })         # Result: id type mismatch
     """
 
-    def __init__(self, name=None, value_type=None, required=None, rules=None):
+    def __init__(self, name: str = None, value_type: Any = None, required: bool = None,
+                 rules: List[IValidationRule] = None):
         """
         Creates a new validation schema and sets its values.
 
@@ -39,7 +42,7 @@ class PropertySchema(Schema):
         self.__name = name
         self.__type = value_type
 
-    def get_name(self):
+    def get_name(self) -> str:
         """
         Gets the property name.
 
@@ -47,7 +50,7 @@ class PropertySchema(Schema):
         """
         return self.__name
 
-    def set_name(self, value):
+    def set_name(self, value: str):
         """
         Sets the property name.
 
@@ -55,7 +58,7 @@ class PropertySchema(Schema):
         """
         self.__name = value
 
-    def get_type(self):
+    def get_type(self) -> Any:
         """
         Gets the property type.
 
@@ -63,7 +66,7 @@ class PropertySchema(Schema):
         """
         return self.__type
 
-    def set_type(self, value):
+    def set_type(self, value: Any):
         """
         Sets a new property type.
         The type can be defined as type, type name or :class:`TypeCode <from pip_services3_commons.convert.TypeCode.TypeCode>`
@@ -72,13 +75,13 @@ class PropertySchema(Schema):
         """
         self.__type = value
 
-    def _perform_validation(self, path, value, results):
+    def _perform_validation(self, path: str, value: Any, results: List[ValidationResult]):
         """
-        Validates a given value against the schema and configured validation rules.
+        Validates a given args against the schema and configured validation __rules.
 
-        :param path: a dot notation path to the value.
+        :param path: a dot notation path to the args.
 
-        :param value: a value to be validated.
+        :param value: a args to be validated.
 
         :param results: a list with validation results to add new results.
         """

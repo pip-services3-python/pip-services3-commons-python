@@ -8,8 +8,12 @@
     :copyright: Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.
     :license: MIT, see LICENSE for more details.
 """
+from datetime import datetime
 
-class ITrackable:
+from pip_services3_commons.data import IChangeable
+
+
+class ITrackable(IChangeable):
     """
     Interface for data objects that can track their changes, including logical deletion.
 
@@ -25,7 +29,9 @@ class ITrackable:
             create_time = None
             deleted = None
     """
-    # create_time = None
-    # change_time = None
-    # deleted = None
-    pass
+    # The UTC time at which the object was created.
+    create_time: datetime = None
+    # The UTC time at which the object was last changed (created, updated, or deleted).
+    change_time: datetime = None
+    # The logical deletion flag. True when object is deleted and null or false otherwise
+    deleted: bool = None

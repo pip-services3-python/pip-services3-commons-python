@@ -8,15 +8,30 @@
     :copyright: Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.
     :license: MIT, see LICENSE for more details.
 """
+from abc import ABC
 
-class IClosable:
+
+class IClosable(ABC):
     """
     Interface for components that require explicit closure.
 
     For components that require opening as well as closing use :class:`IOpenable <pip_services3_commons.run.IOpenable.IOpenable>` interface instead.
+
+    .. code-block:: python
+        class MyConnector(ICloseable):
+            _client = None
+
+            ... # The _client can be lazy created
+
+            def close(self, correlation_id):
+                if self._client is not None:
+                    self._client.close()
+                    self._client = null
+
+
     """
 
-    def close(self, correlation_id):
+    def close(self, correlation_id: str):
         """
         Closes component and frees used resources.
 

@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import re
+from typing import Optional, List, Any
 
 
 class TagsProcessor:
@@ -9,13 +10,13 @@ class TagsProcessor:
     The search tags can be kept individually or embedded as hash tags inside text
     like "This text has #hash_tag that can be used for search."
     """
-    _NORMALIZE_REGEX = re.compile(r'([_#])+')
-    _COMPRESS_REGEX = re.compile(r'([ _#])+')
-    _SPLIT_REGEX = re.compile(r'([,;])+')
-    _HASHTAG_REGEX = re.compile(r'#\w+')
+    __NORMALIZE_REGEX = re.compile(r'([_#])+')
+    __COMPRESS_REGEX = re.compile(r'([ _#])+')
+    __SPLIT_REGEX = re.compile(r'([,;])+')
+    __HASHTAG_REGEX = re.compile(r'#\w+')
 
     @staticmethod
-    def normalize_tag(tag):
+    def normalize_tag(tag: str) -> Optional[str]:
         """
         Normalizes a tag by replacing special symbols like '_' and '#' with spaces.
         When tags are normalized then can be presented to user in similar shape and form.
@@ -23,14 +24,14 @@ class TagsProcessor:
         :param tag: the tag to normalize.
         :return: a normalized tag.
         """
-        res = re.sub(TagsProcessor._NORMALIZE_REGEX, ' ', tag).strip()
+        res = re.sub(TagsProcessor.__NORMALIZE_REGEX, ' ', tag).strip()
         if res:
             return res
         else:
             return None
 
     @staticmethod
-    def compress_tag(tag):
+    def compress_tag(tag: str) -> str:
         """
         Compress a tag by removing special symbols like spaces, '_' and '#'
         and converting the tag to lower case.
@@ -39,14 +40,14 @@ class TagsProcessor:
         :param tag: the tag to compress.
         :return: a compressed tag.
         """
-        res = re.sub(TagsProcessor._COMPRESS_REGEX, '', tag).lower()
+        res = re.sub(TagsProcessor.__COMPRESS_REGEX, '', tag).lower()
         if res:
             return res
         else:
             return None
 
     @staticmethod
-    def equal_tags(tag1, tag2):
+    def equal_tags(tag1: str, tag2: str) -> bool:
         """
         Compares two tags using their compressed form.
 
@@ -61,7 +62,7 @@ class TagsProcessor:
         return TagsProcessor.compress_tag(tag1) == TagsProcessor.compress_tag(tag2)
 
     @staticmethod
-    def normalize_tags(tags):
+    def normalize_tags(tags: List[str]) -> List[str]:
         """
         Normalizes a list of tags.
 
@@ -71,14 +72,14 @@ class TagsProcessor:
         return list(map(TagsProcessor.normalize_tag, tags))
 
     @staticmethod
-    def normalize_tag_list(tag_list):
+    def normalize_tag_list(tag_list: str) -> List[str]:
         """
         Normalizes a comma-separated list of tags.
 
         :param tag_list: a comma-separated list of tags to normalize.
         :return: a list with normalized tags.
         """
-        tags = re.split(TagsProcessor._SPLIT_REGEX, tag_list)
+        tags = re.split(TagsProcessor.__SPLIT_REGEX, tag_list)
         # Remove separators
         for index in range(len(tags)):
             tags = tags[:index + 1] + tags[index + 2:]
@@ -86,7 +87,7 @@ class TagsProcessor:
         return TagsProcessor.normalize_tags(tags)
 
     @staticmethod
-    def compress_tags(tags):
+    def compress_tags(tags: List[str]) -> List[str]:
         """
         Compresses a comma-separated list of tags.
 
@@ -96,21 +97,21 @@ class TagsProcessor:
         return list(map(TagsProcessor.compress_tag, tags))
 
     @staticmethod
-    def compress_tag_list(tag_list):
+    def compress_tag_list(tag_list: str) -> List[str]:
         """
         Compresses a comma-separated list of tags.
 
         :param tag_list: a comma-separated list of tags to compress.
         :return: a list with compressed tags.
         """
-        tags = re.split(TagsProcessor._SPLIT_REGEX, tag_list)
+        tags = re.split(TagsProcessor.__SPLIT_REGEX, tag_list)
         # Remove separators
         for index in range(len(tags)):
             tags = tags[:index + 1] + tags[index + 2:]
         return TagsProcessor.compress_tags(tags)
 
     @staticmethod
-    def extract_hash_tags(text):
+    def extract_hash_tags(text: str) -> List[str]:
         """
         Extracts hash tags from a text.
 
@@ -120,7 +121,7 @@ class TagsProcessor:
         tags = []
 
         if text != '':
-            hash_tags = re.findall(TagsProcessor._HASHTAG_REGEX, text)
+            hash_tags = re.findall(TagsProcessor.__HASHTAG_REGEX, text)
             tags = TagsProcessor.compress_tags(hash_tags)
 
         # del duplicates
@@ -132,7 +133,7 @@ class TagsProcessor:
         return unique_tags
 
     @staticmethod
-    def __extract_string(field):
+    def __extract_string(field: Any) -> str:
         if field is None:
             return ''
         if type(field) == str:
@@ -148,7 +149,7 @@ class TagsProcessor:
         return result
 
     @staticmethod
-    def extract_hash_tags_from_value(obj, *search_fields):
+    def extract_hash_tags_from_value(obj: Any, *search_fields: str) -> List[str]:
         """
         Extracts hash tags from selected fields in an object.
 
@@ -164,7 +165,7 @@ class TagsProcessor:
         for field in search_fields:
             text = TagsProcessor.__extract_string(eval('obj.' + field))
             if text != '':
-                hash_tags = re.findall(TagsProcessor._HASHTAG_REGEX, text)
+                hash_tags = re.findall(TagsProcessor.__HASHTAG_REGEX, text)
                 tags = tags + TagsProcessor.compress_tags(hash_tags)
 
         # del duplicates

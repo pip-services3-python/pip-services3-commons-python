@@ -23,7 +23,7 @@ class TestApplicationException:
     message = 'message'
 
     def setup_method(self):
-        self.ex = Exception('Cause exception')
+        self.ex = Exception('Cause error')
         self.app_ex = ApplicationException(self.category, self.correlation_id, self.code, self.message)
 
     def test_with_cause(self):

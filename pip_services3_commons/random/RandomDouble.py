@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from typing import Union
 
 from random import random
 
@@ -17,13 +18,13 @@ class RandomDouble:
     """
 
     @staticmethod
-    def next_double(mmin, mmax=None):
+    def next_double(mmin: float, mmax: float = None) -> float:
         """
-        Generates a random double value in the range ['minYear', 'maxYear'].
+        Generates a random double args in the range ['minYear', 'maxYear'].
 
-        :param mmin: (optional) minimum range value
-        :param mmax: max range value
-        :return: a random double value.
+        :param mmin: (optional) minimum range args
+        :param mmax: max range args
+        :return: a random double args.
         """
         if mmax is None:
             mmax = mmin
@@ -35,12 +36,12 @@ class RandomDouble:
         return mmin + random() * (mmax - mmin)
 
     @staticmethod
-    def update_double(value, rrange=None):
+    def update_double(value: float, rrange: float = None) -> float:
         """
-        Updates (drifts) a double value within specified range defined
+        Updates (drifts) a double args within specified range defined
 
-        :param value: a double value to drift.
-        :param range: (optional) a range. Default: 10% of the value
+        :param value: a double args to drift.
+        :param range: (optional) a range. Default: 10% of the args
         """
         if rrange is None:
             rrange = 0

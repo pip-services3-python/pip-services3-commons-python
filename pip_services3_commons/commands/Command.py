@@ -8,9 +8,14 @@
     :copyright: Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.
     :license: MIT, see LICENSE for more details.
 """
+from typing import Callable, Any, List, Union
 
+from pip_services3_commons.run import Parameters, IExecutable
+
+from pip_services3_commons.validate import Schema, ValidationResult
 from .ICommand import ICommand
 from ..errors.InvocationException import InvocationException
+
 
 class Command(ICommand):
     """
@@ -26,87 +31,85 @@ class Command(ICommand):
             param2 = args.getAsFloat("param2")
             return param1 + param2
 
-        command = Command("add", None, handler)
+        command_name = Command("add", None, handler)
 
-        result = command.execute("123",  Parameters.fromTuples("param1", 2, "param2", 2))
+        result = command_name.execute("123",  Parameters.fromTuples("param1", 2, "param2", 2))
 
         print result.__str__()
 
     See :class:`ICommand <pip_services3_commons.commands.ICommand.ICommand>`, :class:`CommandSet <pip_services3_commons.commands.CommandSet.CommandSet>`
     """
 
-    _name = None
-    _schema = None
-    _function = None
+    __schema: Schema = None
+    __function: Union[Callable, IExecutable] = None
 
-    def __init__(self, name, schema, function):
+    def __init__(self, name: str, schema: Schema, function: Union[Callable, IExecutable]):
         """
-        Creates a new command object and assigns it's parameters.
+        Creates a new command_name object and assigns it's parameters.
 
-        :param name: the name of the command
+        :param name: the name of the command_name
 
-        :param schema: a validation schema for command arguments
+        :param schema: a validation schema for command_name arguments
 
-        :param function: an execution function to be wrapped into this command.
+        :param function: an execution function to be wrapped into this command_name.
         """
         if name is None:
             raise TypeError("Command name is not set")
         if function is None:
             raise TypeError("Command function is not set")
-        
-        self._name = name
-        self._schema = schema
-        self._function = function
 
-    def get_name(self):
-        """
-        Gets the command name.
+        self.__name = name
+        self.__schema = schema
+        self.__function = function
 
-        :return: the command name
+    def get_name(self) -> str:
         """
-        return self._name
+        Gets the command_name name.
 
-    def execute(self, correlation_id, args):
+        :return: the command_name name
         """
-        Executes the command. Before execution is validates Parameters args using the
-        defined schema. The command execution intercepts :class:`ApplicationException <pip_services3_commons.errors.ApplicationException.ApplicationException>` raised
+        return self.__name
+
+    def execute(self, correlation_id: str, args: Parameters) -> Any:
+        """
+        Executes the command_name. Before execution is validates Parameters args using the
+        defined schema. The command_name execution intercepts :class:`ApplicationException <pip_services3_commons.errors.ApplicationException.ApplicationException>` raised
         by the called function and throws them.
         
         :param correlation_id: (optional) transaction id to trace execution through call chain.
 
-        :param args: the parameters (arguments) to pass to this command for execution.
+        :param args: the parameters (arguments) to pass to this command_name for execution.
         
         :return: an execution result.
         
         :raises: ApplicationException: when execution fails for whatever reason.
         """
         # Validate arguments
-        if not (self._schema is None):
-            self._schema.validate_and_throw_exception(correlation_id, args)
-        
+        if not (self.__schema is None):
+            self.__schema.validate_and_throw_exception(correlation_id, args)
+
         # Call the function
         try:
-            return self._function(correlation_id, args)
+            return self.__function(correlation_id, args)
         # Intercept unhandled errors
         except Exception as ex:
             raise InvocationException(
                 correlation_id,
                 "EXEC_FAILED",
-                "Execution " + self._name + " failed: " + str(ex)
-            ).with_details("command", self._name).wrap(ex)
+                "Execution " + self.__name + " failed: " + str(ex)
+            ).with_details("command_name", self.__name).wrap(ex)
 
-
-    def validate(self, args):
+    def validate(self, args: Parameters) -> List[ValidationResult]:
         """
-        Performs validation of the command arguments.
+        Performs validation of the command_name arguments.
         
-        :param args: the parameters (arguments) to validate using this command's schema.
+        :param args: the parameters (arguments) to validate using this command_name's schema.
         
         :return: an array of :class:`ValidationResult <pip_services3_commons.validate.ValidationResult.ValidationResult>` or an empty array (if no schema is set).
         """
         # When schema is not defined, then skip validation
-        if not (self._schema is None): 
-            return self._schema.validate(args)
-        
+        if not (self.__schema is None):
+            return self.__schema.validate(args)
+
         # ToDo: Complete implementation
         return []

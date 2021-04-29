@@ -8,6 +8,7 @@
     :copyright: Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.
     :license: MIT, see LICENSE for more details.
 """
+from typing import Sequence, Any
 
 from pip_services3_commons.data import AnyValueArray
 
@@ -37,9 +38,9 @@ class ProjectionParams(list):
     """
     default_delimiter = ','
 
-    def __init__(self, values=None):
+    def __init__(self, values: Sequence[Any] = None):
         """
-        Creates a new instance of the projection parameters and assigns its value.
+        Creates a new instance of the projection parameters and assigns its args.
 
         :param values: (optional) values to initialize this object.
         """
@@ -49,7 +50,7 @@ class ProjectionParams(list):
             for value in values:
                 self.append("" + value)
 
-    def to_string(self):
+    def to_string(self) -> str:
         """
         Gets a string representation of the object.
         The result is a comma-separated list of projection fields
@@ -68,7 +69,7 @@ class ProjectionParams(list):
         return builder
 
     @staticmethod
-    def _parse_value(prefix, result, value):
+    def _parse_value(prefix: str, result: 'ProjectionParams', value: str):
         value = value.strip()
         try:
             if value[0:2] == ' ,':
@@ -139,11 +140,11 @@ class ProjectionParams(list):
                 result.append(value)
 
     @staticmethod
-    def from_value(value):
+    def from_value(value: Any) -> 'ProjectionParams':
         """
-          Converts specified value into ProjectionParams.
+          Converts specified args into ProjectionParams.
 
-          :param value: value to be converted
+          :param value: args to be converted
 
           :return: a newly created ProjectionParams.
           """
@@ -151,7 +152,7 @@ class ProjectionParams(list):
         return ProjectionParams(value)
 
     @staticmethod
-    def from_string(*values):
+    def from_string(*values: str) -> 'ProjectionParams':
         """
         Parses comma-separated list of projection fields.
 

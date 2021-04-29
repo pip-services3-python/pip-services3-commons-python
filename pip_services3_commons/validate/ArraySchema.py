@@ -9,9 +9,12 @@
     :license: MIT, see LICENSE for more details.
 """
 
+from typing import Any, List, Sequence
+
+from pip_services3_commons.validate import IValidationRule
 from .Schema import Schema
-from .ValidationResultType import ValidationResultType
 from .ValidationResult import ValidationResult
+from .ValidationResultType import ValidationResultType
 from ..reflect.ObjectReader import ObjectReader
 
 
@@ -29,48 +32,47 @@ class ArraySchema(Schema):
         schema.validate([1, 2, 3])          # Result: element type mismatch
         schema.validate("A")                # Result: type mismatch
     """
-    value_type = None
 
-    def __init__(self, value_type=None, required=None, rules=None):
+    def __init__(self, value_type: Any = None, required: bool = None, rules: Sequence[IValidationRule] = None):
         """
         Creates a new instance of validation schema and sets its values.
 
         :param value_type: a type of array elements. None means that elements may have any type.
         :param required: (optional) true to always require non-null values.
-        :param rules: (optional) a list with validation rules.
+        :param rules: (optional) a list with validation __rules.
         """
         super(ArraySchema, self).__init__(required, rules)
-        self.value_type = value_type
+        self.__value_type: Any = value_type
 
-    def get_value_type(self):
+    def get_value_type(self) -> Any:
         """
         Gets the type of array elements.
         Null means that elements may have any type.
 
         :return: the type of array elements.
         """
-        return self.value_type
+        return self.__value_type
 
-    def set_value_type(self, value):
+    def set_value_type(self, value: Any):
         """
         Sets the type of array elements.
         Null means that elements may have any type.
 
         :param value: a type of array elements.
         """
-        self.value_type = value
+        self.__value_type = value
 
-    def _perform_validation(self, path, value, results):
+    def _perform_validation(self, path: str, value: Any, results: List[ValidationResult]):
         """
-        Validates a given value against the schema and configured validation rules.
+        Validates a given args against the schema and configured validation __rules.
 
-        :param path: a dot notation path to the value.
+        :param path: a dot notation path to the args.
 
-        :param value: a value to be validated.
+        :param value: a args to be validated.
 
         :param results: a list with validation results to add new results.
         """
-        name = path if not (path is None) else "value"
+        name = path if not (path is None) else "args"
         value = ObjectReader.get_value(value)
 
         super(ArraySchema, self)._perform_validation(path, value, results)
@@ -82,7 +84,7 @@ class ArraySchema(Schema):
             index = 0
             for element in value:
                 element_path = str(index) if path is None or len(path) == 0 else path + "." + str(index)
-                self._perform_type_validation(element_path, self.value_type, element, results)
+                self._perform_type_validation(element_path, self.__value_type, element, results)
                 index += 1
         else:
             results.append(

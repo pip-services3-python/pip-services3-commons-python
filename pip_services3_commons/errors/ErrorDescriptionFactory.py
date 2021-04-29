@@ -10,12 +10,14 @@
 """
 
 import traceback
+from typing import Any
 
-from .ErrorDescription import ErrorDescription
-from .ErrorCategory import ErrorCategory
 from .ApplicationException import ApplicationException
+from .ErrorCategory import ErrorCategory
+from .ErrorDescription import ErrorDescription
 
-class ErrorDescriptionFactory(object):
+
+class ErrorDescriptionFactory:
     """
     Factory to create serializeable :class:`ErrorDescription <pip_services3_commons.errors.ErrorDescription.ErrorDescription>` from :class:`ApplicationException <pip_services3_commons.errors.ApplicationException.ApplicationException>`
     or from arbitrary errors.
@@ -24,8 +26,9 @@ class ErrorDescriptionFactory(object):
     implemented in different languages. They allow to restore exceptions on the receiving side
     close to the original type and preserve additional information.
     """
+
     @staticmethod
-    def create(ex):
+    def create(ex: Any) -> ErrorDescription:
         """
         Creates a serializable ErrorDescription from error object.
 
@@ -49,7 +52,7 @@ class ErrorDescriptionFactory(object):
             description.status = 500
             description.code = 'UNKNOWN'
             description.message = description.message = '; '.join([str(arg) for arg in ex.args])
-            #description.cause = ex.xxx
+            # description.cause = ex.xxx
             if hasattr(ex, 'tb_trace'):
                 description.stack_trace = traceback.format_tb(ex)
         else:

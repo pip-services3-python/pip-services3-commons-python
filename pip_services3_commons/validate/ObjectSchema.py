@@ -8,7 +8,9 @@
     :copyright: Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.
     :license: MIT, see LICENSE for more details.
 """
+from typing import List, Any
 
+from pip_services3_commons.validate import IValidationRule
 from .PropertySchema import PropertySchema
 from .Schema import Schema
 from .ValidationResult import ValidationResult
@@ -35,22 +37,22 @@ class ObjectSchema(Schema):
         schema.validate("ABC")                          // Result: type mismatch
     """
 
-    __properties = None
-    __allow_undefined = None
+    __properties: List[PropertySchema] = None
+    __allow_undefined: bool = None
 
-    def __init__(self, allow_undefined=False, required=None, rules=None):
+    def __init__(self, allow_undefined: bool = False, required: bool = None, rules: List[IValidationRule] = None):
         """
         Creates a new validation schema and sets its values.
 
         :param allow_undefined: true to allow properties undefines in the schema
         :param required: (optional) true to always require non-null values.
-        :param rules: (optional) a list with validation rules.
+        :param rules: (optional) a list with validation __rules.
         """
         super(ObjectSchema, self).__init__(required, rules)
         self.__allow_undefined = allow_undefined
         self.__properties = None
 
-    def get_properties(self):
+    def get_properties(self) -> List[PropertySchema]:
         """
         Gets validation schemas for object properties.
 
@@ -58,7 +60,7 @@ class ObjectSchema(Schema):
         """
         return self.__properties
 
-    def set_properties(self, value):
+    def set_properties(self, value: List[PropertySchema]):
         """
         Sets validation schemas for object properties.
 
@@ -67,7 +69,7 @@ class ObjectSchema(Schema):
         self.__properties = value
 
     @property
-    def is_undefined_allowed(self):
+    def is_undefined_allowed(self) -> bool:
         """
         Gets flag to allow undefined properties
 
@@ -76,7 +78,7 @@ class ObjectSchema(Schema):
         return self.__allow_undefined
 
     @is_undefined_allowed.setter
-    def is_undefined_allowed(self, value):
+    def is_undefined_allowed(self, value: bool):
         """
         Sets flag to allow undefined properties
 
@@ -84,11 +86,11 @@ class ObjectSchema(Schema):
         """
         self.__allow_undefined = value
 
-    def allow_undefined(self, value):
+    def allow_undefined(self, value: bool) -> 'ObjectSchema':
         """
         Sets flag to allow undefined properties
 
-        This method returns reference to this exception to implement Builder pattern
+        This method returns reference to this error to implement Builder pattern
         to chain additional calls.
 
         :param value: true to allow undefined properties and false to disallow.
@@ -98,11 +100,11 @@ class ObjectSchema(Schema):
         self.__allow_undefined = value
         return self
 
-    def with_property(self, schema):
+    def with_property(self, schema: PropertySchema) -> 'ObjectSchema':
         """
         Adds a validation schema for an object property.
 
-        This method returns reference to this exception to implement Builder pattern
+        This method returns reference to this error to implement Builder pattern
         to chain additional calls.
 
         :param schema: a property validation schema to be added.
@@ -113,25 +115,25 @@ class ObjectSchema(Schema):
         self.__properties.append(schema)
         return self
 
-    def with_required_property(self, name, typ, *rules):
+    def with_required_property(self, name: str, typ: Schema, *rules: IValidationRule) -> 'ObjectSchema':
         """
-        Adds a validation schema for a required object property.
+        Adds a validation schema for a __required object property.
 
         :param name: a property name.
 
         :param typ: (optional) a property schema or type.
 
-        :param rules: (optional) a list of property validation rules.
+        :param rules: (optional) a list of property validation __rules.
 
         :return: the validation schema
         """
         self.__properties = self.__properties if not (self.__properties is None) else []
         schema = PropertySchema(name, typ)
-        schema.rules = rules
+        schema.__rules = rules
         schema.make_required()
         return self.with_property(schema)
 
-    def with_optional_property(self, name, typ, *rules):
+    def with_optional_property(self, name: str, typ: Schema, *rules: IValidationRule) -> 'ObjectSchema':
         """
         Adds a validation schema for an optional object property.
 
@@ -139,23 +141,23 @@ class ObjectSchema(Schema):
 
         :param typ: (optional) a property schema or type.
 
-        :param rules: (optional) a list of property validation rules.
+        :param rules: (optional) a list of property validation __rules.
 
         :return: the validation schema
         """
         self.__properties = self.__properties if not (self.__properties is None) else []
         schema = PropertySchema(name, typ)
-        schema.rules = rules
+        schema.__rules = rules
         schema.make_optional()
         return self.with_property(schema)
 
-    def _perform_validation(self, path, value, results):
+    def _perform_validation(self, path: str, value: Any, results: List[ValidationResult]):
         """
-        Validates a given value against the schema and configured validation rules.
+        Validates a given args against the schema and configured validation __rules.
 
-        :param path: a dot notation path to the value.
+        :param path: a dot notation path to the args.
 
-        :param value: a value to be validated.
+        :param value: a args to be validated.
 
         :param results: a list with validation results to add new results.
         """
@@ -164,7 +166,7 @@ class ObjectSchema(Schema):
         if value is None:
             return
 
-        name = path if not (path is None) else "value"
+        name = path if not (path is None) else "args"
         properties = ObjectReader.get_properties(value)
 
         # Process defined properties

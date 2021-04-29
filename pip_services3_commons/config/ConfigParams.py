@@ -8,13 +8,16 @@
     :copyright: Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.
     :license: MIT, see LICENSE for more details.
 """
+from typing import Any, List
 
+from pip_services3_commons.config import ConfigParams
 from ..data.StringValueMap import StringValueMap
 from ..reflect.RecursiveObjectReader import RecursiveObjectReader
 
+
 class ConfigParams(StringValueMap):
     """
-    Contains a key-value map with configuration parameters.
+    Contains a key-args map with configuration parameters.
     All values stored as strings and can be serialized as JSON or string forms.
     When retrieved the values can be automatically converted on read using GetAsXXX methods.
 
@@ -45,26 +48,26 @@ class ConfigParams(StringValueMap):
         section1.__str__() # Result: key1=AAA;key2=123
     """
 
-    def __init__(self, values = None):
+    def __init__(self, values: Any = None):
         """
         Creates a new :class:`ConfigParams` and fills it with values.
 
-        :param values: (optional) an object to be converted into key-value pairs to initialize this config map.
+        :param values: (optional) an object to be converted into key-args pairs to initialize this config map.
         """
         super(ConfigParams, self).__init__(values)
 
-    def get_section_names(self):
+    def get_section_names(self) -> List[str]:
         """
         Gets a list with all 1st level section names.
 
         :return: a list of section names stored in this ConfigMap.
         """
         sections = []
-        
+
         for (key, value) in self.items():
             pos = key.find('.')
             if pos > 0:
-                key = key[0 : pos]
+                key = key[0: pos]
 
             # Perform case sensitive search
             found = False
@@ -72,14 +75,13 @@ class ConfigParams(StringValueMap):
                 if section == key:
                     found = True
                     break
-                
+
             if not found:
                 sections.append(key)
-        
+
         return sections
 
-
-    def get_section(self, section):
+    def get_section(self, section: str) -> ConfigParams:
         """
         Gets parameters from specific section stored in this ConfigMap.
         The section name is removed from parameter keys.
@@ -90,26 +92,24 @@ class ConfigParams(StringValueMap):
         """
         result = ConfigParams()
         prefix = section + "."
-        
+
         for (key, value) in self.items():
-            # Prevents exception on the next line
+            # Prevents error on the next line
             if len(key) < len(prefix):
                 continue
-            
+
             # Perform case sensitive match
             key_prefix = key[: len(prefix)]
             if key_prefix == prefix:
-                key = key[len(prefix): ]
+                key = key[len(prefix):]
                 result[key] = value
-        
-        return result
 
+        return result
 
     def _is_shadow_name(self, name):
         return name is None or len(name) == 0 or name[0] == "#" or name[0] == "!"
 
-
-    def add_section(self, section, section_params):
+    def add_section(self, section: str, section_params: ConfigParams):
         """
         Adds parameters into this ConfigParams under specified section.
         Keys for the new parameters are appended with section dot prefix.
@@ -121,14 +121,14 @@ class ConfigParams(StringValueMap):
         if section is None:
             raise Exception("Section name cannot be null")
 
-        section = "" if self._is_shadow_name(section) else section 
-        
+        section = "" if self._is_shadow_name(section) else section
+
         if section_params is None or len(section_params) == 0:
             return
 
         for (key, value) in section_params.items():
             key = "" if self._is_shadow_name(key) else key
-            
+
             if len(key) > 0 and len(section) > 0:
                 key = section + "." + key
             elif len(key) == 0:
@@ -136,8 +136,7 @@ class ConfigParams(StringValueMap):
 
             self[key] = value
 
-
-    def override(self, config_params):
+    def override(self, config_params: ConfigParams) -> ConfigParams:
         """
         Overrides parameters with new values from specified ConfigParams and returns a new ConfigParams object.
 
@@ -148,8 +147,7 @@ class ConfigParams(StringValueMap):
         map = StringValueMap.from_maps(self, config_params)
         return ConfigParams(map)
 
-
-    def set_defaults(self, default_config_params):
+    def set_defaults(self, default_config_params: ConfigParams) -> ConfigParams:
         """
         Set default values from specified ConfigParams and returns a new ConfigParams object.
 
@@ -160,49 +158,46 @@ class ConfigParams(StringValueMap):
         map = StringValueMap.from_maps(default_config_params, self)
         return ConfigParams(map)
 
-
     @staticmethod
-    def from_value(value):
+    def from_value(value: Any) -> ConfigParams:
         """
-        Creates a new ConfigParams object filled with key-value pairs from specified object.
+        Creates a new ConfigParams object filled with key-args pairs from specified object.
 
-        :param value: an object with key-value pairs used to initialize a new ConfigParams.
+        :param value: an object with key-args pairs used to initialize a new ConfigParams.
 
         :return: a new ConfigParams object.
         """
         map = RecursiveObjectReader.get_properties(value)
         return ConfigParams(map)
 
-    
     @staticmethod
-    def from_tuples(*tuples):
+    def from_tuples(*tuples: Any) -> ConfigParams:
         """
-        Creates a new ConfigParams object filled with provided key-value pairs called tuples.
+        Creates a new ConfigParams object filled with provided key-args pairs called tuples.
         Tuples parameters contain a sequence of key1, value1, key2, value2, ... pairs.
 
         :param tuples: the tuples to fill a new ConfigParams object.
 
         :return: a new ConfigParams object.
         """
+
         map = StringValueMap.from_tuples_array(tuples)
         return ConfigParams(map)
 
-    
     @staticmethod
-    def from_string(line):
+    def from_string(line: str) -> ConfigParams:
         """
-        Creates a new ConfigParams object filled with key-value pairs serialized as a string.
+        Creates a new ConfigParams object filled with key-args pairs serialized as a string.
 
-        :param line: a string with serialized key-value pairs as "key1=value1;key2=value2;..."
+        :param line: a string with serialized key-args pairs as "key1=value1;key2=value2;..."
 
         :return: a new ConfigParams object.
         """
         map = StringValueMap.from_string(line)
         return ConfigParams(map)
 
-
     @staticmethod
-    def merge_configs(*configs):
+    def merge_configs(*configs: List['ConfigParams']):
         """
         Merges two or more ConfigParams into one. The following ConfigParams override previously defined parameters.
 

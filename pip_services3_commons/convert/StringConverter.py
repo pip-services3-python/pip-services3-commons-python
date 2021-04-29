@@ -10,10 +10,12 @@
 """
 
 import datetime
+from typing import Any, Optional
 
-class StringConverter():
+
+class StringConverter:
     """
-    Converts arbitrary values into strings using extended conversion rules:
+    Converts arbitrary values into strings using extended conversion __rules:
     - Numbers: are converted with '.' as decimal point
     - DateTime: using ISO format
     - Boolean: "true" for true and "false" for false
@@ -29,14 +31,15 @@ class StringConverter():
         value3 = StringConverter.to_string(datetime.datetime(2018,0,1)) # Result: "2018-01-01T00:00:00.00"
         value4 = StringConverter.to_string([1,2,3]) # Result: "1,2,3"
     """
+
     @staticmethod
-    def to_nullable_string(value):
+    def to_nullable_string(value: Any) -> Optional[str]:
         """
-        Converts value into string or returns None when value is None.
+        Converts args into string or returns None when args is None.
 
-        :param value: the value to convert.
+        :param value: the args to convert.
 
-        :return: string value or None when value is None.
+        :return: string args or None when args is None.
         """
         if value is None:
             return None
@@ -58,26 +61,26 @@ class StringConverter():
         return str(value)
 
     @staticmethod
-    def to_string(value):
+    def to_string(value: Any) -> str:
         """
-        Converts value into string or returns "" when value is None.
+        Converts args into string or returns "" when args is None.
 
-        :param value: the value to convert.
+        :param value: the args to convert.
 
-        :return: string value or "" when value is None.
+        :return: string args or "" when args is None.
         """
         return StringConverter.to_string_with_default(value, None)
 
     @staticmethod
-    def to_string_with_default(value, default_value):
+    def to_string_with_default(value: Any, default_value: str) -> str:
         """
-        Converts value into string or returns default when value is None.
+        Converts args into string or returns default when args is None.
 
-        :param value: the value to convert.
+        :param value: the args to convert.
 
-        :param default_value: the default value.
+        :param default_value: the default args.
 
-        :return: string value or default when value is null.
+        :return: string args or default when args is null.
         """
         result = StringConverter.to_nullable_string(value)
         return result if not (result is None) else default_value

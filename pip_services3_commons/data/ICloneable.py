@@ -8,8 +8,10 @@
     :copyright: Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.
     :license: MIT, see LICENSE for more details.
 """
+from typing import Any
 
-class ICloneable():
+
+class ICloneable:
     """
     Interface for data objects that are able to create their full binary copy.
 
@@ -28,7 +30,7 @@ class ICloneable():
                 return clone_obj
 
     """
-    def clone(self):
+    def clone(self) -> Any:
         """
         Creates a binary clone of this object.
 

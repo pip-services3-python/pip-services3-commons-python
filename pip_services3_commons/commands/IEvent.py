@@ -8,8 +8,11 @@
     :copyright: Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.
     :license: MIT, see LICENSE for more details.
 """
+from typing import List
 
+from pip_services3_commons.commands.IEventListener import IEventListener
 from ..run.INotifiable import INotifiable
+
 
 class IEvent(INotifiable):
     """
@@ -17,23 +20,23 @@ class IEvent(INotifiable):
     Events allows to send asynchronious notifications to multiple subscribed listeners.
     """
 
-    def get_name(self):
+    def get_name(self) -> str:
         """
-        Gets the event name.
+        Gets the event_name name.
 
-        :return: the event name
+        :return: the event_name name
         """
         raise NotImplementedError('Method from interface definition')
 
-    def get_listeners(self):
+    def get_listeners(self) -> List[IEventListener]:
         """
-        Get listeners that receive notifications for that event
+        Get listeners that receive notifications for that event_name
 
         :return: a list with listeners
         """
         raise NotImplementedError('Method from interface definition')
 
-    def add_listener(self, listener):
+    def add_listener(self, listener: IEventListener):
         """
         Adds listener to receive notifications
 
@@ -41,11 +44,10 @@ class IEvent(INotifiable):
         """
         raise NotImplementedError('Method from interface definition')
 
-    def remove_listener(self, listener):
+    def remove_listener(self, listener: IEventListener):
         """
-        Removes listener for event notifications.
+        Removes listener for event_name notifications.
 
         :param listener: a listener reference to be removed
         """
         raise NotImplementedError('Method from interface definition')
-    

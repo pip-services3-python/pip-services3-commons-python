@@ -9,6 +9,7 @@
     :license: MIT, see LICENSE for more details.
 """
 
+
 class INamed:
     """
     Interface for data objects that have human-readable names.
@@ -22,5 +23,4 @@ class INamed:
             name = None
 
     """
-    # name = None
-    pass
+    name: str = None

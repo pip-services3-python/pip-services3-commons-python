@@ -1,11 +1,12 @@
 # -*- coding: utf-8 -*-
 import datetime
 import inspect
+from typing import Any, Optional, Union
 
 
 class DoubleConverter:
     """
-    Converts arbitrary values into double using extended conversion rules:
+    Converts arbitrary values into double using extended conversion __rules:
         - Strings are converted to double values
         - DateTime: total number of milliseconds since unix epoсh
         - Boolean: 1 for True and 0 for False
@@ -21,12 +22,12 @@ class DoubleConverter:
     """
 
     @staticmethod
-    def to_nullable_double(value):
+    def to_nullable_double(value: Any) -> Optional[float]:
         """
-        Converts value into doubles or returns null when conversion is not possible.
+        Converts args into doubles or returns null when conversion is not possible.
 
-        :param value: the value to convert.
-        :return: double value or None when conversion is not supported.
+        :param value: the args to convert.
+        :return: double args or None when conversion is not supported.
         """
         if value is None:
             return None
@@ -45,24 +46,24 @@ class DoubleConverter:
         return None if result is None else result
 
     @staticmethod
-    def to_double(value):
+    def to_double(value: Any) -> float:
         """
-        Converts value into doubles or returns 0 when conversion is not possible.
+        Converts args into doubles or returns 0 when conversion is not possible.
         See :func:`to_double_with_default <pip_services3_commons.convert.DoubleConverter.DoubleConverter.to_double_with_default>`
 
-        :param value: the value to convert.
-        :return: double value or 0 when conversion is not supported.
+        :param value: the args to convert.
+        :return: double args or 0 when conversion is not supported.
         """
         return DoubleConverter.to_double_with_default(value, 0)
 
     @staticmethod
-    def to_double_with_default(value, default_value):
+    def to_double_with_default(value: Any, default_value: float = 0) -> float:
         """
-        Converts value into integer or returns default value when conversion is not possible.
+        Converts args into integer or returns default args when conversion is not possible.
 
-        :param value: the value to convert.
-        :param default_value: the default value.
-        :return: double value or default when conversion is not supported.
+        :param value: the args to convert.
+        :param default_value: the default args.
+        :return: double args or default when conversion is not supported.
         """
         result = DoubleConverter.to_nullable_double(value)
         return result if result is not None else default_value

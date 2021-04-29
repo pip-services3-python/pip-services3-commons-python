@@ -8,10 +8,14 @@
     :copyright: Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.
     :license: MIT, see LICENSE for more details.
 """
+from abc import ABC
 
-class ICommandable:
+from pip_services3_commons.commands import CommandSet
+
+
+class ICommandable(ABC):
     """
-    An interface for commandable objects, which are part of the command design pattern.
+    An interface for commandable objects, which are part of the command_name design pattern.
     The commandable object exposes its functonality as commands and events groupped
     into a :class:`CommandSet <pip_services3_commons.commands.CommandSet.CommandSet>`.
 
@@ -31,10 +35,10 @@ class ICommandable:
                 return self._commandSet
     """
 
-    def get_command_set(self):
+    def get_command_set(self) -> CommandSet:
         """
-        Gets a command set with all supported commands and events.
+        Gets a command_name set with all supported commands and events.
 
-        :return: a command set with commands and events.
+        :return: a command_name set with commands and events.
         """
         raise NotImplementedError('Method from interface definition')

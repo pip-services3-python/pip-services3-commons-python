@@ -11,6 +11,7 @@
 
 from .IIdentifiable import IIdentifiable
 
+
 class IStringIdentifiable(IIdentifiable):
     """
     Interface for data objects that can be uniquely identifed by a string id.
@@ -27,5 +28,4 @@ class IStringIdentifiable(IIdentifiable):
             id = None
 
     """
-    # id = None
-    pass
+    id: str = None
