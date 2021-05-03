@@ -196,20 +196,58 @@
 <dt id="pip_services3_commons.convert.LongConverter.LongConverter">
 <em class="property">class </em><code class="sig-prename descclassname">pip_services3_commons.convert.LongConverter.</code><code class="sig-name descname">LongConverter</code><a class="headerlink" href="#pip_services3_commons.convert.LongConverter.LongConverter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="http://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<dl class="simple">
+<dt>Converts arbitrary values into longs using extended conversion __rules:</dt><dd><ul class="simple">
+<li><p>Strings are converted to floats, then to longs</p></li>
+<li><p>DateTime: total number of milliseconds since unix epoсh</p></li>
+<li><p>Boolean: 1 for true and 0 for false</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="py method">
 <dt id="pip_services3_commons.convert.LongConverter.LongConverter.to_long">
-<em class="property">static </em><code class="sig-name descname">to_long</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.convert.LongConverter.LongConverter.to_long" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<em class="property">static </em><code class="sig-name descname">to_long</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span><span class="p">:</span> <span class="n">Any</span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="http://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)">float</a><a class="headerlink" href="#pip_services3_commons.convert.LongConverter.LongConverter.to_long" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts value into long or returns 0 when conversion is not possible.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>value</strong> – the value to convert.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>long value or 0 when conversion is not supported.</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt id="pip_services3_commons.convert.LongConverter.LongConverter.to_long_with_default">
-<em class="property">static </em><code class="sig-name descname">to_long_with_default</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span></em>, <em class="sig-param"><span class="n">default_value</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.convert.LongConverter.LongConverter.to_long_with_default" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<em class="property">static </em><code class="sig-name descname">to_long_with_default</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span><span class="p">:</span> <span class="n">Any</span></em>, <em class="sig-param"><span class="n">default_value</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)">float</a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="http://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)">float</a><a class="headerlink" href="#pip_services3_commons.convert.LongConverter.LongConverter.to_long_with_default" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts value into integer or returns default when conversion is not possible.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>value</strong> – the value to convert.</p></li>
+<li><p><strong>default_value</strong> – the default value.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>long value or default when conversion is not supported</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt id="pip_services3_commons.convert.LongConverter.LongConverter.to_nullable_long">
-<em class="property">static </em><code class="sig-name descname">to_nullable_long</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.convert.LongConverter.LongConverter.to_nullable_long" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<em class="property">static </em><code class="sig-name descname">to_nullable_long</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span><span class="p">:</span> <span class="n">Any</span></em><span class="sig-paren">)</span> &#x2192; Optional<span class="p">[</span><a class="reference external" href="http://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)">float</a><span class="p">]</span><a class="headerlink" href="#pip_services3_commons.convert.LongConverter.LongConverter.to_nullable_long" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts value into long or returns null when conversion is not possible.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>value</strong> – the value to convert.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>long value or null when conversion is not supported.</p>
+</dd>
+</dl>
+</dd></dl>
 
 </dd></dl>
 

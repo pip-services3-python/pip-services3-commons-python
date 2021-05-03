@@ -203,7 +203,7 @@ For maps properties are key-pairs identified by string keys,
 For arrays properties are elements identified by integer index.</p>
 <p>This class has symmetric implementation across all languages supported
 by Pip.Services toolkit and used to support dynamic data processing.</p>
-<p>Because all languages have different casing and case sensitivity rules,
+<p>Because all languages have different casing and case sensitivity __rules,
 this ObjectWriter treats all property names as case insensitive.</p>
 <p>Example:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">myObj</span> <span class="o">=</span> <span class="n">MyObject</span><span class="p">()</span>
@@ -218,7 +218,7 @@ this ObjectWriter treats all property names as case insensitive.</p>
 </div>
 <dl class="py method">
 <dt id="pip_services3_commons.reflect.ObjectWriter.ObjectWriter.set_properties">
-<em class="property">static </em><code class="sig-name descname">set_properties</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">obj</span></em>, <em class="sig-param"><span class="n">values</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.reflect.ObjectWriter.ObjectWriter.set_properties" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="sig-name descname">set_properties</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">obj</span><span class="p">:</span> <span class="n">Any</span></em>, <em class="sig-param"><span class="n">values</span><span class="p">:</span> <span class="n">Any</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.reflect.ObjectWriter.ObjectWriter.set_properties" title="Permalink to this definition">¶</a></dt>
 <dd><p>Sets values of some (all) object properties.</p>
 <p>The object can be a user defined object, map or array.
 Property values correspondently are object properties, map key-pairs or array elements with their indexes.</p>
@@ -235,8 +235,8 @@ Property values correspondently are object properties, map key-pairs or array el
 
 <dl class="py method">
 <dt id="pip_services3_commons.reflect.ObjectWriter.ObjectWriter.set_property">
-<em class="property">static </em><code class="sig-name descname">set_property</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">obj</span></em>, <em class="sig-param"><span class="n">name</span></em>, <em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.reflect.ObjectWriter.ObjectWriter.set_property" title="Permalink to this definition">¶</a></dt>
-<dd><p>ets value of object property specified by its name.</p>
+<em class="property">static </em><code class="sig-name descname">set_property</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">obj</span><span class="p">:</span> <span class="n">Any</span></em>, <em class="sig-param"><span class="n">name</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></span></em>, <em class="sig-param"><span class="n">value</span><span class="p">:</span> <span class="n">Any</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.reflect.ObjectWriter.ObjectWriter.set_property" title="Permalink to this definition">¶</a></dt>
+<dd><p>ets args of object property specified by its name.</p>
 <p>The object can be a user defined object, map or array.
 The property name correspondently must be object property, map key or array index.</p>
 <p>If the property does not exist or introspection fails
@@ -246,7 +246,7 @@ this method doesn’t do anything and doesn’t any throw errors.</p>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>obj</strong> – an object to write property to.</p></li>
 <li><p><strong>name</strong> – a name of the property to set.</p></li>
-<li><p><strong>value</strong> – a new value for the property to set.</p></li>
+<li><p><strong>value</strong> – a new args for the property to set.</p></li>
 </ul>
 </dd>
 </dl>

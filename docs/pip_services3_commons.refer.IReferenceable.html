@@ -195,8 +195,8 @@
 <dl class="py class">
 <dt id="pip_services3_commons.refer.IReferenceable.IReferenceable">
 <em class="property">class </em><code class="sig-prename descclassname">pip_services3_commons.refer.IReferenceable.</code><code class="sig-name descname">IReferenceable</code><a class="headerlink" href="#pip_services3_commons.refer.IReferenceable.IReferenceable" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="http://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
-<p>Interface for components that depends on other components.
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/3/library/abc.html#abc.ABC" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></a></p>
+<p>Interface for components that depends on obj components.
 If component requires explicit notification to unset references
 it shall additionally implement <a class="reference internal" href="pip_services3_commons.refer.IUnreferenceable.html#pip_services3_commons.refer.IUnreferenceable.IUnreferenceable" title="pip_services3_commons.refer.IUnreferenceable.IUnreferenceable"><code class="xref py py-class docutils literal notranslate"><span class="pre">IUnreferenceable</span></code></a> interface.</p>
 <p>Example:</p>
@@ -204,12 +204,12 @@ it shall additionally implement <a class="reference internal" href="pip_services
     <span class="n">_persistence</span> <span class="o">=</span> <span class="kc">None</span>
 
     <span class="k">def</span> <span class="nf">set_references</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">references</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_persistence</span> <span class="o">=</span> <span class="n">references</span><span class="o">.</span><span class="n">getOneRequired</span><span class="p">(</span><span class="n">Descriptor</span><span class="p">(</span><span class="s2">&quot;mygroup&quot;</span><span class="p">,</span> <span class="s2">&quot;persistence&quot;</span><span class="p">,</span> <span class="s2">&quot;*&quot;</span><span class="p">,</span> <span class="s2">&quot;*&quot;</span><span class="p">,</span> <span class="s2">&quot;1.0&quot;</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_persistence</span> <span class="o">=</span> <span class="n">references</span><span class="o">.</span><span class="n">get_one_required</span><span class="p">(</span><span class="n">Descriptor</span><span class="p">(</span><span class="s2">&quot;mygroup&quot;</span><span class="p">,</span> <span class="s2">&quot;persistence&quot;</span><span class="p">,</span> <span class="s2">&quot;*&quot;</span><span class="p">,</span> <span class="s2">&quot;*&quot;</span><span class="p">,</span> <span class="s2">&quot;1.0&quot;</span><span class="p">))</span>
 </pre></div>
 </div>
 <dl class="py method">
 <dt id="pip_services3_commons.refer.IReferenceable.IReferenceable.set_references">
-<code class="sig-name descname">set_references</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">references</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.refer.IReferenceable.IReferenceable.set_references" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">set_references</code><span class="sig-paren">(</span><em class="sig-param">references: &lt;module 'pip_services3_commons.refer.IReferences' from '/pip_services3_commons/refer/IReferences.py'&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.refer.IReferenceable.IReferenceable.set_references" title="Permalink to this definition">¶</a></dt>
 <dd><p>Sets references to dependent components.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>

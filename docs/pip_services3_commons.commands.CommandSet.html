@@ -197,7 +197,7 @@
 <em class="property">class </em><code class="sig-prename descclassname">pip_services3_commons.commands.CommandSet.</code><code class="sig-name descname">CommandSet</code><a class="headerlink" href="#pip_services3_commons.commands.CommandSet.CommandSet" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="http://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>Contains a set of commands and events supported by a ICommandable commandable object.
-The CommandSet supports command interceptors to extend and the command call chain.</p>
+The CommandSet supports command_name interceptors to extend and the command_name call chain.</p>
 <p>CommandSets can be used as alternative commandable interface to a business object.
 It can be used to auto generate multiple external services for the business object
 without writing much code.</p>
@@ -227,19 +227,19 @@ without writing much code.</p>
 <p>See <a class="reference internal" href="pip_services3_commons.commands.Command.html#pip_services3_commons.commands.Command.Command" title="pip_services3_commons.commands.Command.Command"><code class="xref py py-class docutils literal notranslate"><span class="pre">Command</span></code></a>, <a class="reference internal" href="pip_services3_commons.commands.Event.html#pip_services3_commons.commands.Event.Event" title="pip_services3_commons.commands.Event.Event"><code class="xref py py-class docutils literal notranslate"><span class="pre">Event</span></code></a>, <a class="reference internal" href="pip_services3_commons.commands.ICommandable.html#pip_services3_commons.commands.ICommandable.ICommandable" title="pip_services3_commons.commands.ICommandable.ICommandable"><code class="xref py py-class docutils literal notranslate"><span class="pre">ICommandable</span></code></a></p>
 <dl class="py method">
 <dt id="pip_services3_commons.commands.CommandSet.CommandSet.add_command">
-<code class="sig-name descname">add_command</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">command</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.commands.CommandSet.CommandSet.add_command" title="Permalink to this definition">¶</a></dt>
-<dd><p>Adds a ICommand command to this command set.</p>
+<code class="sig-name descname">add_command</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">command</span><span class="p">:</span> <span class="n"><a class="reference internal" href="pip_services3_commons.commands.ICommand.html#pip_services3_commons.commands.ICommand.ICommand" title="pip_services3_commons.commands.ICommand.ICommand">pip_services3_commons.commands.ICommand.ICommand</a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.commands.CommandSet.CommandSet.add_command" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds a ICommand command_name to this command_name set.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>command</strong> – a command instance to be added</p>
+<dd class="field-odd"><p><strong>command</strong> – a command_name instance to be added</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt id="pip_services3_commons.commands.CommandSet.CommandSet.add_command_set">
-<code class="sig-name descname">add_command_set</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">command_set</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.commands.CommandSet.CommandSet.add_command_set" title="Permalink to this definition">¶</a></dt>
-<dd><p>Adds all of the commands and events from specified CommandSet command set
+<code class="sig-name descname">add_command_set</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">command_set</span><span class="p">:</span> <span class="n"><a class="reference internal" href="#pip_services3_commons.commands.CommandSet.CommandSet" title="pip_services3_commons.commands.CommandSet.CommandSet">pip_services3_commons.commands.CommandSet.CommandSet</a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.commands.CommandSet.CommandSet.add_command_set" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds all of the commands and events from specified CommandSet command_name set
 into this one.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -250,8 +250,8 @@ into this one.</p>
 
 <dl class="py method">
 <dt id="pip_services3_commons.commands.CommandSet.CommandSet.add_commands">
-<code class="sig-name descname">add_commands</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">commands</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.commands.CommandSet.CommandSet.add_commands" title="Permalink to this definition">¶</a></dt>
-<dd><p>Adds multiple <a class="reference internal" href="pip_services3_commons.commands.ICommand.html#pip_services3_commons.commands.ICommand.ICommand" title="pip_services3_commons.commands.ICommand.ICommand"><code class="xref py py-class docutils literal notranslate"><span class="pre">ICommand</span></code></a> commands to this command set.</p>
+<code class="sig-name descname">add_commands</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">commands</span><span class="p">:</span> <span class="n">List<span class="p">[</span><a class="reference internal" href="pip_services3_commons.commands.ICommand.html#pip_services3_commons.commands.ICommand.ICommand" title="pip_services3_commons.commands.ICommand.ICommand">pip_services3_commons.commands.ICommand.ICommand</a><span class="p">]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.commands.CommandSet.CommandSet.add_commands" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds multiple <a class="reference internal" href="pip_services3_commons.commands.ICommand.html#pip_services3_commons.commands.ICommand.ICommand" title="pip_services3_commons.commands.ICommand.ICommand"><code class="xref py py-class docutils literal notranslate"><span class="pre">ICommand</span></code></a> commands to this command_name set.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>commands</strong> – the array of commands to add.</p>
@@ -261,19 +261,19 @@ into this one.</p>
 
 <dl class="py method">
 <dt id="pip_services3_commons.commands.CommandSet.CommandSet.add_event">
-<code class="sig-name descname">add_event</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">event</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.commands.CommandSet.CommandSet.add_event" title="Permalink to this definition">¶</a></dt>
-<dd><p>Adds an <a class="reference internal" href="pip_services3_commons.commands.IEvent.html#pip_services3_commons.commands.IEvent.IEvent" title="pip_services3_commons.commands.IEvent.IEvent"><code class="xref py py-class docutils literal notranslate"><span class="pre">IEvent</span></code></a> event to this command set.</p>
+<code class="sig-name descname">add_event</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">event</span><span class="p">:</span> <span class="n"><a class="reference internal" href="pip_services3_commons.commands.IEvent.html#pip_services3_commons.commands.IEvent.IEvent" title="pip_services3_commons.commands.IEvent.IEvent">pip_services3_commons.commands.IEvent.IEvent</a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.commands.CommandSet.CommandSet.add_event" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds an <a class="reference internal" href="pip_services3_commons.commands.IEvent.html#pip_services3_commons.commands.IEvent.IEvent" title="pip_services3_commons.commands.IEvent.IEvent"><code class="xref py py-class docutils literal notranslate"><span class="pre">IEvent</span></code></a> event_name to this command_name set.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>event</strong> – an event instance to be added</p>
+<dd class="field-odd"><p><strong>event</strong> – an event_name instance to be added</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt id="pip_services3_commons.commands.CommandSet.CommandSet.add_events">
-<code class="sig-name descname">add_events</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">events</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.commands.CommandSet.CommandSet.add_events" title="Permalink to this definition">¶</a></dt>
-<dd><p>Adds multiple <a class="reference internal" href="pip_services3_commons.commands.IEvent.html#pip_services3_commons.commands.IEvent.IEvent" title="pip_services3_commons.commands.IEvent.IEvent"><code class="xref py py-class docutils literal notranslate"><span class="pre">IEvent</span></code></a> events to this command set.</p>
+<code class="sig-name descname">add_events</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">events</span><span class="p">:</span> <span class="n">List<span class="p">[</span><a class="reference internal" href="pip_services3_commons.commands.IEvent.html#pip_services3_commons.commands.IEvent.IEvent" title="pip_services3_commons.commands.IEvent.IEvent">pip_services3_commons.commands.IEvent.IEvent</a><span class="p">]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.commands.CommandSet.CommandSet.add_events" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds multiple <a class="reference internal" href="pip_services3_commons.commands.IEvent.html#pip_services3_commons.commands.IEvent.IEvent" title="pip_services3_commons.commands.IEvent.IEvent"><code class="xref py py-class docutils literal notranslate"><span class="pre">IEvent</span></code></a> events to this command_name set.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>events</strong> – the array of events to add.</p>
@@ -283,18 +283,18 @@ into this one.</p>
 
 <dl class="py method">
 <dt id="pip_services3_commons.commands.CommandSet.CommandSet.add_interceptor">
-<code class="sig-name descname">add_interceptor</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">intercepter</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.commands.CommandSet.CommandSet.add_interceptor" title="Permalink to this definition">¶</a></dt>
-<dd><p>Adds a <code class="xref py py-class docutils literal notranslate"><span class="pre">ICommandIntercepter</span></code> command interceptor to this command set.</p>
+<code class="sig-name descname">add_interceptor</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">interceptor</span><span class="p">:</span> <span class="n"><a class="reference internal" href="pip_services3_commons.commands.ICommandInterceptor.html#pip_services3_commons.commands.ICommandInterceptor.ICommandInterceptor" title="pip_services3_commons.commands.ICommandInterceptor.ICommandInterceptor">pip_services3_commons.commands.ICommandInterceptor.ICommandInterceptor</a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.commands.CommandSet.CommandSet.add_interceptor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds a <code class="xref py py-class docutils literal notranslate"><span class="pre">ICommandInterceptor</span></code> command_name interceptor to this command_name set.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>intercepter</strong> – an intercepter instance to be added.</p>
+<dd class="field-odd"><p><strong>interceptor</strong> – an interceptor instance to be added.</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt id="pip_services3_commons.commands.CommandSet.CommandSet.add_listener">
-<code class="sig-name descname">add_listener</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">listener</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.commands.CommandSet.CommandSet.add_listener" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">add_listener</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">listener</span><span class="p">:</span> <span class="n"><a class="reference internal" href="pip_services3_commons.commands.IEventListener.html#pip_services3_commons.commands.IEventListener.IEventListener" title="pip_services3_commons.commands.IEventListener.IEventListener">pip_services3_commons.commands.IEventListener.IEventListener</a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.commands.CommandSet.CommandSet.add_listener" title="Permalink to this definition">¶</a></dt>
 <dd><p>Adds a <a class="reference internal" href="pip_services3_commons.commands.IEventListener.html#pip_services3_commons.commands.IEventListener.IEventListener" title="pip_services3_commons.commands.IEventListener.IEventListener"><code class="xref py py-class docutils literal notranslate"><span class="pre">IEventListener</span></code></a> listener to receive notifications on fired events.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -305,14 +305,14 @@ into this one.</p>
 
 <dl class="py method">
 <dt id="pip_services3_commons.commands.CommandSet.CommandSet.execute">
-<code class="sig-name descname">execute</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">correlation_id</span></em>, <em class="sig-param"><span class="n">command</span></em>, <em class="sig-param"><span class="n">args</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.commands.CommandSet.CommandSet.execute" title="Permalink to this definition">¶</a></dt>
-<dd><p>Executes a <a class="reference internal" href="pip_services3_commons.commands.ICommand.html#pip_services3_commons.commands.ICommand.ICommand" title="pip_services3_commons.commands.ICommand.ICommand"><code class="xref py py-class docutils literal notranslate"><span class="pre">ICommand</span></code></a> command specificed by its name.</p>
+<code class="sig-name descname">execute</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">correlation_id</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></span></em>, <em class="sig-param"><span class="n">command</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></span></em>, <em class="sig-param"><span class="n">args</span><span class="p">:</span> <span class="n"><a class="reference internal" href="pip_services3_commons.run.Parameters.html#pip_services3_commons.run.Parameters.Parameters" title="pip_services3_commons.run.Parameters.Parameters">pip_services3_commons.run.Parameters.Parameters</a></span></em><span class="sig-paren">)</span> &#x2192; Any<a class="headerlink" href="#pip_services3_commons.commands.CommandSet.CommandSet.execute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Executes a <a class="reference internal" href="pip_services3_commons.commands.ICommand.html#pip_services3_commons.commands.ICommand.ICommand" title="pip_services3_commons.commands.ICommand.ICommand"><code class="xref py py-class docutils literal notranslate"><span class="pre">ICommand</span></code></a> command_name specificed by its name.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>correlation_id</strong> – (optional) transaction id to trace execution through call chain.</p></li>
-<li><p><strong>command</strong> – the name of that command that is to be executed.</p></li>
-<li><p><strong>args</strong> – the parameters (arguments) to pass to the command for execution.</p></li>
+<li><p><strong>command</strong> – the name of that command_name that is to be executed.</p></li>
+<li><p><strong>args</strong> – the parameters (arguments) to pass to the command_name for execution.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -326,36 +326,36 @@ into this one.</p>
 
 <dl class="py method">
 <dt id="pip_services3_commons.commands.CommandSet.CommandSet.find_command">
-<code class="sig-name descname">find_command</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">command</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.commands.CommandSet.CommandSet.find_command" title="Permalink to this definition">¶</a></dt>
-<dd><p>Searches for a command by its name.</p>
+<code class="sig-name descname">find_command</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">command_name</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></span></em><span class="sig-paren">)</span> &#x2192; Optional<span class="p">[</span><a class="reference internal" href="pip_services3_commons.commands.ICommand.html#pip_services3_commons.commands.ICommand.ICommand" title="pip_services3_commons.commands.ICommand.ICommand">pip_services3_commons.commands.ICommand.ICommand</a><span class="p">]</span><a class="headerlink" href="#pip_services3_commons.commands.CommandSet.CommandSet.find_command" title="Permalink to this definition">¶</a></dt>
+<dd><p>Searches for a command_name by its name.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>command</strong> – the name of the command to search for.</p>
+<dd class="field-odd"><p><strong>command_name</strong> – the name of the command_name to search for.</p>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>the command, whose name matches the provided name.</p>
+<dd class="field-even"><p>the command_name, whose name matches the provided name.</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt id="pip_services3_commons.commands.CommandSet.CommandSet.find_event">
-<code class="sig-name descname">find_event</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">event</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.commands.CommandSet.CommandSet.find_event" title="Permalink to this definition">¶</a></dt>
-<dd><p>Searches for an event by its name in this command set.</p>
+<code class="sig-name descname">find_event</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">event_name</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></span></em><span class="sig-paren">)</span> &#x2192; Optional<span class="p">[</span><a class="reference internal" href="pip_services3_commons.commands.IEvent.html#pip_services3_commons.commands.IEvent.IEvent" title="pip_services3_commons.commands.IEvent.IEvent">pip_services3_commons.commands.IEvent.IEvent</a><span class="p">]</span><a class="headerlink" href="#pip_services3_commons.commands.CommandSet.CommandSet.find_event" title="Permalink to this definition">¶</a></dt>
+<dd><p>Searches for an event_name by its name in this command_name set.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>event</strong> – the name of the event to search for.</p>
+<dd class="field-odd"><p><strong>event_name</strong> – the name of the event_name to search for.</p>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>the event, whose name matches the provided name.</p>
+<dd class="field-even"><p>the event_name, whose name matches the provided name.</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt id="pip_services3_commons.commands.CommandSet.CommandSet.get_commands">
-<code class="sig-name descname">get_commands</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.commands.CommandSet.CommandSet.get_commands" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gets all commands registered in this command set.</p>
+<code class="sig-name descname">get_commands</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; List<span class="p">[</span><a class="reference internal" href="pip_services3_commons.commands.ICommand.html#pip_services3_commons.commands.ICommand.ICommand" title="pip_services3_commons.commands.ICommand.ICommand">pip_services3_commons.commands.ICommand.ICommand</a><span class="p">]</span><a class="headerlink" href="#pip_services3_commons.commands.CommandSet.CommandSet.get_commands" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets all commands registered in this command_name set.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p><a class="reference internal" href="pip_services3_commons.commands.ICommand.html#pip_services3_commons.commands.ICommand.ICommand" title="pip_services3_commons.commands.ICommand.ICommand"><code class="xref py py-class docutils literal notranslate"><span class="pre">ICommand</span></code></a> list with all commands supported by component.</p>
@@ -365,8 +365,8 @@ into this one.</p>
 
 <dl class="py method">
 <dt id="pip_services3_commons.commands.CommandSet.CommandSet.get_events">
-<code class="sig-name descname">get_events</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.commands.CommandSet.CommandSet.get_events" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gets all events registered in this command set.</p>
+<code class="sig-name descname">get_events</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; List<span class="p">[</span><a class="reference internal" href="pip_services3_commons.commands.IEvent.html#pip_services3_commons.commands.IEvent.IEvent" title="pip_services3_commons.commands.IEvent.IEvent">pip_services3_commons.commands.IEvent.IEvent</a><span class="p">]</span><a class="headerlink" href="#pip_services3_commons.commands.CommandSet.CommandSet.get_events" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets all events registered in this command_name set.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p><a class="reference internal" href="pip_services3_commons.commands.ICommand.html#pip_services3_commons.commands.ICommand.ICommand" title="pip_services3_commons.commands.ICommand.ICommand"><code class="xref py py-class docutils literal notranslate"><span class="pre">ICommand</span></code></a> list with all events supported by component.</p>
@@ -376,15 +376,15 @@ into this one.</p>
 
 <dl class="py method">
 <dt id="pip_services3_commons.commands.CommandSet.CommandSet.notify">
-<code class="sig-name descname">notify</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">correlation_id</span></em>, <em class="sig-param"><span class="n">event</span></em>, <em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.commands.CommandSet.CommandSet.notify" title="Permalink to this definition">¶</a></dt>
-<dd><p>Fires event specified by its name and notifies all registered
+<code class="sig-name descname">notify</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">correlation_id</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></span></em>, <em class="sig-param"><span class="n">event_name</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></span></em>, <em class="sig-param"><span class="n">args</span><span class="p">:</span> <span class="n"><a class="reference internal" href="pip_services3_commons.run.Parameters.html#pip_services3_commons.run.Parameters.Parameters" title="pip_services3_commons.run.Parameters.Parameters">pip_services3_commons.run.Parameters.Parameters</a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.commands.CommandSet.CommandSet.notify" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fires event_name specified by its name and notifies all registered
 <a class="reference internal" href="pip_services3_commons.commands.IEventListener.html#pip_services3_commons.commands.IEventListener.IEventListener" title="pip_services3_commons.commands.IEventListener.IEventListener"><code class="xref py py-class docutils literal notranslate"><span class="pre">IEventListener</span></code></a> listeners</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>correlation_id</strong> – (optional) transaction id to trace execution through call chain.</p></li>
-<li><p><strong>event</strong> – the name of the event that is to be fired.</p></li>
-<li><p><strong>value</strong> – the event arguments (parameters).</p></li>
+<li><p><strong>event_name</strong> – the name of the event_name that is to be fired.</p></li>
+<li><p><strong>args</strong> – the event_name arguments (parameters).</p></li>
 </ul>
 </dd>
 </dl>
@@ -392,7 +392,7 @@ into this one.</p>
 
 <dl class="py method">
 <dt id="pip_services3_commons.commands.CommandSet.CommandSet.remove_listener">
-<code class="sig-name descname">remove_listener</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">listener</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.commands.CommandSet.CommandSet.remove_listener" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">remove_listener</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">listener</span><span class="p">:</span> <span class="n"><a class="reference internal" href="pip_services3_commons.commands.IEventListener.html#pip_services3_commons.commands.IEventListener.IEventListener" title="pip_services3_commons.commands.IEventListener.IEventListener">pip_services3_commons.commands.IEventListener.IEventListener</a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.commands.CommandSet.CommandSet.remove_listener" title="Permalink to this definition">¶</a></dt>
 <dd><p>Removes previosly added <a class="reference internal" href="pip_services3_commons.commands.IEventListener.html#pip_services3_commons.commands.IEventListener.IEventListener" title="pip_services3_commons.commands.IEventListener.IEventListener"><code class="xref py py-class docutils literal notranslate"><span class="pre">IEventListener</span></code></a> listener.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -403,19 +403,19 @@ into this one.</p>
 
 <dl class="py method">
 <dt id="pip_services3_commons.commands.CommandSet.CommandSet.validate">
-<code class="sig-name descname">validate</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">command</span></em>, <em class="sig-param"><span class="n">args</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.commands.CommandSet.CommandSet.validate" title="Permalink to this definition">¶</a></dt>
-<dd><p>Validates Parameters args for command specified by its name using defined schema.
+<code class="sig-name descname">validate</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">command_name</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></span></em>, <em class="sig-param"><span class="n">args</span><span class="p">:</span> <span class="n"><a class="reference internal" href="pip_services3_commons.run.Parameters.html#pip_services3_commons.run.Parameters.Parameters" title="pip_services3_commons.run.Parameters.Parameters">pip_services3_commons.run.Parameters.Parameters</a></span></em><span class="sig-paren">)</span> &#x2192; List<span class="p">[</span><a class="reference internal" href="pip_services3_commons.validate.ValidationResult.html#pip_services3_commons.validate.ValidationResult.ValidationResult" title="pip_services3_commons.validate.ValidationResult.ValidationResult">pip_services3_commons.validate.ValidationResult.ValidationResult</a><span class="p">]</span><a class="headerlink" href="#pip_services3_commons.commands.CommandSet.CommandSet.validate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Validates Parameters args for command_name specified by its name using defined schema.
 If validation schema is not defined than the methods returns no errors.
-It returns validation error if the command is not found.</p>
+It returns validation error if the command_name is not found.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>command</strong> – the name of the command for which the ‘args’ must be validated.</p></li>
+<li><p><strong>command_name</strong> – the name of the command_name for which the ‘args’ must be validated.</p></li>
 <li><p><strong>args</strong> – the parameters (arguments) to validate.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>an array of ValidationResults. If no command is found by the given
+<dd class="field-even"><p>an array of ValidationResults. If no command_name is found by the given
 name, then the returned array of ValidationResults will contain a
 single entry, whose type will be <code class="xref py py-class docutils literal notranslate"><span class="pre">ValidationResultType.Error</span></code>.</p>
 </dd>

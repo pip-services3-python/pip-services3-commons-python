@@ -202,7 +202,7 @@ through the entire object graph. Nested property names are defined
 using dot notation as “object.subobject.property”</p>
 <dl class="py method">
 <dt id="pip_services3_commons.reflect.RecursiveObjectWriter.RecursiveObjectWriter.copy_properties">
-<em class="property">static </em><code class="sig-name descname">copy_properties</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dest</span></em>, <em class="sig-param"><span class="n">src</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.reflect.RecursiveObjectWriter.RecursiveObjectWriter.copy_properties" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="sig-name descname">copy_properties</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dest</span><span class="p">:</span> <span class="n">Any</span></em>, <em class="sig-param"><span class="n">src</span><span class="p">:</span> <span class="n">Any</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.reflect.RecursiveObjectWriter.RecursiveObjectWriter.copy_properties" title="Permalink to this definition">¶</a></dt>
 <dd><p>Copies content of one object to another object
 by recursively reading all properties from source object
 and then recursively writing them to destination object.</p>
@@ -218,7 +218,7 @@ and then recursively writing them to destination object.</p>
 
 <dl class="py method">
 <dt id="pip_services3_commons.reflect.RecursiveObjectWriter.RecursiveObjectWriter.set_properties">
-<em class="property">static </em><code class="sig-name descname">set_properties</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">obj</span></em>, <em class="sig-param"><span class="n">values</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.reflect.RecursiveObjectWriter.RecursiveObjectWriter.set_properties" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="sig-name descname">set_properties</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">obj</span><span class="p">:</span> <span class="n">Any</span></em>, <em class="sig-param"><span class="n">values</span><span class="p">:</span> <span class="n">Any</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.reflect.RecursiveObjectWriter.RecursiveObjectWriter.set_properties" title="Permalink to this definition">¶</a></dt>
 <dd><p>Recursively sets values of some (all) object and its subobjects properties.</p>
 <p>The object can be a user defined object, map or array.
 Property values correspondently are object properties, map key-pairs or array elements with their indexes.</p>
@@ -235,8 +235,8 @@ Property values correspondently are object properties, map key-pairs or array el
 
 <dl class="py method">
 <dt id="pip_services3_commons.reflect.RecursiveObjectWriter.RecursiveObjectWriter.set_property">
-<em class="property">static </em><code class="sig-name descname">set_property</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">obj</span></em>, <em class="sig-param"><span class="n">name</span></em>, <em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.reflect.RecursiveObjectWriter.RecursiveObjectWriter.set_property" title="Permalink to this definition">¶</a></dt>
-<dd><p>Recursively sets value of object and its subobjects property specified by its name.</p>
+<em class="property">static </em><code class="sig-name descname">set_property</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">obj</span><span class="p">:</span> <span class="n">Any</span></em>, <em class="sig-param"><span class="n">name</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></span></em>, <em class="sig-param"><span class="n">value</span><span class="p">:</span> <span class="n">Any</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.reflect.RecursiveObjectWriter.RecursiveObjectWriter.set_property" title="Permalink to this definition">¶</a></dt>
+<dd><p>Recursively sets args of object and its subobjects property specified by its name.</p>
 <p>The object can be a user defined object, map or array.
 The property name correspondently must be object property, map key or array index.</p>
 <p>If the property does not exist or introspection fails
@@ -246,7 +246,7 @@ this method doesn’t do anything and doesn’t any throw errors.</p>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>obj</strong> – an object to write property to.</p></li>
 <li><p><strong>name</strong> – a name of the property to set.</p></li>
-<li><p><strong>value</strong> – a new value for the property to set.</p></li>
+<li><p><strong>value</strong> – a new args for the property to set.</p></li>
 </ul>
 </dd>
 </dl>

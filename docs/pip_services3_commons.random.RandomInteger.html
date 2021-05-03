@@ -205,32 +205,32 @@
 </div>
 <dl class="py method">
 <dt id="pip_services3_commons.random.RandomInteger.RandomInteger.next_integer">
-<em class="property">static </em><code class="sig-name descname">next_integer</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">min</span></em>, <em class="sig-param"><span class="n">max</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.random.RandomInteger.RandomInteger.next_integer" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="sig-name descname">next_integer</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">min</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)">int</a></span></em>, <em class="sig-param"><span class="n">max</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)">int</a></span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="http://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)">int</a><a class="headerlink" href="#pip_services3_commons.random.RandomInteger.RandomInteger.next_integer" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generates a integer in the range [‘min’, ‘max’]. If ‘max’ is omitted, then the range will be set to [0, ‘min’].</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>min</strong> – minimum value of the integer that will be generated.
+<li><p><strong>min</strong> – minimum args of the integer that will be generated.
 If ‘max’ is omitted, then ‘max’ is set to ‘min’ and ‘min’ is set to 0.</p></li>
-<li><p><strong>max</strong> – (optional) maximum value of the float that will be generated. Defaults to ‘min’ if omitted.</p></li>
+<li><p><strong>max</strong> – (optional) maximum args of the float that will be generated. Defaults to ‘min’ if omitted.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>generated random integer value.</p>
+<dd class="field-even"><p>generated random integer args.</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt id="pip_services3_commons.random.RandomInteger.RandomInteger.sequence">
-<em class="property">static </em><code class="sig-name descname">sequence</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">min</span></em>, <em class="sig-param"><span class="n">max</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.random.RandomInteger.RandomInteger.sequence" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="sig-name descname">sequence</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">min</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)">int</a></span></em>, <em class="sig-param"><span class="n">max</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)">int</a></span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span> &#x2192; List<span class="p">[</span><a class="reference external" href="http://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)">int</a><span class="p">]</span><a class="headerlink" href="#pip_services3_commons.random.RandomInteger.RandomInteger.sequence" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generates a random sequence of integers starting from 0 like: [0,1,2,3…??]</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>min</strong> – minimum value of the integer that will be generated.
+<li><p><strong>min</strong> – minimum args of the integer that will be generated.
 If ‘max’ is omitted, then ‘max’ is set to ‘min’ and ‘min’ is set to 0.</p></li>
-<li><p><strong>max</strong> – (optional) maximum value of the float that will be generated. Defaults to ‘min’ if omitted.</p></li>
+<li><p><strong>max</strong> – (optional) maximum args of the float that will be generated. Defaults to ‘min’ if omitted.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -241,17 +241,17 @@ If ‘max’ is omitted, then ‘max’ is set to ‘min’ and ‘min’ is set
 
 <dl class="py method">
 <dt id="pip_services3_commons.random.RandomInteger.RandomInteger.update_integer">
-<em class="property">static </em><code class="sig-name descname">update_integer</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span></em>, <em class="sig-param"><span class="n">range</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.random.RandomInteger.RandomInteger.update_integer" title="Permalink to this definition">¶</a></dt>
-<dd><p>Updates (drifts) a integer value within specified range defined</p>
+<em class="property">static </em><code class="sig-name descname">update_integer</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)">int</a></span></em>, <em class="sig-param"><span class="n">range</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)">int</a></span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="http://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)">int</a><a class="headerlink" href="#pip_services3_commons.random.RandomInteger.RandomInteger.update_integer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Updates (drifts) a integer args within specified range defined</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>value</strong> – a integer value to drift.</p></li>
-<li><p><strong>range</strong> – (optional) a range. Default: 10% of the value</p></li>
+<li><p><strong>value</strong> – a integer args to drift.</p></li>
+<li><p><strong>range</strong> – (optional) a range. Default: 10% of the args</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>updated integer value.</p>
+<dd class="field-even"><p>updated integer args.</p>
 </dd>
 </dl>
 </dd></dl>

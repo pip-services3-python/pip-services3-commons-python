@@ -10,7 +10,6 @@
 """
 from typing import Any, List
 
-from pip_services3_commons.config import ConfigParams
 from ..data.StringValueMap import StringValueMap
 from ..reflect.RecursiveObjectReader import RecursiveObjectReader
 
@@ -81,7 +80,7 @@ class ConfigParams(StringValueMap):
 
         return sections
 
-    def get_section(self, section: str) -> ConfigParams:
+    def get_section(self, section: str) -> 'ConfigParams':
         """
         Gets parameters from specific section stored in this ConfigMap.
         The section name is removed from parameter keys.
@@ -109,7 +108,7 @@ class ConfigParams(StringValueMap):
     def _is_shadow_name(self, name):
         return name is None or len(name) == 0 or name[0] == "#" or name[0] == "!"
 
-    def add_section(self, section: str, section_params: ConfigParams):
+    def add_section(self, section: str, section_params: 'ConfigParams'):
         """
         Adds parameters into this ConfigParams under specified section.
         Keys for the new parameters are appended with section dot prefix.
@@ -136,7 +135,7 @@ class ConfigParams(StringValueMap):
 
             self[key] = value
 
-    def override(self, config_params: ConfigParams) -> ConfigParams:
+    def override(self, config_params: 'ConfigParams') -> 'ConfigParams':
         """
         Overrides parameters with new values from specified ConfigParams and returns a new ConfigParams object.
 
@@ -147,7 +146,7 @@ class ConfigParams(StringValueMap):
         map = StringValueMap.from_maps(self, config_params)
         return ConfigParams(map)
 
-    def set_defaults(self, default_config_params: ConfigParams) -> ConfigParams:
+    def set_defaults(self, default_config_params: 'ConfigParams') -> 'ConfigParams':
         """
         Set default values from specified ConfigParams and returns a new ConfigParams object.
 
@@ -159,7 +158,7 @@ class ConfigParams(StringValueMap):
         return ConfigParams(map)
 
     @staticmethod
-    def from_value(value: Any) -> ConfigParams:
+    def from_value(value: Any) -> 'ConfigParams':
         """
         Creates a new ConfigParams object filled with key-args pairs from specified object.
 
@@ -171,7 +170,7 @@ class ConfigParams(StringValueMap):
         return ConfigParams(map)
 
     @staticmethod
-    def from_tuples(*tuples: Any) -> ConfigParams:
+    def from_tuples(*tuples: Any) -> 'ConfigParams':
         """
         Creates a new ConfigParams object filled with provided key-args pairs called tuples.
         Tuples parameters contain a sequence of key1, value1, key2, value2, ... pairs.
@@ -185,7 +184,7 @@ class ConfigParams(StringValueMap):
         return ConfigParams(map)
 
     @staticmethod
-    def from_string(line: str) -> ConfigParams:
+    def from_string(line: str) -> 'ConfigParams':
         """
         Creates a new ConfigParams object filled with key-args pairs serialized as a string.
 

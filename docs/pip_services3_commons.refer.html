@@ -242,7 +242,7 @@ various containers, as well as testing objects.</p>
 </dl>
 <dl class="py class">
 <dt id="pip_services3_commons.refer.DependencyResolver">
-<em class="property">class </em><code class="sig-prename descclassname">pip_services3_commons.refer.</code><code class="sig-name descname">DependencyResolver</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">config</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">references</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.refer.DependencyResolver" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">pip_services3_commons.refer.</code><code class="sig-name descname">DependencyResolver</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">config</span><span class="p">:</span> <span class="n"><a class="reference internal" href="pip_services3_commons.config.ConfigParams.html#pip_services3_commons.config.ConfigParams.ConfigParams" title="pip_services3_commons.config.ConfigParams.ConfigParams">pip_services3_commons.config.ConfigParams.ConfigParams</a></span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">references</span><span class="p">:</span> <span class="n"><a class="reference internal" href="pip_services3_commons.refer.IReferences.html#pip_services3_commons.refer.IReferences.IReferences" title="pip_services3_commons.refer.IReferences.IReferences">pip_services3_commons.refer.IReferences.IReferences</a></span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.refer.DependencyResolver" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="pip_services3_commons.config.IReconfigurable.html#pip_services3_commons.config.IReconfigurable.IReconfigurable" title="pip_services3_commons.config.IReconfigurable.IReconfigurable"><code class="xref py py-class docutils literal notranslate"><span class="pre">pip_services3_commons.config.IReconfigurable.IReconfigurable</span></code></a>, <a class="reference internal" href="pip_services3_commons.refer.IReferenceable.html#pip_services3_commons.refer.IReferenceable.IReferenceable" title="pip_services3_commons.refer.IReferenceable.IReferenceable"><code class="xref py py-class docutils literal notranslate"><span class="pre">pip_services3_commons.refer.IReferenceable.IReferenceable</span></code></a></p>
 <p>Helper class for resolving component dependencies.
 The resolver is configured to resolve named dependencies by specific locator.
@@ -286,7 +286,7 @@ dependencies:</p>
     <span class="n">component</span><span class="o">.</span><span class="n">configure</span><span class="p">(</span><span class="n">ConfigParams</span><span class="o">.</span><span class="n">from_tuples</span><span class="p">(</span>
     <span class="s2">&quot;dependencies.persistence&quot;</span><span class="p">,</span> <span class="s2">&quot;mygroup:persistence:*:persistence2:1.0&quot;</span><span class="p">))</span>
 
-    <span class="n">component</span><span class="o">.</span><span class="n">setReferences</span><span class="p">(</span><span class="n">References</span><span class="o">.</span><span class="n">from_tuples</span><span class="p">(</span><span class="n">Descriptor</span><span class="p">(</span><span class="s2">&quot;mygroup&quot;</span><span class="p">,</span><span class="s2">&quot;persistence&quot;</span><span class="p">,</span><span class="s2">&quot;*&quot;</span><span class="p">,</span><span class="s2">&quot;persistence1&quot;</span><span class="p">,</span><span class="s2">&quot;1.0&quot;</span><span class="p">),</span>
+    <span class="n">component</span><span class="o">.</span><span class="n">set_references</span><span class="p">(</span><span class="n">References</span><span class="o">.</span><span class="n">from_tuples</span><span class="p">(</span><span class="n">Descriptor</span><span class="p">(</span><span class="s2">&quot;mygroup&quot;</span><span class="p">,</span><span class="s2">&quot;persistence&quot;</span><span class="p">,</span><span class="s2">&quot;*&quot;</span><span class="p">,</span><span class="s2">&quot;persistence1&quot;</span><span class="p">,</span><span class="s2">&quot;1.0&quot;</span><span class="p">),</span>
     <span class="n">MyPersistence</span><span class="p">(),</span>
     <span class="n">Descriptor</span><span class="p">(</span><span class="s2">&quot;mygroup&quot;</span><span class="p">,</span><span class="s2">&quot;persistence&quot;</span><span class="p">,</span><span class="s2">&quot;*&quot;</span><span class="p">,</span><span class="s2">&quot;persistence2&quot;</span><span class="p">,</span><span class="s2">&quot;1.0&quot;</span><span class="p">),</span> <span class="n">MyPersistence</span><span class="p">()</span>
     <span class="c1"># This dependency shall be set))</span>
@@ -294,7 +294,7 @@ dependencies:</p>
 </div>
 <dl class="py method">
 <dt id="pip_services3_commons.refer.DependencyResolver.configure">
-<code class="sig-name descname">configure</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">config</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.refer.DependencyResolver.configure" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">configure</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">config</span><span class="p">:</span> <span class="n"><a class="reference internal" href="pip_services3_commons.config.ConfigParams.html#pip_services3_commons.config.ConfigParams.ConfigParams" title="pip_services3_commons.config.ConfigParams.ConfigParams">pip_services3_commons.config.ConfigParams.ConfigParams</a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.refer.DependencyResolver.configure" title="Permalink to this definition">¶</a></dt>
 <dd><p>Configures the component with specified parameters.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -305,13 +305,13 @@ dependencies:</p>
 
 <dl class="py method">
 <dt id="pip_services3_commons.refer.DependencyResolver.find">
-<code class="sig-name descname">find</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span></em>, <em class="sig-param"><span class="n">required</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.refer.DependencyResolver.find" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">find</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></span></em>, <em class="sig-param"><span class="n">required</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)">bool</a></span></em><span class="sig-paren">)</span> &#x2192; Optional<span class="p">[</span>List<span class="p">[</span>T<span class="p">]</span><span class="p">]</span><a class="headerlink" href="#pip_services3_commons.refer.DependencyResolver.find" title="Permalink to this definition">¶</a></dt>
 <dd><p>Finds all matching dependencies by their name.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>name</strong> – the dependency name to locate.</p></li>
-<li><p><strong>required</strong> – true to raise an exception when no dependencies are found.</p></li>
+<li><p><strong>required</strong> – true to raise an error when no dependencies are found.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -322,9 +322,9 @@ dependencies:</p>
 
 <dl class="py method">
 <dt id="pip_services3_commons.refer.DependencyResolver.from_tuples">
-<em class="property">static </em><code class="sig-name descname">from_tuples</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">tuples</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.refer.DependencyResolver.from_tuples" title="Permalink to this definition">¶</a></dt>
-<dd><p>Creates a new DependencyResolver from a list of key-value pairs called tuples
-where key is dependency name and value the depedency locator (descriptor).</p>
+<em class="property">static </em><code class="sig-name descname">from_tuples</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">tuples</span><span class="p">:</span> <span class="n">Any</span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="pip_services3_commons.refer.DependencyResolver.html#pip_services3_commons.refer.DependencyResolver.DependencyResolver" title="pip_services3_commons.refer.DependencyResolver.DependencyResolver">pip_services3_commons.refer.DependencyResolver.DependencyResolver</a><a class="headerlink" href="#pip_services3_commons.refer.DependencyResolver.from_tuples" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a new DependencyResolver from a list of key-args pairs called tuples
+where key is dependency name and args the depedency locator (descriptor).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>tuples</strong> – a list of values where odd elements are dependency name</p>
@@ -340,7 +340,7 @@ where key is dependency name and value the depedency locator (descriptor).</p>
 
 <dl class="py method">
 <dt id="pip_services3_commons.refer.DependencyResolver.get_one_optional">
-<code class="sig-name descname">get_one_optional</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.refer.DependencyResolver.get_one_optional" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_one_optional</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></span></em><span class="sig-paren">)</span> &#x2192; T<a class="headerlink" href="#pip_services3_commons.refer.DependencyResolver.get_one_optional" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets one optional dependency by its name.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -354,8 +354,8 @@ where key is dependency name and value the depedency locator (descriptor).</p>
 
 <dl class="py method">
 <dt id="pip_services3_commons.refer.DependencyResolver.get_one_required">
-<code class="sig-name descname">get_one_required</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.refer.DependencyResolver.get_one_required" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gets one required dependency by its name.
+<code class="sig-name descname">get_one_required</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></span></em><span class="sig-paren">)</span> &#x2192; T<a class="headerlink" href="#pip_services3_commons.refer.DependencyResolver.get_one_required" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets one __required dependency by its name.
 At least one dependency must present. If the dependency was found it throws a <a class="reference internal" href="pip_services3_commons.refer.ReferenceException.html#pip_services3_commons.refer.ReferenceException.ReferenceException" title="pip_services3_commons.refer.ReferenceException.ReferenceException"><code class="xref py py-class docutils literal notranslate"><span class="pre">ReferenceException</span></code></a></p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -369,7 +369,7 @@ At least one dependency must present. If the dependency was found it throws a <a
 
 <dl class="py method">
 <dt id="pip_services3_commons.refer.DependencyResolver.get_optional">
-<code class="sig-name descname">get_optional</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.refer.DependencyResolver.get_optional" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_optional</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></span></em><span class="sig-paren">)</span> &#x2192; List<span class="p">[</span>T<span class="p">]</span><a class="headerlink" href="#pip_services3_commons.refer.DependencyResolver.get_optional" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets all optional dependencies by their name.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -383,8 +383,8 @@ At least one dependency must present. If the dependency was found it throws a <a
 
 <dl class="py method">
 <dt id="pip_services3_commons.refer.DependencyResolver.get_required">
-<code class="sig-name descname">get_required</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.refer.DependencyResolver.get_required" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gets all required dependencies by their name.
+<code class="sig-name descname">get_required</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></span></em><span class="sig-paren">)</span> &#x2192; List<span class="p">[</span>T<span class="p">]</span><a class="headerlink" href="#pip_services3_commons.refer.DependencyResolver.get_required" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets all __required dependencies by their name.
 At least one dependency must be present. If no dependencies was found it throws a <a class="reference internal" href="pip_services3_commons.refer.ReferenceException.html#pip_services3_commons.refer.ReferenceException.ReferenceException" title="pip_services3_commons.refer.ReferenceException.ReferenceException"><code class="xref py py-class docutils literal notranslate"><span class="pre">ReferenceException</span></code></a></p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -398,7 +398,7 @@ At least one dependency must be present. If no dependencies was found it throws 
 
 <dl class="py method">
 <dt id="pip_services3_commons.refer.DependencyResolver.put">
-<code class="sig-name descname">put</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span></em>, <em class="sig-param"><span class="n">locator</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.refer.DependencyResolver.put" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">put</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></span></em>, <em class="sig-param"><span class="n">locator</span><span class="p">:</span> <span class="n">Any</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.refer.DependencyResolver.put" title="Permalink to this definition">¶</a></dt>
 <dd><p>Adds a new dependency into this resolver.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -412,7 +412,7 @@ At least one dependency must be present. If no dependencies was found it throws 
 
 <dl class="py method">
 <dt id="pip_services3_commons.refer.DependencyResolver.set_references">
-<code class="sig-name descname">set_references</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">references</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.refer.DependencyResolver.set_references" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">set_references</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">references</span><span class="p">:</span> <span class="n"><a class="reference internal" href="pip_services3_commons.refer.IReferences.html#pip_services3_commons.refer.IReferences.IReferences" title="pip_services3_commons.refer.IReferences.IReferences">pip_services3_commons.refer.IReferences.IReferences</a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.refer.DependencyResolver.set_references" title="Permalink to this definition">¶</a></dt>
 <dd><p>Sets the component references. References must match configured dependencies.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -425,7 +425,7 @@ At least one dependency must be present. If no dependencies was found it throws 
 
 <dl class="py class">
 <dt id="pip_services3_commons.refer.Descriptor">
-<em class="property">class </em><code class="sig-prename descclassname">pip_services3_commons.refer.</code><code class="sig-name descname">Descriptor</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">group</span></em>, <em class="sig-param"><span class="n">type</span></em>, <em class="sig-param"><span class="n">kind</span></em>, <em class="sig-param"><span class="n">name</span></em>, <em class="sig-param"><span class="n">version</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.refer.Descriptor" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">pip_services3_commons.refer.</code><code class="sig-name descname">Descriptor</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">group</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></span></em>, <em class="sig-param"><span class="n">type</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></span></em>, <em class="sig-param"><span class="n">kind</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></span></em>, <em class="sig-param"><span class="n">name</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></span></em>, <em class="sig-param"><span class="n">version</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.refer.Descriptor" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="http://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>Locator type that most often used in PipServices toolkit.
 It locates components using several fields:</p>
@@ -458,8 +458,23 @@ That approach allows to implement many interesting scenarios. For instance:</p>
 </pre></div>
 </div>
 <dl class="py method">
+<dt id="pip_services3_commons.refer.Descriptor.equals">
+<code class="sig-name descname">equals</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span><span class="p">:</span> <span class="n">Any</span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="http://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)">bool</a><a class="headerlink" href="#pip_services3_commons.refer.Descriptor.equals" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compares this descriptor to a args.
+If args is a Descriptor it tries to match them, otherwise the method returns false.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>value</strong> – the args to match against this descriptor.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>true if the args is matching descriptor and false otherwise.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt id="pip_services3_commons.refer.Descriptor.exact_match">
-<code class="sig-name descname">exact_match</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">descriptor</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.refer.Descriptor.exact_match" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">exact_match</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">descriptor</span><span class="p">:</span> <span class="n"><a class="reference internal" href="pip_services3_commons.refer.Descriptor.html#pip_services3_commons.refer.Descriptor.Descriptor" title="pip_services3_commons.refer.Descriptor.Descriptor">pip_services3_commons.refer.Descriptor.Descriptor</a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="http://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)">bool</a><a class="headerlink" href="#pip_services3_commons.refer.Descriptor.exact_match" title="Permalink to this definition">¶</a></dt>
 <dd><p>Matches this descriptor to another descriptor by all fields. No exceptions are made.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -473,7 +488,7 @@ That approach allows to implement many interesting scenarios. For instance:</p>
 
 <dl class="py method">
 <dt id="pip_services3_commons.refer.Descriptor.from_string">
-<em class="property">static </em><code class="sig-name descname">from_string</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.refer.Descriptor.from_string" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="sig-name descname">from_string</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></span></em><span class="sig-paren">)</span> &#x2192; Optional<span class="p">[</span><a class="reference internal" href="pip_services3_commons.refer.Descriptor.html#pip_services3_commons.refer.Descriptor.Descriptor" title="pip_services3_commons.refer.Descriptor.Descriptor">pip_services3_commons.refer.Descriptor.Descriptor</a><span class="p">]</span><a class="headerlink" href="#pip_services3_commons.refer.Descriptor.from_string" title="Permalink to this definition">¶</a></dt>
 <dd><p>Parses colon-separated list of descriptor fields and returns them as a Descriptor.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -487,7 +502,7 @@ That approach allows to implement many interesting scenarios. For instance:</p>
 
 <dl class="py method">
 <dt id="pip_services3_commons.refer.Descriptor.get_group">
-<code class="sig-name descname">get_group</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.refer.Descriptor.get_group" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_group</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a><a class="headerlink" href="#pip_services3_commons.refer.Descriptor.get_group" title="Permalink to this definition">¶</a></dt>
 <dd><blockquote>
 <div><p>Gets the component’s logical group.</p>
 </div></blockquote>
@@ -500,7 +515,7 @@ That approach allows to implement many interesting scenarios. For instance:</p>
 
 <dl class="py method">
 <dt id="pip_services3_commons.refer.Descriptor.get_kind">
-<code class="sig-name descname">get_kind</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.refer.Descriptor.get_kind" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_kind</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a><a class="headerlink" href="#pip_services3_commons.refer.Descriptor.get_kind" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets the component’s implementation type.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -511,7 +526,7 @@ That approach allows to implement many interesting scenarios. For instance:</p>
 
 <dl class="py method">
 <dt id="pip_services3_commons.refer.Descriptor.get_name">
-<code class="sig-name descname">get_name</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.refer.Descriptor.get_name" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_name</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a><a class="headerlink" href="#pip_services3_commons.refer.Descriptor.get_name" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets the unique component’s name.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -522,7 +537,7 @@ That approach allows to implement many interesting scenarios. For instance:</p>
 
 <dl class="py method">
 <dt id="pip_services3_commons.refer.Descriptor.get_type">
-<code class="sig-name descname">get_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.refer.Descriptor.get_type" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a><a class="headerlink" href="#pip_services3_commons.refer.Descriptor.get_type" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets the component’s logical type.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -533,7 +548,7 @@ That approach allows to implement many interesting scenarios. For instance:</p>
 
 <dl class="py method">
 <dt id="pip_services3_commons.refer.Descriptor.get_version">
-<code class="sig-name descname">get_version</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.refer.Descriptor.get_version" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_version</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a><a class="headerlink" href="#pip_services3_commons.refer.Descriptor.get_version" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets the component’s implementation version.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -544,7 +559,7 @@ That approach allows to implement many interesting scenarios. For instance:</p>
 
 <dl class="py method">
 <dt id="pip_services3_commons.refer.Descriptor.is_complete">
-<code class="sig-name descname">is_complete</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.refer.Descriptor.is_complete" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">is_complete</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="http://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)">bool</a><a class="headerlink" href="#pip_services3_commons.refer.Descriptor.is_complete" title="Permalink to this definition">¶</a></dt>
 <dd><p>Checks whether all descriptor fields are set.
 If descriptor has at least one “*” or null field it is considered “incomplete”</p>
 <dl class="field-list simple">
@@ -556,7 +571,7 @@ If descriptor has at least one “*” or null field it is considered “incompl
 
 <dl class="py method">
 <dt id="pip_services3_commons.refer.Descriptor.match">
-<code class="sig-name descname">match</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">descriptor</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.refer.Descriptor.match" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">match</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">descriptor</span><span class="p">:</span> <span class="n"><a class="reference internal" href="pip_services3_commons.refer.Descriptor.html#pip_services3_commons.refer.Descriptor.Descriptor" title="pip_services3_commons.refer.Descriptor.Descriptor">pip_services3_commons.refer.Descriptor.Descriptor</a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="http://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)">bool</a><a class="headerlink" href="#pip_services3_commons.refer.Descriptor.match" title="Permalink to this definition">¶</a></dt>
 <dd><p>Partially matches this descriptor to another descriptor.
 Fields that contain “*” or null are excluded from the match.</p>
 <dl class="field-list simple">
@@ -569,13 +584,25 @@ Fields that contain “*” or null are excluded from the match.</p>
 </dl>
 </dd></dl>
 
+<dl class="py method">
+<dt id="pip_services3_commons.refer.Descriptor.to_string">
+<code class="sig-name descname">to_string</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a><a class="headerlink" href="#pip_services3_commons.refer.Descriptor.to_string" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a string representation of the object.
+The result is a colon-separated list of descriptor fields as “mygroup:connector:aws:default:1.0”</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>a string representation of the object.</p>
+</dd>
+</dl>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="py class">
 <dt id="pip_services3_commons.refer.IReferenceable">
 <em class="property">class </em><code class="sig-prename descclassname">pip_services3_commons.refer.</code><code class="sig-name descname">IReferenceable</code><a class="headerlink" href="#pip_services3_commons.refer.IReferenceable" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="http://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
-<p>Interface for components that depends on other components.
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/3/library/abc.html#abc.ABC" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></a></p>
+<p>Interface for components that depends on obj components.
 If component requires explicit notification to unset references
 it shall additionally implement <a class="reference internal" href="pip_services3_commons.refer.IUnreferenceable.html#pip_services3_commons.refer.IUnreferenceable.IUnreferenceable" title="pip_services3_commons.refer.IUnreferenceable.IUnreferenceable"><code class="xref py py-class docutils literal notranslate"><span class="pre">IUnreferenceable</span></code></a> interface.</p>
 <p>Example:</p>
@@ -583,12 +610,12 @@ it shall additionally implement <a class="reference internal" href="pip_services
     <span class="n">_persistence</span> <span class="o">=</span> <span class="kc">None</span>
 
     <span class="k">def</span> <span class="nf">set_references</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">references</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_persistence</span> <span class="o">=</span> <span class="n">references</span><span class="o">.</span><span class="n">getOneRequired</span><span class="p">(</span><span class="n">Descriptor</span><span class="p">(</span><span class="s2">&quot;mygroup&quot;</span><span class="p">,</span> <span class="s2">&quot;persistence&quot;</span><span class="p">,</span> <span class="s2">&quot;*&quot;</span><span class="p">,</span> <span class="s2">&quot;*&quot;</span><span class="p">,</span> <span class="s2">&quot;1.0&quot;</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_persistence</span> <span class="o">=</span> <span class="n">references</span><span class="o">.</span><span class="n">get_one_required</span><span class="p">(</span><span class="n">Descriptor</span><span class="p">(</span><span class="s2">&quot;mygroup&quot;</span><span class="p">,</span> <span class="s2">&quot;persistence&quot;</span><span class="p">,</span> <span class="s2">&quot;*&quot;</span><span class="p">,</span> <span class="s2">&quot;*&quot;</span><span class="p">,</span> <span class="s2">&quot;1.0&quot;</span><span class="p">))</span>
 </pre></div>
 </div>
 <dl class="py method">
 <dt id="pip_services3_commons.refer.IReferenceable.set_references">
-<code class="sig-name descname">set_references</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">references</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.refer.IReferenceable.set_references" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">set_references</code><span class="sig-paren">(</span><em class="sig-param">references: &lt;module 'pip_services3_commons.refer.IReferences' from '/pip_services3_commons/refer/IReferences.py'&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.refer.IReferenceable.set_references" title="Permalink to this definition">¶</a></dt>
 <dd><p>Sets references to dependent components.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -602,9 +629,9 @@ it shall additionally implement <a class="reference internal" href="pip_services
 <dl class="py class">
 <dt id="pip_services3_commons.refer.IReferences">
 <em class="property">class </em><code class="sig-prename descclassname">pip_services3_commons.refer.</code><code class="sig-name descname">IReferences</code><a class="headerlink" href="#pip_services3_commons.refer.IReferences" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="http://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/3/library/abc.html#abc.ABC" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></a></p>
 <p>Interface for a map that holds component references and passes them to components
-to establish dependencies with each other.</p>
+to establish dependencies with each obj.</p>
 <p>Together with <a class="reference internal" href="pip_services3_commons.refer.IReferenceable.html#pip_services3_commons.refer.IReferenceable.IReferenceable" title="pip_services3_commons.refer.IReferenceable.IReferenceable"><code class="xref py py-class docutils literal notranslate"><span class="pre">IReferenceable</span></code></a> and <a class="reference internal" href="pip_services3_commons.refer.IUnreferenceable.html#pip_services3_commons.refer.IUnreferenceable.IUnreferenceable" title="pip_services3_commons.refer.IUnreferenceable.IUnreferenceable"><code class="xref py py-class docutils literal notranslate"><span class="pre">IUnreferenceable</span></code></a> interfaces it implements
 a Locator pattern that is used by PipServices toolkit for Inversion of Control
 to assign external dependencies to components.</p>
@@ -618,7 +645,7 @@ by 5 fields: group, type, kind, name and version.</p>
     <span class="n">_persistence</span> <span class="o">=</span> <span class="kc">None</span>
 
     <span class="k">def</span> <span class="nf">set_references</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">references</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_persistence</span> <span class="o">=</span> <span class="n">references</span><span class="o">.</span><span class="n">getOneRequired</span><span class="p">(</span><span class="n">Descriptor</span><span class="p">(</span><span class="s2">&quot;mygroup&quot;</span><span class="p">,</span> <span class="s2">&quot;persistence&quot;</span><span class="p">,</span> <span class="s2">&quot;*&quot;</span><span class="p">,</span> <span class="s2">&quot;*&quot;</span><span class="p">,</span> <span class="s2">&quot;1.0&quot;</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_persistence</span> <span class="o">=</span> <span class="n">references</span><span class="o">.</span><span class="n">get_one_required</span><span class="p">(</span><span class="n">Descriptor</span><span class="p">(</span><span class="s2">&quot;mygroup&quot;</span><span class="p">,</span> <span class="s2">&quot;persistence&quot;</span><span class="p">,</span> <span class="s2">&quot;*&quot;</span><span class="p">,</span> <span class="s2">&quot;*&quot;</span><span class="p">,</span> <span class="s2">&quot;1.0&quot;</span><span class="p">))</span>
 
 <span class="n">persistence</span> <span class="o">=</span> <span class="n">MyMongoDbPersistence</span><span class="p">()</span>
 
@@ -631,27 +658,27 @@ by 5 fields: group, type, kind, name and version.</p>
 </div>
 <dl class="py method">
 <dt id="pip_services3_commons.refer.IReferences.find">
-<code class="sig-name descname">find</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">locator</span></em>, <em class="sig-param"><span class="n">required</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.refer.IReferences.find" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">find</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">locator</span><span class="p">:</span> <span class="n">Any</span></em>, <em class="sig-param"><span class="n">required</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)">bool</a></span></em><span class="sig-paren">)</span> &#x2192; List<span class="p">[</span>T<span class="p">]</span><a class="headerlink" href="#pip_services3_commons.refer.IReferences.find" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets all component references that match specified locator.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>locator</strong> – the locator to find a reference by.</p></li>
-<li><p><strong>required</strong> – forces to raise an exception if no reference is found.</p></li>
+<li><p><strong>required</strong> – forces to raise an error if no reference is found.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>a list with matching component references.</p>
 </dd>
 <dt class="field-odd">Raises</dt>
-<dd class="field-odd"><p>a <a class="reference internal" href="pip_services3_commons.refer.ReferenceException.html#pip_services3_commons.refer.ReferenceException.ReferenceException" title="pip_services3_commons.refer.ReferenceException.ReferenceException"><code class="xref py py-class docutils literal notranslate"><span class="pre">ReferenceException</span></code></a> when required is set to true but no references found.</p>
+<dd class="field-odd"><p>a <a class="reference internal" href="pip_services3_commons.refer.ReferenceException.html#pip_services3_commons.refer.ReferenceException.ReferenceException" title="pip_services3_commons.refer.ReferenceException.ReferenceException"><code class="xref py py-class docutils literal notranslate"><span class="pre">ReferenceException</span></code></a> when __required is set to true but no references found.</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt id="pip_services3_commons.refer.IReferences.get_all">
-<code class="sig-name descname">get_all</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.refer.IReferences.get_all" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_all</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; List<span class="p">[</span>Any<span class="p">]</span><a class="headerlink" href="#pip_services3_commons.refer.IReferences.get_all" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets all component references registered in this reference map.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -662,7 +689,7 @@ by 5 fields: group, type, kind, name and version.</p>
 
 <dl class="py method">
 <dt id="pip_services3_commons.refer.IReferences.get_all_locators">
-<code class="sig-name descname">get_all_locators</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.refer.IReferences.get_all_locators" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_all_locators</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; List<span class="p">[</span>Any<span class="p">]</span><a class="headerlink" href="#pip_services3_commons.refer.IReferences.get_all_locators" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets locators for all registered component references in this reference map.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -678,7 +705,7 @@ by 5 fields: group, type, kind, name and version.</p>
 
 <dl class="py method">
 <dt id="pip_services3_commons.refer.IReferences.get_one_optional">
-<code class="sig-name descname">get_one_optional</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">locator</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.refer.IReferences.get_one_optional" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_one_optional</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">locator</span><span class="p">:</span> <span class="n">Any</span></em><span class="sig-paren">)</span> &#x2192; T<a class="headerlink" href="#pip_services3_commons.refer.IReferences.get_one_optional" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets an optional component reference that matches specified locator.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -692,8 +719,8 @@ by 5 fields: group, type, kind, name and version.</p>
 
 <dl class="py method">
 <dt id="pip_services3_commons.refer.IReferences.get_one_required">
-<code class="sig-name descname">get_one_required</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">locator</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.refer.IReferences.get_one_required" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gets a required component reference that matches specified locator.</p>
+<code class="sig-name descname">get_one_required</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">locator</span><span class="p">:</span> <span class="n">Any</span></em><span class="sig-paren">)</span> &#x2192; T<a class="headerlink" href="#pip_services3_commons.refer.IReferences.get_one_required" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a __required component reference that matches specified locator.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>locator</strong> – the locator to find a reference by.</p>
@@ -709,7 +736,7 @@ by 5 fields: group, type, kind, name and version.</p>
 
 <dl class="py method">
 <dt id="pip_services3_commons.refer.IReferences.get_optional">
-<code class="sig-name descname">get_optional</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">locator</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.refer.IReferences.get_optional" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_optional</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">locator</span><span class="p">:</span> <span class="n">Any</span></em><span class="sig-paren">)</span> &#x2192; List<span class="p">[</span>T<span class="p">]</span><a class="headerlink" href="#pip_services3_commons.refer.IReferences.get_optional" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets all component references that match specified locator.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -723,7 +750,7 @@ by 5 fields: group, type, kind, name and version.</p>
 
 <dl class="py method">
 <dt id="pip_services3_commons.refer.IReferences.get_required">
-<code class="sig-name descname">get_required</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">locator</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.refer.IReferences.get_required" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_required</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">locator</span><span class="p">:</span> <span class="n">Any</span></em><span class="sig-paren">)</span> &#x2192; List<span class="p">[</span>T<span class="p">]</span><a class="headerlink" href="#pip_services3_commons.refer.IReferences.get_required" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets all component references that match specified locator.
 At least one component reference must be present. If it doesn’t the method throws an error.</p>
 <dl class="field-list simple">
@@ -741,7 +768,7 @@ At least one component reference must be present. If it doesn’t the method thr
 
 <dl class="py method">
 <dt id="pip_services3_commons.refer.IReferences.put">
-<code class="sig-name descname">put</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">locator</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">reference</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.refer.IReferences.put" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">put</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">locator</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">reference</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.refer.IReferences.put" title="Permalink to this definition">¶</a></dt>
 <dd><p>Puts a new reference into this reference map.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -755,7 +782,7 @@ At least one component reference must be present. If it doesn’t the method thr
 
 <dl class="py method">
 <dt id="pip_services3_commons.refer.IReferences.remove">
-<code class="sig-name descname">remove</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">locator</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.refer.IReferences.remove" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">remove</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">locator</span><span class="p">:</span> <span class="n">Any</span></em><span class="sig-paren">)</span> &#x2192; Any<a class="headerlink" href="#pip_services3_commons.refer.IReferences.remove" title="Permalink to this definition">¶</a></dt>
 <dd><p>Removes a previously added reference that matches specified locator.
 If many references match the locator, it removes only the first one.
 When all references shall be removed, use :func:remove_all method instead.</p>
@@ -769,12 +796,26 @@ When all references shall be removed, use :func:remove_all method instead.</p>
 </dl>
 </dd></dl>
 
+<dl class="py method">
+<dt id="pip_services3_commons.refer.IReferences.remove_all">
+<code class="sig-name descname">remove_all</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">locator</span><span class="p">:</span> <span class="n">Any</span></em><span class="sig-paren">)</span> &#x2192; List<span class="p">[</span>Any<span class="p">]</span><a class="headerlink" href="#pip_services3_commons.refer.IReferences.remove_all" title="Permalink to this definition">¶</a></dt>
+<dd><p>Removes all component references that match the specified locator.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>locator</strong> – a locator to remove reference</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a list, containing all removed references.</p>
+</dd>
+</dl>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="py class">
 <dt id="pip_services3_commons.refer.IUnreferenceable">
 <em class="property">class </em><code class="sig-prename descclassname">pip_services3_commons.refer.</code><code class="sig-name descname">IUnreferenceable</code><a class="headerlink" href="#pip_services3_commons.refer.IUnreferenceable" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="http://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/3/library/abc.html#abc.ABC" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></a></p>
 <p>Interface for components that require explicit clearing of references to dependent components.</p>
 <p>Example:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MyController</span><span class="p">(</span><span class="n">IReferenceable</span><span class="p">):</span>
@@ -797,13 +838,13 @@ When all references shall be removed, use :func:remove_all method instead.</p>
 
 <dl class="py class">
 <dt id="pip_services3_commons.refer.Reference">
-<em class="property">class </em><code class="sig-prename descclassname">pip_services3_commons.refer.</code><code class="sig-name descname">Reference</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">locator</span></em>, <em class="sig-param"><span class="n">component</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.refer.Reference" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">pip_services3_commons.refer.</code><code class="sig-name descname">Reference</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">locator</span><span class="p">:</span> <span class="n">Any</span></em>, <em class="sig-param"><span class="n">component</span><span class="p">:</span> <span class="n">Any</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.refer.Reference" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="http://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>Contains a reference to a component and locator to find it.
 It is used by <a class="reference internal" href="pip_services3_commons.refer.References.html#pip_services3_commons.refer.References.References" title="pip_services3_commons.refer.References.References"><code class="xref py py-class docutils literal notranslate"><span class="pre">References</span></code></a> to store registered component references.</p>
 <dl class="py method">
 <dt id="pip_services3_commons.refer.Reference.get_component">
-<code class="sig-name descname">get_component</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.refer.Reference.get_component" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_component</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; Any<a class="headerlink" href="#pip_services3_commons.refer.Reference.get_component" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets the stored component reference.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -814,7 +855,7 @@ It is used by <a class="reference internal" href="pip_services3_commons.refer.Re
 
 <dl class="py method">
 <dt id="pip_services3_commons.refer.Reference.get_locator">
-<code class="sig-name descname">get_locator</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.refer.Reference.get_locator" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_locator</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; Any<a class="headerlink" href="#pip_services3_commons.refer.Reference.get_locator" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets the stored component locator.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -825,9 +866,9 @@ It is used by <a class="reference internal" href="pip_services3_commons.refer.Re
 
 <dl class="py method">
 <dt id="pip_services3_commons.refer.Reference.match">
-<code class="sig-name descname">match</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">locator</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.refer.Reference.match" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">match</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">locator</span><span class="p">:</span> <span class="n">Any</span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="http://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)">bool</a><a class="headerlink" href="#pip_services3_commons.refer.Reference.match" title="Permalink to this definition">¶</a></dt>
 <dd><p>Matches locator to this reference locator. Descriptors are matched using equal method.
-All other locator types are matched using direct comparison.</p>
+All obj locator types are matched using direct comparison.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>locator</strong> – the locator to match.</p>
@@ -842,9 +883,9 @@ All other locator types are matched using direct comparison.</p>
 
 <dl class="py exception">
 <dt id="pip_services3_commons.refer.ReferenceException">
-<em class="property">exception </em><code class="sig-prename descclassname">pip_services3_commons.refer.</code><code class="sig-name descname">ReferenceException</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">correlation_id</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">locator</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.refer.ReferenceException" title="Permalink to this definition">¶</a></dt>
+<em class="property">exception </em><code class="sig-prename descclassname">pip_services3_commons.refer.</code><code class="sig-name descname">ReferenceException</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">correlation_id</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">locator</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.refer.ReferenceException" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="pip_services3_commons.errors.InternalException.html#pip_services3_commons.errors.InternalException.InternalException" title="pip_services3_commons.errors.InternalException.InternalException"><code class="xref py py-class docutils literal notranslate"><span class="pre">pip_services3_commons.errors.InternalException.InternalException</span></code></a></p>
-<p>Error when required component dependency cannot be found.</p>
+<p>Error when __required component dependency cannot be found.</p>
 </dd></dl>
 
 <dl class="py class">
@@ -854,7 +895,7 @@ All other locator types are matched using direct comparison.</p>
 <p>Helper class that sets and unsets references to components.</p>
 <dl class="py method">
 <dt id="pip_services3_commons.refer.Referencer.set_references">
-<em class="property">static </em><code class="sig-name descname">set_references</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">references</span></em>, <em class="sig-param"><span class="n">components</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.refer.Referencer.set_references" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="sig-name descname">set_references</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">references</span><span class="p">:</span> <span class="n"><a class="reference internal" href="pip_services3_commons.refer.IReferences.html#pip_services3_commons.refer.IReferences.IReferences" title="pip_services3_commons.refer.IReferences.IReferences">pip_services3_commons.refer.IReferences.IReferences</a></span></em>, <em class="sig-param"><span class="n">components</span><span class="p">:</span> <span class="n">List<span class="p">[</span>Any<span class="p">]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.refer.Referencer.set_references" title="Permalink to this definition">¶</a></dt>
 <dd><p>Sets references to multiple components.</p>
 <p>To set references components must implement <a class="reference internal" href="pip_services3_commons.refer.IReferenceable.html#pip_services3_commons.refer.IReferenceable.IReferenceable" title="pip_services3_commons.refer.IReferenceable.IReferenceable"><code class="xref py py-class docutils literal notranslate"><span class="pre">IReferenceable</span></code></a> interface.
 If they don’t the call to this method has no effect.</p>
@@ -870,7 +911,7 @@ If they don’t the call to this method has no effect.</p>
 
 <dl class="py method">
 <dt id="pip_services3_commons.refer.Referencer.set_references_for_one">
-<em class="property">static </em><code class="sig-name descname">set_references_for_one</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">references</span></em>, <em class="sig-param"><span class="n">component</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.refer.Referencer.set_references_for_one" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="sig-name descname">set_references_for_one</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">references</span><span class="p">:</span> <span class="n"><a class="reference internal" href="pip_services3_commons.refer.IReferences.html#pip_services3_commons.refer.IReferences.IReferences" title="pip_services3_commons.refer.IReferences.IReferences">pip_services3_commons.refer.IReferences.IReferences</a></span></em>, <em class="sig-param"><span class="n">component</span><span class="p">:</span> <span class="n">Any</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.refer.Referencer.set_references_for_one" title="Permalink to this definition">¶</a></dt>
 <dd><p>Sets references to specific component.</p>
 <p>To set references components must implement <a class="reference internal" href="pip_services3_commons.refer.IReferenceable.html#pip_services3_commons.refer.IReferenceable.IReferenceable" title="pip_services3_commons.refer.IReferenceable.IReferenceable"><code class="xref py py-class docutils literal notranslate"><span class="pre">IReferenceable</span></code></a> interface.
 If they don’t the call to this method has no effect.</p>
@@ -886,7 +927,7 @@ If they don’t the call to this method has no effect.</p>
 
 <dl class="py method">
 <dt id="pip_services3_commons.refer.Referencer.unset_references">
-<em class="property">static </em><code class="sig-name descname">unset_references</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">components</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.refer.Referencer.unset_references" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="sig-name descname">unset_references</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">components</span><span class="p">:</span> <span class="n">List<span class="p">[</span>Any<span class="p">]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.refer.Referencer.unset_references" title="Permalink to this definition">¶</a></dt>
 <dd><p>Unsets references in multiple components.</p>
 <p>To unset references components must implement <a class="reference internal" href="pip_services3_commons.refer.IUnreferenceable.html#pip_services3_commons.refer.IUnreferenceable.IUnreferenceable" title="pip_services3_commons.refer.IUnreferenceable.IUnreferenceable"><code class="xref py py-class docutils literal notranslate"><span class="pre">IUnreferenceable</span></code></a> interface.
 If they don’t the call to this method has no effect.</p>
@@ -899,7 +940,7 @@ If they don’t the call to this method has no effect.</p>
 
 <dl class="py method">
 <dt id="pip_services3_commons.refer.Referencer.unset_references_for_one">
-<em class="property">static </em><code class="sig-name descname">unset_references_for_one</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">component</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.refer.Referencer.unset_references_for_one" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="sig-name descname">unset_references_for_one</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">component</span><span class="p">:</span> <span class="n">Any</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.refer.Referencer.unset_references_for_one" title="Permalink to this definition">¶</a></dt>
 <dd><p>Unsets references in specific component.</p>
 <p>To unset references components must implement <a class="reference internal" href="pip_services3_commons.refer.IUnreferenceable.html#pip_services3_commons.refer.IUnreferenceable.IUnreferenceable" title="pip_services3_commons.refer.IUnreferenceable.IUnreferenceable"><code class="xref py py-class docutils literal notranslate"><span class="pre">IUnreferenceable</span></code></a> interface.
 If they don’t the call to this method has no effect.</p>
@@ -914,7 +955,7 @@ If they don’t the call to this method has no effect.</p>
 
 <dl class="py class">
 <dt id="pip_services3_commons.refer.References">
-<em class="property">class </em><code class="sig-prename descclassname">pip_services3_commons.refer.</code><code class="sig-name descname">References</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">tuples</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.refer.References" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">pip_services3_commons.refer.</code><code class="sig-name descname">References</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">tuples</span><span class="p">:</span> <span class="n">Sequence<span class="p">[</span>Any<span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.refer.References" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="pip_services3_commons.refer.IReferences.html#pip_services3_commons.refer.IReferences.IReferences" title="pip_services3_commons.refer.IReferences.IReferences"><code class="xref py py-class docutils literal notranslate"><span class="pre">pip_services3_commons.refer.IReferences.IReferences</span></code></a></p>
 <p>The most basic implementation of <a class="reference internal" href="pip_services3_commons.refer.IReferences.html#pip_services3_commons.refer.IReferences.IReferences" title="pip_services3_commons.refer.IReferences.IReferences"><code class="xref py py-class docutils literal notranslate"><span class="pre">IReferences</span></code></a> to store and locate component references.</p>
 <p>Example:</p>
@@ -935,28 +976,28 @@ If they don’t the call to this method has no effect.</p>
 </div>
 <dl class="py method">
 <dt id="pip_services3_commons.refer.References.find">
-<code class="sig-name descname">find</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">locator</span></em>, <em class="sig-param"><span class="n">required</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.refer.References.find" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">find</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">locator</span><span class="p">:</span> <span class="n">Any</span></em>, <em class="sig-param"><span class="n">required</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)">bool</a></span></em><span class="sig-paren">)</span> &#x2192; List<span class="p">[</span>T<span class="p">]</span><a class="headerlink" href="#pip_services3_commons.refer.References.find" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets all component references that match specified locator.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>locator</strong> – the locator to find a reference by.</p></li>
-<li><p><strong>required</strong> – forces to raise an exception if no reference is found.</p></li>
+<li><p><strong>required</strong> – forces to raise an error if no reference is found.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>a list with matching component references.</p>
 </dd>
 <dt class="field-odd">Raises</dt>
-<dd class="field-odd"><p>a <a class="reference internal" href="pip_services3_commons.refer.ReferenceException.html#pip_services3_commons.refer.ReferenceException.ReferenceException" title="pip_services3_commons.refer.ReferenceException.ReferenceException"><code class="xref py py-class docutils literal notranslate"><span class="pre">ReferenceException</span></code></a> when required is set to true but no references found.</p>
+<dd class="field-odd"><p>a <a class="reference internal" href="pip_services3_commons.refer.ReferenceException.html#pip_services3_commons.refer.ReferenceException.ReferenceException" title="pip_services3_commons.refer.ReferenceException.ReferenceException"><code class="xref py py-class docutils literal notranslate"><span class="pre">ReferenceException</span></code></a> when __required is set to true but no references found.</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt id="pip_services3_commons.refer.References.from_tuples">
-<em class="property">static </em><code class="sig-name descname">from_tuples</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">tuples</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.refer.References.from_tuples" title="Permalink to this definition">¶</a></dt>
-<dd><p>Creates a new References from a list of key-value pairs called tuples.</p>
+<em class="property">static </em><code class="sig-name descname">from_tuples</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">tuples</span><span class="p">:</span> <span class="n">Any</span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="pip_services3_commons.refer.References.html#pip_services3_commons.refer.References.References" title="pip_services3_commons.refer.References.References">pip_services3_commons.refer.References.References</a><a class="headerlink" href="#pip_services3_commons.refer.References.from_tuples" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a new References from a list of key-args pairs called tuples.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>tuples</strong> – a list of values where odd elements are locators
@@ -970,7 +1011,7 @@ and the following even elements are component references</p>
 
 <dl class="py method">
 <dt id="pip_services3_commons.refer.References.get_all">
-<code class="sig-name descname">get_all</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.refer.References.get_all" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_all</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; List<span class="p">[</span>Any<span class="p">]</span><a class="headerlink" href="#pip_services3_commons.refer.References.get_all" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets all component references registered in this reference map.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -981,7 +1022,7 @@ and the following even elements are component references</p>
 
 <dl class="py method">
 <dt id="pip_services3_commons.refer.References.get_all_locators">
-<code class="sig-name descname">get_all_locators</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.refer.References.get_all_locators" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_all_locators</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; List<span class="p">[</span>Any<span class="p">]</span><a class="headerlink" href="#pip_services3_commons.refer.References.get_all_locators" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets locators for all registered component references in this reference map.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -992,7 +1033,7 @@ and the following even elements are component references</p>
 
 <dl class="py method">
 <dt id="pip_services3_commons.refer.References.get_one_optional">
-<code class="sig-name descname">get_one_optional</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">locator</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.refer.References.get_one_optional" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_one_optional</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">locator</span><span class="p">:</span> <span class="n">Any</span></em><span class="sig-paren">)</span> &#x2192; T<a class="headerlink" href="#pip_services3_commons.refer.References.get_one_optional" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets an optional component reference that matches specified locator.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1006,8 +1047,8 @@ and the following even elements are component references</p>
 
 <dl class="py method">
 <dt id="pip_services3_commons.refer.References.get_one_required">
-<code class="sig-name descname">get_one_required</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">locator</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.refer.References.get_one_required" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gets a required component reference that matches specified locator.</p>
+<code class="sig-name descname">get_one_required</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">locator</span><span class="p">:</span> <span class="n">Any</span></em><span class="sig-paren">)</span> &#x2192; T<a class="headerlink" href="#pip_services3_commons.refer.References.get_one_required" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a __required component reference that matches specified locator.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>locator</strong> – the locator to find a reference by.</p>
@@ -1023,7 +1064,7 @@ and the following even elements are component references</p>
 
 <dl class="py method">
 <dt id="pip_services3_commons.refer.References.get_optional">
-<code class="sig-name descname">get_optional</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">locator</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.refer.References.get_optional" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_optional</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">locator</span><span class="p">:</span> <span class="n">Any</span></em><span class="sig-paren">)</span> &#x2192; List<span class="p">[</span>T<span class="p">]</span><a class="headerlink" href="#pip_services3_commons.refer.References.get_optional" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets all component references that match specified locator.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1037,7 +1078,7 @@ and the following even elements are component references</p>
 
 <dl class="py method">
 <dt id="pip_services3_commons.refer.References.get_required">
-<code class="sig-name descname">get_required</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">locator</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.refer.References.get_required" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_required</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">locator</span><span class="p">:</span> <span class="n">Any</span></em><span class="sig-paren">)</span> &#x2192; List<span class="p">[</span>T<span class="p">]</span><a class="headerlink" href="#pip_services3_commons.refer.References.get_required" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets all component references that match specified locator.
 At least one component reference must be present. If it doesn’t the method throws an error.</p>
 <dl class="field-list simple">
@@ -1055,7 +1096,7 @@ At least one component reference must be present. If it doesn’t the method thr
 
 <dl class="py method">
 <dt id="pip_services3_commons.refer.References.put">
-<code class="sig-name descname">put</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">locator</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">component</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.refer.References.put" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">put</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">locator</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">component</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.refer.References.put" title="Permalink to this definition">¶</a></dt>
 <dd><p>Puts a new reference into this reference map.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1069,7 +1110,7 @@ At least one component reference must be present. If it doesn’t the method thr
 
 <dl class="py method">
 <dt id="pip_services3_commons.refer.References.remove">
-<code class="sig-name descname">remove</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">locator</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.refer.References.remove" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">remove</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">locator</span><span class="p">:</span> <span class="n">Any</span></em><span class="sig-paren">)</span> &#x2192; Any<a class="headerlink" href="#pip_services3_commons.refer.References.remove" title="Permalink to this definition">¶</a></dt>
 <dd><p>Removes a previously added reference that matches specified locator.
 If many references match the locator, it removes only the first one.
 When all references shall be removed, use <a class="reference internal" href="#pip_services3_commons.refer.References.remove_all" title="pip_services3_commons.refer.References.remove_all"><code class="xref py py-func docutils literal notranslate"><span class="pre">remove_all()</span></code></a> method instead.</p>
@@ -1085,7 +1126,7 @@ When all references shall be removed, use <a class="reference internal" href="#p
 
 <dl class="py method">
 <dt id="pip_services3_commons.refer.References.remove_all">
-<code class="sig-name descname">remove_all</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">locator</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.refer.References.remove_all" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">remove_all</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">locator</span><span class="p">:</span> <span class="n">Any</span></em><span class="sig-paren">)</span> &#x2192; List<span class="p">[</span>Any<span class="p">]</span><a class="headerlink" href="#pip_services3_commons.refer.References.remove_all" title="Permalink to this definition">¶</a></dt>
 <dd><p>Removes all component references that match the specified locator.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>

@@ -194,25 +194,25 @@
 </dl>
 <dl class="py class">
 <dt id="pip_services3_commons.validate.Schema.Schema">
-<em class="property">class </em><code class="sig-prename descclassname">pip_services3_commons.validate.Schema.</code><code class="sig-name descname">Schema</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">required</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">rules</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.validate.Schema.Schema" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">pip_services3_commons.validate.Schema.</code><code class="sig-name descname">Schema</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">required</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)">bool</a></span> <span class="o">=</span> <span class="default_value">False</span></em>, <em class="sig-param"><span class="n">rules</span><span class="p">:</span> <span class="n">List<span class="p">[</span><a class="reference internal" href="pip_services3_commons.validate.IValidationRule.html#pip_services3_commons.validate.IValidationRule.IValidationRule" title="pip_services3_commons.validate.IValidationRule.IValidationRule">pip_services3_commons.validate.IValidationRule.IValidationRule</a><span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.validate.Schema.Schema" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="http://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
-<p>Basic schema that validates values against a set of validation rules.</p>
+<p>Basic schema that validates values against a set of validation __rules.</p>
 <p>This schema is used as a basis for specific schemas to validate
 objects, project properties, arrays and maps.</p>
 <dl class="py method">
 <dt id="pip_services3_commons.validate.Schema.Schema.get_rules">
-<code class="sig-name descname">get_rules</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.validate.Schema.Schema.get_rules" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gets validation rules to check values against.</p>
+<code class="sig-name descname">get_rules</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; List<span class="p">[</span><a class="reference internal" href="pip_services3_commons.validate.IValidationRule.html#pip_services3_commons.validate.IValidationRule.IValidationRule" title="pip_services3_commons.validate.IValidationRule.IValidationRule">pip_services3_commons.validate.IValidationRule.IValidationRule</a><span class="p">]</span><a class="headerlink" href="#pip_services3_commons.validate.Schema.Schema.get_rules" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets validation __rules to check values against.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>a list with validation rules.</p>
+<dd class="field-odd"><p>a list with validation __rules.</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt id="pip_services3_commons.validate.Schema.Schema.is_required">
-<code class="sig-name descname">is_required</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.validate.Schema.Schema.is_required" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">is_required</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="http://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)">bool</a><a class="headerlink" href="#pip_services3_commons.validate.Schema.Schema.is_required" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets a flag that always requires non-null values.
 For null values it raises a validation error.</p>
 <dl class="field-list simple">
@@ -224,10 +224,10 @@ For null values it raises a validation error.</p>
 
 <dl class="py method">
 <dt id="pip_services3_commons.validate.Schema.Schema.make_optional">
-<code class="sig-name descname">make_optional</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.validate.Schema.Schema.make_optional" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">make_optional</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#pip_services3_commons.validate.Schema.Schema" title="pip_services3_commons.validate.Schema.Schema">pip_services3_commons.validate.Schema.Schema</a><a class="headerlink" href="#pip_services3_commons.validate.Schema.Schema.make_optional" title="Permalink to this definition">¶</a></dt>
 <dd><p>Makes validated values optional.
 Validation for null values will be skipped.</p>
-<p>This method returns reference to this exception to implement Builder pattern
+<p>This method returns reference to this error to implement Builder pattern
 to chain additional calls.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -238,10 +238,10 @@ to chain additional calls.</p>
 
 <dl class="py method">
 <dt id="pip_services3_commons.validate.Schema.Schema.make_required">
-<code class="sig-name descname">make_required</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.validate.Schema.Schema.make_required" title="Permalink to this definition">¶</a></dt>
-<dd><p>Makes validated values always required (non-null).
+<code class="sig-name descname">make_required</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#pip_services3_commons.validate.Schema.Schema" title="pip_services3_commons.validate.Schema.Schema">pip_services3_commons.validate.Schema.Schema</a><a class="headerlink" href="#pip_services3_commons.validate.Schema.Schema.make_required" title="Permalink to this definition">¶</a></dt>
+<dd><p>Makes validated values always __required (non-null).
 For null values the schema will raise errors.</p>
-<p>This method returns reference to this exception to implement Builder pattern
+<p>This method returns reference to this error to implement Builder pattern
 to chain additional calls.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -250,19 +250,9 @@ to chain additional calls.</p>
 </dl>
 </dd></dl>
 
-<dl class="py attribute">
-<dt id="pip_services3_commons.validate.Schema.Schema.required">
-<code class="sig-name descname">required</code><em class="property"> = None</em><a class="headerlink" href="#pip_services3_commons.validate.Schema.Schema.required" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt id="pip_services3_commons.validate.Schema.Schema.rules">
-<code class="sig-name descname">rules</code><em class="property"> = None</em><a class="headerlink" href="#pip_services3_commons.validate.Schema.Schema.rules" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
 <dl class="py method">
 <dt id="pip_services3_commons.validate.Schema.Schema.set_required">
-<code class="sig-name descname">set_required</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.validate.Schema.Schema.set_required" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">set_required</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)">bool</a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.validate.Schema.Schema.set_required" title="Permalink to this definition">¶</a></dt>
 <dd><p>Sets a flag that always requires non-null values.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -272,23 +262,23 @@ to chain additional calls.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="pip_services3_commons.validate.Schema.Schema.set_results">
-<code class="sig-name descname">set_results</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.validate.Schema.Schema.set_results" title="Permalink to this definition">¶</a></dt>
-<dd><p>Sets validation rules to check values against.</p>
+<dt id="pip_services3_commons.validate.Schema.Schema.set_rules">
+<code class="sig-name descname">set_rules</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span><span class="p">:</span> <span class="n">List<span class="p">[</span><a class="reference internal" href="pip_services3_commons.validate.IValidationRule.html#pip_services3_commons.validate.IValidationRule.IValidationRule" title="pip_services3_commons.validate.IValidationRule.IValidationRule">pip_services3_commons.validate.IValidationRule.IValidationRule</a><span class="p">]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.validate.Schema.Schema.set_rules" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets validation __rules to check values against.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>value</strong> – a list with validation rules.</p>
+<dd class="field-odd"><p><strong>value</strong> – a list with validation __rules.</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt id="pip_services3_commons.validate.Schema.Schema.validate">
-<code class="sig-name descname">validate</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.validate.Schema.Schema.validate" title="Permalink to this definition">¶</a></dt>
-<dd><p>Validates the given value and results validation results.</p>
+<code class="sig-name descname">validate</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span><span class="p">:</span> <span class="n">Any</span></em><span class="sig-paren">)</span> &#x2192; List<span class="p">[</span><a class="reference internal" href="pip_services3_commons.validate.ValidationResult.html#pip_services3_commons.validate.ValidationResult.ValidationResult" title="pip_services3_commons.validate.ValidationResult.ValidationResult">pip_services3_commons.validate.ValidationResult.ValidationResult</a><span class="p">]</span><a class="headerlink" href="#pip_services3_commons.validate.Schema.Schema.validate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Validates the given args and results validation results.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>value</strong> – a value to be validated.</p>
+<dd class="field-odd"><p><strong>value</strong> – a args to be validated.</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>a list with validation results.</p>
@@ -298,13 +288,13 @@ to chain additional calls.</p>
 
 <dl class="py method">
 <dt id="pip_services3_commons.validate.Schema.Schema.validate_and_return_exception">
-<code class="sig-name descname">validate_and_return_exception</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">correlation_id</span></em>, <em class="sig-param"><span class="n">value</span></em>, <em class="sig-param"><span class="n">strict</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.validate.Schema.Schema.validate_and_return_exception" title="Permalink to this definition">¶</a></dt>
-<dd><p>Validates the given value and returns a <a class="reference internal" href="pip_services3_commons.validate.ValidationException.html#pip_services3_commons.validate.ValidationException.ValidationException" title="pip_services3_commons.validate.ValidationException.ValidationException"><code class="xref py py-class docutils literal notranslate"><span class="pre">ValidationException</span></code></a> if errors were found.</p>
+<code class="sig-name descname">validate_and_return_exception</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">correlation_id</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></span></em>, <em class="sig-param"><span class="n">value</span><span class="p">:</span> <span class="n">Any</span></em>, <em class="sig-param"><span class="n">strict</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)">bool</a></span> <span class="o">=</span> <span class="default_value">False</span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="pip_services3_commons.validate.ValidationException.html#pip_services3_commons.validate.ValidationException.ValidationException" title="pip_services3_commons.validate.ValidationException.ValidationException">pip_services3_commons.validate.ValidationException.ValidationException</a><a class="headerlink" href="#pip_services3_commons.validate.Schema.Schema.validate_and_return_exception" title="Permalink to this definition">¶</a></dt>
+<dd><p>Validates the given args and returns a <a class="reference internal" href="pip_services3_commons.validate.ValidationException.html#pip_services3_commons.validate.ValidationException.ValidationException" title="pip_services3_commons.validate.ValidationException.ValidationException"><code class="xref py py-class docutils literal notranslate"><span class="pre">ValidationException</span></code></a> if errors were found.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>correlation_id</strong> – (optional) transaction id to trace execution through call chain.</p></li>
-<li><p><strong>value</strong> – a value to be validated.</p></li>
+<li><p><strong>value</strong> – a args to be validated.</p></li>
 <li><p><strong>strict</strong> – true to treat warnings as errors.</p></li>
 </ul>
 </dd>
@@ -313,13 +303,13 @@ to chain additional calls.</p>
 
 <dl class="py method">
 <dt id="pip_services3_commons.validate.Schema.Schema.validate_and_throw_exception">
-<code class="sig-name descname">validate_and_throw_exception</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">correlation_id</span></em>, <em class="sig-param"><span class="n">value</span></em>, <em class="sig-param"><span class="n">strict</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.validate.Schema.Schema.validate_and_throw_exception" title="Permalink to this definition">¶</a></dt>
-<dd><p>Validates the given value and throws a <a class="reference internal" href="pip_services3_commons.validate.ValidationException.html#pip_services3_commons.validate.ValidationException.ValidationException" title="pip_services3_commons.validate.ValidationException.ValidationException"><code class="xref py py-class docutils literal notranslate"><span class="pre">ValidationException</span></code></a> if errors were found.</p>
+<code class="sig-name descname">validate_and_throw_exception</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">correlation_id</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></span></em>, <em class="sig-param"><span class="n">value</span><span class="p">:</span> <span class="n">Any</span></em>, <em class="sig-param"><span class="n">strict</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)">bool</a></span> <span class="o">=</span> <span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.validate.Schema.Schema.validate_and_throw_exception" title="Permalink to this definition">¶</a></dt>
+<dd><p>Validates the given args and throws a <a class="reference internal" href="pip_services3_commons.validate.ValidationException.html#pip_services3_commons.validate.ValidationException.ValidationException" title="pip_services3_commons.validate.ValidationException.ValidationException"><code class="xref py py-class docutils literal notranslate"><span class="pre">ValidationException</span></code></a> if errors were found.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>correlation_id</strong> – (optional) transaction id to trace execution through call chain.</p></li>
-<li><p><strong>value</strong> – a value to be validated.</p></li>
+<li><p><strong>value</strong> – a args to be validated.</p></li>
 <li><p><strong>strict</strong> – true to treat warnings as errors.</p></li>
 </ul>
 </dd>
@@ -328,9 +318,9 @@ to chain additional calls.</p>
 
 <dl class="py method">
 <dt id="pip_services3_commons.validate.Schema.Schema.with_rule">
-<code class="sig-name descname">with_rule</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">rule</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.validate.Schema.Schema.with_rule" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">with_rule</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">rule</span><span class="p">:</span> <span class="n"><a class="reference internal" href="pip_services3_commons.validate.IValidationRule.html#pip_services3_commons.validate.IValidationRule.IValidationRule" title="pip_services3_commons.validate.IValidationRule.IValidationRule">pip_services3_commons.validate.IValidationRule.IValidationRule</a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#pip_services3_commons.validate.Schema.Schema" title="pip_services3_commons.validate.Schema.Schema">pip_services3_commons.validate.Schema.Schema</a><a class="headerlink" href="#pip_services3_commons.validate.Schema.Schema.with_rule" title="Permalink to this definition">¶</a></dt>
 <dd><p>Adds validation rule to this schema.</p>
-<p>This method returns reference to this exception to implement Builder pattern
+<p>This method returns reference to this error to implement Builder pattern
 to chain additional calls.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>

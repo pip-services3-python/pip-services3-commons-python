@@ -199,7 +199,7 @@
 <p>Helper class that sets and unsets references to components.</p>
 <dl class="py method">
 <dt id="pip_services3_commons.refer.Referencer.Referencer.set_references">
-<em class="property">static </em><code class="sig-name descname">set_references</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">references</span></em>, <em class="sig-param"><span class="n">components</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.refer.Referencer.Referencer.set_references" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="sig-name descname">set_references</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">references</span><span class="p">:</span> <span class="n"><a class="reference internal" href="pip_services3_commons.refer.IReferences.html#pip_services3_commons.refer.IReferences.IReferences" title="pip_services3_commons.refer.IReferences.IReferences">pip_services3_commons.refer.IReferences.IReferences</a></span></em>, <em class="sig-param"><span class="n">components</span><span class="p">:</span> <span class="n">List<span class="p">[</span>Any<span class="p">]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.refer.Referencer.Referencer.set_references" title="Permalink to this definition">¶</a></dt>
 <dd><p>Sets references to multiple components.</p>
 <p>To set references components must implement <a class="reference internal" href="pip_services3_commons.refer.IReferenceable.html#pip_services3_commons.refer.IReferenceable.IReferenceable" title="pip_services3_commons.refer.IReferenceable.IReferenceable"><code class="xref py py-class docutils literal notranslate"><span class="pre">IReferenceable</span></code></a> interface.
 If they don’t the call to this method has no effect.</p>
@@ -215,7 +215,7 @@ If they don’t the call to this method has no effect.</p>
 
 <dl class="py method">
 <dt id="pip_services3_commons.refer.Referencer.Referencer.set_references_for_one">
-<em class="property">static </em><code class="sig-name descname">set_references_for_one</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">references</span></em>, <em class="sig-param"><span class="n">component</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.refer.Referencer.Referencer.set_references_for_one" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="sig-name descname">set_references_for_one</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">references</span><span class="p">:</span> <span class="n"><a class="reference internal" href="pip_services3_commons.refer.IReferences.html#pip_services3_commons.refer.IReferences.IReferences" title="pip_services3_commons.refer.IReferences.IReferences">pip_services3_commons.refer.IReferences.IReferences</a></span></em>, <em class="sig-param"><span class="n">component</span><span class="p">:</span> <span class="n">Any</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.refer.Referencer.Referencer.set_references_for_one" title="Permalink to this definition">¶</a></dt>
 <dd><p>Sets references to specific component.</p>
 <p>To set references components must implement <a class="reference internal" href="pip_services3_commons.refer.IReferenceable.html#pip_services3_commons.refer.IReferenceable.IReferenceable" title="pip_services3_commons.refer.IReferenceable.IReferenceable"><code class="xref py py-class docutils literal notranslate"><span class="pre">IReferenceable</span></code></a> interface.
 If they don’t the call to this method has no effect.</p>
@@ -231,7 +231,7 @@ If they don’t the call to this method has no effect.</p>
 
 <dl class="py method">
 <dt id="pip_services3_commons.refer.Referencer.Referencer.unset_references">
-<em class="property">static </em><code class="sig-name descname">unset_references</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">components</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.refer.Referencer.Referencer.unset_references" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="sig-name descname">unset_references</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">components</span><span class="p">:</span> <span class="n">List<span class="p">[</span>Any<span class="p">]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.refer.Referencer.Referencer.unset_references" title="Permalink to this definition">¶</a></dt>
 <dd><p>Unsets references in multiple components.</p>
 <p>To unset references components must implement <a class="reference internal" href="pip_services3_commons.refer.IUnreferenceable.html#pip_services3_commons.refer.IUnreferenceable.IUnreferenceable" title="pip_services3_commons.refer.IUnreferenceable.IUnreferenceable"><code class="xref py py-class docutils literal notranslate"><span class="pre">IUnreferenceable</span></code></a> interface.
 If they don’t the call to this method has no effect.</p>
@@ -244,7 +244,7 @@ If they don’t the call to this method has no effect.</p>
 
 <dl class="py method">
 <dt id="pip_services3_commons.refer.Referencer.Referencer.unset_references_for_one">
-<em class="property">static </em><code class="sig-name descname">unset_references_for_one</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">component</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.refer.Referencer.Referencer.unset_references_for_one" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="sig-name descname">unset_references_for_one</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">component</span><span class="p">:</span> <span class="n">Any</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.refer.Referencer.Referencer.unset_references_for_one" title="Permalink to this definition">¶</a></dt>
 <dd><p>Unsets references in specific component.</p>
 <p>To unset references components must implement <a class="reference internal" href="pip_services3_commons.refer.IUnreferenceable.html#pip_services3_commons.refer.IUnreferenceable.IUnreferenceable" title="pip_services3_commons.refer.IUnreferenceable.IUnreferenceable"><code class="xref py py-class docutils literal notranslate"><span class="pre">IUnreferenceable</span></code></a> interface.
 If they don’t the call to this method has no effect.</p>

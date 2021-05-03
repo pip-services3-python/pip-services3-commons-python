@@ -196,7 +196,7 @@
 <dt id="pip_services3_commons.convert.FloatConverter.FloatConverter">
 <em class="property">class </em><code class="sig-prename descclassname">pip_services3_commons.convert.FloatConverter.</code><code class="sig-name descname">FloatConverter</code><a class="headerlink" href="#pip_services3_commons.convert.FloatConverter.FloatConverter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="http://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
-<p>Converts arbitrary values into float using extended conversion rules:
+<p>Converts arbitrary values into float using extended conversion __rules:
 - Strings are converted to float values
 - DateTime: total number of milliseconds since unix epoсh
 - Boolean: 1 for true and 0 for false</p>
@@ -210,45 +210,45 @@ value4 = FloatConverter.to_nullable_float(datetime.datetime.now()) # Result: cur
 </div></blockquote>
 <dl class="py method">
 <dt id="pip_services3_commons.convert.FloatConverter.FloatConverter.to_float">
-<em class="property">static </em><code class="sig-name descname">to_float</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.convert.FloatConverter.FloatConverter.to_float" title="Permalink to this definition">¶</a></dt>
-<dd><p>Converts value into float or returns 0 when conversion is not possible.</p>
+<em class="property">static </em><code class="sig-name descname">to_float</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span><span class="p">:</span> <span class="n">Any</span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="http://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)">float</a><a class="headerlink" href="#pip_services3_commons.convert.FloatConverter.FloatConverter.to_float" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts args into float or returns 0 when conversion is not possible.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>value</strong> – the value to convert.</p>
+<dd class="field-odd"><p><strong>value</strong> – the args to convert.</p>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>float value or 0 when conversion is not supported.</p>
+<dd class="field-even"><p>float args or 0 when conversion is not supported.</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt id="pip_services3_commons.convert.FloatConverter.FloatConverter.to_float_with_default">
-<em class="property">static </em><code class="sig-name descname">to_float_with_default</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span></em>, <em class="sig-param"><span class="n">default_value</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.convert.FloatConverter.FloatConverter.to_float_with_default" title="Permalink to this definition">¶</a></dt>
-<dd><p>Converts value into float or returns default when conversion is not possible.</p>
+<em class="property">static </em><code class="sig-name descname">to_float_with_default</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span><span class="p">:</span> <span class="n">Any</span></em>, <em class="sig-param"><span class="n">default_value</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)">float</a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="http://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)">float</a><a class="headerlink" href="#pip_services3_commons.convert.FloatConverter.FloatConverter.to_float_with_default" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts args into float or returns default when conversion is not possible.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>value</strong> – the value to convert.</p></li>
-<li><p><strong>default_value</strong> – the default value.</p></li>
+<li><p><strong>value</strong> – the args to convert.</p></li>
+<li><p><strong>default_value</strong> – the default args.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>float value or default value when conversion is not supported.</p>
+<dd class="field-even"><p>float args or default args when conversion is not supported.</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt id="pip_services3_commons.convert.FloatConverter.FloatConverter.to_nullable_float">
-<em class="property">static </em><code class="sig-name descname">to_nullable_float</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.convert.FloatConverter.FloatConverter.to_nullable_float" title="Permalink to this definition">¶</a></dt>
-<dd><p>Converts value into float or returns null when conversion is not possible.</p>
+<em class="property">static </em><code class="sig-name descname">to_nullable_float</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span><span class="p">:</span> <span class="n">Any</span></em><span class="sig-paren">)</span> &#x2192; Optional<span class="p">[</span><a class="reference external" href="http://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)">float</a><span class="p">]</span><a class="headerlink" href="#pip_services3_commons.convert.FloatConverter.FloatConverter.to_nullable_float" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts args into float or returns null when conversion is not possible.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>value</strong> – the value to convert.</p>
+<dd class="field-odd"><p><strong>value</strong> – the args to convert.</p>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>float value or null when conversion is not supported.</p>
+<dd class="field-even"><p>float args or null when conversion is not supported.</p>
 </dd>
 </dl>
 </dd></dl>

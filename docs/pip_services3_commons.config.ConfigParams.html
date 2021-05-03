@@ -194,9 +194,9 @@
 </dl>
 <dl class="py class">
 <dt id="pip_services3_commons.config.ConfigParams.ConfigParams">
-<em class="property">class </em><code class="sig-prename descclassname">pip_services3_commons.config.ConfigParams.</code><code class="sig-name descname">ConfigParams</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">values</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.config.ConfigParams.ConfigParams" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">pip_services3_commons.config.ConfigParams.</code><code class="sig-name descname">ConfigParams</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">values</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.config.ConfigParams.ConfigParams" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="pip_services3_commons.data.StringValueMap.html#pip_services3_commons.data.StringValueMap.StringValueMap" title="pip_services3_commons.data.StringValueMap.StringValueMap"><code class="xref py py-class docutils literal notranslate"><span class="pre">pip_services3_commons.data.StringValueMap.StringValueMap</span></code></a></p>
-<p>Contains a key-value map with configuration parameters.
+<p>Contains a key-args map with configuration parameters.
 All values stored as strings and can be serialized as JSON or string forms.
 When retrieved the values can be automatically converted on read using GetAsXXX methods.</p>
 <p>The keys are case-sensitive, so it is recommended to use consistent C-style as: <strong>“my_param”</strong></p>
@@ -221,7 +221,7 @@ or <a class="reference external" href="https://pip-services3-python.github.io/pi
 </div>
 <dl class="py method">
 <dt id="pip_services3_commons.config.ConfigParams.ConfigParams.add_section">
-<code class="sig-name descname">add_section</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">section</span></em>, <em class="sig-param"><span class="n">section_params</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.config.ConfigParams.ConfigParams.add_section" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">add_section</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">section</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></span></em>, <em class="sig-param"><span class="n">section_params</span><span class="p">:</span> <span class="n"><a class="reference internal" href="#pip_services3_commons.config.ConfigParams.ConfigParams" title="pip_services3_commons.config.ConfigParams.ConfigParams">pip_services3_commons.config.ConfigParams.ConfigParams</a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.config.ConfigParams.ConfigParams.add_section" title="Permalink to this definition">¶</a></dt>
 <dd><p>Adds parameters into this ConfigParams under specified section.
 Keys for the new parameters are appended with section dot prefix.</p>
 <dl class="field-list simple">
@@ -236,11 +236,11 @@ Keys for the new parameters are appended with section dot prefix.</p>
 
 <dl class="py method">
 <dt id="pip_services3_commons.config.ConfigParams.ConfigParams.from_string">
-<em class="property">static </em><code class="sig-name descname">from_string</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">line</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.config.ConfigParams.ConfigParams.from_string" title="Permalink to this definition">¶</a></dt>
-<dd><p>Creates a new ConfigParams object filled with key-value pairs serialized as a string.</p>
+<em class="property">static </em><code class="sig-name descname">from_string</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">line</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#pip_services3_commons.config.ConfigParams.ConfigParams" title="pip_services3_commons.config.ConfigParams.ConfigParams">pip_services3_commons.config.ConfigParams.ConfigParams</a><a class="headerlink" href="#pip_services3_commons.config.ConfigParams.ConfigParams.from_string" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a new ConfigParams object filled with key-args pairs serialized as a string.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>line</strong> – a string with serialized key-value pairs as “key1=value1;key2=value2;…”</p>
+<dd class="field-odd"><p><strong>line</strong> – a string with serialized key-args pairs as “key1=value1;key2=value2;…”</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>a new ConfigParams object.</p>
@@ -250,8 +250,8 @@ Keys for the new parameters are appended with section dot prefix.</p>
 
 <dl class="py method">
 <dt id="pip_services3_commons.config.ConfigParams.ConfigParams.from_tuples">
-<em class="property">static </em><code class="sig-name descname">from_tuples</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">tuples</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.config.ConfigParams.ConfigParams.from_tuples" title="Permalink to this definition">¶</a></dt>
-<dd><p>Creates a new ConfigParams object filled with provided key-value pairs called tuples.
+<em class="property">static </em><code class="sig-name descname">from_tuples</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">tuples</span><span class="p">:</span> <span class="n">Any</span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#pip_services3_commons.config.ConfigParams.ConfigParams" title="pip_services3_commons.config.ConfigParams.ConfigParams">pip_services3_commons.config.ConfigParams.ConfigParams</a><a class="headerlink" href="#pip_services3_commons.config.ConfigParams.ConfigParams.from_tuples" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a new ConfigParams object filled with provided key-args pairs called tuples.
 Tuples parameters contain a sequence of key1, value1, key2, value2, … pairs.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -265,11 +265,11 @@ Tuples parameters contain a sequence of key1, value1, key2, value2, … pairs.</
 
 <dl class="py method">
 <dt id="pip_services3_commons.config.ConfigParams.ConfigParams.from_value">
-<em class="property">static </em><code class="sig-name descname">from_value</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.config.ConfigParams.ConfigParams.from_value" title="Permalink to this definition">¶</a></dt>
-<dd><p>Creates a new ConfigParams object filled with key-value pairs from specified object.</p>
+<em class="property">static </em><code class="sig-name descname">from_value</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span><span class="p">:</span> <span class="n">Any</span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#pip_services3_commons.config.ConfigParams.ConfigParams" title="pip_services3_commons.config.ConfigParams.ConfigParams">pip_services3_commons.config.ConfigParams.ConfigParams</a><a class="headerlink" href="#pip_services3_commons.config.ConfigParams.ConfigParams.from_value" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a new ConfigParams object filled with key-args pairs from specified object.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>value</strong> – an object with key-value pairs used to initialize a new ConfigParams.</p>
+<dd class="field-odd"><p><strong>value</strong> – an object with key-args pairs used to initialize a new ConfigParams.</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>a new ConfigParams object.</p>
@@ -279,7 +279,7 @@ Tuples parameters contain a sequence of key1, value1, key2, value2, … pairs.</
 
 <dl class="py method">
 <dt id="pip_services3_commons.config.ConfigParams.ConfigParams.get_section">
-<code class="sig-name descname">get_section</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">section</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.config.ConfigParams.ConfigParams.get_section" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_section</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">section</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#pip_services3_commons.config.ConfigParams.ConfigParams" title="pip_services3_commons.config.ConfigParams.ConfigParams">pip_services3_commons.config.ConfigParams.ConfigParams</a><a class="headerlink" href="#pip_services3_commons.config.ConfigParams.ConfigParams.get_section" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets parameters from specific section stored in this ConfigMap.
 The section name is removed from parameter keys.</p>
 <dl class="field-list simple">
@@ -294,7 +294,7 @@ The section name is removed from parameter keys.</p>
 
 <dl class="py method">
 <dt id="pip_services3_commons.config.ConfigParams.ConfigParams.get_section_names">
-<code class="sig-name descname">get_section_names</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.config.ConfigParams.ConfigParams.get_section_names" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_section_names</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; List<span class="p">[</span><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a><span class="p">]</span><a class="headerlink" href="#pip_services3_commons.config.ConfigParams.ConfigParams.get_section_names" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets a list with all 1st level section names.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -305,7 +305,7 @@ The section name is removed from parameter keys.</p>
 
 <dl class="py method">
 <dt id="pip_services3_commons.config.ConfigParams.ConfigParams.merge_configs">
-<em class="property">static </em><code class="sig-name descname">merge_configs</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">configs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.config.ConfigParams.ConfigParams.merge_configs" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="sig-name descname">merge_configs</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">configs</span><span class="p">:</span> <span class="n">List<span class="p">[</span><a class="reference internal" href="#pip_services3_commons.config.ConfigParams.ConfigParams" title="pip_services3_commons.config.ConfigParams.ConfigParams">ConfigParams</a><span class="p">]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.config.ConfigParams.ConfigParams.merge_configs" title="Permalink to this definition">¶</a></dt>
 <dd><p>Merges two or more ConfigParams into one. The following ConfigParams override previously defined parameters.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -319,7 +319,7 @@ The section name is removed from parameter keys.</p>
 
 <dl class="py method">
 <dt id="pip_services3_commons.config.ConfigParams.ConfigParams.override">
-<code class="sig-name descname">override</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">config_params</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.config.ConfigParams.ConfigParams.override" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">override</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">config_params</span><span class="p">:</span> <span class="n"><a class="reference internal" href="#pip_services3_commons.config.ConfigParams.ConfigParams" title="pip_services3_commons.config.ConfigParams.ConfigParams">pip_services3_commons.config.ConfigParams.ConfigParams</a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#pip_services3_commons.config.ConfigParams.ConfigParams" title="pip_services3_commons.config.ConfigParams.ConfigParams">pip_services3_commons.config.ConfigParams.ConfigParams</a><a class="headerlink" href="#pip_services3_commons.config.ConfigParams.ConfigParams.override" title="Permalink to this definition">¶</a></dt>
 <dd><p>Overrides parameters with new values from specified ConfigParams and returns a new ConfigParams object.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -333,7 +333,7 @@ The section name is removed from parameter keys.</p>
 
 <dl class="py method">
 <dt id="pip_services3_commons.config.ConfigParams.ConfigParams.set_defaults">
-<code class="sig-name descname">set_defaults</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">default_config_params</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.config.ConfigParams.ConfigParams.set_defaults" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">set_defaults</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">default_config_params</span><span class="p">:</span> <span class="n"><a class="reference internal" href="#pip_services3_commons.config.ConfigParams.ConfigParams" title="pip_services3_commons.config.ConfigParams.ConfigParams">pip_services3_commons.config.ConfigParams.ConfigParams</a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#pip_services3_commons.config.ConfigParams.ConfigParams" title="pip_services3_commons.config.ConfigParams.ConfigParams">pip_services3_commons.config.ConfigParams.ConfigParams</a><a class="headerlink" href="#pip_services3_commons.config.ConfigParams.ConfigParams.set_defaults" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set default values from specified ConfigParams and returns a new ConfigParams object.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>

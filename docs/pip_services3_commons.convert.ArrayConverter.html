@@ -205,63 +205,63 @@ Example:</p>
 </div>
 <dl class="py method">
 <dt id="pip_services3_commons.convert.ArrayConverter.ArrayConverter.list_to_array">
-<em class="property">static </em><code class="sig-name descname">list_to_array</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.convert.ArrayConverter.ArrayConverter.list_to_array" title="Permalink to this definition">¶</a></dt>
-<dd><p>Converts value into array object with empty array as default.
+<em class="property">static </em><code class="sig-name descname">list_to_array</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span><span class="p">:</span> <span class="n">Any</span></em><span class="sig-paren">)</span> &#x2192; List<span class="p">[</span>Any<span class="p">]</span><a class="headerlink" href="#pip_services3_commons.convert.ArrayConverter.ArrayConverter.list_to_array" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts args into array object with empty array as default.
 Strings with comma-delimited values are split into array of strings.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>value</strong> – the list to convert.</p>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>array object or empty array when value is None</p>
+<dd class="field-even"><p>array object or empty array when args is None</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt id="pip_services3_commons.convert.ArrayConverter.ArrayConverter.to_array">
-<em class="property">static </em><code class="sig-name descname">to_array</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.convert.ArrayConverter.ArrayConverter.to_array" title="Permalink to this definition">¶</a></dt>
-<dd><p>Converts value into array object with empty array as default.
+<em class="property">static </em><code class="sig-name descname">to_array</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span><span class="p">:</span> <span class="n">Any</span></em><span class="sig-paren">)</span> &#x2192; Any<a class="headerlink" href="#pip_services3_commons.convert.ArrayConverter.ArrayConverter.to_array" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts args into array object with empty array as default.
 Single values are converted into arrays with single element.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>value</strong> – the value to convert.</p>
+<dd class="field-odd"><p><strong>value</strong> – the args to convert.</p>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>array object or empty array when value is None.</p>
+<dd class="field-even"><p>array object or empty array when args is None.</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt id="pip_services3_commons.convert.ArrayConverter.ArrayConverter.to_array_with_default">
-<em class="property">static </em><code class="sig-name descname">to_array_with_default</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span></em>, <em class="sig-param"><span class="n">default_value</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.convert.ArrayConverter.ArrayConverter.to_array_with_default" title="Permalink to this definition">¶</a></dt>
-<dd><p>Converts value into array object with specified default.
+<em class="property">static </em><code class="sig-name descname">to_array_with_default</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span><span class="p">:</span> <span class="n">Any</span></em>, <em class="sig-param"><span class="n">default_value</span><span class="p">:</span> <span class="n">List<span class="p">[</span>Any<span class="p">]</span></span></em><span class="sig-paren">)</span> &#x2192; List<span class="p">[</span>Any<span class="p">]</span><a class="headerlink" href="#pip_services3_commons.convert.ArrayConverter.ArrayConverter.to_array_with_default" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts args into array object with specified default.
 Single values are converted into arrays with single element.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>value</strong> – the value to convert.</p></li>
+<li><p><strong>value</strong> – the args to convert.</p></li>
 <li><p><strong>default_value</strong> – default array object.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>array object or default array when value is None.</p>
+<dd class="field-even"><p>array object or default array when args is None.</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt id="pip_services3_commons.convert.ArrayConverter.ArrayConverter.to_nullable_array">
-<em class="property">static </em><code class="sig-name descname">to_nullable_array</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.convert.ArrayConverter.ArrayConverter.to_nullable_array" title="Permalink to this definition">¶</a></dt>
-<dd><p>Converts value into array object.
+<em class="property">static </em><code class="sig-name descname">to_nullable_array</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span><span class="p">:</span> <span class="n">Any</span></em><span class="sig-paren">)</span> &#x2192; Optional<span class="p">[</span>List<span class="p">[</span>Any<span class="p">]</span><span class="p">]</span><a class="headerlink" href="#pip_services3_commons.convert.ArrayConverter.ArrayConverter.to_nullable_array" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts args into array object.
 Single values are converted into arrays with a single element.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>value</strong> – the value to convert.</p>
+<dd class="field-odd"><p><strong>value</strong> – the args to convert.</p>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>array object or None when value is None.</p>
+<dd class="field-even"><p>array object or None when args is None.</p>
 </dd>
 </dl>
 </dd></dl>

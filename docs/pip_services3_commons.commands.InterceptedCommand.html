@@ -183,7 +183,7 @@
 <span id="pip-services3-commons-commands-interceptedcommand-module"></span><h1>pip_services3_commons.commands.InterceptedCommand module<a class="headerlink" href="#module-pip_services3_commons.commands.InterceptedCommand" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="pip-services3-commons-commands-interceptedcommand">
 <h2>pip_services3_commons.commands.InterceptedCommand<a class="headerlink" href="#pip-services3-commons-commands-interceptedcommand" title="Permalink to this headline">¶</a></h2>
-<p>Intercepted command implementation</p>
+<p>Intercepted command_name implementation</p>
 <dl class="field-list simple">
 <dt class="field-odd">copyright</dt>
 <dd class="field-odd"><p>Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.</p>
@@ -194,32 +194,37 @@
 </dl>
 <dl class="py class">
 <dt id="pip_services3_commons.commands.InterceptedCommand.InterceptedCommand">
-<em class="property">class </em><code class="sig-prename descclassname">pip_services3_commons.commands.InterceptedCommand.</code><code class="sig-name descname">InterceptedCommand</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">intercepter</span></em>, <em class="sig-param"><span class="n">next</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.commands.InterceptedCommand.InterceptedCommand" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">pip_services3_commons.commands.InterceptedCommand.</code><code class="sig-name descname">InterceptedCommand</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">interceptor</span><span class="p">:</span> <span class="n"><a class="reference internal" href="pip_services3_commons.commands.ICommandInterceptor.html#pip_services3_commons.commands.ICommandInterceptor.ICommandInterceptor" title="pip_services3_commons.commands.ICommandInterceptor.ICommandInterceptor">pip_services3_commons.commands.ICommandInterceptor.ICommandInterceptor</a></span></em>, <em class="sig-param"><span class="n">next</span><span class="p">:</span> <span class="n"><a class="reference internal" href="pip_services3_commons.commands.ICommand.html#pip_services3_commons.commands.ICommand.ICommand" title="pip_services3_commons.commands.ICommand.ICommand">pip_services3_commons.commands.ICommand.ICommand</a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.commands.InterceptedCommand.InterceptedCommand" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="pip_services3_commons.commands.ICommand.html#pip_services3_commons.commands.ICommand.ICommand" title="pip_services3_commons.commands.ICommand.ICommand"><code class="xref py py-class docutils literal notranslate"><span class="pre">pip_services3_commons.commands.ICommand.ICommand</span></code></a></p>
-<p>Implements a ICommand command wrapped by an interceptor.
-It allows to build command call chains. The interceptor can alter execution
-and delegate calls to a next command, which can be intercepted or concrete.</p>
+<p>Implements a ICommand command_name wrapped by an interceptor.
+It allows to build command_name call chains. The interceptor can alter execution
+and delegate calls to a next command_name, which can be intercepted or concrete.</p>
 <p>Example:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">CommandLogger</span><span class="p">(</span><span class="n">ICommandInterceptor</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">get_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">command</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">command</span><span class="o">.</span><span class="n">get_name</span><span class="p">()</span>
+    <span class="k">def</span> <span class="nf">get_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">command_name</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">command_name</span><span class="o">.</span><span class="n">get_name</span><span class="p">()</span>
 
     <span class="k">def</span> <span class="nf">execute</span><span class="p">():</span>
         <span class="c1"># do something</span>
 
     <span class="k">def</span> <span class="nf">validate</span><span class="p">():</span>
         <span class="c1"># do something</span>
+
+<span class="n">logger</span> <span class="o">=</span> <span class="n">new</span> <span class="n">CommandLogger</span><span class="p">()</span>
+<span class="n">logged_command</span> <span class="o">=</span> <span class="n">InterceptedCommand</span><span class="p">(</span><span class="n">logger</span><span class="p">,</span> <span class="n">command</span><span class="p">)</span>
+
+<span class="c1"># Each called command will output: Executed command &lt;command name&gt;</span>
 </pre></div>
 </div>
 <dl class="py method">
 <dt id="pip_services3_commons.commands.InterceptedCommand.InterceptedCommand.execute">
-<code class="sig-name descname">execute</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">correlation_id</span></em>, <em class="sig-param"><span class="n">args</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.commands.InterceptedCommand.InterceptedCommand.execute" title="Permalink to this definition">¶</a></dt>
-<dd><p>Executes the next command in the execution chain using the given Parameters parameters (arguments).</p>
+<code class="sig-name descname">execute</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">correlation_id</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></span></em>, <em class="sig-param"><span class="n">args</span><span class="p">:</span> <span class="n"><a class="reference internal" href="pip_services3_commons.run.Parameters.html#pip_services3_commons.run.Parameters.Parameters" title="pip_services3_commons.run.Parameters.Parameters">pip_services3_commons.run.Parameters.Parameters</a></span></em><span class="sig-paren">)</span> &#x2192; Any<a class="headerlink" href="#pip_services3_commons.commands.InterceptedCommand.InterceptedCommand.execute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Executes the next command_name in the execution chain using the given Parameters parameters (arguments).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>correlation_id</strong> – a unique correlation/transaction id</p></li>
-<li><p><strong>args</strong> – command arguments</p></li>
+<li><p><strong>args</strong> – command_name arguments</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -233,23 +238,23 @@ and delegate calls to a next command, which can be intercepted or concrete.</p>
 
 <dl class="py method">
 <dt id="pip_services3_commons.commands.InterceptedCommand.InterceptedCommand.get_name">
-<code class="sig-name descname">get_name</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.commands.InterceptedCommand.InterceptedCommand.get_name" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gets the command name.</p>
+<code class="sig-name descname">get_name</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a><a class="headerlink" href="#pip_services3_commons.commands.InterceptedCommand.InterceptedCommand.get_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the command_name name.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>the command name</p>
+<dd class="field-odd"><p>the command_name name</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt id="pip_services3_commons.commands.InterceptedCommand.InterceptedCommand.validate">
-<code class="sig-name descname">validate</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">args</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.commands.InterceptedCommand.InterceptedCommand.validate" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">validate</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">args</span><span class="p">:</span> <span class="n"><a class="reference internal" href="pip_services3_commons.run.Parameters.html#pip_services3_commons.run.Parameters.Parameters" title="pip_services3_commons.run.Parameters.Parameters">pip_services3_commons.run.Parameters.Parameters</a></span></em><span class="sig-paren">)</span> &#x2192; List<span class="p">[</span><a class="reference internal" href="pip_services3_commons.validate.ValidationResult.html#pip_services3_commons.validate.ValidationResult.ValidationResult" title="pip_services3_commons.validate.ValidationResult.ValidationResult">pip_services3_commons.validate.ValidationResult.ValidationResult</a><span class="p">]</span><a class="headerlink" href="#pip_services3_commons.commands.InterceptedCommand.InterceptedCommand.validate" title="Permalink to this definition">¶</a></dt>
 <dd><p>Validates the Parameters parameters (arguments)
-that are to be passed to the command that is next in the execution chain.</p>
+that are to be passed to the command_name that is next in the execution chain.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>args</strong> – command arguments</p>
+<dd class="field-odd"><p><strong>args</strong> – command_name arguments</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>a list of validation results</p>

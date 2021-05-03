@@ -183,7 +183,7 @@
 <span id="pip-services3-commons-errors-applicationexceptionfactory-module"></span><h1>pip_services3_commons.errors.ApplicationExceptionFactory module<a class="headerlink" href="#module-pip_services3_commons.errors.ApplicationExceptionFactory" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="pip-services3-commons-errors-applicationexceptionfactory">
 <h2>pip_services3_commons.errors.ApplicationExceptionFactory<a class="headerlink" href="#pip-services3-commons-errors-applicationexceptionfactory" title="Permalink to this headline">¶</a></h2>
-<p>Application exception factory implementation</p>
+<p>Application error factory implementation</p>
 <dl class="field-list simple">
 <dt class="field-odd">copyright</dt>
 <dd class="field-odd"><p>Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.</p>
@@ -199,9 +199,9 @@
 <p>Factory to recreate exceptions from <a class="reference internal" href="pip_services3_commons.errors.ErrorDescription.html#pip_services3_commons.errors.ErrorDescription.ErrorDescription" title="pip_services3_commons.errors.ErrorDescription.ErrorDescription"><code class="xref py py-class docutils literal notranslate"><span class="pre">ErrorDescription</span></code></a> values passed through the wire.</p>
 <dl class="py method">
 <dt id="pip_services3_commons.errors.ApplicationExceptionFactory.ApplicationExceptionFactory.create">
-<em class="property">static </em><code class="sig-name descname">create</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">description</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.errors.ApplicationExceptionFactory.ApplicationExceptionFactory.create" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="sig-name descname">create</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">description</span><span class="p">:</span> <span class="n"><a class="reference internal" href="pip_services3_commons.errors.ErrorDescription.html#pip_services3_commons.errors.ErrorDescription.ErrorDescription" title="pip_services3_commons.errors.ErrorDescription.ErrorDescription">pip_services3_commons.errors.ErrorDescription.ErrorDescription</a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="pip_services3_commons.errors.ApplicationException.html#pip_services3_commons.errors.ApplicationException.ApplicationException" title="pip_services3_commons.errors.ApplicationException.ApplicationException">pip_services3_commons.errors.ApplicationException.ApplicationException</a><a class="headerlink" href="#pip_services3_commons.errors.ApplicationExceptionFactory.ApplicationExceptionFactory.create" title="Permalink to this definition">¶</a></dt>
 <dd><p>Recreates ApplicationException object from serialized ErrorDescription.</p>
-<p>It tries to restore original exception type using type or error category fields.</p>
+<p>It tries to restore original error type using type or error category fields.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>description</strong> – a serialized error description received as a result of remote call</p>

@@ -196,7 +196,7 @@
 <dt id="pip_services3_commons.convert.IntegerConverter.IntegerConverter">
 <em class="property">class </em><code class="sig-prename descclassname">pip_services3_commons.convert.IntegerConverter.</code><code class="sig-name descname">IntegerConverter</code><a class="headerlink" href="#pip_services3_commons.convert.IntegerConverter.IntegerConverter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="http://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
-<p>Converts arbitrary values into integers using extended conversion rules:
+<p>Converts arbitrary values into integers using extended conversion __rules:
 - Strings are converted to floats, then to integers
 - DateTime: total number of milliseconds since unix epoсh
 - Boolean: 1 for true and 0 for false</p>
@@ -209,45 +209,45 @@
 </div>
 <dl class="py method">
 <dt id="pip_services3_commons.convert.IntegerConverter.IntegerConverter.to_integer">
-<em class="property">static </em><code class="sig-name descname">to_integer</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.convert.IntegerConverter.IntegerConverter.to_integer" title="Permalink to this definition">¶</a></dt>
-<dd><p>Converts value into integer or returns 0 when conversion is not possible.</p>
+<em class="property">static </em><code class="sig-name descname">to_integer</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span><span class="p">:</span> <span class="n">Any</span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="http://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)">int</a><a class="headerlink" href="#pip_services3_commons.convert.IntegerConverter.IntegerConverter.to_integer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts args into integer or returns 0 when conversion is not possible.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>value</strong> – the value to convert.</p>
+<dd class="field-odd"><p><strong>value</strong> – the args to convert.</p>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>integer value or 0 when conversion is not supported.</p>
+<dd class="field-even"><p>integer args or 0 when conversion is not supported.</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt id="pip_services3_commons.convert.IntegerConverter.IntegerConverter.to_integer_with_default">
-<em class="property">static </em><code class="sig-name descname">to_integer_with_default</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span></em>, <em class="sig-param"><span class="n">default_value</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.convert.IntegerConverter.IntegerConverter.to_integer_with_default" title="Permalink to this definition">¶</a></dt>
-<dd><p>Converts value into integer or returns default value when conversion is not possible.</p>
+<em class="property">static </em><code class="sig-name descname">to_integer_with_default</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span><span class="p">:</span> <span class="n">Any</span></em>, <em class="sig-param"><span class="n">default_value</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)">int</a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="http://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)">int</a><a class="headerlink" href="#pip_services3_commons.convert.IntegerConverter.IntegerConverter.to_integer_with_default" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts args into integer or returns default args when conversion is not possible.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>value</strong> – the value to convert.</p></li>
-<li><p><strong>default_value</strong> – the default value.</p></li>
+<li><p><strong>value</strong> – the args to convert.</p></li>
+<li><p><strong>default_value</strong> – the default args.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>integer value or default when conversion is not supported.</p>
+<dd class="field-even"><p>integer args or default when conversion is not supported.</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt id="pip_services3_commons.convert.IntegerConverter.IntegerConverter.to_nullable_integer">
-<em class="property">static </em><code class="sig-name descname">to_nullable_integer</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.convert.IntegerConverter.IntegerConverter.to_nullable_integer" title="Permalink to this definition">¶</a></dt>
-<dd><p>Converts value into integer or returns null when conversion is not possible.</p>
+<em class="property">static </em><code class="sig-name descname">to_nullable_integer</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span><span class="p">:</span> <span class="n">Any</span></em><span class="sig-paren">)</span> &#x2192; Optional<span class="p">[</span><a class="reference external" href="http://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)">int</a><span class="p">]</span><a class="headerlink" href="#pip_services3_commons.convert.IntegerConverter.IntegerConverter.to_nullable_integer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts args into integer or returns null when conversion is not possible.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>value</strong> – the value to convert.</p>
+<dd class="field-odd"><p><strong>value</strong> – the args to convert.</p>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>integer value or null when conversion is not supported.</p>
+<dd class="field-even"><p>integer args or null when conversion is not supported.</p>
 </dd>
 </dl>
 </dd></dl>

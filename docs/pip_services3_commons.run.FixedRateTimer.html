@@ -194,16 +194,16 @@
 </dl>
 <dl class="py class">
 <dt id="pip_services3_commons.run.FixedRateTimer.FixedRateTimer">
-<em class="property">class </em><code class="sig-prename descclassname">pip_services3_commons.run.FixedRateTimer.</code><code class="sig-name descname">FixedRateTimer</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">task_or_object</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">interval</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">delay</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.run.FixedRateTimer.FixedRateTimer" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">pip_services3_commons.run.FixedRateTimer.</code><code class="sig-name descname">FixedRateTimer</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">task_or_object</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">interval</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)">int</a></span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">delay</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)">int</a></span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.run.FixedRateTimer.FixedRateTimer" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="pip_services3_commons.run.IClosable.html#pip_services3_commons.run.IClosable.IClosable" title="pip_services3_commons.run.IClosable.IClosable"><code class="xref py py-class docutils literal notranslate"><span class="pre">pip_services3_commons.run.IClosable.IClosable</span></code></a></p>
 <p>Timer that is triggered in equal time intervals.</p>
 <p>It has summetric cross-language implementation
 and is often used by Pip.Services toolkit to perform periodic processing and cleanup in microservices.</p>
 <dl class="py method">
 <dt id="pip_services3_commons.run.FixedRateTimer.FixedRateTimer.close">
-<code class="sig-name descname">close</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">correlation_id</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.run.FixedRateTimer.FixedRateTimer.close" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">close</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">correlation_id</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.run.FixedRateTimer.FixedRateTimer.close" title="Permalink to this definition">¶</a></dt>
 <dd><p>Closes the timer.
-This is required by <a class="reference internal" href="pip_services3_commons.run.IClosable.html#pip_services3_commons.run.IClosable.IClosable" title="pip_services3_commons.run.IClosable.IClosable"><code class="xref py py-class docutils literal notranslate"><span class="pre">IClosable</span></code></a> interface,
+This is __required by <a class="reference internal" href="pip_services3_commons.run.IClosable.html#pip_services3_commons.run.IClosable.IClosable" title="pip_services3_commons.run.IClosable.IClosable"><code class="xref py py-class docutils literal notranslate"><span class="pre">IClosable</span></code></a> interface,
 but besides that it is identical to stop().</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -214,7 +214,7 @@ but besides that it is identical to stop().</p>
 
 <dl class="py method">
 <dt id="pip_services3_commons.run.FixedRateTimer.FixedRateTimer.get_callback">
-<code class="sig-name descname">get_callback</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.run.FixedRateTimer.FixedRateTimer.get_callback" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_callback</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; Callable<a class="headerlink" href="#pip_services3_commons.run.FixedRateTimer.FixedRateTimer.get_callback" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets the callback function that is called when this timer is triggered.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -225,7 +225,7 @@ but besides that it is identical to stop().</p>
 
 <dl class="py method">
 <dt id="pip_services3_commons.run.FixedRateTimer.FixedRateTimer.get_delay">
-<code class="sig-name descname">get_delay</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.run.FixedRateTimer.FixedRateTimer.get_delay" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_delay</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="http://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)">int</a><a class="headerlink" href="#pip_services3_commons.run.FixedRateTimer.FixedRateTimer.get_delay" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets initial delay before the timer is triggered for the first time.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -236,7 +236,7 @@ but besides that it is identical to stop().</p>
 
 <dl class="py method">
 <dt id="pip_services3_commons.run.FixedRateTimer.FixedRateTimer.get_interval">
-<code class="sig-name descname">get_interval</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.run.FixedRateTimer.FixedRateTimer.get_interval" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_interval</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="http://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)">int</a><a class="headerlink" href="#pip_services3_commons.run.FixedRateTimer.FixedRateTimer.get_interval" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets periodic timer triggering interval.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -247,7 +247,7 @@ but besides that it is identical to stop().</p>
 
 <dl class="py method">
 <dt id="pip_services3_commons.run.FixedRateTimer.FixedRateTimer.get_task">
-<code class="sig-name descname">get_task</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.run.FixedRateTimer.FixedRateTimer.get_task" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_task</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; &lt;module ‘pip_services3_commons.run.INotifiable’ from ‘/pip_services3_commons/run/INotifiable.py’&gt;<a class="headerlink" href="#pip_services3_commons.run.FixedRateTimer.FixedRateTimer.get_task" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets the INotifiable object that receives notifications from this timer.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -258,7 +258,7 @@ but besides that it is identical to stop().</p>
 
 <dl class="py method">
 <dt id="pip_services3_commons.run.FixedRateTimer.FixedRateTimer.is_started">
-<code class="sig-name descname">is_started</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.run.FixedRateTimer.FixedRateTimer.is_started" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">is_started</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="http://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)">bool</a><a class="headerlink" href="#pip_services3_commons.run.FixedRateTimer.FixedRateTimer.is_started" title="Permalink to this definition">¶</a></dt>
 <dd><p>Checks if the timer is started.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -269,7 +269,7 @@ but besides that it is identical to stop().</p>
 
 <dl class="py method">
 <dt id="pip_services3_commons.run.FixedRateTimer.FixedRateTimer.set_callback">
-<code class="sig-name descname">set_callback</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.run.FixedRateTimer.FixedRateTimer.set_callback" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">set_callback</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span><span class="p">:</span> <span class="n">Callable</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.run.FixedRateTimer.FixedRateTimer.set_callback" title="Permalink to this definition">¶</a></dt>
 <dd><p>Sets the callback function that is called when this timer is triggered.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -280,14 +280,14 @@ but besides that it is identical to stop().</p>
 
 <dl class="py method">
 <dt id="pip_services3_commons.run.FixedRateTimer.FixedRateTimer.set_delay">
-<code class="sig-name descname">set_delay</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.run.FixedRateTimer.FixedRateTimer.set_delay" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">set_delay</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)">int</a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.run.FixedRateTimer.FixedRateTimer.set_delay" title="Permalink to this definition">¶</a></dt>
 <dd><p>Sets initial delay before the timer is triggered for the first time.
 :param value: a delay in milliseconds.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt id="pip_services3_commons.run.FixedRateTimer.FixedRateTimer.set_interval">
-<code class="sig-name descname">set_interval</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.run.FixedRateTimer.FixedRateTimer.set_interval" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">set_interval</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)">int</a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.run.FixedRateTimer.FixedRateTimer.set_interval" title="Permalink to this definition">¶</a></dt>
 <dd><p>Sets periodic timer triggering interval.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -298,15 +298,15 @@ but besides that it is identical to stop().</p>
 
 <dl class="py method">
 <dt id="pip_services3_commons.run.FixedRateTimer.FixedRateTimer.set_task">
-<code class="sig-name descname">set_task</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.run.FixedRateTimer.FixedRateTimer.set_task" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">set_task</code><span class="sig-paren">(</span><em class="sig-param">value: &lt;module 'pip_services3_commons.run.INotifiable' from '/pip_services3_commons/run/INotifiable.py'&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.run.FixedRateTimer.FixedRateTimer.set_task" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt id="pip_services3_commons.run.FixedRateTimer.FixedRateTimer.start">
 <code class="sig-name descname">start</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.run.FixedRateTimer.FixedRateTimer.start" title="Permalink to this definition">¶</a></dt>
 <dd><p>Starts the timer.
-Initially the timer is triggered after _delay.
-After that it is triggered after _interval until it is stopped.</p>
+Initially the timer is triggered after __delay.
+After that it is triggered after __interval until it is stopped.</p>
 </dd></dl>
 
 <dl class="py method">

@@ -11,7 +11,7 @@ Submodules
    pip_services3_commons.commands.CommandSet
    pip_services3_commons.commands.Event
    pip_services3_commons.commands.ICommand
-   pip_services3_commons.commands.ICommandIntercepter
+   pip_services3_commons.commands.ICommandInterceptor
    pip_services3_commons.commands.ICommandable
    pip_services3_commons.commands.IEvent
    pip_services3_commons.commands.IEventListener

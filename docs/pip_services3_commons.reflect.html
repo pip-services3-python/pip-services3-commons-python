@@ -247,7 +247,7 @@ built on top of this package are portable from one language to another.</p>
 <p>Helper class to perform method introspection and dynamic invocation.
 This class has symmetric implementation across all languages supported
 by Pip.Services toolkit and used to support dynamic data processing.</p>
-<p>Because all languages have different casing and case sensitivity rules,
+<p>Because all languages have different casing and case sensitivity __rules,
 this MethodReflector treats all method names as case insensitive.</p>
 <p>Example:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">myObj</span> <span class="o">=</span> <span class="n">new</span> <span class="n">MyObject</span><span class="p">()</span>
@@ -259,7 +259,7 @@ this MethodReflector treats all method names as case insensitive.</p>
 </div>
 <dl class="py method">
 <dt id="pip_services3_commons.reflect.MethodReflector.get_method_names">
-<em class="property">static </em><code class="sig-name descname">get_method_names</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">obj</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.reflect.MethodReflector.get_method_names" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="sig-name descname">get_method_names</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">obj</span><span class="p">:</span> <span class="n">Any</span></em><span class="sig-paren">)</span> &#x2192; List<span class="p">[</span><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a><span class="p">]</span><a class="headerlink" href="#pip_services3_commons.reflect.MethodReflector.get_method_names" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets names of all methods implemented in specified object.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -273,7 +273,7 @@ this MethodReflector treats all method names as case insensitive.</p>
 
 <dl class="py method">
 <dt id="pip_services3_commons.reflect.MethodReflector.has_method">
-<em class="property">static </em><code class="sig-name descname">has_method</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">obj</span></em>, <em class="sig-param"><span class="n">name</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.reflect.MethodReflector.has_method" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="sig-name descname">has_method</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">obj</span><span class="p">:</span> <span class="n">Any</span></em>, <em class="sig-param"><span class="n">name</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="http://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)">bool</a><a class="headerlink" href="#pip_services3_commons.reflect.MethodReflector.has_method" title="Permalink to this definition">¶</a></dt>
 <dd><p>Checks if object has a method with specified name.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -290,7 +290,7 @@ this MethodReflector treats all method names as case insensitive.</p>
 
 <dl class="py method">
 <dt id="pip_services3_commons.reflect.MethodReflector.invoke_method">
-<em class="property">static </em><code class="sig-name descname">invoke_method</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">obj</span></em>, <em class="sig-param"><span class="n">name</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.reflect.MethodReflector.invoke_method" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="sig-name descname">invoke_method</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">obj</span><span class="p">:</span> <span class="n">Any</span></em>, <em class="sig-param"><span class="n">name</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="n">Any</span></em><span class="sig-paren">)</span> &#x2192; Any<a class="headerlink" href="#pip_services3_commons.reflect.MethodReflector.invoke_method" title="Permalink to this definition">¶</a></dt>
 <dd><p>Invokes an object method by its name with specified parameters.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -319,7 +319,7 @@ this ObjectReader is also able to handle maps and arrays.</p>
 For arrays properties are elements identified by integer index.</p>
 <p>This class has symmetric implementation across all languages supported
 by Pip.Services toolkit and used to support dynamic data processing.</p>
-<p>Because all languages have different casing and case sensitivity rules,
+<p>Because all languages have different casing and case sensitivity __rules,
 this ObjectReader treats all property names as case insensitive.</p>
 <p>Example:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">myObj</span> <span class="o">=</span> <span class="n">MyObject</span><span class="p">()</span>
@@ -327,20 +327,20 @@ this ObjectReader treats all property names as case insensitive.</p>
 <span class="n">properties</span> <span class="o">=</span> <span class="n">ObjectReader</span><span class="o">.</span><span class="n">get_property_names</span><span class="p">()</span>
 
 <span class="n">ObjectReader</span><span class="o">.</span><span class="n">has_property</span><span class="p">(</span><span class="n">myObj</span><span class="p">,</span> <span class="s2">&quot;myProperty&quot;</span><span class="p">)</span>
-<span class="n">value</span> <span class="o">=</span> <span class="n">PropertyReflector</span><span class="o">.</span><span class="n">get_property</span><span class="p">(</span><span class="n">myObj</span><span class="p">,</span> <span class="s2">&quot;myProperty&quot;</span><span class="p">)</span>
+<span class="n">args</span> <span class="o">=</span> <span class="n">PropertyReflector</span><span class="o">.</span><span class="n">get_property</span><span class="p">(</span><span class="n">myObj</span><span class="p">,</span> <span class="s2">&quot;myProperty&quot;</span><span class="p">)</span>
 
 <span class="n">myMap</span> <span class="o">=</span> <span class="p">{</span> <span class="n">key1</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span> <span class="n">key2</span><span class="p">:</span> <span class="s2">&quot;ABC&quot;</span> <span class="p">}</span>
 <span class="n">ObjectReader</span><span class="o">.</span><span class="n">has_property</span><span class="p">(</span><span class="n">myMap</span><span class="p">,</span> <span class="s2">&quot;key1&quot;</span><span class="p">)</span>
-<span class="n">value</span> <span class="o">=</span> <span class="n">ObjectReader</span><span class="o">.</span><span class="n">get_property</span><span class="p">(</span><span class="n">myMap</span><span class="p">,</span> <span class="s2">&quot;key1&quot;</span><span class="p">)</span>
+<span class="n">args</span> <span class="o">=</span> <span class="n">ObjectReader</span><span class="o">.</span><span class="n">get_property</span><span class="p">(</span><span class="n">myMap</span><span class="p">,</span> <span class="s2">&quot;key1&quot;</span><span class="p">)</span>
 
 <span class="n">myArray</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
 <span class="n">ObjectReader</span><span class="o">.</span><span class="n">has_property</span><span class="p">(</span><span class="n">myArrat</span><span class="p">,</span> <span class="s2">&quot;0&quot;</span><span class="p">)</span>
-<span class="n">value</span> <span class="o">=</span> <span class="n">ObjectReader</span><span class="o">.</span><span class="n">get_property</span><span class="p">(</span><span class="n">myArray</span><span class="p">,</span> <span class="s2">&quot;0&quot;</span><span class="p">)</span>
+<span class="n">args</span> <span class="o">=</span> <span class="n">ObjectReader</span><span class="o">.</span><span class="n">get_property</span><span class="p">(</span><span class="n">myArray</span><span class="p">,</span> <span class="s2">&quot;0&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <dl class="py method">
 <dt id="pip_services3_commons.reflect.ObjectReader.get_properties">
-<em class="property">static </em><code class="sig-name descname">get_properties</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">obj</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.reflect.ObjectReader.get_properties" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="sig-name descname">get_properties</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">obj</span><span class="p">:</span> <span class="n">Any</span></em><span class="sig-paren">)</span> &#x2192; Any<a class="headerlink" href="#pip_services3_commons.reflect.ObjectReader.get_properties" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get values of all properties in specified object and returns them as a map.</p>
 <p>The object can be a user defined object, map or array.
 Returned properties correspondently are object properties, map key-pairs or array elements with their indexes.</p>
@@ -356,8 +356,8 @@ Returned properties correspondently are object properties, map key-pairs or arra
 
 <dl class="py method">
 <dt id="pip_services3_commons.reflect.ObjectReader.get_property">
-<em class="property">static </em><code class="sig-name descname">get_property</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">obj</span></em>, <em class="sig-param"><span class="n">name</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.reflect.ObjectReader.get_property" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gets value of object property specified by its name.</p>
+<em class="property">static </em><code class="sig-name descname">get_property</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">obj</span><span class="p">:</span> <span class="n">Any</span></em>, <em class="sig-param"><span class="n">name</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></span></em><span class="sig-paren">)</span> &#x2192; Any<a class="headerlink" href="#pip_services3_commons.reflect.ObjectReader.get_property" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets args of object property specified by its name.</p>
 <p>The object can be a user defined object, map or array.
 The property name correspondently must be object property, map key or array index.</p>
 <dl class="field-list simple">
@@ -368,14 +368,14 @@ The property name correspondently must be object property, map key or array inde
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>the property value or null if property doesn’t exist or introspection failed.</p>
+<dd class="field-even"><p>the property args or null if property doesn’t exist or introspection failed.</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt id="pip_services3_commons.reflect.ObjectReader.get_property_names">
-<em class="property">static </em><code class="sig-name descname">get_property_names</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">obj</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.reflect.ObjectReader.get_property_names" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="sig-name descname">get_property_names</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">obj</span><span class="p">:</span> <span class="n">Any</span></em><span class="sig-paren">)</span> &#x2192; List<span class="p">[</span><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a><span class="p">]</span><a class="headerlink" href="#pip_services3_commons.reflect.ObjectReader.get_property_names" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets names of all properties implemented in specified object.</p>
 <p>The object can be a user defined object, map or array.
 Returned property name correspondently are object properties, map keys or array indexes.</p>
@@ -391,22 +391,22 @@ Returned property name correspondently are object properties, map keys or array 
 
 <dl class="py method">
 <dt id="pip_services3_commons.reflect.ObjectReader.get_value">
-<em class="property">static </em><code class="sig-name descname">get_value</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">obj</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.reflect.ObjectReader.get_value" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gets a real object value. If object is a wrapper, it unwraps the value behind it.
-Otherwise it returns the same object value.</p>
+<em class="property">static </em><code class="sig-name descname">get_value</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">obj</span><span class="p">:</span> <span class="n">Any</span></em><span class="sig-paren">)</span> &#x2192; Any<a class="headerlink" href="#pip_services3_commons.reflect.ObjectReader.get_value" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a real object args. If object is a wrapper, it unwraps the args behind it.
+Otherwise it returns the same object args.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>obj</strong> – an object to unwrap.</p>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>an actual (unwrapped) object value.</p>
+<dd class="field-even"><p>an actual (unwrapped) object args.</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt id="pip_services3_commons.reflect.ObjectReader.has_property">
-<em class="property">static </em><code class="sig-name descname">has_property</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">obj</span></em>, <em class="sig-param"><span class="n">name</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.reflect.ObjectReader.has_property" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="sig-name descname">has_property</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">obj</span><span class="p">:</span> <span class="n">Any</span></em>, <em class="sig-param"><span class="n">name</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="http://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)">bool</a><a class="headerlink" href="#pip_services3_commons.reflect.ObjectReader.has_property" title="Permalink to this definition">¶</a></dt>
 <dd><p>Checks if object has a property with specified name.</p>
 <p>The object can be a user defined object, map or array.
 The property name correspondently must be object property, map key or array index.</p>
@@ -436,7 +436,7 @@ For maps properties are key-pairs identified by string keys,
 For arrays properties are elements identified by integer index.</p>
 <p>This class has symmetric implementation across all languages supported
 by Pip.Services toolkit and used to support dynamic data processing.</p>
-<p>Because all languages have different casing and case sensitivity rules,
+<p>Because all languages have different casing and case sensitivity __rules,
 this ObjectWriter treats all property names as case insensitive.</p>
 <p>Example:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">myObj</span> <span class="o">=</span> <span class="n">MyObject</span><span class="p">()</span>
@@ -451,7 +451,7 @@ this ObjectWriter treats all property names as case insensitive.</p>
 </div>
 <dl class="py method">
 <dt id="pip_services3_commons.reflect.ObjectWriter.set_properties">
-<em class="property">static </em><code class="sig-name descname">set_properties</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">obj</span></em>, <em class="sig-param"><span class="n">values</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.reflect.ObjectWriter.set_properties" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="sig-name descname">set_properties</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">obj</span><span class="p">:</span> <span class="n">Any</span></em>, <em class="sig-param"><span class="n">values</span><span class="p">:</span> <span class="n">Any</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.reflect.ObjectWriter.set_properties" title="Permalink to this definition">¶</a></dt>
 <dd><p>Sets values of some (all) object properties.</p>
 <p>The object can be a user defined object, map or array.
 Property values correspondently are object properties, map key-pairs or array elements with their indexes.</p>
@@ -468,8 +468,8 @@ Property values correspondently are object properties, map key-pairs or array el
 
 <dl class="py method">
 <dt id="pip_services3_commons.reflect.ObjectWriter.set_property">
-<em class="property">static </em><code class="sig-name descname">set_property</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">obj</span></em>, <em class="sig-param"><span class="n">name</span></em>, <em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.reflect.ObjectWriter.set_property" title="Permalink to this definition">¶</a></dt>
-<dd><p>ets value of object property specified by its name.</p>
+<em class="property">static </em><code class="sig-name descname">set_property</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">obj</span><span class="p">:</span> <span class="n">Any</span></em>, <em class="sig-param"><span class="n">name</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></span></em>, <em class="sig-param"><span class="n">value</span><span class="p">:</span> <span class="n">Any</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.reflect.ObjectWriter.set_property" title="Permalink to this definition">¶</a></dt>
+<dd><p>ets args of object property specified by its name.</p>
 <p>The object can be a user defined object, map or array.
 The property name correspondently must be object property, map key or array index.</p>
 <p>If the property does not exist or introspection fails
@@ -479,7 +479,7 @@ this method doesn’t do anything and doesn’t any throw errors.</p>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>obj</strong> – an object to write property to.</p></li>
 <li><p><strong>name</strong> – a name of the property to set.</p></li>
-<li><p><strong>value</strong> – a new value for the property to set.</p></li>
+<li><p><strong>value</strong> – a new args for the property to set.</p></li>
 </ul>
 </dd>
 </dl>
@@ -494,7 +494,7 @@ this method doesn’t do anything and doesn’t any throw errors.</p>
 <p>Helper class to perform property introspection and dynamic reading and writing.</p>
 <p>This class has symmetric implementation across all languages supported
 by Pip.Services toolkit and used to support dynamic data processing.</p>
-<p>Because all languages have different casing and case sensitivity rules,
+<p>Because all languages have different casing and case sensitivity __rules,
 this PropertyReflector treats all property names as case insensitive.</p>
 <p>Example:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">myObj</span> <span class="o">=</span> <span class="n">MyObject</span><span class="p">()</span>
@@ -502,13 +502,13 @@ this PropertyReflector treats all property names as case insensitive.</p>
 <span class="n">properties</span> <span class="o">=</span> <span class="n">PropertyReflector</span><span class="o">.</span><span class="n">get_property_names</span><span class="p">()</span>
 <span class="n">PropertyReflector</span><span class="o">.</span><span class="n">has_property</span><span class="p">(</span><span class="n">myObj</span><span class="p">,</span> <span class="s2">&quot;myProperty&quot;</span><span class="p">)</span>
 
-<span class="n">value</span> <span class="o">=</span> <span class="n">PropertyReflector</span><span class="o">.</span><span class="n">get_property</span><span class="p">(</span><span class="n">myObj</span><span class="p">,</span> <span class="s2">&quot;myProperty&quot;</span><span class="p">)</span>
+<span class="n">args</span> <span class="o">=</span> <span class="n">PropertyReflector</span><span class="o">.</span><span class="n">get_property</span><span class="p">(</span><span class="n">myObj</span><span class="p">,</span> <span class="s2">&quot;myProperty&quot;</span><span class="p">)</span>
 <span class="n">PropertyReflector</span><span class="o">.</span><span class="n">set_property</span><span class="p">(</span><span class="n">myObj</span><span class="p">,</span> <span class="s2">&quot;myProperty&quot;</span><span class="p">,</span> <span class="mi">123</span><span class="p">)</span>
 </pre></div>
 </div>
 <dl class="py method">
 <dt id="pip_services3_commons.reflect.PropertyReflector.get_properties">
-<em class="property">static </em><code class="sig-name descname">get_properties</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">obj</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.reflect.PropertyReflector.get_properties" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="sig-name descname">get_properties</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">obj</span><span class="p">:</span> <span class="n">Any</span></em><span class="sig-paren">)</span> &#x2192; Any<a class="headerlink" href="#pip_services3_commons.reflect.PropertyReflector.get_properties" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get values of all properties in specified object and returns them as a map.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -522,8 +522,8 @@ this PropertyReflector treats all property names as case insensitive.</p>
 
 <dl class="py method">
 <dt id="pip_services3_commons.reflect.PropertyReflector.get_property">
-<em class="property">static </em><code class="sig-name descname">get_property</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">obj</span></em>, <em class="sig-param"><span class="n">name</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.reflect.PropertyReflector.get_property" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gets value of object property specified by its name.</p>
+<em class="property">static </em><code class="sig-name descname">get_property</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">obj</span><span class="p">:</span> <span class="n">Any</span></em>, <em class="sig-param"><span class="n">name</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></span></em><span class="sig-paren">)</span> &#x2192; Any<a class="headerlink" href="#pip_services3_commons.reflect.PropertyReflector.get_property" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets args of object property specified by its name.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -532,14 +532,14 @@ this PropertyReflector treats all property names as case insensitive.</p>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>the property value or null if property doesn’t exist or introspection failed.</p>
+<dd class="field-even"><p>the property args or null if property doesn’t exist or introspection failed.</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt id="pip_services3_commons.reflect.PropertyReflector.get_property_names">
-<em class="property">static </em><code class="sig-name descname">get_property_names</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">obj</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.reflect.PropertyReflector.get_property_names" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="sig-name descname">get_property_names</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">obj</span><span class="p">:</span> <span class="n">Any</span></em><span class="sig-paren">)</span> &#x2192; List<span class="p">[</span><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a><span class="p">]</span><a class="headerlink" href="#pip_services3_commons.reflect.PropertyReflector.get_property_names" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets names of all properties implemented in specified object.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -553,7 +553,7 @@ this PropertyReflector treats all property names as case insensitive.</p>
 
 <dl class="py method">
 <dt id="pip_services3_commons.reflect.PropertyReflector.has_property">
-<em class="property">static </em><code class="sig-name descname">has_property</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">obj</span></em>, <em class="sig-param"><span class="n">name</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.reflect.PropertyReflector.has_property" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="sig-name descname">has_property</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">obj</span><span class="p">:</span> <span class="n">Any</span></em>, <em class="sig-param"><span class="n">name</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="http://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)">bool</a><a class="headerlink" href="#pip_services3_commons.reflect.PropertyReflector.has_property" title="Permalink to this definition">¶</a></dt>
 <dd><p>Checks if object has a property with specified name.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -570,7 +570,7 @@ this PropertyReflector treats all property names as case insensitive.</p>
 
 <dl class="py method">
 <dt id="pip_services3_commons.reflect.PropertyReflector.set_properties">
-<em class="property">static </em><code class="sig-name descname">set_properties</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">obj</span></em>, <em class="sig-param"><span class="n">values</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.reflect.PropertyReflector.set_properties" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="sig-name descname">set_properties</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">obj</span><span class="p">:</span> <span class="n">Any</span></em>, <em class="sig-param"><span class="n">values</span><span class="p">:</span> <span class="n">Any</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.reflect.PropertyReflector.set_properties" title="Permalink to this definition">¶</a></dt>
 <dd><p>Sets values of some (all) object properties.</p>
 <p>If some properties do not exist or introspection fails
 they are just silently skipped and no errors thrown.</p>
@@ -586,8 +586,8 @@ they are just silently skipped and no errors thrown.</p>
 
 <dl class="py method">
 <dt id="pip_services3_commons.reflect.PropertyReflector.set_property">
-<em class="property">static </em><code class="sig-name descname">set_property</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">obj</span></em>, <em class="sig-param"><span class="n">name</span></em>, <em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.reflect.PropertyReflector.set_property" title="Permalink to this definition">¶</a></dt>
-<dd><p>Sets value of object property specified by its name.</p>
+<em class="property">static </em><code class="sig-name descname">set_property</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">obj</span><span class="p">:</span> <span class="n">Any</span></em>, <em class="sig-param"><span class="n">name</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></span></em>, <em class="sig-param"><span class="n">value</span><span class="p">:</span> <span class="n">Any</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.reflect.PropertyReflector.set_property" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets args of object property specified by its name.</p>
 <p>If the property does not exist or introspection fails
 this method doesn’t do anything and doesn’t any throw errors.</p>
 <dl class="field-list simple">
@@ -595,7 +595,7 @@ this method doesn’t do anything and doesn’t any throw errors.</p>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>obj</strong> – an object to write property to.</p></li>
 <li><p><strong>name</strong> – a name of the property to set.</p></li>
-<li><p><strong>value</strong> – a new value for the property to set.</p></li>
+<li><p><strong>value</strong> – a new args for the property to set.</p></li>
 </ul>
 </dd>
 </dl>
@@ -613,7 +613,7 @@ through the entire object graph. Nested property names are defined
 using dot notation as “object.subobject.property”</p>
 <dl class="py method">
 <dt id="pip_services3_commons.reflect.RecursiveObjectReader.get_properties">
-<em class="property">static </em><code class="sig-name descname">get_properties</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">obj</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.reflect.RecursiveObjectReader.get_properties" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="sig-name descname">get_properties</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">obj</span><span class="p">:</span> <span class="n">Any</span></em><span class="sig-paren">)</span> &#x2192; Any<a class="headerlink" href="#pip_services3_commons.reflect.RecursiveObjectReader.get_properties" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get values of all properties in specified object and its subobjects and returns them as a map.</p>
 <p>The object can be a user defined object, map or array.
 Returned properties correspondently are object properties, map key-pairs or array elements with their indexes.</p>
@@ -629,8 +629,8 @@ Returned properties correspondently are object properties, map key-pairs or arra
 
 <dl class="py method">
 <dt id="pip_services3_commons.reflect.RecursiveObjectReader.get_property">
-<em class="property">static </em><code class="sig-name descname">get_property</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">obj</span></em>, <em class="sig-param"><span class="n">name</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.reflect.RecursiveObjectReader.get_property" title="Permalink to this definition">¶</a></dt>
-<dd><p>Recursively gets value of object or its subobjects property specified by its name.</p>
+<em class="property">static </em><code class="sig-name descname">get_property</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">obj</span><span class="p">:</span> <span class="n">Any</span></em>, <em class="sig-param"><span class="n">name</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></span></em><span class="sig-paren">)</span> &#x2192; Any<a class="headerlink" href="#pip_services3_commons.reflect.RecursiveObjectReader.get_property" title="Permalink to this definition">¶</a></dt>
+<dd><p>Recursively gets args of object or its subobjects property specified by its name.</p>
 <p>The object can be a user defined object, map or array.
 The property name correspondently must be object property, map key or array index.</p>
 <dl class="field-list simple">
@@ -641,14 +641,14 @@ The property name correspondently must be object property, map key or array inde
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>the property value or null if property doesn’t exist or introspection failed.</p>
+<dd class="field-even"><p>the property args or null if property doesn’t exist or introspection failed.</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt id="pip_services3_commons.reflect.RecursiveObjectReader.get_property_names">
-<em class="property">static </em><code class="sig-name descname">get_property_names</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">obj</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.reflect.RecursiveObjectReader.get_property_names" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="sig-name descname">get_property_names</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">obj</span><span class="p">:</span> <span class="n">Any</span></em><span class="sig-paren">)</span> &#x2192; List<span class="p">[</span><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a><span class="p">]</span><a class="headerlink" href="#pip_services3_commons.reflect.RecursiveObjectReader.get_property_names" title="Permalink to this definition">¶</a></dt>
 <dd><p>Recursively gets names of all properties implemented in specified object and its subobjects.</p>
 <p>The object can be a user defined object, map or array.
 Returned property name correspondently are object properties, map keys or array indexes.</p>
@@ -664,7 +664,7 @@ Returned property name correspondently are object properties, map keys or array 
 
 <dl class="py method">
 <dt id="pip_services3_commons.reflect.RecursiveObjectReader.has_property">
-<em class="property">static </em><code class="sig-name descname">has_property</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">obj</span></em>, <em class="sig-param"><span class="n">name</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.reflect.RecursiveObjectReader.has_property" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="sig-name descname">has_property</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">obj</span><span class="p">:</span> <span class="n">Any</span></em>, <em class="sig-param"><span class="n">name</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="http://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)">bool</a><a class="headerlink" href="#pip_services3_commons.reflect.RecursiveObjectReader.has_property" title="Permalink to this definition">¶</a></dt>
 <dd><p>Checks recursively if object or its subobjects has a property with specified name.</p>
 <p>The object can be a user defined object, map or array.
 The property name correspondently must be object property, map key or array index.</p>
@@ -693,7 +693,7 @@ through the entire object graph. Nested property names are defined
 using dot notation as “object.subobject.property”</p>
 <dl class="py method">
 <dt id="pip_services3_commons.reflect.RecursiveObjectWriter.copy_properties">
-<em class="property">static </em><code class="sig-name descname">copy_properties</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dest</span></em>, <em class="sig-param"><span class="n">src</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.reflect.RecursiveObjectWriter.copy_properties" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="sig-name descname">copy_properties</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dest</span><span class="p">:</span> <span class="n">Any</span></em>, <em class="sig-param"><span class="n">src</span><span class="p">:</span> <span class="n">Any</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.reflect.RecursiveObjectWriter.copy_properties" title="Permalink to this definition">¶</a></dt>
 <dd><p>Copies content of one object to another object
 by recursively reading all properties from source object
 and then recursively writing them to destination object.</p>
@@ -709,7 +709,7 @@ and then recursively writing them to destination object.</p>
 
 <dl class="py method">
 <dt id="pip_services3_commons.reflect.RecursiveObjectWriter.set_properties">
-<em class="property">static </em><code class="sig-name descname">set_properties</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">obj</span></em>, <em class="sig-param"><span class="n">values</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.reflect.RecursiveObjectWriter.set_properties" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="sig-name descname">set_properties</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">obj</span><span class="p">:</span> <span class="n">Any</span></em>, <em class="sig-param"><span class="n">values</span><span class="p">:</span> <span class="n">Any</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.reflect.RecursiveObjectWriter.set_properties" title="Permalink to this definition">¶</a></dt>
 <dd><p>Recursively sets values of some (all) object and its subobjects properties.</p>
 <p>The object can be a user defined object, map or array.
 Property values correspondently are object properties, map key-pairs or array elements with their indexes.</p>
@@ -726,8 +726,8 @@ Property values correspondently are object properties, map key-pairs or array el
 
 <dl class="py method">
 <dt id="pip_services3_commons.reflect.RecursiveObjectWriter.set_property">
-<em class="property">static </em><code class="sig-name descname">set_property</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">obj</span></em>, <em class="sig-param"><span class="n">name</span></em>, <em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.reflect.RecursiveObjectWriter.set_property" title="Permalink to this definition">¶</a></dt>
-<dd><p>Recursively sets value of object and its subobjects property specified by its name.</p>
+<em class="property">static </em><code class="sig-name descname">set_property</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">obj</span><span class="p">:</span> <span class="n">Any</span></em>, <em class="sig-param"><span class="n">name</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></span></em>, <em class="sig-param"><span class="n">value</span><span class="p">:</span> <span class="n">Any</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.reflect.RecursiveObjectWriter.set_property" title="Permalink to this definition">¶</a></dt>
+<dd><p>Recursively sets args of object and its subobjects property specified by its name.</p>
 <p>The object can be a user defined object, map or array.
 The property name correspondently must be object property, map key or array index.</p>
 <p>If the property does not exist or introspection fails
@@ -737,7 +737,7 @@ this method doesn’t do anything and doesn’t any throw errors.</p>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>obj</strong> – an object to write property to.</p></li>
 <li><p><strong>name</strong> – a name of the property to set.</p></li>
-<li><p><strong>value</strong> – a new value for the property to set.</p></li>
+<li><p><strong>value</strong> – a new args for the property to set.</p></li>
 </ul>
 </dd>
 </dl>
@@ -747,15 +747,31 @@ this method doesn’t do anything and doesn’t any throw errors.</p>
 
 <dl class="py class">
 <dt id="pip_services3_commons.reflect.TypeDescriptor">
-<em class="property">class </em><code class="sig-prename descclassname">pip_services3_commons.reflect.</code><code class="sig-name descname">TypeDescriptor</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span></em>, <em class="sig-param"><span class="n">library</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.reflect.TypeDescriptor" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">pip_services3_commons.reflect.</code><code class="sig-name descname">TypeDescriptor</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></span></em>, <em class="sig-param"><span class="n">library</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a><span class="p">]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.reflect.TypeDescriptor" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="http://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>Descriptor that points to specific object type by it’s name
 and optional library (or module) where this type is defined.</p>
 <p>This class has symmetric implementation across all languages supported
 by Pip.Services toolkit and used to support dynamic data processing.</p>
 <dl class="py method">
+<dt id="pip_services3_commons.reflect.TypeDescriptor.equals">
+<code class="sig-name descname">equals</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">other</span><span class="p">:</span> <span class="n">Any</span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="http://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)">bool</a><a class="headerlink" href="#pip_services3_commons.reflect.TypeDescriptor.equals" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compares this descriptor to a args.
+If the args is also a TypeDescriptor it compares their name and library fields.
+Otherwise this method returns false.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>other</strong> – a args to compare.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>true if args is identical TypeDescriptor and false otherwise.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt id="pip_services3_commons.reflect.TypeDescriptor.from_string">
-<em class="property">static </em><code class="sig-name descname">from_string</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.reflect.TypeDescriptor.from_string" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="sig-name descname">from_string</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></span></em><span class="sig-paren">)</span> &#x2192; Optional<span class="p">[</span><a class="reference internal" href="pip_services3_commons.reflect.TypeDescriptor.html#pip_services3_commons.reflect.TypeDescriptor.TypeDescriptor" title="pip_services3_commons.reflect.TypeDescriptor.TypeDescriptor">pip_services3_commons.reflect.TypeDescriptor.TypeDescriptor</a><span class="p">]</span><a class="headerlink" href="#pip_services3_commons.reflect.TypeDescriptor.from_string" title="Permalink to this definition">¶</a></dt>
 <dd><p>Parses a string to get descriptor fields and returns them as a Descriptor.
 The string must have format name[,library]</p>
 <dl class="field-list simple">
@@ -770,7 +786,7 @@ The string must have format name[,library]</p>
 
 <dl class="py method">
 <dt id="pip_services3_commons.reflect.TypeDescriptor.get_library">
-<code class="sig-name descname">get_library</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.reflect.TypeDescriptor.get_library" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_library</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a><a class="headerlink" href="#pip_services3_commons.reflect.TypeDescriptor.get_library" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets the name of the library or module where the object type is defined.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -781,11 +797,22 @@ The string must have format name[,library]</p>
 
 <dl class="py method">
 <dt id="pip_services3_commons.reflect.TypeDescriptor.get_name">
-<code class="sig-name descname">get_name</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.reflect.TypeDescriptor.get_name" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_name</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a><a class="headerlink" href="#pip_services3_commons.reflect.TypeDescriptor.get_name" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the name of the object type.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p>the name of the object type.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pip_services3_commons.reflect.TypeDescriptor.to_string">
+<code class="sig-name descname">to_string</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.reflect.TypeDescriptor.to_string" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a string representation of the object. The result has format name[,library]</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>a string representation of the object.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -796,12 +823,12 @@ The string must have format name[,library]</p>
 <dt id="pip_services3_commons.reflect.TypeMatcher">
 <em class="property">class </em><code class="sig-prename descclassname">pip_services3_commons.reflect.</code><code class="sig-name descname">TypeMatcher</code><a class="headerlink" href="#pip_services3_commons.reflect.TypeMatcher" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="http://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
-<p>Helper class matches value types for equality.</p>
+<p>Helper class matches args types for equality.</p>
 <p>This class has symmetric implementation across all languages supported
 by Pip.Services toolkit and used to support dynamic data processing.</p>
 <dl class="py method">
 <dt id="pip_services3_commons.reflect.TypeMatcher.match_type">
-<em class="property">static </em><code class="sig-name descname">match_type</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">expected_type</span></em>, <em class="sig-param"><span class="n">actual_type</span></em>, <em class="sig-param"><span class="n">actual_value</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.reflect.TypeMatcher.match_type" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="sig-name descname">match_type</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">expected_type</span><span class="p">:</span> <span class="n">Any</span></em>, <em class="sig-param"><span class="n">actual_type</span><span class="p">:</span> <span class="n"><a class="reference internal" href="pip_services3_commons.convert.TypeCode.html#pip_services3_commons.convert.TypeCode.TypeCode" title="pip_services3_commons.convert.TypeCode.TypeCode">pip_services3_commons.convert.TypeCode.TypeCode</a></span></em>, <em class="sig-param"><span class="n">actual_value</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="http://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)">bool</a><a class="headerlink" href="#pip_services3_commons.reflect.TypeMatcher.match_type" title="Permalink to this definition">¶</a></dt>
 <dd><p>Matches expected type to an actual type.
 The types can be specified as types, type names or <a class="reference internal" href="pip_services3_commons.convert.TypeCode.html#pip_services3_commons.convert.TypeCode.TypeCode" title="pip_services3_commons.convert.TypeCode.TypeCode"><code class="xref py py-class docutils literal notranslate"><span class="pre">TypeCode</span></code></a>.</p>
 <dl class="field-list simple">
@@ -809,7 +836,7 @@ The types can be specified as types, type names or <a class="reference internal"
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>expected_type</strong> – an expected type to match.</p></li>
 <li><p><strong>actual_type</strong> – an actual type to match.</p></li>
-<li><p><strong>actual_value</strong> – an optional value to match its type to the expected one.</p></li>
+<li><p><strong>actual_value</strong> – an optional args to match its type to the expected one.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -820,14 +847,14 @@ The types can be specified as types, type names or <a class="reference internal"
 
 <dl class="py method">
 <dt id="pip_services3_commons.reflect.TypeMatcher.match_type_by_name">
-<em class="property">static </em><code class="sig-name descname">match_type_by_name</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">expected_type</span></em>, <em class="sig-param"><span class="n">actual_type</span></em>, <em class="sig-param"><span class="n">actual_value</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.reflect.TypeMatcher.match_type_by_name" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="sig-name descname">match_type_by_name</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">expected_type</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></span></em>, <em class="sig-param"><span class="n">actual_type</span><span class="p">:</span> <span class="n"><a class="reference internal" href="pip_services3_commons.convert.TypeCode.html#pip_services3_commons.convert.TypeCode.TypeCode" title="pip_services3_commons.convert.TypeCode.TypeCode">pip_services3_commons.convert.TypeCode.TypeCode</a></span></em>, <em class="sig-param"><span class="n">actual_value</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="http://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)">bool</a><a class="headerlink" href="#pip_services3_commons.reflect.TypeMatcher.match_type_by_name" title="Permalink to this definition">¶</a></dt>
 <dd><p>Matches expected type to an actual type.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>expected_type</strong> – an expected type name to match.</p></li>
 <li><p><strong>actual_type</strong> – an actual type to match defined by type code.</p></li>
-<li><p><strong>actual_value</strong> – an optional value to match its type to the expected one.</p></li>
+<li><p><strong>actual_value</strong> – an optional args to match its type to the expected one.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -837,15 +864,15 @@ The types can be specified as types, type names or <a class="reference internal"
 </dd></dl>
 
 <dl class="py method">
-<dt id="pip_services3_commons.reflect.TypeMatcher.match_value">
-<em class="property">static </em><code class="sig-name descname">match_value</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">expected_type</span></em>, <em class="sig-param"><span class="n">actual_value</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.reflect.TypeMatcher.match_value" title="Permalink to this definition">¶</a></dt>
-<dd><p>Matches expected type to a type of a value.
+<dt id="pip_services3_commons.reflect.TypeMatcher.match_value_type">
+<em class="property">static </em><code class="sig-name descname">match_value_type</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">expected_type</span><span class="p">:</span> <span class="n">Any</span></em>, <em class="sig-param"><span class="n">actual_value</span><span class="p">:</span> <span class="n">Any</span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="http://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)">bool</a><a class="headerlink" href="#pip_services3_commons.reflect.TypeMatcher.match_value_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Matches expected type to a type of a args.
 The expected type can be specified by a type, type name or <a class="reference internal" href="pip_services3_commons.convert.TypeCode.html#pip_services3_commons.convert.TypeCode.TypeCode" title="pip_services3_commons.convert.TypeCode.TypeCode"><code class="xref py py-class docutils literal notranslate"><span class="pre">TypeCode</span></code></a>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>expected_type</strong> – an expected type to match.</p></li>
-<li><p><strong>actual_value</strong> – a value to match its type to the expected one.</p></li>
+<li><p><strong>actual_value</strong> – a args to match its type to the expected one.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -856,13 +883,13 @@ The expected type can be specified by a type, type name or <a class="reference i
 
 <dl class="py method">
 <dt id="pip_services3_commons.reflect.TypeMatcher.match_value_type_by_name">
-<em class="property">static </em><code class="sig-name descname">match_value_type_by_name</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">expected_type</span></em>, <em class="sig-param"><span class="n">actual_value</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.reflect.TypeMatcher.match_value_type_by_name" title="Permalink to this definition">¶</a></dt>
-<dd><p>Matches expected type to a type of a value.</p>
+<em class="property">static </em><code class="sig-name descname">match_value_type_by_name</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">expected_type</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></span></em>, <em class="sig-param"><span class="n">actual_value</span><span class="p">:</span> <span class="n">Any</span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="http://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)">bool</a><a class="headerlink" href="#pip_services3_commons.reflect.TypeMatcher.match_value_type_by_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Matches expected type to a type of a args.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>expected_type</strong> – an expected type name to match.</p></li>
-<li><p><strong>actual_value</strong> – a value to match its type to the expected one.</p></li>
+<li><p><strong>actual_value</strong> – a args to match its type to the expected one.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -880,7 +907,7 @@ The expected type can be specified by a type, type name or <a class="reference i
 <p>Helper class to perform object type introspection and object instantiation.</p>
 <p>This class has symmetric implementation across all languages supported
 by Pip.Services toolkit and used to support dynamic data processing.</p>
-<p>Because all languages have different casing and case sensitivity rules,
+<p>Because all languages have different casing and case sensitivity __rules,
 this TypeReflector treats all type names as case insensitive.</p>
 <p>Example:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">descriptor</span> <span class="o">=</span> <span class="n">TypeDescriptor</span><span class="p">(</span><span class="s2">&quot;MyObject&quot;</span><span class="p">,</span> <span class="s2">&quot;mylibrary&quot;</span><span class="p">)</span>
@@ -892,7 +919,7 @@ this TypeReflector treats all type names as case insensitive.</p>
 </div>
 <dl class="py method">
 <dt id="pip_services3_commons.reflect.TypeReflector.create_instance">
-<em class="property">static </em><code class="sig-name descname">create_instance</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span></em>, <em class="sig-param"><span class="n">library</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.reflect.TypeReflector.create_instance" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="sig-name descname">create_instance</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></span></em>, <em class="sig-param"><span class="n">library</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="n">Any</span></em><span class="sig-paren">)</span> &#x2192; Any<a class="headerlink" href="#pip_services3_commons.reflect.TypeReflector.create_instance" title="Permalink to this definition">¶</a></dt>
 <dd><p>Creates an instance of an object type specified by its name and library where it is defined.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -910,7 +937,7 @@ this TypeReflector treats all type names as case insensitive.</p>
 
 <dl class="py method">
 <dt id="pip_services3_commons.reflect.TypeReflector.create_instance_by_descriptor">
-<em class="property">static </em><code class="sig-name descname">create_instance_by_descriptor</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">descriptor</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.reflect.TypeReflector.create_instance_by_descriptor" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="sig-name descname">create_instance_by_descriptor</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">descriptor</span><span class="p">:</span> <span class="n"><a class="reference internal" href="pip_services3_commons.reflect.TypeDescriptor.html#pip_services3_commons.reflect.TypeDescriptor.TypeDescriptor" title="pip_services3_commons.reflect.TypeDescriptor.TypeDescriptor">pip_services3_commons.reflect.TypeDescriptor.TypeDescriptor</a></span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="n">Any</span></em><span class="sig-paren">)</span> &#x2192; Any<a class="headerlink" href="#pip_services3_commons.reflect.TypeReflector.create_instance_by_descriptor" title="Permalink to this definition">¶</a></dt>
 <dd><p>Creates an instance of an object type specified by type descriptor.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -927,7 +954,7 @@ this TypeReflector treats all type names as case insensitive.</p>
 
 <dl class="py method">
 <dt id="pip_services3_commons.reflect.TypeReflector.create_instance_by_type">
-<em class="property">static </em><code class="sig-name descname">create_instance_by_type</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">obj_type</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.reflect.TypeReflector.create_instance_by_type" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="sig-name descname">create_instance_by_type</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">obj_type</span><span class="p">:</span> <span class="n">Any</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="n">Any</span></em><span class="sig-paren">)</span> &#x2192; Any<a class="headerlink" href="#pip_services3_commons.reflect.TypeReflector.create_instance_by_type" title="Permalink to this definition">¶</a></dt>
 <dd><p>Creates an instance of an object type.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -944,7 +971,7 @@ this TypeReflector treats all type names as case insensitive.</p>
 
 <dl class="py method">
 <dt id="pip_services3_commons.reflect.TypeReflector.get_type">
-<em class="property">static </em><code class="sig-name descname">get_type</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span></em>, <em class="sig-param"><span class="n">library</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.reflect.TypeReflector.get_type" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="sig-name descname">get_type</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></span></em>, <em class="sig-param"><span class="n">library</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></span></em><span class="sig-paren">)</span> &#x2192; Any<a class="headerlink" href="#pip_services3_commons.reflect.TypeReflector.get_type" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets object type by its name and library where it is defined.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -961,7 +988,7 @@ this TypeReflector treats all type names as case insensitive.</p>
 
 <dl class="py method">
 <dt id="pip_services3_commons.reflect.TypeReflector.get_type_by_descriptor">
-<em class="property">static </em><code class="sig-name descname">get_type_by_descriptor</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">descriptor</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.reflect.TypeReflector.get_type_by_descriptor" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="sig-name descname">get_type_by_descriptor</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">descriptor</span><span class="p">:</span> <span class="n"><a class="reference internal" href="pip_services3_commons.reflect.TypeDescriptor.html#pip_services3_commons.reflect.TypeDescriptor.TypeDescriptor" title="pip_services3_commons.reflect.TypeDescriptor.TypeDescriptor">pip_services3_commons.reflect.TypeDescriptor.TypeDescriptor</a></span></em><span class="sig-paren">)</span> &#x2192; Any<a class="headerlink" href="#pip_services3_commons.reflect.TypeReflector.get_type_by_descriptor" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets object type by type descriptor.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -975,16 +1002,16 @@ this TypeReflector treats all type names as case insensitive.</p>
 
 <dl class="py method">
 <dt id="pip_services3_commons.reflect.TypeReflector.is_primitive">
-<em class="property">static </em><code class="sig-name descname">is_primitive</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.reflect.TypeReflector.is_primitive" title="Permalink to this definition">¶</a></dt>
-<dd><p>Checks if value has primitive type.</p>
+<em class="property">static </em><code class="sig-name descname">is_primitive</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span><span class="p">:</span> <span class="n">Any</span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="http://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)">bool</a><a class="headerlink" href="#pip_services3_commons.reflect.TypeReflector.is_primitive" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks if args has primitive type.</p>
 <p>Primitive types are: numbers, strings, booleans, date and time.
 Complex (non-primitive types are): objects, maps and arrays</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>value</strong> – a value to check</p>
+<dd class="field-odd"><p><strong>value</strong> – a args to check</p>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>true if the value has primitive type and false if value type is complex.</p>
+<dd class="field-even"><p>true if the args has primitive type and false if args type is complex.</p>
 </dd>
 </dl>
 </dd></dl>

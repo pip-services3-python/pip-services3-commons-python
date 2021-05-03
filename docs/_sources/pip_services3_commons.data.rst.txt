@@ -27,6 +27,8 @@ Submodules
    pip_services3_commons.data.SortParams
    pip_services3_commons.data.StringValueMap
    pip_services3_commons.data.TagsProcessor
+   pip_services3_commons.data.TokenizedDataPage
+   pip_services3_commons.data.TokenizedPagingParams
 
 Module contents
 ---------------
