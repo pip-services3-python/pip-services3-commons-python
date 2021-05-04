@@ -8,7 +8,7 @@
     :copyright: Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.
     :license: MIT, see LICENSE for more details.
 """
-from typing import Any, List
+from typing import Any, List, Optional
 
 from .IOpenable import IOpenable
 
@@ -57,7 +57,7 @@ class Opener:
         return result
 
     @staticmethod
-    def open_one(correlation_id: str, component: Any):
+    def open_one(correlation_id: Optional[str], component: Any):
         """
         Opens specific component.
 
@@ -72,7 +72,7 @@ class Opener:
             component.open(correlation_id)
 
     @staticmethod
-    def open(correlation_id: str, components: List[Any]):
+    def open(correlation_id: Optional[str], components: List[Any]):
         """
         Opens multiple components.
 

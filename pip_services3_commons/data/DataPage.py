@@ -8,9 +8,9 @@
     :copyright: Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.
     :license: MIT, see LICENSE for more details.
 """
-from typing import TypeVar, Sequence
+from typing import Sequence, Any
 
-T = TypeVar('T')  # Declare type variable
+
 
 
 class DataPage:
@@ -39,7 +39,7 @@ class DataPage:
             print (item)
     """
 
-    def __init__(self, data: Sequence[T], total: int = None):
+    def __init__(self, data: Sequence[Any], total: int = None):
         """
         Creates a new instance of data page and assigns its values.
 
@@ -48,7 +48,7 @@ class DataPage:
         :param total: total amount of items in a request.
         """
         # The total amount of items in a request.
-        self.data: Sequence[T] = data
+        self.data: Sequence[Any] = data
         # The total amount of items in a request.
         self.total: int = total
 

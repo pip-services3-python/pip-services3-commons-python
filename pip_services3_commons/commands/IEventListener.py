@@ -9,6 +9,7 @@
     :license: MIT, see LICENSE for more details.
 """
 from abc import ABC
+from typing import Optional
 
 from pip_services3_commons.commands import IEvent
 
@@ -32,7 +33,7 @@ class IEventListener(ABC):
         event.notify("123", Parameters.from_tuples("param1", "ABC"))
     """
 
-    def on_event(self, correlation_id: str, event: IEvent, value: Parameters):
+    def on_event(self, correlation_id: Optional[str], event: IEvent, value: Parameters):
         """
         A method called when events this listener is subscrubed to are fired.
 

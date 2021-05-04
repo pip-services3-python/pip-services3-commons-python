@@ -40,6 +40,7 @@ class RandomDouble:
         """
         Updates (drifts) a double args within specified range defined
 
+        :param rrange:
         :param value: a double args to drift.
         :param range: (optional) a range. Default: 10% of the args
         """

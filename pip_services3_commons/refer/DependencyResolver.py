@@ -8,7 +8,7 @@
     :copyright: Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.
     :license: MIT, see LICENSE for more details.
 """
-from typing import Any, List, TypeVar, Optional
+from typing import Any, List, Optional
 
 from pip_services3_commons.config import ConfigParams
 from pip_services3_commons.refer.IReferences import IReferences
@@ -18,7 +18,7 @@ from ..convert.StringConverter import StringConverter
 from ..refer.Descriptor import Descriptor
 from ..refer.ReferenceException import ReferenceException
 
-T = TypeVar('T')  # Declare type variable
+
 
 
 class DependencyResolver(IReconfigurable, IReferenceable):
@@ -139,7 +139,7 @@ class DependencyResolver(IReconfigurable, IReferenceable):
 
         return self.__dependencies.get(name)
 
-    def get_optional(self, name: str) -> List[T]:
+    def get_optional(self, name: str) -> List[Any]:
         """
         Gets all optional dependencies by their name.
 
@@ -150,7 +150,7 @@ class DependencyResolver(IReconfigurable, IReferenceable):
         locator = self.__locate(name)
         return self.__references.get_optional(locator) if not (locator is None) else None
 
-    def get_required(self, name: str) -> List[T]:
+    def get_required(self, name: str) -> List[Any]:
         """
         Gets all __required dependencies by their name.
         At least one dependency must be present. If no dependencies was found it throws a :class:`ReferenceException <pip_services3_commons.refer.ReferenceException.ReferenceException>`
@@ -165,7 +165,7 @@ class DependencyResolver(IReconfigurable, IReferenceable):
 
         return self.__references.get_required(locator)
 
-    def get_one_optional(self, name: str) -> T:
+    def get_one_optional(self, name: str) -> Any:
         """
         Gets one optional dependency by its name.
 
@@ -176,7 +176,7 @@ class DependencyResolver(IReconfigurable, IReferenceable):
         locator = self.__locate(name)
         return self.__references.get_one_optional(locator) if not (locator is None) else None
 
-    def get_one_required(self, name: str) -> T:
+    def get_one_required(self, name: str) -> Any:
         """
         Gets one __required dependency by its name.
         At least one dependency must present. If the dependency was found it throws a :class:`ReferenceException <pip_services3_commons.refer.ReferenceException.ReferenceException>`
@@ -191,7 +191,7 @@ class DependencyResolver(IReconfigurable, IReferenceable):
 
         return self.__references.get_one_required(locator)
 
-    def find(self, name: str, required: bool) -> Optional[List[T]]:
+    def find(self, name: str, required: bool) -> Optional[List[Any]]:
         """
         Finds all matching dependencies by their name.
 

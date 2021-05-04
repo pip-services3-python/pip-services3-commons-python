@@ -11,13 +11,11 @@
 
 import json
 from datetime import datetime
-from typing import TypeVar, Any, Optional
+from typing import Any, Optional
 
 from pip_services3_commons.convert.TypeCode import TypeCode
 from .MapConverter import MapConverter
 from .TypeConverter import TypeConverter
-
-T = TypeVar('T')  # Declare type variable
 
 
 class JsonConverter:
@@ -33,7 +31,7 @@ class JsonConverter:
     """
 
     @staticmethod
-    def from_json(typ: TypeCode, value: str) -> T:
+    def from_json(typ: TypeCode, value: str) -> Any:
         """
         Converts JSON string into a args.
 

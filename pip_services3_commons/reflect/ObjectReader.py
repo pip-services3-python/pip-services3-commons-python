@@ -89,7 +89,7 @@ class ObjectReader:
             return False
         elif isinstance(obj, list) or isinstance(obj, tuple) or isinstance(obj, set):
             index = IntegerConverter.to_nullable_integer(name)
-            return index != None and index >= 0 and index < len(obj)
+            return index is not None and 0 <= index < len(obj)
         else:
             return PropertyReflector.has_property(obj, name)
 
@@ -119,7 +119,7 @@ class ObjectReader:
             return None
         elif isinstance(obj, list) or isinstance(obj, tuple) or isinstance(obj, set):
             index = IntegerConverter.to_nullable_integer(name)
-            if index != None and index >= 0 and index < len(obj):
+            if index is not None and 0 <= index < len(obj):
                 return obj[index]
             return None
         else:

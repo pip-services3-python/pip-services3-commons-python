@@ -196,7 +196,7 @@ class ConfigParams(StringValueMap):
         return ConfigParams(map)
 
     @staticmethod
-    def merge_configs(*configs: List['ConfigParams']):
+    def merge_configs(*configs: 'ConfigParams') -> 'ConfigParams':
         """
         Merges two or more ConfigParams into one. The following ConfigParams override previously defined parameters.
 

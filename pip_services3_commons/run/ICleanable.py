@@ -9,6 +9,7 @@
     :license: MIT, see LICENSE for more details.
 """
 from abc import ABC
+from typing import Optional
 
 
 class ICleanable(ABC):
@@ -26,7 +27,7 @@ class ICleanable(ABC):
                 self._state = {}
     """
 
-    def clear(self, correlation_id: str):
+    def clear(self, correlation_id: Optional[str]):
         """
         Clears component state.
 

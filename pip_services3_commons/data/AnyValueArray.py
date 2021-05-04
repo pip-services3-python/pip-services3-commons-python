@@ -9,7 +9,7 @@
     :license: MIT, see LICENSE for more details.
 """
 from datetime import datetime
-from typing import List, Any, Optional, TypeVar, Sequence
+from typing import List, Any, Optional, Sequence
 
 from pip_services3_commons.convert import DoubleConverter, TypeCode
 from pip_services3_commons.data import AnyValue, AnyValueMap
@@ -23,7 +23,7 @@ from ..convert.LongConverter import LongConverter
 from ..convert.StringConverter import StringConverter
 from ..convert.TypeConverter import TypeConverter
 
-T = TypeVar('T')  # Declare type variable
+
 
 
 class AnyValueArray(list, ICloneable):
@@ -389,7 +389,7 @@ class AnyValueArray(list, ICloneable):
         value = self[index]
         return DateTimeConverter.to_datetime_with_default(value, default_value)
 
-    def get_as_nullable_type(self, value_type: TypeCode, index: int) -> T:
+    def get_as_nullable_type(self, value_type: TypeCode, index: int) -> Any:
         """
         Converts array element into a args defined by specied typecode.
         If conversion is not possible it returns None.
@@ -403,7 +403,7 @@ class AnyValueArray(list, ICloneable):
         value = self[index]
         return TypeConverter.to_nullable_type(value_type, value)
 
-    def get_as_type(self, value_type: TypeCode, index: int) -> T:
+    def get_as_type(self, value_type: TypeCode, index: int) -> Any:
         """
         Converts array element into a args defined by specied typecode.
         If conversion is not possible it returns default args for the specified type.
@@ -416,7 +416,7 @@ class AnyValueArray(list, ICloneable):
         value = self[index]
         return TypeConverter.to_type(value_type, value)
 
-    def get_as_type_with_default(self, value_type: TypeCode, index: int, default_value: T) -> T:
+    def get_as_type_with_default(self, value_type: TypeCode, index: int, default_value: Any) -> Any:
         """
         Converts array element into a args defined by specied typecode.
         If conversion is not possible it returns default args.

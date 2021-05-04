@@ -8,11 +8,11 @@
     :copyright: Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.
     :license: MIT, see LICENSE for more details.
 """
-from typing import TypeVar, List
+from typing import List, Any
 
 import random
 
-T = TypeVar('T')  # Declare type variable
+
 
 
 class RandomArray:
@@ -27,7 +27,7 @@ class RandomArray:
     """
 
     @staticmethod
-    def pick(values: List[T]) -> T:
+    def pick(values: List[Any]) -> Any:
         """
         Picks a random element from specified array.
 

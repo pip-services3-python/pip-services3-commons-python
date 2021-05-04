@@ -8,7 +8,7 @@
     :copyright: Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.
     :license: MIT, see LICENSE for more details.
 """
-from typing import Any, List
+from typing import Any, List, Optional
 
 from .INotifiable import INotifiable
 from .Parameters import Parameters
@@ -20,7 +20,7 @@ class Notifier:
     """
 
     @staticmethod
-    def notify_one(correlation_id: str, component: Any, args: Parameters):
+    def notify_one(correlation_id: Optional[str], component: Any, args: Parameters):
         """
         Notifies specific component.
         To be notiied components must implement :class:`INotifiable <pip_services3_commons.run.INotifiable.INotifiable>` interface.
@@ -39,7 +39,7 @@ class Notifier:
             component.notify(correlation_id, args)
 
     @staticmethod
-    def notify(correlation_id: str, components: List[Any], args: Parameters = None):
+    def notify(correlation_id: Optional[str], components: List[Any], args: Parameters = None):
         """
         Notifies multiple components.
 

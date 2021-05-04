@@ -10,7 +10,7 @@
 """
 
 from datetime import datetime
-from typing import Any, TypeVar, Optional
+from typing import Any, Optional
 
 from .ArrayConverter import ArrayConverter
 from .DateTimeConverter import DateTimeConverter
@@ -21,7 +21,6 @@ from .MapConverter import MapConverter
 from .StringConverter import StringConverter
 from .TypeCode import TypeCode
 
-T = TypeVar('T')  # Declare type variable
 
 
 class TypeConverter:
@@ -80,7 +79,7 @@ class TypeConverter:
         return TypeCode.Object
 
     @staticmethod
-    def to_nullable_type(value_type: TypeCode, value: Any) -> T:
+    def to_nullable_type(value_type: TypeCode, value: Any) -> Any:
         """
         Converts args into an object type specified by Type Code or returns null when conversion is not possible.
 
@@ -118,7 +117,7 @@ class TypeConverter:
         return value
 
     @staticmethod
-    def to_type(value_type: TypeCode, value: Any) -> T:
+    def to_type(value_type: TypeCode, value: Any) -> Any:
         """
         Converts args into an object type specified by Type Code or returns type default when conversion is not possible.
 
@@ -157,7 +156,7 @@ class TypeConverter:
             return None
 
     @staticmethod
-    def to_type_with_default(value_type: TypeCode, value: Any, default_value: T) -> T:
+    def to_type_with_default(value_type: TypeCode, value: Any, default_value: Any) -> Any:
         """
         Converts args into an object type specified by Type Code or returns default args when conversion is not possible.
 

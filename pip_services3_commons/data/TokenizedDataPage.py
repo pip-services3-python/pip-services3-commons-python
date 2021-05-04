@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
-from typing import TypeVar, List
+from typing import List
 
-T = TypeVar('T')  # Declare type variable
+
 
 
 class TokenizedDataPage:
@@ -35,7 +35,7 @@ class TokenizedDataPage:
         )
     """
 
-    def __init__(self, data: List[T], token: str = None, total: int = None):
+    def __init__(self, data: List[Any], token: str = None, total: int = None):
         """
         Creates a new instance of data page and assigns its values.
 
@@ -48,4 +48,4 @@ class TokenizedDataPage:
         # The starting point for the next search.
         self.token: str = token
         # The items of the retrieved page.
-        self.data: List[T] = data
+        self.data: List[Any] = data

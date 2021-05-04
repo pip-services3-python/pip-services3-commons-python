@@ -9,7 +9,7 @@
     :license: MIT, see LICENSE for more details.
 """
 from abc import ABC
-from typing import Any, List
+from typing import Any, List, Optional
 
 from pip_services3_commons.commands import ICommand
 from pip_services3_commons.run import Parameters
@@ -37,7 +37,7 @@ class ICommandInterceptor(ABC):
         """
         raise NotImplementedError('Method from interface definition')
 
-    def execute(self, correlation_id: str, command: ICommand, args: Parameters) -> Any:
+    def execute(self, correlation_id: Optional[str], command: ICommand, args: Parameters) -> Any:
         """
         Executes the wrapped command_name with specified arguments.
 

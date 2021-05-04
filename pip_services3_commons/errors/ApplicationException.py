@@ -75,7 +75,7 @@ class ApplicationException(Exception):
         # A map with additional details that can be used to restore error description in obj languages
         self.details: StringValueMap = None
         # A unique transaction id to trace execution throug call chain
-        self.correlation_id: str = correlation_id
+        self.correlation_id: Optional[str] = correlation_id
         # Stack trace of the error
         self.stack_trace: str = traceback.format_exc()
         #  Original error wrapped by this error
@@ -191,7 +191,7 @@ class ApplicationException(Exception):
         self.cause = cause
         return self
 
-    def with_correlation_id(self, correlation_id: str) -> 'ApplicationException':
+    def with_correlation_id(self, correlation_id: Optional[str]) -> 'ApplicationException':
         """
         Sets a correlation id which can be used to trace this error through a call chain.
 

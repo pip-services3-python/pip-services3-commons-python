@@ -9,6 +9,7 @@
     :license: MIT, see LICENSE for more details.
 """
 from abc import ABC
+from typing import Optional
 
 from pip_services3_commons.run import Parameters
 
@@ -20,7 +21,7 @@ class IExecutable(ABC):
     .. code-block:: python
         class EchoComponent(IExecutable):
             ...
-            def execute(self, correlation_id: str, args: Parameters):
+            def execute(self, correlation_id: Optional[str], args: Parameters):
                 result = args.get_as_object("message")
                 return result
 
@@ -31,7 +32,7 @@ class IExecutable(ABC):
 
     """
 
-    def execute(self, correlation_id: str, args: Parameters):
+    def execute(self, correlation_id: Optional[str], args: Parameters):
         """
         Executes component with arguments and receives execution result.
 

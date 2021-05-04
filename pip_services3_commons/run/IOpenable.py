@@ -8,6 +8,7 @@
     :copyright: Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.
     :license: MIT, see LICENSE for more details.
 """
+from typing import Optional
 
 from .IClosable import IClosable
 
@@ -44,7 +45,7 @@ class IOpenable(IClosable):
         """
         raise NotImplementedError('Method from interface definition')
 
-    def open(self, correlation_id: str):
+    def open(self, correlation_id: Optional[str]):
         """
         Opens the component.
 

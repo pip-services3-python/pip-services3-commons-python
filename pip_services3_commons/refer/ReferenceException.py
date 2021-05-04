@@ -8,7 +8,7 @@
     :copyright: Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.
     :license: MIT, see LICENSE for more details.
 """
-from typing import Any
+from typing import Any, Optional
 
 from ..errors.InternalException import InternalException
 
@@ -18,7 +18,7 @@ class ReferenceException(InternalException):
     Error when __required component dependency cannot be found.
     """
 
-    def __init__(self, correlation_id: str = None, locator: Any = None):
+    def __init__(self, correlation_id: Optional[str] = None, locator: Any = None):
         """
         Creates an error instance and assigns its values.
 

@@ -8,7 +8,7 @@
     :copyright: Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.
     :license: MIT, see LICENSE for more details.
 """
-from typing import Any, List
+from typing import Any, List, Optional
 
 from pip_services3_commons.run import Parameters
 from pip_services3_commons.validate import ValidationResult
@@ -65,7 +65,7 @@ class InterceptedCommand(ICommand):
         """
         return self.__interceptor.get_name(self.__next)
 
-    def execute(self, correlation_id: str, args: Parameters) -> Any:
+    def execute(self, correlation_id: Optional[str], args: Parameters) -> Any:
         """
         Executes the next command_name in the execution chain using the given Parameters parameters (arguments).
         

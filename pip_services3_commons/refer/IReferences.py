@@ -9,9 +9,9 @@
     :license: MIT, see LICENSE for more details.
 """
 from abc import ABC
-from typing import Any, List, TypeVar
+from typing import Any, List
 
-T = TypeVar('T')  # Declare type variable
+
 
 
 class IReferences(ABC):
@@ -95,7 +95,7 @@ class IReferences(ABC):
         """
         raise NotImplementedError('Method from interface definition')
 
-    def get_optional(self, locator: Any) -> List[T]:
+    def get_optional(self, locator: Any) -> List[Any]:
         """
         Gets all component references that match specified locator.
 
@@ -105,7 +105,7 @@ class IReferences(ABC):
         """
         raise NotImplementedError('Method from interface definition')
 
-    def get_required(self, locator: Any) -> List[T]:
+    def get_required(self, locator: Any) -> List[Any]:
         """
         Gets all component references that match specified locator.
         At least one component reference must be present. If it doesn't the method throws an error.
@@ -118,7 +118,7 @@ class IReferences(ABC):
         """
         raise NotImplementedError('Method from interface definition')
 
-    def get_one_optional(self, locator: Any) -> T:
+    def get_one_optional(self, locator: Any) -> Any:
         """
         Gets an optional component reference that matches specified locator.
 
@@ -128,7 +128,7 @@ class IReferences(ABC):
         """
         raise NotImplementedError('Method from interface definition')
 
-    def get_one_required(self, locator: Any) -> T:
+    def get_one_required(self, locator: Any) -> Any:
         """
         Gets a __required component reference that matches specified locator.
 
@@ -143,7 +143,7 @@ class IReferences(ABC):
     def get_one_before(self, reference, locator):
         raise NotImplementedError('Method from interface definition')
 
-    def find(self, locator: Any, required: bool) -> List[T]:
+    def find(self, locator: Any, required: bool) -> List[Any]:
         """
         Gets all component references that match specified locator.
 

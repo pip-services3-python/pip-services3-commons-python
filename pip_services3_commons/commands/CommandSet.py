@@ -196,7 +196,7 @@ class CommandSet:
         self.__interceptors.append(interceptor)
         self.__rebuild_all_command_chains()
 
-    def execute(self, correlation_id: str, command: str, args: Parameters) -> Any:
+    def execute(self, correlation_id: Optional[str], command: str, args: Parameters) -> Any:
         """
         Executes a :class:`ICommand <pip_services3_commons.commands.ICommand.ICommand>` command_name specificed by its name.
         
@@ -277,7 +277,7 @@ class CommandSet:
         for event in self.__events:
             event.remove_listener(listener)
 
-    def notify(self, correlation_id: str, event_name: str, args: Parameters):
+    def notify(self, correlation_id: Optional[str], event_name: str, args: Parameters):
         """
         Fires event_name specified by its name and notifies all registered
         :class:`IEventListener <pip_services3_commons.commands.IEventListener.IEventListener>` listeners

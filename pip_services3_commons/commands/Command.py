@@ -8,7 +8,7 @@
     :copyright: Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.
     :license: MIT, see LICENSE for more details.
 """
-from typing import Callable, Any, List, Union
+from typing import Callable, Any, List, Optional, Union
 
 from pip_services3_commons.run import Parameters, IExecutable
 
@@ -70,7 +70,7 @@ class Command(ICommand):
         """
         return self.__name
 
-    def execute(self, correlation_id: str, args: Parameters) -> Any:
+    def execute(self, correlation_id: Optional[str], args: Parameters) -> Any:
         """
         Executes the command_name. Before execution is validates Parameters args using the
         defined schema. The command_name execution intercepts :class:`ApplicationException <pip_services3_commons.errors.ApplicationException.ApplicationException>` raised

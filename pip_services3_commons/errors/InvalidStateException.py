@@ -8,6 +8,7 @@
     :copyright: Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.
     :license: MIT, see LICENSE for more details.
 """
+from typing import Optional
 
 from .ApplicationException import ApplicationException
 from .ErrorCategory import ErrorCategory
@@ -20,7 +21,7 @@ class InvalidStateException(ApplicationException):
     For instance, business calls when component is not ready
     """
 
-    def __init__(self, correlation_id: str = None, code: str = None, message: str = None):
+    def __init__(self, correlation_id: Optional[str] = None, code: str = None, message: str = None):
         """
         Creates an error instance and assigns its values.
 

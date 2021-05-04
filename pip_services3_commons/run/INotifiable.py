@@ -9,6 +9,7 @@
     :license: MIT, see LICENSE for more details.
 """
 from abc import ABC
+from typing import Optional
 
 from pip_services3_commons.run import Parameters
 
@@ -28,7 +29,7 @@ class INotifiable(ABC):
         my_component.notify("123", Parameters.from_tuples("event", "Test Event"));
     """
 
-    def notify(self, correlation_id: str, args: Parameters):
+    def notify(self, correlation_id: Optional[str], args: Parameters):
         """
         Notifies the component about occured event_name.
 

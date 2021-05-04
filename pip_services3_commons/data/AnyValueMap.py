@@ -9,7 +9,7 @@
     :license: MIT, see LICENSE for more details.
 """
 from datetime import datetime
-from typing import Any, List, Optional, TypeVar, Sequence
+from typing import Any, List, Optional, Sequence
 
 from pip_services3_commons.convert import DoubleConverter, TypeCode
 from pip_services3_commons.data import AnyValue, AnyValueArray
@@ -23,7 +23,7 @@ from ..convert.MapConverter import MapConverter
 from ..convert.StringConverter import StringConverter
 from ..convert.TypeConverter import TypeConverter
 
-T = TypeVar('T')  # Declare type variable
+
 
 
 class AnyValueMap(dict, ICloneable):
@@ -409,7 +409,7 @@ class AnyValueMap(dict, ICloneable):
         value = self.get(key)
         return DateTimeConverter.to_datetime_with_default(value, default_value)
 
-    def get_as_nullable_type(self, value_type: TypeCode, key: str) -> T:
+    def get_as_nullable_type(self, value_type: TypeCode, key: str) -> Any:
         """
         Converts map element into a args defined by specied typecode.
         If conversion is not possible it returns None.
@@ -422,7 +422,7 @@ class AnyValueMap(dict, ICloneable):
         value = self.get(key)
         return TypeConverter.to_nullable_type(value_type, value)
 
-    def get_as_type(self, value_type: TypeCode, key: str) -> T:
+    def get_as_type(self, value_type: TypeCode, key: str) -> Any:
         """
         Converts map element into a args defined by specied typecode.
         If conversion is not possible it returns default args for the specified type.
@@ -435,7 +435,7 @@ class AnyValueMap(dict, ICloneable):
         value = self.get(key)
         return TypeConverter.to_type(value_type, value)
 
-    def get_as_type_with_default(self, value_type: TypeCode, key: str, default_value: T) -> T:
+    def get_as_type_with_default(self, value_type: TypeCode, key: str, default_value: Any) -> Any:
         """
         Converts map element into a args defined by specied typecode.
         If conversion is not possible it returns default args.

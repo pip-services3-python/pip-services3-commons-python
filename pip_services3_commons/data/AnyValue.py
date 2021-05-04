@@ -10,7 +10,7 @@
 """
 from copy import deepcopy
 from datetime import datetime
-from typing import Optional, Any, TypeVar
+from typing import Optional, Any
 
 from pip_services3_commons.convert import TypeCode
 from pip_services3_commons.data import AnyValueArray, AnyValueMap
@@ -23,7 +23,7 @@ from ..convert.LongConverter import LongConverter
 from ..convert.StringConverter import StringConverter
 from ..convert.TypeConverter import TypeConverter
 
-T = TypeVar('T')  # Declare type variable
+
 
 
 class AnyValue(ICloneable):
@@ -218,7 +218,7 @@ class AnyValue(ICloneable):
         """
         return DateTimeConverter.to_datetime_with_default(self.value, default_value)
 
-    def get_as_nullable_type(self, value_type: TypeCode) -> Optional[T]:
+    def get_as_nullable_type(self, value_type: TypeCode) -> Optional[Any]:
         """
         Converts object args into a args defined by specied typecode. If conversion is not possible it returns None.
 
@@ -228,7 +228,7 @@ class AnyValue(ICloneable):
         """
         return TypeConverter.to_nullable_type(value_type, self.value)
 
-    def get_as_type(self, value_type: TypeCode) -> T:
+    def get_as_type(self, value_type: TypeCode) -> Any:
         """
         Converts object args into a args defined by specied typecode.
         If conversion is not possible it returns default args for the specified type.
@@ -239,7 +239,7 @@ class AnyValue(ICloneable):
         """
         return TypeConverter.to_type(value_type, self.value)
 
-    def get_as_type_with_default(self, value_type: TypeCode, default_value: T) -> T:
+    def get_as_type_with_default(self, value_type: TypeCode, default_value: Any) -> Any:
         """
         Converts object args into a args defined by specied typecode.
         If conversion is not possible it returns default args.

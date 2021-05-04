@@ -11,7 +11,7 @@
 import inspect
 import time
 from threading import Thread, Event, Lock
-from typing import Callable, Any
+from typing import Callable, Any, Optional
 
 from pip_services3_commons.run import Parameters, INotifiable
 from .IClosable import IClosable
@@ -53,7 +53,7 @@ class FixedRateTimer(IClosable):
         """
         Creates new instance of the timer and sets its values.
 
-        :param task: (optional) a Notifiable object or callback function to call when timer is triggered.
+        :param task_or_object: (optional) a Notifiable object or callback function to call when timer is triggered.
 
         :param interval: (optional) an __interval to trigger timer in milliseconds.
 
@@ -194,7 +194,7 @@ class FixedRateTimer(IClosable):
         finally:
             self.__lock.release()
 
-    def close(self, correlation_id: str):
+    def close(self, correlation_id: Optional[str]):
         """
         Closes the timer.
         This is __required by :class:`IClosable <pip_services3_commons.run.IClosable.IClosable>` interface,

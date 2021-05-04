@@ -8,7 +8,7 @@
     :copyright: Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.
     :license: MIT, see LICENSE for more details.
 """
-from typing import List
+from typing import List, Optional
 
 from pip_services3_commons.run import Parameters
 
@@ -82,7 +82,7 @@ class Event(IEvent):
         """
         self._listeners.remove(listener)
 
-    def notify(self, correlation_id: str, args: Parameters):
+    def notify(self, correlation_id: Optional[str], args: Parameters):
         """
         Fires this event_name and notifies all registred listeners.
 

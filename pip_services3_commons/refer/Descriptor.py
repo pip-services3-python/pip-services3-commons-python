@@ -42,7 +42,8 @@ class Descriptor:
         locator1.exact_match(locator2);	// Result: false
     """
 
-    def __init__(self, group: str, type: str, kind: str, name: str, version: str):
+    def __init__(self, group: Optional[str], type: Optional[str], kind: Optional[str], name: Optional[str],
+                 version: Optional[str]):
         """
         Creates a new instance of the descriptor.
 

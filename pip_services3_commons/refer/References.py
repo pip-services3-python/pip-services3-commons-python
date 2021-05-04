@@ -10,13 +10,13 @@
 """
 
 import threading
-from typing import List, Any, TypeVar, Sequence
+from typing import List, Any, Sequence
 
 from .IReferences import IReferences
 from .Reference import Reference
 from .ReferenceException import ReferenceException
 
-T = TypeVar('T')  # Declare type variable
+
 
 
 class References(IReferences):
@@ -163,7 +163,7 @@ class References(IReferences):
 
         return components
 
-    def get_optional(self, locator: Any) -> List[T]:
+    def get_optional(self, locator: Any) -> List[Any]:
         """
         Gets all component references that match specified locator.
 
@@ -176,7 +176,7 @@ class References(IReferences):
         except Exception as ex:
             return []
 
-    def get_required(self, locator: Any) -> List[T]:
+    def get_required(self, locator: Any) -> List[Any]:
         """
         Gets all component references that match specified locator.
         At least one component reference must be present. If it doesn't the method throws an error.
@@ -189,7 +189,7 @@ class References(IReferences):
         """
         return self.find(locator, True)
 
-    def get_one_optional(self, locator: Any) -> T:
+    def get_one_optional(self, locator: Any) -> Any:
         """
         Gets an optional component reference that matches specified locator.
 
@@ -203,7 +203,7 @@ class References(IReferences):
         except Exception as ex:
             return None
 
-    def get_one_required(self, locator: Any) -> T:
+    def get_one_required(self, locator: Any) -> Any:
         """
          Gets a __required component reference that matches specified locator.
 
@@ -216,7 +216,7 @@ class References(IReferences):
         components = self.find(locator, True)
         return components[0] if len(components) > 0 else None
 
-    def find(self, locator: Any, required: bool) -> List[T]:
+    def find(self, locator: Any, required: bool) -> List[Any]:
         """
         Gets all component references that match specified locator.
 

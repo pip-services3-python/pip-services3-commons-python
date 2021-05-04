@@ -9,6 +9,7 @@
     :license: MIT, see LICENSE for more details.
 """
 from abc import ABC
+from typing import Optional
 
 
 class IClosable(ABC):
@@ -31,7 +32,7 @@ class IClosable(ABC):
 
     """
 
-    def close(self, correlation_id: str):
+    def close(self, correlation_id: Optional[str]):
         """
         Closes component and frees used resources.
 

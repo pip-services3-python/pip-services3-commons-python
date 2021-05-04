@@ -8,7 +8,7 @@
     :copyright: Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.
     :license: MIT, see LICENSE for more details.
 """
-from typing import List, Any
+from typing import List, Any, Optional
 
 from pip_services3_commons.validate.IValidationRule import IValidationRule
 from .ValidationException import ValidationException
@@ -216,7 +216,7 @@ class Schema:
         self._perform_validation("", value, results)
         return results
 
-    def validate_and_return_exception(self, correlation_id: str, value: Any,
+    def validate_and_return_exception(self, correlation_id: Optional[str], value: Any,
                                       strict: bool = False) -> ValidationException:
         """
         Validates the given args and returns a :class:`ValidationException <pip_services3_commons.validate.ValidationException.ValidationException>` if errors were found.
@@ -228,7 +228,7 @@ class Schema:
         results = self.validate(value)
         return ValidationException.from_results(correlation_id, results, strict)
 
-    def validate_and_throw_exception(self, correlation_id: str, value: Any, strict: bool = False):
+    def validate_and_throw_exception(self, correlation_id: Optional[str], value: Any, strict: bool = False):
         """
         Validates the given args and throws a :class:`ValidationException <pip_services3_commons.validate.ValidationException.ValidationException>` if errors were found.
 
