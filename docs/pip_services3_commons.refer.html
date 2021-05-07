@@ -305,7 +305,7 @@ dependencies:</p>
 
 <dl class="py method">
 <dt id="pip_services3_commons.refer.DependencyResolver.find">
-<code class="sig-name descname">find</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></span></em>, <em class="sig-param"><span class="n">required</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)">bool</a></span></em><span class="sig-paren">)</span> &#x2192; Optional<span class="p">[</span>List<span class="p">[</span>T<span class="p">]</span><span class="p">]</span><a class="headerlink" href="#pip_services3_commons.refer.DependencyResolver.find" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">find</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></span></em>, <em class="sig-param"><span class="n">required</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)">bool</a></span></em><span class="sig-paren">)</span> &#x2192; Optional<span class="p">[</span>List<span class="p">[</span>Any<span class="p">]</span><span class="p">]</span><a class="headerlink" href="#pip_services3_commons.refer.DependencyResolver.find" title="Permalink to this definition">¶</a></dt>
 <dd><p>Finds all matching dependencies by their name.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -340,7 +340,7 @@ where key is dependency name and args the depedency locator (descriptor).</p>
 
 <dl class="py method">
 <dt id="pip_services3_commons.refer.DependencyResolver.get_one_optional">
-<code class="sig-name descname">get_one_optional</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></span></em><span class="sig-paren">)</span> &#x2192; T<a class="headerlink" href="#pip_services3_commons.refer.DependencyResolver.get_one_optional" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_one_optional</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></span></em><span class="sig-paren">)</span> &#x2192; Any<a class="headerlink" href="#pip_services3_commons.refer.DependencyResolver.get_one_optional" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets one optional dependency by its name.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -354,7 +354,7 @@ where key is dependency name and args the depedency locator (descriptor).</p>
 
 <dl class="py method">
 <dt id="pip_services3_commons.refer.DependencyResolver.get_one_required">
-<code class="sig-name descname">get_one_required</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></span></em><span class="sig-paren">)</span> &#x2192; T<a class="headerlink" href="#pip_services3_commons.refer.DependencyResolver.get_one_required" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_one_required</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></span></em><span class="sig-paren">)</span> &#x2192; Any<a class="headerlink" href="#pip_services3_commons.refer.DependencyResolver.get_one_required" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets one __required dependency by its name.
 At least one dependency must present. If the dependency was found it throws a <a class="reference internal" href="pip_services3_commons.refer.ReferenceException.html#pip_services3_commons.refer.ReferenceException.ReferenceException" title="pip_services3_commons.refer.ReferenceException.ReferenceException"><code class="xref py py-class docutils literal notranslate"><span class="pre">ReferenceException</span></code></a></p>
 <dl class="field-list simple">
@@ -369,7 +369,7 @@ At least one dependency must present. If the dependency was found it throws a <a
 
 <dl class="py method">
 <dt id="pip_services3_commons.refer.DependencyResolver.get_optional">
-<code class="sig-name descname">get_optional</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></span></em><span class="sig-paren">)</span> &#x2192; List<span class="p">[</span>T<span class="p">]</span><a class="headerlink" href="#pip_services3_commons.refer.DependencyResolver.get_optional" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_optional</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></span></em><span class="sig-paren">)</span> &#x2192; List<span class="p">[</span>Any<span class="p">]</span><a class="headerlink" href="#pip_services3_commons.refer.DependencyResolver.get_optional" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets all optional dependencies by their name.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -383,7 +383,7 @@ At least one dependency must present. If the dependency was found it throws a <a
 
 <dl class="py method">
 <dt id="pip_services3_commons.refer.DependencyResolver.get_required">
-<code class="sig-name descname">get_required</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></span></em><span class="sig-paren">)</span> &#x2192; List<span class="p">[</span>T<span class="p">]</span><a class="headerlink" href="#pip_services3_commons.refer.DependencyResolver.get_required" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_required</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></span></em><span class="sig-paren">)</span> &#x2192; List<span class="p">[</span>Any<span class="p">]</span><a class="headerlink" href="#pip_services3_commons.refer.DependencyResolver.get_required" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets all __required dependencies by their name.
 At least one dependency must be present. If no dependencies was found it throws a <a class="reference internal" href="pip_services3_commons.refer.ReferenceException.html#pip_services3_commons.refer.ReferenceException.ReferenceException" title="pip_services3_commons.refer.ReferenceException.ReferenceException"><code class="xref py py-class docutils literal notranslate"><span class="pre">ReferenceException</span></code></a></p>
 <dl class="field-list simple">
@@ -425,7 +425,7 @@ At least one dependency must be present. If no dependencies was found it throws 
 
 <dl class="py class">
 <dt id="pip_services3_commons.refer.Descriptor">
-<em class="property">class </em><code class="sig-prename descclassname">pip_services3_commons.refer.</code><code class="sig-name descname">Descriptor</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">group</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></span></em>, <em class="sig-param"><span class="n">type</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></span></em>, <em class="sig-param"><span class="n">kind</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></span></em>, <em class="sig-param"><span class="n">name</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></span></em>, <em class="sig-param"><span class="n">version</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.refer.Descriptor" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">pip_services3_commons.refer.</code><code class="sig-name descname">Descriptor</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">group</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a><span class="p">]</span></span></em>, <em class="sig-param"><span class="n">type</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a><span class="p">]</span></span></em>, <em class="sig-param"><span class="n">kind</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a><span class="p">]</span></span></em>, <em class="sig-param"><span class="n">name</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a><span class="p">]</span></span></em>, <em class="sig-param"><span class="n">version</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a><span class="p">]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.refer.Descriptor" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="http://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>Locator type that most often used in PipServices toolkit.
 It locates components using several fields:</p>
@@ -658,7 +658,7 @@ by 5 fields: group, type, kind, name and version.</p>
 </div>
 <dl class="py method">
 <dt id="pip_services3_commons.refer.IReferences.find">
-<code class="sig-name descname">find</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">locator</span><span class="p">:</span> <span class="n">Any</span></em>, <em class="sig-param"><span class="n">required</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)">bool</a></span></em><span class="sig-paren">)</span> &#x2192; List<span class="p">[</span>T<span class="p">]</span><a class="headerlink" href="#pip_services3_commons.refer.IReferences.find" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">find</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">locator</span><span class="p">:</span> <span class="n">Any</span></em>, <em class="sig-param"><span class="n">required</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)">bool</a></span></em><span class="sig-paren">)</span> &#x2192; List<span class="p">[</span>Any<span class="p">]</span><a class="headerlink" href="#pip_services3_commons.refer.IReferences.find" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets all component references that match specified locator.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -705,7 +705,7 @@ by 5 fields: group, type, kind, name and version.</p>
 
 <dl class="py method">
 <dt id="pip_services3_commons.refer.IReferences.get_one_optional">
-<code class="sig-name descname">get_one_optional</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">locator</span><span class="p">:</span> <span class="n">Any</span></em><span class="sig-paren">)</span> &#x2192; T<a class="headerlink" href="#pip_services3_commons.refer.IReferences.get_one_optional" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_one_optional</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">locator</span><span class="p">:</span> <span class="n">Any</span></em><span class="sig-paren">)</span> &#x2192; Any<a class="headerlink" href="#pip_services3_commons.refer.IReferences.get_one_optional" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets an optional component reference that matches specified locator.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -719,7 +719,7 @@ by 5 fields: group, type, kind, name and version.</p>
 
 <dl class="py method">
 <dt id="pip_services3_commons.refer.IReferences.get_one_required">
-<code class="sig-name descname">get_one_required</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">locator</span><span class="p">:</span> <span class="n">Any</span></em><span class="sig-paren">)</span> &#x2192; T<a class="headerlink" href="#pip_services3_commons.refer.IReferences.get_one_required" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_one_required</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">locator</span><span class="p">:</span> <span class="n">Any</span></em><span class="sig-paren">)</span> &#x2192; Any<a class="headerlink" href="#pip_services3_commons.refer.IReferences.get_one_required" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets a __required component reference that matches specified locator.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -736,7 +736,7 @@ by 5 fields: group, type, kind, name and version.</p>
 
 <dl class="py method">
 <dt id="pip_services3_commons.refer.IReferences.get_optional">
-<code class="sig-name descname">get_optional</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">locator</span><span class="p">:</span> <span class="n">Any</span></em><span class="sig-paren">)</span> &#x2192; List<span class="p">[</span>T<span class="p">]</span><a class="headerlink" href="#pip_services3_commons.refer.IReferences.get_optional" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_optional</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">locator</span><span class="p">:</span> <span class="n">Any</span></em><span class="sig-paren">)</span> &#x2192; List<span class="p">[</span>Any<span class="p">]</span><a class="headerlink" href="#pip_services3_commons.refer.IReferences.get_optional" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets all component references that match specified locator.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -750,7 +750,7 @@ by 5 fields: group, type, kind, name and version.</p>
 
 <dl class="py method">
 <dt id="pip_services3_commons.refer.IReferences.get_required">
-<code class="sig-name descname">get_required</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">locator</span><span class="p">:</span> <span class="n">Any</span></em><span class="sig-paren">)</span> &#x2192; List<span class="p">[</span>T<span class="p">]</span><a class="headerlink" href="#pip_services3_commons.refer.IReferences.get_required" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_required</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">locator</span><span class="p">:</span> <span class="n">Any</span></em><span class="sig-paren">)</span> &#x2192; List<span class="p">[</span>Any<span class="p">]</span><a class="headerlink" href="#pip_services3_commons.refer.IReferences.get_required" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets all component references that match specified locator.
 At least one component reference must be present. If it doesn’t the method throws an error.</p>
 <dl class="field-list simple">
@@ -976,7 +976,7 @@ If they don’t the call to this method has no effect.</p>
 </div>
 <dl class="py method">
 <dt id="pip_services3_commons.refer.References.find">
-<code class="sig-name descname">find</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">locator</span><span class="p">:</span> <span class="n">Any</span></em>, <em class="sig-param"><span class="n">required</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)">bool</a></span></em><span class="sig-paren">)</span> &#x2192; List<span class="p">[</span>T<span class="p">]</span><a class="headerlink" href="#pip_services3_commons.refer.References.find" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">find</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">locator</span><span class="p">:</span> <span class="n">Any</span></em>, <em class="sig-param"><span class="n">required</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)">bool</a></span></em><span class="sig-paren">)</span> &#x2192; List<span class="p">[</span>Any<span class="p">]</span><a class="headerlink" href="#pip_services3_commons.refer.References.find" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets all component references that match specified locator.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1033,7 +1033,7 @@ and the following even elements are component references</p>
 
 <dl class="py method">
 <dt id="pip_services3_commons.refer.References.get_one_optional">
-<code class="sig-name descname">get_one_optional</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">locator</span><span class="p">:</span> <span class="n">Any</span></em><span class="sig-paren">)</span> &#x2192; T<a class="headerlink" href="#pip_services3_commons.refer.References.get_one_optional" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_one_optional</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">locator</span><span class="p">:</span> <span class="n">Any</span></em><span class="sig-paren">)</span> &#x2192; Any<a class="headerlink" href="#pip_services3_commons.refer.References.get_one_optional" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets an optional component reference that matches specified locator.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1047,7 +1047,7 @@ and the following even elements are component references</p>
 
 <dl class="py method">
 <dt id="pip_services3_commons.refer.References.get_one_required">
-<code class="sig-name descname">get_one_required</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">locator</span><span class="p">:</span> <span class="n">Any</span></em><span class="sig-paren">)</span> &#x2192; T<a class="headerlink" href="#pip_services3_commons.refer.References.get_one_required" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_one_required</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">locator</span><span class="p">:</span> <span class="n">Any</span></em><span class="sig-paren">)</span> &#x2192; Any<a class="headerlink" href="#pip_services3_commons.refer.References.get_one_required" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets a __required component reference that matches specified locator.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1064,7 +1064,7 @@ and the following even elements are component references</p>
 
 <dl class="py method">
 <dt id="pip_services3_commons.refer.References.get_optional">
-<code class="sig-name descname">get_optional</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">locator</span><span class="p">:</span> <span class="n">Any</span></em><span class="sig-paren">)</span> &#x2192; List<span class="p">[</span>T<span class="p">]</span><a class="headerlink" href="#pip_services3_commons.refer.References.get_optional" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_optional</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">locator</span><span class="p">:</span> <span class="n">Any</span></em><span class="sig-paren">)</span> &#x2192; List<span class="p">[</span>Any<span class="p">]</span><a class="headerlink" href="#pip_services3_commons.refer.References.get_optional" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets all component references that match specified locator.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1078,7 +1078,7 @@ and the following even elements are component references</p>
 
 <dl class="py method">
 <dt id="pip_services3_commons.refer.References.get_required">
-<code class="sig-name descname">get_required</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">locator</span><span class="p">:</span> <span class="n">Any</span></em><span class="sig-paren">)</span> &#x2192; List<span class="p">[</span>T<span class="p">]</span><a class="headerlink" href="#pip_services3_commons.refer.References.get_required" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_required</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">locator</span><span class="p">:</span> <span class="n">Any</span></em><span class="sig-paren">)</span> &#x2192; List<span class="p">[</span>Any<span class="p">]</span><a class="headerlink" href="#pip_services3_commons.refer.References.get_required" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets all component references that match specified locator.
 At least one component reference must be present. If it doesn’t the method throws an error.</p>
 <dl class="field-list simple">

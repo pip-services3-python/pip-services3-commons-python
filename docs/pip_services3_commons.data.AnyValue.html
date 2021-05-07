@@ -445,7 +445,7 @@ values to type specified by type code and compare them again.</p>
 
 <dl class="py method">
 <dt id="pip_services3_commons.data.AnyValue.AnyValue.get_as_nullable_type">
-<code class="sig-name descname">get_as_nullable_type</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value_type</span><span class="p">:</span> <span class="n"><a class="reference internal" href="pip_services3_commons.convert.TypeCode.html#pip_services3_commons.convert.TypeCode.TypeCode" title="pip_services3_commons.convert.TypeCode.TypeCode">pip_services3_commons.convert.TypeCode.TypeCode</a></span></em><span class="sig-paren">)</span> &#x2192; Optional<span class="p">[</span>T<span class="p">]</span><a class="headerlink" href="#pip_services3_commons.data.AnyValue.AnyValue.get_as_nullable_type" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_as_nullable_type</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value_type</span><span class="p">:</span> <span class="n"><a class="reference internal" href="pip_services3_commons.convert.TypeCode.html#pip_services3_commons.convert.TypeCode.TypeCode" title="pip_services3_commons.convert.TypeCode.TypeCode">pip_services3_commons.convert.TypeCode.TypeCode</a></span></em><span class="sig-paren">)</span> &#x2192; Optional<span class="p">[</span>Any<span class="p">]</span><a class="headerlink" href="#pip_services3_commons.data.AnyValue.AnyValue.get_as_nullable_type" title="Permalink to this definition">¶</a></dt>
 <dd><p>Converts object args into a args defined by specied typecode. If conversion is not possible it returns None.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -495,7 +495,7 @@ values to type specified by type code and compare them again.</p>
 
 <dl class="py method">
 <dt id="pip_services3_commons.data.AnyValue.AnyValue.get_as_type">
-<code class="sig-name descname">get_as_type</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value_type</span><span class="p">:</span> <span class="n"><a class="reference internal" href="pip_services3_commons.convert.TypeCode.html#pip_services3_commons.convert.TypeCode.TypeCode" title="pip_services3_commons.convert.TypeCode.TypeCode">pip_services3_commons.convert.TypeCode.TypeCode</a></span></em><span class="sig-paren">)</span> &#x2192; T<a class="headerlink" href="#pip_services3_commons.data.AnyValue.AnyValue.get_as_type" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_as_type</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value_type</span><span class="p">:</span> <span class="n"><a class="reference internal" href="pip_services3_commons.convert.TypeCode.html#pip_services3_commons.convert.TypeCode.TypeCode" title="pip_services3_commons.convert.TypeCode.TypeCode">pip_services3_commons.convert.TypeCode.TypeCode</a></span></em><span class="sig-paren">)</span> &#x2192; Any<a class="headerlink" href="#pip_services3_commons.data.AnyValue.AnyValue.get_as_type" title="Permalink to this definition">¶</a></dt>
 <dd><p>Converts object args into a args defined by specied typecode.
 If conversion is not possible it returns default args for the specified type.</p>
 <dl class="field-list simple">
@@ -510,7 +510,7 @@ If conversion is not possible it returns default args for the specified type.</p
 
 <dl class="py method">
 <dt id="pip_services3_commons.data.AnyValue.AnyValue.get_as_type_with_default">
-<code class="sig-name descname">get_as_type_with_default</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value_type</span><span class="p">:</span> <span class="n"><a class="reference internal" href="pip_services3_commons.convert.TypeCode.html#pip_services3_commons.convert.TypeCode.TypeCode" title="pip_services3_commons.convert.TypeCode.TypeCode">pip_services3_commons.convert.TypeCode.TypeCode</a></span></em>, <em class="sig-param"><span class="n">default_value</span><span class="p">:</span> <span class="n">T</span></em><span class="sig-paren">)</span> &#x2192; T<a class="headerlink" href="#pip_services3_commons.data.AnyValue.AnyValue.get_as_type_with_default" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_as_type_with_default</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value_type</span><span class="p">:</span> <span class="n"><a class="reference internal" href="pip_services3_commons.convert.TypeCode.html#pip_services3_commons.convert.TypeCode.TypeCode" title="pip_services3_commons.convert.TypeCode.TypeCode">pip_services3_commons.convert.TypeCode.TypeCode</a></span></em>, <em class="sig-param"><span class="n">default_value</span><span class="p">:</span> <span class="n">Any</span></em><span class="sig-paren">)</span> &#x2192; Any<a class="headerlink" href="#pip_services3_commons.data.AnyValue.AnyValue.get_as_type_with_default" title="Permalink to this definition">¶</a></dt>
 <dd><p>Converts object args into a args defined by specied typecode.
 If conversion is not possible it returns default args.</p>
 <dl class="field-list simple">

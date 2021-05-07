@@ -179,36 +179,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="module-pip_services3_commons.data.TokenizedDataPage">
-<span id="pip-services3-commons-data-tokenizeddatapage-module"></span><h1>pip_services3_commons.data.TokenizedDataPage module<a class="headerlink" href="#module-pip_services3_commons.data.TokenizedDataPage" title="Permalink to this headline">¶</a></h1>
-<dl class="py class">
-<dt id="pip_services3_commons.data.TokenizedDataPage.TokenizedDataPage">
-<em class="property">class </em><code class="sig-prename descclassname">pip_services3_commons.data.TokenizedDataPage.</code><code class="sig-name descname">TokenizedDataPage</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span><span class="p">:</span> <span class="n">List<span class="p">[</span>T<span class="p">]</span></span></em>, <em class="sig-param"><span class="n">token</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">total</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)">int</a></span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.data.TokenizedDataPage.TokenizedDataPage" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="http://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
-<p>Data transfer object that is used to pass results of paginated queries.
-It contains items of retrieved page and optional total number of items.</p>
-<p>Most often this object type is used to send responses to paginated queries.
-Pagination parameters are defined by
-<a class="reference internal" href="pip_services3_commons.data.TokenizedPagingParams.html#pip_services3_commons.data.TokenizedPagingParams.TokenizedPagingParams" title="pip_services3_commons.data.TokenizedPagingParams.TokenizedPagingParams"><code class="xref py py-class docutils literal notranslate"><span class="pre">TokenizedPagingParams</span></code></a> object.
-The <cite>token</cite> parameter in the TokenizedPagingParams there means where to start the searxh.
-The <cite>takes</cite> parameter sets number of items to return in the page.
-And the optional <cite>total</cite> parameter tells to return total number of items in the query.</p>
-<p>The data page returns a token that shall be passed to the next search as a starting point.</p>
-<p>Remember: not all implementations support the <cite>total</cite> parameter
-because its generation may lead to severe performance implications.</p>
-<p>See <a class="reference internal" href="pip_services3_commons.data.PagingParams.html#pip_services3_commons.data.PagingParams.PagingParams" title="pip_services3_commons.data.PagingParams.PagingParams"><code class="xref py py-class docutils literal notranslate"><span class="pre">PagingParams</span></code></a></p>
-<blockquote>
-<div><p>Example:</p>
-</div></blockquote>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">page</span> <span class="o">=</span> <span class="n">my_data_client</span><span class="o">.</span><span class="n">get_data_by_filter</span><span class="p">(</span>
-    <span class="s2">&quot;123&quot;</span><span class="p">,</span>
-    <span class="n">FilterParams</span><span class="o">.</span><span class="n">from_tuples</span><span class="p">(</span><span class="s2">&quot;completed&quot;</span><span class="p">,</span> <span class="kc">True</span><span class="p">),</span>
-    <span class="n">TokenizedPagingParams</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
-<span class="p">)</span>
-</pre></div>
-</div>
-</dd></dl>
-
+  <div class="section" id="pip-services3-commons-data-tokenizeddatapage-module">
+<h1>pip_services3_commons.data.TokenizedDataPage module<a class="headerlink" href="#pip-services3-commons-data-tokenizeddatapage-module" title="Permalink to this headline">¶</a></h1>
 </div>
 
 
