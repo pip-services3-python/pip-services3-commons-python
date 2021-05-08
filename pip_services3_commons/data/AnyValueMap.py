@@ -108,10 +108,7 @@ class AnyValueMap(dict, ICloneable):
         """
         Clears this map by removing all its elements.
         """
-        for key in self.keys():
-            value = self[key]
-            if key in self.keys():
-                del self[key]
+        super().clear()
 
     def length(self) -> int:
         """
