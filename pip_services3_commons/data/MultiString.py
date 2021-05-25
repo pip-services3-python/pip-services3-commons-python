@@ -83,7 +83,7 @@ class MultiString(dict):
                 languages.append(key)
         return languages
 
-    def put(self, language: str, value: Any) -> Any:
+    def put(self, language: str, value: Any):
         """
 
         Puts a new translation for the specified language.
