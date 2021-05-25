@@ -23,7 +23,7 @@ class RandomBoolean:
         value2 = RandomBoolean.chance(1,3)      # Possible result: false
     """
     @staticmethod
-    def chance(chances: int, max_chances: int) -> bool:
+    def chance(chances: float, max_chances: float) -> bool:
         """
         Calculates "chance" out of "max chances".
         Example: 1 chance out of 3 chances (or 33.3%)
