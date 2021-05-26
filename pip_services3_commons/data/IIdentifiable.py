@@ -9,10 +9,11 @@
     :license: MIT, see LICENSE for more details.
 """
 
+from abc import ABC
 from typing import Any
 
 
-class IIdentifiable:
+class IIdentifiable(ABC):
     """
     Generic interface for data objects that can be uniquely identified by an id.
 
