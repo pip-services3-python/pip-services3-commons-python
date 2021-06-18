@@ -10,10 +10,12 @@
 """
 
 import importlib
+import inspect
 from typing import Any
 
 from pip_services3_commons.convert import TypeConverter, TypeCode
 from pip_services3_commons.reflect import TypeDescriptor
+
 from ..errors.NotFoundException import NotFoundException
 
 
@@ -55,6 +57,13 @@ class TypeReflector:
             raise Exception("Module name cannot be null")
 
         try:
+            # to python format import
+            if library.count('.') > 1:
+                library = library.split('/')
+                dots_lvl = library[0]
+                library = dots_lvl + '.'.join(list(filter(lambda x: x != '.', library.split('/'))))
+            else:
+                library = '.'.join(list(filter(lambda x: x != '.', library.split('/'))))
             module = importlib.import_module(library)
             return getattr(module, name)
         except:
@@ -93,7 +102,12 @@ class TypeReflector:
                 None, "TYPE_NOT_FOUND", "Type " + name + "," + library + " was not found"
             ).with_details("type", name).with_details("library", library)
 
-        return obj_type(*args)
+        init_params = inspect.signature(obj_type.__init__).parameters
+
+        if len(init_params.keys()) > 1 or init_params.get('self') is None:
+            return obj_type(*args)
+        else:
+            return obj_type()
 
     @staticmethod
     def create_instance_by_type(obj_type: Any, *args: Any) -> Any:

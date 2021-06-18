@@ -67,7 +67,7 @@ class FixedRateTimer(IClosable):
         self.__timer: Any = None
         self.__started: bool = False
 
-        if inspect.isclass(task_or_object) and hasattr(task_or_object, 'notify') and inspect.isfunction(
+        if hasattr(task_or_object, 'notify') and inspect.ismethod(
                 task_or_object.notify):
             self.set_task(task_or_object)
         else:
