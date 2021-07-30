@@ -52,7 +52,7 @@ class ValidationException(BadRequestException):
             first = True
             for result in results:
                 if result.get_type() != ValidationResultType.Information:
-                    if not first:
+                    if first:
                         message += ': '
                     else:
                         message += ', '

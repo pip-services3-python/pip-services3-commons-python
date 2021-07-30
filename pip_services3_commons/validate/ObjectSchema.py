@@ -187,16 +187,17 @@ class ObjectSchema(Schema):
                     del properties[processed_name]
 
         # Process unexpected properties
-        for (key, value) in properties.items():
-            property_path = key if path is None or len(path) == 0 else path + "." + key
-
-            results.append(
-                ValidationResult(
-                    property_path,
-                    ValidationResultType.Warning,
-                    "UNEXPECTED_PROPERTY",
-                    name + " contains unexpected property " + str(key),
-                    None,
-                    key
+        if not self.__allow_undefined:
+            for (key, value) in properties.items():
+                property_path = key if path is None or len(path) == 0 else path + "." + key
+    
+                results.append(
+                    ValidationResult(
+                        property_path,
+                        ValidationResultType.Warning,
+                        "UNEXPECTED_PROPERTY",
+                        name + " contains unexpected property " + str(key),
+                        None,
+                        key
+                    )
                 )
-            )

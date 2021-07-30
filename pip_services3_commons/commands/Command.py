@@ -85,7 +85,7 @@ class Command(ICommand):
         :raises: ApplicationException: when execution fails for whatever reason.
         """
         # Validate arguments
-        if not (self.__schema is None):
+        if self.__schema is not None:
             self.__schema.validate_and_throw_exception(correlation_id, args)
 
         # Call the function
@@ -108,7 +108,7 @@ class Command(ICommand):
         :return: an array of :class:`ValidationResult <pip_services3_commons.validate.ValidationResult.ValidationResult>` or an empty array (if no schema is set).
         """
         # When schema is not defined, then skip validation
-        if not (self.__schema is None):
+        if self.__schema is not None:
             return self.__schema.validate(args)
 
         # ToDo: Complete implementation
