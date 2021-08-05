@@ -33,7 +33,7 @@ class ValidationException(BadRequestException):
 
         :param message: (optional) a human-readable description of the error.
         """
-        super(BadRequestException, self).__init__(correlation_id, 'INVALID_DATA',
+        super().__init__(correlation_id, 'INVALID_DATA',
                                                   ValidationException.compose_message(results) or message)
 
     @staticmethod

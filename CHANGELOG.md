@@ -1,5 +1,11 @@
 # <img src="https://uploads-ssl.webflow.com/5ea5d3315186cf5ec60c3ee4/5edf1c94ce4c859f2b188094_logo.svg" alt="Pip.Services Logo" width="200"> <br/> Portable Abstractions and Patterns for Python Changelog
 
+## <a name="3.3.5"></a> 3.3.5 (2021-08-05)
+
+### Bug Fixes
+* Fixed writing properties for PropertyReflector
+* Fixed ValidationException base class initialization
+
 ## <a name="3.3.4"></a> 3.3.4 (2021-07-30)
 
 ### Bug Fixes

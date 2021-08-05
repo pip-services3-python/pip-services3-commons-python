@@ -53,7 +53,7 @@ class ConfigParams(StringValueMap):
 
         :param values: (optional) an object to be converted into key-args pairs to initialize this config map.
         """
-        super(ConfigParams, self).__init__(values)
+        super().__init__(values)
 
     def get_section_names(self) -> List[str]:
         """

@@ -38,7 +38,7 @@ class CommandSet:
             _controller = None
 
             def __init__(self, controller):
-                super(MyDataCommandSet, self).__init__()
+                super().__init__()
 
                 self._controller = controller
 

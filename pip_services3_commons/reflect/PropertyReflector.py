@@ -78,11 +78,12 @@ class PropertyReflector:
         for property_name in dir(obj):
             if property_name.lower() != name:
                 continue
+            
+            if hasattr(obj, property_name):
+                property = getattr(obj, property_name, None)
 
-            property = getattr(obj, property_name)
-
-            if PropertyReflector._is_property(property, property_name):
-                return True
+                if PropertyReflector._is_property(property, property_name):
+                    return True
 
         return False
 
@@ -109,10 +110,11 @@ class PropertyReflector:
                 if property_name.lower() != name:
                     continue
 
-                property = getattr(obj, property_name)
+                if hasattr(obj, property_name):
+                    property = getattr(obj, property_name, None)
 
-                if PropertyReflector._is_property(property, property_name):
-                    return property
+                    if PropertyReflector._is_property(property, property_name):
+                        return property
         except:
             pass
 
@@ -131,10 +133,11 @@ class PropertyReflector:
 
         for property_name in dir(obj):
 
-            property = getattr(obj, property_name)
+            if hasattr(obj, property_name):
+                property = getattr(obj, property_name, None)
 
-            if PropertyReflector._is_property(property, property_name):
-                property_names.append(property_name)
+                if PropertyReflector._is_property(property, property_name):
+                    property_names.append(property_name)
 
         return property_names
 
@@ -151,10 +154,11 @@ class PropertyReflector:
 
         for property_name in dir(obj):
 
-            property = getattr(obj, property_name)
+            if hasattr(obj, property_name):
+                property = getattr(obj, property_name, None)
 
-            if PropertyReflector._is_property(property, property_name):
-                properties[property_name] = property
+                if PropertyReflector._is_property(property, property_name):
+                    properties[property_name] = property
 
         return properties
 
@@ -183,11 +187,12 @@ class PropertyReflector:
             for property_name in dir(obj):
                 if property_name.lower() != name:
                     continue
+                
+                if hasattr(obj, property_name):
+                    property = getattr(obj, property_name, None)
 
-                property = getattr(obj, property_name)
-
-                if PropertyReflector._is_property(property, property_name):
-                    setattr(obj, property_name, value)
+                    if PropertyReflector._is_property(property, property_name):
+                        setattr(obj, property_name, value)
         except:
             pass
 
