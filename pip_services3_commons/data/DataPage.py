@@ -8,7 +8,7 @@
     :copyright: Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.
     :license: MIT, see LICENSE for more details.
 """
-from typing import Sequence, Any
+from typing import List, Any
 
 
 
@@ -39,7 +39,7 @@ class DataPage:
             print (item)
     """
 
-    def __init__(self, data: Sequence[Any], total: int = None):
+    def __init__(self, data: List[Any] = [], total: int = None):
         """
         Creates a new instance of data page and assigns its values.
 
@@ -48,7 +48,7 @@ class DataPage:
         :param total: total amount of items in a request.
         """
         # The total amount of items in a request.
-        self.data: Sequence[Any] = data
+        self.data: List[Any] = data
         # The total amount of items in a request.
         self.total: int = total
 
