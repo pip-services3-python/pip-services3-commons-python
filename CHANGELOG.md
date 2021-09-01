@@ -6,7 +6,12 @@
 * Fixed writing properties for PropertyReflector
 * Fixed ValidationException base class initialization
 
-## <a name="3.3.4"></a> 3.3.4 (2021-07-30)
+## <a name="3.3.6"></a> 3.3.6 (2021-09-01)
+
+### Bug Fixes
+* Fixed ArrayConverter list_to_array and to_nullable_array methods
+
+## <a name="3.3.4-3.3.5"></a> 3.3.4-3.3.5 (2021-07-30)
 
 ### Bug Fixes
 * Fixed validation scheme with unknown params

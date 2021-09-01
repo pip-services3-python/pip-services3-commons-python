@@ -2,9 +2,9 @@
 """
     pip_services3_commons.convert.ArrayConverter
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    
+
     Array conversion utilities
-    
+
     :copyright: Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.
     :license: MIT, see LICENSE for more details.
 """
@@ -43,6 +43,19 @@ class ArrayConverter:
         if type(value) in [tuple, set]:
             return list(value)
 
+        if isinstance(value, dict):
+            array = []
+            for prop in value.keys():
+                array.append(value[prop])
+            return array
+
+        if hasattr(value, '__dict__'):
+            array = []
+            for prop in value.__dict__.keys():
+                array.append(value[prop])
+            return array
+
+        # Convert single values
         return [value]
 
     @staticmethod
@@ -89,4 +102,4 @@ class ArrayConverter:
         elif type(value) in [str]:
             return value.split(',')
         else:
-            return [value]
+            return ArrayConverter.to_array(value)
