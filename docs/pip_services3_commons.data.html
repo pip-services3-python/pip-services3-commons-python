@@ -1952,7 +1952,7 @@ The result is a semicolon-separated list of key-args pairs as
 
 <dl class="py class">
 <dt id="pip_services3_commons.data.DataPage">
-<em class="property">class </em><code class="sig-prename descclassname">pip_services3_commons.data.</code><code class="sig-name descname">DataPage</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span><span class="p">:</span> <span class="n">Sequence<span class="p">[</span>Any<span class="p">]</span></span></em>, <em class="sig-param"><span class="n">total</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)">int</a></span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.data.DataPage" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">pip_services3_commons.data.</code><code class="sig-name descname">DataPage</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span><span class="p">:</span> <span class="n">List<span class="p">[</span>Any<span class="p">]</span></span> <span class="o">=</span> <span class="default_value">()</span></em>, <em class="sig-param"><span class="n">total</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)">int</a></span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.data.DataPage" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="http://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>Data transfer object that is used to pass results of paginated queries.
 It contains items of retrieved page and optional total number of items.</p>
@@ -2066,7 +2066,7 @@ because its generation may lead to severe performance implications.</p>
 <dl class="py class">
 <dt id="pip_services3_commons.data.IIdentifiable">
 <em class="property">class </em><code class="sig-prename descclassname">pip_services3_commons.data.</code><code class="sig-name descname">IIdentifiable</code><a class="headerlink" href="#pip_services3_commons.data.IIdentifiable" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="http://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/3/library/abc.html#abc.ABC" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></a></p>
 <p>Generic interface for data objects that can be uniquely identified by an id.</p>
 <p>The type specified in the interface defines the type of id field.</p>
 <p>Example:</p>
@@ -2329,7 +2329,7 @@ When English is not found it takes the first args.</p>
 
 <dl class="py method">
 <dt id="pip_services3_commons.data.MultiString.put">
-<code class="sig-name descname">put</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">language</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></span></em>, <em class="sig-param"><span class="n">value</span><span class="p">:</span> <span class="n">Any</span></em><span class="sig-paren">)</span> &#x2192; Any<a class="headerlink" href="#pip_services3_commons.data.MultiString.put" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">put</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">language</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></span></em>, <em class="sig-param"><span class="n">value</span><span class="p">:</span> <span class="n">Any</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.data.MultiString.put" title="Permalink to this definition">¶</a></dt>
 <dd><p>Puts a new translation for the specified language.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>

@@ -611,8 +611,26 @@ The operation can be performed over values of any type.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="pip_services3_commons.validate.ObjectComparator.less">
-<em class="property">static </em><code class="sig-name descname">less</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value1</span><span class="p">:</span> <span class="n">Any</span></em>, <em class="sig-param"><span class="n">value2</span><span class="p">:</span> <span class="n">Any</span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="http://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)">bool</a><a class="headerlink" href="#pip_services3_commons.validate.ObjectComparator.less" title="Permalink to this definition">¶</a></dt>
+<dt id="pip_services3_commons.validate.ObjectComparator.is_greater">
+<em class="property">static </em><code class="sig-name descname">is_greater</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value1</span><span class="p">:</span> <span class="n">Any</span></em>, <em class="sig-param"><span class="n">value2</span><span class="p">:</span> <span class="n">Any</span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="http://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)">bool</a><a class="headerlink" href="#pip_services3_commons.validate.ObjectComparator.is_greater" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks if first args is greater than the second one.
+The operation can be performed over numbers or strings.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>value1</strong> – the first args to compare</p></li>
+<li><p><strong>value2</strong> – the second args to compare</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>true if the first args is greater than second and false otherwise.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pip_services3_commons.validate.ObjectComparator.is_less">
+<em class="property">static </em><code class="sig-name descname">is_less</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value1</span><span class="p">:</span> <span class="n">Any</span></em>, <em class="sig-param"><span class="n">value2</span><span class="p">:</span> <span class="n">Any</span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="http://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)">bool</a><a class="headerlink" href="#pip_services3_commons.validate.ObjectComparator.is_less" title="Permalink to this definition">¶</a></dt>
 <dd><p>Checks if first args is less than the second one.
 The operation can be performed over numbers or strings.</p>
 <dl class="field-list simple">
@@ -630,35 +648,17 @@ The operation can be performed over numbers or strings.</p>
 
 <dl class="py method">
 <dt id="pip_services3_commons.validate.ObjectComparator.match">
-<em class="property">static </em><code class="sig-name descname">match</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value1</span><span class="p">:</span> <span class="n">Any</span></em>, <em class="sig-param"><span class="n">value2</span><span class="p">:</span> <span class="n">Any</span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="http://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)">bool</a><a class="headerlink" href="#pip_services3_commons.validate.ObjectComparator.match" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="sig-name descname">match</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value1</span><span class="p">:</span> <span class="n">Any</span></em>, <em class="sig-param"><span class="n">regexp</span><span class="p">:</span> <span class="n">Any</span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="http://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)">bool</a><a class="headerlink" href="#pip_services3_commons.validate.ObjectComparator.match" title="Permalink to this definition">¶</a></dt>
 <dd><p>Checks if string matches a regular expression</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>value1</strong> – a string args to match</p></li>
-<li><p><strong>value2</strong> – a regular expression string</p></li>
+<li><p><strong>regexp</strong> – a regular expression string</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>true if the args matches regular expression and false otherwise.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="pip_services3_commons.validate.ObjectComparator.more">
-<em class="property">static </em><code class="sig-name descname">more</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value1</span><span class="p">:</span> <span class="n">Any</span></em>, <em class="sig-param"><span class="n">value2</span><span class="p">:</span> <span class="n">Any</span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="http://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)">bool</a><a class="headerlink" href="#pip_services3_commons.validate.ObjectComparator.more" title="Permalink to this definition">¶</a></dt>
-<dd><p>Checks if first args is greater than the second one.
-The operation can be performed over numbers or strings.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>value1</strong> – the first args to compare</p></li>
-<li><p><strong>value2</strong> – the second args to compare</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>true if the first args is greater than second and false otherwise.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -729,7 +729,7 @@ to chain additional calls.</p>
 
 <dl class="py method">
 <dt id="pip_services3_commons.validate.ObjectSchema.with_optional_property">
-<code class="sig-name descname">with_optional_property</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></span></em>, <em class="sig-param"><span class="n">typ</span><span class="p">:</span> <span class="n"><a class="reference internal" href="pip_services3_commons.validate.Schema.html#pip_services3_commons.validate.Schema.Schema" title="pip_services3_commons.validate.Schema.Schema">pip_services3_commons.validate.Schema.Schema</a></span></em>, <em class="sig-param"><span class="o">*</span><span class="n">rules</span><span class="p">:</span> <span class="n"><a class="reference internal" href="pip_services3_commons.validate.IValidationRule.html#pip_services3_commons.validate.IValidationRule.IValidationRule" title="pip_services3_commons.validate.IValidationRule.IValidationRule">pip_services3_commons.validate.IValidationRule.IValidationRule</a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="pip_services3_commons.validate.ObjectSchema.html#pip_services3_commons.validate.ObjectSchema.ObjectSchema" title="pip_services3_commons.validate.ObjectSchema.ObjectSchema">pip_services3_commons.validate.ObjectSchema.ObjectSchema</a><a class="headerlink" href="#pip_services3_commons.validate.ObjectSchema.with_optional_property" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">with_optional_property</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></span></em>, <em class="sig-param"><span class="n">typ</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span>Any<span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">rules</span><span class="p">:</span> <span class="n"><a class="reference internal" href="pip_services3_commons.validate.IValidationRule.html#pip_services3_commons.validate.IValidationRule.IValidationRule" title="pip_services3_commons.validate.IValidationRule.IValidationRule">pip_services3_commons.validate.IValidationRule.IValidationRule</a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="pip_services3_commons.validate.ObjectSchema.html#pip_services3_commons.validate.ObjectSchema.ObjectSchema" title="pip_services3_commons.validate.ObjectSchema.ObjectSchema">pip_services3_commons.validate.ObjectSchema.ObjectSchema</a><a class="headerlink" href="#pip_services3_commons.validate.ObjectSchema.with_optional_property" title="Permalink to this definition">¶</a></dt>
 <dd><p>Adds a validation schema for an optional object property.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -763,7 +763,7 @@ to chain additional calls.</p>
 
 <dl class="py method">
 <dt id="pip_services3_commons.validate.ObjectSchema.with_required_property">
-<code class="sig-name descname">with_required_property</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></span></em>, <em class="sig-param"><span class="n">typ</span><span class="p">:</span> <span class="n"><a class="reference internal" href="pip_services3_commons.validate.Schema.html#pip_services3_commons.validate.Schema.Schema" title="pip_services3_commons.validate.Schema.Schema">pip_services3_commons.validate.Schema.Schema</a></span></em>, <em class="sig-param"><span class="o">*</span><span class="n">rules</span><span class="p">:</span> <span class="n"><a class="reference internal" href="pip_services3_commons.validate.IValidationRule.html#pip_services3_commons.validate.IValidationRule.IValidationRule" title="pip_services3_commons.validate.IValidationRule.IValidationRule">pip_services3_commons.validate.IValidationRule.IValidationRule</a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="pip_services3_commons.validate.ObjectSchema.html#pip_services3_commons.validate.ObjectSchema.ObjectSchema" title="pip_services3_commons.validate.ObjectSchema.ObjectSchema">pip_services3_commons.validate.ObjectSchema.ObjectSchema</a><a class="headerlink" href="#pip_services3_commons.validate.ObjectSchema.with_required_property" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">with_required_property</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></span></em>, <em class="sig-param"><span class="n">typ</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span>Any<span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">rules</span><span class="p">:</span> <span class="n"><a class="reference internal" href="pip_services3_commons.validate.IValidationRule.html#pip_services3_commons.validate.IValidationRule.IValidationRule" title="pip_services3_commons.validate.IValidationRule.IValidationRule">pip_services3_commons.validate.IValidationRule.IValidationRule</a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="pip_services3_commons.validate.ObjectSchema.html#pip_services3_commons.validate.ObjectSchema.ObjectSchema" title="pip_services3_commons.validate.ObjectSchema.ObjectSchema">pip_services3_commons.validate.ObjectSchema.ObjectSchema</a><a class="headerlink" href="#pip_services3_commons.validate.ObjectSchema.with_required_property" title="Permalink to this definition">¶</a></dt>
 <dd><p>Adds a validation schema for a __required object property.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -783,7 +783,7 @@ to chain additional calls.</p>
 
 <dl class="py class">
 <dt id="pip_services3_commons.validate.OnlyOneExistRule">
-<em class="property">class </em><code class="sig-prename descclassname">pip_services3_commons.validate.</code><code class="sig-name descname">OnlyOneExistRule</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">properties</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.validate.OnlyOneExistRule" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">pip_services3_commons.validate.</code><code class="sig-name descname">OnlyOneExistRule</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">properties</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.validate.OnlyOneExistRule" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="pip_services3_commons.validate.IValidationRule.html#pip_services3_commons.validate.IValidationRule.IValidationRule" title="pip_services3_commons.validate.IValidationRule.IValidationRule"><code class="xref py py-class docutils literal notranslate"><span class="pre">pip_services3_commons.validate.IValidationRule.IValidationRule</span></code></a></p>
 <p>Validation rule that check that at exactly one of the object properties is not null.</p>
 <p>Example:</p>
@@ -1246,7 +1246,7 @@ See :class: <cite>ValidationResultType</cite></p>
 
 <dl class="py class">
 <dt id="pip_services3_commons.validate.ValueComparisonRule">
-<em class="property">class </em><code class="sig-prename descclassname">pip_services3_commons.validate.</code><code class="sig-name descname">ValueComparisonRule</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">operation</span><span class="p">:</span> <span class="n">Any</span></em>, <em class="sig-param"><span class="n">value</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.validate.ValueComparisonRule" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">pip_services3_commons.validate.</code><code class="sig-name descname">ValueComparisonRule</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">operation</span><span class="p">:</span> <span class="n">Any</span></em>, <em class="sig-param"><span class="n">value</span><span class="p">:</span> <span class="n">Any</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.validate.ValueComparisonRule" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="pip_services3_commons.validate.IValidationRule.html#pip_services3_commons.validate.IValidationRule.IValidationRule" title="pip_services3_commons.validate.IValidationRule.IValidationRule"><code class="xref py py-class docutils literal notranslate"><span class="pre">pip_services3_commons.validate.IValidationRule.IValidationRule</span></code></a></p>
 <p>Validation rule that compares args to a constant.</p>
 <p>Example:</p>
