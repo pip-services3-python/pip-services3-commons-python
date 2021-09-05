@@ -33,7 +33,7 @@ class DoubleConverter:
             return None
         if type(value) == int or isinstance(value, float):
             return value
-        if isinstance(value, datetime.datetime) or inspect.isclass(value) and issubclass(value, datetime.datetime):
+        if isinstance(value, datetime.datetime) or (inspect.isclass(value) and issubclass(value, datetime.datetime)):
             return int(value.timestamp() * 1000)
         if isinstance(value, bool):
             return 1 if value else 0

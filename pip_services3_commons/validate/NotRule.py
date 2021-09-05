@@ -31,7 +31,6 @@ class NotRule(IValidationRule):
         schema.validate(1)          # Result: error
         schema.validate(5)          # Result: no error
     """
-    __rule: IValidationRule = None
 
     def __init__(self, rule: IValidationRule):
         """
@@ -39,7 +38,7 @@ class NotRule(IValidationRule):
 
         :param rule: a rule to be negated.
         """
-        self.__rule = rule
+        self.__rule: IValidationRule = rule
 
     def validate(self, path: str, schema: Schema, value: Any, results: List[ValidationResult]):
         """
@@ -53,11 +52,11 @@ class NotRule(IValidationRule):
 
         :param results: a list with validation results to add new results.
         """
-        if self.__rule is None:
+        if not self.__rule:
             return
 
-        name = path if not (path is None) else "args"
-        local_results = []
+        name = path or "args"
+        local_results: List[ValidationResult] = []
 
         self.__rule.validate(path, schema, value, local_results)
 

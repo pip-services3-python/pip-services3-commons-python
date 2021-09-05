@@ -10,6 +10,7 @@
 """
 from typing import List, Any, Optional
 
+from pip_services3_commons.convert import TypeCode
 from pip_services3_commons.validate.IValidationRule import IValidationRule
 from .ValidationException import ValidationException
 from .ValidationResult import ValidationResult
@@ -26,8 +27,6 @@ class Schema:
     This schema is used as a basis for specific schemas to validate
     objects, project properties, arrays and maps.
     """
-    __required: bool = None
-    __rules: List[IValidationRule] = None
 
     def __init__(self, required: bool = False, rules: List[IValidationRule] = None):
         """
@@ -37,8 +36,8 @@ class Schema:
 
         :param rules: (optional) a list with validation __rules.
         """
-        self.__required = required
-        self.__rules = rules if not (rules is None) else []
+        self.__required: bool = required
+        self.__rules: List[IValidationRule] = rules or []
 
     def is_required(self) -> bool:
         """
@@ -110,7 +109,7 @@ class Schema:
 
         :return: this validation schema.
         """
-        self.__rules = self.__rules if not (self.__rules is None) else []
+        self.__rules = self.__rules or []
         self.__rules.append(rule)
         return self
 
@@ -124,17 +123,17 @@ class Schema:
 
         :param results: a list with validation results to add new results.
         """
-        name = path if not (path is None) else "args"
+        name = path or "args"
 
         if value is None:
             # Check for __required values
-            if self.__required:
+            if self.is_required():
                 results.append(
                     ValidationResult(
                         path,
                         ValidationResultType.Error,
                         "VALUE_IS_NULL",
-                        name + " cannot be null",
+                        name + " must not be null",
                         "NOT NULL",
                         None
                     )
@@ -143,16 +142,16 @@ class Schema:
             value = ObjectReader.get_value(value)
 
             # Check validation __rules
-            if not (self.__rules is None):
+            if self.__rules is not None:
                 for rule in self.__rules:
                     rule.validate(path, self, value, results)
 
-    def _type_to_string(self, typ: Any) -> str:
+    def __type_to_string(self, typ: Any) -> str:
         if typ is None:
             return "unknown"
-        if isinstance(typ, int):
+        if isinstance(typ, TypeCode):
             return TypeConverter.to_string(typ)
-        return TypeConverter.to_string(typ)
+        return str(typ)
 
     def _perform_type_validation(self, path: str, typ: Any, value: Any, results: List[ValidationResult]):
         """
@@ -197,8 +196,8 @@ class Schema:
                 ValidationResultType.Error,
                 "TYPE_MISMATCH",
                 name + " type must be " +
-                self._type_to_string(typ) + " but found " +
-                self._type_to_string(value_type),
+                self.__type_to_string(typ) + " but found " +
+                self.__type_to_string(value_type),
                 typ,
                 value_type
             )
@@ -239,5 +238,4 @@ class Schema:
         :param strict: true to treat warnings as errors.
         """
         results = self.validate(value)
-        ValidationException.throw_exception_if_needed(
-            correlation_id, results, strict)
+        ValidationException.throw_exception_if_needed(correlation_id, results, strict)

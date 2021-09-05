@@ -8,7 +8,7 @@
     :copyright: Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.
     :license: MIT, see LICENSE for more details.
 """
-from typing import Sequence, Any, List
+from typing import Any, List, Tuple
 
 from pip_services3_commons.validate import Schema, ValidationResult
 from .IValidationRule import IValidationRule
@@ -30,7 +30,6 @@ class OrRule(IValidationRule):
         schema.validate(5)          # Result: 5 must be less than 1 or 5 must be more than 10
         schema.validate(20)         # Result: no error
     """
-    __rules: Sequence[IValidationRule] = None
 
     def __init__(self, *rules: IValidationRule):
         """
@@ -38,7 +37,7 @@ class OrRule(IValidationRule):
 
         :param rules: a list of __rules to join with OR operator
         """
-        self.__rules = rules
+        self.__rules: Tuple[IValidationRule] = rules
 
     def validate(self, path: str, schema: Schema, value: Any, results: List[ValidationResult]):
         """

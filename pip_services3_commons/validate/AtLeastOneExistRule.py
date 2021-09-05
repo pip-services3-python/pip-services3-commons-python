@@ -8,7 +8,7 @@
     :copyright: Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.
     :license: MIT, see LICENSE for more details.
 """
-from typing import List, Sequence, Any
+from typing import List, Any, Tuple
 
 from pip_services3_commons.validate import Schema
 from .IValidationRule import IValidationRule
@@ -26,11 +26,10 @@ class AtLeastOneExistRule(IValidationRule):
     .. code-block:: python
 
         schema = Schema().with_rule(AtLeastOneExistsRule("field1", "field2"))
-        schema.validate({ field1: 1, field2: "A" })     # Result: no errors
-        schema.validate({ field1: 1 })                  # Result: no errors
+        schema.validate({ 'field1': 1, 'field2': "A" })     # Result: no errors
+        schema.validate({ 'field1': 1 })                  # Result: no errors
         schema.validate({ })                            # Result: at least one of properties field1, field2 must exist
     """
-    __properties: Sequence[str] = None
 
     def __init__(self, *properties: str):
         """
@@ -38,7 +37,7 @@ class AtLeastOneExistRule(IValidationRule):
 
         :param properties: a list of property names where at least one property must exist
         """
-        self.__properties = properties
+        self.__properties: Tuple[str] = properties
 
     def validate(self, path: str, schema: Schema, value: Any, results: List[ValidationResult]):
         """
@@ -52,12 +51,13 @@ class AtLeastOneExistRule(IValidationRule):
 
         :param results: a list with validation results to add new results.
         """
-        name = path if not (path is None) else "args"
+        name = path or "args"
         found = []
 
         for prop in self.__properties:
             property_value = ObjectReader.get_property(value, prop)
-            if not (property_value is None):
+            if \
+                    property_value is not None:
                 found.append(prop)
 
         if len(found) == 0:

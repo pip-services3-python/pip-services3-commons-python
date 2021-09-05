@@ -30,10 +30,8 @@ class ValueComparisonRule(IValidationRule):
         schema.validate(1)          # Result: no errors
         schema.validate(2)          # Result: 2 is not equal to 1
     """
-    __operation: Any = None
-    __value: str = None
 
-    def __init__(self, operation: Any, value: str):
+    def __init__(self, operation: Any, value: Any):
         """
         Creates a new validation rule and sets its values.
 
@@ -42,8 +40,8 @@ class ValueComparisonRule(IValidationRule):
 
         :param value: a constant args to compare to
         """
-        self.__operation = operation
-        self.__value = value
+        self.__operation: Any = operation
+        self.__value: Any = value
 
     def validate(self, path: str, schema: Schema, value: Any, results: List[ValidationResult]):
         """
@@ -67,6 +65,6 @@ class ValueComparisonRule(IValidationRule):
                     "BAD_VALUE",
                     name + " must " + str(self.__operation) + " " + str(self.__value) + " but found " + str(value),
                     str(self.__operation) + " " + str(self.__value),
-                    value
+                    str(value)
                 )
             )

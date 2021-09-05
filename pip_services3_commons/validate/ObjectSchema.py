@@ -8,9 +8,9 @@
     :copyright: Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.
     :license: MIT, see LICENSE for more details.
 """
-from typing import List, Any
+from typing import List, Any, Optional
 
-from pip_services3_commons.validate import IValidationRule
+from pip_services3_commons.validate import IValidationRule, ObjectComparator
 from .PropertySchema import PropertySchema
 from .Schema import Schema
 from .ValidationResult import ValidationResult
@@ -37,9 +37,6 @@ class ObjectSchema(Schema):
         schema.validate("ABC")                          // Result: type mismatch
     """
 
-    __properties: List[PropertySchema] = None
-    __allow_undefined: bool = None
-
     def __init__(self, allow_undefined: bool = False, required: bool = None, rules: List[IValidationRule] = None):
         """
         Creates a new validation schema and sets its values.
@@ -49,8 +46,8 @@ class ObjectSchema(Schema):
         :param rules: (optional) a list with validation __rules.
         """
         super(ObjectSchema, self).__init__(required, rules)
-        self.__allow_undefined = allow_undefined
-        self.__properties = None
+        self.__allow_undefined: bool = allow_undefined
+        self.__properties: List[PropertySchema] = []
 
     def get_properties(self) -> List[PropertySchema]:
         """
@@ -111,11 +108,10 @@ class ObjectSchema(Schema):
 
         :return: this validation schema.
         """
-        self.__properties = self.__properties if not (self.__properties is None) else []
         self.__properties.append(schema)
         return self
 
-    def with_required_property(self, name: str, typ: Schema, *rules: IValidationRule) -> 'ObjectSchema':
+    def with_required_property(self, name: str, typ: Optional[Any] = None, *rules: IValidationRule) -> 'ObjectSchema':
         """
         Adds a validation schema for a __required object property.
 
@@ -127,13 +123,12 @@ class ObjectSchema(Schema):
 
         :return: the validation schema
         """
-        self.__properties = self.__properties if not (self.__properties is None) else []
         schema = PropertySchema(name, typ)
-        schema.__rules = rules
+        schema.set_rules(list(rules[:]))
         schema.make_required()
         return self.with_property(schema)
 
-    def with_optional_property(self, name: str, typ: Schema, *rules: IValidationRule) -> 'ObjectSchema':
+    def with_optional_property(self, name: str, typ: Optional[Any] = None, *rules: IValidationRule) -> 'ObjectSchema':
         """
         Adds a validation schema for an optional object property.
 
@@ -145,9 +140,8 @@ class ObjectSchema(Schema):
 
         :return: the validation schema
         """
-        self.__properties = self.__properties if not (self.__properties is None) else []
         schema = PropertySchema(name, typ)
-        schema.__rules = rules
+        schema.set_rules(list(rules[:]))
         schema.make_optional()
         return self.with_property(schema)
 
@@ -166,19 +160,20 @@ class ObjectSchema(Schema):
         if value is None:
             return
 
-        name = path if not (path is None) else "args"
+        name = path or "args"
         properties = ObjectReader.get_properties(value)
 
         # Process defined properties
-        if not (self.__properties is None):
+        if self.__properties is not None:
             for property_schema in self.__properties:
                 processed_name = None
 
                 for (key, value) in properties.items():
+
                     # Find properties case insensitive
-                    if not (property_schema.get_name() is None) and key.lower() == property_schema.get_name().lower():
+                    if ObjectComparator.are_equal(property_schema.get_name(), key):
                         property_schema._perform_validation(path, value, results)
-                        processed_name = key
+                        processed_name = key#private_obj_name + key
                         break
 
                 if processed_name is None:
@@ -190,7 +185,7 @@ class ObjectSchema(Schema):
         if not self.__allow_undefined:
             for (key, value) in properties.items():
                 property_path = key if path is None or len(path) == 0 else path + "." + key
-    
+
                 results.append(
                     ValidationResult(
                         property_path,

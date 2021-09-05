@@ -32,9 +32,6 @@ class PropertiesComparisonRule(IValidationRule):
         schema.validate({ field1: 1, field2: 1 })       # Result: field1 shall not be equal to field2
         schema.validate({})                             # Result: no errors
     """
-    __property1: str = None
-    __property2: str = None
-    __operation: str = None
 
     def __init__(self, property1: str, operation: str, property2: str):
         """
@@ -47,9 +44,9 @@ class PropertiesComparisonRule(IValidationRule):
 
         :param property2: a name of the second property to compare.
         """
-        self.__property1 = property1
-        self.__operation = operation
-        self.__property2 = property2
+        self.__property1: str = property1
+        self.__operation: str = operation
+        self.__property2: str = property2
 
     def validate(self, path: str, schema: Schema, value: Any, results: List[ValidationResult]):
         """
@@ -63,7 +60,7 @@ class PropertiesComparisonRule(IValidationRule):
 
         :param results: a list with validation results to add new results.
         """
-        name = path if not (path is None) else "args"
+        name = path or "args"
         value1 = ObjectReader.get_property(value, self.__property1)
         value2 = ObjectReader.get_property(value, self.__property2)
 

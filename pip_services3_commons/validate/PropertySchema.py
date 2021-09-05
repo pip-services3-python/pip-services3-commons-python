@@ -85,7 +85,8 @@ class PropertySchema(Schema):
 
         :param results: a list with validation results to add new results.
         """
-        path = self.__name if path is None or len(path) == 0 else path + "." + self.__name
+        path = self.get_name() if path is None or len(path) == 0 else path + "." + self.get_name()
 
         super(PropertySchema, self)._perform_validation(path, value, results)
-        self._perform_type_validation(path, self.__type, value, results)
+
+        super(PropertySchema, self)._perform_type_validation(path, self.get_type(), value, results)

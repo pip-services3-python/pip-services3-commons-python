@@ -2,9 +2,9 @@
 """
     pip_services3_commons.validate.ObjectComparator
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    
+
     Object comparator implementation
-    
+
     :copyright: Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.
     :license: MIT, see LICENSE for more details.
 """
@@ -12,6 +12,7 @@
 import re
 from typing import Any
 
+from pip_services3_commons.convert import StringConverter
 from ..convert.FloatConverter import FloatConverter
 
 
@@ -20,7 +21,7 @@ class ObjectComparator:
     Helper class to perform comparison operations over arbitrary values.
 
     Example:
-    
+
     .. code-block:: python
 
         ObjectComparator.compare(2, "GT", 1)        # Result: true
@@ -42,8 +43,6 @@ class ObjectComparator:
 
         :return: result of the comparison operation
         """
-        if operation is None:
-            return False
 
         operation = operation.upper()
 
@@ -52,17 +51,17 @@ class ObjectComparator:
         if operation in ["!=", "<>", "NE"]:
             return ObjectComparator.are_not_equal(value1, value2)
         if operation in ["<", "LT"]:
-            return ObjectComparator.less(value1, value2)
-        if operation in ["<=", "LE"]:
-            return ObjectComparator.are_equal(value1, value2) or ObjectComparator.less(value1, value2)
+            return ObjectComparator.is_less(value1, value2)
+        if operation in ["<=", "LE", "LTE"]:
+            return ObjectComparator.are_equal(value1, value2) or ObjectComparator.is_less(value1, value2)
         if operation in [">", "GT"]:
-            return ObjectComparator.more(value1, value2)
-        if operation in [">=", "GE"]:
-            return ObjectComparator.are_equal(value1, value2) or ObjectComparator.more(value1, value2)
+            return ObjectComparator.is_greater(value1, value2)
+        if operation in [">=", "GE", "GTE"]:
+            return ObjectComparator.are_equal(value1, value2) or ObjectComparator.is_greater(value1, value2)
         if operation == "LIKE":
             return ObjectComparator.match(value1, value2)
 
-        return True
+        return False
 
     @staticmethod
     def are_equal(value1: Any, value2: Any) -> bool:
@@ -75,10 +74,24 @@ class ObjectComparator:
 
         :return: true if values are equal and false otherwise
         """
-        if value1 is None or value2 is None:
+        if value1 is None and value2 is None:
             return True
         if value1 is None or value2 is None:
             return False
+
+        if hasattr(value1, '__eq__'):
+            return value1.__eq__(value2)
+
+        number1 = FloatConverter.to_nullable_float(value1)
+        number2 = FloatConverter.to_nullable_float(value2)
+        if number1 is not None and number2 is not None:
+            return number1 == number2
+
+        str1 = StringConverter.to_nullable_string(value1)
+        str2 = StringConverter.to_nullable_string(value1)
+        if str1 is not None and str2 is not None:
+            return str1 == str2
+
         return value1 == value2
 
     @staticmethod
@@ -95,7 +108,7 @@ class ObjectComparator:
         return not ObjectComparator.are_equal(value1, value2)
 
     @staticmethod
-    def less(value1: Any, value2: Any) -> bool:
+    def is_less(value1: Any, value2: Any) -> bool:
         """
         Checks if first args is less than the second one.
         The operation can be performed over numbers or strings.
@@ -115,7 +128,7 @@ class ObjectComparator:
         return number1 < number2
 
     @staticmethod
-    def more(value1: Any, value2: Any) -> bool:
+    def is_greater(value1: Any, value2: Any) -> bool:
         """
         Checks if first args is greater than the second one.
         The operation can be performed over numbers or strings.
@@ -135,21 +148,22 @@ class ObjectComparator:
         return number1 > number2
 
     @staticmethod
-    def match(value1: Any, value2: Any) -> bool:
+    def match(value1: Any, regexp: Any) -> bool:
         """
         Checks if string matches a regular expression
 
         :param value1: a string args to match
 
-        :param value2: a regular expression string
+        :param regexp: a regular expression string
 
         :return: true if the args matches regular expression and false otherwise.
         """
-        if value1 is None and value2 is None:
+        if value1 is None and regexp is None:
             return True
-        if value1 is None or value2 is None:
+        if value1 is None or regexp is None:
             return False
 
-        string1 = str(value1)
-        string2 = str(value2)
+        string1 = StringConverter.to_string(value1)
+        string2 = StringConverter.to_string(regexp)
+
         return re.match(string2, string1) is not None

@@ -8,7 +8,7 @@
     :copyright: Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.
     :license: MIT, see LICENSE for more details.
 """
-from typing import List, Sequence, Any
+from typing import List, Any, Tuple
 
 from pip_services3_commons.validate import Schema, ValidationResult
 from .IValidationRule import IValidationRule
@@ -30,7 +30,6 @@ class AndRule(IValidationRule):
         schema.validate(5)          # Result: no error
         schema.validate(20)         # Result: 20 must be letter or equal 10
     """
-    __rules: Sequence[IValidationRule] = None
 
     def __init__(self, *rules: IValidationRule):
         """
@@ -38,7 +37,7 @@ class AndRule(IValidationRule):
 
         :param rules: a list of __rules to join with AND operator
         """
-        self.__rules = rules
+        self.__rules: Tuple[IValidationRule] = rules
 
     def validate(self, path: str, schema: Schema, value: Any, results: List[ValidationResult]):
         """

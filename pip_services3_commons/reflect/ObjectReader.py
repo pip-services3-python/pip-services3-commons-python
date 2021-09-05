@@ -167,7 +167,7 @@ class ObjectReader:
         if isinstance(obj, dict):
             for (key, value) in obj.items():
                 map[key] = value
-        elif isinstance(obj, list) or isinstance(obj, tuple) or isinstance(obj, set):
+        elif isinstance(obj, (list, set, tuple)):
             for index in range(len(obj)):
                 map[str(index)] = obj[index]
         else:

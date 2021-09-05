@@ -2,9 +2,9 @@
 """
     pip_services3_commons.reflect.PropertyReflector
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    
+
     Property reflector implementation
-    
+
     :copyright: Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.
     :license: MIT, see LICENSE for more details.
 """
@@ -22,7 +22,7 @@ class PropertyReflector:
     this PropertyReflector treats all property names as case insensitive.
 
     Example:
-    
+
     .. code-block:: python
 
         myObj = MyObject()
@@ -39,7 +39,8 @@ class PropertyReflector:
         if callable(property):
             return False
 
-        if name.startswith("_"):
+        # if magic method or base abstract class property
+        if name.startswith("__") and name.endswith('__') or name == '_abc_impl':
             return False
 
         return True
@@ -78,7 +79,7 @@ class PropertyReflector:
         for property_name in dir(obj):
             if property_name.lower() != name:
                 continue
-            
+
             if hasattr(obj, property_name):
                 property = getattr(obj, property_name, None)
 
@@ -158,6 +159,15 @@ class PropertyReflector:
                 property = getattr(obj, property_name, None)
 
                 if PropertyReflector._is_property(property, property_name):
+
+                    # Prepare private fields
+                    if property_name.startswith('_') and len(property_name.split('__')) > 1:
+                        property_name = '__' + property_name.split('__')[-1]
+
+                    # Prepare protected fields
+                    elif property_name.startswith('_'):
+                        property_name = property_name[1:]
+
                     properties[property_name] = property
 
         return properties
@@ -187,7 +197,7 @@ class PropertyReflector:
             for property_name in dir(obj):
                 if property_name.lower() != name:
                     continue
-                
+
                 if hasattr(obj, property_name):
                     property = getattr(obj, property_name, None)
 

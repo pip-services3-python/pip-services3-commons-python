@@ -10,6 +10,7 @@
 """
 from typing import Any, List
 
+from pip_services3_commons.convert import StringConverter, TypeCode, TypeConverter
 from pip_services3_commons.validate import IValidationRule
 from .Schema import Schema
 from .ValidationResult import ValidationResult
@@ -30,8 +31,6 @@ class MapSchema(Schema):
         schema.validate({ "key1": 1, "key2": 2 })           # Result: element type mismatch
         schema.validate([ 1, 2, 3 ])                        # Result: type mismatch
     """
-    __key_type: Any = None
-    __value_type: Any = None
 
     def __init__(self, key_type: Any = None, value_type: Any = None, required: bool = None,
                  rules: List[IValidationRule] = None):
@@ -44,8 +43,8 @@ class MapSchema(Schema):
         :param rules: (optional) a list with validation __rules.
         """
         super(MapSchema, self).__init__(required, rules)
-        self.__key_type = key_type
-        self.__value_type = value_type
+        self.__key_type: Any = key_type
+        self.__value_type: Any = value_type
 
     def get_key_type(self) -> Any:
         """
@@ -93,7 +92,7 @@ class MapSchema(Schema):
 
         :param results: a list with validation results to add new results.
         """
-        name = path if not (path is None) else "args"
+
         value = ObjectReader.get_value(value)
 
         super(MapSchema, self)._perform_validation(path, value, results)
@@ -101,20 +100,24 @@ class MapSchema(Schema):
         if value is None:
             return
 
-        if isinstance(value, dict):
-            for (key, value) in value.items():
-                element_path = key if path is None or len(path) == 0 else path + "." + key
+        name = path or "args"
+        value_type = TypeConverter.to_type_code(value)
+        map = None if TypeCode.Map != value_type else value_type
 
-                self._perform_type_validation(element_path, self.__key_type, key, results)
-                self._perform_type_validation(element_path, self.__value_type, value, results)
+        if isinstance(value, dict) or map:
+            for (key, value) in value.items():
+                element_path = StringConverter.to_string(key) if path is None or len(path) == 0 else path + "." + key
+
+                self._perform_type_validation(element_path, self.get_key_type(), key, results)
+                self._perform_type_validation(element_path, self.get_value_type(), value, results)
         else:
             results.append(
                 ValidationResult(
                     path,
                     ValidationResultType.Error,
                     "VALUE_ISNOT_MAP",
-                    name + " type is expected to be Map",
-                    "Map",
-                    type(value)
+                    name + " type must be Map",
+                    TypeCode.Map,
+                    map
                 )
             )

@@ -11,6 +11,7 @@
 
 from typing import Any, List, Sequence
 
+from pip_services3_commons.convert import TypeCode, TypeConverter
 from pip_services3_commons.validate import IValidationRule
 from .Schema import Schema
 from .ValidationResult import ValidationResult
@@ -72,7 +73,7 @@ class ArraySchema(Schema):
 
         :param results: a list with validation results to add new results.
         """
-        name = path if not (path is None) else "args"
+        name = path or "args"
         value = ObjectReader.get_value(value)
 
         super(ArraySchema, self)._perform_validation(path, value, results)
@@ -80,11 +81,11 @@ class ArraySchema(Schema):
         if value is None:
             return
 
-        if isinstance(value, list) or isinstance(value, set) or isinstance(value, tuple):
+        if isinstance(value, (set, list, tuple)):
             index = 0
             for element in value:
                 element_path = str(index) if path is None or len(path) == 0 else path + "." + str(index)
-                self._perform_type_validation(element_path, self.__value_type, element, results)
+                self._perform_type_validation(element_path, self.get_value_type(), element, results)
                 index += 1
         else:
             results.append(
@@ -93,7 +94,7 @@ class ArraySchema(Schema):
                     ValidationResultType.Error,
                     "VALUE_ISNOT_ARRAY",
                     name + " type must be List or Array",
-                    "List",
-                    type(value)
+                    TypeCode.Array,
+                    TypeConverter.to_type_code(value)
                 )
             )

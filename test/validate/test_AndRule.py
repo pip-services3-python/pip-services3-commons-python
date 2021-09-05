@@ -1,13 +1,12 @@
 # -*- coding: utf-8 -*-
 from pip_services3_commons.validate import Schema, AndRule, AtLeastOneExistRule
-
-from validate.StubObject import StubObject
+from validate.ObjectTest import ObjectTest
 
 
 class TestAndRule:
 
     def test_and_rule(self):
-        obj = StubObject()
+        obj = ObjectTest()
 
         schema = Schema().with_rule(AndRule(AtLeastOneExistRule("missing_property", "string_property", "null_property"),
                                             AtLeastOneExistRule("string_property", "null_property", "int_field")))

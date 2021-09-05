@@ -62,7 +62,7 @@ class TypeMatcher:
         if isinstance(expected_type, type):
             return issubclass(type(actual_value), expected_type)
 
-        if isinstance(expected_type, int):
+        if isinstance(expected_type, TypeCode):
             if expected_type == actual_type:
                 return True
 
@@ -87,6 +87,8 @@ class TypeMatcher:
                     actual_type == TypeCode.String
                     and DateTimeConverter.to_nullable_datetime(actual_value) is not None):
                 return True
+
+            return False
 
         if isinstance(expected_type, str):
             return TypeMatcher.match_type_by_name(expected_type, actual_type, actual_value)

@@ -8,9 +8,9 @@
     :copyright: Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.
     :license: MIT, see LICENSE for more details.
 """
-from typing import Any, Sequence, List
+from typing import Any, List, Tuple
 
-from pip_services3_commons.validate import Schema
+from pip_services3_commons.validate import Schema, ObjectComparator
 from .IValidationRule import IValidationRule
 from .ValidationResult import ValidationResult
 from .ValidationResultType import ValidationResultType
@@ -29,7 +29,6 @@ class ExcludedRule(IValidationRule):
         schema.validate(2)      # Result: 2 must not be one of 1, 2, 3
         schema.validate(10)     # Result: no errors
     """
-    __values: Sequence[Any] = None
 
     def __init__(self, *values: Any):
         """
@@ -37,7 +36,7 @@ class ExcludedRule(IValidationRule):
 
         :param values: a list of constants that args must be excluded from
         """
-        self.__values = values
+        self.__values: Tuple[Any] = values
 
     def validate(self, path: str, schema: Schema, value: Any, results: List[ValidationResult]):
         """
@@ -51,11 +50,14 @@ class ExcludedRule(IValidationRule):
 
         :param results: a list with validation results to add new results.
         """
-        name = path if not (path is None) else "args"
+        if not self.__values:
+            return []
+
+        name = path or "args"
         found = False
 
         for this_value in self.__values:
-            if not (this_value is None) and this_value == value:
+            if ObjectComparator.compare(value, 'EQ', this_value):
                 found = True
                 break
 
@@ -67,6 +69,6 @@ class ExcludedRule(IValidationRule):
                     "VALUE_INCLUDED",
                     name + " must not be one of " + str(self.__values),
                     self.__values,
-                    value
+                    None
                 )
             )

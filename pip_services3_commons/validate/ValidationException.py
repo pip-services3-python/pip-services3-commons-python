@@ -34,7 +34,10 @@ class ValidationException(BadRequestException):
         :param message: (optional) a human-readable description of the error.
         """
         super().__init__(correlation_id, 'INVALID_DATA',
-                                                  ValidationException.compose_message(results) or message)
+                         ValidationException.compose_message(results) or message)
+
+        if results:
+            self.with_details('results', results)
 
     @staticmethod
     def compose_message(results: List[ValidationResult]) -> str:
@@ -45,21 +48,19 @@ class ValidationException(BadRequestException):
 
         :return: a composed error message.
         """
-        message = ''
-        message += 'Validation failed'
+        builder = 'Validation failed'
 
-        if not (results is None) and len(results) > 0:
+        if results and len(results) > 0:
             first = True
             for result in results:
-                if result.get_type() != ValidationResultType.Information:
-                    if first:
-                        message += ': '
-                    else:
-                        message += ', '
-                    message += result.get_message()
-                    first = False
+                if result.get_type() == ValidationResultType.Information:
+                    continue
 
-        return message
+                builder += ": " if first else ', '
+                builder += result.get_message()
+                first = False
+
+        return builder
 
     @staticmethod
     def from_results(correlation_id: Optional[str], results: List[ValidationResult],
@@ -98,12 +99,7 @@ class ValidationException(BadRequestException):
 
         :param strict: true to treat warnings as errors.
         """
-        has_errors = False
-        for result in results:
-            if result.get_type() == ValidationResultType.Error:
-                has_errors = True
-            if strict and result.get_type() == ValidationResultType.Warning:
-                has_errors = True
+        ex = ValidationException.from_results(correlation_id, results, strict)
 
-        if has_errors:
-            raise ValidationException.from_results(correlation_id, results, strict)
+        if ex:
+            raise ex
