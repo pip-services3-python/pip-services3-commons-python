@@ -8,8 +8,10 @@
     :copyright: Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.
     :license: MIT, see LICENSE for more details.
 """
+import json
 from typing import Any, Dict
 
+from pip_services3_commons.convert.JsonConverter import JsonConverter
 from pip_services3_commons.validate import ValidationResultType
 
 
@@ -41,6 +43,9 @@ class ValidationResult:
         self.__message: str = message
         self.__expected: Any = expected
         self.__actual: Any = actual
+
+    def __str__(self):
+        return JsonConverter.to_json(self.to_json())
 
     def get_path(self) -> str:
         """

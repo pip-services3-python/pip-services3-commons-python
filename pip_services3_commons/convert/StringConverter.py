@@ -2,9 +2,9 @@
 """
     pip_services3_commons.convert.StringConverter
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    
+
     String conversion utilities
-    
+
     :copyright: Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.
     :license: MIT, see LICENSE for more details.
 """
@@ -25,7 +25,7 @@ class StringConverter:
     Example:
 
     .. code-block:: python
-    
+
         value1 = StringConverter.to_string(123.456) # Result: "123.456"
         value2 = StringConverter.to_string(true)    # Result: "true"
         value3 = StringConverter.to_string(datetime.datetime(2018,0,1)) # Result: "2018-01-01T00:00:00.00"
@@ -56,8 +56,9 @@ class StringConverter:
             for element in value:
                 if len(builder) > 0:
                     builder = builder + ","
-                builder = builder + element
-            return builder.__str__()
+                builder = f'{builder}{element}'
+
+            return builder
         return str(value)
 
     @staticmethod
