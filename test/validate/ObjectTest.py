@@ -7,8 +7,6 @@
     :license: MIT, see LICENSE for more details.
 """
 
-import pytest
-
 from .SubObjectTest import SubObjectTest
 
 

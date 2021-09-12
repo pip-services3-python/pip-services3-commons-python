@@ -8,9 +8,8 @@
     :copyright: Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.
     :license: MIT, see LICENSE for more details.
 """
-from pip_services3_commons.random import RandomString
-
 import random
+from ..random import RandomString
 from .RandomBoolean import RandomBoolean
 from .RandomInteger import RandomInteger
 

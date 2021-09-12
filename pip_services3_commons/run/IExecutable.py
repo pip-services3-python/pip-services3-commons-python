@@ -11,7 +11,7 @@
 from abc import ABC
 from typing import Optional
 
-from pip_services3_commons.run import Parameters
+from ..run import Parameters
 
 
 class IExecutable(ABC):

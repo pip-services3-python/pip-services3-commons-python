@@ -10,7 +10,7 @@
 """
 from typing import List, Any, Tuple
 
-from pip_services3_commons.validate import Schema
+from ..validate import Schema
 from .IValidationRule import IValidationRule
 from .ValidationResult import ValidationResult
 from .ValidationResultType import ValidationResultType

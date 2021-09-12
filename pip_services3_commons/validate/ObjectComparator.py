@@ -12,7 +12,7 @@
 import re
 from typing import Any
 
-from pip_services3_commons.convert import StringConverter
+from ..convert import StringConverter
 from ..convert.FloatConverter import FloatConverter
 
 

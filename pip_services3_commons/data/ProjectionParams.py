@@ -10,7 +10,7 @@
 """
 from typing import Sequence, Any
 
-from pip_services3_commons.data import AnyValueArray
+from ..data import AnyValueArray
 
 
 class ProjectionParams(list):

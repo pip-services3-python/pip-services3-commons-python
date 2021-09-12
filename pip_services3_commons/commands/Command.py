@@ -10,9 +10,8 @@
 """
 from typing import Callable, Any, List, Optional, Union
 
-from pip_services3_commons.run import Parameters, IExecutable
-
-from pip_services3_commons.validate import Schema, ValidationResult
+from ..run import Parameters, IExecutable
+from ..validate import Schema, ValidationResult
 from .ICommand import ICommand
 from ..errors.InvocationException import InvocationException
 

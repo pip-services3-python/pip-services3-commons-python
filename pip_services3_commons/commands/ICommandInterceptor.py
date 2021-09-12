@@ -11,9 +11,9 @@
 from abc import ABC
 from typing import Any, List, Optional
 
-from pip_services3_commons.commands import ICommand
-from pip_services3_commons.run import Parameters
-from pip_services3_commons.validate import ValidationResult
+from ..commands import ICommand
+from ..run import Parameters
+from ..validate import ValidationResult
 
 
 class ICommandInterceptor(ABC):

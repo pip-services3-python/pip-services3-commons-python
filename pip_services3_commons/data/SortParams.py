@@ -8,7 +8,7 @@
     :copyright: Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.
     :license: MIT, see LICENSE for more details.
 """
-from pip_services3_commons.data import SortField
+from ..data import SortField
 
 
 class SortParams(list):

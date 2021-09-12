@@ -7,11 +7,10 @@
     :license: MIT, see LICENSE for more details.
 """
 
-import pytest
 import datetime
 
-from pip_services3_commons.reflect import TypeMatcher
 from pip_services3_commons.convert.TypeCode import TypeCode
+from pip_services3_commons.reflect import TypeMatcher
 
 
 class TestTypeMatcher:

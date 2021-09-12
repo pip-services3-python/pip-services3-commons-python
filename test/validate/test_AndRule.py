@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
-from pip_services3_commons.validate import Schema, AndRule, AtLeastOneExistRule
 from validate.ObjectTest import ObjectTest
+
+from pip_services3_commons.validate import Schema, AndRule, AtLeastOneExistRule
 
 
 class TestAndRule:

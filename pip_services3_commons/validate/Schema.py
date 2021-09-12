@@ -10,8 +10,8 @@
 """
 from typing import List, Any, Optional
 
-from pip_services3_commons.convert import TypeCode
-from pip_services3_commons.validate.IValidationRule import IValidationRule
+from ..convert import TypeCode
+from ..validate.IValidationRule import IValidationRule
 from .ValidationException import ValidationException
 from .ValidationResult import ValidationResult
 from .ValidationResultType import ValidationResultType

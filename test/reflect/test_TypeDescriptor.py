@@ -7,10 +7,8 @@
     :license: MIT, see LICENSE for more details.
 """
 
-import pytest
-
-from pip_services3_commons.reflect import TypeDescriptor
 from pip_services3_commons.errors import ConfigException
+from pip_services3_commons.reflect import TypeDescriptor
 
 
 class TestTypeDescriptor:

@@ -17,8 +17,6 @@ from .Reference import Reference
 from .ReferenceException import ReferenceException
 
 
-
-
 class References(IReferences):
     """
     The most basic implementation of :class:`IReferences <pip_services3_commons.refer.IReferences.IReferences>` to store and locate component references.

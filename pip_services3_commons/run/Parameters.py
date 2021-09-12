@@ -10,8 +10,7 @@
 """
 from typing import Any
 
-from pip_services3_commons.config import ConfigParams
-from pip_services3_commons.run import Parameters
+from ..config import ConfigParams
 from ..convert.JsonConverter import JsonConverter
 from ..data.AnyValueMap import AnyValueMap
 from ..reflect.ObjectWriter import ObjectWriter
@@ -125,7 +124,7 @@ class Parameters(AnyValueMap):
         """
         return RecursiveObjectReader.has_property(self, key)
 
-    def override(self, parameters: Parameters, recursive: bool = False) -> 'Parameters':
+    def override(self, parameters: 'Parameters', recursive: bool = False) -> 'Parameters':
         """
         Overrides parameters with new values from specified Parameters and returns a new Parameters object.
 
@@ -239,7 +238,7 @@ class Parameters(AnyValueMap):
         return Parameters(map)
 
     @staticmethod
-    def merge_params(*parameters: Parameters) -> 'Parameters':
+    def merge_params(*parameters: 'Parameters') -> 'Parameters':
         """
         Merges two or more Parameters into one. The following Parameters override previously defined parameters.
 
@@ -247,7 +246,7 @@ class Parameters(AnyValueMap):
 
         :return: a new Parameters object.
         """
-        map = AnyValueMap.from_maps(parameters)
+        map = AnyValueMap.from_tuples(*parameters)
         return Parameters(map)
 
     @staticmethod

@@ -7,11 +7,9 @@
     :license: MIT, see LICENSE for more details.
 """
 
-import pytest
-
-from pip_services3_commons.validate import Schema
-from pip_services3_commons.validate import IncludedRule
 from pip_services3_commons.validate import ExcludedRule
+from pip_services3_commons.validate import IncludedRule
+from pip_services3_commons.validate import Schema
 
 
 class TestInclusionRules:

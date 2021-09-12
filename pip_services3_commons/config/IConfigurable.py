@@ -10,7 +10,7 @@
 """
 from abc import ABC
 
-from pip_services3_commons.config.ConfigParams import ConfigParams
+from ..config.ConfigParams import ConfigParams
 
 
 class IConfigurable(ABC):

@@ -8,11 +8,10 @@
     :copyright: Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.
     :license: MIT, see LICENSE for more details.
 """
-import json
 from typing import Any, Dict
 
-from pip_services3_commons.convert.JsonConverter import JsonConverter
-from pip_services3_commons.validate import ValidationResultType
+from ..convert.JsonConverter import JsonConverter
+from ..validate import ValidationResultType
 
 
 class ValidationResult:

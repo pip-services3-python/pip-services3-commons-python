@@ -12,9 +12,7 @@ from copy import deepcopy
 from datetime import datetime
 from typing import Optional, Any
 
-from pip_services3_commons.convert import TypeCode
-from pip_services3_commons.data import AnyValueArray, AnyValueMap
-from pip_services3_commons.data.ICloneable import ICloneable
+from ..convert import TypeCode
 from ..convert.BooleanConverter import BooleanConverter
 from ..convert.DateTimeConverter import DateTimeConverter
 from ..convert.FloatConverter import FloatConverter
@@ -22,8 +20,8 @@ from ..convert.IntegerConverter import IntegerConverter
 from ..convert.LongConverter import LongConverter
 from ..convert.StringConverter import StringConverter
 from ..convert.TypeConverter import TypeConverter
-
-
+from ..data import AnyValueArray, AnyValueMap
+from ..data.ICloneable import ICloneable
 
 
 class AnyValue(ICloneable):
@@ -283,7 +281,7 @@ class AnyValue(ICloneable):
             return False
 
         if isinstance(other, AnyValue):
-            other = other._value
+            other = other.value
 
         if other == self.value:
             return True
@@ -311,7 +309,7 @@ class AnyValue(ICloneable):
             return False
 
         if isinstance(other, AnyValue):
-            other = other._value
+            other = other.value
 
         if other == self.value:
             return True
@@ -345,7 +343,7 @@ class AnyValue(ICloneable):
             return False
 
         if isinstance(obj, AnyValue):
-            obj = obj._value
+            obj = obj.value
 
         if obj == self.value:
             return True

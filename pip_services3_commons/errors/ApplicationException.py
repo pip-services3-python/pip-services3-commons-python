@@ -12,8 +12,8 @@
 import traceback
 from typing import Optional, Any
 
-from pip_services3_commons.data import StringValueMap
 from .ErrorCategory import ErrorCategory
+from ..data import StringValueMap
 
 
 class ApplicationException(Exception):

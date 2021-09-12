@@ -10,8 +10,8 @@
 """
 from typing import List
 
-from pip_services3_commons.run import Parameters
-from pip_services3_commons.validate import ValidationResult
+from ..run import Parameters
+from ..validate import ValidationResult
 from ..run.IExecutable import IExecutable
 
 

@@ -13,8 +13,6 @@ from typing import List, Any
 import random
 
 
-
-
 class RandomArray:
     """
     Random generator for array objects.

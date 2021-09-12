@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-from typing import Union
 
 from random import random
 

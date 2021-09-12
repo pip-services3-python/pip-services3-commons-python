@@ -7,11 +7,9 @@
     :license: MIT, see LICENSE for more details.
 """
 
-import pytest
-
-from .ObjectTest import ObjectTest
-from pip_services3_commons.validate import Schema
 from pip_services3_commons.validate import PropertiesComparisonRule
+from pip_services3_commons.validate import Schema
+from .ObjectTest import ObjectTest
 
 
 class TestPropertiesComparisonRule:

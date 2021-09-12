@@ -7,8 +7,6 @@
     :license: MIT, see LICENSE for more details.
 """
 
-import pytest
-
 from pip_services3_commons.commands import Command
 from pip_services3_commons.commands import CommandSet
 

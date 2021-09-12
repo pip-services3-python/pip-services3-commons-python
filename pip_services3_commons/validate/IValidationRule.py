@@ -11,7 +11,7 @@
 from abc import ABC
 from typing import List, Any
 
-from pip_services3_commons.validate.ValidationResult import ValidationResult
+from ..validate.ValidationResult import ValidationResult
 
 
 class IValidationRule(ABC):

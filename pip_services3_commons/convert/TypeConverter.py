@@ -10,7 +10,7 @@
 """
 
 from datetime import datetime
-from typing import Any, Optional
+from typing import Any
 
 from .ArrayConverter import ArrayConverter
 from .DateTimeConverter import DateTimeConverter
@@ -20,7 +20,6 @@ from .LongConverter import LongConverter
 from .MapConverter import MapConverter
 from .StringConverter import StringConverter
 from .TypeCode import TypeCode
-
 
 
 class TypeConverter:

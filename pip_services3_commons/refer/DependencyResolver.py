@@ -10,15 +10,13 @@
 """
 from typing import Any, List, Optional
 
-from pip_services3_commons.config import ConfigParams
-from pip_services3_commons.refer.IReferences import IReferences
+from ..config import ConfigParams
+from ..refer.IReferences import IReferences
 from .IReferenceable import IReferenceable
 from ..config.IReconfigurable import IReconfigurable
 from ..convert.StringConverter import StringConverter
 from ..refer.Descriptor import Descriptor
 from ..refer.ReferenceException import ReferenceException
-
-
 
 
 class DependencyResolver(IReconfigurable, IReferenceable):

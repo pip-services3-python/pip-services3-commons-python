@@ -10,7 +10,7 @@
 """
 from abc import ABC
 
-from pip_services3_commons.refer import IReferences
+from ..refer import IReferences
 
 
 class IReferenceable(ABC):

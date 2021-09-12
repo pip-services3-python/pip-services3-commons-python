@@ -11,9 +11,7 @@
 from datetime import datetime
 from typing import Any, List, Optional, Sequence
 
-from pip_services3_commons.convert import DoubleConverter, TypeCode
-from pip_services3_commons.data.AnyValue import AnyValue
-from pip_services3_commons.data.AnyValueArray import AnyValueArray
+from ..convert import DoubleConverter, TypeCode
 from ..convert.BooleanConverter import BooleanConverter
 from ..convert.DateTimeConverter import DateTimeConverter
 from ..convert.FloatConverter import FloatConverter
@@ -23,8 +21,8 @@ from ..convert.MapConverter import MapConverter
 from ..convert.StringConverter import StringConverter
 from ..convert.TypeConverter import TypeConverter
 from ..data import AnyValueMap
-
-
+from ..data.AnyValue import AnyValue
+from ..data.AnyValueArray import AnyValueArray
 
 
 class StringValueMap(dict):

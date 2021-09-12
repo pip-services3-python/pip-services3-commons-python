@@ -9,12 +9,12 @@
     :license: MIT, see LICENSE for more details.
 """
 
-import re
 import json
+import re
 from datetime import datetime
 from typing import Any, Optional
 
-from pip_services3_commons.convert.TypeCode import TypeCode
+from ..convert.TypeCode import TypeCode
 from .MapConverter import MapConverter
 from .TypeConverter import TypeConverter
 

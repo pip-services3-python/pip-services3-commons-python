@@ -7,9 +7,7 @@
     :license: MIT, see LICENSE for more details.
 """
 
-import pytest
 from datetime import datetime
-import pytz
 
 from pip_services3_commons.random import RandomDateTime
 

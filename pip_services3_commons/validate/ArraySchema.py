@@ -11,8 +11,8 @@
 
 from typing import Any, List, Sequence
 
-from pip_services3_commons.convert import TypeCode, TypeConverter
-from pip_services3_commons.validate import IValidationRule
+from ..convert import TypeCode, TypeConverter
+from ..validate import IValidationRule
 from .Schema import Schema
 from .ValidationResult import ValidationResult
 from .ValidationResultType import ValidationResultType

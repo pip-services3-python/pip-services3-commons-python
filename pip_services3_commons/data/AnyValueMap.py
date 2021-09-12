@@ -11,9 +11,7 @@
 from datetime import datetime
 from typing import Any, List, Optional, Sequence
 
-from pip_services3_commons.convert import DoubleConverter, TypeCode
-from pip_services3_commons.data import AnyValue, AnyValueArray
-from pip_services3_commons.data.ICloneable import ICloneable
+from ..convert import DoubleConverter, TypeCode
 from ..convert.BooleanConverter import BooleanConverter
 from ..convert.DateTimeConverter import DateTimeConverter
 from ..convert.FloatConverter import FloatConverter
@@ -22,8 +20,8 @@ from ..convert.LongConverter import LongConverter
 from ..convert.MapConverter import MapConverter
 from ..convert.StringConverter import StringConverter
 from ..convert.TypeConverter import TypeConverter
-
-
+from ..data import AnyValue, AnyValueArray
+from ..data.ICloneable import ICloneable
 
 
 class AnyValueMap(dict, ICloneable):

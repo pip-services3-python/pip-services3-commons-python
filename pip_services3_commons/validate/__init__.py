@@ -17,7 +17,7 @@ __all__ = [
     'ValueComparisonRule', 'PropertiesComparisonRule',
     'OnlyOneExistRule', 'ExcludedRule', 'IncludedRule',
     'Schema', 'PropertySchema', 'ObjectSchema', 'ArraySchema', 'MapSchema',
-    'FilterParamsSchema', 'PagingParamsSchema'
+    'FilterParamsSchema', 'PagingParamsSchema', 'ProjectionParamsSchema'
 ]
 
 from .ValidationResultType import ValidationResultType
@@ -30,6 +30,7 @@ from .NotRule import NotRule
 from .ObjectComparator import ObjectComparator
 from .ValueComparisonRule import ValueComparisonRule
 from .PropertiesComparisonRule import PropertiesComparisonRule
+from .ProjectionParamsSchema import ProjectionParamsSchema
 from .OnlyOneExistRule import OnlyOneExistRule
 from .AtLeastOneExistRule import AtLeastOneExistRule
 from .ExcludedRule import ExcludedRule

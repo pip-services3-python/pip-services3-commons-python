@@ -8,9 +8,9 @@
     :copyright: Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.
     :license: MIT, see LICENSE for more details.
 """
-from typing import Union, Any, Optional
+from typing import Any, Optional
 
-from pip_services3_commons.convert.LongConverter import LongConverter
+from ..convert.LongConverter import LongConverter
 
 
 class IntegerConverter:

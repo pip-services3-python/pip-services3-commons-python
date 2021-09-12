@@ -10,7 +10,7 @@
 """
 from datetime import datetime
 
-from pip_services3_commons.data import IChangeable
+from ..data import IChangeable
 
 
 class ITrackable(IChangeable):

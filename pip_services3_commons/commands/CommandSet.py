@@ -10,8 +10,8 @@
 """
 from typing import List, Dict, Optional, Any
 
-from pip_services3_commons.commands import IEvent, ICommand, IEventListener
-from pip_services3_commons.run import Parameters
+from ..commands import IEvent, ICommand, IEventListener
+from ..run import Parameters
 from . import ICommandInterceptor
 from .InterceptedCommand import InterceptedCommand
 from ..data.IdGenerator import IdGenerator

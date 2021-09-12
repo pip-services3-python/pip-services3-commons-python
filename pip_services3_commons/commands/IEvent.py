@@ -10,7 +10,7 @@
 """
 from typing import List
 
-from pip_services3_commons.commands.IEventListener import IEventListener
+from ..commands.IEventListener import IEventListener
 from ..run.INotifiable import INotifiable
 
 

@@ -1,7 +1,5 @@
 # -*- coding: utf-8 -*-
 
-import pytest
-
 from pip_services3_commons.data.MultiString import MultiString
 
 

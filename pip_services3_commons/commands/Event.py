@@ -10,10 +10,8 @@
 """
 from typing import List, Optional
 
-from pip_services3_commons.run import Parameters
-
-from pip_services3_commons.commands import IEventListener
-
+from ..commands import IEventListener
+from ..run import Parameters
 from .IEvent import IEvent
 from ..errors.InvocationException import InvocationException
 

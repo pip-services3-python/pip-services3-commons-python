@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import datetime
 import inspect
-from typing import Any, Optional, Union
+from typing import Any, Optional
 
 
 class DoubleConverter:

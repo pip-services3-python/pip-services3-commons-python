@@ -2,7 +2,7 @@
 """
     pip_services3_commons.reflect.__init__
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    
+
     Contains classes for data reflection. Reflects objects into parameters, methods.
     Most programming languages contain reflections, but they are all implemented
     differently. In the PipService framework, dynamic data types are often used. So as
@@ -15,18 +15,18 @@
 """
 
 __all__ = [
-    'TypeDescriptor', 'TypeReflector', 'MethodReflector', 
-    'PropertyReflector', 'TypeMatcher', 
+    'TypeDescriptor', 'TypeReflector', 'MethodReflector',
+    'PropertyReflector', 'TypeMatcher',
     'ObjectReader', 'ObjectWriter',
     'RecursiveObjectReader', 'RecursiveObjectWriter'
 ]
 
-from .TypeDescriptor import TypeDescriptor
-from .TypeReflector import TypeReflector
 from .MethodReflector import MethodReflector
-from .PropertyReflector import PropertyReflector
-from .TypeMatcher import TypeMatcher
 from .ObjectReader import ObjectReader
 from .ObjectWriter import ObjectWriter
+from .PropertyReflector import PropertyReflector
 from .RecursiveObjectReader import RecursiveObjectReader
 from .RecursiveObjectWriter import RecursiveObjectWriter
+from .TypeDescriptor import TypeDescriptor
+from .TypeMatcher import TypeMatcher
+from .TypeReflector import TypeReflector

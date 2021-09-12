@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from typing import Any
 
-from pip_services3_commons.data import AnyValueMap
+from ..data import AnyValueMap
 
 
 class TokenizedPagingParams:

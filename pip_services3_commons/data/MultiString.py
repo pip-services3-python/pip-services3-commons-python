@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 
-# from ..convert.StringConverter import StringConverter
+
 from typing import Any, List, Sequence
 
-from pip_services3_commons.convert.StringConverter import StringConverter
+from ..convert.StringConverter import StringConverter
 
 """
     pip_services3_commons.data.MultiString
@@ -36,7 +36,6 @@ from pip_services3_commons.convert.StringConverter import StringConverter
 class MultiString(dict):
     """
     Creates a new MultiString object and initializes it with values.
-    :param language:  a map with language-text pairs.
     """
 
     def __init__(self, map: Any = None):

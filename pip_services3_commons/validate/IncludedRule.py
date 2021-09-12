@@ -8,9 +8,9 @@
     :copyright: Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.
     :license: MIT, see LICENSE for more details.
 """
-from typing import Sequence, Any, List, Tuple
+from typing import Any, List, Tuple
 
-from pip_services3_commons.validate import Schema, ObjectComparator
+from ..validate import Schema, ObjectComparator
 from .IValidationRule import IValidationRule
 from .ValidationResult import ValidationResult
 from .ValidationResultType import ValidationResultType

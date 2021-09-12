@@ -10,7 +10,7 @@
 """
 from typing import List, Any
 
-from pip_services3_commons.validate import IValidationRule, ValidationResult
+from ..validate import IValidationRule, ValidationResult
 from .Schema import Schema
 
 
@@ -69,7 +69,7 @@ class PropertySchema(Schema):
     def set_type(self, value: Any):
         """
         Sets a new property type.
-        The type can be defined as type, type name or :class:`TypeCode <from pip_services3_commons.convert.TypeCode.TypeCode>`
+        The type can be defined as type, type name or :class:`TypeCode <.convert.TypeCode.TypeCode>`
 
         :param value: a new property type.
         """

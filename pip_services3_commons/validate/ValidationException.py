@@ -10,7 +10,7 @@
 """
 from typing import List, Optional
 
-from pip_services3_commons.validate import ValidationResult
+from ..validate import ValidationResult
 from .ValidationResultType import ValidationResultType
 from ..errors.BadRequestException import BadRequestException
 

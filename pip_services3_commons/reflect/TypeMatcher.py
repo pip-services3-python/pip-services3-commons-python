@@ -10,7 +10,7 @@
 """
 from typing import Any
 
-from pip_services3_commons.convert import TypeCode, TypeConverter, DateTimeConverter
+from ..convert import TypeCode, TypeConverter, DateTimeConverter
 
 
 class TypeMatcher:

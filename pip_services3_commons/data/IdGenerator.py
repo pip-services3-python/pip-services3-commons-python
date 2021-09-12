@@ -9,9 +9,8 @@
     :license: MIT, see LICENSE for more details.
 """
 
-import uuid
-
 import random
+import uuid
 
 
 class IdGenerator:

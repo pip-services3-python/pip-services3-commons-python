@@ -1,5 +1,5 @@
-from pip_services3_commons.convert.TypeCode import TypeCode
-from pip_services3_commons.validate.ArraySchema import ArraySchema
+from ..convert.TypeCode import TypeCode
+from ..validate.ArraySchema import ArraySchema
 
 
 class ProjectionParamsSchema(ArraySchema):

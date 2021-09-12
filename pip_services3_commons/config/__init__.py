@@ -17,8 +17,8 @@ __all__ = [
     'NameResolver', 'OptionsResolver'
 ]
 
+from .ConfigParams import ConfigParams
 from .IConfigurable import IConfigurable
 from .IReconfigurable import IReconfigurable
-from .ConfigParams import ConfigParams
 from .NameResolver import NameResolver
 from .OptionsResolver import OptionsResolver

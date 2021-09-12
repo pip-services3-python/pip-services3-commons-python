@@ -2,7 +2,7 @@
 """
     pip_services3_commons.errors.__init__
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    
+
     Portable and localizable Exceptions classes. Each Exception, in addition to a description
     and stack trace has a unique string code, details array (which can be used for creating localized strings).
 
@@ -18,7 +18,7 @@
 
     Additionally: when transferring an error from one language to another, the error type
     that is closest to the initial error type is chosen from the exceptions available in the target language.
-    
+
     :copyright: Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.
     :license: MIT, see LICENSE for more details.
 """
@@ -28,24 +28,24 @@ __all__ = [
     'ApplicationExceptionFactory', 'ErrorDescriptionFactory',
     'UnknownException', 'InternalException', 'ConfigException',
     'InvalidStateException', 'ConnectionException', 'InvocationException',
-    'FileException', 'BadRequestException', 'NotFoundException', 
+    'FileException', 'BadRequestException', 'NotFoundException',
     'UnauthorizedException', 'ConflictException', 'UnsupportedException'
 ]
 
-from .ErrorCategory import ErrorCategory
-from .ErrorDescription import ErrorDescription
 from .ApplicationException import ApplicationException
 from .ApplicationExceptionFactory import ApplicationExceptionFactory
-from .ErrorDescriptionFactory import ErrorDescriptionFactory
-from .UnknownException import UnknownException
-from .InternalException import InternalException
-from .ConfigException import ConfigException
-from .InvalidStateException import InvalidStateException
-from .ConnectionException import ConnectionException
-from .InvocationException import InvocationException
-from .FileException import FileException
 from .BadRequestException import BadRequestException
+from .ConfigException import ConfigException
+from .ConflictException import ConflictException
+from .ConnectionException import ConnectionException
+from .ErrorCategory import ErrorCategory
+from .ErrorDescription import ErrorDescription
+from .ErrorDescriptionFactory import ErrorDescriptionFactory
+from .FileException import FileException
+from .InternalException import InternalException
+from .InvalidStateException import InvalidStateException
+from .InvocationException import InvocationException
 from .NotFoundException import NotFoundException
 from .UnauthorizedException import UnauthorizedException
-from .ConflictException import ConflictException
+from .UnknownException import UnknownException
 from .UnsupportedException import UnsupportedException

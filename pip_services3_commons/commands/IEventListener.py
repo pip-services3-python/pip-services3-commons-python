@@ -11,9 +11,8 @@
 from abc import ABC
 from typing import Optional
 
-from pip_services3_commons.commands import IEvent
-
-from pip_services3_commons.run import Parameters
+from ..commands import IEvent
+from ..run import Parameters
 
 
 class IEventListener(ABC):

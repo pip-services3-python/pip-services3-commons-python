@@ -10,7 +10,7 @@
 """
 from typing import Any, List
 
-from pip_services3_commons.refer import IReferences
+from ..refer import IReferences
 from .IReferenceable import IReferenceable
 from .IUnreferenceable import IUnreferenceable
 

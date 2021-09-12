@@ -10,7 +10,7 @@
 """
 from abc import ABC
 
-from pip_services3_commons.commands import CommandSet
+from ..commands import CommandSet
 
 
 class ICommandable(ABC):

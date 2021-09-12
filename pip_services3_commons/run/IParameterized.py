@@ -10,7 +10,7 @@
 """
 from abc import ABC
 
-from pip_services3_commons.run import Parameters
+from ..run import Parameters
 
 
 class IParameterized(ABC):

@@ -14,8 +14,8 @@ from typing import Union
 
 import pytz
 
-from pip_services3_commons.random.RandomFloat import RandomFloat
-from pip_services3_commons.random.RandomInteger import RandomInteger
+from ..random.RandomFloat import RandomFloat
+from ..random.RandomInteger import RandomInteger
 
 
 class RandomDateTime:

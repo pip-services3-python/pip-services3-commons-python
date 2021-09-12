@@ -8,9 +8,9 @@
     :copyright: Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.
     :license: MIT, see LICENSE for more details.
 """
-from typing import Any, Optional, Union
+from typing import Any, Optional
 
-from pip_services3_commons.convert.DoubleConverter import DoubleConverter
+from ..convert.DoubleConverter import DoubleConverter
 
 
 class FloatConverter:

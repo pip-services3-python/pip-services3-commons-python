@@ -73,7 +73,9 @@ class ObjectWriter:
                     obj[key] = value
                     return
             obj[name] = value
-        elif isinstance(obj, list) or isinstance(obj, tuple) or isinstance(obj, set):
+        if isinstance(obj, set):
+            obj = list(obj)
+        if isinstance(obj, list) or isinstance(obj, tuple):
             index = IntegerConverter.to_nullable_integer(name)
             if index is None:
                 return

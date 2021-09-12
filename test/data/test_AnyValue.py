@@ -7,7 +7,6 @@
     :license: MIT, see LICENSE for more details.
 """
 
-import pytest
 from pip_services3_commons.convert import TypeCode
 
 from pip_services3_commons.data import AnyValue

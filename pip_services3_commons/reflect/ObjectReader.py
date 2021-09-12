@@ -120,7 +120,7 @@ class ObjectReader:
         elif isinstance(obj, list) or isinstance(obj, tuple) or isinstance(obj, set):
             index = IntegerConverter.to_nullable_integer(name)
             if index is not None and 0 <= index < len(obj):
-                return obj[index]
+                return list(obj)[index]
             return None
         else:
             return PropertyReflector.get_property(obj, name)

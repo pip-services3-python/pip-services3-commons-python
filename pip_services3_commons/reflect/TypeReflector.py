@@ -13,9 +13,8 @@ import importlib
 import inspect
 from typing import Any
 
-from pip_services3_commons.convert import TypeConverter, TypeCode
-from pip_services3_commons.reflect import TypeDescriptor
-
+from ..convert import TypeConverter, TypeCode
+from ..reflect import TypeDescriptor
 from ..errors.NotFoundException import NotFoundException
 
 
@@ -61,7 +60,7 @@ class TypeReflector:
             if library.count('.') > 1:
                 library = library.split('/')
                 dots_lvl = library[0]
-                library = dots_lvl + '.'.join(list(filter(lambda x: x != '.', library.split('/'))))
+                library = dots_lvl + '.'.join(list(filter(lambda x: x != '.', library)))
             else:
                 library = '.'.join(list(filter(lambda x: x != '.', library.split('/'))))
             module = importlib.import_module(library)

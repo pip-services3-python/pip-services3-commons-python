@@ -13,7 +13,7 @@ import time
 from threading import Thread, Event, Lock
 from typing import Callable, Any, Optional
 
-from pip_services3_commons.run import Parameters, INotifiable
+from ..run import Parameters, INotifiable
 from .IClosable import IClosable
 
 

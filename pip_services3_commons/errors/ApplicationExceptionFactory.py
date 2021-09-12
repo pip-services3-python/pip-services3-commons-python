@@ -8,7 +8,6 @@
     :copyright: Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.
     :license: MIT, see LICENSE for more details.
 """
-from pip_services3_commons.errors.ErrorDescription import ErrorDescription
 from .ApplicationException import ApplicationException
 from .BadRequestException import BadRequestException
 from .ConfigException import ConfigException
@@ -22,6 +21,7 @@ from .NotFoundException import NotFoundException
 from .UnauthorizedException import UnauthorizedException
 from .UnknownException import UnknownException
 from .UnsupportedException import UnsupportedException
+from ..errors.ErrorDescription import ErrorDescription
 
 
 class ApplicationExceptionFactory:
