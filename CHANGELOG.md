@@ -6,6 +6,8 @@
 * Fixed StringConverter.to_nullable_string for lists
 * Fixed conversion ValidationResult in string
 * Rename AtLeastOneExistRule to AtLeastOneExistsRule
+* Fixed StringConverter.to_string
+* Fixed TypeReflector.create_instance
 
 
 ## <a name="3.3.6-3.3.7"></a> 3.3.6-3.3.7 (2021-09-05)

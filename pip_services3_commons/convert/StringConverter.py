@@ -70,7 +70,7 @@ class StringConverter:
 
         :return: string args or "" when args is None.
         """
-        return StringConverter.to_string_with_default(value, None)
+        return StringConverter.to_string_with_default(value, '')
 
     @staticmethod
     def to_string_with_default(value: Any, default_value: str) -> str:

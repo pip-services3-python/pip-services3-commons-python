@@ -14,8 +14,8 @@ import inspect
 from typing import Any
 
 from ..convert import TypeConverter, TypeCode
-from ..reflect import TypeDescriptor
 from ..errors.NotFoundException import NotFoundException
+from ..reflect import TypeDescriptor
 
 
 class TypeReflector:
@@ -103,7 +103,8 @@ class TypeReflector:
 
         init_params = inspect.signature(obj_type.__init__).parameters
 
-        if len(init_params.keys()) > 1 or init_params.get('self') is None:
+        if (len(init_params.keys()) > 1 or init_params.get('self') is None) \
+                and not hasattr(obj_type.__init__, '__text_signature__'):
             return obj_type(*args)
         else:
             return obj_type()
