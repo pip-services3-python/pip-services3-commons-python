@@ -1,7 +1,0 @@
-pip\_services3\_commons.config.OptionsResolver module
-=====================================================
-
-.. automodule:: pip_services3_commons.config.OptionsResolver
-   :members:
-   :undoc-members:
-   :show-inheritance:

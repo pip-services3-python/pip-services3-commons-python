@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-    pip_services3_commons.validate.AtLeastOneExistRule
+    pip_services3_commons.validate.AtLeastOneExistsRule
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     
     At least one exist rule implementation
@@ -17,7 +17,7 @@ from .ValidationResultType import ValidationResultType
 from ..reflect.ObjectReader import ObjectReader
 
 
-class AtLeastOneExistRule(IValidationRule):
+class AtLeastOneExistsRule(IValidationRule):
     """
     Validation rule that check that at least one of the object properties is not None.
 

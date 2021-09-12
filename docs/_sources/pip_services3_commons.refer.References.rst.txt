@@ -1,7 +1,0 @@
-pip\_services3\_commons.refer.References module
-===============================================
-
-.. automodule:: pip_services3_commons.refer.References
-   :members:
-   :undoc-members:
-   :show-inheritance:

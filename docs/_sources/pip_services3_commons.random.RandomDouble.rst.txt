@@ -1,7 +1,0 @@
-pip\_services3\_commons.random.RandomDouble module
-==================================================
-
-.. automodule:: pip_services3_commons.random.RandomDouble
-   :members:
-   :undoc-members:
-   :show-inheritance:

@@ -1,7 +1,0 @@
-pip\_services3\_commons.convert.TypeCode module
-===============================================
-
-.. automodule:: pip_services3_commons.convert.TypeCode
-   :members:
-   :undoc-members:
-   :show-inheritance:

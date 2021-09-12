@@ -1,7 +1,0 @@
-pip\_services3\_commons.commands.ICommandInterceptor module
-===========================================================
-
-.. automodule:: pip_services3_commons.commands.ICommandInterceptor
-   :members:
-   :undoc-members:
-   :show-inheritance:

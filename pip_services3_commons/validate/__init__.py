@@ -32,7 +32,7 @@ from .ValueComparisonRule import ValueComparisonRule
 from .PropertiesComparisonRule import PropertiesComparisonRule
 from .ProjectionParamsSchema import ProjectionParamsSchema
 from .OnlyOneExistRule import OnlyOneExistRule
-from .AtLeastOneExistRule import AtLeastOneExistRule
+from .AtLeastOneExistsRule import AtLeastOneExistsRule
 from .ExcludedRule import ExcludedRule
 from .IncludedRule import IncludedRule
 from .Schema import Schema
