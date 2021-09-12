@@ -18,3 +18,4 @@ _mailinglist
 .idea/
 .vscode/
 .pytest_cache/
+.mypy_cache/

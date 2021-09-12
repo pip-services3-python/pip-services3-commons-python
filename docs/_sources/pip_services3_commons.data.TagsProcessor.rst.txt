@@ -1,0 +1,7 @@
+pip\_services3\_commons.data.TagsProcessor module
+=================================================
+
+.. automodule:: pip_services3_commons.data.TagsProcessor
+   :members:
+   :undoc-members:
+   :show-inheritance:

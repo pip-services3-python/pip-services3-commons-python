@@ -1,0 +1,455 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>pip_services3_commons.errors.ApplicationException module &mdash; pip-services3-commons  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="pip_services3_commons.errors.ApplicationExceptionFactory module" href="pip_services3_commons.errors.ApplicationExceptionFactory.html" />
+    <link rel="prev" title="pip_services3_commons.errors package" href="pip_services3_commons.errors.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> pip-services3-commons
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">pip_services3_commons</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="pip_services3_commons.html">pip_services3_commons package</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="pip_services3_commons.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="pip_services3_commons.commands.html">pip_services3_commons.commands package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pip_services3_commons.config.html">pip_services3_commons.config package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pip_services3_commons.convert.html">pip_services3_commons.convert package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pip_services3_commons.data.html">pip_services3_commons.data package</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="pip_services3_commons.errors.html">pip_services3_commons.errors package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pip_services3_commons.random.html">pip_services3_commons.random package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pip_services3_commons.refer.html">pip_services3_commons.refer package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pip_services3_commons.reflect.html">pip_services3_commons.reflect package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pip_services3_commons.run.html">pip_services3_commons.run package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pip_services3_commons.validate.html">pip_services3_commons.validate package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pip_services3_commons.html#module-pip_services3_commons">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">pip-services3-commons</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="modules.html">pip_services3_commons</a> &raquo;</li>
+        
+          <li><a href="pip_services3_commons.html">pip_services3_commons package</a> &raquo;</li>
+        
+          <li><a href="pip_services3_commons.errors.html">pip_services3_commons.errors package</a> &raquo;</li>
+        
+      <li>pip_services3_commons.errors.ApplicationException module</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/pip_services3_commons.errors.ApplicationException.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-pip_services3_commons.errors.ApplicationException">
+<span id="pip-services3-commons-errors-applicationexception-module"></span><h1>pip_services3_commons.errors.ApplicationException module<a class="headerlink" href="#module-pip_services3_commons.errors.ApplicationException" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="pip-services3-commons-errors-applicationexception">
+<h2>pip_services3_commons.errors.ApplicationException<a class="headerlink" href="#pip-services3-commons-errors-applicationexception" title="Permalink to this headline">¶</a></h2>
+<p>Application error type</p>
+<dl class="field-list simple">
+<dt class="field-odd">copyright</dt>
+<dd class="field-odd"><p>Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.</p>
+</dd>
+<dt class="field-even">license</dt>
+<dd class="field-even"><p>MIT, see LICENSE for more details.</p>
+</dd>
+</dl>
+<dl class="py exception">
+<dt id="pip_services3_commons.errors.ApplicationException.ApplicationException">
+<em class="property">exception </em><code class="sig-prename descclassname">pip_services3_commons.errors.ApplicationException.</code><code class="sig-name descname">ApplicationException</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">category</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></span> <span class="o">=</span> <span class="default_value">'Unknown'</span></em>, <em class="sig-param"><span class="n">correlation_id</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a><span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">code</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></span> <span class="o">=</span> <span class="default_value">'UNKNOWN'</span></em>, <em class="sig-param"><span class="n">message</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></span> <span class="o">=</span> <span class="default_value">'Unknown error'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.errors.ApplicationException.ApplicationException" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/3/library/exceptions.html#Exception" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></a></p>
+<p>Defines a base class to defive various application exceptions.</p>
+<p>Most languages have own definition of base error (error) types.
+However, this class is implemented symmetrically in all languages
+supported by PipServices toolkit. It allows to create portable implementations
+and support proper error propagation in microservices calls.</p>
+<p>Error propagation means that when microservice implemented in one language
+calls microservice(s) implemented in a different language(s), errors are returned
+throught the entire call chain and restored in their original (or close) type.</p>
+<p>Since number of potential error types is endless, PipServices toolkit
+supports only 12 standard categories of exceptions defined in <code class="xref py py-class docutils literal notranslate"><span class="pre">ErrorCategory</span></code>.
+This <a class="reference internal" href="#pip_services3_commons.errors.ApplicationException.ApplicationException" title="pip_services3_commons.errors.ApplicationException.ApplicationException"><code class="xref py py-class docutils literal notranslate"><span class="pre">ApplicationException</span></code></a> class acts as a basis for all obj 12 standard error types.</p>
+<p>Most exceptions have just free-form message that describes occured error.
+That may not be sufficient to create meaninful error descriptions.
+The <a class="reference internal" href="#pip_services3_commons.errors.ApplicationException.ApplicationException" title="pip_services3_commons.errors.ApplicationException.ApplicationException"><code class="xref py py-class docutils literal notranslate"><span class="pre">ApplicationException</span></code></a> class proposes an extended error definition that has more standard fields:
+- message: is a human-readable error description
+- category: one of 12 standard error categories of errors
+- status: numeric HTTP status code for REST invocations
+- code: a unique error code, usually defined as “MY_ERROR_CODE”
+- correlation_id: a unique transaction id to trace execution through a call chain
+- details: map with error parameters that can help to recreate meaningful error description in obj languages
+- stack_trace: a stack trace
+- cause: original error that is wrapped by this error</p>
+<p>ApplicationException class is not serializable. To pass errors through the wire
+it is converted into <a class="reference internal" href="pip_services3_commons.errors.ErrorDescription.html#pip_services3_commons.errors.ErrorDescription.ErrorDescription" title="pip_services3_commons.errors.ErrorDescription.ErrorDescription"><code class="xref py py-class docutils literal notranslate"><span class="pre">ErrorDescription</span></code></a> &lt;pip_services3_commons.errors.ErrorDescription.ErrorDescription&gt;` object and restored on receiving end into identical error type.</p>
+<dl class="py method">
+<dt id="pip_services3_commons.errors.ApplicationException.ApplicationException.get_cause_string">
+<code class="sig-name descname">get_cause_string</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a><a class="headerlink" href="#pip_services3_commons.errors.ApplicationException.ApplicationException.get_cause_string" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets original error wrapped by this error as a string message.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>an original error message.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pip_services3_commons.errors.ApplicationException.ApplicationException.get_stack_trace_string">
+<code class="sig-name descname">get_stack_trace_string</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; Optional<span class="p">[</span><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a><span class="p">]</span><a class="headerlink" href="#pip_services3_commons.errors.ApplicationException.ApplicationException.get_stack_trace_string" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a stack trace where this error occured.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>a stack trace as a string.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pip_services3_commons.errors.ApplicationException.ApplicationException.set_cause_string">
+<code class="sig-name descname">set_cause_string</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.errors.ApplicationException.ApplicationException.set_cause_string" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets original error wrapped by this error as a string message.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>value</strong> – an original error message.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pip_services3_commons.errors.ApplicationException.ApplicationException.set_stack_trace_string">
+<code class="sig-name descname">set_stack_trace_string</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.errors.ApplicationException.ApplicationException.set_stack_trace_string" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets a stack trace where this error occured.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>value</strong> – a stack trace as a string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pip_services3_commons.errors.ApplicationException.ApplicationException.to_json">
+<code class="sig-name descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pip_services3_commons.errors.ApplicationException.ApplicationException.to_json" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="pip_services3_commons.errors.ApplicationException.ApplicationException.with_cause">
+<code class="sig-name descname">with_cause</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cause</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/exceptions.html#Exception" title="(in Python v3.9)">Exception</a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#pip_services3_commons.errors.ApplicationException.ApplicationException" title="pip_services3_commons.errors.ApplicationException.ApplicationException">pip_services3_commons.errors.ApplicationException.ApplicationException</a><a class="headerlink" href="#pip_services3_commons.errors.ApplicationException.ApplicationException.with_cause" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets a original error wrapped by this error</p>
+<p>This method returns reference to this error to implement Builder pattern to chain additional calls.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>cause</strong> – original error object</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>this error object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pip_services3_commons.errors.ApplicationException.ApplicationException.with_code">
+<code class="sig-name descname">with_code</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">code</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#pip_services3_commons.errors.ApplicationException.ApplicationException" title="pip_services3_commons.errors.ApplicationException.ApplicationException">pip_services3_commons.errors.ApplicationException.ApplicationException</a><a class="headerlink" href="#pip_services3_commons.errors.ApplicationException.ApplicationException.with_code" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets a unique error code.
+This method returns reference to this error to implement Builder pattern to chain additional calls.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>code</strong> – a unique error code</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>this error object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pip_services3_commons.errors.ApplicationException.ApplicationException.with_correlation_id">
+<code class="sig-name descname">with_correlation_id</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">correlation_id</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a><span class="p">]</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#pip_services3_commons.errors.ApplicationException.ApplicationException" title="pip_services3_commons.errors.ApplicationException.ApplicationException">pip_services3_commons.errors.ApplicationException.ApplicationException</a><a class="headerlink" href="#pip_services3_commons.errors.ApplicationException.ApplicationException.with_correlation_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets a correlation id which can be used to trace this error through a call chain.</p>
+<p>This method returns reference to this error to implement Builder pattern to chain additional calls.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>correlation_id</strong> – a unique transaction id to trace error through call chain</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>this error object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pip_services3_commons.errors.ApplicationException.ApplicationException.with_details">
+<code class="sig-name descname">with_details</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">key</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></span></em>, <em class="sig-param"><span class="n">value</span><span class="p">:</span> <span class="n">Any</span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#pip_services3_commons.errors.ApplicationException.ApplicationException" title="pip_services3_commons.errors.ApplicationException.ApplicationException">pip_services3_commons.errors.ApplicationException.ApplicationException</a><a class="headerlink" href="#pip_services3_commons.errors.ApplicationException.ApplicationException.with_details" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets a parameter for additional error details.
+This details can be used to restore error description in obj languages.</p>
+<p>This method returns reference to this error to implement Builder pattern to chain additional calls.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>key</strong> – a details parameter name</p></li>
+<li><p><strong>value</strong> – a details parameter name</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>this error object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pip_services3_commons.errors.ApplicationException.ApplicationException.with_stack_trace">
+<code class="sig-name descname">with_stack_trace</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">stack_trace</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#pip_services3_commons.errors.ApplicationException.ApplicationException" title="pip_services3_commons.errors.ApplicationException.ApplicationException">pip_services3_commons.errors.ApplicationException.ApplicationException</a><a class="headerlink" href="#pip_services3_commons.errors.ApplicationException.ApplicationException.with_stack_trace" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets a stack trace for this error.</p>
+<p>This method returns reference to this error to implement Builder pattern
+to chain additional calls.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>stack_trace</strong> – a stack trace where this error occured</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>this error object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pip_services3_commons.errors.ApplicationException.ApplicationException.with_status">
+<code class="sig-name descname">with_status</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">status</span><span class="p">:</span> <span class="n"><a class="reference external" href="http://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)">int</a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#pip_services3_commons.errors.ApplicationException.ApplicationException" title="pip_services3_commons.errors.ApplicationException.ApplicationException">pip_services3_commons.errors.ApplicationException.ApplicationException</a><a class="headerlink" href="#pip_services3_commons.errors.ApplicationException.ApplicationException.with_status" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets a HTTP status code which shall be returned by REST calls.
+This method returns reference to this error to implement Builder pattern to chain additional calls.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>status</strong> – an HTTP error code.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>this error object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pip_services3_commons.errors.ApplicationException.ApplicationException.wrap">
+<code class="sig-name descname">wrap</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cause</span><span class="p">:</span> <span class="n">Any</span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#pip_services3_commons.errors.ApplicationException.ApplicationException" title="pip_services3_commons.errors.ApplicationException.ApplicationException">pip_services3_commons.errors.ApplicationException.ApplicationException</a><a class="headerlink" href="#pip_services3_commons.errors.ApplicationException.ApplicationException.wrap" title="Permalink to this definition">¶</a></dt>
+<dd><p>Wraps another error into an application error object.</p>
+<p>If original error is of ApplicationException type it is returned without changes.
+Otherwise a new ApplicationException is created and original error is set as its cause.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>cause</strong> – an original error object</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>an original or newly created ApplicationException</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pip_services3_commons.errors.ApplicationException.ApplicationException.wrap_error">
+<em class="property">static </em><code class="sig-name descname">wrap_error</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">error</span><span class="p">:</span> <span class="n"><a class="reference internal" href="#pip_services3_commons.errors.ApplicationException.ApplicationException" title="pip_services3_commons.errors.ApplicationException.ApplicationException">pip_services3_commons.errors.ApplicationException.ApplicationException</a></span></em>, <em class="sig-param"><span class="n">cause</span><span class="p">:</span> <span class="n">Any</span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#pip_services3_commons.errors.ApplicationException.ApplicationException" title="pip_services3_commons.errors.ApplicationException.ApplicationException">pip_services3_commons.errors.ApplicationException.ApplicationException</a><a class="headerlink" href="#pip_services3_commons.errors.ApplicationException.ApplicationException.wrap_error" title="Permalink to this definition">¶</a></dt>
+<dd><p>Wraps another exception into specified application exception object.</p>
+<p>If original exception is of ApplicationException type it is returned without changes.
+Otherwise the original error is set as a cause to specified ApplicationException object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>error</strong> – an ApplicationException object to wrap the cause</p></li>
+<li><p><strong>cause</strong> – an original error object</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>an original or newly created ApplicationException</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="pip_services3_commons.errors.ApplicationExceptionFactory.html" class="btn btn-neutral float-right" title="pip_services3_commons.errors.ApplicationExceptionFactory module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="pip_services3_commons.errors.html" class="btn btn-neutral float-left" title="pip_services3_commons.errors package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2020, Sergey Seroukhov.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

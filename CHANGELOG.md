@@ -1,10 +1,11 @@
 # <img src="https://uploads-ssl.webflow.com/5ea5d3315186cf5ec60c3ee4/5edf1c94ce4c859f2b188094_logo.svg" alt="Pip.Services Logo" width="200"> <br/> Portable Abstractions and Patterns for Python Changelog
 
-## <a name="3.3.8"></a> 3.3.8 (2021-09-07)
+## <a name="3.3.8-3.3.9"></a> 3.3.8-3.3.9 (2021-09-13)
 
 ### Bug Fixes
 * Fixed StringConverter.to_nullable_string for lists
 * Fixed conversion ValidationResult in string
+* Rename AtLeastOneExistRule to AtLeastOneExistsRule
 
 
 ## <a name="3.3.6-3.3.7"></a> 3.3.6-3.3.7 (2021-09-05)

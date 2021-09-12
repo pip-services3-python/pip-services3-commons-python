@@ -1,0 +1,7 @@
+pip\_services3\_commons.errors.ErrorDescription module
+======================================================
+
+.. automodule:: pip_services3_commons.errors.ErrorDescription
+   :members:
+   :undoc-members:
+   :show-inheritance:
