@@ -12,7 +12,7 @@ from pip_services3_commons.validate import Schema
 from .ObjectTest import ObjectTest
 
 
-class TestAtLeastOneExistRule:
+class TestAtLeastOneExistsRule:
 
     def test_only_one_exist_rule(self):
         obj = ObjectTest()
