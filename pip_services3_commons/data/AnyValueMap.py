@@ -20,7 +20,6 @@ from ..convert.LongConverter import LongConverter
 from ..convert.MapConverter import MapConverter
 from ..convert.StringConverter import StringConverter
 from ..convert.TypeConverter import TypeConverter
-from ..data import AnyValue, AnyValueArray
 from ..data.ICloneable import ICloneable
 
 
@@ -444,17 +443,19 @@ class AnyValueMap(dict, ICloneable):
         value = self.get(key)
         return TypeConverter.to_type_with_default(value_type, value, default_value)
 
-    def get_as_value(self, key: str) -> AnyValue:
+    def get_as_value(self, key: str) -> 'AnyValue':
         """
         Converts map element into an AnyValue or returns an empty AnyValue if conversion is not possible.
 
         :param key: a key of element to get.
         :return: AnyValue value of the element or empty AnyValue if conversion is not supported.
         """
+        from ..data.AnyValue import AnyValue
+
         value = self.get(key)
         return AnyValue(value)
 
-    def get_as_array(self, key: str) -> AnyValueArray:
+    def get_as_array(self, key: str) -> 'AnyValueArray':
         """
         Converts map element into an :class:`AnyValueMap <pip_services3_commons.data.AnyValueMap.AnyValueMap>` or returns empty :class:`AnyValueMap <pip_services3_commons.data.AnyValueMap.AnyValueMap>` if conversion is not possible.
 
@@ -462,6 +463,8 @@ class AnyValueMap(dict, ICloneable):
 
         :return: :class:`AnyValueMap <pip_services3_commons.data.AnyValueMap.AnyValueMap>` args of the element or empty :class:`AnyValueMap <pip_services3_commons.data.AnyValueMap.AnyValueMap>` if conversion is not supported.
         """
+        from ..data.AnyValueArray import AnyValueArray
+
         value = self.get(key)
         return AnyValueArray.from_value(value)
 
@@ -491,6 +494,10 @@ class AnyValueMap(dict, ICloneable):
         :return: :class:`AnyValueMap <pip_services3_commons.data.AnyValueMap.AnyValueMap>` args of the element or default args if conversion is not supported.
         """
         value = self.get_as_nullable_map(key)
+
+        if value is not None and len(value.items()) == 0:
+            value = None
+
         return MapConverter.to_map_with_default(value, default_value)
 
     def contains_key(self, key):

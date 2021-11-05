@@ -20,8 +20,8 @@ from ..convert.IntegerConverter import IntegerConverter
 from ..convert.LongConverter import LongConverter
 from ..convert.StringConverter import StringConverter
 from ..convert.TypeConverter import TypeConverter
-from ..data import AnyValue, AnyValueMap
-from ..data.ICloneable import ICloneable
+from .AnyValueMap import AnyValueMap
+from .ICloneable import ICloneable
 
 
 class AnyValueArray(list, ICloneable):
@@ -349,8 +349,11 @@ class AnyValueArray(list, ICloneable):
 
         :param index: an index of element to get.
         :param default_value: the default value
+
         :return: double value ot the element or default value if conversion is not supported.
         """
+        value = self[index]
+        return DoubleConverter.to_double_with_default(value, default_value)
 
     def get_as_nullable_datetime(self, index: int) -> Optional[datetime]:
         """
@@ -440,6 +443,7 @@ class AnyValueArray(list, ICloneable):
 
         :return: AnyValue args of the element or empty AnyValue if conversion is not supported.
         """
+        from .AnyValue import AnyValue
         value = self[index]
         return AnyValue(value)
 
@@ -473,7 +477,8 @@ class AnyValueArray(list, ICloneable):
         :return: AnyValueMap value of the element or default value if conversion is not supported.
         """
         result = self.get_as_nullable_map(index)
-        return AnyValueMap.from_value(result) if result is not None else default_value
+
+        return AnyValueMap.from_value(result) if result is not None and len(result.items()) else default_value
 
     def contains(self, value: Any) -> bool:
         """

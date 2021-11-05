@@ -16,12 +16,13 @@ from ..convert import TypeCode
 from ..convert.BooleanConverter import BooleanConverter
 from ..convert.DateTimeConverter import DateTimeConverter
 from ..convert.FloatConverter import FloatConverter
+from ..convert.FloatConverter import DoubleConverter
 from ..convert.IntegerConverter import IntegerConverter
 from ..convert.LongConverter import LongConverter
 from ..convert.StringConverter import StringConverter
 from ..convert.TypeConverter import TypeConverter
-from ..data import AnyValueArray, AnyValueMap
-from ..data.ICloneable import ICloneable
+from .AnyValueArray import AnyValueArray
+from .ICloneable import ICloneable
 
 
 class AnyValue(ICloneable):
@@ -198,6 +199,36 @@ class AnyValue(ICloneable):
         """
         return DateTimeConverter.to_nullable_datetime(self.value)
 
+    def get_as_nullable_double(self) -> Optional[float]:
+        """
+        Converts object value into a double or returns null if conversion is not possible.
+
+        :return: double args or None if conversion is not supported.
+        """
+        return FloatConverter.to_nullable_float(self.value)
+
+    def get_as_double(self) -> float:
+        """
+        Converts object value into a double or returns null if conversion is not possible.
+
+        :return: double value or None if conversion is not supported.
+
+        See: :class:`DoubleConverter <pip_services3_components.convert.DoubleConverter.DoubleConverter>`
+        """
+        return DoubleConverter.to_double(self.value)
+
+    def get_as_double_with_default(self, default_value: float) -> float:
+        """
+        Converts object value into a double or returns default value if conversion is not possible.
+
+        :param default_value: the default value.
+
+        :return: double value or default if conversion is not supported.
+
+        See: :class:`DoubleConverter <pip_services3_components.convert.DoubleConverter.DoubleConverter>`
+        """
+        return DoubleConverter.to_double_with_default(self.value, default_value)
+
     def get_as_datetime(self) -> datetime:
         """
         Converts object args into a Date or returns current date if conversion is not possible.
@@ -258,12 +289,15 @@ class AnyValue(ICloneable):
         """
         return AnyValueArray.from_value(self.value)
 
-    def get_as_map(self) -> AnyValueMap:
+
+
+    def get_as_map(self) -> 'AnyValueMap':
         """
         Converts object args into AnyMap or returns empty AnyMap if conversion is not possible.
 
         :return: AnyMap args or empty AnyMap if conversion is not supported.
         """
+        from .AnyValueMap import AnyValueMap
         return AnyValueMap.from_value(self.value)
 
     def equals(self, other: Any) -> bool:

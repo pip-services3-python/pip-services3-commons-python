@@ -30,6 +30,9 @@ class TypeDescriptor:
 
         :param library: a library or module where this object type is implemented.
         """
+        if not isinstance(name, str):
+            raise Exception('TypeDescriptor "name" must be a string')
+
         self.__name: str = name
         self.__library: str = library
 
