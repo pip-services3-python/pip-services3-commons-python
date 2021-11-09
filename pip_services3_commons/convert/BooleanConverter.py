@@ -76,4 +76,4 @@ class BooleanConverter:
         :return: boolean args or default when conversion is not supported.
         """
         result = BooleanConverter.to_nullable_boolean(value)
-        return result if not (result is None) else default_value
+        return result if not (result is None) else bool(default_value)
