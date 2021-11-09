@@ -47,7 +47,7 @@ class DateTimeConverter:
             return DateTimeConverter.to_utc_datetime(value)
 
         if type(value) in (int, float, complex):
-            value = datetime.fromtimestamp(value)
+            value = datetime.fromtimestamp(value / 1000)
             return DateTimeConverter.to_utc_datetime(value)
         if type(value) == date:
             value = datetime.combine(value, time(0, 0, 0))

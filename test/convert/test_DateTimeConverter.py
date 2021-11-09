@@ -22,7 +22,7 @@ class TestDateTimeConverter:
         assert date1 == DateTimeConverter.to_datetime_with_default(None, date1)
         assert date1 == DateTimeConverter.to_datetime(datetime(1975, 4, 8))
 
-        date2 = DateTimeConverter.to_utc_datetime(datetime.fromtimestamp(123456))
+        date2 = DateTimeConverter.to_utc_datetime(datetime.fromtimestamp(123456000))
         assert date2 == DateTimeConverter.to_datetime(123456)
 
         date3 = datetime(1975, 4, 8, 0, 0, 0, 0, UTC)
