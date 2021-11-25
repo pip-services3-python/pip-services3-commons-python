@@ -22,7 +22,7 @@ class LongConverter:
     """
 
     @staticmethod
-    def to_nullable_long(value: Any) -> Optional[float]:
+    def to_nullable_long(value: Any) -> Optional[int]:
         """
         Converts value into long or returns null when conversion is not possible.
 
@@ -46,7 +46,7 @@ class LongConverter:
         return None if result is None else int(result)
 
     @staticmethod
-    def to_long(value: Any) -> float:
+    def to_long(value: Any) -> int:
         """
         Converts value into long or returns 0 when conversion is not possible.
 
@@ -56,7 +56,7 @@ class LongConverter:
         return LongConverter.to_long_with_default(value, 0)
 
     @staticmethod
-    def to_long_with_default(value: Any, default_value: float) -> float:
+    def to_long_with_default(value: Any, default_value: int) -> int:
         """
         Converts value into integer or returns default when conversion is not possible.
 
