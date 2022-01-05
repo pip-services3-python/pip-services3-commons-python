@@ -23,7 +23,7 @@ except:
 
 setup(
     name='pip_services3_commons',
-    version='3.3.10',
+    version='3.3.11',
     url='http://github.com/pip-services3-python/pip-services3-commons-python',
     license='MIT',
     description='Basic portable abstractions for Pip.Services in Python',
@@ -36,7 +36,8 @@ setup(
     zip_safe=True,
     platforms='any',
     install_requires=[
-        'iso8601', 'PyYAML', 'pystache'
+        'iso8601',
+        'pytz'
     ],
     classifiers=[
         'Development Status :: 4 - Beta',

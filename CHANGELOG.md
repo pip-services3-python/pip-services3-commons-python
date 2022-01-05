@@ -1,5 +1,10 @@
 # <img src="https://uploads-ssl.webflow.com/5ea5d3315186cf5ec60c3ee4/5edf1c94ce4c859f2b188094_logo.svg" alt="Pip.Services Logo" width="200"> <br/> Portable Abstractions and Patterns for Python Changelog
 
+## <a name="3.3.11"></a> 3.3.11 (2022-01-05)
+
+### Bug Fixes
+* Fixed JsonConverter datetime conversions
+
 ## <a name="3.3.10"></a> 3.3.10 (2021-11-05)
 
 ### Bug Fixes

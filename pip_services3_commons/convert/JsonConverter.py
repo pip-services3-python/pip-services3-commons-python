@@ -61,8 +61,7 @@ class JsonConverter:
             return None
 
         if isinstance(value, datetime):
-            str_time = value.strftime("%Y-%m-%dT%H:%M:%S.%f%z")
-            return (str_time).split('+')[0] + 'Z'  # Remove microseconds
+            return value.isoformat()
 
         return json.dumps(value, default=JsonConverter.__to_json)
 
