@@ -155,7 +155,7 @@ class RecursiveObjectReader:
                     if value in cycle_detect:
                         continue
 
-                    key = path + "." + key if not (path is None) else key
+                    key = str(path) + "." + str(key) if path is not None else key
 
                     # Add simple values directly
                     if RecursiveObjectReader.__is_simple_value(value):
