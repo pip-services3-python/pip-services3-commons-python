@@ -163,7 +163,7 @@ class CommandSet:
         :param event: an event_name instance to be added
         """
         self.__events.append(event)
-        self.__events_by_name[event.get_name] = event
+        self.__events_by_name[event.get_name()] = event
 
     def add_events(self, events: List[IEvent]):
         """
