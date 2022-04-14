@@ -23,7 +23,7 @@ except:
 
 setup(
     name='pip_services3_commons',
-    version='3.3.13',
+    version='3.3.14',
     url='http://github.com/pip-services3-python/pip-services3-commons-python',
     license='MIT',
     description='Basic portable abstractions for Pip.Services in Python',
@@ -48,6 +48,7 @@ setup(
         'Programming Language :: Python :: 3.6',
         'Programming Language :: Python :: 3.7',
         'Programming Language :: Python :: 3.8',
+        'Programming Language :: Python :: 3.9',
         'Topic :: Software Development :: Libraries :: Python Modules'
     ]
 )

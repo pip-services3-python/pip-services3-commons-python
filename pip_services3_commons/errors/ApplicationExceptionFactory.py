@@ -40,6 +40,9 @@ class ApplicationExceptionFactory:
 
         :return: ApplicationException object from serialized ErrorDescription.
         """
+        if not description:
+            raise Exception("Description cannot be null")
+
         error: ApplicationException
 
         # Create well-known error type based on error category
