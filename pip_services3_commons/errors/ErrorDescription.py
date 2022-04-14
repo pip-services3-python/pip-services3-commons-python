@@ -2,12 +2,13 @@
 """
     pip_services3_commons.errors.ErrorDescription
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    
+
     Error description implementation
-    
+
     :copyright: Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.
     :license: MIT, see LICENSE for more details.
 """
+import json
 from typing import Any, Optional, Dict
 
 
@@ -44,18 +45,21 @@ class ErrorDescription:
         }
 
     @staticmethod
-    def from_json(json: Dict[str, Any]) -> Any:
-        if not isinstance(json, dict):
-            return json
+    def from_json(json_err: Dict[str, Any]) -> Any:
+        if isinstance(json_err, str):
+            json_err = json.loads(json_err)
+
+        if not isinstance(json_err, dict):
+            return json_err
 
         error = ErrorDescription()
-        error.type = json['type']
-        error.category = json['category']
-        error.status = json['status']
-        error.code = json['code']
-        error.message = json['message']
-        error.details = json['details']
-        error.correlation_id = json['correlation_id']
-        error.cause = json['cause']
-        error.stack_trace = json['stack_trace']
+        error.type = json_err.get('type')
+        error.category = json_err.get('category')
+        error.status = json_err.get('status')
+        error.code = json_err.get('code')
+        error.message = json_err.get('message')
+        error.details = json_err.get('details')
+        error.correlation_id = json_err.get('correlation_id')
+        error.cause = json_err.get('cause')
+        error.stack_trace = json_err['stack_trace']
         return error
