@@ -8,18 +8,19 @@
     :copyright: Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.
     :license: MIT, see LICENSE for more details.
 """
+from typing import List
 
 import random
-
+from .RandomBoolean import RandomBoolean
 from .RandomInteger import RandomInteger
-from .RandomBoolean import RandomBoolean 
 
 _digits = "01234956789"
 _symbols = "_,.:-/.[].{},#-!,$=%.+^.&*-() "
 _alpha_lower = "abcdefghijklmnopqrstuvwxyz"
-_alpha_upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+_alpha_upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 _alpha = _alpha_upper + _alpha_lower
 _chars = _alpha + _digits + _symbols
+
 
 class RandomString(object):
     """
@@ -32,8 +33,9 @@ class RandomString(object):
         value1 = RandomString.pickChar("ABC")     # Possible result: "C"
         value2 = RandomString.pick(["A","B","C"]) # Possible result: "gBW"
     """
+
     @staticmethod
-    def pick(values):
+    def pick(values: List[str]) -> str:
         """
         Picks a random string from an array of string.
 
@@ -42,12 +44,26 @@ class RandomString(object):
         :return: a randomly picked string.
         """
         if values is None or len(values) == 0:
-            return None
+            return ''
 
         return random.choice(values)
 
     @staticmethod
-    def distort(value):
+    def pick_char(values: str) -> str:
+        """
+        Picks a random character from a string.
+
+        :param values: a string to pick a char from
+
+        :return: a randomly picked char.
+        """
+        if values is None or len(values) == 0:
+            return ''
+        index = RandomInteger.next_integer(len(values))
+        return values[index]
+
+    @staticmethod
+    def distort(value: str) -> str:
         """
         Distorts a string by randomly replacing characters in it.
 
@@ -57,16 +73,16 @@ class RandomString(object):
         """
         value = value.lower()
 
-        if (RandomBoolean.chance(1, 5)):
+        if RandomBoolean.chance(1, 5):
             value = value[0:1].upper() + value[1:]
 
-        if (RandomBoolean.chance(1, 3)):
+        if RandomBoolean.chance(1, 3):
             value = value + random.choice(_symbols)
 
         return value
 
     @staticmethod
-    def next_alpha_char():
+    def next_alpha_char() -> str:
         """
         Generates random alpha characted [A-Za-z]
         :return: a random characted.
@@ -74,7 +90,7 @@ class RandomString(object):
         return random.choice(_alpha)
 
     @staticmethod
-    def next_string(min_size, max_size):
+    def next_string(min_size: int, max_size: int) -> str:
         """
         Generates a random string, consisting of upper and lower case letters (of the English alphabet),
         digits (0-9), and symbols ("_,.:-/.[].{},#-!,$=%.+^.&*-() ").
@@ -86,7 +102,7 @@ class RandomString(object):
         :return: a random string.
         """
         result = ''
-        
+
         max_size = max_size if max_size != None else min_size
         length = RandomInteger.next_integer(min_size, max_size)
         for i in range(length):

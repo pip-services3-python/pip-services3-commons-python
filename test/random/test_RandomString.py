@@ -7,8 +7,6 @@
     :license: MIT, see LICENSE for more details.
 """
 
-import pytest
-
 from pip_services3_commons.random import RandomString
 
 symbols = "_,.:-/.[].{},#-!,$=%.+^.&*-() "
@@ -19,12 +17,12 @@ digits = "01234956789"
 class TestRandomString:
 
     def test_pick(self):
-        assert None == RandomString.pick("")
+        assert RandomString.pick_char("") == ''
 
-        char_variable = RandomString.pick(chars)
+        char_variable = RandomString.pick_char(chars)
         assert chars.find(char_variable) >= 0
 
-        assert None == RandomString.pick([])
+        assert '' == RandomString.pick([])
 
         values = ["ab", "cd"]
         result = RandomString.pick(values)

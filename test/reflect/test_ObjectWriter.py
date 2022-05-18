@@ -7,13 +7,11 @@
     :license: MIT, see LICENSE for more details.
 """
 
-import pytest
 import datetime
 
-from pip_services3_commons.reflect import ObjectWriter
-from pip_services3_commons.data import AnyValueMap
 from pip_services3_commons.data import AnyValueArray
-
+from pip_services3_commons.data import AnyValueMap
+from pip_services3_commons.reflect import ObjectWriter
 from .StubClass import StubClass
 
 

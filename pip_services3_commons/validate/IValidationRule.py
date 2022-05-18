@@ -3,30 +3,36 @@
     pip_services3_commons.validate.IValidationRule
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     
-    Interface for schema validation rules.
+    Interface for schema validation __rules.
     
     :copyright: Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.
     :license: MIT, see LICENSE for more details.
 """
+from abc import ABC
+from typing import List, Any
 
-class IValidationRule(object):
+from ..validate.ValidationResult import ValidationResult
+
+
+class IValidationRule(ABC):
     """
-    Interface for validation rules.
+    Interface for validation __rules.
     Validation rule can validate one or multiple values
-    against complex rules like: value is in range, one property is less than another property,
+    against complex __rules like: args is in range, one property is less than another property,
     enforce enumerated values and more.
 
-    This interface allows to implement custom rules.
+    This interface allows to implement custom __rules.
     """
-    def validate(self, path, schema, value, results):
-        """
-        Validates a given value against this rule.
 
-        :param path: a dot notation path to the value.
+    def validate(self, path: str, schema: 'Schema', value: Any, results: List[ValidationResult]):
+        """
+        Validates a given args against this rule.
+
+        :param path: a dot notation path to the args.
 
         :param schema: a schema this rule is called from
 
-        :param value: a value to be validated.
+        :param value: a args to be validated.
 
         :param results: a list with validation results to add new results.
         """

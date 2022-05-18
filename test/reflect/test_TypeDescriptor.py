@@ -7,10 +7,8 @@
     :license: MIT, see LICENSE for more details.
 """
 
-import pytest
-
-from pip_services3_commons.reflect import TypeDescriptor
 from pip_services3_commons.errors import ConfigException
+from pip_services3_commons.reflect import TypeDescriptor
 
 
 class TestTypeDescriptor:
@@ -29,7 +27,7 @@ class TestTypeDescriptor:
 
         try:
             descriptor = TypeDescriptor.from_string("xxx,yyy,zzz")
-            raise Exception("Wrong descriptor shall raise an exception")
+            raise Exception("Wrong descriptor shall raise an error")
         except ConfigException:
             # Ok...
             pass

@@ -3,80 +3,89 @@
     pip_services3_commons.commands.InterceptedCommand
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     
-    Intercepted command implementation
+    Intercepted command_name implementation
     
     :copyright: Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.
     :license: MIT, see LICENSE for more details.
 """
+from typing import Any, List, Optional
 
+from ..run import Parameters
+from ..validate import ValidationResult
+from . import ICommandInterceptor
 from .ICommand import ICommand
+
 
 class InterceptedCommand(ICommand):
     """
-    Implements a ICommand command wrapped by an interceptor.
-    It allows to build command call chains. The interceptor can alter execution
-    and delegate calls to a next command, which can be intercepted or concrete.
+    Implements a ICommand command_name wrapped by an interceptor.
+    It allows to build command_name call chains. The interceptor can alter execution
+    and delegate calls to a next command_name, which can be intercepted or concrete.
 
     Example:
     
     .. code-block:: python
 
         class CommandLogger(ICommandInterceptor):
-            def get_name(self, command):
-                return command.get_name()
+            def get_name(self, command_name):
+                return command_name.get_name()
 
             def execute():
                 # do something
 
             def validate():
                 # do something
+
+        logger = new CommandLogger()
+        logged_command = InterceptedCommand(logger, command)
+
+        # Each called command will output: Executed command <command name>
     """
 
-    _intercepter = None
-    _next = None
+    __interceptor: ICommandInterceptor = None
+    __next: ICommand = None
 
-    def __init__(self, intercepter, next):
+    def __init__(self, interceptor: ICommandInterceptor, next: ICommand):
         """
         Creates a new InterceptedCommand, which serves as a link in an execution chain.
-        Contains information about the interceptor that is being used and the next command in the chain.
+        Contains information about the interceptor that is being used and the next command_name in the chain.
         
-        :param intercepter: the intercepter reference.
+        :param interceptor: the interceptor reference.
 
-        :param next: the next intercepter or command in the chain.
+        :param next: the next interceptor or command_name in the chain.
         """
-        self._intercepter = intercepter
-        self._next = next
+        self.__interceptor = interceptor
+        self.__next = next
 
-    def get_name(self):
+    def get_name(self) -> str:
         """
-        Gets the command name.
+        Gets the command_name name.
 
-        :return: the command name
+        :return: the command_name name
         """
-        return self._intercepter.get_name(self._next)
+        return self.__interceptor.get_name(self.__next)
 
-    def execute(self, correlation_id, args):
+    def execute(self, correlation_id: Optional[str], args: Parameters) -> Any:
         """
-        Executes the next command in the execution chain using the given Parameters parameters (arguments).
+        Executes the next command_name in the execution chain using the given Parameters parameters (arguments).
         
         :param correlation_id: a unique correlation/transaction id
 
-        :param args: command arguments
+        :param args: command_name arguments
         
         :return: an execution result.
         
         :raises: :class:`ValidationError`: when execution fails for whatever reason.
         """
-        return self._intercepter.execute(self._next, correlation_id, args)
+        return self.__interceptor.execute(correlation_id, self.__next, args)
 
-    def validate(self, args):
+    def validate(self, args: Parameters) -> List[ValidationResult]:
         """
         Validates the Parameters parameters (arguments)
-        that are to be passed to the command that is next in the execution chain.
+        that are to be passed to the command_name that is next in the execution chain.
         
-        :param args: command arguments
+        :param args: command_name arguments
         
         :return: a list of validation results
         """
-        return self._intercepter.validate(self._next, args)
-    
+        return self.__interceptor.validate(self.__next, args)

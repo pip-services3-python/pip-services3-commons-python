@@ -7,17 +7,15 @@
     :license: MIT, see LICENSE for more details.
 """
 
-import pytest
-
-from .StubObject import StubObject
-from pip_services3_commons.validate import Schema
 from pip_services3_commons.validate import PropertiesComparisonRule
+from pip_services3_commons.validate import Schema
+from .ObjectTest import ObjectTest
 
 
 class TestPropertiesComparisonRule:
 
     def test_properties_comparison(self):
-        obj = StubObject()
+        obj = ObjectTest()
         schema = Schema().with_rule(PropertiesComparisonRule("String_Property", "EQ", "Null_Property"))
 
         obj.string_property = "ABC"

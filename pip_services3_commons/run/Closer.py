@@ -8,8 +8,10 @@
     :copyright: Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.
     :license: MIT, see LICENSE for more details.
 """
+from typing import Any, List, Optional
 
 from .IClosable import IClosable
+
 
 class Closer:
     """
@@ -17,11 +19,11 @@ class Closer:
     """
 
     @staticmethod
-    def close_one(correlation_id, component):
+    def close_one(correlation_id: Optional[str], component: Any):
         """
         Closes specific component.
 
-        To be closed components must implement :class:`ICloseable` interface.
+        To be closed components must implement :class:`IClosable <pip_services3_commons.run.IClosable.IClosable>` interface.
         If they don't the call to this method has no effect.
 
         :param correlation_id: (optional) transaction id to trace execution through call chain.
@@ -32,11 +34,11 @@ class Closer:
             component.close(correlation_id)
 
     @staticmethod
-    def close(correlation_id, components):
+    def close(correlation_id: Optional[str], components: List[Any]):
         """
         Closes multiple components.
 
-        To be closed components must implement :class:`ICloseable` interface.
+        To be closed components must implement :class:`IClosable <pip_services3_commons.run.IClosable.IClosable>` interface.
         If they don't the call to this method has no effect.
 
         :param correlation_id: (optional) transaction id to trace execution through call chain.

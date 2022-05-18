@@ -10,6 +10,7 @@ Submodules
    pip_services3_commons.random.RandomArray
    pip_services3_commons.random.RandomBoolean
    pip_services3_commons.random.RandomDateTime
+   pip_services3_commons.random.RandomDouble
    pip_services3_commons.random.RandomFloat
    pip_services3_commons.random.RandomInteger
    pip_services3_commons.random.RandomString

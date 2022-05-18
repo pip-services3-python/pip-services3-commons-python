@@ -7,8 +7,6 @@
     :license: MIT, see LICENSE for more details.
 """
 
-import pytest
-
 from pip_services3_commons.commands import Command
 from pip_services3_commons.commands import CommandSet
 
@@ -30,7 +28,7 @@ class CommandExecTest(IExecutable):
 class TestCommandSet:
 
     def get_value(self, correlation_id, args):
-        return args.get('value')
+        return args.get('args')
 
     def test_get_name(self):
         command = Command('name', None, CommandExecTest())
@@ -45,11 +43,11 @@ class TestCommandSet:
         commands.add_command(self.make_echo_command("command1"))
         commands.add_command(self.make_echo_command("command2"))
 
-        result = commands.execute(None, "command1", Parameters.from_tuples("value", 123))
+        result = commands.execute(None, "command1", Parameters.from_tuples("args", 123))
         assert 123 == result
 
-        result = commands.execute(None, "command1", Parameters.from_tuples("value", "ABC"))
+        result = commands.execute(None, "command1", Parameters.from_tuples("args", "ABC"))
         assert "ABC" == result
 
-        result = commands.execute(None, "command2", Parameters.from_tuples("value", 789))
+        result = commands.execute(None, "command2", Parameters.from_tuples("args", 789))
         assert 789 == result

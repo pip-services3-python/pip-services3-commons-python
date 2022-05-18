@@ -3,21 +3,23 @@
     pip_services_common.errors.UnsupportedException
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     
-    Unsupported exception type
+    Unsupported error type
     
     :copyright: Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.
     :license: MIT, see LICENSE for more details.
 """
+from typing import Optional
 
-from .ErrorCategory import ErrorCategory
 from .ApplicationException import ApplicationException
+from .ErrorCategory import ErrorCategory
+
 
 class UnsupportedException(ApplicationException):
     """
     Errors caused by calls to unsupported or not yet implemented functionality
     """
 
-    def __init__(self, correlation_id = None, code = None, message = None):
+    def __init__(self, correlation_id: Optional[str] = None, code: str = None, message: str = None):
         """
         Creates an error instance and assigns its values.
 

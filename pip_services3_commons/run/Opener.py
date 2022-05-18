@@ -8,19 +8,22 @@
     :copyright: Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.
     :license: MIT, see LICENSE for more details.
 """
+from typing import Any, List, Optional
 
 from .IOpenable import IOpenable
+
 
 class Opener:
     """
     Helper class that opens components.
     """
+
     @staticmethod
-    def is_opened_one(component):
+    def is_opened_one(component: Any) -> bool:
         """
         Checks if specified component is opened.
 
-        To be checked components must implement :class:`IOpenable` interface.
+        To be checked components must implement :class:`IOpenable <pip_services3_commons.run.IOpenable.IOpenable>` interface.
         If they don't the call to this method returns true.
 
         :param component: the component that is to be checked.
@@ -28,16 +31,16 @@ class Opener:
         :return: true if component is opened and false otherwise.
         """
         if isinstance(component, IOpenable):
-            return component.is_opened()
+            return component.is_open()
 
         return True
 
     @staticmethod
-    def is_opened(components):
+    def is_opened(components: List[Any]) -> bool:
         """
         Checks if all components are opened.
 
-        To be checked components must implement :class:`IOpenable` interface.
+        To be checked components must implement :class:`IOpenable <pip_services3_commons.run.IOpenable.IOpenable>` interface.
         If they don't the call to this method returns true.
 
         :param components: a list of components that are to be checked.
@@ -54,11 +57,11 @@ class Opener:
         return result
 
     @staticmethod
-    def open_one(correlation_id, component):
+    def open_one(correlation_id: Optional[str], component: Any):
         """
         Opens specific component.
 
-        To be opened components must implement :class:`IOpenable` interface.
+        To be opened components must implement :class:`IOpenable <pip_services3_commons.run.IOpenable.IOpenable>` interface.
         If they don't the call to this method has no effect.
 
         :param correlation_id: (optional) transaction id to trace execution through call chain.
@@ -69,11 +72,11 @@ class Opener:
             component.open(correlation_id)
 
     @staticmethod
-    def open(correlation_id, components):
+    def open(correlation_id: Optional[str], components: List[Any]):
         """
         Opens multiple components.
 
-        To be opened components must implement :class:`IOpenable` interface.
+        To be opened components must implement :class:`IOpenable <pip_services3_commons.run.IOpenable.IOpenable>` interface.
         If they don't the call to this method has no effect.
 
         :param correlation_id: (optional) transaction id to trace execution through call chain.

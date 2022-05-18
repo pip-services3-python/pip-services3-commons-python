@@ -8,20 +8,25 @@
     :copyright: Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.
     :license: MIT, see LICENSE for more details.
 """
+from abc import ABC
+from typing import Any, List
 
-class IReferences:
+
+
+
+class IReferences(ABC):
     """
     Interface for a map that holds component references and passes them to components
-    to establish dependencies with each other.
+    to establish dependencies with each obj.
 
-    Together with :class:`IReferenceable` and :class:`IUnreferenceable` interfaces it implements
+    Together with :class:`IReferenceable <pip_services3_commons.refer.IReferenceable.IReferenceable>` and :class:`IUnreferenceable <pip_services3_commons.refer.IUnreferenceable.IUnreferenceable>` interfaces it implements
     a Locator pattern that is used by PipServices toolkit for Inversion of Control
     to assign external dependencies to components.
 
     The IReferences object is a simple map, where keys are locators
     and values are component references. It allows to add, remove and find components
     by their locators. Locators can be any values like integers, strings or component types.
-    But most often PipServices toolkit uses :class:`Descriptor` as locators that match
+    But most often PipServices toolkit uses :class:`Descriptor <pip_services3_commons.refer.Descriptor.Descriptor>` as locators that match
     by 5 fields: group, type, kind, name and version.
 
     Example:
@@ -32,7 +37,7 @@ class IReferences:
             _persistence = None
 
             def set_references(self, references):
-                self._persistence = references.getOneRequired(Descriptor("mygroup", "persistence", "*", "*", "1.0"))
+                self._persistence = references.get_one_required(Descriptor("mygroup", "persistence", "*", "*", "1.0"))
 
         persistence = MyMongoDbPersistence()
 
@@ -43,7 +48,7 @@ class IReferences:
         controller.set_references(references)
     """
 
-    def put(self, locator = None, reference = None):
+    def put(self, locator: Any = None, reference: Any = None):
         """
         Puts a new reference into this reference map.
 
@@ -53,7 +58,7 @@ class IReferences:
         """
         raise NotImplementedError('Method from interface definition')
 
-    def remove(self, locator):
+    def remove(self, locator: Any) -> Any:
         """
         Removes a previously added reference that matches specified locator.
         If many references match the locator, it removes only the first one.
@@ -65,7 +70,16 @@ class IReferences:
         """
         raise NotImplementedError('Method from interface definition')
 
-    def get_all_locators(self):
+    def remove_all(self, locator: Any) -> List[Any]:
+        """
+        Removes all component references that match the specified locator.
+
+        :param locator: a locator to remove reference
+        :return: a list, containing all removed references.
+        """
+        raise NotImplementedError('Method from interface definition')
+
+    def get_all_locators(self) -> List[Any]:
         """
         Gets locators for all registered component references in this reference map.
 
@@ -73,7 +87,7 @@ class IReferences:
         """
         raise NotImplementedError('Method from interface definition')
 
-    def get_all(self):
+    def get_all(self) -> List[Any]:
         """
         Gets all component references registered in this reference map.
 
@@ -81,7 +95,7 @@ class IReferences:
         """
         raise NotImplementedError('Method from interface definition')
 
-    def get_optional(self, locator):
+    def get_optional(self, locator: Any) -> List[Any]:
         """
         Gets all component references that match specified locator.
 
@@ -91,7 +105,7 @@ class IReferences:
         """
         raise NotImplementedError('Method from interface definition')
 
-    def get_required(self, locator):
+    def get_required(self, locator: Any) -> List[Any]:
         """
         Gets all component references that match specified locator.
         At least one component reference must be present. If it doesn't the method throws an error.
@@ -100,11 +114,11 @@ class IReferences:
 
         :return: a list with matching component references.
 
-        :raises: a :class:`ReferenceException` when no references found.
+        :raises: a :class:`ReferenceException <pip_services3_commons.refer.ReferenceException.ReferenceException>` when no references found.
         """
         raise NotImplementedError('Method from interface definition')
 
-    def get_one_optional(self, locator):
+    def get_one_optional(self, locator: Any) -> Any:
         """
         Gets an optional component reference that matches specified locator.
 
@@ -114,31 +128,31 @@ class IReferences:
         """
         raise NotImplementedError('Method from interface definition')
 
-    def get_one_required(self, locator):
+    def get_one_required(self, locator: Any) -> Any:
         """
-        Gets a required component reference that matches specified locator.
+        Gets a __required component reference that matches specified locator.
 
         :param locator: the locator to find a reference by.
 
         :return: a matching component reference.
 
-        :raises: a :class:`ReferenceException` when no references found.
+        :raises: a :class:`ReferenceException <pip_services3_commons.refer.ReferenceException.ReferenceException>` when no references found.
         """
         raise NotImplementedError('Method from interface definition')
 
     def get_one_before(self, reference, locator):
         raise NotImplementedError('Method from interface definition')
 
-    def find(self, locator, required):
+    def find(self, locator: Any, required: bool) -> List[Any]:
         """
         Gets all component references that match specified locator.
 
         :param locator: the locator to find a reference by.
 
-        :param required: forces to raise an exception if no reference is found.
+        :param required: forces to raise an error if no reference is found.
 
         :return: a list with matching component references.
 
-        :raises: a :class:`ReferenceException` when required is set to true but no references found.
+        :raises: a :class:`ReferenceException <pip_services3_commons.refer.ReferenceException.ReferenceException>` when __required is set to true but no references found.
         """
         raise NotImplementedError('Method from interface definition')

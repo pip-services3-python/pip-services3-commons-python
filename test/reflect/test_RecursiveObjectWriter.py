@@ -7,14 +7,10 @@
     :license: MIT, see LICENSE for more details.
 """
 
-import pytest
-
 from pip_services3_commons.convert import JsonConverter
 from pip_services3_commons.data import AnyValueMap
 from pip_services3_commons.reflect import RecursiveObjectReader
 from pip_services3_commons.reflect import RecursiveObjectWriter
-
-from .StubClass import StubClass
 
 
 class TestRecursiveObjectWriter:

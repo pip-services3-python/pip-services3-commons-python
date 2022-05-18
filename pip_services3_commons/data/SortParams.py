@@ -8,6 +8,7 @@
     :copyright: Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.
     :license: MIT, see LICENSE for more details.
 """
+from ..data import SortField
 
 
 class SortParams(list):
@@ -25,7 +26,7 @@ class SortParams(list):
          myDataClient.get_data_by_filter(filter, paging, sorting)
     """
 
-    def __init__(self, *fields):
+    def __init__(self, *fields: SortField):
         """
         Creates a new instance and initializes it with specified sort fields.
 

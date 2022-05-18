@@ -8,18 +8,23 @@
     :copyright: Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.
     :license: MIT, see LICENSE for more details.
 """
+from typing import List, Dict, Optional, Any
 
+from ..commands import IEvent, ICommand, IEventListener
+from ..run import Parameters
+from . import ICommandInterceptor
+from .InterceptedCommand import InterceptedCommand
+from ..data.IdGenerator import IdGenerator
 from ..errors.BadRequestException import BadRequestException
 from ..validate.ValidationException import ValidationException
 from ..validate.ValidationResult import ValidationResult
 from ..validate.ValidationResultType import ValidationResultType
-from ..data.IdGenerator import IdGenerator
-from  .InterceptedCommand import InterceptedCommand
 
-class CommandSet(object):
+
+class CommandSet:
     """
     Contains a set of commands and events supported by a ICommandable commandable object.
-    The CommandSet supports command interceptors to extend and the command call chain.
+    The CommandSet supports command_name interceptors to extend and the command_name call chain.
 
     CommandSets can be used as alternative commandable interface to a business object.
     It can be used to auto generate multiple external services for the business object
@@ -33,7 +38,7 @@ class CommandSet(object):
             _controller = None
 
             def __init__(self, controller):
-                super(MyDataCommandSet, self).__init__()
+                super().__init__()
 
                 self._controller = controller
 
@@ -50,129 +55,128 @@ class CommandSet(object):
                     handler
                 )
 
-    See :class:`Command`, :class:`Event`, :class:`ICommandable`
+    See :class:`Command <pip_services3_commons.commands.Command.Command>`, :class:`Event <pip_services3_commons.commands.Event.Event>`, :class:`ICommandable <pip_services3_commons.commands.ICommandable.ICommandable>`
     """
 
-    _commands = None
-    _commands_by_name = None
-    _events = None
-    _events_by_name = None
-    _intercepters = None
+    __commands: List[ICommand] = None
+    __events: List[IEvent] = None
+    __interceptors: List[ICommandInterceptor] = None
 
     def __init__(self):
         """
         Creates an empty CommandSet object.
         """
-        self._commands = []
-        self._commands_by_name = {}
-        self._events = []
-        self._events_by_name = {}
-        self._intercepters = []
+        self.__commands = []
+        self.__events = []
+        self.__interceptors = []
 
-    def get_commands(self):
-        """
-        Gets all commands registered in this command set.
+        self.__commands_by_name: Dict[str, ICommand] = {}
+        self.__events_by_name: Dict[str, IEvent] = {}
 
-        :return: :class:`ICommand` list with all commands supported by component.
+    def get_commands(self) -> List[ICommand]:
         """
-        return self._commands
+        Gets all commands registered in this command_name set.
 
-    def get_events(self):
+        :return: :class:`ICommand <pip_services3_commons.commands.ICommand.ICommand>` list with all commands supported by component.
         """
-        Gets all events registered in this command set.
+        return self.__commands
 
-        :return: :class:`ICommand` list with all events supported by component.
+    def get_events(self) -> List[IEvent]:
         """
-        return self._events
+        Gets all events registered in this command_name set.
 
-    def find_command(self, command):
+        :return: :class:`ICommand <pip_services3_commons.commands.ICommand.ICommand>` list with all events supported by component.
         """
-        Searches for a command by its name.
+        return self.__events
+
+    def find_command(self, command_name: str) -> Optional[ICommand]:
+        """
+        Searches for a command_name by its name.
         
-        :param command: the name of the command to search for.
+        :param command_name: the name of the command_name to search for.
 
-        :return: the command, whose name matches the provided name.
+        :return: the command_name, whose name matches the provided name.
         """
-        if command in self._commands_by_name:
-            return self._commands_by_name[command]
+        if command_name in self.__commands_by_name:
+            return self.__commands_by_name[command_name]
         else:
             return None
 
-    def find_event(self, event):
+    def find_event(self, event_name: str) -> Optional[IEvent]:
         """
-        Searches for an event by its name in this command set.
+        Searches for an event_name by its name in this command_name set.
         
-        :param event: the name of the event to search for.
+        :param event_name: the name of the event_name to search for.
 
-        :return: the event, whose name matches the provided name.
+        :return: the event_name, whose name matches the provided name.
         """
-        if event in self._events_by_name:
-            return self._events_by_name[event]
+        if event_name in self.__events_by_name:
+            return self.__events_by_name[event_name]
         else:
             return None
 
-    def _build_command_chain(self, command):
+    def __build_command_chain(self, command: ICommand):
         """
-        Builds execution chain including all intercepters and the specified command.
+        Builds execution chain including all intercepters and the specified command_name.
 
-        :param command: the command to build a chain.
+        :param command: the command_name to build a chain.
         """
         next_command = command
-        for intercepter in reversed(self._intercepters):
+        for intercepter in reversed(self.__interceptors):
             next_command = InterceptedCommand(intercepter, next_command)
-        self._commands_by_name[next_command.get_name()] = next_command
+        self.__commands_by_name[next_command.get_name()] = next_command
 
-    def _rebuild_all_command_chains(self):
+    def __rebuild_all_command_chains(self):
         """
         Rebuilds execution chain for all registered commands.
-        This method is typically called when intercepters are changed.
-        Because of that it is more efficient to register intercepters
+        This method is typically called when interceptors are changed.
+        Because of that it is more efficient to register interceptors
         before registering commands (typically it will be done in abstract classes).
         However, that performance penalty will be only once during creation time.
         """
-        self._commands_by_name = {}
-        for command in self._commands:
-            self._build_command_chain(command)
+        self.__commands_by_name = {}
+        for command in self.__commands:
+            self.__build_command_chain(command)
 
-    def add_command(self, command):
+    def add_command(self, command: ICommand):
         """
-        Adds a ICommand command to this command set.
+        Adds a ICommand command_name to this command_name set.
         
-        :param command: a command instance to be added
+        :param command: a command_name instance to be added
         """
-        self._commands.append(command)
-        self._build_command_chain(command)
+        self.__commands.append(command)
+        self.__build_command_chain(command)
 
-    def add_commands(self, commands):
+    def add_commands(self, commands: List[ICommand]):
         """
-        Adds multiple :class:`ICommand` commands to this command set.
+        Adds multiple :class:`ICommand <pip_services3_commons.commands.ICommand.ICommand>` commands to this command_name set.
         
         :param commands: the array of commands to add.
         """
         for command in commands:
             self.add_command(command)
 
-    def add_event(self, event):
+    def add_event(self, event: IEvent):
         """
-        Adds an :class:`IEvent` event to this command set.
+        Adds an :class:`IEvent <pip_services3_commons.commands.IEvent.IEvent>` event_name to this command_name set.
         
-        :param event: an event instance to be added
+        :param event: an event_name instance to be added
         """
-        self._events.append(event)
-        self._events_by_name[event.get_name] = event
+        self.__events.append(event)
+        self.__events_by_name[event.get_name()] = event
 
-    def add_events(self, events):
+    def add_events(self, events: List[IEvent]):
         """
-        Adds multiple :class:`IEvent` events to this command set.
+        Adds multiple :class:`IEvent <pip_services3_commons.commands.IEvent.IEvent>` events to this command_name set.
         
         :param events: the array of events to add.
         """
         for event in events:
             self.add_event(event)
 
-    def add_command_set(self, command_set):
+    def add_command_set(self, command_set: 'CommandSet'):
         """
-        Adds all of the commands and events from specified CommandSet command set
+        Adds all of the commands and events from specified CommandSet command_name set
         into this one.
         
         :param command_set: a commands set to add commands from
@@ -183,107 +187,107 @@ class CommandSet(object):
         for event in command_set.get_events():
             self.add_event(event)
 
-    def add_interceptor(self, intercepter):
+    def add_interceptor(self, interceptor: ICommandInterceptor):
         """
-        Adds a :class:`ICommandInterceptor` command interceptor to this command set.
+        Adds a :class:`ICommandInterceptor <pip_services3_commons.commands.ICommandInterceptorICommandInterceptor>` command_name interceptor to this command_name set.
         
-        :param intercepter: an intercepter instance to be added.
+        :param interceptor: an interceptor instance to be added.
         """
-        self._intercepters.append(intercepter)
-        self._rebuild_all_command_chains()
+        self.__interceptors.append(interceptor)
+        self.__rebuild_all_command_chains()
 
-    def execute(self, correlation_id, command, args):
+    def execute(self, correlation_id: Optional[str], command: str, args: Parameters) -> Any:
         """
-        Executes a :class:`ICommand` command specificed by its name.
+        Executes a :class:`ICommand <pip_services3_commons.commands.ICommand.ICommand>` command_name specificed by its name.
         
         :param correlation_id: (optional) transaction id to trace execution through call chain.
 
-        :param command: the name of that command that is to be executed.
+        :param command: the name of that command_name that is to be executed.
 
-        :param args: the parameters (arguments) to pass to the command for execution.
+        :param args: the parameters (arguments) to pass to the command_name for execution.
         
         :return: the execution result.
         
         :raises: ValidationException: when execution fails for any reason.
         """
-        # Get command and throw error if it doesn't exist
+        # Get command_name and throw error if it doesn't exist
         cref = self.find_command(command)
         if cref is None:
             raise BadRequestException(
                 correlation_id,
                 "CMD_NOT_FOUND",
-                "Requested command does not exist"
-            ).with_details("command", command)
+                "Requested command_name does not exist"
+            ).with_details("command_name", command)
 
         # Generate correlationId if it doesn't exist
         # Use short ids for now
         if correlation_id is None:
-           correlation_id = IdGenerator.next_short()
-        
-        # Validate command arguments before execution and throw the 1st found error
+            correlation_id = IdGenerator.next_short()
+
+        # Validate command_name arguments before execution and throw the 1st found error
         results = cref.validate(args)
         ValidationException.throw_exception_if_needed(correlation_id, results, False)
-                
-        # Execute the command.
+
+        # Execute the command_name.
         return cref.execute(correlation_id, args)
 
-    def validate(self, command, args):
+    def validate(self, command_name: str, args: Parameters) -> List[ValidationResult]:
         """
-        Validates Parameters args for command specified by its name using defined schema.
+        Validates Parameters args for command_name specified by its name using defined schema.
         If validation schema is not defined than the methods returns no errors.
-        It returns validation error if the command is not found.
+        It returns validation error if the command_name is not found.
         
-        :param command: the name of the command for which the 'args' must be validated.
+        :param command_name: the name of the command_name for which the 'args' must be validated.
 
         :param args: the parameters (arguments) to validate.
         
-        :return: an array of ValidationResults. If no command is found by the given
+        :return: an array of ValidationResults. If no command_name is found by the given
                  name, then the returned array of ValidationResults will contain a
                  single entry, whose type will be :class:`ValidationResultType.Error`.
         """
-        cref = self.find_command(command)
+        cref = self.find_command(command_name)
         if cref is None:
             results = []
-            results.append( \
+            results.append(
                 ValidationResult(
                     None, ValidationResultType.Error,
-                    "CMD_NOT_FOUND", 
-                    "Requested command does not exist"
+                    "CMD_NOT_FOUND",
+                    "Requested command_name does not exist"
                 )
             )
             return results
 
         return cref.validate(args)
-    
-    def add_listener(self, listener):
+
+    def add_listener(self, listener: IEventListener):
         """
-        Adds a :class:`IEventListener` listener to receive notifications on fired events.
+        Adds a :class:`IEventListener <pip_services3_commons.commands.IEventListener.IEventListener>` listener to receive notifications on fired events.
 
         :param listener: a listener to be added
         """
-        for event in self._events:
+        for event in self.__events:
             event.add_listener(listener)
 
-    def remove_listener(self, listener):
+    def remove_listener(self, listener: IEventListener):
         """
-        Removes previosly added :class:`IEventListener` listener.
+        Removes previosly added :class:`IEventListener <pip_services3_commons.commands.IEventListener.IEventListener>` listener.
 
         :param listener: a listener to be removed
         """
-        for event in self._events:
+        for event in self.__events:
             event.remove_listener(listener)
 
-    def notify(self, correlation_id, event, value):
+    def notify(self, correlation_id: Optional[str], event_name: str, args: Parameters):
         """
-        Fires event specified by its name and notifies all registered
-        :class:`IEventListener` listeners
+        Fires event_name specified by its name and notifies all registered
+        :class:`IEventListener <pip_services3_commons.commands.IEventListener.IEventListener>` listeners
 
         :param correlation_id: (optional) transaction id to trace execution through call chain.
 
-        :param event: the name of the event that is to be fired.
+        :param event_name: the name of the event_name that is to be fired.
 
-        :param value: the event arguments (parameters).
+        :param args: the event_name arguments (parameters).
         """
-        e = self.find_event(event)
+        e = self.find_event(event_name)
         if not (e is None):
-            e.notify(correlation_id, value)
+            e.notify(correlation_id, args)

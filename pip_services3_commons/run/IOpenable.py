@@ -8,16 +8,36 @@
     :copyright: Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.
     :license: MIT, see LICENSE for more details.
 """
+from typing import Optional
 
 from .IClosable import IClosable
+
 
 class IOpenable(IClosable):
     """
     Interface for components that require explicit opening and closing.
-    For components that perform opening on demand consider using :class:`ICloseable` interface instead.
+    For components that perform opening on demand consider using :class:`IClosable <pip_services3_commons.run.IClosable.IClosable>` interface instead.
+
+    .. code-block:: python
+        class MyPersistence(IOpenable):
+            _client = None
+            ...
+            def is_open(self):
+                return self._client is not None
+
+            def open(correlation_id):
+                if self.is_open()
+                    return
+                ...
+
+            def close(self, correlation_id):
+                if self._client is not None:
+                    self._client.close()
+                    self._client = None
+            ...
     """
 
-    def is_opened(self):
+    def is_open(self) -> bool:
         """
         Checks if the component is opened.
 
@@ -25,7 +45,7 @@ class IOpenable(IClosable):
         """
         raise NotImplementedError('Method from interface definition')
 
-    def open(self, correlation_id):
+    def open(self, correlation_id: Optional[str]):
         """
         Opens the component.
 

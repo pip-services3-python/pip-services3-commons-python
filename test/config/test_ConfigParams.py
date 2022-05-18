@@ -7,11 +7,9 @@
     :license: MIT, see LICENSE for more details.
 """
 
-import pytest
-
-from pip_services3_commons.data import AnyValueMap
-from pip_services3_commons.data import AnyValueArray
 from pip_services3_commons.config import ConfigParams
+from pip_services3_commons.data import AnyValueArray
+from pip_services3_commons.data import AnyValueMap
 
 
 class TestConfigParams:
@@ -63,7 +61,7 @@ class TestConfigParams:
             "field3", True
         )
 
-        config = ConfigParams.from_value(value);
+        config = ConfigParams.from_value(value)
         assert 7 == len(config)
         assert 123 == config.get_as_integer("field1.field11")
         assert "ABC" == config.get_as_string("field1.field12")

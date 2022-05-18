@@ -9,7 +9,7 @@ Submodules
 
    pip_services3_commons.validate.AndRule
    pip_services3_commons.validate.ArraySchema
-   pip_services3_commons.validate.AtLeastOneExistRule
+   pip_services3_commons.validate.AtLeastOneExistsRule
    pip_services3_commons.validate.ExcludedRule
    pip_services3_commons.validate.FilterParamsSchema
    pip_services3_commons.validate.IValidationRule

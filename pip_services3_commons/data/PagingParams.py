@@ -8,12 +8,14 @@
     :copyright: Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.
     :license: MIT, see LICENSE for more details.
 """
+from typing import Dict, Any
 
-from ..convert.IntegerConverter import IntegerConverter
-from ..convert.BooleanConverter import BooleanConverter
 from .AnyValueMap import AnyValueMap
+from ..convert.BooleanConverter import BooleanConverter
+from ..convert.IntegerConverter import IntegerConverter
 
-class PagingParams():
+
+class PagingParams:
     """
     Data transfer object to pass paging parameters for queries.
 
@@ -35,11 +37,7 @@ class PagingParams():
          myDataClient.get_data_by_filter(filter, paging)
     """
 
-    skip = None
-    take = None
-    total = True
-
-    def __init__(self, skip = None, take = None, total = False):
+    def __init__(self, skip: int = None, take: int = None, total: bool = False):
         """
         Creates a new instance and sets its values.
 
@@ -49,11 +47,17 @@ class PagingParams():
 
         :param total: true to return the total number of items.
         """
-        self.skip = IntegerConverter.to_nullable_integer(skip)
-        self.take = IntegerConverter.to_nullable_integer(take)
-        self.total = BooleanConverter.to_boolean_with_default(total, False)
+        # The number of items to skip.
+        self.skip: int = IntegerConverter.to_nullable_integer(skip)
+        # The number of items to return.
+        self.take: int = IntegerConverter.to_nullable_integer(take)
+        # The flag to return the total number of items.
+        self.total: bool = BooleanConverter.to_boolean_with_default(total, False)
 
-    def get_skip(self, min_skip):
+        if self.take == 0:
+            self.take = None
+
+    def get_skip(self, min_skip: int) -> int:
         """
         Gets the number of items to skip.
 
@@ -65,9 +69,9 @@ class PagingParams():
             return min_skip
         if self.skip < min_skip:
             return min_skip
-        return self.skip 
+        return self.skip
 
-    def get_take(self, max_take):
+    def get_take(self, max_take: int) -> int:
         """
         Gets the number of items to return in a page.
 
@@ -86,7 +90,7 @@ class PagingParams():
     def has_total(self):
         return self.total
 
-    def to_json(self):
+    def to_json(self) -> Dict[str, Any]:
         return {
             'skip': self.skip,
             'take': self.take,
@@ -94,21 +98,21 @@ class PagingParams():
         }
 
     @staticmethod
-    def from_json(value):
+    def from_json(value: Any) -> 'PagingParams':
         if not isinstance(value, dict):
             return value
-        
+
         skip = value['skip'] if 'skip' in value else None
         take = value['take'] if 'take' in value else None
         total = value['total'] if 'total' in value else None
         return PagingParams(skip, take, total)
 
     @staticmethod
-    def from_value(value):
+    def from_value(value: Any) -> 'PagingParams':
         """
-        Converts specified value into PagingParams.
+        Converts specified args into PagingParams.
 
-        :param value: value to be converted
+        :param value: args to be converted
 
         :return: a newly created PagingParams.
         """
@@ -116,14 +120,14 @@ class PagingParams():
             return value
         if isinstance(value, AnyValueMap):
             return PagingParams.from_map(value)
-        
+
         map = AnyValueMap.from_value(value)
         return PagingParams.from_map(map)
 
     @staticmethod
-    def from_tuples(*tuples):
+    def from_tuples(*tuples: Any) -> 'PagingParams':
         """
-        Creates a new PagingParams from a list of key-value pairs called tuples.
+        Creates a new PagingParams from a list of key-args pairs called tuples.
 
         :param tuples: a list of values where odd elements are keys and the following even elements are values
 
@@ -133,7 +137,7 @@ class PagingParams():
         return PagingParams.from_map(map)
 
     @staticmethod
-    def from_map(map):
+    def from_map(map: Any) -> 'PagingParams':
         """
         Creates a new PagingParams and sets it parameters from the specified map
 

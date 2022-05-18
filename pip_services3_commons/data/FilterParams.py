@@ -8,12 +8,14 @@
     :copyright: Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.
     :license: MIT, see LICENSE for more details.
 """
+from typing import Any
 
 from .StringValueMap import StringValueMap
 
+
 class FilterParams(StringValueMap):
     """
-    Data transfer object used to pass filter parameters as simple key-value pairs.
+    Data transfer object used to pass filter parameters as simple key-args pairs.
 
     Example:
 
@@ -22,33 +24,33 @@ class FilterParams(StringValueMap):
         filter = FilterParams.from_tuples("type", "Type1",
         "from_create_time", datetime.datetime(2000, 0, 1),
         "to_create_time", datetime.datetime.now(),
-        "completed", true)
+        "completed", True)
         paging = PagingParams(0, 100)
 
         myDataClient.get_data_by_filter(filter, paging)
     """
 
-    def __init__(self, map = None):
+    def __init__(self, map: Any = None):
         super(FilterParams, self).__init__(map)
         # if map != None:
-        #     for (key, value) in map.items():
-        #         self[key] = value
+        #     for (key, args) in map.items():
+        #         self[key] = args
 
     @staticmethod
-    def from_value(value):
+    def from_value(value: Any) -> 'FilterParams':
         """
-        Converts specified value into FilterParams.
+        Converts specified args into FilterParams.
 
-        :param value: value to be converted
+        :param value: args to be converted
 
         :return: a newly created FilterParams.
         """
         return FilterParams(value)
 
     @staticmethod
-    def from_tuples(*tuples):
+    def from_tuples(*tuples: Any) -> 'FilterParams':
         """
-        Creates a new FilterParams from a list of key-value pairs called tuples.
+        Creates a new FilterParams from a list of key-args pairs called tuples.
 
         :param tuples: a list of values where odd elements are keys and the following even elements are values
 
@@ -58,11 +60,11 @@ class FilterParams(StringValueMap):
         return FilterParams(map)
 
     @staticmethod
-    def from_string(line):
+    def from_string(line: str) -> 'FilterParams':
         """
-        Parses semicolon-separated key-value pairs and returns them as a FilterParams.
+        Parses semicolon-separated key-args pairs and returns them as a FilterParams.
 
-        :param line: semicolon-separated key-value list to initialize FilterParams.
+        :param line: semicolon-separated key-args list to initialize FilterParams.
 
         :return: a newly created FilterParams.
         """

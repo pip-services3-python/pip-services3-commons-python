@@ -8,13 +8,17 @@
     :copyright: Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.
     :license: MIT, see LICENSE for more details.
 """
+from abc import ABC
 
-class IParameterized:
+from ..run import Parameters
+
+
+class IParameterized(ABC):
     """
     Interface for components that require execution parameters.
     """
 
-    def set_parameters(self, parameters):
+    def set_parameters(self, parameters: Parameters):
         """
         Sets execution parameters.
 

@@ -8,19 +8,22 @@
     :copyright: Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.
     :license: MIT, see LICENSE for more details.
 """
+from typing import Any, List, Optional
 
 from .INotifiable import INotifiable
 from .Parameters import Parameters
+
 
 class Notifier:
     """
     Helper class that notifies components.
     """
+
     @staticmethod
-    def notify_one(correlation_id, component, args):
+    def notify_one(correlation_id: Optional[str], component: Any, args: Parameters):
         """
         Notifies specific component.
-        To be notiied components must implement :class:`INotifiable` interface.
+        To be notiied components must implement :class:`INotifiable <pip_services3_commons.run.INotifiable.INotifiable>` interface.
         If they don't the call to this method has no effect.
 
         :param correlation_id: (optional) transaction id to trace execution through call chain.
@@ -36,11 +39,11 @@ class Notifier:
             component.notify(correlation_id, args)
 
     @staticmethod
-    def notify(correlation_id, components, args = None):
+    def notify(correlation_id: Optional[str], components: List[Any], args: Parameters = None):
         """
         Notifies multiple components.
 
-        To be notified components must implement :class:`INotifiable` interface.
+        To be notified components must implement :class:`INotifiable <pip_services3_commons.run.INotifiable.INotifiable>` interface.
         If they don't the call to this method has no effect.
 
         :param correlation_id: (optional) transaction id to trace execution through call chain.

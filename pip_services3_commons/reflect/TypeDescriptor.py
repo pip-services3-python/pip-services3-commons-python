@@ -8,8 +8,10 @@
     :copyright: Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.
     :license: MIT, see LICENSE for more details.
 """
+from typing import Optional, Any
 
 from ..errors.ConfigException import ConfigException
+
 
 class TypeDescriptor:
     """
@@ -19,10 +21,8 @@ class TypeDescriptor:
     This class has symmetric implementation across all languages supported
     by Pip.Services toolkit and used to support dynamic data processing.
     """
-    _name = None
-    _library = None
-        
-    def __init__(self, name, library):
+
+    def __init__(self, name: str, library: Optional[str]):
         """
         Creates a new instance of the type descriptor and sets its values.
 
@@ -30,43 +30,66 @@ class TypeDescriptor:
 
         :param library: a library or module where this object type is implemented.
         """
-        self._name = name
-        self._library = library
+        if not isinstance(name, str):
+            raise Exception('TypeDescriptor "name" must be a string')
 
-    def get_name(self):
+        self.__name: str = name
+        self.__library: str = library
+
+    def get_name(self) -> str:
         """
         Get the name of the object type.
 
         :return: the name of the object type.
         """
-        return self._name
+        return self.__name
 
-    def get_library(self):
+    def get_library(self) -> str:
         """
         Gets the name of the library or module where the object type is defined.
 
         :return: the name of the library or module.
         """
-        return self._library
+        return self.__library
 
-    def __eq__(self, other):
+    def __eq__(self, other: Any) -> bool:
         """
-        Compares this descriptor to a value.
-        If the value is also a TypeDescriptor it compares their name and library fields.
+        Compares this descriptor to a args.
+        If the args is also a TypeDescriptor it compares their name and library fields.
         Otherwise this method returns false.
 
-        :param other: a value to compare.
+        :param other: a args to compare.
 
-        :return: true if value is identical TypeDescriptor and false otherwise.
+        :return: true if args is identical TypeDescriptor and false otherwise.
         """
         if isinstance(other, TypeDescriptor):
-            if self._name is None or other._name is None:
+            if self.__name is None or other.__name is None:
                 return False
-            if self._name != other._name:
+            if self.__name != other.__name:
                 return False
-            if self._library is None or other._library is None or self._library == other._library: 
+            if self.__library is None or other.__library is None or self.__library == other.__library:
                 return True
-        
+
+        return False
+
+    def equals(self, other: Any) -> bool:
+        """
+        Compares this descriptor to a args.
+        If the args is also a TypeDescriptor it compares their name and library fields.
+        Otherwise this method returns false.
+
+        :param other: a args to compare.
+
+        :return: true if args is identical TypeDescriptor and false otherwise.
+        """
+        if isinstance(other, TypeDescriptor):
+            if self.__name is None or other.__name is None:
+                return False
+            if self.__name != other.__name:
+                return False
+            if self.__library is None or other.__library is None or self.__library == other.__library:
+                return True
+
         return False
 
     def __str__(self):
@@ -75,13 +98,24 @@ class TypeDescriptor:
 
         :return: a string representation of the object.
         """
-        result = self._name
-        if not (self._library is None):
-            result += ','+ self._library
+        result = self.__name
+        if not (self.__library is None):
+            result += ',' + self.__library
+        return result
+
+    def to_string(self):
+        """
+        Gets a string representation of the object. The result has format name[,library]
+
+        :return: a string representation of the object.
+        """
+        result = self.__name
+        if not (self.__library is None):
+            result += ',' + self.__library
         return result
 
     @staticmethod
-    def from_string(value):
+    def from_string(value: str) -> Optional['TypeDescriptor']:
         """
         Parses a string to get descriptor fields and returns them as a Descriptor.
         The string must have format name[,library]
@@ -92,7 +126,7 @@ class TypeDescriptor:
         """
         if value is None or len(value) == 0:
             return None
-                
+
         tokens = value.split(",")
         if len(tokens) == 1:
             return TypeDescriptor(tokens[0].strip(), None)
@@ -102,4 +136,3 @@ class TypeDescriptor:
             raise ConfigException(
                 None, "BAD_DESCRIPTOR", "Type descriptor " + value + " is in wrong format"
             ).with_details("descriptor", value)
-

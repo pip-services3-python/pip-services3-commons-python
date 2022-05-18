@@ -3,7 +3,7 @@
     pip_services3_commons.random.__init__
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     
-    Contains implementation of random value generators that are used for
+    Contains implementation of random args generators that are used for
     functional as well as non-functional testing. Used to generate random
     objects and fill databases with unique objects.
     
@@ -13,13 +13,14 @@
 
 __all__ = [
     'RandomArray', 'RandomBoolean', 'RandomDateTime',
-    'RandomFloat', 'RandomInteger', 
+    'RandomFloat', 'RandomInteger', 'RandomDouble',
     'RandomString', 'RandomText'
 ]
 
 from .RandomArray import RandomArray
 from .RandomBoolean import RandomBoolean
 from .RandomDateTime import RandomDateTime
+from .RandomDouble import RandomDouble
 from .RandomFloat import RandomFloat
 from .RandomInteger import RandomInteger
 from .RandomString import RandomString

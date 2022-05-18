@@ -7,13 +7,7 @@
     :license: MIT, see LICENSE for more details.
 """
 
-import pytest
-import importlib
-
-from pip_services3_commons.reflect import TypeDescriptor
 from pip_services3_commons.reflect import TypeReflector
-
-from .StubClass import StubClass
 
 
 class TestTypeReflector:

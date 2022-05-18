@@ -11,7 +11,8 @@
 
 import random
 
-class RandomFloat(object):
+
+class RandomFloat:
     """
     Random generator for float values.
 
@@ -23,18 +24,9 @@ class RandomFloat(object):
         value2 = RandomFloat.next_float(10)        # Possible result: 3.7
         value3 = RandomFloat.update_float(10, 3)   # Possible result: 9.2
     """
+
     @staticmethod
-    def next_float(min, max = None):
-        """
-        Generates a float in the range ['min', 'max']. If 'max' is omitted, then the range will be set to [0, 'min'].
-
-        :param min: minimum value of the float that will be generated.
-                   If 'max' is omitted, then 'max' is set to 'min' and 'min' is set to 0.
-
-        :param max: (optional) maximum value of the float that will be generated. Defaults to 'min' if omitted.
-
-        :return: generated random float value.
-        """
+    def next_float(min: float, max: float = None) -> float:
         if max is None:
             max = min
             min = 0
@@ -45,19 +37,19 @@ class RandomFloat(object):
         return min + random.random() * (max - min)
 
     @staticmethod
-    def update_float(value, range = None):
+    def update_float(value: float, range: float = None) -> float:
         """
-        Updates (drifts) a float value within specified range defined
+        Updates (drifts) a float args within specified range defined
 
-        :param value: a float value to drift.
+        :param value: a float args to drift.
 
-        :param range: (optional) a range. Default: 10% of the value
+        :param range: (optional) a range. Default: 10% of the args
 
-        :return: updated random float value.
+        :return: updated random float args.
         """
         if range is None:
             range = 0.1 * value
-        
+
         min = value - range
         max = value + range
         return RandomFloat.next_float(min, max)

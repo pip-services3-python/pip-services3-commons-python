@@ -8,10 +8,12 @@
     :copyright: Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.
     :license: MIT, see LICENSE for more details.
 """
+from typing import Optional, Any
 
 from ..errors.ConfigException import ConfigException
 
-class Descriptor(object):
+
+class Descriptor:
     """
     Locator type that most often used in PipServices toolkit.
     It locates components using several fields:
@@ -40,13 +42,8 @@ class Descriptor(object):
         locator1.exact_match(locator2);	// Result: false
     """
 
-    _group = None
-    _type = None
-    _kind = None
-    _name = None
-    _version = None
-    
-    def __init__(self, group, type, kind, name, version):
+    def __init__(self, group: Optional[str], type: Optional[str], kind: Optional[str], name: Optional[str],
+                 version: Optional[str]):
         """
         Creates a new instance of the descriptor.
 
@@ -60,64 +57,64 @@ class Descriptor(object):
 
         :param version: a component implementation version
         """
-        group = None if "*" == group else group 
+        group = None if "*" == group else group
         type = None if "*" == type else type
         kind = None if "*" == kind else kind
-        name  = None if "*" == name else name
+        name = None if "*" == name else name
         version = None if "*" == version else version
-        
-        self._group = group
-        self._type = type
-        self._kind = kind
-        self._name = name
-        self._version = version
 
-    def get_group(self): 
+        self.__group: str = group
+        self.__type: str = type
+        self.__kind: str = kind
+        self.__name: str = name
+        self.__version: str = version
+
+    def get_group(self) -> str:
         """
          Gets the component's logical group.
 
         :return: the component's logical group
         """
-        return self._group 
+        return self.__group
 
-    def get_type(self):
+    def get_type(self) -> str:
         """
         Gets the component's logical type.
 
         :return: the component's logical type.
         """
-        return self._type
+        return self.__type
 
-    def get_kind(self):
+    def get_kind(self) -> str:
         """
         Gets the component's implementation type.
 
         :return: the component's implementation type.
         """
-        return self._kind
+        return self.__kind
 
-    def get_name(self):
+    def get_name(self) -> str:
         """
         Gets the unique component's name.
 
         :return: the unique component's name.
         """
-        return self._name 
+        return self.__name
 
-    def get_version(self):
+    def get_version(self) -> str:
         """
         Gets the component's implementation version.
 
         :return: the component's implementation version.
         """
-        return self._version 
+        return self.__version
 
-    def _match_field(self, field1, field2):
+    def __match_field(self, field1: str, field2: str) -> bool:
         return field1 is None \
-            or field2 is None \
-            or field1 == field2
+               or field2 is None \
+               or field1 == field2
 
-    def match(self, descriptor):
+    def match(self, descriptor: 'Descriptor') -> bool:
         """
         Partially matches this descriptor to another descriptor.
         Fields that contain "*" or null are excluded from the match.
@@ -126,20 +123,20 @@ class Descriptor(object):
 
         :return: true if descriptors match and false otherwise
         """
-        return self._match_field(self._group, descriptor.get_group()) \
-            and self._match_field(self._type, descriptor.get_type()) \
-            and self._match_field(self._kind, descriptor.get_kind()) \
-            and self._match_field(self._name, descriptor.get_name()) \
-            and self._match_field(self._version, descriptor.get_version())
+        return self.__match_field(self.__group, descriptor.get_group()) \
+               and self.__match_field(self.__type, descriptor.get_type()) \
+               and self.__match_field(self.__kind, descriptor.get_kind()) \
+               and self.__match_field(self.__name, descriptor.get_name()) \
+               and self.__match_field(self.__version, descriptor.get_version())
 
-    def _exact_match_field(self, field1, field2):
+    def __exact_match_field(self, field1: str, field2: str) -> bool:
         if field1 is None and field2 is None:
             return True
         if field1 is None or field2 is None:
             return False
         return field1 == field2
 
-    def exact_match(self, descriptor):
+    def exact_match(self, descriptor: 'Descriptor') -> bool:
         """
         Matches this descriptor to another descriptor by all fields. No exceptions are made.
 
@@ -147,30 +144,62 @@ class Descriptor(object):
 
         :return: true if descriptors match and false otherwise.
         """
-        return self._exact_match_field(self._group, descriptor.get_group()) \
-            and self._exact_match_field(self._type, descriptor.get_type()) \
-            and self._exact_match_field(self._kind, descriptor.get_kind()) \
-            and self._exact_match_field(self._name, descriptor.get_name()) \
-            and self._exact_match_field(self._version, descriptor.get_version())
+        return self.__exact_match_field(self.__group, descriptor.get_group()) \
+               and self.__exact_match_field(self.__type, descriptor.get_type()) \
+               and self.__exact_match_field(self.__kind, descriptor.get_kind()) \
+               and self.__exact_match_field(self.__name, descriptor.get_name()) \
+               and self.__exact_match_field(self.__version, descriptor.get_version())
 
-    def is_complete(self):
+    def is_complete(self) -> bool:
         """
         Checks whether all descriptor fields are set.
         If descriptor has at least one "*" or null field it is considered "incomplete"
 
         :return: true if all descriptor fields are defined and false otherwise.
         """
-        return not (self._group is None) and not (self._type is None) \
-            and not (self._kind is None) and not (self._name is None) and not (self._version is None)
+        return not (self.__group is None) and not (self.__type is None) \
+               and not (self.__kind is None) and not (self.__name is None) and not (self.__version is None)
+
+    def equals(self, value: Any) -> bool:
+        """
+        Compares this descriptor to a args.
+        If args is a Descriptor it tries to match them, otherwise the method returns false.
+
+        :param value: the args to match against this descriptor.
+
+        :return: true if the args is matching descriptor and false otherwise.
+        """
+        if isinstance(value, Descriptor):
+            return self.match(value)
+        return False
+
+    def to_string(self) -> str:
+        """
+        Gets a string representation of the object.
+        The result is a colon-separated list of descriptor fields as "mygroup:connector:aws:default:1.0"
+
+        :return: a string representation of the object.
+        """
+        result = ''
+        result += self.__group if not (self.__group is None) else '*'
+        result += ':'
+        result += self.__type if not (self.__type is None) else '*'
+        result += ':'
+        result += self.__kind if not (self.__kind is None) else '*'
+        result += ':'
+        result += self.__name if not (self.__name is None) else '*'
+        result += ':'
+        result += self.__version if not (self.__version is None) else '*'
+        return result
 
     def __eq__(self, other):
         """
-        Compares this descriptor to a value.
-        If value is a Descriptor it tries to match them, otherwise the method returns false.
+        Compares this descriptor to a args.
+        If args is a Descriptor it tries to match them, otherwise the method returns false.
 
-        :param other: the value to match against this descriptor.
+        :param other: the args to match against this descriptor.
 
-        :return: true if the value is matching descriptor and false otherwise.
+        :return: true if the args is matching descriptor and false otherwise.
         """
         if isinstance(other, Descriptor):
             return self.match(other)
@@ -187,19 +216,19 @@ class Descriptor(object):
         :return: a string representation of the object.
         """
         result = ''
-        result += self._group if not (self._group is None) else '*'
+        result += self.__group if not (self.__group is None) else '*'
         result += ':'
-        result += self._type if not (self._type is None) else '*'
+        result += self.__type if not (self.__type is None) else '*'
         result += ':'
-        result += self._kind if not (self._kind is None) else '*'
+        result += self.__kind if not (self.__kind is None) else '*'
         result += ':'
-        result += self._name if not (self._name is None) else '*'
+        result += self.__name if not (self.__name is None) else '*'
         result += ':'
-        result += self._version if not (self._version is None) else '*'
+        result += self.__version if not (self.__version is None) else '*'
         return result
-    
+
     @staticmethod
-    def from_string(value):
+    def from_string(value: str) -> Optional['Descriptor']:
         """
         Parses colon-separated list of descriptor fields and returns them as a Descriptor.
 
@@ -209,12 +238,11 @@ class Descriptor(object):
         """
         if value is None or len(value) == 0:
             return None
-                
+
         tokens = value.split(":")
         if len(tokens) != 5:
             raise ConfigException(
                 None, "BAD_DESCRIPTOR", "Descriptor " + str(value) + " is in wrong format"
             ).with_details("descriptor", value)
-            
-        return Descriptor(tokens[0].strip(), tokens[1].strip(), tokens[2].strip(), tokens[3].strip(), tokens[4].strip())
 
+        return Descriptor(tokens[0].strip(), tokens[1].strip(), tokens[2].strip(), tokens[3].strip(), tokens[4].strip())

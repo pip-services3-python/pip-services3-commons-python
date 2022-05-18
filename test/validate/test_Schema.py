@@ -7,17 +7,12 @@
     :license: MIT, see LICENSE for more details.
 """
 
-import pytest
-
-from .StubSubObject import StubSubObject
-from .StubObject import StubObject
-
-from pip_services3_commons.convert import JsonConverter, MapConverter
-from pip_services3_commons.convert import RecursiveMapConverter
-from pip_services3_commons.validate import Schema
-from pip_services3_commons.validate import ObjectSchema
+from pip_services3_commons.convert import TypeCode
 from pip_services3_commons.validate import ArraySchema
 from pip_services3_commons.validate import MapSchema
+from pip_services3_commons.validate import ObjectSchema
+from pip_services3_commons.validate import Schema
+from .ObjectTest import ObjectTest
 
 
 class TestSchema:
@@ -34,9 +29,9 @@ class TestSchema:
 
     def test_unexpected(self):
         schema = ObjectSchema()
-        obj = StubObject()
+        obj = ObjectTest()
         results = schema.validate(obj)
-        assert 8 == len(results)
+        assert 10 == len(results)
 
     def test_optional_properties(self):
         schema = ObjectSchema() \
@@ -49,22 +44,24 @@ class TestSchema:
             .with_optional_property("sub_object_property", None) \
             .with_optional_property("sub_array_property", None)
 
-        obj = StubObject()
+        obj = ObjectTest()
         results = schema.validate(obj)
-        assert 0 == len(results)
+        assert 2 == len(results)
 
     def test_required_properties(self):
         schema = ObjectSchema() \
-            .with_required_property("int_field", None) \
-            .with_required_property("string_property", None) \
-            .with_required_property("null_property", None) \
-            .with_required_property("int_array_property", None) \
-            .with_required_property("string_list_property", None) \
-            .with_required_property("map_property", None) \
-            .with_required_property("sub_object_property", None) \
-            .with_required_property("sub_array_property", None)
+            .with_required_property('__private_field') \
+            .with_required_property('__private_property') \
+            .with_required_property("int_field") \
+            .with_required_property("string_property") \
+            .with_required_property("null_property") \
+            .with_required_property("int_array_property") \
+            .with_required_property("string_list_property") \
+            .with_required_property("map_property") \
+            .with_required_property("sub_object_property") \
+            .with_required_property("sub_array_property")
 
-        obj = StubObject()
+        obj = ObjectTest()
         obj.sub_array_property = None
 
         results = schema.validate(obj)
@@ -72,70 +69,79 @@ class TestSchema:
 
     def test_object_types(self):
         schema = ObjectSchema() \
-            .with_required_property("int_field", int) \
-            .with_required_property("string_property", str) \
-            .with_optional_property("null_property", object) \
-            .with_required_property("int_array_property", list) \
-            .with_required_property("string_list_property", list) \
-            .with_required_property("map_property", dict) \
-            .with_required_property("sub_object_property", StubSubObject) \
-            .with_required_property("sub_array_property", list)
+            .with_required_property('__private_field') \
+            .with_required_property('__private_property') \
+            .with_required_property("int_field", TypeCode.Long) \
+            .with_required_property("string_property", TypeCode.String) \
+            .with_optional_property("null_property", TypeCode.Object) \
+            .with_required_property("int_array_property", TypeCode.Array) \
+            .with_required_property("string_list_property", TypeCode.Array) \
+            .with_required_property("map_property", TypeCode.Map) \
+            .with_required_property("sub_object_property", TypeCode.Object) \
+            .with_required_property("sub_array_property", TypeCode.Array)
 
-        obj = StubObject()
+        obj = ObjectTest()
         results = schema.validate(obj)
         assert 0 == len(results)
 
     def test_string_types(self):
         schema = ObjectSchema() \
-            .with_required_property("int_field", "Integer") \
-            .with_required_property("string_property", "String") \
-            .with_optional_property("null_property", "Object") \
-            .with_required_property("int_array_property", "int[]") \
-            .with_required_property("string_list_property", "list") \
-            .with_required_property("map_property", "dict") \
-            .with_required_property("sub_object_property", "StubSubObject") \
-            .with_required_property("sub_array_property", "StubSubObject[]")
+            .with_required_property('__private_field') \
+            .with_required_property('__private_property') \
+            .with_required_property("int_field", TypeCode.Long) \
+            .with_required_property("string_property", TypeCode.String) \
+            .with_optional_property("null_property", TypeCode.Object) \
+            .with_required_property("int_array_property", TypeCode.Array) \
+            .with_required_property("string_list_property", TypeCode.Array) \
+            .with_required_property("map_property", TypeCode.Map) \
+            .with_required_property("sub_object_property", TypeCode.Map) \
+            .with_required_property("sub_array_property", TypeCode.Array)
 
-        obj = StubObject()
+        obj = ObjectTest()
+        obj.sub_object_property = {'test_map': 123}
         results = schema.validate(obj)
         assert 0 == len(results)
 
     def test_sub_schema(self):
         sub_schema = ObjectSchema() \
-            .with_required_property("Id", "String") \
-            .with_required_property("FLOAT_FIELD", "float") \
-            .with_optional_property("null_property", "Object")
+            .with_required_property("id", TypeCode.String) \
+            .with_required_property("float_field", TypeCode.Double) \
+            .with_optional_property("null_property", TypeCode.Map)
 
         schema = ObjectSchema() \
-            .with_required_property("int_field", "Integer") \
-            .with_required_property("string_property", "String") \
-            .with_optional_property("null_property", "Object") \
-            .with_required_property("int_array_property", "int[]") \
-            .with_required_property("string_list_property", "list") \
-            .with_required_property("map_property", "map") \
+            .with_required_property('__private_field') \
+            .with_required_property('__private_property') \
+            .with_required_property("int_field", TypeCode.Long) \
+            .with_required_property("string_property", TypeCode.String) \
+            .with_optional_property("null_property", TypeCode.Object) \
+            .with_required_property("int_array_property", TypeCode.Array) \
+            .with_required_property("string_list_property", TypeCode.Array) \
+            .with_required_property("map_property", TypeCode.Map) \
             .with_required_property("sub_object_property", sub_schema) \
-            .with_required_property("sub_array_property", "StubSubObject[]")
+            .with_required_property("sub_array_property", TypeCode.Array)
 
-        obj = StubObject()
+        obj = ObjectTest()
         results = schema.validate(obj)
         assert 0 == len(results)
 
     def test_array_and_map_schema(self):
         sub_schema = ObjectSchema() \
-            .with_required_property("Id", "String") \
-            .with_required_property("FLOAT_FIELD", "float") \
-            .with_optional_property("null_property", "Object")
+            .with_required_property("id", TypeCode.String) \
+            .with_required_property("float_field", TypeCode.Double) \
+            .with_optional_property("null_property", TypeCode.Map)
 
         schema = ObjectSchema() \
-            .with_required_property("int_field", "Integer") \
-            .with_required_property("string_property", "String") \
-            .with_optional_property("null_property", "Object") \
-            .with_required_property("int_array_property", ArraySchema("Integer")) \
-            .with_required_property("string_list_property", ArraySchema("String")) \
-            .with_required_property("map_property", MapSchema("String", "Integer")) \
+            .with_required_property('__private_field') \
+            .with_required_property('__private_property') \
+            .with_required_property("int_field", TypeCode.Long) \
+            .with_required_property("string_property", TypeCode.String) \
+            .with_optional_property("null_property", TypeCode.Object) \
+            .with_required_property("int_array_property", ArraySchema(TypeCode.Long)) \
+            .with_required_property("string_list_property", ArraySchema(TypeCode.String)) \
+            .with_required_property("map_property", MapSchema(TypeCode.String, TypeCode.Long)) \
             .with_required_property("sub_object_property", sub_schema) \
             .with_required_property("sub_array_property", ArraySchema(sub_schema))
 
-        obj = StubObject()
+        obj = ObjectTest()
         results = schema.validate(obj)
         assert 0 == len(results)

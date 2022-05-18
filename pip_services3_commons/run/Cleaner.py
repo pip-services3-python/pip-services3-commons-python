@@ -8,8 +8,10 @@
     :copyright: Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.
     :license: MIT, see LICENSE for more details.
 """
+from typing import Any, List, Optional
 
 from .ICleanable import ICleanable
+
 
 class Cleaner:
     """
@@ -17,11 +19,11 @@ class Cleaner:
     """
 
     @staticmethod
-    def clear_one(correlation_id, component):
+    def clear_one(correlation_id: Optional[str], component: Any):
         """
         Clears state of specific component.
 
-        To be cleaned state components must implement :class:`ICleanable` interface.
+        To be cleaned state components must implement :class:`ICleanable <pip_services3_commons.run.ICleanable.ICleanable>` interface.
         If they don't the call to this method has no effect.
 
         :param correlation_id: (optional) transaction id to trace execution through call chain.
@@ -33,11 +35,11 @@ class Cleaner:
             component.clear(correlation_id)
 
     @staticmethod
-    def clear(correlation_id, components):
+    def clear(correlation_id: Optional[str], components: List[Any]):
         """
         Clears state of multiple components.
 
-        To be cleaned state components must implement :class:`ICleanable` interface.
+        To be cleaned state components must implement :class:`ICleanable <pip_services3_commons.run.ICleanable.ICleanable>` interface.
         If they don't the call to this method has no effect.
 
         :param correlation_id: (optional) transaction id to trace execution through call chain.

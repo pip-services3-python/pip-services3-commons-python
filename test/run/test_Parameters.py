@@ -7,10 +7,9 @@
     :license: MIT, see LICENSE for more details.
 """
 
-import pytest
-
 from pip_services3_commons.config import ConfigParams
 from pip_services3_commons.run import Parameters
+from .ClassTest import ClassTest
 
 
 class TestParameters:
@@ -58,6 +57,17 @@ class TestParameters:
         assert 2 == len(result)
         assert 123 == result.get("value1")
         assert 234 == result.get("value2")
+
+    def test_assign_to(self):
+        value = ClassTest(None, None)
+        new_values = Parameters.from_json(
+            "{ \"value1\": 123, \"value2\": \"ABC\", \"value3\": 456 }"
+        )
+        new_values.assign_to(value)
+        assert value.value1 is not None
+        assert value.value1 == 123
+        assert value.value2 is not None
+        assert value.value2 == 'ABC'
 
     def test_get(self):
         config = Parameters.from_json(

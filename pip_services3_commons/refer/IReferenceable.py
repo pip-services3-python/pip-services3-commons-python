@@ -8,12 +8,16 @@
     :copyright: Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.
     :license: MIT, see LICENSE for more details.
 """
+from abc import ABC
 
-class IReferenceable:
+from ..refer import IReferences
+
+
+class IReferenceable(ABC):
     """
-    Interface for components that depends on other components.
+    Interface for components that depends on obj components.
     If component requires explicit notification to unset references
-    it shall additionally implement :class:`IUnreferenceable` interface.
+    it shall additionally implement :class:`IUnreferenceable <pip_services3_commons.refer.IUnreferenceable.IUnreferenceable>` interface.
 
     Example:
 
@@ -23,10 +27,10 @@ class IReferenceable:
             _persistence = None
 
             def set_references(self, references):
-                self._persistence = references.getOneRequired(Descriptor("mygroup", "persistence", "*", "*", "1.0"))
+                self._persistence = references.get_one_required(Descriptor("mygroup", "persistence", "*", "*", "1.0"))
     """
 
-    def set_references(self, references):
+    def set_references(self, references: IReferences):
         """
         Sets references to dependent components.
 

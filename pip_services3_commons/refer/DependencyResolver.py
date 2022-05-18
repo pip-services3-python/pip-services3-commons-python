@@ -8,12 +8,16 @@
     :copyright: Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.
     :license: MIT, see LICENSE for more details.
 """
+from typing import Any, List, Optional
 
+from ..config import ConfigParams
+from ..refer.IReferences import IReferences
 from .IReferenceable import IReferenceable
 from ..config.IReconfigurable import IReconfigurable
 from ..convert.StringConverter import StringConverter
 from ..refer.Descriptor import Descriptor
 from ..refer.ReferenceException import ReferenceException
+
 
 class DependencyResolver(IReconfigurable, IReferenceable):
     """
@@ -57,61 +61,59 @@ class DependencyResolver(IReconfigurable, IReferenceable):
             component.configure(ConfigParams.from_tuples(
             "dependencies.persistence", "mygroup:persistence:*:persistence2:1.0"))
 
-            component.setReferences(References.from_tuples(Descriptor("mygroup","persistence","*","persistence1","1.0"),
+            component.set_references(References.from_tuples(Descriptor("mygroup","persistence","*","persistence1","1.0"),
             MyPersistence(),
             Descriptor("mygroup","persistence","*","persistence2","1.0"), MyPersistence()
             # This dependency shall be set))
     """
-    _dependencies = None
-    _references = None
 
-    def __init__(self, config = None, references = None):
+    def __init__(self, config: ConfigParams = None, references: IReferences = None):
         """
         Creates a new instance of the dependency resolver.
 
-        :param config: (optional) default configuration where key is dependency name and value is locator (descriptor)
+        :param config: (optional) default configuration where key is dependency name and args is locator (descriptor)
 
         :param references: (optional) default component references
         """
-        self._dependencies = {}
+        self.__dependencies: Any = {}
+        self.__references: IReferences = None
+
         if not (config is None):
             self.configure(config)
         if not (references is None):
             self.set_references(references)
 
-    def configure(self, config):
+    def configure(self, config: ConfigParams):
         """
         Configures the component with specified parameters.
 
         :param config: configuration parameters to set.
         """
         dependencies = config.get_section("dependencies")
-        names = dependencies.get_key_names()
+        names = dependencies.get_keys()
         for name in names:
             locator = dependencies.get(name)
             if locator is None:
                 continue
-            
+
             try:
                 descriptor = Descriptor.from_string(locator)
                 if not (descriptor is None):
-                    self._dependencies[name] = descriptor
+                    self.__dependencies[name] = descriptor
                 else:
-                    self._dependencies[name] = locator
+                    self.__dependencies[name] = locator
             except Exception as ex:
-                self._dependencies[name] = locator
+                self.__dependencies[name] = locator
 
-
-    def set_references(self, references):
+    def set_references(self, references: IReferences):
         """
         Sets the component references. References must match configured dependencies.
 
         :param references: references to set.
         """
-        self._references = references
+        self.__references = references
 
-
-    def put(self, name, locator):
+    def put(self, name: str, locator: Any):
         """
         Adds a new dependency into this resolver.
 
@@ -119,10 +121,9 @@ class DependencyResolver(IReconfigurable, IReferenceable):
 
         :param locator: the locator to find the dependency by.
         """
-        self._dependencies[name] = locator
+        self.__dependencies[name] = locator
 
-
-    def _locate(self, name):
+    def __locate(self, name: str) -> Any:
         """
         Gets a dependency locator by its name.
 
@@ -131,13 +132,12 @@ class DependencyResolver(IReconfigurable, IReferenceable):
         """
         if name is None:
             raise Exception("Dependency name cannot be null")
-        if self._references is None:
+        if self.__references is None:
             raise Exception("References shall be set")
-        
-        return self._dependencies.get(name)
 
+        return self.__dependencies.get(name)
 
-    def get_optional(self, name):
+    def get_optional(self, name: str) -> List[Any]:
         """
         Gets all optional dependencies by their name.
 
@@ -145,27 +145,25 @@ class DependencyResolver(IReconfigurable, IReferenceable):
 
         :return: a list with found dependencies or empty list of no dependencies was found.
         """
-        locator = self._locate(name)
-        return self._references.get_optional(locator) if not (locator is None) else None
+        locator = self.__locate(name)
+        return self.__references.get_optional(locator) if not (locator is None) else None
 
-
-    def get_required(self, name):
+    def get_required(self, name: str) -> List[Any]:
         """
-        Gets all required dependencies by their name.
-        At least one dependency must be present. If no dependencies was found it throws a :class:`ReferenceException`
+        Gets all __required dependencies by their name.
+        At least one dependency must be present. If no dependencies was found it throws a :class:`ReferenceException <pip_services3_commons.refer.ReferenceException.ReferenceException>`
 
         :param name: the dependency name to locate.
 
         :return: a list with found dependencies.
         """
-        locator = self._locate(name)
+        locator = self.__locate(name)
         if locator is None:
             raise ReferenceException(None, name)
-        
-        return self._references.get_required(locator)
 
+        return self.__references.get_required(locator)
 
-    def get_one_optional(self, name):
+    def get_one_optional(self, name: str) -> Any:
         """
         Gets one optional dependency by its name.
 
@@ -173,53 +171,50 @@ class DependencyResolver(IReconfigurable, IReferenceable):
 
         :return: a dependency reference or null of the dependency was not found
         """
-        locator = self._locate(name)
-        return self._references.get_one_optional(locator) if not (locator is None) else None
+        locator = self.__locate(name)
+        return self.__references.get_one_optional(locator) if not (locator is None) else None
 
-
-    def get_one_required(self, name):
+    def get_one_required(self, name: str) -> Any:
         """
-        Gets one required dependency by its name.
-        At least one dependency must present. If the dependency was found it throws a :class:`ReferenceException`
+        Gets one __required dependency by its name.
+        At least one dependency must present. If the dependency was found it throws a :class:`ReferenceException <pip_services3_commons.refer.ReferenceException.ReferenceException>`
 
         :param name: the dependency name to locate.
 
         :return: a dependency reference
         """
-        locator = self._locate(name)
+        locator = self.__locate(name)
         if locator is None:
             raise ReferenceException(None, name)
-        
-        return self._references.get_one_required(locator)
 
+        return self.__references.get_one_required(locator)
 
-    def find(self, name, required):
+    def find(self, name: str, required: bool) -> Optional[List[Any]]:
         """
         Finds all matching dependencies by their name.
 
         :param name: the dependency name to locate.
 
-        :param required: true to raise an exception when no dependencies are found.
+        :param required: true to raise an error when no dependencies are found.
 
         :return: a list of found dependencies
         """
         if name is None:
             raise Exception("Name cannot be null")
-        
-        locator = self._locate(name)
+
+        locator = self.__locate(name)
         if locator is None:
             if required:
                 raise ReferenceException(None, name)
             return None
-        
-        return self._references.find(locator, required)
 
+        return self.__references.find(locator, required)
 
     @staticmethod
-    def from_tuples(*tuples):
+    def from_tuples(*tuples: Any) -> 'DependencyResolver':
         """
-        Creates a new DependencyResolver from a list of key-value pairs called tuples
-        where key is dependency name and value the depedency locator (descriptor).
+        Creates a new DependencyResolver from a list of key-args pairs called tuples
+        where key is dependency name and args the depedency locator (descriptor).
 
         :param tuples: a list of values where odd elements are dependency name
         and the following even elements are dependency locator (descriptor)
@@ -229,7 +224,7 @@ class DependencyResolver(IReconfigurable, IReferenceable):
         result = DependencyResolver()
         if tuples is None or len(tuples) == 0:
             return result
-        
+
         index = 0
         while index < len(tuples):
             if index + 1 >= len(tuples):
@@ -240,5 +235,5 @@ class DependencyResolver(IReconfigurable, IReferenceable):
 
             result.put(name, locator)
             index = index + 2
-        
+
         return result

@@ -9,9 +9,12 @@
     :license: MIT, see LICENSE for more details.
 """
 
-class TypeCode():
+from enum import Enum
+
+
+class TypeCode(Enum):
     """
-    Codes for the data types that can be converted using :class:`TypeConverter`.
+    Codes for the data types that can be converted using :class:`TypeConverter <pip_services3_commons.convert.TypeConverter.TypeConverter>`.
     """
     Unknown = 0
     String = 1

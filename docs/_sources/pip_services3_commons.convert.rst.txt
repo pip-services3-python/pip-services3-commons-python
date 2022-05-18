@@ -10,6 +10,7 @@ Submodules
    pip_services3_commons.convert.ArrayConverter
    pip_services3_commons.convert.BooleanConverter
    pip_services3_commons.convert.DateTimeConverter
+   pip_services3_commons.convert.DoubleConverter
    pip_services3_commons.convert.FloatConverter
    pip_services3_commons.convert.IntegerConverter
    pip_services3_commons.convert.JsonConverter

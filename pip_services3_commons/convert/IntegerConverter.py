@@ -8,10 +8,14 @@
     :copyright: Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.
     :license: MIT, see LICENSE for more details.
 """
+from typing import Any, Optional
 
-class IntegerConverter():
+from ..convert.LongConverter import LongConverter
+
+
+class IntegerConverter:
     """
-    Converts arbitrary values into integers using extended conversion rules:
+    Converts arbitrary values into integers using extended conversion __rules:
     - Strings are converted to floats, then to integers
     - DateTime: total number of milliseconds since unix epoсh
     - Boolean: 1 for true and 0 for false
@@ -25,46 +29,38 @@ class IntegerConverter():
         value3 = IntegerConverter.to_nullable_integer(true)      # Result: 1
         value4 = IntegerConverter.to_nullable_integer(datetime.datetime.now()) # Result: current milliseconds
     """
-    @staticmethod
-    def to_nullable_integer(value):
-        """
-        Converts value into integer or returns null when conversion is not possible.
-
-        :param value: the value to convert.
-
-        :return: integer value or null when conversion is not supported.
-        """
-        # Shortcuts
-        if value is None:
-            return None
-
-        try:
-            value = float(value)
-            return int(value)
-        except:
-            return None
 
     @staticmethod
-    def to_integer(value):
+    def to_nullable_integer(value: Any) -> Optional[int]:
         """
-        Converts value into integer or returns 0 when conversion is not possible.
+        Converts args into integer or returns null when conversion is not possible.
 
-        :param value: the value to convert.
+        :param value: the args to convert.
 
-        :return: integer value or 0 when conversion is not supported.
+        :return: integer args or null when conversion is not supported.
         """
-        return IntegerConverter.to_integer_with_default(value, 0)
+        return LongConverter.to_nullable_long(value)
 
     @staticmethod
-    def to_integer_with_default(value, default_value):
+    def to_integer(value: Any) -> int:
         """
-        Converts value into integer or returns default value when conversion is not possible.
+        Converts args into integer or returns 0 when conversion is not possible.
 
-        :param value: the value to convert.
+        :param value: the args to convert.
 
-        :param default_value: the default value.
-
-        :return: integer value or default when conversion is not supported.
+        :return: integer args or 0 when conversion is not supported.
         """
-        result = IntegerConverter.to_nullable_integer(value)
-        return result if not (result is None) else default_value
+        return LongConverter.to_long(value)
+
+    @staticmethod
+    def to_integer_with_default(value: Any, default_value: int) -> int:
+        """
+        Converts args into integer or returns default args when conversion is not possible.
+
+        :param value: the args to convert.
+
+        :param default_value: the default args.
+
+        :return: integer args or default when conversion is not supported.
+        """
+        return LongConverter.to_long_with_default(value, default_value)

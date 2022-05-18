@@ -19,15 +19,14 @@ The module contains the following packages:
 
 <a name="links"></a> Quick links:
 
-* [Configuration Pattern](https://www.pipservices.org/recipies/configuration) 
-* [Locator Pattern](https://www.pipservices.org/recipies/references)
-* [Component Lifecycle](https://www.pipservices.org/recipies/component-lifecycle)
-* [Components with Active Logic](https://www.pipservices.org/recipies/active-logic)
-* [Data Patterns](https://www.pipservices.org/recipies/memory-persistence)
+* [Configuration Pattern](http://docs.pipservices.org/toolkit/getting_started/configurations/) 
+* [Locator Pattern](http://docs.pipservices.org/toolkit/recipes/component_references/)
+* [Component Lifecycle](http://docs.pipservices.org/toolkit/building_blocks/components/)
+* [Data Patterns](http://docs.pipservices.org/toolkit/recipes/memory_persistence/)
 * [API Reference](https://pip-services3-python.github.io/pip-services3-commons-python/index.html)
 * [Change Log](CHANGELOG.md)
-* [Get Help](https://www.pipservices.org/community/help)
-* [Contribute](https://www.pipservices.org/community/contribute)
+* [Get Help](http://docs.pipservices.org/get_help/)
+* [Contribute](http://docs.pipservices.org/contribute/)
 
 ## Use
 
@@ -55,7 +54,7 @@ class MyComponentA(IConfigurable, IReferenceable, IOpenable):
 
     def configure(self, config):
         self._param1 = ConfigParams.get_as_string_with_default("param1", self._param1)
-        self._param2 = config.getAsIntegerWithDefault("param2", self._param2)
+        self._param2 = config.get_as_integer_with_default("param2", self._param2)
 
     def set_references(self, references):
         self._another_component = references.get_one_required(
@@ -129,5 +128,6 @@ Before committing changes run dockerized build and test as:
 
 ## Contacts
 
-The initial implementation is done by **Sergey Seroukhov**. Pip.Services team is looking for volunteers to 
-take ownership over Python implementation in the project.
+The library is created and maintained by:
+- **Sergey Seroukhov**
+- **Danil Prisiazhnyi**

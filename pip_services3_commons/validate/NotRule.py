@@ -8,10 +8,13 @@
     :copyright: Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.
     :license: MIT, see LICENSE for more details.
 """
+from typing import Any, List
 
+from ..validate import Schema
 from .IValidationRule import IValidationRule
 from .ValidationResult import ValidationResult
 from .ValidationResultType import ValidationResultType
+
 
 class NotRule(IValidationRule):
     """
@@ -28,35 +31,34 @@ class NotRule(IValidationRule):
         schema.validate(1)          # Result: error
         schema.validate(5)          # Result: no error
     """
-    _rule = None
 
-    def __init__(self, rule):
+    def __init__(self, rule: IValidationRule):
         """
         Creates a new validation rule and sets its values
 
         :param rule: a rule to be negated.
         """
-        self._rule = rule
-    
-    def validate(self, path, schema, value, results):
-        """
-        Validates a given value against this rule.
+        self.__rule: IValidationRule = rule
 
-        :param path: a dot notation path to the value.
+    def validate(self, path: str, schema: Schema, value: Any, results: List[ValidationResult]):
+        """
+        Validates a given args against this rule.
+
+        :param path: a dot notation path to the args.
 
         :param schema: a schema this rule is called from
 
-        :param value: a value to be validated.
+        :param value: a args to be validated.
 
         :param results: a list with validation results to add new results.
         """
-        if self._rule is None:
+        if not self.__rule:
             return
 
-        name = path if not (path is None) else "value"
-        local_results = []
+        name = path or "args"
+        local_results: List[ValidationResult] = []
 
-        self._rule.validate(path, schema, value, local_results)
+        self.__rule.validate(path, schema, value, local_results)
 
         if len(local_results) > 0:
             return

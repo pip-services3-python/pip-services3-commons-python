@@ -7,11 +7,10 @@
     :license: MIT, see LICENSE for more details.
 """
 
-import pytest
 from datetime import *
-from pip_services3_commons.convert.UTC import UTC
 
 from pip_services3_commons.convert import DateTimeConverter
+from pip_services3_commons.convert.UTC import UTC
 
 
 class TestDateTimeConverter:
@@ -23,8 +22,8 @@ class TestDateTimeConverter:
         assert date1 == DateTimeConverter.to_datetime_with_default(None, date1)
         assert date1 == DateTimeConverter.to_datetime(datetime(1975, 4, 8))
 
-        date2 = DateTimeConverter.to_utc_datetime(datetime.fromtimestamp(123456))
-        assert date2 == DateTimeConverter.to_datetime(123456)
+        date2 = DateTimeConverter.to_utc_datetime(datetime.fromtimestamp(123456.))
+        assert date2.isoformat() == DateTimeConverter.to_datetime(123456000).isoformat()
 
         date3 = datetime(1975, 4, 8, 0, 0, 0, 0, UTC)
         assert date3 == DateTimeConverter.to_datetime("1975-04-08T00:00:00Z")

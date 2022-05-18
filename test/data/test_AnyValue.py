@@ -7,7 +7,7 @@
     :license: MIT, see LICENSE for more details.
 """
 
-import pytest
+from pip_services3_commons.convert import TypeCode
 
 from pip_services3_commons.data import AnyValue
 
@@ -29,3 +29,4 @@ class TestAnyValue:
         assert 1 == value
         assert 1.0 == value
         assert "1" == value
+        assert value.equals_as_type(TypeCode.Float, "1")

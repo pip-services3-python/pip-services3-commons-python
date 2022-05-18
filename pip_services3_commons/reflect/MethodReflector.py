@@ -8,6 +8,8 @@
     :copyright: Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.
     :license: MIT, see LICENSE for more details.
 """
+from typing import Any, List
+
 
 class MethodReflector:
     """
@@ -15,7 +17,7 @@ class MethodReflector:
     This class has symmetric implementation across all languages supported
     by Pip.Services toolkit and used to support dynamic data processing.
 
-    Because all languages have different casing and case sensitivity rules,
+    Because all languages have different casing and case sensitivity __rules,
     this MethodReflector treats all method names as case insensitive.
 
     Example:
@@ -28,8 +30,9 @@ class MethodReflector:
         MethodReflector.has_method(myObj, "myMethod")
         MethodReflector.invoke_method(myObj, "myMethod", 123)
     """
+
     @staticmethod
-    def _is_method(method, name):
+    def _is_method(method: Any, name: str) -> bool:
         if method is None:
             return False
         if not callable(method):
@@ -38,11 +41,23 @@ class MethodReflector:
         if name.startswith("_"):
             return False
 
-        return True 
-
+        return True
 
     @staticmethod
-    def has_method(obj, name):
+    def __match_method(method_name: str, method_value: Any, expected_name: str) -> bool:
+        if method_value is None:
+            return False
+        if not callable(method_value):
+            return False
+        if method_name.startswith("_"):
+            return False
+        if expected_name is None:
+            return False
+
+        return method_name.lower() == expected_name
+
+    @staticmethod
+    def has_method(obj: Any, name: str) -> bool:
         """
         Checks if object has a method with specified name.
 
@@ -59,7 +74,7 @@ class MethodReflector:
 
         name = name.lower()
 
-        for method_name in dir(obj): 
+        for method_name in dir(obj):
             if method_name.lower() != name:
                 continue
 
@@ -67,12 +82,11 @@ class MethodReflector:
 
             if MethodReflector._is_method(method, method_name):
                 return True
-        
+
         return False
 
-
     @staticmethod
-    def invoke_method(obj, name, *args):
+    def invoke_method(obj: Any, name: str, *args: Any) -> Any:
         """
         Invokes an object method by its name with specified parameters.
 
@@ -88,11 +102,11 @@ class MethodReflector:
             raise Exception("Object cannot be null")
         if name is None:
             raise Exception("Method name cannot be null")
-        
+
         name = name.lower()
-        
+
         try:
-            for method_name in dir(obj): 
+            for method_name in dir(obj):
                 if method_name.lower() != name:
                     continue
 
@@ -102,12 +116,11 @@ class MethodReflector:
                     return method(*args)
         except:
             pass
-        
+
         return None
 
-
     @staticmethod
-    def get_method_names(obj):
+    def get_method_names(obj: Any) -> List[str]:
         """
         Gets names of all methods implemented in specified object.
 
@@ -116,7 +129,7 @@ class MethodReflector:
         :return: a list with method names.
         """
         method_names = []
-        
+
         for method_name in dir(obj):
 
             method = getattr(obj, method_name)

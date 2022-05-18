@@ -14,69 +14,69 @@ class ErrorCategory(object):
     Defines standard error categories to application exceptions supported by PipServices toolkit.
     """
 
-    Unknown = 'Unknown'
+    Unknown: str = 'Unknown'
     """
     Unknown or unexpected errors
     """
 
-    Internal = 'Internal'
+    Internal: str = 'Internal'
     """
     Internal errors caused by programming mistakes
     """
 
-    Misconfiguration = 'Misconfiguration'
+    Misconfiguration: str = 'Misconfiguration'
     """
     Errors related to mistakes in user-defined configuration
     """
 
-    InvalidState = 'InvalidState'
+    InvalidState: str = 'InvalidState'
     """
     Errors related to operations called in wrong component state.
     For instance, business calls when component is not ready
     """
 
-    NoResponse = 'NoResponse'
+    NoResponse: str = 'NoResponse'
     """
     Errors happened during connection to remote services.
     They can be related to misconfiguration, network issues
     or remote service itself 
     """
 
-    FailedInvocation = 'FailedInvocation'
+    FailedInvocation: str = 'FailedInvocation'
     """
     Errors returned by remote services or network
     during call attempts
     """
 
-    FileError = 'FileError'
+    FileError: str = 'FileError'
     """
     Errors in read/write file operations
     """
 
-    BadRequest = 'BadRequest'
+    BadRequest: str = 'BadRequest'
     """
     Errors due to improper user requests, like
     missing or wrong parameters 
     """
 
-    Unauthorized = 'Unauthorized'
+    Unauthorized: str = 'Unauthorized'
     """
     Access errors caused by missing user identity
     or security permissions
     """
 
-    NotFound = 'NotFound'
+    NotFound: str = 'NotFound'
     """
     Error caused by attempt to access missing object
     """
 
-    Conflict = 'Conflict'
+    Conflict: str = 'Conflict'
     """
     Errors raised by conflict in object versions
     posted by user and stored on server.
     """
 
-    Unsupported = 'Unsupported'
+    Unsupported: str = 'Unsupported'
     """
     Errors caused by calls to unsupported
     or not yet implemented functionality

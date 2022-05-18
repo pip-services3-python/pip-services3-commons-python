@@ -9,6 +9,7 @@
 
 import pytest
 
+from pip_services3_commons.errors import ConfigException
 from pip_services3_commons.refer import Descriptor
 
 
@@ -49,3 +50,13 @@ class TestDescriptor:
 
         descriptor2 = Descriptor(None, None, None, None, None)
         assert "*:*:*:*:*" == str(descriptor2)
+
+    def test_from_string(self):
+        descriptor = Descriptor.from_string(None)
+        assert descriptor is None
+
+        descriptor = Descriptor.from_string("pip-dummies:controller:default:default:1.0")
+        assert descriptor.exact_match(Descriptor("pip-dummies", "controller", "default", "default", "1.0"))
+
+        with pytest.raises(ConfigException) as ex:
+            Descriptor.from_string('xxx')

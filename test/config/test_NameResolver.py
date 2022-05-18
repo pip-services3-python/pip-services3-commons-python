@@ -7,8 +7,6 @@
     :license: MIT, see LICENSE for more details.
 """
 
-import pytest
-
 from pip_services3_commons.config import ConfigParams
 from pip_services3_commons.config import NameResolver
 

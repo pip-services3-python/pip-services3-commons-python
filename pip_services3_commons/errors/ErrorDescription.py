@@ -2,34 +2,38 @@
 """
     pip_services3_commons.errors.ErrorDescription
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    
+
     Error description implementation
-    
+
     :copyright: Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.
     :license: MIT, see LICENSE for more details.
 """
+import json
+from typing import Any, Optional, Dict
 
-class ErrorDescription(object):
+
+class ErrorDescription:
     """
     Serializeable error description. It is use to pass information about errors
     between microservices implemented in different languages. On the receiving side
-    :class:`ErrorDescription` is used to recreate exception object close to its original type
+    :class:`ErrorDescription <pip_services3_commons.errors.ErrorDescription.ErrorDescription>` is used to recreate error object close to its original type
     without missing additional details.
     """
-    category = None
-    status = None
-    code = None
-    message = None
-    details = None
-    correlation_id = None
-    cause = None
-    stack_trace = None
 
     def __init__(self):
-        pass
+        self.type: Optional[str] = None
+        self.category: Optional[str] = None
+        self.status: Optional[int] = None
+        self.code: Optional[str] = None
+        self.message: Optional[str] = None
+        self.details: Any = None
+        self.correlation_id: Optional[str] = None
+        self.cause: Optional[str] = None
+        self.stack_trace: Optional[str] = None
 
-    def to_json(self):
+    def to_json(self) -> Dict[str, Any]:
         return {
+            'type': self.type,
             'category': self.category,
             'status': self.status,
             'code': self.code,
@@ -41,17 +45,21 @@ class ErrorDescription(object):
         }
 
     @staticmethod
-    def from_json(json):
-        if not isinstance(json, dict):
-            return json
+    def from_json(json_err: Dict[str, Any]) -> Any:
+        if isinstance(json_err, str):
+            json_err = json.loads(json_err)
+
+        if not isinstance(json_err, dict):
+            return json_err
 
         error = ErrorDescription()
-        error.category = json['category']
-        error.status = json['status']
-        error.code = json['code']
-        error.message = json['message']
-        error.details = json['details']
-        error.correlation_id = json['correlation_id']
-        error.cause = json['cause']
-        error.stack_trace = json['stack_trace']
+        error.type = json_err.get('type')
+        error.category = json_err.get('category')
+        error.status = json_err.get('status')
+        error.code = json_err.get('code')
+        error.message = json_err.get('message')
+        error.details = json_err.get('details')
+        error.correlation_id = json_err.get('correlation_id')
+        error.cause = json_err.get('cause')
+        error.stack_trace = json_err['stack_trace']
         return error

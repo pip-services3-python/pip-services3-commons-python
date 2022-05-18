@@ -8,8 +8,10 @@
     :copyright: Conceptual Vision Consulting LLC 2018-2019, see AUTHORS for more details.
     :license: MIT, see LICENSE for more details.
 """
+from abc import ABC
 
-class IVersioned:
+
+class IVersioned(ABC):
     """
     Interface for data objects that can be versioned.
 
@@ -35,9 +37,8 @@ class IVersioned:
                 # do something
 
                 if item.version < old_item.version:
-                    raise ConcurrencyException(null, "VERSION_CONFLICT", "The change has older version stored value")
+                    raise ConcurrencyException(None, "VERSION_CONFLICT", "The change has older version stored args")
             
             # do something
     """
-    # version = None
-    pass
+    version: str = None

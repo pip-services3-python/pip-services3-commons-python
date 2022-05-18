@@ -9,7 +9,7 @@
     :license: MIT, see LICENSE for more details.
 """
 
-from datetime import tzinfo, timedelta, datetime
+from datetime import tzinfo, timedelta
 
 ZERO = timedelta(0)
 HOUR = timedelta(hours=1)
