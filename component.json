@@ -1,6 +1,14 @@
 {
-    "name": "pip_services3_commons",
-    "registry": "pipdevs",
+    "name":  "pip_services3_commons",
+    "type": "microservice",
+    "language": "python",
     "version": "3.3.14",
-    "build": 0
+    "build": 0,
+    "registry": "registry.gitlab.com/eic-templates",
+    "artifacts": [
+        {
+            "name":  "<name>",
+            "type": "pypi"
+        }
+    ]
 }
