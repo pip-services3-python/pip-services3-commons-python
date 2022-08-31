@@ -1,5 +1,5 @@
 {
-    "name":  "pip_services3_commons",
+    "name":  "pip-services3-commons",
     "type": "module",
     "language": "python",
     "version": "3.3.14",
